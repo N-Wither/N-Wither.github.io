@@ -1,0 +1,1 @@
+function hello(){console.log("Wow, you found me!")}

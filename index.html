@@ -2,40 +2,19 @@
 <html lang = "en-us">
 <head>
     <meta charset= "utf-8">
+    <base href="https://n-wither.github.io"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Readex+Pro">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
-    <script>
-        function startTime(){
-            var today=new Date();
-            var D=today.getDate();
-            var Y=today.getFullYear();
-            var Mo=today.getMonth()+1;
-            var h=today.getHours();
-            var m=today.getMinutes();
-            var s=today.getSeconds();
-            m=checkTime(m);
-            s=checkTime(s);
-            document.getElementById('clock').innerHTML=Y+"/"+ Mo +"/"+D+" "+h+":"+m+":"+s;
-            t=setTimeout(function(){startTime()},500);
-        }
-        function checkTime(i){
-            if (i<10){
-                i="0" + i;
-            }
-            return i;
-        }
-    </script>
-    <script>
-        function hello(){console.log("Wow, you found me!")}
-    </script>
+    <script src="./assets/js/clock.js"></script>
+    <script src="./assets/js/hello.js"></script>
 </head>
 <body  onload="startTime(), hello()">
     <div>
         <ul class="navigate">
             <li class="sidebar"><a href="https://n-wither.github.io">Home</a></li>
-            <li class="sidebar"><a href="./writings/index.html/">Writings</a></li>
+            <li class="sidebar"><a href="./categories/writings/index.html">Writings</a></li>
         </ul>
     </div>
     <div class="pos_fixed" style="background-color: #33ffff44; padding: 1.5em;">
