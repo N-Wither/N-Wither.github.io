@@ -1,9 +1,10 @@
-body {
+body,html {
+    height: 100%;
     background: linear-gradient(to top, #0c3f53, #20676d);
     background-repeat: repeat-x;
     color: white;
-    min-height: 1200px;
     font-family: "Readex+Pro";
+    vertical-align: baseline;
 }
 div.pos_fixed {position: fixed;top: 50px;right: 4em}
 div.content {margin-left: 14%;}
@@ -29,11 +30,11 @@ li.sidebar a {
 }
 
 li.sidebar a.active {
-    background-color: #4CAF50;
+    background-color: darkcyan;
     color: white;
 }
 
 li.sidebar a:hover:not(.active) {
-    background-color: #158a7a;
+    background-color: #137f7f;
     color: white;
 }
