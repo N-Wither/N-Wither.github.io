@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(to top, #0c3f53, #20676d);
+    background-repeat: repeat-x;
+    color: white;
+    min-height: 1200px;
+    font-family: "Readex+Pro";
+}
+div.pos_fixed {position: fixed;top: 50px;right: 4em}
+div.content {margin-left: 14%;}
+a:link {color: aqua;}
+a:visited {color: darkcyan;}
+a:hover {background-color: #137f7f;color: white;font-style: oblique;}
+ul.navigate {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 12%;
+    background-color: #0c3f5366;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li.sidebar a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li.sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li.sidebar a:hover:not(.active) {
+    background-color: #158a7a;
+    color: white;
+}

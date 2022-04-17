@@ -1,16 +1,69 @@
 <!DOCTYPE html>
-<html lang = "en-US">
+<html lang = "en-us">
 <head>
     <meta charset= "utf-8">
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Readex+Pro">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
+    <script>
+        function startTime(){
+            var today=new Date();
+            var D=today.getDate();
+            var Y=today.getFullYear();
+            var Mo=today.getMonth()+1;
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds();
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('clock').innerHTML=Y+"/"+ Mo +"/"+D+" "+h+":"+m+":"+s;
+            t=setTimeout(function(){startTime()},500);
+        }
+        function checkTime(i){
+            if (i<10){
+                i="0" + i;
+            }
+            return i;
+        }
+    </script>
+    <script>
+        function hello(){console.log("Wow, you found me!")}
+    </script>
 </head>
-<body>
+<body  onload="startTime(), hello()">
+    <div>
+        <ul class="navigate">
+            <li class="sidebar"><a href="https://n-wither.github.io">Home</a></li>
+            <li class="sidebar"><a href="./writings/index.html/">Writings</a></li>
+        </ul>
+    </div>
+    <div class="pos_fixed" style="background-color: #33ffff44; padding: 1.5em;">
+        <p id="clock">clock</p>
+    </div>
+    <div class="content">
     <div id= "header" class= "outer">
         <header class= "inner">
-            <h1 id= "page_title">N Wither's Works</h1>
+            <h1 id= "page_title" style="text-align: center;">N Wither's Works</h1>
         </header>
     </div>
-    <p>Hello there, this is N Wither.</p>
-    <p></p>
-    <p>Powered by <a href="https://pages.github.com">Github Pages</a>.</p>
+    <hr/>
+    <div>
+        <p>Hello there, this is N Wither. I do a little bit of everything.</p>
+        <p>You can click the links in the sidebars to see my works.</p>
+        <p>My <a href="https://github.com/n-wither/">Github profile</a>.</p>
+    </div>
+    <div style="text-align: center;">
+        <p>
+            Me at Kanagawa. I don't really like selfieing.
+            <a href="https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa">
+                <img src="https://avatars.githubusercontent.com/u/63383462?v=4/" width="200" height="200" title="Kanagawa"/>
+            </a>
+        </p>
+    </div>
+    <hr/>
+    <div id="footer" style="clear:both;text-align:center;">
+        Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+    </div>
+    </div>
 </body>
