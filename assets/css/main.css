@@ -1,14 +1,26 @@
 body,html {
-    height: 100%;
     background: linear-gradient(to top, #0c3f53, #20676d);
     background-repeat: repeat-x;
+    background-attachment: fixed;
     color: white;
     font-family: "Readex+Pro";
     vertical-align: baseline;
 }
 div.pos_fixed {position: fixed;top: 50px;right: 4em}
 div.content {margin-left: 14%;}
-div.content p {margin-right: 24%;}
+div.content p {margin-right: 24%;text-indent: 2em;}
+blockquote {
+    margin-right: 24%;
+    font-style: oblique;
+    background-color: #11111111;
+    padding: 1em;
+    border-style: solid;
+    border-color: #137f7f;
+    border-left-width: 8px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+}
 a:link {color: aqua;}
 a:visited {color: darkcyan;}
 a:hover {background-color: #137f7f;color: white;font-style: oblique;}
