@@ -8,7 +8,7 @@ body,html {
 }
 div.pos_fixed {position: fixed;top: 50px;right: 4em}
 div.content {margin-left: 14%;}
-div.content p {margin-right: 24%;text-indent: 2em;}
+div.content p {margin-right: 24%}
 blockquote {
     margin-right: 24%;
     font-style: oblique;
@@ -48,6 +48,7 @@ li.sidebar a:hover:not(.active) {
     background-color: #137f7f;
     color: white;
 }
+/*Lists in main text*/
 ul.content {
     list-style-type: none;
     margin: 0;
@@ -59,7 +60,7 @@ ul.content {
 li.content a {
     display: block;
     color: white;
-    padding: 8px 16px;
+    padding: 4px 8px;
     text-decoration: none;
 }
 li.content a.active {
@@ -67,6 +68,34 @@ li.content a.active {
     color: white;
 }
 li.content a:hover:not(.active) {
+    background-color: #137f7f;
+    color: white;
+}
+/*Content table*/
+ul.content-table {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    border: 5px;
+    border-color: aliceblue;
+    background-color: #0c3f5366;
+    overflow: auto;
+}
+li.content-table {
+    display: block;
+    padding: 4px 4px;
+}
+li.content-table a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+li.content-table a.active {
+    background-color: darkcyan;
+    color: white;
+}
+li.content-table a:hover:not(.active) {
     background-color: #137f7f;
     color: white;
 }
