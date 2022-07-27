@@ -6,7 +6,7 @@ body,html {
     font-family: "Readex+Pro";
     vertical-align: baseline;
 }
-div.pos_fixed {position: fixed;top: 50px;right: 4em}
+div.pos_fixed {position: fixed;top: 50px;right: 2em}
 div.content {margin-left: 14%;}
 div.content p {margin-right: 24%}
 blockquote {
@@ -76,7 +76,6 @@ ul.content-table {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 30%;
     border: 5px;
     border-color: aliceblue;
     background-color: #0c3f5366;
