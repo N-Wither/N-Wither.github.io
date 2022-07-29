@@ -3,7 +3,8 @@ body,html {
     background-repeat: repeat-x;
     background-attachment: fixed;
     color: white;
-    font-family: "Readex+Pro";
+    font-family: 'Readex Pro','Noto Sans SC';
+    font-size: 22;
     vertical-align: baseline;
 }
 div.pos_fixed {position: fixed;top: 50px;right: 2em}
