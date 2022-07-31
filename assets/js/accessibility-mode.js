@@ -11,7 +11,7 @@ function accModeSwitch() {
     else {
         body.setAttribute('class', '');
         navigate.setAttribute('class', 'navigate');
-        document.getElementById('toolbox').setAttribute('class', 'pos-fixed');
+        document.getElementById('toolbox').setAttribute('class', 'pos_fixed');
         accessibilityModeIsOn = false;
     }
 }
