@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
-    <meta charset= "utf-8">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Readex+Pro">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
@@ -9,20 +10,26 @@
     <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/apocalypse-2020.css">
+    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/accessibility-mode.css">
     <title>Apocalypse 2020</title>
     <script src="https://n-wither.github.io/assets/js/clock.js"></script>
     <script src="https://n-wither.github.io/assets/js/hello.js"></script>
     <script src="https://n-wither.github.io/assets/js/randomQuote.js"></script>
+    <script src="https://n-wither.github.io/assets/js/warnings.js"></script>
+    <script src="https://n-wither.github.io/assets/js/accessibility-mode.js"></script>
 </head>
-<body onload="startTime(), hello(), randomQuote()">
+
+<body onload="startTime(), hello(), randomQuote(), fontWarning()">
     <div>
-        <ul class="navigate" style="font-family: 'ZCOOL Kuaile';">
-            <li class="sidebar"><a href="https://n-wither.github.io/categories/writings/abs-rev/index.html"><h3>Abstracalypse Stories</h3></a></li>
+        <ul class="navigate" style="font-family: 'ZCOOL Kuaile';" id="navigate">
+            <li class="sidebar"><a href="https://n-wither.github.io/categories/writings/abs-rev/index.html">
+                    <h3>Abstracalypse Stories</h3>
+                </a></li>
             <li class="sidebar"><a href="https://n-wither.github.io">Home</a></li>
             <li class="sidebar"><a href="https://n-wither.github.io/categories/writings/index.html">Writings</a></li>
         </ul>
     </div>
-    <div class="pos_fixed" style="background-color: #33ffff44; padding: 1.5em;">
+    <div class="pos_fixed" id="toolbox">
         <p id="clock">clock</p>
         <div>
             <ul class="content-table" style="font-family: 'Cinzel';">
@@ -31,18 +38,20 @@
                 <li class="content-table"><a href="#chapter-1">1. Great Filter</a></li>
             </ul>
         </div>
+        <button style="background-color: white; color: black" id="accessibility-switch"
+            onclick="accModeSwitch()">点击以切换无障碍模式</button>
     </div>
     <div class="content">
         <div>
             <h1>Apocalypse 2020</h1>
             <h3>天启 2020</h3>
-            <hr/>
+            <hr />
         </div>
         <div class="mainText">
             <p style="font-style: oblique; color: lightgray;">
                 这篇故事最初写于 2020 年左右，由于原作已遗失大半且充满了各种问题，故在此重写。
             </p>
-            
+
             <h2 id="chapter-0">0. Genesis</h2>
             <p>
                 圣经实际上极大地美化了，或者说就是瞎编了这个世界的起源，上帝创造地球并没有花 6 天，地球事实上是上帝和撒旦一夜情的产物，也就是意外怀孕。
@@ -51,7 +60,8 @@
                 那时上帝还是个意气风发的青年，祂想要创造一个完美的世界，然而祂在毕业舞会上喝多了酒，稀里糊涂地被撒旦勾引上床了，第二天上帝醒来发现床上多了一个蓝色的星球，是的，这就是地球。
             </p>
             <p>
-                当然上帝不会真的怀孕，这么说只是方便你们理解。众所周知如果男女双方都没有做好准备的话，意外怀孕生下来的孩子通常都是个悲剧。地球也不例外，上帝的本意是好的，只不过地球还是长歪了，现在的地球已经充满了战争、瘟疫、饥荒、死亡、毒品、淫乱、污染、邪教和同性恋<sup><a href="#note-1" id="note-ref-1">1</a></sup>。
+                当然上帝不会真的怀孕，这么说只是方便你们理解。众所周知如果男女双方都没有做好准备的话，意外怀孕生下来的孩子通常都是个悲剧。地球也不例外，上帝的本意是好的，只不过地球还是长歪了，现在的地球已经充满了战争、瘟疫、饥荒、死亡、毒品、淫乱、污染、邪教和同性恋<sup><a
+                        href="#note-1" id="note-ref-1">1</a></sup>。
             </p>
             <p>
                 然而木已成舟，既然地球已经创造出来了，那也只能养着了，周一到周五归上帝管，周末归撒旦。这就是为什么人们喜欢在周末娱乐。
@@ -60,7 +70,8 @@
                 本来日子也就这么过了，但上帝仍然想着教化人类往好的一面发展，可惜祂还是高估了人类的道德水平，地球表面在人类的糟蹋下一天天变得更烂了。
             </p>
             <p>
-                时间来到 2020 年，上帝终于失去了最后的耐心，既然这个地球已经无可救药了，那还不如重新造一个。可是上帝终究还是仁慈的，地球上 70 多亿人，总还是有不少义人的，把他们也一起毁灭掉未免过于不人道了，经过一番深思熟虑，上帝想出了一个（自认为）完美的方案。
+                时间来到 2020 年，上帝终于失去了最后的耐心，既然这个地球已经无可救药了，那还不如重新造一个。可是上帝终究还是仁慈的，地球上 70
+                多亿人，总还是有不少义人的，把他们也一起毁灭掉未免过于不人道了，经过一番深思熟虑，上帝想出了一个（自认为）完美的方案。
             </p>
             <h2 id="chapter-1">1. Great Filter</h2>
             <p>
@@ -116,7 +127,8 @@
                 人群一下子沸腾了，我想是因为他说的不是中文，却莫名其妙地能被理解，这种情况我只在 SCP 基金会的作品里见过。
             </p>
             <p>
-                <span class="god-speaking">我是上帝，你们应当对昨天早上或者晚上发生的事情很疑惑，在这里说明一下，因为你们人类实在是太让我失望了，所以我只能毁掉这个地球再造一个新的，但我不能一刀切，就把你们之中的义人升上了天堂，至于你们就留在地球上自生自灭吧。还有什么问题吗？</span>
+                <span
+                    class="god-speaking">我是上帝，你们应当对昨天早上或者晚上发生的事情很疑惑，在这里说明一下，因为你们人类实在是太让我失望了，所以我只能毁掉这个地球再造一个新的，但我不能一刀切，就把你们之中的义人升上了天堂，至于你们就留在地球上自生自灭吧。还有什么问题吗？</span>
             </p>
             <p>
                 “义人的标准是什么？”人群中有人问。
@@ -128,22 +140,27 @@
                 “我们真的只能等死了吗？”
             </p>
             <p>
-                <span class="god-speaking">是的……等等，刚才 Uriel<sup><a href="#note-2" id="note-ref-2" style="font-family: 'Readex Pro';">2</a></sup> 告诉我有个人在升天的过程中因为恐高心脏病发作死了，所以空出来一个名额，你们之中将会有一个幸运儿填上这个空缺。</span>
+                <span class="god-speaking">是的……等等，刚才 Uriel<sup><a href="#note-2" id="note-ref-2"
+                            style="font-family: 'Readex Pro';">2</a></sup>
+                    告诉我有个人在升天的过程中因为恐高心脏病发作死了，所以空出来一个名额，你们之中将会有一个幸运儿填上这个空缺。</span>
             </p>
             <p>
                 人群更加沸腾了。
             </p>
             <p>
-                <span class="god-speaking">不过呢，为了找点乐子，也为了让你们自己救赎自己，你们如果想获得这个名额，就需要竞争，当地球上只剩下一个人的时候，那个人就会得到救赎，升入天堂。</span>
+                <span
+                    class="god-speaking">不过呢，为了找点乐子，也为了让你们自己救赎自己，你们如果想获得这个名额，就需要竞争，当地球上只剩下一个人的时候，那个人就会得到救赎，升入天堂。</span>
             </p>
             <p>
                 “要是有人躲着怎么办？”
             </p>
             <p>
-                <span class="god-speaking">就知道你们人类不会乖乖就范。我将设置一道不断缩小的火墙，它碰到的任何人类都会被燃烧殆尽，你们的防护手段是没有用的，也不要试图逃到别的星球或者地底下去，这没有用，我看到有几个国家的元首想坐火箭或者进地堡，在此提醒你们一下。</span>
+                <span
+                    class="god-speaking">就知道你们人类不会乖乖就范。我将设置一道不断缩小的火墙，它碰到的任何人类都会被燃烧殆尽，你们的防护手段是没有用的，也不要试图逃到别的星球或者地底下去，这没有用，我看到有几个国家的元首想坐火箭或者进地堡，在此提醒你们一下。</span>
             </p>
             <p>
-                <span class="god-speaking">这个火墙会在讲话结束后的 3 个小时出现在某个随机的地方，在一年后缩小到只能容下一个人的大小，不必担心同归于尽的情况，哪怕最后二人的死亡时间只差一个普朗克时间，我们也能甄别出胜利者。完毕，祝各位好运，再见！</span>
+                <span class="god-speaking">这个火墙会在讲话结束后的 3
+                    个小时出现在某个随机的地方，在一年后缩小到只能容下一个人的大小，不必担心同归于尽的情况，哪怕最后二人的死亡时间只差一个普朗克时间，我们也能甄别出胜利者。完毕，祝各位好运，再见！</span>
             </p>
             <p>
                 上帝消失了。
@@ -165,62 +182,109 @@
             </p>
             <div style="background-color: white; width: 500px; height: 1000px; position: relative;">
                 <div style="background-color: rgb(255, 129, 150); width: 500px; height: 80px; position: relative;">
-                    <img style="border-radius: 30px; width: 60px; height: 60px; position: absolute; left: 10px; top: 10px" src="https://avatars.githubusercontent.com/u/63383462?v=4">
-                    <div style="background-color: rgb(218, 94, 114); width: 300px; height: 32px; border-radius: 16px; position: absolute; left: 80px; top: 10px; color: lightgray; padding-left: 10px;">搜索…</div>
-                    <div style="position: absolute; left: 80px; top: 50px; text-align: center; width: 300px;"><div style="position: relative;">
-                        <span style="position: absolute;">直播</span>
-                        <span style="position: absolute; left: 100px;"><u>推荐</u></span>
-                        <span style="position: absolute; left: 200px;">100年</span>
-                    </div></div>
+                    <img style="border-radius: 30px; width: 60px; height: 60px; position: absolute; left: 10px; top: 10px"
+                        src="https://avatars.githubusercontent.com/u/63383462?v=4">
+                    <div
+                        style="background-color: rgb(218, 94, 114); width: 300px; height: 32px; border-radius: 16px; position: absolute; left: 80px; top: 10px; color: lightgray; padding-left: 10px;">
+                        搜索…</div>
+                    <div style="position: absolute; left: 80px; top: 50px; text-align: center; width: 300px;">
+                        <div style="position: relative;">
+                            <span style="position: absolute;">直播</span>
+                            <span style="position: absolute; left: 100px;"><u>推荐</u></span>
+                            <span style="position: absolute; left: 200px;">100年</span>
+                        </div>
+                    </div>
                 </div>
                 <div style="position: absolute; top: 80px; width: 500px; height: 840px">
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 20px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #66ccff; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，展示了某地出现的上帝。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 20px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #66ccff; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，展示了某地出现的上帝。</div>
                         <div style="color: black;">阿妹你看，上帝压狗</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">UP</span>是牧牛人</div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">UP</span>是牧牛人</div>
                     </div>
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 20px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #b58a52; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，UP 主的正面上半身照片。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 20px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #b58a52; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，UP 主的正面上半身照片。</div>
                         <div style="color: black;">谈谈美国的枪击问题</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">UP</span>华盛顿方脸</div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">UP</span>华盛顿方脸</div>
                     </div>
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 220px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #bf88e6; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，UP 主的正面上半身照片加一张图片背景。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 220px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #bf88e6; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，UP 主的正面上半身照片加一张图片背景。</div>
                         <div style="color: black;">上帝的出现，是美国的认知作战</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">UP</span>性医淋林</div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">UP</span>性医淋林</div>
                     </div>
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 220px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #b4d4f3; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，UP 的头被 PS 到一个表情包上。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 220px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #b4d4f3; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，UP 的头被 PS 到一个表情包上。</div>
                         <div style="color: black;">超甜翻唱❤️热爱250℃的你</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">UP</span>车雷达Official</div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">UP</span>车雷达Official
+                        </div>
                     </div>
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 420px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #734f40; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，鲁迅与中年闰土。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 420px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #734f40; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，鲁迅与中年闰土。</div>
                         <div style="color: black;">回村三天，闰土治好了我的精神内耗</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">UP</span>衣服猜想</div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">UP</span>衣服猜想</div>
                     </div>
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 420px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #5eaedf; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，展示一堆食物衣物等行李。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 420px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #5eaedf; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，展示一堆食物衣物等行李。</div>
                         <div style="color: black;">兄弟们我得跑了</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">UP</span>pili-11451419810</div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">UP</span>pili-11451419810
+                        </div>
                     </div>
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 620px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #88dcaf; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，某地的乱象。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 620px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #88dcaf; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，某地的乱象。</div>
                         <div style="color: black;">已经打起来了，我要怎么办</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">UP</span>斯卡蒂嘶哈嘶哈</div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">UP</span>斯卡蒂嘶哈嘶哈</div>
                     </div>
-                    <div style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 620px; background-color: rgb(232, 232, 232);">
-                        <div style="background-color: #ab5cd5; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">封面图片，展示一位穿着 JK 制服的女子。</div>
+                    <div
+                        style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 620px; background-color: rgb(232, 232, 232);">
+                        <div
+                            style="background-color: #ab5cd5; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+                            封面图片，展示一位穿着 JK 制服的女子。</div>
                         <div style="color: black;">测测你的日语能打败 W 市多少人？</div>
-                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span style="background-color: gray; color: white; border-radius: 2px;">广告</span></div>
+                        <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
+                                style="background-color: gray; color: white; border-radius: 2px;">广告</span></div>
                     </div>
                 </div>
-                <div style="position: absolute; top: 940px; width: 500px; height: 60px; background-color: rgb(255, 129, 150);">
-                    <div style="position: absolute; background-color: #d45c84; width: 100px; height: 60px; text-align: center;">首页</div>
-                    <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 100px;">动态</div>
-                    <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 200px; font-size: 36px;">+</div>
-                    <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 300px;">我的</div>
-                    <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 400px;">购物</div>
+                <div
+                    style="position: absolute; top: 940px; width: 500px; height: 60px; background-color: rgb(255, 129, 150);">
+                    <div
+                        style="position: absolute; background-color: #d45c84; width: 100px; height: 60px; text-align: center;">
+                        首页</div>
+                    <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 100px;">动态
+                    </div>
+                    <div
+                        style="position: absolute; width: 100px; height: 60px; text-align: center; left: 200px; font-size: 36px;">
+                        +</div>
+                    <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 300px;">我的
+                    </div>
+                    <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 400px;">购物
+                    </div>
                 </div>
             </div>
             <p>
@@ -241,19 +305,21 @@
             <p>
                 我从窗户望出去，街道上已经一片狼藉了，到处都是燃烧的车子残骸和尸体，如果我现在出去跟他们斗，我这小身板肯定要完，或许我应该在家待一段时间。
             </p>
-            <br/>
+            <br />
         </div>
         <div>
             <h4>注释</h4>
-            <span id="note-1"><a href="#note-ref-1">^1</a>利未记 18:22 ：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。” 另，本人不反对同性恋。</span><br>
+            <span id="note-1"><a href="#note-ref-1">^1</a>利未记 18:22 ：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”
+                另，本人不反对同性恋。</span><br>
             <span id="note-2"><a href="#note-ref-2">^2</a>一位天使长，救赎之天使。</span>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
+            <hr />
             <span id="randomQuote">Random Quote</span>
             <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+            Powered by <a href="https://pages.github.com/">Github Pages</a>.
         </div>
     </div>
 </body>
+
 </html>

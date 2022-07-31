@@ -1,0 +1,24 @@
+.accessibility-mode-on {
+    background: white;
+    color: black;
+}
+
+.navigate-accessibility {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 12%;
+    background-color: #555555;
+    color: black;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    filter: invert();
+}
+.pos-fixed-accessibility {
+    position: fixed;
+    top: 50px;
+    right: 2em;
+    background-color: #00000033;
+    padding: 0.5em;
+}

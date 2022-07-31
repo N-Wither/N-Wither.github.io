@@ -7,7 +7,13 @@ body,html {
     font-size: 22;
     vertical-align: baseline;
 }
-div.pos_fixed {position: fixed;top: 50px;right: 2em}
+div.pos_fixed {
+    position: fixed;
+    top: 50px;
+    right: 2em;
+    background-color: #33ffff44;
+    padding: 0.5em;
+}
 div.content {margin-left: 14%;}
 div.content p {margin-right: 24%}
 blockquote {
