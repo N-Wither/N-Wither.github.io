@@ -5,12 +5,13 @@ function accModeSwitch() {
     if (accessibilityModeIsOn == false) {
         body.setAttribute('class', 'accessibility-mode-on');
         navigate.setAttribute('class', 'navigate-accessibility');
-        document.getElementById('toolbox').setAttribute('class', 'pos-fixed-accessibility')
+        document.getElementById('toolbox').setAttribute('class', 'pos-fixed-accessibility');
         accessibilityModeIsOn = true;
     }
     else {
         body.setAttribute('class', '');
         navigate.setAttribute('class', 'navigate');
+        document.getElementById('toolbox').setAttribute('class', 'pos-fixed');
         accessibilityModeIsOn = false;
     }
 }
