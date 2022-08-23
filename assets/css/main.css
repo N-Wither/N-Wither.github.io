@@ -28,8 +28,8 @@ blockquote {
     border-bottom-width: 0px;
     border-right-width: 0px;
 }
-a:link {color: aqua;}
-a:visited {color: darkcyan;}
+a:link {color: #03baa2;}
+a:visited {color: #048a9c;}
 a:hover {background-color: #137f7f;color: white;font-style: oblique;}
 ul.navigate {
     list-style-type: none;
@@ -55,6 +55,7 @@ li.sidebar a:hover:not(.active) {
     background-color: #137f7f;
     color: white;
 }
+.note {font-family: "Readex Pro";}
 /*Lists in main text*/
 ul.content {
     list-style-type: none;

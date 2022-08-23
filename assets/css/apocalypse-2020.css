@@ -38,13 +38,8 @@ blockquote {
     border-right-width: 0px;
 }
 
-a:link {
-    color: aqua;
-}
-
-a:visited {
-    color: darkcyan;
-}
+a:link {color: #03baa2;}
+a:visited {color: #048a9c;}
 
 a:hover {
     background-color: #137f7f;
@@ -139,6 +134,8 @@ li.content-table a:hover:not(.active) {
     color: white;
 }
 
+.note {font-family: "Readex Pro";}
+
 /*
   Characters Speaks
 */
@@ -153,6 +150,10 @@ li.content-table a:hover:not(.active) {
 
 .friend-speaking {
     font-family: 'ZCOOL KuaiLe';
+}
+
+.death-speaking {
+    font-family: 'ZCOOL XiaoWei';
 }
 
 /* 
@@ -189,6 +190,6 @@ h2 {
     width: 240px;
     font-family: 'Share Tech Mono';
     padding: 10px;
-    text-align: center;
+    text-align: left;
     color: white;
 }

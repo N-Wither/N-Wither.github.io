@@ -6,7 +6,6 @@ function accModeSwitch() {
         body.setAttribute('class', 'accessibility-mode-on');
         navigate.setAttribute('class', 'navigate-accessibility');
         document.getElementById('toolbox').setAttribute('class', 'pos-fixed-accessibility');
-        accessibilityModeIsOn = true;
     }
     else {
         body.setAttribute('class', '');
