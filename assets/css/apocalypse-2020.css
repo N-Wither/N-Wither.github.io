@@ -31,12 +31,16 @@ blockquote {
 }
 
 a:link {color: #03baa2;}
-a:visited {color: #048a9c;}
+a:visited {color: #03baa2;}
 
 a:hover {
     background-color: #137f7f;
     color: white;
     font-style: oblique;
+}
+
+::selection {
+    background-color: #22aaaa;
 }
 
 ul.navigate {
@@ -177,8 +181,29 @@ h2 {
     left: 160px
 }
 
+.story-time {
+    background-color: #113333;
+    width: 240px;
+    font-family: 'Share Tech Mono';
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
 .blink {
     animation: blink 0.5s infinite alternate steps(2, start);
+}
+
+.ruby {
+    display: inline-table;
+    text-align: center;
+    vertical-align: text-bottom;
+}
+.rt {
+    display: table-header-group;
+    font-size: 0.6em;
+    position: relative;
+    top: 0.3em;
 }
 
 @keyframes blink {
