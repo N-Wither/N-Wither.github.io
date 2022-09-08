@@ -151,10 +151,19 @@ li.content-table a:hover:not(.active) {
     font-family: 'ZCOOL XiaoWei';
 }
 
+.gabriel-speaking {
+    font-family: 'ZCOOL KuaiLe';
+    text-shadow: 2px 2px 5px #f8e591;
+}
+
 /* 
   Page Specific
 */
-
+h2 {
+    background-color: #00000033;
+    margin-right: 24%;
+    padding: 8px;
+}
 /*
   Misc
 */
@@ -192,6 +201,22 @@ li.content-table a:hover:not(.active) {
 @keyframes blink {
     0% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+.paper-file {
+    margin-right: 24%;
+    background-color: #ece9e1;
+    box-shadow: 3px 3px 5px #00000033;
+    color: black;
+    padding: 12px;
+    position: relative;
+}
+
+.paper-file-sticker {
+    position: absolute;
+    right: 15px;
+    background-color: #fcfcf0;
+    box-shadow: 2px 2px 2px #00000033;
 }
 
 #clock {
