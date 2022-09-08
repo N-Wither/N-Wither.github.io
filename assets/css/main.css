@@ -138,18 +138,6 @@ li.content-table a:hover:not(.active) {
     color: white;
 }
 
-.ruby {
-    display: inline-table;
-    text-align: center;
-    vertical-align: text-bottom;
-}
-.rt {
-    display: table-header-group;
-    font-size: 0.6em;
-    position: relative;
-    top: 0.3em;
-}
-
 #clock {
     text-align: center;
     background-color: #11333344;

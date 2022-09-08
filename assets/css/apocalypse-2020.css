@@ -155,10 +155,6 @@ li.content-table a:hover:not(.active) {
   Page Specific
 */
 
-h2 {
-    font-family: 'Cinzel';
-}
-
 /*
   Misc
 */
@@ -182,27 +178,15 @@ h2 {
 
 .story-time {
     background-color: #113333;
-    width: 240px;
+    width: 260px;
     font-family: 'Share Tech Mono';
     padding: 10px;
     text-align: left;
-    color: white;
+    color: lime;
 }
 
 .blink {
     animation: blink 0.5s infinite alternate steps(2, start);
-}
-
-.ruby {
-    display: inline-table;
-    text-align: center;
-    vertical-align: text-bottom;
-}
-.rt {
-    display: table-header-group;
-    font-size: 0.6em;
-    position: relative;
-    top: 0.3em;
 }
 
 @keyframes blink {
