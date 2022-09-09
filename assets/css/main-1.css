@@ -9,7 +9,7 @@ html {
 }
 
 div.content {
-    margin-left: 14%;
+    margin-left: 10%;
 }
 
 div.content p {
@@ -96,6 +96,15 @@ a:hover {
 
 .note {
     font-family: "Readex Pro";
+}
+
+.zoom {
+    transition: 0.15s;
+    max-height: 120px;
+}
+
+.zoom:hover {
+    max-height: 200px;
 }
 
 /*Lists in main text*/

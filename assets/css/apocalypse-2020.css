@@ -239,6 +239,15 @@ h2 {
     padding: 8px;
 }
 
+.zoom {
+    transition: 0.15s;
+    max-height: 120px;
+}
+
+.zoom:hover {
+    max-height: 200px;
+}
+
 #clock {
     text-align: center;
     background-color: #11333344;

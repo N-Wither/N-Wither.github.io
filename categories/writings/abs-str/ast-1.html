@@ -20,108 +20,6 @@
     <script src="https://n-wither.github.io/assets/js/randomQuote.js"></script>
     <script src="https://n-wither.github.io/assets/js/warnings.js"></script>
     <script src="https://n-wither.github.io/assets/js/accessibility-mode.js"></script>
-    <style>
-        .navigate {
-            width: 30px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            background-color: #0c3f5366;
-            position: fixed;
-            height: 500px;
-            padding: 5px;
-            transition: 0.3s;
-            overflow: hidden;
-        }
-
-        .navigate:hover {
-            width: 240px;
-            background-color: #0c3f53cc;
-        }
-
-        .navigate a {
-            color: white;
-            text-decoration: none;
-            line-height: 50px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .navigate a.active {
-            background-color: darkcyan;
-            color: white;
-        }
-
-        .navigate a:hover:not(.active) {
-            background-color: #137f7f;
-            color: white;
-        }
-
-        .navigate span {
-            white-space: nowrap;
-            transition: 0.3s;
-            opacity: 0;
-            position: absolute;
-        }
-
-        .navigate:hover span {
-            opacity: 1;
-        }
-    </style>
-    <style>
-        .navigate-accessibility {
-            background-color: #888888;
-            color: black;
-            filter: none;
-            width: 30px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 500px;
-            transition: 0.3s;
-            padding: 5px;
-        }
-
-        .navigate-accessibility:hover {
-            width: 240px;
-            background-color: #444444dd;
-        }
-
-        .navigate-accessibility a {
-            color: white;
-            text-decoration: none;
-            line-height: 50px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .navigate-accessibility a.active {
-            background-color: darkcyan;
-            color: white;
-        }
-
-        .navigate-accessibility a:hover:not(.active) {
-            background-color: #333333;
-            color: white;
-        }
-
-        .navigate-accessibility span {
-            white-space: nowrap;
-            transition: 0.3s;
-            opacity: 0;
-            position: absolute;
-        }
-
-        .navigate-accessibility:hover span {
-            opacity: 1;
-        }
-    </style>
-    <style>
-        div.content {
-            margin-left: 10%;
-        }
-    </style>
 </head>
 
 <body onload="startTime(), hello(), randomQuote()">
@@ -686,17 +584,18 @@
             <p>
                 于是我跑到车上一把拉上车门打方向挂 D 档踩油门，还把雨刮器开关碰开了，怎么会犯这种低级错误。不过还是逃命要紧。
             </p>
-            <p><br></p>
+            <br>
+            <br>
             <div class="paper-file">
-                <h3 style="text-align: center; font-size: larger;">天界联邦议会会议记录</h3>
+                <h3 style="text-align: center; font-size: larger;">天界联邦议会会议记录（节选）</h3>
                 <p style="margin-right: 0px;">
                     时间：2020 年 5 月 11 日<br>
                     地点：天界议会大厦。<br>
-                    主要与会者：上帝、宙斯、玉皇大帝、天照大御神、■■■■、羽蛇神、释迦牟尼、奈亚拉托提普等
+                    主要与会者：上帝、Zeus、玉皇大帝、天照大御神、■■■■、Buddha Śākyamuni、Nyarlathotep 等
                 </p>
                 <hr>
                 <div class="paper-file-sticker" style="padding: 8px;">
-                    <img src="https://img1.imgtp.com/2022/09/09/ZFlSr6M2.png" alt="Gabriel's Picture" style="width: 120px;"><br>
+                    <img src="https://img1.imgtp.com/2022/09/09/ZFlSr6M2.png" alt="Gabriel's Picture" id="gab-pic" class="zoom"><br>
                     Gabriel, 2017.
                 </div>
                 <p>
@@ -711,7 +610,25 @@
                 <p>
                     <span class="gabriel-speaking">一方面是因为有的国家发生了政变导致某些大规模杀伤性武器被发射了，另一方面是人类的互相杀戮的欲望长期以来一直被我们所忽视导致了我们的预测失准。不过，这些死亡人类中的大多数的攻击性都很强，这些人的消耗会使得幸存人类的斗争烈度减轻，因此之后的死亡速度预计会下降。</span>
                 </p>
+                <p>
+                    “既然死了那么多人，地狱有能力一次性接收这么多吗？”Zeus 发问。
+                </p>
+                <p>
+                    <span class="gabriel-speaking">Hades 发来的报告里说 Cerberus 已经过度疲劳，暂时让它先休息了，目前死去的人大多都聚集在冥界平原上，由地狱方面指派的恶魔看守。当前<ruby>撒旦工业集团<rt>Satan Industries Co.</rt></ruby>正在抓紧扩建厂房，预计将在 3 个月内完全吸收新来的死人。因为这些人已经死了，所以只需要最低限度的管理即可，不会对地狱的出产造成太大影响。</span>
+                </p>
+                <p>
+                    <span class="god-speaking">这样很好，不过还有一点，地球上剩下的这群人当中仍然有着相当数量的没有那么坏也没有那么好的人，他们没有什么斗争和杀戮欲望，让这群人继续参加神选计划无疑会非常没有节目效果。</span>
+                </p>
+                <p>...</p>
             </div>
+            <br>
+            <br>
+            <p>
+                在我开下桥之后不久，我就在后视镜里看到后面跟来了一辆车，不知道是不是故意堵桥的那个，总之要甩掉他。
+            </p>
+            <p>
+                我加速，他也加速，我拐弯，他也拐弯，明摆着就是盯上我了，不过我这实在没有什么值得抢的东西，不知道为什么非得抓我不可。
+            </p>
             <br/>
         </div>
         <div>
@@ -719,6 +636,10 @@
             <span id="note-1"><a href="#note-ref-1">^1</a>《圣经·利未记》 18:22 ：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span><br>
             <span id="note-2"><a href="#note-ref-2">^2</a>一位天使长，救赎之天使。</span><br>
             <span id="note-3"><a href="#note-ref-3">^3</a>日语“さようなら”（再见）的谐音。</span>
+        </div>
+        <div>
+            <h4>版权/引用</h4>
+            <span><a href="#gab-pic">Gabriel's Picture</a> 版权属于<a href="http://www.dogakobo.com/">动画工房</a>。</span>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
             <hr />
