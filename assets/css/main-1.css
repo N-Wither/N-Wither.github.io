@@ -9,7 +9,7 @@ html {
 }
 
 div.content {
-    margin-left: 10%;
+    margin-left: 14%;
 }
 
 div.content p {
@@ -29,8 +29,13 @@ blockquote {
     border-right-width: 0px;
 }
 
-a:link {color: #03baa2;}
-a:visited {color: #03baa2;}
+a:link {
+    color: #03baa2;
+}
+
+a:visited {
+    color: #048a9c;
+}
 
 a:hover {
     background-color: #137f7f;
@@ -87,6 +92,10 @@ a:hover {
 
 .navigate:hover span {
     opacity: 1;
+}
+
+.note {
+    font-family: "Readex Pro";
 }
 
 /*Lists in main text*/
@@ -148,97 +157,6 @@ li.content-table a:hover:not(.active) {
     color: white;
 }
 
-.note {font-family: "Readex Pro";}
-
-/*
-  Characters Speaks
-*/
-
-.god-speaking {
-    font-family: 'Noto Serif SC';
-}
-
-.satan-speaking {
-    font-family: 'Ma Shan Zheng';
-}
-
-.friend-speaking {
-    font-family: 'ZCOOL KuaiLe';
-}
-
-.death-speaking {
-    font-family: 'ZCOOL XiaoWei';
-}
-
-.gabriel-speaking {
-    font-family: 'ZCOOL KuaiLe';
-    text-shadow: 2px 2px 5px #f8e591;
-}
-
-/* 
-  Page Specific
-*/
-h2 {
-    background-color: #00000033;
-    margin-right: 24%;
-    padding: 8px;
-}
-/*
-  Misc
-*/
-.talk-bubble {
-    background-color: #cccccc;
-    width: 300px;
-    border-radius: 0px 8px 8px 8px;
-    margin: 15px;
-    padding: 8px;
-}
-
-.talk-bubble-wither {
-    background-color: #53ccd7;
-    width: 300px;
-    border-radius: 8px 8px 0px 8px;
-    margin: 15px;
-    padding: 8px;
-    position: relative;
-    left: 160px
-}
-
-.story-time {
-    background-color: #113333;
-    width: 260px;
-    font-family: 'Share Tech Mono';
-    padding: 10px;
-    text-align: left;
-    color: lime;
-}
-
-.blink {
-    animation: blink 0.5s infinite alternate steps(2, start);
-}
-
-@keyframes blink {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-}
-
-.paper-file {
-    margin-right: 24%;
-    background-color: #ece9e1;
-    box-shadow: 3px 3px 5px #00000033;
-    color: black;
-    padding: 12px;
-    position: relative;
-}
-
-.paper-file-sticker {
-    position: absolute;
-    right: 15px;
-    background-color: #fcfcf0;
-    box-shadow: 2px 2px 2px #00000033;
-    padding: 8px;
-}
-
 #clock {
     text-align: center;
     background-color: #11333344;
@@ -254,6 +172,7 @@ h2 {
     right: 1em;
     background-color: #33ffff44;
     padding: 5px;
+    width: 16%;
 }
 
 #accessibility-switch {

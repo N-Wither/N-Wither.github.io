@@ -20,17 +20,115 @@
     <script src="https://n-wither.github.io/assets/js/randomQuote.js"></script>
     <script src="https://n-wither.github.io/assets/js/warnings.js"></script>
     <script src="https://n-wither.github.io/assets/js/accessibility-mode.js"></script>
+    <style>
+        .navigate {
+            width: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #0c3f5366;
+            position: fixed;
+            height: 500px;
+            padding: 5px;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        .navigate:hover {
+            width: 240px;
+            background-color: #0c3f53cc;
+        }
+
+        .navigate a {
+            color: white;
+            text-decoration: none;
+            line-height: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .navigate a.active {
+            background-color: darkcyan;
+            color: white;
+        }
+
+        .navigate a:hover:not(.active) {
+            background-color: #137f7f;
+            color: white;
+        }
+
+        .navigate span {
+            white-space: nowrap;
+            transition: 0.3s;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .navigate:hover span {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        .navigate-accessibility {
+            background-color: #888888;
+            color: black;
+            filter: none;
+            width: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 500px;
+            transition: 0.3s;
+            padding: 5px;
+        }
+
+        .navigate-accessibility:hover {
+            width: 240px;
+            background-color: #444444dd;
+        }
+
+        .navigate-accessibility a {
+            color: white;
+            text-decoration: none;
+            line-height: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .navigate-accessibility a.active {
+            background-color: darkcyan;
+            color: white;
+        }
+
+        .navigate-accessibility a:hover:not(.active) {
+            background-color: #333333;
+            color: white;
+        }
+
+        .navigate-accessibility span {
+            white-space: nowrap;
+            transition: 0.3s;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .navigate-accessibility:hover span {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        div.content {
+            margin-left: 10%;
+        }
+    </style>
 </head>
 
 <body onload="startTime(), hello(), randomQuote()">
-    <div>
-        <ul class="navigate"id="navigate">
-            <li class="sidebar"><a href="https://n-wither.github.io/categories/writings/abs-rev/index.html">
-                    <h3>Abstracalypse Stories</h3>
-                </a></li>
-            <li class="sidebar"><a href="https://n-wither.github.io">Home</a></li>
-            <li class="sidebar"><a href="https://n-wither.github.io/categories/writings/index.html">Writings</a></li>
-        </ul>
+    <div class="navigate" id="navigate">
+        <a href="https://n-wither.github.io/categories/writings/abs-rev/index.html">📂<span style="font-size: larger;"><strong>Abstracalypse Stories</strong></span></a>
+        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
+        <a href="https://n-wither.github.io/categories/writings/index.html">📚<span>Writings</span></a>
     </div>
     <div class="pos_fixed" id="toolbox">
         <div id="clock">clock</div>
@@ -49,10 +147,10 @@
         <div>
             <h1>Apocalypse 2020</h1>
             <h3>天启 2020</h3>
-            <hr />
+            <hr style="margin-right: 24%;">
         </div>
         <div class="mainText">
-            <p style="font-style: oblique; color: lightgray;">
+            <p style="font-style: oblique; color: gray; background-color: #ffffffcc;">
                 这篇故事最初写于 2019 年左右，由于原作已遗失大半且充满了各种问题，故在此重写。
             </p>
             <noscript>本页面依赖 Javascript 实现一些功能，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 Javascript。</noscript>
@@ -184,10 +282,10 @@
             <p>
                 那就看看网上好了。
             </p>
-            <div style="background-color: white; width: 500px; height: 1000px; position: relative;">
+            <div style="background-color: white; width: 500px; height: 1000px; position: relative; box-shadow: 4px 4px 5px #00000033;">
                 <div style="background-color: rgb(255, 129, 150); width: 500px; height: 80px; position: relative;">
                     <img style="border-radius: 30px; width: 60px; height: 60px; position: absolute; left: 10px; top: 10px"
-                        src="https://avatars.githubusercontent.com/u/63383462?v=4">
+                        src="https://avatars.githubusercontent.com/u/63383462?v=4" alt="Avatar">
                     <div
                         style="background-color: rgb(218, 94, 114); width: 300px; height: 32px; border-radius: 16px; position: absolute; left: 80px; top: 10px; color: lightgray; padding-left: 10px;">
                         搜索…</div>
@@ -312,7 +410,7 @@
             <p>
                 然后我因为昨天晚上睡眠不足，在沙发上睡着了（现在想来外面当时那么乱我是怎么睡得着的），醒来的时候发现手机上有一条未读消息。
             </p>
-            <div style="background-color: white; width: 500px; height: 500px; position: relative;">
+            <div style="background-color: white; width: 500px; height: 500px; position: relative; box-shadow: 4px 4px 5px #00000033;">
                 <div style="background-color: #ffffff; width: 500px; height: 80px; position: relative; color: black; text-align: center;">
                     <div style="position: absolute; left: 10px; top: 10px; font-size: 36px;">←</div>
                     +666 66666666<br>
@@ -343,7 +441,7 @@
             <p>
                 这时我手机又震动了一下，又是一条新消息。
             </p>
-            <div style="background-color: white; width: 500px; height: 700px; position: relative;">
+            <div style="background-color: white; width: 500px; height: 700px; position: relative; box-shadow: 4px 4px 5px #00000033;">
                 <div style="background-color: #ffffff; width: 500px; height: 80px; position: relative; color: black; text-align: center;">
                     <div style="position: absolute; left: 10px; top: 10px; font-size: 36px;">←</div>
                     +777 16457243775<br>
@@ -571,13 +669,13 @@
                 我打开手机上的地图，盘算下一步的计划。首先肯定是要离开 W 市的，我没有单人城市作战的经验，虽然也没有其他地方作战的经验，但不知怎的我就是觉得在城市外面的生存概率更高一些，但愿我没搞错。然后我想搞点好点的装备，我看 W 市北郊的银河国际机场应该不错，好歹也是个重要地点。那么——
             </p>
             <p>
-                <span style="font-family: KaiTi;">低德地图为您导航，前往银河国际机场，前方 500 米右转...</span>
+                <span style="font-style: oblique; background-color: #00000033;">低德地图为您导航，前往银河国际机场，前方 500 米右转...</span>
             </p>
             <p>
                 是的，我怎么可能知道银河机场怎么走啊，我坐地铁都得看地图的，再说现在也没地铁了。
             </p>
             <p>
-                <span style="font-family: KaiTi;">前方 200 米进入喜鹊洲大桥...</span>
+                <span style="font-style: oblique; background-color: #00000033;">前方 200 米进入喜鹊洲大桥...</span>
             </p>
             <p>
                 我顺着导航开上桥，但是发现桥被废弃的车子堵死了，我下车查看有没有挪走这些车子的可能性，突然我意识到这些车子是人工移动成这样的，之前我在街道上虽然也遇见过很多废弃的车子，但从没见过会堵成这样的。
@@ -590,26 +688,28 @@
             </p>
             <p><br></p>
             <div class="paper-file">
-                <h3 style="text-align: center; font-size: larger;">天界联邦议会会议</h3>
-                <p>
+                <h3 style="text-align: center; font-size: larger;">天界联邦议会会议记录</h3>
+                <p style="margin-right: 0px;">
                     时间：2020 年 5 月 11 日<br>
-                    地点：天界议会大厦。
+                    地点：天界议会大厦。<br>
+                    主要与会者：上帝、宙斯、玉皇大帝、天照大御神、■■■■、羽蛇神、释迦牟尼、奈亚拉托提普等
                 </p>
+                <hr>
+                <div class="paper-file-sticker" style="padding: 8px;">
+                    <img src="https://img1.imgtp.com/2022/09/09/ZFlSr6M2.png" alt="Gabriel's Picture" style="width: 120px;"><br>
+                    Gabriel, 2017.
+                </div>
                 <p>
                     <span class="god-speaking">各位现在一定很想知道<ruby>神选计划<rt>Project Decideum</rt></ruby>第一天的成果，各位请看——</span>上帝转身面向会议厅墙上巨大的显示屏，上面展示着幻灯片，负责讲解的是 Gabriel。
                 </p>
                 <p>
                     <span class="gabriel-speaking">就如同图表展示的那样，根据统计，从计划实施开始到报告前已经有约 17 亿人类死于互相残杀，这个数字远远超出了我们的预期，不过这对计划的执行没有影响。</span>
                 </p>
-                <div class="paper-file-sticker">
-                    <img href="https://n-wither.github.io/assets/pics/gabriel-white-tenma.png" alt="Gabriel's Picture"><br>
-                    Gabriel, 2016.
-                </div>
                 <p>
-                    “真的有这么多吗？哪怕一些人手里有枪也没法杀这么快吧？”天照大神表示怀疑。
+                    “真的有这么多吗？哪怕一些人手里有枪也没法杀这么快吧？”天照大御神表示怀疑。
                 </p>
                 <p>
-                    <span class="gabriel-speaking">这是因为有的国家发生了政变导致某些大规模杀伤性武器被发射了。</span>
+                    <span class="gabriel-speaking">一方面是因为有的国家发生了政变导致某些大规模杀伤性武器被发射了，另一方面是人类的互相杀戮的欲望长期以来一直被我们所忽视导致了我们的预测失准。不过，这些死亡人类中的大多数的攻击性都很强，这些人的消耗会使得幸存人类的斗争烈度减轻，因此之后的死亡速度预计会下降。</span>
                 </p>
             </div>
             <br/>
