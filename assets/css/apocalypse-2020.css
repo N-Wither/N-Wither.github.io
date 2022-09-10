@@ -219,7 +219,6 @@ h2 {
 }
 
 .paper-file {
-    margin-right: 24%;
     background-color: #ece9e1;
     box-shadow: 3px 3px 5px #00000033;
     color: black;
@@ -269,6 +268,7 @@ h2 {
     transition: 0.2s;
     right: -160px;
     top: 50px;
+    padding: 5px;
     padding-left: 30px;
     background-color: #00000033;
     position: fixed;

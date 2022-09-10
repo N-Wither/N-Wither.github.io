@@ -12,7 +12,7 @@ function accModeSwitch() {
     else {
         body.setAttribute('class', '');
         navigate.setAttribute('class', 'navigate');
-        document.getElementById('content-a11y').setAttribute('class', 'content');
+        document.getElementById('content').setAttribute('class', 'content');
         document.getElementById('toolbox').setAttribute('class', 'toolbox');
         accessibilityModeIsOn = false;
     }
