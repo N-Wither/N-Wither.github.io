@@ -4,7 +4,7 @@
 }
 
 .navigate-accessibility {
-    background-color: #888888;
+    background-color: #333333dd;
     color: black;
     filter: none;
     width: 240px;
@@ -19,7 +19,7 @@
 
 .navigate-accessibility:hover {
     width: 240px;
-    background-color: #444444dd;
+    background-color: #333333dd;
 }
 
 .navigate-accessibility a {
@@ -43,7 +43,7 @@
 .navigate-accessibility span {
     white-space: nowrap;
     transition: 0.3s;
-    opacity: 0;
+    opacity: 1;
     position: absolute;
 }
 
@@ -62,4 +62,13 @@
 .content-a11y {
     margin-left: 260px;
     margin-right: 300px;
+}
+
+.toolbox-a11y {
+    transition: 0.2s;
+    right: 0px;
+    top: 50px;
+    padding-left: 30px;
+    background-color: #00000033;
+    position: fixed;
 }
