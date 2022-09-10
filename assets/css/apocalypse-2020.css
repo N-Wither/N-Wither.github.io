@@ -53,7 +53,7 @@ a:hover {
 }
 
 .navigate:hover {
-    width: 240px;
+    width: 180px;
     background-color: #0c3f53cc;
 }
 
@@ -264,4 +264,18 @@ h2 {
 
 .content-table span{
     white-space: nowrap;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar-track {
+    background: linear-gradient(to top, #072b3a, #154b50);
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00000055;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
 }

@@ -8,7 +8,7 @@
     background-color: #333333dd;
     color: black;
     filter: none;
-    width: 220px;
+    width: 200px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
 }
 
 .navigate-accessibility:hover {
-    width: 220px;
+    width: 180px;
     background-color: #333333dd;
 }
 

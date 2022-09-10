@@ -1,5 +1,4 @@
-body,
-html {
+body {
     background: linear-gradient(to top, #0c3f53, #20676d);
     background-repeat: repeat-x;
     background-attachment: fixed;
@@ -166,4 +165,18 @@ li.content-table a:hover:not(.active) {
     width: 100%;
     font-size: 18px;
     padding: 5px;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar-track {
+    background: linear-gradient(to top, #072b3a, #154b50);
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00000055;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
 }

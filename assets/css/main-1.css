@@ -1,5 +1,4 @@
-body,
-html {
+body{
     background: linear-gradient(to top, #0c3f53, #20676d);
     background-repeat: repeat-x;
     background-attachment: fixed;
@@ -61,7 +60,7 @@ a:hover {
 }
 
 .navigate:hover {
-    width: 240px;
+    width: 180px;
     background-color: #0c3f53cc;
 }
 
@@ -134,38 +133,6 @@ li.content a:hover:not(.active) {
     color: white;
 }
 
-/*Content table*/
-ul.content-table {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    border: 5px;
-    border-color: aliceblue;
-    background-color: #0c3f5366;
-    overflow: auto;
-}
-
-li.content-table {
-    display: block;
-    padding: 4px 4px;
-}
-
-li.content-table a {
-    display: block;
-    color: white;
-    text-decoration: none;
-}
-
-li.content-table a.active {
-    background-color: darkcyan;
-    color: white;
-}
-
-li.content-table a:hover:not(.active) {
-    background-color: #137f7f;
-    color: white;
-}
-
 #clock {
     text-align: center;
     background-color: #11333344;
@@ -173,15 +140,6 @@ li.content-table a:hover:not(.active) {
     height: 30px;
     padding-top: 5px;
     margin-bottom: 5px;
-}
-
-#toolbox {
-    position: fixed;
-    top: 50px;
-    right: 1em;
-    background-color: #33ffff44;
-    padding: 5px;
-    width: 16%;
 }
 
 #accessibility-switch {
@@ -194,4 +152,52 @@ li.content-table a:hover:not(.active) {
     width: 100%;
     font-size: 18px;
     padding: 5px;
+}
+
+/* ToolBox */
+.toolbox {
+    transition: 0.2s;
+    right: -160px;
+    top: 50px;
+    padding: 5px;
+    padding-left: 30px;
+    background-color: #00000033;
+    position: fixed;
+}
+
+.toolbox:hover {
+    right: 0;
+}
+
+/* Content Table */
+.content-table {
+    background-color: #00000033;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-table a {
+    line-height: 22px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.content-table span{
+    white-space: nowrap;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar-track {
+    background: linear-gradient(to top, #072b3a, #154b50);
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00000055;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
 }
