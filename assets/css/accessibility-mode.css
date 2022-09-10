@@ -7,7 +7,7 @@
     background-color: #888888;
     color: black;
     filter: none;
-    width: 30px;
+    width: 240px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -57,4 +57,9 @@
     right: 2em;
     background-color: #00000033;
     padding: 0.5em;
+}
+
+.content-a11y {
+    margin-left: 260px;
+    margin-right: 300px;
 }
