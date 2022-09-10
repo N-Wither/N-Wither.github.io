@@ -1,16 +1,16 @@
-body,
-html {
+body {
     background: linear-gradient(to top, #0c3f53, #20676d);
     background-repeat: repeat-x;
     background-attachment: fixed;
     color: white;
     font-family: 'Readex Pro', 'Noto Sans SC';
     vertical-align: baseline;
+    transition: 0.3s;
 }
 
 div.content {
     margin-left: 10%;
-    margin-right: 12%;
+    margin-right: 10%;
     transition: 0.3s;
 }
 
@@ -109,38 +109,6 @@ li.content a.active {
 }
 
 li.content a:hover:not(.active) {
-    background-color: #137f7f;
-    color: white;
-}
-
-/*Content table*/
-ul.content-table {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    border: 5px;
-    border-color: aliceblue;
-    background-color: #0c3f5366;
-    overflow: auto;
-}
-
-li.content-table {
-    display: block;
-    padding: 4px 4px;
-}
-
-li.content-table a {
-    display: block;
-    color: white;
-    text-decoration: none;
-}
-
-li.content-table a.active {
-    background-color: darkcyan;
-    color: white;
-}
-
-li.content-table a:hover:not(.active) {
     background-color: #137f7f;
     color: white;
 }
@@ -264,6 +232,7 @@ h2 {
     padding: 5px;
 }
 
+/* ToolBox */
 .toolbox {
     transition: 0.2s;
     right: -160px;
@@ -278,15 +247,21 @@ h2 {
     right: 0;
 }
 
+/* Content Table */
 .content-table {
     background-color: #00000033;
-    padding: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .content-table a {
-    line-height: 28px;
+    line-height: 22px;
     color: white;
     text-decoration: none;
-    padding: 5px;
     position: relative;
+}
+
+.content-table span{
+    white-space: nowrap;
 }

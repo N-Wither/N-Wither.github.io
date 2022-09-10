@@ -1,13 +1,14 @@
 .accessibility-mode-on {
     background: white;
     color: black;
+    transition: 0.3s;
 }
 
 .navigate-accessibility {
     background-color: #333333dd;
     color: black;
     filter: none;
-    width: 240px;
+    width: 220px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -18,7 +19,7 @@
 }
 
 .navigate-accessibility:hover {
-    width: 240px;
+    width: 220px;
     background-color: #333333dd;
 }
 
@@ -60,14 +61,16 @@
 }
 
 .content-a11y {
-    margin-left: 260px;
-    margin-right: 300px;
+    margin-left: 200px;
+    margin-right: 200px;
+    transition: 0.3s;
 }
 
 .toolbox-a11y {
     transition: 0.2s;
     right: 0px;
     top: 50px;
+    padding: 5px;
     padding-left: 30px;
     background-color: #00000033;
     position: fixed;
