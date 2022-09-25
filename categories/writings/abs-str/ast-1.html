@@ -21,8 +21,26 @@
   <script src="https://n-wither.github.io/assets/js/warnings.js"></script>
   <script src="https://n-wither.github.io/assets/js/accessibility-mode.js"></script>
   <style>
-    .navigate:hover {
-      width: 180px;
+    .navigate {
+      z-index: 99999;
+    }
+
+    .toolbox {
+      z-index: 99999;
+    }
+
+    a {
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .zoom:hover {
+      max-height: 300px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid;
     }
   </style>
 </head>
@@ -55,7 +73,7 @@
       <p style="font-style: oblique; color: gray; background-color: #ffffffcc;">
         这篇故事最初写于 2019 年左右，由于原作已遗失大半且充满了各种问题，故在此重写。
       </p>
-      <noscript>本页面依赖 Javascript 实现一些功能，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 Javascript。</noscript>
+      <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
       <button id="accessibility-switch" onclick="accModeSwitch()">点击以切换无障碍模式</button>
       <h2 id="chapter-0">0 Genesis</h2>
       <p>
@@ -668,15 +686,24 @@
       <br />
     </div>
     <div>
-      <h4>注释</h4>
-      <span id="note-1"><a href="#note-ref-1">^1</a>《圣经·利未记》 18:22
-        ：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span><br>
-      <span id="note-2"><a href="#note-ref-2">^2</a>一位天使长，救赎之天使。</span><br>
-      <span id="note-3"><a href="#note-ref-3">^3</a>日语“さようなら”（再见）的谐音。</span>
+      <details class="info">
+        <summary style="font-weight: bold;">注释</summary>
+        <div>
+          <span id="note-1"><a href="#note-ref-1">^1</a>&nbsp 《圣经·利未记》 18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span><br>
+          <span id="note-2"><a href="#note-ref-2">^2</a>&nbsp 一位天使长，救赎之天使。</span><br>
+          <span id="note-3"><a href="#note-ref-3">^3</a>&nbsp 日语“さようなら”（再见）的谐音。</span>
+        </div>
+      </details>
     </div>
     <div>
-      <h4>版权/引用</h4>
-      <span><a href="#gab-pic">Gabriel's Picture</a> 版权属于<a href="http://www.dogakobo.com/">动画工房</a>。</span>
+      <details class="info">
+        <summary style="font-weight: bold;">版权/引用</summary>
+        <div>
+          文件：<a href="https://img1.imgtp.com/2022/09/09/ZFlSr6M2.png">gabriel_white_tenma.png</a><br>
+          作者：<a href="http://www.dogakobo.com/">动画工房</a><br>
+          协议：All Rights Reserved
+        </div>
+      </details>
     </div>
     <div id="footer" style="clear:both;text-align:center;">
       <hr />

@@ -1,4 +1,4 @@
-body{
+body {
     background: linear-gradient(to top, #0c3f53, #20676d);
     background-repeat: repeat-x;
     background-attachment: fixed;
@@ -28,18 +28,20 @@ blockquote {
     border-right-width: 0px;
 }
 
-a:link {
+a {
     color: #03baa2;
-}
-
-a:visited {
-    color: #048a9c;
+    transition: 0.2s;
+    text-decoration: none;
 }
 
 a:hover {
     background-color: #137f7f;
     color: white;
-    font-style: oblique;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid;
 }
 
 ::selection {
@@ -51,7 +53,7 @@ a:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: #0c3f5366;
+    background-color: #00000033;
     position: fixed;
     height: 500px;
     padding: 5px;
@@ -61,7 +63,7 @@ a:hover {
 
 .navigate:hover {
     width: 180px;
-    background-color: #0c3f53cc;
+    background-color: #00000088;
 }
 
 .navigate a {
@@ -135,7 +137,7 @@ li.content a:hover:not(.active) {
 
 #clock {
     text-align: center;
-    background-color: #11333344;
+    background-color: #00000033;
     width: 100%;
     height: 30px;
     padding-top: 5px;
@@ -157,7 +159,7 @@ li.content a:hover:not(.active) {
 /* ToolBox */
 .toolbox {
     transition: 0.2s;
-    right: -160px;
+    right: -150px;
     top: 50px;
     padding: 5px;
     padding-left: 30px;
@@ -184,7 +186,7 @@ li.content a:hover:not(.active) {
     position: relative;
 }
 
-.content-table span{
+.content-table span {
     white-space: nowrap;
 }
 
@@ -200,4 +202,67 @@ li.content a:hover:not(.active) {
 
 ::-webkit-scrollbar {
     width: 10px;
+}
+
+details.info {
+    margin: 1rem auto;
+    padding: 0.5em;
+    position: relative;
+    background-color: #00000033;
+    transition: background-color 0.15s;
+}
+
+details.info::before {
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    opacity: 0.15;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: -1;
+}
+
+details.info[open]::before {
+    opacity: 0;
+}
+
+details.info div {
+    padding: 5px;
+}
+
+details.info summary {
+    display: block;
+    position: relative;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+details.info summary::before,
+details.info summary::after {
+    width: 0.75em;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    content: '';
+    background-color: currentcolor;
+    text-align: right;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease-in-out;
+}
+
+details.info summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+details.info[open] summary::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+details.info summary::-webkit-details-marker {
+    display: none;
 }

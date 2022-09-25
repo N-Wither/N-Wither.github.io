@@ -28,18 +28,20 @@ blockquote {
     border-right-width: 0px;
 }
 
-a:link {
+a {
     color: #03baa2;
-}
-
-a:visited {
-    color: #048a9c;
+    transition: 0.2s;
+    text-decoration: none;
 }
 
 a:hover {
     background-color: #137f7f;
     color: white;
-    font-style: oblique;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid;
 }
 
 ::selection {

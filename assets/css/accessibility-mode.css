@@ -16,6 +16,7 @@
     height: 500px;
     transition: 0.3s;
     padding: 5px;
+    z-index: 99999;
 }
 
 .navigate-accessibility:hover {
@@ -74,4 +75,5 @@
     padding-left: 30px;
     background-color: #00000033;
     position: fixed;
+    z-index: 99999;
 }

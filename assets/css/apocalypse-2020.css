@@ -27,13 +27,17 @@ blockquote {
     border-right-width: 0px;
 }
 
-a:link {color: #03baa2;}
-a:visited {color: #03baa2;}
+a:link {
+    color: #03baa2;
+}
+
+a:visited {
+    color: #03baa2;
+}
 
 a:hover {
     background-color: #137f7f;
     color: white;
-    font-style: oblique;
 }
 
 ::selection {
@@ -53,7 +57,7 @@ a:hover {
 }
 
 .navigate:hover {
-    width: 180px;
+    width: 170px;
     background-color: #0c3f53cc;
 }
 
@@ -113,7 +117,9 @@ li.content a:hover:not(.active) {
     color: white;
 }
 
-.note {font-family: "Readex Pro";}
+.note {
+    font-family: "Readex Pro";
+}
 
 /*
   Characters Speaks
@@ -147,6 +153,7 @@ h2 {
     background-color: #00000033;
     padding: 8px;
 }
+
 /*
   Misc
 */
@@ -182,8 +189,13 @@ h2 {
 }
 
 @keyframes blink {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .paper-file {
@@ -235,7 +247,7 @@ h2 {
 /* ToolBox */
 .toolbox {
     transition: 0.2s;
-    right: -160px;
+    right: -150px;
     top: 50px;
     padding: 5px;
     padding-left: 30px;
@@ -262,7 +274,7 @@ h2 {
     position: relative;
 }
 
-.content-table span{
+.content-table span {
     white-space: nowrap;
 }
 
@@ -278,4 +290,67 @@ h2 {
 
 ::-webkit-scrollbar {
     width: 10px;
+}
+
+details.info {
+    margin: 1rem auto;
+    padding: 0.5em;
+    position: relative;
+    background-color: #00000033;
+    transition: background-color 0.15s;
+}
+
+details.info::before {
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    opacity: 0.15;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: -1;
+}
+
+details.info[open]::before {
+    opacity: 0;
+}
+
+details.info div {
+    padding: 5px;
+}
+
+details.info summary {
+    display: block;
+    position: relative;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+details.info summary::before,
+details.info summary::after {
+    width: 0.75em;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    content: '';
+    background-color: currentcolor;
+    text-align: right;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease-in-out;
+}
+
+details.info summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+details.info[open] summary::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+details.info summary::-webkit-details-marker {
+    display: none;
 }
