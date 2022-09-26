@@ -5,6 +5,7 @@ body {
     color: white;
     font-family: 'Readex Pro', 'Noto Sans SC';
     vertical-align: baseline;
+    transition: 0.3s;
 }
 
 div.content {
