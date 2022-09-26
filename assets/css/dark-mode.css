@@ -1,0 +1,82 @@
+.dark-mode-on {
+    background: #212121;
+    color: white;
+    transition: 0.3s;
+}
+
+.navigate-dark {
+    background-color: #00000033;
+    color: white;
+    filter: none;
+    width: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 500px;
+    transition: 0.3s;
+    padding: 5px;
+    z-index: 99999;
+}
+
+.navigate-dark:hover {
+    width: 180px;
+}
+
+.navigate-dark a {
+    color: white;
+    text-decoration: none;
+    line-height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.navigate-dark a.active {
+    background-color: darkcyan;
+    color: white;
+}
+
+.navigate-dark a:hover:not(.active) {
+    background-color: #333333;
+    color: white;
+}
+
+.navigate-dark span {
+    white-space: nowrap;
+    transition: 0.3s;
+    opacity: 0;
+    position: absolute;
+}
+
+.navigate-dark:hover span {
+    opacity: 1;
+}
+
+.pos-fixed-dark {
+    position: fixed;
+    top: 50px;
+    right: 2em;
+    background-color: #00000033;
+    padding: 0.5em;
+}
+
+.content-dark {
+    margin-left: 10%;
+    margin-right: 10%;
+    transition: 0.3s;
+}
+
+.toolbox-dark {
+    transition: 0.2s;
+    right: -150px;
+    top: 50px;
+    padding: 5px;
+    padding-left: 30px;
+    background-color: #00000033;
+    position: fixed;
+    z-index: 99999;
+}
+
+.toolbox-dark:hover {
+    right: 0px;
+}

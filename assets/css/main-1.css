@@ -48,7 +48,6 @@ hr {
 
 .navigate {
     width: 30px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     background-color: #00000033;

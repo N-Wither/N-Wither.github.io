@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
 
 <head>
   <meta charset="utf-8">
@@ -8,11 +8,10 @@
   <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=ZCOOL KuaiLe' rel='stylesheet'>
   <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+  <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/dark-mode.css">
   <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-  <title>Template</title>
-  <script src="https://n-wither.github.io/assets/js/clock.js"></script>
-  <script src="https://n-wither.github.io/assets/js/hello.js"></script>
-  <script src="https://n-wither.github.io/assets/js/randomQuote.js"></script>
+  <title>Cycmatica</title>
+  <script src="https://n-wither.github.io/assets/js/utils.js"></script>
   <style>
     body {
       background: #faf5e4;
@@ -23,31 +22,88 @@
       background-color: #00000033;
       padding: 8px;
     }
+
+    ::-webkit-scrollbar-track {
+      background: #faf5e4;
+      width: 0px;
+    }
+
+    .content-table a:hover {
+      background-color: #00000033;
+    }
+
+    #clock {
+      width: 180px;
+    }
+
+    summary {
+      user-select: none;
+      -webkit-user-select: none;
+    }
   </style>
 </head>
 
 <body onload="startTime(), hello(), randomQuote()">
   <div class="navigate" id="navigate">
-    <a href="https://n-wither.github.io/categories/writings/abs-str/index.html" style="line-height: unset; height: 50px;">📂<span style="font-size: larger;"><strong>Abstracalypse<br>Stories</strong></span></a>
+    <a href="https://n-wither.github.io/categories/writings/abs-str/index.html"
+      style="line-height: unset; height: 50px;">📂<span
+        style="font-size: larger;"><strong>Abstracalypse<br>Stories</strong></span></a>
     <a href="https://n-wither.github.io">🏠<span>Home</span></a>
     <a href="https://n-wither.github.io/categories/writings/index.html">📚<span>Writings</span></a>
   </div>
   <div class="toolbox" id="toolbox">
-    <div id="clock">clock</div>
+    <div id="clock" style="color: white;">clock</div>
     <div style="position: absolute; top: 45%; left: 10px">|||</div>
     <div class="content-table">
-      <strong>目录</strong>
-      <a href="#chapter-1.1"><span>1-1 Great Filter</span></a>
+      <span style="color: white; font-weight:bold">目录</span>
+      <a href="#chapter-1.1"><span>1 Afterstorm</span></a>
     </div>
   </div>
-  <div class="content">
+  <div class="content" id="content">
     <div>
       <h1>Cycmatica</h1>
       <hr />
     </div>
     <div class="mainText">
-      <h2 id="chapter-1.1">1-1 </h2>
-      <br />
+      <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
+      <button id="accessibility-switch" onclick="darkModeSwitch()">点击以切换夜间模式</button>
+      <h2 id="chapter-1">1 Afterstorm</h2>
+      <p>
+        Ella 被从窗帘缝隙照进来的太阳光弄醒了，她试着拨动了床头台灯的开关，灯泡没有反应，看来供电还没有恢复。大概是昨天晚上的暴风雨把某处的电线刮断了，不知道什么时候能修好。不过这样的事情在 Exufar
+        每年都会发生，海边的城市难免遇上风暴，不过今年的比往年更强一点。
+      </p>
+      <p>
+        走到阳台上，附近的居民正在清理街道，因为之前就把容易被吹跑的东西收进去了，所以要打扫的多半只是树叶之类的，整个城市大概一周之内就能恢复正常生活了。
+      </p>
+      <p>
+        Ella 望着外面发呆，直到她看到一个熟悉的黑影飞到自己面前，停在栏杆上。这是一只渡鸦（<span style="font-style: oblique;">Corvus Corax</span>），和其同类不同的是…
+      </p>
+      <p>
+        “我今天路过图书馆的时候看到 Aachen 他们在房顶上，她跟我说房顶漏了，要我叫你过去帮忙。”
+      </p>
+      <p>
+        这是 Schwarz，他能说话的原因没人知道，不过这片大陆上一直以来都充满了魔法和怪异，所以也没人觉得有什么问题。
+      </p>
+      <p>
+        “Aachen 这家伙每次都拿这种事情找我啊…”
+      </p>
+      <p>
+        “我觉得凭借她朋友身份轻松借到热门书的你没资格这样说。”
+      </p>
+      <p>
+        “确实是这样没错啦，但是这种事情找维修工不就好了…”
+      </p>
+      <p>
+        虽然这样说着，但 Ella 还是取出扫帚，翻过栏杆，坐到上面，朝着 Aachen 工作的图书馆飞去。没错，她是一个魔法师，或者更正式一点的叫法，奇术师（Thaumaturgist），但是显然“魔法”这个词要顺口多了，所以大家都这样称呼。
+      </p>
+    </div>
+    <div>
+      <details class="info">
+        <summary>注释</summary>
+      </details>
+      <details class="info">
+        <summary>版权/引用</summary>
+      </details>
     </div>
     <div id="footer" style="clear:both;text-align:center;">
       <hr />
