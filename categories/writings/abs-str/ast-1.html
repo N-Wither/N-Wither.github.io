@@ -25,18 +25,25 @@
       z-index: 99999;
     }
 
+    .mainText {
+      background-color: #333333;
+      box-shadow: 2px 2px 8px #00000066;
+      padding: 1rem;
+    }
+
     a {
       transition: 0.2s;
       text-decoration: none;
     }
 
-    #content a {
+    #content a{
       position: relative;
+      color: #d1281c;
     }
 
     #content a:hover {
       background: transparent;
-      color: #03baa2;
+      color: #d1281c;
     }
 
     #content a::before {
@@ -44,7 +51,7 @@
       position: absolute;
       width: 100%;
       height: 0.1rem;
-      background-color: #03baa2;
+      background-color: #d1281c;
       bottom: 0;
       left: 0;
       transform-origin: right;
@@ -53,6 +60,34 @@
     }
 
     #content a:hover::before {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+
+    .content-table a{
+      position: relative;
+      color: white;
+    }
+
+    .content-table a:hover {
+      background: transparent;
+      color: #d1281c;
+    }
+
+    .content-table a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.1rem;
+      background-color: #d1281c;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in;
+    }
+
+    .content-table a:hover::before {
       transform-origin: left;
       transform: scaleX(1);
     }
@@ -83,6 +118,20 @@
     hr.break {
       border-top: dotted;
       width: 60%;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      height: 400px;
+      transition: 0.2s;
+    }
+
+    .title-main {
+      font-size: 4rem;
+      font-weight: bolder;
+      margin: auto;
     }
   </style>
   <style>
@@ -130,6 +179,16 @@
       cursor: pointer;
     }
   </style>
+  <style>
+    .accessibility-mode-on {
+      background-color: #222222;
+      color: white;
+    }
+
+    .navigate-accessibility a:hover {
+    background-color: #d1281c;
+}
+  </style>
 </head>
 
 <body onload="startTime(), hello(), randomQuote()">
@@ -152,15 +211,13 @@
     </div>
   </div>
   <div class="content" id="content">
-    <div>
-      <h1>Apocalypse 2020</h1>
-      <h3>天启 2020</h3>
-      <hr>
+    <div class="title">
+      <span class="title-main">Apocalypse 2020</span>
     </div>
     <div class="mainText">
-      <p style="font-style: oblique; color: gray; background-color: #ffffffcc;">
+      <blockquote>
         这篇故事最初写于 2019 年左右，由于原作已遗失大半且充满了各种问题，故在此重写。
-      </p>
+      </blockquote>
       <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
       <button id="accessibility-switch" onclick="accModeSwitch()">点击以切换无障碍模式</button>
       <h2 id="chapter-0">0 Genesis</h2>

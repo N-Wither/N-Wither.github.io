@@ -15,12 +15,11 @@ div.content {
 }
 
 blockquote {
-    margin-right: 24%;
     font-style: oblique;
     background-color: #11111111;
     padding: 1em;
     border-style: solid;
-    border-color: #137f7f;
+    border-color: #aa1e08;
     border-left-width: 8px;
     border-top-width: 0px;
     border-bottom-width: 0px;
@@ -36,12 +35,12 @@ a:visited {
 }
 
 a:hover {
-    background-color: #137f7f;
+    background-color: #770000;
     color: white;
 }
 
 ::selection {
-    background-color: #22aaaa;
+    background-color: #770000;
 }
 
 .navigate {
@@ -49,7 +48,7 @@ a:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: #0c3f5366;
+    background-color: #00000033;
     position: fixed;
     height: 500px;
     padding: 5px;
@@ -58,7 +57,7 @@ a:hover {
 
 .navigate:hover {
     width: 170px;
-    background-color: #0c3f53cc;
+    background-color: #00000066;
 }
 
 .navigate a {
@@ -69,13 +68,8 @@ a:hover {
     position: relative;
 }
 
-.navigate a.active {
-    background-color: darkcyan;
-    color: white;
-}
-
-.navigate a:hover:not(.active) {
-    background-color: #137f7f;
+.navigate a:hover {
+    background-color: #aa000066;
     color: white;
 }
 
@@ -88,33 +82,6 @@ a:hover {
 
 .navigate:hover span {
     opacity: 1;
-}
-
-/*Lists in main text*/
-ul.content {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 40%;
-    background-color: #0c3f5366;
-    overflow: auto;
-}
-
-li.content a {
-    display: block;
-    color: white;
-    padding: 4px 8px;
-    text-decoration: none;
-}
-
-li.content a.active {
-    background-color: darkcyan;
-    color: white;
-}
-
-li.content a:hover:not(.active) {
-    background-color: #137f7f;
-    color: white;
 }
 
 .note {
@@ -280,7 +247,7 @@ h2 {
 
 /* Scroll Bar */
 ::-webkit-scrollbar-track {
-    background: linear-gradient(to top, #072b3a, #154b50);
+    background: #333333;
     width: 0px;
 }
 
