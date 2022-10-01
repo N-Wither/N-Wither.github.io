@@ -30,6 +30,33 @@
       text-decoration: none;
     }
 
+    #content a {
+      position: relative;
+    }
+
+    #content a:hover {
+      background: transparent;
+      color: #03baa2;
+    }
+
+    #content a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.1rem;
+      background-color: #03baa2;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in;
+    }
+
+    #content a:hover::before {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+
     .zoom:hover {
       max-height: 300px;
     }
@@ -38,12 +65,77 @@
       border: none;
       border-top: 2px solid;
     }
+
+    #accessibility-switch:active {
+      background-color: #ffffff88;
+      transition: 0.1s;
+    }
+
+    #accessibility-switch:hover {
+      transition: 0.1s;
+      transform: scale(1.04);
+    }
+
+    #accessibility-switch {
+      transition: 0.1s;
+    }
+
+    hr.break {
+      border-top: dotted;
+      width: 60%;
+    }
+  </style>
+  <style>
+    .bili-video {
+      position: absolute;
+      box-shadow: 5px #aaaaaa;
+      width: 220px;
+      height: 180px;
+      border-radius: 5px;
+      background-color: rgb(232, 232, 232);
+      cursor: pointer;
+    }
+
+    .bili-video-thumbnail {
+      text-align: center;
+      width: 220px;
+      height: 120px;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .bili-video-title {
+      color: black;
+      font-size: small;
+    }
+
+    .bili-video-uploader {
+      font-size: 12px;
+      color: gray;
+      position: absolute;
+      top: 160px;
+      left: 2px;
+    }
+
+    .bili-video-uploader span {
+      background-color: gray;
+      color: white;
+      border-radius: 2px;
+    }
+
+    .bili-bottom-navigate {
+      position: absolute;
+      width: 100px;
+      height: 60px;
+      text-align: center;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body onload="startTime(), hello(), randomQuote()">
   <div class="navigate" id="navigate">
-    <a href="https://n-wither.github.io/categories/writings/abs-str/index.html" style="line-height: unset; height: 50px;">📂<span
+    <a href="https://n-wither.github.io/categories/writings/abs-str/index.html"
+      style="line-height: unset; height: 50px;">📂<span
         style="font-size: larger;"><strong>Abstracalypse<br>Stories</strong></span></a>
     <a href="https://n-wither.github.io">🏠<span>Home</span></a>
     <a href="https://n-wither.github.io/categories/writings/index.html">📚<span>Writings</span></a>
@@ -200,15 +292,15 @@
         那就看看网上好了。
       </p>
       <div
-        style="background-color: white; width: 500px; height: 1000px; position: relative; box-shadow: 4px 4px 5px #00000033;">
+        style="background-color: white; width: 500px; height: 1000px; position: relative; box-shadow: 2px 2px 8px #00000066;">
         <div style="background-color: rgb(255, 129, 150); width: 500px; height: 80px; position: relative;">
           <img style="border-radius: 30px; width: 60px; height: 60px; position: absolute; left: 10px; top: 10px"
             src="https://avatars.githubusercontent.com/u/63383462?v=4" alt="Avatar">
           <div
-            style="background-color: rgb(218, 94, 114); width: 300px; height: 32px; border-radius: 16px; position: absolute; left: 80px; top: 10px; color: lightgray; padding-left: 10px;">
+            style="background-color: rgb(218, 94, 114); width: 300px; height: 32px; border-radius: 16px; position: absolute; left: 80px; top: 10px; color: lightgray; padding-left: 10px; cursor: text;">
             搜索…</div>
           <div style="position: absolute; left: 80px; top: 50px; text-align: center; width: 300px;">
-            <div style="position: relative;">
+            <div style="position: relative; cursor: pointer;">
               <span style="position: absolute;">直播</span>
               <span style="position: absolute; left: 100px;"><u>推荐</u></span>
               <span style="position: absolute; left: 200px;">100年</span>
@@ -216,93 +308,64 @@
           </div>
         </div>
         <div style="position: absolute; top: 80px; width: 500px; height: 840px">
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 20px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #66ccff; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
-              封面图片，展示了某地出现的上帝。</div>
-            <div style="color: black;">阿妹你看，上帝压狗</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">UP</span>是牧牛人</div>
+          <div class="bili-video" style="left: 20px; top: 20px;">
+            <div style="background: #66ccff;" class="bili-video-thumbnail">
+              封面图片，展示了某地出现的上帝。
+            </div>
+            <div class="bili-video-title">阿妹你看，上帝压狗</div>
+            <div class="bili-video-uploader"><span>UP</span>是牧牛人</div>
           </div>
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 20px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #b58a52; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+          <div class="bili-video" style="left: 260px; top: 20px;">
+            <div style="background-color: #b58a52;" class="bili-video-thumbnail">
               封面图片，UP 主的正面上半身照片。</div>
-            <div style="color: black;">谈谈美国的枪击问题</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">UP</span>华盛顿方脸</div>
+            <div class="bili-video-title">谈谈美国的枪击问题</div>
+            <div class="bili-video-uploader"><span>UP</span>华盛顿方脸</div>
           </div>
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 220px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #bf88e6; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+          <div class="bili-video" style="left: 20px; top: 220px;">
+            <div style="background-color: #bf88e6;" class="bili-video-thumbnail">
               封面图片，UP 主的正面上半身照片加一张图片背景。</div>
-            <div style="color: black;">上帝的出现，是美国的认知作战</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">UP</span>性医淋林</div>
+            <div class="bili-video-title">上帝的出现，是美国的认知作战</div>
+            <div class="bili-video-uploader"><span>UP</span>性医淋林</div>
           </div>
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 220px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #b4d4f3; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+          <div class="bili-video" style="left: 260px; top: 220px;">
+            <div style="background-color: #b4d4f3;" class="bili-video-thumbnail">
               封面图片，UP 的头被 PS 到一个表情包上。</div>
-            <div style="color: black;">超甜翻唱❤️热爱250℃的你</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">UP</span>车雷达Official
+            <div class="bili-video-title">超甜翻唱❤️热爱250℃的你</div>
+            <div class="bili-video-uploader"><span>UP</span>车雷达Official
             </div>
           </div>
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 420px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #734f40; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+          <div class="bili-video" style="left: 20px; top: 420px;">
+            <div style="background-color: #734f40;" class="bili-video-thumbnail">
               封面图片，鲁迅与中年闰土。</div>
-            <div style="color: black;">回村三天，闰土治好了我的精神内耗</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">UP</span>衣服猜想</div>
+            <div class="bili-video-title">回村三天，闰土治好了我的精神内耗</div>
+            <div class="bili-video-uploader"><span>UP</span>衣服猜想</div>
           </div>
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 420px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #5eaedf; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+          <div class="bili-video" style="left: 260px; top: 420px;">
+            <div style="background-color: #5eaedf;" class="bili-video-thumbnail">
               封面图片，展示一堆食物衣物等行李。</div>
-            <div style="color: black;">兄弟们我得跑了</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">UP</span>pili-11451419810
+            <div class="bili-video-title">兄弟们我得跑了</div>
+            <div class="bili-video-uploader"><span>UP</span>pili-11451419810
             </div>
           </div>
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 20px; top: 620px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #88dcaf; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+          <div class="bili-video" style="left: 20px; top: 620px;">
+            <div style="background-color: #88dcaf;" class="bili-video-thumbnail">
               封面图片，某地的乱象。</div>
-            <div style="color: black;">已经打起来了，我要怎么办</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">UP</span>斯卡蒂嘶哈嘶哈</div>
+            <div class="bili-video-title">已经打起来了，我要怎么办</div>
+            <div class="bili-video-uploader"><span>UP</span>斯卡蒂嘶哈嘶哈</div>
           </div>
-          <div
-            style="position: absolute; box-shadow: 5px #aaaaaa; width: 220px; height: 180px; border-radius: 5px; left: 260px; top: 620px; background-color: rgb(232, 232, 232);">
-            <div
-              style="background-color: #ab5cd5; text-align: center; width: 220px; height: 120px; border-radius: 5px 5px 0 0;">
+          <div class="bili-video" style="left: 260px; top: 620px;">
+            <div style="background-color: #ab5cd5;" class="bili-video-thumbnail">
               封面图片，展示一位穿着 JK 制服的女子。</div>
-            <div style="color: black;">测测你的日语能打败 W 市多少人？</div>
-            <div style="font-size: 12px; color: gray; position: absolute; top: 160px; left: 2px;"><span
-                style="background-color: gray; color: white; border-radius: 2px;">广告</span></div>
+            <div class="bili-video-title">测测你的日语能打败 W 市多少人？</div>
+            <div class="bili-video-uploader"><span>广告</span></div>
           </div>
         </div>
         <div style="position: absolute; top: 940px; width: 500px; height: 60px; background-color: rgb(255, 129, 150);">
-          <div style="position: absolute; background-color: #d45c84; width: 100px; height: 60px; text-align: center;">
-            首页</div>
-          <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 100px;">动态
-          </div>
-          <div
-            style="position: absolute; width: 100px; height: 60px; text-align: center; left: 200px; font-size: 36px;">
-            +</div>
-          <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 300px;">我的
-          </div>
-          <div style="position: absolute; width: 100px; height: 60px; text-align: center; left: 400px;">购物
-          </div>
+          <div class = "bili-bottom-navigate" style="background-color: #d45c84;">首页</div>
+          <div class = "bili-bottom-navigate" style="left: 100px;">动态</div>
+          <div class = "bili-bottom-navigate" style="left: 200px; font-size: 36px;">+</div>
+          <div class = "bili-bottom-navigate" style="left: 300px;">我的</div>
+          <div class = "bili-bottom-navigate" style="left: 400px;">购物</div>
         </div>
       </div>
       <p>
@@ -327,7 +390,7 @@
         然后我因为昨天晚上睡眠不足，在沙发上睡着了（现在想来外面当时那么乱我是怎么睡得着的），醒来的时候发现手机上有一条未读消息。
       </p>
       <div
-        style="background-color: white; width: 500px; height: 500px; position: relative; box-shadow: 4px 4px 5px #00000033;">
+        style="background-color: white; width: 500px; height: 500px; position: relative; box-shadow: 2px 2px 8px #00000066;">
         <div
           style="background-color: #ffffff; width: 500px; height: 80px; position: relative; color: black; text-align: center;">
           <div style="position: absolute; left: 10px; top: 10px; font-size: 36px;">←</div>
@@ -362,7 +425,7 @@
         这时我手机又震动了一下，又是一条新消息。
       </p>
       <div
-        style="background-color: white; width: 500px; height: 700px; position: relative; box-shadow: 4px 4px 5px #00000033;">
+        style="background-color: white; width: 500px; height: 700px; position: relative; box-shadow: 2px 2px 8px #00000066;">
         <div
           style="background-color: #ffffff; width: 500px; height: 80px; position: relative; color: black; text-align: center;">
           <div style="position: absolute; left: 10px; top: 10px; font-size: 36px;">←</div>
@@ -578,7 +641,7 @@
       </p>
       <p>
         当初驾校报名的时候我想着以后的车都是自动挡了那我报 C2 应该没有什么问题，但是现在我真想穿越回去给我自己一<ruby>脚<rt>Dropkick</rt>
-          </ruby>，同时我真想把车主抓过来拷打他都什么年代了还在开传统汽车。
+        </ruby>，同时我真想把车主抓过来拷打他都什么年代了还在开传统汽车。
       </p>
       <p>
         我权衡了一下当场学会手动挡和再去找一辆自动挡的难度，还是后者比较有可行性。于是我又从车里面狼狈地钻了出来去找另一辆车。
@@ -624,14 +687,14 @@
           主要与会者：上帝、Zeus、玉皇大帝、天照大御神、■■■■、Buddha Śākyamuni、Nyarlathotep 等
         </p>
         <hr>
-        <div class="paper-file-sticker" style="padding: 8px;">
+        <div class="paper-file-sticker" style="padding: 8px; font-size: small;">
           <img src="https://img1.imgtp.com/2022/09/09/ZFlSr6M2.png" alt="Gabriel's Picture" id="gab-pic"
             class="zoom"><br>
-          Gabriel, 2017.
+          Gabriel 于 2017 年。
         </div>
         <p style="margin-right: 150px;">
           <span class="god-speaking">各位现在一定很想知道<ruby>神选计划<rt>Project Decideum</rt>
-              </ruby>第一天的成果，各位请看——</span>上帝转身面向会议厅墙上巨大的显示屏，上面展示着幻灯片，负责讲解的是 Gabriel。
+            </ruby>第一天的成果，各位请看——</span>上帝转身面向会议厅墙上巨大的显示屏，上面展示着幻灯片，负责讲解的是 Gabriel。
         </p>
         <p style="margin-right: 150px;">
           <span class="gabriel-speaking">就如同图表展示的那样，根据统计，从计划实施开始到报告前已经有约 17
@@ -648,7 +711,9 @@
           “既然死了那么多人，地狱有能力一次性接收这么多吗？”Zeus 发问。
         </p>
         <p>
-          <span class="gabriel-speaking">Hades 发来的报告里说 Cerberus 已经过度疲劳，暂时让它先休息了，目前死去的人大多都聚集在冥界平原上，由地狱方面指派的恶魔看守。当前<ruby>撒旦工业集团<rt>Satan Industries Co.</rt></ruby>正在抓紧扩建厂房，预计将在 3 个月内完全吸收新来的死人。因为这些人已经死了，所以只需要最低限度的管理即可，不会对地狱的出产造成太大影响。</span>
+          <span class="gabriel-speaking">Hades 发来的报告里说 Cerberus
+            已经过度疲劳，暂时让它先休息了，目前死去的人大多都聚集在冥界平原上，由地狱方面指派的恶魔看守。当前<ruby>撒旦工业集团<rt>Satan Industries Co.</rt>
+            </ruby>正在抓紧扩建厂房，预计将在 3 个月内完全吸收新来的死人。因为这些人已经死了，所以只需要最低限度的管理即可，不会对地狱的出产造成太大影响。</span>
         </p>
         <p>
           <span
@@ -679,13 +744,14 @@
       <p>
         总之这招很有效果，他的车显然慢了下来，我现在有充足的机会逃跑了。
       </p>
-      <br />
+      <hr class="break">
     </div>
     <div>
       <details class="info">
         <summary style="font-weight: bold;">注释</summary>
         <div>
-          <span id="note-1"><a href="#note-ref-1">^1</a>&nbsp 《圣经·利未记》 18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span><br>
+          <span id="note-1"><a href="#note-ref-1">^1</a>&nbsp 《圣经·利未记》
+            18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span><br>
           <span id="note-2"><a href="#note-ref-2">^2</a>&nbsp 一位天使长，救赎之天使。</span><br>
           <span id="note-3"><a href="#note-ref-3">^3</a>&nbsp 日语“さようなら”（再见）的谐音。</span>
         </div>
@@ -695,8 +761,8 @@
       <details class="info">
         <summary style="font-weight: bold;">版权/引用</summary>
         <div>
-          文件：<a href="https://img1.imgtp.com/2022/09/09/ZFlSr6M2.png">gabriel_white_tenma.png</a><br>
-          作者：<a href="http://www.dogakobo.com/">动画工房</a><br>
+          文件：<a href="https://N-Wither.github.io/assets/pics/gabriel_white_tenma.png">gabriel_white_tenma.png</a><br>
+          作者：<a href="http://www.dogakobo.com/">動画工房</a><br>
           协议：All Rights Reserved
         </div>
       </details>

@@ -12,6 +12,9 @@
   <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
   <title>Cycmatica</title>
   <script src="https://n-wither.github.io/assets/js/utils.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/hljs/solarized-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>hljs.highlightAll()</script>
   <style>
     body {
       background: #faf5e4;
@@ -32,18 +35,63 @@
       background-color: #00000033;
     }
 
+    code {
+      background-color: #00000033;
+      border-radius: 2px;
+    }
+
     #clock {
       width: 180px;
     }
 
     summary {
-      user-select: none;
       -webkit-user-select: none;
+      user-select: none;
     }
 
     #accessibility-switch:active {
       background-color: #ffffff33;
       transition: 0.1s;
+    }
+
+    #accessibility-switch:hover {
+      transition: 0.1s;
+      transform: scale(1.04);
+    }
+
+    #accessibility-switch {
+      transition: 0.1s;
+    }
+
+    #content a {
+      position: relative;
+    }
+
+    #content a:hover {
+      background: transparent;
+      color: #03baa2;
+    }
+
+    #content a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.1rem;
+      background-color: #03baa2;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in;
+    }
+
+    #content a:hover::before {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+
+    pre {
+      box-shadow: 2px 2px 6px #00000033;
     }
   </style>
 </head>
@@ -121,6 +169,45 @@
       </p>
       <p>
         “还好，在这种太阳底下抡锤子我都不敢想…”
+      </p>
+      <p>
+        Ella 跟着 Aachen 下楼梯到了图书馆一楼大厅，这里放着几个手推车，上面的书都已经发皱了。
+      </p>
+      <p>
+        “就算晒干了皱巴巴的书也不会有人想看的吧…所以还是靠你了。”
+      </p>
+      <p>
+        “倒也不是什么难事，让我构思一下。”
+      </p>
+      <p>
+        在对魔法不熟悉的人的想象中，魔法师似乎是能够言出法随的存在，然而实际情况是魔法师们必须花心思构造术式，否则要么没有效果，要么会引起一些其他的负面影响，或者两者皆有。如果要做些复杂的事情，魔法师们就要耗费大量的时间精力，多次进行模拟测试，有时还需要多人合作。
+      </p>
+      <p>
+        那么，以下是 Ella 编写出来的术式：
+      </p>
+      <pre>
+        <code class="language-javascript">
+          Thaum.form = DIRECT;
+          let target = Thaum.select(Environment.caster.rayTrace(2), 0.2, Concept.match('book'));
+          while(Environment.caster.isCasting()){
+            Elemental.extract(target, 'aqua');
+          }
+        </code>
+      </pre>
+      <p>
+        虽然看起来很简单，但是这是无数前辈的成果，最早的一批魔法师只能以极其原始的方式使用魔法，写出来的术式除了本人没人能看懂，后来魔法这门学问渐渐标准化了，原本艰深晦涩的术式语句也变得容易阅读，所以学习魔法也更为容易了。上面的术式中，最方便的莫过于 <code>Concept</code> 了，它能满足绝大部分有关“概念”的需求。Ella 就是利用了它将符合“书本”这一概念的物体作为施法对象，早期的魔法师可没有这么棒的东西。
+      </p>
+      <p>
+        不过，也不是所有的人都拥有使用魔法的能力，大约只有十分之一的人符合这一条件，目前还没有合理的理论解释这一现象。
+      </p>
+      <p>
+        回归正题，Ella 没用多久就搞定了这些湿掉的书。
+      </p>
+      <p>
+        “嗯，这就差不多了。” Ella 收起魔杖，“那么《[书名]》可以让我晚点再还吗？”
+      </p>
+      <p>
+        “哈——行吧，反正也不是第一次了。” Aachen 的尾巴不快地摇晃着，莫名有点可爱。 Ella 以前曾好奇过 Aachen 这么细的尾巴是怎么动起来的，但 Aachen 拒绝被触碰尾巴，只好作罢。
       </p>
     </div>
     <div>
