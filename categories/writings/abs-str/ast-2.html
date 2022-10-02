@@ -21,17 +21,32 @@
       background-attachment: fixed;
       background-repeat: no-repeat;
       background-position: center;
-      color: black;
+      background-size: cover;
+      color: white;
     }
 
-    .content {
+    .dark-mode-on {
+      background: url('https://n-wither.github.io/assets/pics/western_fantasy_harbor_city_blue_and_white_color_aerial.png');
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .content .mainText {
       background: #faf5e4;
       padding: 1rem;
       box-shadow: 2px 2px 8px #00000066;
+      color: black;
+      transition: 0.2s;
     }
 
-    .content-dark {
+    .content-dark .mainText{
+      background: #333333;
+      box-shadow: 2px 2px 8px #00000066;
       padding: 1rem;
+      color: white;
+      transition: 0.2s;
     }
 
     h2 {
@@ -44,8 +59,32 @@
       width: 0px;
     }
 
+    .content-table a{
+      position: relative;
+      color: white;
+    }
+
     .content-table a:hover {
-      background-color: #00000033;
+      background: transparent;
+      color: #8e24bc;
+    }
+
+    .content-table a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.1rem;
+      background-color: #8e24bc;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in;
+    }
+
+    .content-table a:hover::before {
+      transform-origin: left;
+      transform: scaleX(1);
     }
 
     code {
@@ -111,6 +150,33 @@
     #toolbox {
       color: white;
     }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      height: 400px;
+      transition: 0.2s;
+    }
+
+    .title-main {
+      font-size: 4rem;
+      font-weight: bolder;
+      margin: auto;
+      text-shadow: 2px 2px 8px #047cc8;
+    }
+
+    details.info {
+      background-color: #00000066;
+    }
+
+    .hljs {
+      background: #f6e8de;
+    }
+
+    ::selection {
+      
+    }
   </style>
 </head>
 
@@ -127,18 +193,17 @@
     <div style="position: absolute; top: 45%; left: 10px">|||</div>
     <div class="content-table">
       <span style="color: white; font-weight:bold">目录</span>
-      <a href="#chapter-1.1"><span>1 Afterstorm</span></a>
+      <a href="#chapter-1"><span>Afterstorm</span></a>
     </div>
   </div>
   <div class="content" id="content">
-    <div>
-      <h1>Cycmatica</h1>
-      <hr />
+    <div class="title">
+      <span class="title-main">Cycmatica</span>
     </div>
     <div class="mainText">
       <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
       <button id="accessibility-switch" onclick="darkModeSwitch()">点击以切换夜间模式</button>
-      <h2 id="chapter-1">1 Afterstorm</h2>
+      <h2 id="chapter-1">Afterstorm</h2>
       <p>
         Ella 被从窗帘缝隙照进来的太阳光弄醒了，她试着拨动了床头台灯的开关，灯泡没有反应，看来供电还没有恢复。大概是昨天晚上的暴风雨把某处的电线刮断了，不知道什么时候能修好。不过这样的事情在 Exufar
         每年都会发生，海边的城市难免遇上风暴，不过今年的比往年更强一点。
@@ -203,7 +268,7 @@
       <p>
         那么，以下是 Ella 编写出来的术式：
       </p>
-      <pre>
+      <pre class="hljs">
         <code class="language-javascript">
           Thaum.form = DIRECT;
           let target = Thaum.select(Environment.caster.rayTrace(2), 0.2, Concept.match('book'));
@@ -225,8 +290,16 @@
         “嗯，这就差不多了。” Ella 收起魔杖，“那么《[书名]》可以让我晚点再还吗？”
       </p>
       <p>
-        “哈——行吧，反正也不是第一次了。” Aachen 的尾巴不快地摇晃着，莫名有点可爱。 Ella 以前曾好奇过 Aachen 这么细的尾巴是怎么动起来的，但 Aachen 拒绝被触碰尾巴，只好作罢。
+        “哈——行吧，反正也不是第一次了。” Aachen 的尾巴不快地摇晃着，莫名有点可爱。Ella 以前曾好奇过 Aachen 这么细的尾巴是怎么动起来的，但 Aachen 坚决拒绝被触碰尾巴，只好作罢。
       </p>
+      <p>
+        “说起来以前这里好像没漏过水呢。”
+      </p>
+      <p>
+        “就是因为一直好好的所以也没怎么检修过，这次的风暴又比以前的大，直接给我们把房顶干翻了……之后我得跟馆长说一下这事。”
+      </p>
+      <h2 id="chapter-2">&nbsp;</h2>
+
     </div>
     <div>
       <details class="info">
