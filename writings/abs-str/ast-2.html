@@ -166,6 +166,10 @@
       text-shadow: 2px 2px 8px #047cc8;
     }
 
+    .mainText {
+      margin-bottom: 8px;
+    }
+
     details.info {
       background-color: #00000066;
     }
@@ -190,6 +194,10 @@
     .illust img{
       box-shadow: 2px 2px 8px #333333;
     }
+
+    .italic {
+      font-style: italic;
+    }
   </style>
 </head>
 
@@ -213,9 +221,9 @@
     <div class="title">
       <span class="title-main">Cycmatica</span>
     </div>
+    <button id="accessibility-switch" onclick="darkModeSwitch()" style="margin-bottom: 8px;">点击以切换夜间模式</button>
     <div class="mainText">
       <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
-      <button id="accessibility-switch" onclick="darkModeSwitch()">点击以切换夜间模式</button>
       <h2 id="chapter-1">Afterstorm</h2>
       <p>
         Ella 被从窗帘缝隙照进来的太阳光弄醒了，她试着拨动了床头台灯的开关，灯泡没有反应，看来供电还没有恢复。大概是昨天晚上的暴风雨把某处的电线刮断了，不知道什么时候能修好。不过这样的事情在 Exufar
@@ -282,12 +290,16 @@
         那么，以下是 Ella 编写出来的术式：
       </p>
       <pre class="hljs">
-        <code class="language-javascript">
-          Thaum.form = DIRECT;
-          let target = Thaum.select(Environment.caster.rayTrace(2), 0.2, Concept.match('book'));
-          while(Environment.caster.isCasting()){
-            Elemental.extract(target, 'aqua');
-          }
+        <code class="language-python">
+          import Thaum
+          import Elemental
+          import Environment as Env
+          import Concept
+
+          Thaum.form = DIRECT
+          target = Thaum.select(Env.caster.rayTrace(2), 0.2, Concept.match('book'))
+          while Env.caster.isCasting :
+            Elemental.extract('aqua', target)
         </code>
       </pre>
       <p>
@@ -314,8 +326,17 @@
       <div class="illust">
         <img src="https://n-wither.github.io/assets/imgs/aachen_in_library.png" alt="Aachen">
       </div>
-      <h2 id="chapter-2">&nbsp;</h2>
-
+    </div>
+    <div class="mainText">
+      <h2 id="chapter-2">New Member in Library</h2>
+      <p>这天傍晚 Ella 做完今天的委托后像往常一样到图书馆找 Aachen。</p>
+      <p>到了 Aachen 的办公室，Ella 看到她正在和一个陌生的人对话。</p>
+      <p>“然后你把推车放到...啊，Ella。” Aachen 从座椅上站起来，那个陌生人也跟着站起来，她是一个身形娇小的女孩子，银白色短发，蓝色的瞳孔，尖尖的耳朵，显然是个精灵（<span class="italic">Elven</span>）。她身着学院制服，样式是奇术学院的。</p>
+      <p>“Ella，这位是奇术学院的 Selene，从明天开始在我们这里做兼职。Selene，这是 Ella。”</p>
+      <p>“怎么不把我介绍一下？”</p>
+      <p>“反正以后会经常见的嘛。”</p>
+      <p>“你好。” Selene 对 Ella 轻轻点头打招呼，显然她有点怕生，Ella 也点头回应。</p>
+      <div class="illust"><img src="https://n-wither.github.io/assets/imgs/selene_and_ella_in_library.png" alt="Selene and Ella"></div>
     </div>
     <div>
       <details class="info">
