@@ -9,7 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=ZCOOL KuaiLe' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Ma Shan Zheng' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Share Tech Mono' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
   <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
   <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/apocalypse-2020.css">
@@ -146,6 +146,49 @@
     details.info {
       background-color: #00000066;
     }
+
+    .story-time {
+      font-family: 'Bebas Neue';
+      width: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      justify-content: space-between;
+      justify-items: center;
+      padding: 0;
+      font-size: large;
+      color: #00ffff;
+    }
+
+    .story-time .row-1 {
+      background-color: #00cccc;
+      color: white;
+      width: 100%;
+      text-align: center;
+    }
+
+    .alive-counter {
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .death-percentage {
+      background-color: #992244;
+      height: 100%;
+      position: absolute;
+    }
+
+    .alive-percentage {
+      background-color: #006666;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+
+    .alive-count {
+      position: relative;
+    }
   </style>
   <style>
     .bili-video {
@@ -194,13 +237,31 @@
   </style>
   <style>
     .accessibility-mode-on {
-      background-color: #222222;
-      color: white;
+      background-color: white;
+      color: black;
+    }
+
+    .accessibility-mode-on .mainText{
+      background-color: white;
+      color: black;
+    }
+
+    .navigate-accessibility {
+      background-color: white;
+      box-shadow: 2px 2px 6px #00000066;
+    }
+
+    .navigate-accessibility a {
+      color: black;
+    }
+
+    .navigate-accessibility:hover {
+      background-color: white;
     }
 
     .navigate-accessibility a:hover {
-    background-color: #d1281c;
-}
+      background-color: #d1281c;
+    }
   </style>
 </head>
 
@@ -540,8 +601,18 @@
         那么，我的下一个目标就是去他家了，或许还能顺道找找有用的东西。
       </p>
       <h2 id="chapter-2">1-2 A Slash in the Dark</h2>
-      <div class="story-time"><span>2020/05/10 <span class="blink">19:10</span> GMT + 08:00</span><br><span>KILLS/ALIVE:
-          <span class="blink">0/6,395,643,357</span></span></div>
+      <div class="story-time">
+        <div class="row-1">TIME</div>
+        <div class="row-1">KILLS</div>
+        <div class="row-1">ALIVE</div>
+        <div>2020/05/10 19:10 GMT + 08:00</div>
+        <div>0</div>
+        <div class="alive-counter">
+          <div class="alive-percentage"></div>
+          <div class="death-percentage" style="width: 4.7%;"></div>
+          <div class="alive-count">6,474,818,397</div>
+        </div>
+      </div>
       <p>
         我一路下楼，搜遍了所有我能进去的房间还是一无所获，我有点怀疑撒旦那条短信里面“只要到处找找就能找到”的真实性了，毕竟是恶魔，什么事都有可能干得出来。
       </p>
@@ -679,8 +750,18 @@
         不行，我一定要去天堂。
       </p>
       <h2 id="chapter-3">1-3 Uproar Run</h2>
-      <div class="story-time"><span>2020/05/11 <span class="blink">09:21</span> GMT + 08:00</span><br><span>KILLS/ALIVE:
-          <span class="blink">1/6,200,459,306</span></span></div>
+      <div class="story-time">
+        <div class="row-1">TIME</div>
+        <div class="row-1">KILLS</div>
+        <div class="row-1">ALIVE</div>
+        <div>2020/05/11 09:21 GMT + 08:00</div>
+        <div>1</div>
+        <div class="alive-counter">
+          <div class="alive-percentage"></div>
+          <div class="death-percentage" style="width: 7.6%;"></div>
+          <div class="alive-count">6,280,985,484</div>
+        </div>
+      </div>
       <p>
         今天也是要努力活下去的一天！
       </p>
@@ -809,8 +890,21 @@
       <hr class="break">
       <p>在这已经被暴乱搞得一团糟的城市里面穿行耗费了远多于预想的时间，直到傍晚时分才到机场附近，途中又杀了一个人，不过有了第一次的经验过后我没有产生什么愧疚感。</p>
       <p>看着天快黑了，我觉得我还是先在附近找个地方休息一下，凌晨再进机场看看，那时候应该是风险最低的。</p>
-      <div class="story-time"><span>2020/05/12 <span class="blink">02:49</span> GMT + 08:00</span><br><span>KILLS/ALIVE: <span class="blink">2/5,907,798,501</span></span></div>
-      <p>一觉醒来已经是月上中天了，看来在我睡着的时候地球人口突破了 60 亿，不过是逆向的。</p>
+      <div class="story-time">
+        <div class="row-1">TIME</div>
+        <div class="row-1">KILLS</div>
+        <div class="row-1">ALIVE</div>
+        <div>2020/05/12 02:49 GMT + 08:00</div>
+        <div>2</div>
+        <div class="alive-counter">
+          <div class="alive-percentage"></div>
+          <div class="death-percentage" style="width: 11.9%;"></div>
+          <div class="alive-count">5,991,762,855</div>
+        </div>
+      </div>
+      <p>一觉醒来已经是月上中天了，看来在我睡着的时候地球人口突破了 60 亿，不过是逆向的。这才两天就死了 8 亿人，地球人真能杀。</p>
+      <p>断电的城市中除了远处零星的火光没有任何人工照明，好在月光的亮度足够，即使我夜盲也能看个大概。</p>
+      <p>带着我仅有的装备，我尽量不发出声音进入航站楼，没想到里面的消防应急灯居然还亮着，虽然有助于我看东西，但也增加了被发现的几率。</p>
     </div>
     <div>
       <details class="info">

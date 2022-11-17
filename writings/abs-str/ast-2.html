@@ -49,9 +49,18 @@
       transition: 0.2s;
     }
 
+    .content-dark .mainText h2 {
+      background-color: #383838;
+    }
+
     h2 {
-      background-color: #00000033;
+      background-color: #eadac3;
+      text-shadow: 2px 2px 4px #00000033;
       padding: 8px;
+      position: relative;
+      left: -3%;
+      box-shadow: 2px 2px 6px #00000033;
+      margin: 0;
     }
 
     ::-webkit-scrollbar-track {
@@ -198,6 +207,18 @@
     .italic {
       font-style: italic;
     }
+
+    .navigate {
+      z-index: 99999;
+    }
+
+    .toolbox {
+      z-index: 99999;
+    }
+
+    #clock {
+      width: 100%;
+    }
   </style>
 </head>
 
@@ -214,7 +235,8 @@
     <div style="position: absolute; top: 45%; left: 10px">|||</div>
     <div class="content-table">
       <span style="color: white; font-weight:bold">目录</span>
-      <a href="#chapter-1"><span>Afterstorm</span></a>
+      <a href="#chapter-1"><span>Wet Hands</span></a>
+      <a href="#chapter-2"><span>New Member in Library</span></a>
     </div>
   </div>
   <div class="content" id="content">
@@ -223,8 +245,12 @@
     </div>
     <button id="accessibility-switch" onclick="darkModeSwitch()" style="margin-bottom: 8px;">点击以切换夜间模式</button>
     <div class="mainText">
+      <div style="font-weight: bold;">注意</div>
+      <div class="info">本文的插图使用 AI 生成，因此会出现画面结构的不合理以及人物形象的不一致。</div>
       <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
-      <h2 id="chapter-1">Afterstorm</h2>
+    </div>
+    <div class="mainText">
+      <h2 id="chapter-1">Wet Hands</h2>
       <p>
         Ella 被从窗帘缝隙照进来的太阳光弄醒了，她试着拨动了床头台灯的开关，灯泡没有反应，看来供电还没有恢复。大概是昨天晚上的暴风雨把某处的电线刮断了，不知道什么时候能修好。不过这样的事情在 Exufar
         每年都会发生，海边的城市难免遇上风暴，不过今年的比往年更强一点。
@@ -337,6 +363,7 @@
       <p>“反正以后会经常见的嘛。”</p>
       <p>“你好。” Selene 对 Ella 轻轻点头打招呼，显然她有点怕生，Ella 也点头回应。</p>
       <div class="illust"><img src="https://n-wither.github.io/assets/imgs/selene_and_ella_in_library.png" alt="Selene and Ella"></div>
+      <p></p>
     </div>
     <div>
       <details class="info">
