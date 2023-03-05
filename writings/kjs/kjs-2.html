@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/hljs/solarized-light.min.css">
+    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/hljs/a11y-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <script>hljs.highlightAll()</script>
     <title></title>
@@ -35,6 +35,11 @@
     <div class="toolbox" id="toolbox">
         <div style="position: absolute; top: 45%; left: 10px">|||</div>
         <div id="clock">clock</div>
+        <div class="chapter_select">
+            <a href="./kjs-1.html">上一篇</a>
+            <a href="./kjs-0.html">目录</a>
+            <a href="./kjs-3.html">下一篇</a>
+        </div>
     </div>
     <div class="content">
         <div>
@@ -52,8 +57,11 @@
             <p>魔改模组绝大部分用途都是改配方，这篇文章教你改配方。</p>
             <h2>工作台合成</h2>
             <p>首先你在<code>server_scripts</code>里面新建一个 JS 文件，一个文件只做一类事情，养成好习惯，免得以后忘记代码写在哪了。</p>
-            <p>然后要知道工作台的配方分有序合成和无序合成两种，先看有序合成：</p>
-<pre>JavaScript<code>
+            <p>然后要知道工作台的配方分有序合成和无序合成两种，来看看怎么写：</p>
+            <blockquote class="info">
+                关于 JavaScript 的基本数据类型，请看<a href="https://www.runoob.com/js/js-datatypes.html">这篇文章</a>。
+            </blockquote>
+<pre>JavaScript<code class="hljs language-js">
 onEvent('recipes', event =&gt; {                      // 指定代码作用的事件，'event'可以改成任何合法的变量名
     event.shaped('2x minecraft:golden_apple',      // 添加有序合成配方，此配方输出两个金苹果
         [
@@ -66,10 +74,24 @@ onEvent('recipes', event =&gt; {                      // 指定代码作用的�
             A: 'minecraft:apple'
         }                                          // 定义上面的字符代表的物品（或标签）
     ).id('kubejs:shaped_example_1')                // 指定配方 ID，这不是必须的
+
+    event.shapeless('minecraft:copper_ingot',      // 添加无序合成配方以及输出的物品
+        ['9x #forge:nuggets/copper']               // 原料及数量，如果只有一种原料可以不用数组
+    )
+})
+
+// 如果你在使用 1.19，onEvent 要改写成如下方式
+// 1.19 的更多变化请看 https://mods.latvian.dev/books/kubejs-legacy/page/migrating-to-kubejs-6
+// 本系列的文章基于 1.18，这之后不再演示 1.19 的写法
+ServerEvents.recipes(event =&gt; {
+    // 和上面一样的代码
 })
 </code>从上一篇文章搬运过来的，稍微改了一下</pre>
+            写完后保存文件，在游戏里面使用<code>/reload</code>来应用更改。
+            <blockquote class="info">
+                如果你发现你写的代码没有生效，请在<code>logs/kubejs</code>查看日志！
+            </blockquote>
             <br/>
-
             <div class="chapter_select">
                 <a href="./kjs-1.html">上一篇</a>
                 <a href="./kjs-0.html">目录</a>

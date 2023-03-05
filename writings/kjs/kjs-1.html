@@ -19,12 +19,6 @@
             document.getElementById('page_title').innerHTML = '基础知识';
         }
     </script>
-    <style>
-        #clock {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-    </style>
 </head>
 <body onload="startTime(), hello(), randomQuote(), setElements()">
     <div class="navigate" id="navigate">
@@ -131,7 +125,7 @@ onEvent('item.registry', event =&gt; {
             <p>基本上，你可以使用反射使用游戏中的任何 Java 类，这意味着哪怕模组没有提供对 KJS 的支持，你也可以自定义一些使用此模组特性的东西。</p>
             <h2>怎么用 KJS？</h2>
             <p>首先你需要安装好这个模组，这应该不是什么问题。</p>
-            <p>然后启动一次游戏（以 1.18 为例，1.19 稍有不同），你会在游戏目录发现一个名为<code>kubejs</code>的文件夹，里面有<code>client_scripts</code>、<code>server_scripts</code>和<code>startup_scripts</code>和一些其他的文件夹。在里面新建<code>.js</code>文件，然后开始写代码。</p>
+            <p>然后启动一次游戏，你会在游戏目录发现一个名为<code>kubejs</code>的文件夹，里面有<code>client_scripts</code>、<code>server_scripts</code>和<code>startup_scripts</code>和一些其他的文件夹。在里面新建<code>.js</code>文件，然后开始写代码。</p>
             <p>这三个文件夹分别对应 KubeJS 事件的三种类型：Client，Server 和 Startup。</p>
             <p>“事件”是一个非常重要的概念，游戏中的一切都是事件，KubeJS 支持的所有事件，以及它们的类型在<a href="https://mods.latvian.dev/books/kubejs-legacy/page/list-of-all-events">这里</a>列出。</p>
             <p>接着是三种事件类型的特点：</p>
