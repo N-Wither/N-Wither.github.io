@@ -5,52 +5,41 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=ZCOOL KuaiLe' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>Tools</title>
+    <title></title>
     <script src="https://n-wither.github.io/assets/js/utils.js"></script>
-    <style>
-        .list {
-            background-color: #00000033;
-            padding: 4px;
+    <script>
+        document.title = 'KubeJS Experienced';
+        let setElements = () => {
+            document.getElementById('category').innerHTML = 'KubeJS<br>Experienced';
+            document.getElementById('page_title').innerHTML = 'KubeJS Experienced';
         }
-
-        .list_item {
-            background-color: #00000033;
-            width: 60%;
-        }
-
-        .list_item a {
-            font-size: larger;
-            font-weight: bold;
-        }
-    </style>
+    </script>
 </head>
-<body onload="startTime(), hello(), randomQuote()">
+<body onload="startTime(), hello(), randomQuote(), setElements()">
     <div class="navigate" id="navigate">
+        <a href="#" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
         <a href="https://n-wither.github.io">🏠<span>Home</span></a>
         <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
     </div>
     <div class="toolbox" id="toolbox">
+        <div style="position: absolute; top: 45%; left: 10px">|||</div>
         <div id="clock">clock</div>
     </div>
     <div class="content">
         <div>
-            <h1>Tools</h1>
+            <h1 id = 'page_title'>Title</h1>
             <hr/>
         </div>
         <div class="mainText">
             <p>
-                网页小工具，一切都在前端实现。
+                这是一个关于如何使用 <a href="https://kubejs.com/">KubeJS</a> 模组的系列文章。
             </p>
-            <br/>
-            <div class="list">
-                <div class="list_item">
-                    <a href="https://n-wither.github.io/tools/encrypt.html">通讯加密器</a><br>
-                    简单的文本加密，应该能应付初级的网络审查。
-                </div>
+            <div class="table-vertical">
+                <a href="./kjs-1.html"><span>1</span> 基础知识</a>
             </div>
+            <br/>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
             <hr/>

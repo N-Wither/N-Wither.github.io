@@ -3,7 +3,7 @@ body {
     background-repeat: repeat-x;
     background-attachment: fixed;
     color: white;
-    font-family: 'Metropolis', 'Noto Sans SC';
+    font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
     vertical-align: baseline;
     transition: 0.3s;
 }
@@ -41,6 +41,41 @@ a:hover {
 hr {
     border: none;
     border-top: 2px solid;
+}
+
+h2 {
+    background-color: #00000055;
+    padding-left: 10px;
+}
+
+pre {
+    background-color: #00000033;
+}
+
+pre code {
+    font-family: 'consolas', 'monospace';
+    font-size: small;
+}
+
+code {
+    background-color: #00000033;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+blockquote.info {
+    border-color: deepskyblue;
+    background-color: rgba(0, 191, 255, 0.2);
+}
+
+blockquote.notice {
+    border-color: goldenrod;
+    background-color: rgba(218, 165, 32, 0.2);
+}
+
+blockquote.warn {
+    border-color: crimson;
+    background-color: rgba(220, 20, 60, 0.2);
 }
 
 ::selection {
@@ -263,4 +298,24 @@ details.info[open] summary::after {
 
 details.info summary::-webkit-details-marker {
     display: none;
+}
+
+/* Tables */
+.table-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-vertical a {
+    color: white;
+    background-color: #00000066;
+    padding: 10px;
+}
+
+.table-vertical a:hover {
+    background-color: #FFFFFF22;
+}
+
+.table-vertical a span{
+    font-weight: bold;
 }

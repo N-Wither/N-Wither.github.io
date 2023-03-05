@@ -10,6 +10,7 @@
   <link href='https://fonts.googleapis.com/css?family=Ma Shan Zheng' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Readex Pro' rel='stylesheet'>
   <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
   <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
   <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/apocalypse-2020.css">
@@ -18,6 +19,7 @@
   <script src="https://n-wither.github.io/assets/js/utils.js"></script>
   <style>
     body {
+      background: #021b21;
       background: url(https://N-Wither.github.io/assets/imgs/00772-2846572417-compressed.png);
       background-attachment: fixed;
       background-repeat: no-repeat;
@@ -206,6 +208,23 @@
     .blink {
       animation: blink 1s infinite;
     }
+
+    @keyframes emerge {
+      0% {
+        opacity: 0;
+        transform: translateY(8rem);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .mainText {
+      animation: emerge 1s;
+
+    }
   </style>
 </head>
 
@@ -266,7 +285,7 @@
       <p>Kairn 随便取了个用户名按照自己常用的密码习惯输了一串字符进去。</p>
       <pre class="terminal">
         <code>
-          > SilverLine 054a6af9097a2918fadeb249310e56be20c74beb6068e46fa6d00d6ecc19fe33
+          > SilverRay 054a6af9097a2918fadeb249310e56be20c74beb6068e46fa6d00d6ecc19fe33
           Successfully registered.
           Use 'help' for help.
 
@@ -276,6 +295,8 @@
           Search what you're interested on Internet.
           archive
           Search or download books from Archive.
+          scan
+          Scan nearby devices.
           about
           Infomation about this program.
           registry
@@ -354,6 +375,11 @@
       <p>“不是跟你说了有点事情嘛！”</p>
       <p>“行吧，那我点菜了。”</p>
       <p>Karin 当然可以从 Unboxer 那里知道确切原由，但是她觉得朋友之间还是应该有些隐私。</p>
+      <p>“最近找到事情做了吗？”</p>
+      <p>“没呢，最近好像都没啥机会。”</p>
+      <p>Karin 已经半个月没有收入了，最近当地的帮派都没什么动作，自然也不需要招打手，而她在逃通缉犯的身份也让她不可能找到正经工作，她甚至都没法去市中心，因为那里的监控系统一下子就能把她认出来然后报警。</p>
+      <p>“那你这样还能撑多久？”</p>
+      <p>“半个月吧。”</p>
     </div>
     <div>
       <details class="info">
