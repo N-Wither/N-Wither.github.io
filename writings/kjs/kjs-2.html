@@ -65,6 +65,8 @@
                 关于 JavaScript 的基本数据类型，请看<a href="https://www.runoob.com/js/js-datatypes.html">这篇文章</a>。
             </blockquote>
 <pre><code class="hljs language-js">
+// priority: 0
+// 上面一行的作用是设定此 JS 文件加载的优先级，数字大的先加载。
 onEvent('recipes', event =&gt; {                      // 指定代码作用的事件，'event'可以改成任何合法的变量名
     event.shaped('2x minecraft:golden_apple',      // 添加有序合成配方，此配方输出两个金苹果
         [
@@ -115,7 +117,7 @@ onEvent('recipes', e =&gt; {
     e.remove({
         not: {output: 'minecraft:golden_apple'}
     })                                              // 移除所有不输出金苹果的配方，换句话说你只能合成金苹果
-    e.remove({})                                      // 移除所有配方，除非你想重新做一个游戏，否则不要使用
+    e.remove({})                                    // 移除所有配方，除非你想重新做一个游戏，否则不要使用
 })
 </code></pre>
             <p><code>remove()</code>中需要的是配方过滤器，也适用于修改配方。</p>
@@ -140,6 +142,57 @@ e.shaped(Item.of('minecraft:enchanted_book', '{StoredEnchantments:[{lvl:3,id:"mi
             <p>NBT 的数据类型为 <code>Internal.CompoundTag_</code>，表现为 JavaScript 对象。</p>
             <p><code>Item</code>类还有一些其他的方法，我会在之后提到。</p>
             <h2 id="sect-4">其他的原版配方</h2>
+<pre><code class="hljs lang-js">
+e.smelting(output, input).id('mod:id')                         // 熔炉
+e.smelting(output, input).cookTime(Number).xp(Number)          // 设定熔炼时间和获取的经验，也适用于高炉、烟熏炉和营火烹饪
+e.blasting(output, input)                                      // 高炉
+e.smoking(output, input)                                       // 烟熏炉
+e.campfireCooking(output, input)                               // 营火烹饪
+e.smithing(output, input1, input2)                             // 锻造台
+</code></pre>
+            如果你想修改酿药台，请安装<a href="https://www.curseforge.com/minecraft/mc-mods/morejs">MoreJS</a>。
+<pre><code class="lang-js">
+    // for 1.18 pls use: onEvent("morejs.potion_brewing.register", event =&gt; { ... })
+    MoreJSEvents.registerPotionBrewing(event =&gt; {
+        /**
+         * 1. Argument: The top ingredient of the brewing stand
+         * 2. Argument: The bottom ingredient of the brewing stand
+         * 3. Argument: The result of the brewing
+         */
+        event.addCustomBrewing(
+            "minecraft:gold_ingot",
+            Ingredient.customNBT("minecraft:potion", (nbt) =&gt; {
+                return nbt.contains("Potion") && nbt.Potion == "minecraft:water";
+            }),
+            Item.of("minecraft:potion", { Potion: "kubejs:felix_felicis" }) // This is a custom made potion. It's not vanilla
+        );
+    
+        event.addCustomBrewing("minecraft:diamond", "minecraft:emerald", "minecraft:gold_ingot");
+    
+        /**
+         * 1. Argument: The bottom ingredient of the brewing stand
+         * 2. Argument: The input potion of the brewing stand
+         * 3. Argument: The result potion of the brewing
+         */
+        event.addPotionBrewing("minecraft:emerald", "minecraft:fire_resistance", "minecraft:strength");
+    
+        /**
+         * Simpler call which automatically use `potion:water` as the input potion.
+         * 1. Argument: The bottom ingredient of the brewing stand
+         * 3. Argument: The result potion of the brewing
+         */
+        event.addPotionBrewing("minecraft:nether_star", "minecraft:levitation");
+    
+        /**
+         * Removes all potions where an awkward potion is used as theb base potion ingredient.
+         * 1. Argument: The input potion id to filter.
+         * 2. Argument: The ingredient to filter.
+         * 3. Argument: The result potion id to filter.
+         * Passing `null` counts as a wildcard.
+         */
+        event.removeByPotion("minecraft:awkward", null, null);
+    });
+</code>摘自 <a href="https://github.com/AlmostReliable/morejs/wiki/Potion-Brewing">MoreJS Wiki</a></pre>
             <h2 id="sect-5">使用 JSON 配方</h2>
             <br/>
         </div>
