@@ -20,11 +20,6 @@
             document.getElementById('sub_title').innerHTML = 'RecipeEventJS';
         }
     </script>
-    <style>
-        blockquote {
-            font-style: normal;
-        }
-    </style>
 </head>
 <body onload="startTime(), hello(), randomQuote(), setElements()">
     <div class="navigate" id="navigate">
@@ -39,6 +34,13 @@
             <a href="./kjs-1.html">上一篇</a>
             <a href="./kjs-0.html">目录</a>
             <a href="./kjs-3.html">下一篇</a>
+        </div>
+        <div class="content-table">
+            <a href="#sect-1">工作台合成</a>
+            <a href="#sect-2">移除与修改配方</a>
+            <a href="#sect-3">使用带 NBT 的物品</a>
+            <a href="#sect-4">其他的原版配方</a>
+            <a href="#sect-5">使用 JSON 配方</a>
         </div>
     </div>
     <div class="content">
@@ -55,13 +57,14 @@
             <blockquote class="notice">黄色的 blockquote 表示应当注意。</blockquote>
             <blockquote class="warn">红色的 blockquote 表示警告。</blockquote>
             <p>魔改模组绝大部分用途都是改配方，这篇文章教你改配方。</p>
-            <h2>工作台合成</h2>
+            <p>我推荐你使用<a href="https://www.curseforge.com/minecraft/mc-mods/probejs">ProbeJS</a>，它能在 VSCode 里面提供代码提示和补全。</p>
+            <h2 id="sect-1">工作台合成</h2>
             <p>首先你在<code>server_scripts</code>里面新建一个 JS 文件，一个文件只做一类事情，养成好习惯，免得以后忘记代码写在哪了。</p>
             <p>然后要知道工作台的配方分有序合成和无序合成两种，来看看怎么写：</p>
             <blockquote class="info">
                 关于 JavaScript 的基本数据类型，请看<a href="https://www.runoob.com/js/js-datatypes.html">这篇文章</a>。
             </blockquote>
-<pre>JavaScript<code class="hljs language-js">
+<pre><code class="hljs language-js">
 onEvent('recipes', event =&gt; {                      // 指定代码作用的事件，'event'可以改成任何合法的变量名
     event.shaped('2x minecraft:golden_apple',      // 添加有序合成配方，此配方输出两个金苹果
         [
@@ -88,15 +91,57 @@ ServerEvents.recipes(event =&gt; {
 })
 </code>从上一篇文章搬运过来的，稍微改了一下</pre>
             写完后保存文件，在游戏里面使用<code>/reload</code>来应用更改。
-            <blockquote class="info">
-                如果你发现你写的代码没有生效，请在<code>logs/kubejs</code>查看日志！
-            </blockquote>
+            <blockquote class="info">在未指定配方 ID 的情况下，KubeJS 会随机分配一个 ID。如果你指定的配方 ID 和现有的 ID 相同，则新设定的配方会覆盖旧的。</blockquote>
+            <blockquote class="info">如果你发现你写的代码没有生效，请在<code>logs/kubejs</code>查看日志！</blockquote>
+            <p>默认情况下，工作台配方可以被镜像（类似锄头的配方）和缩小（类似木棍）。如果你想写类似于 Mystical Agriculture 精华合成的那种配方，就像这样写：</p>
+<pre><code class="hljs lang-js">
+onEvent('recipes', e =&gt; {
+    e.shaped('4x minecraft:stick', [
+        ' P ',
+        'P  ',
+        '   '
+    ], {P: '#minecraft:planks'}).noMirror().noShrink()      // 这两个方法没有先后顺序
+})
+</code></pre>
+            <p>这样你就必须把木板放到第一行第二个格子和第二行第一个格子才能合成出木棍了，不能镜像，也不能放到别处（哪怕形状一样）。</p>
+            <h2 id="sect-2">移除与修改配方</h2>
+            <p>直接上示例。</p>
+<pre><code class="hljs language-js">
+onEvent('recipes', e =&gt; {
+    e.remove({output: 'minecraft:golden_apple'})    // 移除所有输出金苹果的配方，包括其他模组添加的
+    e.remove({id: 'minecraft:golden_apple'})        // 移除配方 ID 为 'minecrfat:golden_apple' 的配方，也就是原版的金苹果配方
+    e.remove({type: 'minecraft:crafting_shaped'})   // 移除所有有序合成配方
+    e.remove({mod: 'torcherino'})                   // 移除所有由 Torcherino 添加的配方，另外它检测的实际上是配方 ID 的命名空间
+    e.remove({
+        not: {output: 'minecraft:golden_apple'}
+    })                                              // 移除所有不输出金苹果的配方，换句话说你只能合成金苹果
+    e.remove({})                                      // 移除所有配方，除非你想重新做一个游戏，否则不要使用
+})
+</code></pre>
+            <p><code>remove()</code>中需要的是配方过滤器，也适用于修改配方。</p>
+<pre><code class="hljs lang-js">
+// 为了方便写文章，省略 onEvent()
+// 你还是要写的
+e.replaceInput({output: 'minecraft:golden_apple'}, 'minecraft:gold_ingot', 'minecraft:copper_ingot')   // 将金苹果配方中的金锭换成铜锭，天下哪有这么好的事！
+e.replaceOutput({}, 'minecraft:golden_apple', 'minecraft:golden_carrot')                               // 将所有输出金苹果的配方换成输出金胡萝卜，至少挺扛饿！
+</code></pre>
+            <h2 id="sect-3">使用带 NBT 的物品</h2>
+            <p>假如你想合成一本附魔书：</p>
+<pre><code class="hljs lang-js">
+e.shaped(Item.of('minecraft:enchanted_book', '{StoredEnchantments:[{lvl:3,id:"minecraft:fortune"}]}')  // 可以去掉 NBT 外的引号把它变成一个对象
+    [' D ', 'DBD', ' D '],
+    {
+        D: 'minecraft:diamond',
+        B: 'minecraft:book'
+    }
+)
+</code></pre>
+            <p><code>Item.of()</code> 接受 2 或 3 个参数，第一个参数为物品 ID 或标签，第二个参数为数量或 NBT，第三个参数为 NBT。</p>
+            <p>NBT 的数据类型为 <code>Internal.CompoundTag_</code>，表现为 JavaScript 对象。</p>
+            <p><code>Item</code>类还有一些其他的方法，我会在之后提到。</p>
+            <h2 id="sect-4">其他的原版配方</h2>
+            <h2 id="sect-5">使用 JSON 配方</h2>
             <br/>
-            <div class="chapter_select">
-                <a href="./kjs-1.html">上一篇</a>
-                <a href="./kjs-0.html">目录</a>
-                <a href="./kjs-3.html">下一篇</a>
-            </div>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
             <hr/>

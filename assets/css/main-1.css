@@ -81,6 +81,10 @@ blockquote.warn {
     font-style: normal;
 }
 
+pre {
+    overflow: auto;
+}
+
 ::selection {
     background-color: #22aaaa;
 }
@@ -328,6 +332,7 @@ details.info summary::-webkit-details-marker {
     display: grid;
     grid-template-columns: auto auto auto;
     background-color: #00000033;
+    margin-bottom: 5px;
 }
 
 .chapter_select a {

@@ -6,6 +6,16 @@
     Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
 */
 
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+code.hljs {
+    padding: 3px 5px;
+}
+
 .hljs {
     background: #2b2b2b;
     color: #f8f8f2;
@@ -41,7 +51,8 @@
 }
 
 /* Yellow */
-.hljs-attribute {
+.hljs-attribute,
+.hljs-attr {
     color: #ffd700;
 }
 
