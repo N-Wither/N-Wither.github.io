@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset= "utf-8">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/hljs/solarized-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll()</script>
+    <title></title>
+    <script src="https://n-wither.github.io/assets/js/utils.js"></script>
+    <script>
+        document.title = '配方事件 | KubeJS Experienced';
+        let setElements = () => {
+            document.getElementById('category').innerHTML = 'KubeJS<br>Experienced';
+            document.getElementById('page_title').innerHTML = '配方事件';
+            document.getElementById('sub_title').innerHTML = 'RecipeEventJS';
+        }
+    </script>
+    <style>
+        blockquote {
+            font-style: normal;
+        }
+    </style>
+</head>
+<body onload="startTime(), hello(), randomQuote(), setElements()">
+    <div class="navigate" id="navigate">
+        <a href="./kjs-0.html" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
+        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
+        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
+    </div>
+    <div class="toolbox" id="toolbox">
+        <div style="position: absolute; top: 45%; left: 10px">|||</div>
+        <div id="clock">clock</div>
+    </div>
+    <div class="content">
+        <div>
+            <h1 id = 'page_title'>Title</h1>
+            <h3 id = 'sub_title'></h2>
+            <hr/>
+        </div>
+        <div class="mainText">
+            <h2>前言</h2>
+            <p>在开始写代码之前，你自然是最好有一些编程基础，大学的 C 语言课就足够了。当然没有也没关系，照着我写的做就是了，但是如果你有一定的理解能力，那你就可以触类旁通，我也不必那么费心。</p>
+            <p>然后介绍一下这些：</p>
+            <blockquote class="info">蓝色的 blockquote 表示信息与提示。</blockquote>
+            <blockquote class="notice">黄色的 blockquote 表示应当注意。</blockquote>
+            <blockquote class="warn">红色的 blockquote 表示警告。</blockquote>
+            <p>魔改模组绝大部分用途都是改配方，这篇文章教你改配方。</p>
+            <h2>工作台合成</h2>
+            <p>首先你在<code>server_scripts</code>里面新建一个 JS 文件，一个文件只做一类事情，养成好习惯，免得以后忘记代码写在哪了。</p>
+            <p>然后要知道工作台的配方分有序合成和无序合成两种，先看有序合成：</p>
+<pre>JavaScript<code>
+onEvent('recipes', event =&gt; {                      // 指定代码作用的事件，'event'可以改成任何合法的变量名
+    event.shaped('2x minecraft:golden_apple',      // 添加有序合成配方，此配方输出两个金苹果
+        [
+            ' G ',
+            'GAG',
+            ' G '
+        ],                                         // 物品的摆放样式，使用字符代替不同的物品，空格表示没有物品
+        {
+            G: '#forge:storage_blocks/gold',
+            A: 'minecraft:apple'
+        }                                          // 定义上面的字符代表的物品（或标签）
+    ).id('kubejs:shaped_example_1')                // 指定配方 ID，这不是必须的
+})
+</code>从上一篇文章搬运过来的，稍微改了一下</pre>
+            <br/>
+
+            <div class="chapter_select">
+                <a href="./kjs-1.html">上一篇</a>
+                <a href="./kjs-0.html">目录</a>
+                <a href="./kjs-3.html">下一篇</a>
+            </div>
+        </div>
+        <div id="footer" style="clear:both;text-align:center;">
+            <hr/>
+            <span id="randomQuote">Random Quote</span>
+            <br>
+            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+        </div>
+    </div>
+</body>
+</html>

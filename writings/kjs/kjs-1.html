@@ -19,6 +19,12 @@
             document.getElementById('page_title').innerHTML = '基础知识';
         }
     </script>
+    <style>
+        #clock {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    </style>
 </head>
 <body onload="startTime(), hello(), randomQuote(), setElements()">
     <div class="navigate" id="navigate">
@@ -29,6 +35,11 @@
     <div class="toolbox" id="toolbox">
         <div style="position: absolute; top: 45%; left: 10px">|||</div>
         <div id="clock">clock</div>
+        <div class="chapter_select">
+            <span>上一篇</span>
+            <a href="./kjs-0.html">目录</a>
+            <a href="./kjs-2.html">下一篇</a>
+        </div>
     </div>
     <div class="content">
         <div>
@@ -130,6 +141,12 @@ onEvent('item.registry', event =&gt; {
                 <li>Startup 事件在游戏启动时生效，例如物品、方块注册、物品属性修改等。只在游戏启动时加载，无法热重载。</li>
             </ol>
             <p>在后面的文章中，我将介绍各种事件，使用各种例子，你还能学到一点 JavaScript 知识。</p>
+
+            <div class="chapter_select">
+                <span>上一篇</span>
+                <a href="./kjs-0.html">目录</a>
+                <a href="./kjs-2.html">下一篇</a>
+            </div>
             <br/>
         </div>
         <div id="footer" style="clear:both;text-align:center;">

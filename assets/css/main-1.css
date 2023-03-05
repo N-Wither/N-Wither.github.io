@@ -66,16 +66,19 @@ code {
 blockquote.info {
     border-color: deepskyblue;
     background-color: rgba(0, 191, 255, 0.2);
+    font-style: normal;
 }
 
 blockquote.notice {
     border-color: goldenrod;
     background-color: rgba(218, 165, 32, 0.2);
+    font-style: normal;
 }
 
 blockquote.warn {
     border-color: crimson;
     background-color: rgba(220, 20, 60, 0.2);
+    font-style: normal;
 }
 
 ::selection {
@@ -171,8 +174,8 @@ li.content a:hover:not(.active) {
 #clock {
     text-align: center;
     background-color: #00000033;
-    width: 100%;
-    height: 30px;
+    width: 12rem;
+    height: 1.3rem;
     padding-top: 5px;
     margin-bottom: 5px;
 }
@@ -318,4 +321,19 @@ details.info summary::-webkit-details-marker {
 
 .table-vertical a span{
     font-weight: bold;
+}
+
+/* Chapter Selection*/
+.chapter_select {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #00000033;
+}
+
+.chapter_select a {
+    text-align: center;
+}
+
+.chapter_select span {
+    text-align: center;
 }
