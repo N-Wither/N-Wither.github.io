@@ -15,7 +15,6 @@ div.content {
 }
 
 blockquote {
-    margin-right: 24%;
     font-style: oblique;
     background-color: #11111111;
     padding: 1em;
@@ -232,7 +231,7 @@ li.content a:hover:not(.active) {
 
 /* Scroll Bar */
 ::-webkit-scrollbar-track {
-    background: linear-gradient(to top, #072b3a, #154b50);
+    background: #154b50;
     width: 0px;
 }
 

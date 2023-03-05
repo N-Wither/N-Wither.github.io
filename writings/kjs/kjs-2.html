@@ -41,6 +41,7 @@
             <a href="#sect-3">使用带 NBT 的物品</a>
             <a href="#sect-4">其他的原版配方</a>
             <a href="#sect-5">使用 JSON 配方</a>
+            <a href="#sect-6">使用函数</a>
         </div>
     </div>
     <div class="content">
@@ -150,7 +151,7 @@ e.smoking(output, input)                                       // 烟熏炉
 e.campfireCooking(output, input)                               // 营火烹饪
 e.smithing(output, input1, input2)                             // 锻造台
 </code></pre>
-            如果你想修改酿药台，请安装<a href="https://www.curseforge.com/minecraft/mc-mods/morejs">MoreJS</a>。
+            如果你想修改酿造台配方，请安装 <a href="https://www.curseforge.com/minecraft/mc-mods/morejs">MoreJS</a>。
 <pre><code class="lang-js">
     // for 1.18 pls use: onEvent("morejs.potion_brewing.register", event =&gt; { ... })
     MoreJSEvents.registerPotionBrewing(event =&gt; {
@@ -194,6 +195,136 @@ e.smithing(output, input1, input2)                             // 锻造台
     });
 </code>摘自 <a href="https://github.com/AlmostReliable/morejs/wiki/Potion-Brewing">MoreJS Wiki</a></pre>
             <h2 id="sect-5">使用 JSON 配方</h2>
+<pre><code class="lang-js">
+    // 用法：
+    event.custom(Internal.JsonElement_)
+    // 示例
+    event.custom({
+        "type": "create:crushing",
+        "ingredients": [
+            {"item": "minecraft:oak_sapling"}
+        ],
+        "results": [
+            {"item": "minecraft:apple"},
+            {"item": "minecraft:carrot"}
+        ],
+        "processingTime": 100
+    })
+    // 你可以像上面那样直接粘贴 JSON，也可以将它改造得更符合 JS 的样子
+    event.custom({
+        type: 'create:crushing',
+        ingredients: [
+            Ingredient.of('minecraft:oak_sapling').toJson()    // 大多数情况下，Ingredient 用起来和 Item 没有区别
+        ],
+        results: [
+            Item.of('minecraft:apple').toJson(),
+            Item.of('minecraft:carrot').toJson()
+        ],
+        processingTime: 100
+    })
+</code>摘自 <a href="https://mods.latvian.dev/books/kubejs/page/recipes">KubeJS Wiki</a></pre>
+            <blockquote class="info">如果你不知道你想要添加的配方 JSON 长什么样，去 mod 的 jar 文件里找 <code>data/modid/recipes/</code>。</blockquote>
+            <h2 id="sect-6">使用函数</h2>
+            <p>为了方便，有时候会用函数封装上面那样的 JSON 配方。</p>
+<pre><code class="lang-js">
+    // 第一种方法
+    function createCrushing(results, ingredients, time){
+        event.custom({
+            type: 'create:crushing',
+            ingredients: ingredients,
+            results: results,
+            processingTime: time
+        })
+    }
+
+    // 第二种方法
+    let createCrushing = (results, ingredients, time) =&gt; {
+        // 和上面相同的代码
+    }
+
+    // 用法：
+    createCrushing(
+        [Ingredient.of('minecraft:oak_sapling').toJson()],
+        [Item.of('minecraft:apple').toJson(),Item.of('minecraft:carrot').toJson()],
+        100
+    )
+</code></pre>
+            <p>上面使用的是普通的函数，这适用于大多数配方，你也可以在函数中添加更多的处理逻辑，这样你就能直接在参数里面用<code>'2x minecraft:apple'</code>了。</p>
+            <p>下面介绍另一种函数：构造函数。</p>
+<pre><code class="lang-js">
+    function draconicFusionCrafting(result, catalyst){
+        // 使用了 this 之后，这个函数就成为了一个构造函数
+        this.json = {
+            type: 'draconicevolution:fusion_crafting',
+            result: result,
+            catalyst: catalyst,
+            total_energy: 100000,
+            tier: 'DRACONIUM',
+            ingredients: []
+        }
+    }
+
+    // 通过原型（prototype）为构造函数添加方法
+    draconicFusionCrafting.prototype = {
+        // 下面是一个 JSDocument 注释，说明了函数使用的参数的类型，这样你在写代码的时候编辑器就能提示你应该填什么类型的参数了
+        /**
+         * @param {number} energy
+         */
+        energy: function(energy){
+            this.json.total_energy = energy
+            return this
+        },
+        /**
+         * @param {string} tier
+         */
+        tier: function(tier){
+            this.json.tier = tier
+            return this
+        },
+        /**
+         * @param {Array} ingredients
+         */
+        ingredients: function(ingredients){
+            ingredients.forEach(ingredient => {
+                this.json.ingredients.push(ingredient)
+            })
+            return this
+        },
+        done: function(){
+            let recipe = this.json
+            return recipe
+        }
+    }
+
+    // 用法：
+    e.custom(
+        // 不要漏掉 new 关键字
+        new draconicFusionCrafting(
+            Item.of('productivebees:spawn_egg_configurable_bee', '{EntityTag:{type:"productivebees:chaos"}}').toJson(),
+            Item.of('productivebees:spawn_egg_configurable_bee', '{EntityTag:{type:"productivebees:awakened"}}').toJson()
+        )
+        .energy(64000000)
+        .tier('CHAOTIC')
+        .ingredients([
+            {"item": "draconicevolution:chaotic_core"},
+            {"item": "draconicevolution:awakened_core"},
+            {"item": "draconicevolution:chaotic_core"},
+            {"item": "minecraft:honey_block"},
+            {"tag": "forge:storage_blocks/honeycombs"},
+            {"tag": "forge:storage_blocks/honeycombs"},
+            {"tag": "forge:ingots/draconium_awakened"},
+            {"item": "draconicevolution:medium_chaos_frag"}
+        ])
+        .done()
+    ).id('productivebees:chaos_bee')
+</code></pre>
+            <blockquote class="info">
+                关于命名，推荐的方法是：<br>
+                常量使用全大写，单词之间使用下划线连接。（<code>THE_CONSTANT</code>）<br>
+                变量与函数使用小驼峰命名法。（<code>theVariable, theFunction()</code>）<br>
+                类名使用大驼峰命名法。（<code>TheClass</code>）<br>
+                当然命名方法不是唯一的，但是请尽量在你的项目中使用同一套命名规则。
+            </blockquote>
             <br/>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
