@@ -217,3 +217,9 @@ details.info {
     transition: 0.2s;
     font-size: small;
 }
+
+.img-box {
+    background-color: #f9f2ed;
+    padding: 10px;
+    box-shadow: #00000033 2px 2px 4px;
+}

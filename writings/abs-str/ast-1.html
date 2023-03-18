@@ -190,6 +190,19 @@
     .alive-count {
       position: relative;
     }
+
+    .tooltip {
+    opacity: 0;
+    position: fixed;
+    background-color: #00000099;
+    user-select: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    transition: 0.2s;
+    font-size: small;
+}
   </style>
   <style>
     .bili-video {
@@ -266,7 +279,7 @@
   </style>
 </head>
 
-<body onload="startTime(), hello(), randomQuote()">
+<body onload="startTime(), hello(), randomQuote(), tagNotes()">
   <div class="navigate" id="navigate">
     <a href="https://n-wither.github.io/writings/abs-str/index.html"
       style="line-height: unset; height: 50px;">📂<span
@@ -304,8 +317,7 @@
       </p>
       <p>
         当然上帝不会真的怀孕，这么说只是方便你们理解。众所周知如果男女双方都没有做好准备的话，意外怀孕生下来的孩子通常都是个悲剧。地球也不例外，上帝的本意是好的，只不过地球还是长歪了，现在的地球已经充满了战争、瘟疫、饥荒、死亡、毒品、淫乱、污染、邪教和同性恋<sup><a
-            href="#note-1" id="note-ref-1" class="note"
-            title="《圣经·利未记》 18:22 ：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。">1</a></sup>。
+            href="#footnote-1" class="note">1</a></sup>。
       </p>
       <p>
         然而木已成舟，既然地球已经创造出来了，那也只能养着了，周一到周五归上帝管，周末归撒旦。这就是为什么人们喜欢在周末娱乐。
@@ -384,8 +396,7 @@
         “我们真的只能等死了吗？”
       </p>
       <p>
-        <span class="god-speaking">是的……等等，刚才 Uriel<sup><a href="#note-2" id="note-ref-2" class="note"
-              title="一位天使长，救赎之天使。">2</a></sup>
+        <span class="god-speaking">是的……等等，刚才 Uriel<sup><a href="#footnote-2" class="note">2</a></sup>
           告诉我有个人在升天的过程中因为恐高心脏病发作死了，所以空出来一个名额，你们之中将会有一个幸运儿填上这个空缺。</span>
       </p>
       <p>
@@ -532,7 +543,7 @@
         <div style="background-color: #cccccc; width: 300px; border-radius: 0px 8px 8px 8px; margin: 15px;">
           <span class="satan-speaking"
             style="font-family: 'Ma Shan Zheng'; color: black;">【地狱电信】你好，我是撒旦。看起来你所在的国家对枪支的管控很严，但其他国家就不一定了，为了公平起见，也为了观赏性，我让上帝往世界各地投放了一些武器，数量管够，都是从你们国家的兵工厂武器库之类的地方拿的。基本上你只要到处找找就能找到了，玩得开心点，沙扬娜拉<sup><a
-                href="#note-3" id="note-ref-3" class="note" title="日语“さようなら”（再见）的谐音。">3</a></sup>！</span>
+                href="#footnote-3" class="note">3</a></sup>！</span>
         </div>
       </div>
       <p>
@@ -911,13 +922,13 @@
       <details class="info">
         <summary style="font-weight: bold;">注释</summary>
         <div>
-          <span id="note-1"><a href="#note-ref-1">^1</a>&nbsp 《圣经·利未记》
-            18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span><br>
-          <span id="note-2"><a href="#note-ref-2">^2</a>&nbsp 一位天使长，救赎之天使。</span><br>
-          <span id="note-3"><a href="#note-ref-3">^3</a>&nbsp 日语“さようなら”（再见）的谐音。</span>
+          <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span id="footnote-1">《圣经·利未记》18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span></p>
+          <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span id="footnote-2">一位天使长，救赎之天使。</span></p>
+          <p><a href="#note-3"><sup>3</sup></a>&nbsp;<span id="footnote-3">日语“さようなら”（再见）的谐音。</span></p>
         </div>
       </details>
     </div>
+    <div class="tooltip">Test</div>
     <div>
       <details class="info">
         <summary style="font-weight: bold;">版权/引用</summary>
