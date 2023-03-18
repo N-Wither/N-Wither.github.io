@@ -223,3 +223,15 @@ details.info {
     padding: 10px;
     box-shadow: #00000033 2px 2px 4px;
 }
+
+.img-box img {
+    max-width: 100%;
+}
+
+.content-dark .img-box {
+    background-color: #383838;
+}
+
+.content-dark .img-box img{
+    filter: brightness(0.7);
+}

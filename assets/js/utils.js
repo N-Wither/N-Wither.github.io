@@ -93,9 +93,9 @@ function tagNotes() {
 }
 
 function showNote(index) {
-    let content = document.querySelector(`#footnote-${index}`).textContent
+    let content = document.querySelector(`#footnote-${index}`).innerHTML
     let box = document.querySelector('.tooltip')
-    box.textContent = content
+    box.innerHTML = content
     box.style.opacity = 1
     document.addEventListener('mousemove', e => {
         box.style.left = e.clientX + 10 + 'px'
