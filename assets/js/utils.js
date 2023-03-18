@@ -38,29 +38,29 @@ function accModeSwitch() {
     }
 }
 
-function startTime(){
-    var today=new Date();
-    var D=today.getDate();
-    var Y=today.getFullYear();
-    var Mo=today.getMonth()+1;
-    var h=today.getHours();
-    var m=today.getMinutes();
-    var s=today.getSeconds();
-    m=checkTime(m);
-    s=checkTime(s);
-    document.getElementById('clock').innerHTML=Y+"/"+ Mo +"/"+D+" "+h+":"+m+":"+s;
-    t=setTimeout(function(){startTime()},500);
+function startTime() {
+    var today = new Date();
+    var D = today.getDate();
+    var Y = today.getFullYear();
+    var Mo = today.getMonth() + 1;
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('clock').innerHTML = Y + "/" + Mo + "/" + D + " " + h + ":" + m + ":" + s;
+    t = setTimeout(function () { startTime() }, 500);
 }
-function checkTime(i){
-    if (i<10){
-        i="0" + i;
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
     }
     return i;
 }
 
-function hello(){console.log("Wow, you found me!")}
+function hello() { console.log("Wow, you found me!") }
 
-function randomQuote(){
+function randomQuote() {
     let quotes = [
         '已有的事后必再有，已行的事后必再行，日光之下并无新事。——《圣经·传道书》1:9',
         '给岁月以文明，而不是给文明以岁月。——刘慈欣《三体·黑暗森林》',
@@ -77,4 +77,33 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function tagNotes() {
+    let notesInText = document.querySelectorAll('.note')
+    notesInText.forEach((note, index) => {
+        note.setAttribute('id', `note-${index + 1}`)
+        note.addEventListener('mouseenter', event => {
+            showNote(index + 1)
+        })
+        note.addEventListener('mouseleave', event => {
+            offNote(index + 1)
+        })
+    })
+}
+
+function showNote(index) {
+    let content = document.querySelector(`#footnote-${index}`).textContent
+    let box = document.querySelector('.tooltip')
+    box.textContent = content
+    box.style.opacity = 1
+    document.addEventListener('mousemove', e => {
+        box.style.left = e.clientX + 10 + 'px'
+        box.style.top = e.clientY + 10 + 'px'
+    })
+}
+
+function offNote(index) {
+    let box = document.querySelector('.tooltip')
+    box.style.opacity = 0
 }

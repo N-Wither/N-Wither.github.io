@@ -1,0 +1,219 @@
+body {
+    background: url('https://n-wither.github.io/assets/imgs/western_fantasy_harbor_city_blue_and_white_color_aerial.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.dark-mode-on {
+    background: url('https://n-wither.github.io/assets/imgs/western_fantasy_harbor_city_blue_and_white_color_aerial.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.content .mainText {
+    background: #faf5e4;
+    padding: 1rem;
+    box-shadow: 2px 2px 8px #00000066;
+    color: black;
+    transition: 0.2s;
+}
+
+.content-dark .mainText {
+    background: #333333;
+    box-shadow: 2px 2px 8px #00000066;
+    padding: 1rem;
+    color: white;
+    transition: 0.2s;
+}
+
+.content-dark .mainText h2 {
+    background-color: #383838;
+}
+
+h2 {
+    background-color: #eadac3;
+    text-shadow: 2px 2px 4px #00000033;
+    padding: 8px;
+    position: relative;
+    left: -3%;
+    box-shadow: 2px 2px 6px #00000033;
+    margin: 0;
+}
+
+::-webkit-scrollbar-track {
+    background: #faf5e4;
+    width: 0px;
+}
+
+.content-table a {
+    position: relative;
+    color: white;
+    background: linear-gradient(0deg, #8e24bc, #8e24bc) no-repeat right bottom / 0 var(--bg-h);
+    transition: background-size 350ms;
+    --bg-h: 100%;
+}
+
+.content-table a:where(:hover, :focus-visible) {
+    background-size: 100% var(--bg-h);
+    background-position-x: left;
+}
+
+/* .content-table a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    background-color: #c256f0;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in;
+  } */
+
+/* .content-table a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  } */
+
+code {
+    background-color: #00000033;
+    border-radius: 2px;
+}
+
+#clock {
+    width: 180px;
+}
+
+summary {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#accessibility-switch:active {
+    background-color: #ffffff33;
+    transition: 0.1s;
+}
+
+#accessibility-switch:hover {
+    transition: 0.1s;
+    transform: scale(1.04);
+}
+
+#accessibility-switch {
+    transition: 0.1s;
+}
+
+#content a {
+    position: relative;
+    color: #8e24bc;
+}
+
+#content a:hover {
+    background: transparent;
+    color: #8e24bc;
+}
+
+#content a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    background-color: #8e24bc;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in;
+}
+
+#content a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+pre {
+    box-shadow: 2px 2px 6px #00000033;
+}
+
+#toolbox {
+    color: white;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 400px;
+    transition: 0.2s;
+}
+
+.title-main {
+    font-size: 4rem;
+    font-weight: bolder;
+    margin: auto;
+    text-shadow: 2px 2px 8px #047cc8;
+}
+
+.mainText {
+    margin-bottom: 8px;
+}
+
+details.info {
+    background-color: #00000066;
+}
+
+.hljs {
+    background: #f6e8de;
+}
+
+.dark-mode-on~.hljs {
+    background: #343040;
+}
+
+::selection {
+    background-color: #810fb1;
+    color: white;
+}
+
+.illust {
+    text-align: center;
+}
+
+.illust img {
+    box-shadow: 2px 2px 8px #333333;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.navigate {
+    z-index: 99999;
+}
+
+.toolbox {
+    z-index: 99999;
+}
+
+#clock {
+    width: 100%;
+}
+
+.tooltip {
+    opacity: 0;
+    position: fixed;
+    background-color: #00000099;
+    user-select: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    transition: 0.2s;
+    font-size: small;
+}
