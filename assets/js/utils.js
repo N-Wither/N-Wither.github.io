@@ -83,6 +83,7 @@ function tagNotes() {
     let notesInText = document.querySelectorAll('.note')
     notesInText.forEach((note, index) => {
         note.setAttribute('id', `note-${index + 1}`)
+        note.setAttribute('onclick', `showNote(${index + 1})`)
         note.addEventListener('mouseenter', event => {
             showNote(index + 1)
         })

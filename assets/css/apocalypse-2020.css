@@ -174,8 +174,7 @@ h2 {
 }
 
 .paper-file-sticker {
-    position: absolute;
-    right: 15px;
+    float: right;
     background-color: #fcfcf0;
     box-shadow: 2px 2px 2px #00000033;
     padding: 8px;

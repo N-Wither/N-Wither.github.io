@@ -226,6 +226,7 @@ details.info {
 
 .img-box img {
     max-width: 100%;
+    transition: .2s;
 }
 
 .content-dark .img-box {
@@ -234,4 +235,12 @@ details.info {
 
 .content-dark .img-box img{
     filter: brightness(0.7);
+}
+
+.img-box img.img-zoom:hover {
+    transform: scale(1.5);
+}
+
+details {
+    z-index: -1;
 }
