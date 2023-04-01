@@ -253,15 +253,13 @@ e.smithing(output, input1, input2)                             // 锻造台
             <p>下面介绍另一种函数：构造函数。</p>
 <pre><code class="lang-js">
     function draconicFusionCrafting(result, catalyst){
-        // 使用了 this 之后，这个函数就成为了一个构造函数
-        this.json = {
-            type: 'draconicevolution:fusion_crafting',
-            result: result,
-            catalyst: catalyst,
-            total_energy: 100000,
-            tier: 'DRACONIUM',
-            ingredients: []
-        }
+        // 使用了 this 之后，这个函数就成为了一个构造函数，相当于一个类，不过 class 在 KubeJS 中不可用。
+        this.type = 'draconicevolution:fusion_crafting'
+        this.result = result
+        this.catalyst = catalyst
+        this.total_energy = 100000
+        this.tier = 'DRACONIUM'
+        this.ingredients = []
     }
 
     // 通过原型（prototype）为构造函数添加方法
@@ -271,28 +269,22 @@ e.smithing(output, input1, input2)                             // 锻造台
          * @param {number} energy
          */
         energy: function(energy){
-            this.json.total_energy = energy
+            this.total_energy = energy
             return this
         },
         /**
          * @param {string} tier
          */
         tier: function(tier){
-            this.json.tier = tier
+            this.tier = tier
             return this
         },
         /**
          * @param {Array} ingredients
          */
         ingredients: function(ingredients){
-            ingredients.forEach(ingredient => {
-                this.json.ingredients.push(ingredient)
-            })
+            this.ingredients = ingredients
             return this
-        },
-        done: function(){
-            let recipe = this.json
-            return recipe
         }
     }
 
@@ -315,7 +307,6 @@ e.smithing(output, input1, input2)                             // 锻造台
             {"tag": "forge:ingots/draconium_awakened"},
             {"item": "draconicevolution:medium_chaos_frag"}
         ])
-        .done()
     ).id('productivebees:chaos_bee')
 </code></pre>
             <blockquote class="info">

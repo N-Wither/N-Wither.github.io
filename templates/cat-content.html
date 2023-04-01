@@ -15,9 +15,16 @@
             document.getElementById('category').innerHTML = 'Edit This';
             document.getElementById('page_title').innerHTML = 'Page Title';
         }
+
+        function init(){
+            startTime();
+            hello();
+            randomQuote();
+            setElements();
+        }
     </script>
 </head>
-<body onload="startTime(), hello(), randomQuote()">
+<body onload="init()">
     <div class="navigate" id="navigate">
         <a href="#" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
         <a href="https://n-wither.github.io">🏠<span>Home</span></a>
