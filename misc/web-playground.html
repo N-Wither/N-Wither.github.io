@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset= "utf-8">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="./web-playground.css">
+    <title>Web Playground</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js"></script>
+    <script>
+        let setElements = () => {
+            document.getElementById('category').innerHTML = 'Misc';
+        }
+
+        function init(){
+            startTime();
+            hello();
+            randomQuote();
+            setElements();
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div class="navigate" id="navigate">
+        <a href="#" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
+        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
+        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
+    </div>
+    <div class="toolbox" id="toolbox">
+        <div style="position: absolute; top: 45%; left: 10px">|||</div>
+        <div id="clock">clock</div>
+    </div>
+    <div class="content">
+        <div>
+            <h1>Web Playground</h1>
+            <h3>Some web developing tests and tricks.</h3>
+            <hr/>
+        </div>
+        <div class="mainText">
+            <h2>Assets of this Page</h2>
+            <p>CSS: <code>./web-playground.css</code></p>
+            <p>JS: <code>./web-playground.js</code></p>
+            <p>HTML: F12</p>
+            <h2>MOBA Scoreboard</h2>
+            <div class="moba-scoreboard">
+                <div class="team-blue row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/78/T1logo_profile.png" alt="T1" id="blue-team-logo"></div>
+                <div class="team-name row-1">
+                    <span id="blue-team-name-text">T1</span>
+                    <span id="blue-team-pos-text">LCK#2</span>
+                </div>
+                <div class="towers row-1"><span style="color: mediumturquoise;">♜</span>&nbsp;<span id="blue-team-turret">8</span></div>
+                <div class="gold row-1"><span style="color: mediumturquoise;">&#xf51e;</span>&nbsp;<span id="blue-team-gold">71.8K</span></div>
+                <div class="kills row-1"><span style="color: mediumturquoise;">🗡</span><span>&nbsp;<span id="blue-team-kill">10</span></span></div>
+                <div class="game-label row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e9/Worlds.png" alt="Worlds"></div>
+                <div class="kills row-1"><span style="color: crimson;">🗡</span><span>&nbsp;<span id="red-team-kill">18</span></span></div>
+                <div class="gold row-1"><span style="color: #dc143c;">&#xf51e;</span>&nbsp;<span id="red-team-gold">72.9K</span></div>
+                <div class="towers row-1"><span style="color: crimson;">♜</span>&nbsp;<span id="red-team-turret">6</span></div>
+                <div class="team-name row-1">
+                    <span id="red-team-name-text">DRX</span>
+                    <span id="red-team-pos-text">LCK#4</span>
+                </div>
+                <div class="team-red row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/81/DRXlogo_profile.png" alt="DRX" id="red-team-logo"></div>
+                <div class="score-area row-2" id="team-blue-score">
+                    <div class="score-blue"></div>
+                    <div class="score-blue"></div>
+                    <div class="score-blank"></div>
+                </div>
+                <div class="dragons-blue dragons row-2" id="team-blue-dragons">
+                    <span class="drake-infernal">&#xf6d5;</span>
+                    <span class="drake-mountain">&#xf6d5;</span>
+                </div>
+                <div class="time row-2"><span id="moba-time-min-b">42</span>:<span id="moba-time-sec-b">03</span></div>
+                <div class="dragons-red dragons row-2" id="team-red-dragons">
+                    <span class="drake-ocean">&#xf6d5;</span>
+                    <span class="drake-mountain">&#xf6d5;</span>
+                    <span class="drake-mountain">&#xf6d5;</span>
+                    <span class="drake-mountain">&#xf6d5;</span>
+                </div>
+                <div class="score-area row-2" id="team-red-score">
+                    <div class="score-red"></div>
+                    <div class="score-red"></div>
+                    <div class="score-blank"></div>
+                </div>
+            </div>
+            <br>
+            <div class="scoreboard-control">
+                <div class="title">Control Panel</div>
+                <div><span>Edit Scoreboard <input type="checkbox" id="edit-board"></span></div>
+                <div><span>Best of <input type="text" value="5" id="moba-bo"></span></div>
+                <div><span>Time</span><input type="number" value="00" id="moba-time-min" min="0">:<input type="number" value="00" id="moba-time-sec" min="0" max="59"></div>
+                <div style="background-color: mediumturquoise;">Team Blue</div>
+                <div style="background-color: crimson;">Team Red</div>
+                <div class="blue-side-stat">
+                    <span>Team Name <input type="text" id="moba-blue-team-name" value="T1"></span>
+                    <span>Position <input type="text" id="moba-blue-team-position" value="LCK#2"></span>
+                    <span>Score <input type="number" id="moba-blue-score" value="2"><button id="moba-blue-score-up">+</button><button id="moba-blue-score-down">-</button></span>
+                </div>
+                <div class="red-side-stat">
+                    <span>Team Name <input type="text" id="moba-red-team-name" value="DRX"></span>
+                    <span>Position <input type="text" id="moba-red-team-position" value="LCK#4"></span>
+                    <span>Score <input type="number" id="moba-red-score" value="2"><button id="moba-red-score-up">+</button><button id="moba-red-score-down">-</button></span>
+                </div>
+                <div class="blue-side-stat">
+                    <span>
+                        Turrets
+                        <input type="number" value="0" id="moba-blue-tower">
+                        <button id="moba-blue-tower-up">+</button>
+                        <button id="moba-blue-tower-down">-</button>
+                    </span>
+                    <span>
+                        W/L
+                        <input type="text" name="team-blue-w-l" id="team-blue-w-l">
+                    </span>
+                </div>
+                <div class="red-side-stat">
+                    <span>
+                        Turrets
+                        <input type="number" value="0" id="moba-red-tower">
+                        <button id="moba-red-tower-up">+</button>
+                        <button id="moba-red-tower-down">-</button>
+                    </span>
+                    <span>
+                        W/L
+                        <input type="text" name="team-red-w-l" id="team-red-w-l">
+                    </span>
+                </div>
+                <div class="blue-side-stat">
+                    <span>
+                        Gold <input type="number" id="moba-blue-gold" value="0.0"> K
+                        <button id="moba-blue-gold-up">+0.1</button>
+                        <button id="moba-blue-gold-down">-0.1</button>
+                    </span>
+                </div>
+                <div class="red-side-stat">
+                    <span>
+                        Gold <input type="number" id="moba-red-gold" value="0.0"> K
+                        <button id="moba-red-gold-up">+0.1</button>
+                        <button id="moba-red-gold-down">-0.1</button>
+                    </span>
+                </div>
+                <div class="blue-side-stat">
+                    Kills <input type="number" id="moba-blue-kill" value="0"><button id="moba-blue-kill-up">+</button><button id="moba-blue-kill-down">-</button>
+                </div>
+                <div class="red-side-stat">
+                    Kills <input type="number" id="moba-red-kill" value="0"><button id="moba-red-kill-up">+</button><button id="moba-red-kill-down">-</button>
+                </div>
+                <div class="blue-side-stat">
+                    Dragons 
+                    <input type="text" id="moba-blue-dragons" style="max-width: max-content;">
+                    <button onclick="setDragon(teamBlueDragonsInput.value, 'blue')">Set</button>
+                </div>
+                <div class="red-side-stat">
+                    Dragons
+                    <input type="text" id="moba-red-dragons" style="max-width: fit-content;">
+                    <button onclick="setDragon(teamRedDragonsInput.value, 'red')">Set</button>
+                </div>
+                <div class="blue-side-stat">
+                    <button id="moba-blue-cloud" onclick="addDragon('blue', 'cloud')">Cloud</button>
+                    <button id="moba-blue-infernal" onclick="addDragon('blue', 'infernal')">Infernal</button>
+                    <button id="moba-blue-mountain" onclick="addDragon('blue', 'mountain')">Mountain</button>
+                    <button id="moba-blue-ocean" onclick="addDragon('blue', 'ocean')">Ocean</button>
+                    <button id="moba-blue-chemtech" onclick="addDragon('blue', 'chemtech')">Chemtech</button>
+                    <button id="moba-blue-hextech" onclick="addDragon('blue', 'hextech')">Hextech</button>
+                </div>
+                <div class="red-side-stat">
+                    <button id="moba-red-cloud" onclick="addDragon('red', 'cloud')">Cloud</button>
+                    <button id="moba-red-infernal" onclick="addDragon('red', 'infernal')">Infernal</button>
+                    <button id="moba-red-mountain" onclick="addDragon('red', 'mountain')">Mountain</button>
+                    <button id="moba-red-ocean" onclick="addDragon('red', 'ocean')">Ocean</button>
+                    <button id="moba-red-chemtech" onclick="addDragon('red', 'chemtech')">Chemtech</button>
+                    <button id="moba-red-hextech" onclick="addDragon('red', 'hextech')">Hextech</button>
+                </div>
+                <div class="blue-side-stat">
+                    <label for="blue-team-logo">Logo Url</label>
+                    <input type="url" name="blue-team-logo" id="blue-team-logo-url" style="max-width: fit-content;">
+                </div>
+                <div class="red-side-stat">
+                    <label for="red-team-logo">Logo Url</label>
+                    <input type="url" name="red-team-logo" id="red-team-logo-url" style="max-width: fit-content;">
+                </div>
+            </div>
+            <script src="./web-playground.js"></script>
+            <h2>Fancy Link Effects</h2>
+            <p>
+                <span style="cursor: pointer;" class="fancy-link">THIS IS A SINGLE LINE LINK</span>
+                <br>
+                <span style="cursor: pointer;" class="fancy-link">THIS IS A MULTI <br> LINE LINK</span>
+            </p>
+            <br/>
+        </div>
+        <div id="footer" style="clear:both;text-align:center;">
+            <hr/>
+            <span id="randomQuote">Random Quote</span>
+            <br>
+            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+        </div>
+    </div>
+</body>
+</html>

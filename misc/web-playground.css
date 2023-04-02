@@ -129,13 +129,59 @@ body {
 .drake-infernal {
     color: orangered;
 }
-
 .drake-mountain {
     color: peru;
 }
-
 .drake-ocean {
     color: aquamarine;
+}
+.drake-cloud {
+    color: lightsteelblue;
+}
+.drake-chemtech {
+    color: chartreuse;
+}
+.drake-hextech {
+    color: darkturquoise;
+}
+
+.scoreboard-control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: #333333;
+}
+
+.scoreboard-control input {
+    max-width: 50px;
+    font-family: 'Metropolis', 'Montserrat', 'Noto Sans SC', 'Sans Serif';
+}
+
+.scoreboard-control button {
+    font-family: 'Metropolis', 'Montserrat', 'Noto Sans SC', 'Sans Serif';
+}
+
+.scoreboard-control div {
+    display: flex;
+    padding: 4px;
+    justify-content: center;
+    gap: 8px;
+}
+
+.scoreboard-control .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.blue-side-stat {
+    background: #48d1cc66;
+}
+
+.red-side-stat {
+    background: #dc143c66;
 }
 
 /* Fancy Link */
