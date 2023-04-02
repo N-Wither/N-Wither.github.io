@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', 'Metropolis', 'Noto Sans SC';
+    font-family: 'Metropolis', 'Montserrat', 'Noto Sans SC';
 }
 
 /* MOBA Scoreboard*/
@@ -107,9 +107,11 @@ body {
 .moba-scoreboard .dragons-blue{
     grid-column-start: 2;
     grid-column-end: 6;
+    flex-direction: row-reverse;
 }
 
 .moba-scoreboard .dragons-red{
     grid-column-start: 7;
     grid-column-end: 11;
+    flex-direction: row;
 }
