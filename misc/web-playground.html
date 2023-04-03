@@ -48,7 +48,7 @@
             <p>HTML: F12</p>
             <h2>MOBA Scoreboard</h2>
             <div class="moba-scoreboard">
-                <div class="team-blue row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/78/T1logo_profile.png" alt="T1" id="blue-team-logo"></div>
+                <div class="team-blue row-1" id="team-blue-logo-bg"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/78/T1logo_profile.png" alt="T1" id="blue-team-logo"></div>
                 <div class="team-name row-1">
                     <span id="blue-team-name-text">T1</span>
                     <span id="blue-team-pos-text">LCK#2</span>
@@ -56,7 +56,7 @@
                 <div class="towers row-1"><span style="color: mediumturquoise;">♜</span>&nbsp;<span id="blue-team-turret">8</span></div>
                 <div class="gold row-1"><span style="color: mediumturquoise;">&#xf51e;</span>&nbsp;<span id="blue-team-gold">71.8K</span></div>
                 <div class="kills row-1"><span style="color: mediumturquoise;">🗡</span><span>&nbsp;<span id="blue-team-kill">10</span></span></div>
-                <div class="game-label row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e9/Worlds.png" alt="Worlds"></div>
+                <div class="game-label row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e9/Worlds.png" alt="Worlds" id="league-logo-img"></div>
                 <div class="kills row-1"><span style="color: crimson;">🗡</span><span>&nbsp;<span id="red-team-kill">18</span></span></div>
                 <div class="gold row-1"><span style="color: #dc143c;">&#xf51e;</span>&nbsp;<span id="red-team-gold">72.9K</span></div>
                 <div class="towers row-1"><span style="color: crimson;">♜</span>&nbsp;<span id="red-team-turret">6</span></div>
@@ -64,7 +64,7 @@
                     <span id="red-team-name-text">DRX</span>
                     <span id="red-team-pos-text">LCK#4</span>
                 </div>
-                <div class="team-red row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/81/DRXlogo_profile.png" alt="DRX" id="red-team-logo"></div>
+                <div class="team-red row-1" id="team-red-logo-bg"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/81/DRXlogo_profile.png" alt="DRX" id="red-team-logo"></div>
                 <div class="score-area row-2" id="team-blue-score">
                     <div class="score-blue"></div>
                     <div class="score-blue"></div>
@@ -74,7 +74,7 @@
                     <span class="drake-infernal">&#xf6d5;</span>
                     <span class="drake-mountain">&#xf6d5;</span>
                 </div>
-                <div class="time row-2"><span id="moba-time-min-b">42</span>:<span id="moba-time-sec-b">03</span></div>
+                <div class="time row-2" id="moba-time"><span id="moba-time-min-b">42</span>:<span id="moba-time-sec-b">03</span></div>
                 <div class="dragons-red dragons row-2" id="team-red-dragons">
                     <span class="drake-ocean">&#xf6d5;</span>
                     <span class="drake-mountain">&#xf6d5;</span>
@@ -90,20 +90,25 @@
             <br>
             <div class="scoreboard-control">
                 <div class="title">Control Panel</div>
-                <div><span>Edit Scoreboard <input type="checkbox" id="edit-board"></span></div>
-                <div><span>Best of <input type="text" value="5" id="moba-bo"></span></div>
-                <div><span>Time</span><input type="number" value="00" id="moba-time-min" min="0">:<input type="number" value="00" id="moba-time-sec" min="0" max="59"></div>
-                <div style="background-color: mediumturquoise;">Team Blue</div>
-                <div style="background-color: crimson;">Team Red</div>
+                <div><span><label for="edit-board">Edit Scoreboard</label><input type="radio" id="edit-board"></span></div>
+                <div><span><label for="moba-bo">Best of </label><input type="text" value="5" id="moba-bo"></span></div>
+                <div>
+                    <span>Time</span>
+                    <input type="number" value="00" id="moba-time-min" min="0">:<input type="number" value="00" id="moba-time-sec" min="-1" max="60">
+                    <button id="moba-time-btn">Start / Pause</button>
+                    <button onclick="clearGameTime()">Clear</button>
+                </div>
+                <div style="background-color: mediumturquoise;"><label for="team-blue-color">Team Blue </label><input type="color" id="team-blue-color" value="#48d1cc"></div>
+                <div style="background-color: crimson;"><label for="team-red-color">Team Red </label><input type="color" id="team-red-color" value="#dc143c"></div>
                 <div class="blue-side-stat">
                     <span>Team Name <input type="text" id="moba-blue-team-name" value="T1"></span>
                     <span>Position <input type="text" id="moba-blue-team-position" value="LCK#2"></span>
-                    <span>Score <input type="number" id="moba-blue-score" value="2"><button id="moba-blue-score-up">+</button><button id="moba-blue-score-down">-</button></span>
+                    <span>Score <input type="number" id="moba-blue-score" value="2" min="0"><button id="moba-blue-score-up">+</button><button id="moba-blue-score-down">-</button></span>
                 </div>
                 <div class="red-side-stat">
                     <span>Team Name <input type="text" id="moba-red-team-name" value="DRX"></span>
                     <span>Position <input type="text" id="moba-red-team-position" value="LCK#4"></span>
-                    <span>Score <input type="number" id="moba-red-score" value="2"><button id="moba-red-score-up">+</button><button id="moba-red-score-down">-</button></span>
+                    <span>Score <input type="number" id="moba-red-score" value="2" min="0"><button id="moba-red-score-up">+</button><button id="moba-red-score-down">-</button></span>
                 </div>
                 <div class="blue-side-stat">
                     <span>
@@ -131,23 +136,27 @@
                 </div>
                 <div class="blue-side-stat">
                     <span>
-                        Gold <input type="number" id="moba-blue-gold" value="0.0"> K
-                        <button id="moba-blue-gold-up">+0.1</button>
-                        <button id="moba-blue-gold-down">-0.1</button>
+                        Gold <input type="number" id="moba-blue-gold" value="0.0" min="0.0"> K
+                        <button onclick="addGold('blue', 0.1)">+0.1</button>
+                        <button onclick="addGold('blue', -0.1)">-0.1</button>
+                        <button onclick="addGold('blue', 1.0)">+1.0</button>
+                        <button onclick="addGold('blue', -1.0)">-1.0</button>
                     </span>
                 </div>
                 <div class="red-side-stat">
                     <span>
-                        Gold <input type="number" id="moba-red-gold" value="0.0"> K
-                        <button id="moba-red-gold-up">+0.1</button>
-                        <button id="moba-red-gold-down">-0.1</button>
+                        Gold <input type="number" id="moba-red-gold" value="0.0" min="0.0"> K
+                        <button onclick="addGold('red', 0.1)">+0.1</button>
+                        <button onclick="addGold('red', -0.1)">-0.1</button>
+                        <button onclick="addGold('red', 1.0)">+1.0</button>
+                        <button onclick="addGold('red', -1.0)">-1.0</button>
                     </span>
                 </div>
                 <div class="blue-side-stat">
-                    Kills <input type="number" id="moba-blue-kill" value="0"><button id="moba-blue-kill-up">+</button><button id="moba-blue-kill-down">-</button>
+                    Kills <input type="number" id="moba-blue-kill" value="0" min="0"><button id="moba-blue-kill-up">+</button><button id="moba-blue-kill-down">-</button>
                 </div>
                 <div class="red-side-stat">
-                    Kills <input type="number" id="moba-red-kill" value="0"><button id="moba-red-kill-up">+</button><button id="moba-red-kill-down">-</button>
+                    Kills <input type="number" id="moba-red-kill" value="0" min="0"><button id="moba-red-kill-up">+</button><button id="moba-red-kill-down">-</button>
                 </div>
                 <div class="blue-side-stat">
                     Dragons 
@@ -178,10 +187,17 @@
                 <div class="blue-side-stat">
                     <label for="blue-team-logo">Logo Url</label>
                     <input type="url" name="blue-team-logo" id="blue-team-logo-url" style="max-width: fit-content;">
+                    <input type="checkbox" id="blue-team-logo-filter" checked>Logo Img Filter
                 </div>
                 <div class="red-side-stat">
                     <label for="red-team-logo">Logo Url</label>
                     <input type="url" name="red-team-logo" id="red-team-logo-url" style="max-width: fit-content;">
+                    <input type="checkbox" id="red-team-logo-filter" checked>Logo Img Filter
+                </div>
+                <div style="grid-column-end: 3; grid-column-start: 1;">
+                    <label for="league-logo-url">League Logo</label>
+                    <input type="url" id="league-logo-url" style="max-width: fit-content;">
+                    <button id="league-logo-filter-btn">Toggle Img Filter</button>
                 </div>
             </div>
             <script src="./web-playground.js"></script>
