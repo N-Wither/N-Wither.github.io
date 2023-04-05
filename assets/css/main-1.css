@@ -210,6 +210,17 @@ li.content a:hover:not(.active) {
     right: 0;
 }
 
+#toolbox {
+    width: 10px;
+    overflow-x: hidden;
+    right: 0px;
+    transition: width 0.2s;
+}
+
+#toolbox:hover {
+    width: 200px;
+}
+
 /* Content Table */
 .content-table {
     background-color: #00000033;

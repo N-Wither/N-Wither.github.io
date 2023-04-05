@@ -149,12 +149,24 @@ li.content-table a:hover:not(.active) {
 }
 
 #toolbox {
-    position: fixed;
+    transition: 0.2s;
+    right: -150px;
     top: 50px;
-    right: 1em;
-    background-color: #33ffff44;
     padding: 5px;
-    width: 16%;
+    padding-left: 30px;
+    background-color: #00000033;
+    position: fixed;
+}
+
+#toolbox {
+    width: 10px;
+    overflow-x: hidden;
+    right: 0px;
+    transition: width 0.2s;
+}
+
+#toolbox:hover {
+    width: 200px;
 }
 
 #accessibility-switch {
