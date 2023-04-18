@@ -146,6 +146,7 @@ li.content-table a:hover:not(.active) {
     height: 30px;
     padding-top: 5px;
     margin-bottom: 5px;
+    overflow-y: hidden;
 }
 
 #toolbox {
@@ -167,6 +168,11 @@ li.content-table a:hover:not(.active) {
 
 #toolbox:hover {
     width: 200px;
+}
+
+#toolbox * {
+    overflow-x: hidden;
+    min-width: 150px;
 }
 
 #accessibility-switch {
