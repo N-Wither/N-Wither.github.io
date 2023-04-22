@@ -253,3 +253,7 @@ details {
 #clock {
     overflow-y: hidden;
 }
+
+.mainText hr {
+    width: 60%;
+}

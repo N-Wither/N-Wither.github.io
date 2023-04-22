@@ -224,7 +224,6 @@ li.content a:hover:not(.active) {
 
 #toolbox * {
     overflow-x: hidden;
-    min-width: 150px;
 }
 
 /* Content Table */
@@ -233,6 +232,7 @@ li.content a:hover:not(.active) {
     padding: 5px;
     display: flex;
     flex-direction: column;
+    min-width: 150px;
 }
 
 .content-table a {
@@ -346,9 +346,10 @@ details.info summary::-webkit-details-marker {
 /* Chapter Selection*/
 .chapter_select {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #00000033;
     margin-bottom: 5px;
+    min-width: 150px;
 }
 
 .chapter_select a {
