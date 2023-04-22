@@ -344,7 +344,7 @@ details.info summary::-webkit-details-marker {
 }
 
 /* Chapter Selection*/
-.chapter_select {
+.chapter-select {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: #00000033;
@@ -352,11 +352,11 @@ details.info summary::-webkit-details-marker {
     min-width: 150px;
 }
 
-.chapter_select a {
+.chapter-select a {
     text-align: center;
 }
 
-.chapter_select span {
+.chapter-select span {
     text-align: center;
 }
 
