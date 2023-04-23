@@ -134,6 +134,14 @@ pre {
     opacity: 1;
 }
 
+#navigate:has(*:focus) {
+    width: 180px;
+    background-color: #00000066;
+}
+#navigate:has(*:focus) span {
+    opacity: 1;
+}
+
 .note {
     font-family: "Readex Pro";
 }
@@ -224,6 +232,10 @@ li.content a:hover:not(.active) {
 
 #toolbox * {
     overflow-x: hidden;
+}
+
+#toolbox:has(*:focus) {
+    width: 200px;
 }
 
 /* Content Table */

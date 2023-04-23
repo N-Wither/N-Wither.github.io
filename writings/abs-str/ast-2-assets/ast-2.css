@@ -1,5 +1,5 @@
 body {
-    background: url('https://n-wither.github.io/assets/imgs/western_fantasy_harbor_city_blue_and_white_color_aerial.png');
+    background: url('https://n-wither.github.io/assets/imgs/western_fantasy_harbor_city_blue_and_white_color_aerial.png') antiquewhite;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -8,7 +8,7 @@ body {
 }
 
 .dark-mode-on {
-    background: url('https://n-wither.github.io/assets/imgs/western_fantasy_harbor_city_blue_and_white_color_aerial.png');
+    background: url('https://n-wither.github.io/assets/imgs/western_fantasy_harbor_city_blue_and_white_color_aerial.png') #252525;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -239,10 +239,6 @@ details.info {
 
 .img-box img.img-zoom:hover {
     transform: scale(1.5);
-}
-
-details {
-    z-index: -1;
 }
 
 #toolbox * {
