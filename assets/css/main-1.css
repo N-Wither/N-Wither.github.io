@@ -1,3 +1,7 @@
+:root {
+    scroll-behavior: smooth;
+}
+
 body {
     background: linear-gradient(to top, #0c3f53, #20676d);
     background-repeat: repeat-x;

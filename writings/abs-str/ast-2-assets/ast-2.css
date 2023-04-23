@@ -53,7 +53,7 @@ h2 {
 .content-table a {
     position: relative;
     color: white;
-    background: linear-gradient(0deg, #8e24bc, #8e24bc) no-repeat right bottom / 0 var(--bg-h);
+    background: linear-gradient(0deg, #d271ff, #d271ff) no-repeat right bottom / 0 var(--bg-h);
     transition: background-size 350ms;
     --bg-h: 100%;
 }
@@ -111,12 +111,12 @@ summary {
 
 #content a {
     position: relative;
-    color: #8e24bc;
+    color: #d271ff;
 }
 
 #content a:hover {
     background: transparent;
-    color: #8e24bc;
+    color: #d271ff;
 }
 
 #content a::before {
@@ -124,7 +124,7 @@ summary {
     position: absolute;
     width: 100%;
     height: 0.1rem;
-    background-color: #8e24bc;
+    background-color: #d271ff;
     bottom: 0;
     left: 0;
     transform-origin: right;
@@ -216,6 +216,9 @@ details.info {
     padding-bottom: .5em;
     transition: 0.2s;
     font-size: small;
+    min-width: 150px;
+    max-width: 75%;
+    overflow-x: hidden;
 }
 
 .img-box {
@@ -252,4 +255,8 @@ details.info {
 
 .mainText hr {
     width: 60%;
+}
+
+#content a {
+    color: #d271ff;
 }
