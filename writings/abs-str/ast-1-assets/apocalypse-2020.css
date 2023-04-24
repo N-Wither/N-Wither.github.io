@@ -320,3 +320,262 @@ details.info[open] summary::after {
 details.info summary::-webkit-details-marker {
     display: none;
 }
+
+/* Page Specific*/
+
+body {
+    background: url(https://N-Wither.github.io/assets/imgs/a_girl_standing_in_an_apocalypse_city_facing_the_sunset.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.navigate {
+    z-index: 99999;
+}
+
+.toolbox {
+    z-index: 99999;
+}
+
+.mainText {
+    background-color: #333333;
+    box-shadow: 2px 2px 8px #00000066;
+    padding: 1rem;
+}
+
+a {
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+#content a {
+    position: relative;
+    color: #d1281c;
+}
+
+#content a:hover {
+    background: transparent;
+    color: #d1281c;
+}
+
+#content a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    background-color: #d1281c;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in;
+}
+
+#content a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.content-table a {
+    position: relative;
+    color: white;
+}
+
+.content-table a:hover {
+    background: transparent;
+    color: #d1281c;
+}
+
+.content-table a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    background-color: #d1281c;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in;
+}
+
+.content-table a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.zoom:hover {
+    transform: scale(150%);
+}
+
+hr {
+    border: none;
+    border-top: 2px solid;
+}
+
+#accessibility-switch:active {
+    background-color: #ffffff88;
+    transition: 0.1s;
+}
+
+#accessibility-switch:hover {
+    transition: 0.1s;
+    transform: scale(1.04);
+}
+
+#accessibility-switch {
+    transition: 0.1s;
+}
+
+hr.break {
+    border-top: dotted;
+    width: 60%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 400px;
+    transition: 0.2s;
+}
+
+.title-main {
+    font-size: 4rem;
+    font-weight: bolder;
+    margin: auto;
+    text-shadow: 2px 2px 8px #a71f19;
+}
+
+details.info {
+    background-color: #00000066;
+}
+
+.story-time {
+    font-family: 'Bebas Neue';
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 0;
+    font-size: large;
+    color: #00ffff;
+}
+
+.story-time .row-1 {
+    background-color: #00cccc;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.alive-counter {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.death-percentage {
+    background-color: #992244;
+    height: 100%;
+    position: absolute;
+}
+
+.alive-percentage {
+    background-color: #006666;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.alive-count {
+    position: relative;
+}
+
+.tooltip {
+    opacity: 0;
+    position: fixed;
+    background-color: #00000099;
+    user-select: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    transition: 0.2s;
+    font-size: small;
+}
+
+.bili-video {
+    position: absolute;
+    box-shadow: 5px #aaaaaa;
+    width: 220px;
+    height: 180px;
+    border-radius: 5px;
+    background-color: rgb(232, 232, 232);
+    cursor: pointer;
+}
+
+.bili-video-thumbnail {
+    text-align: center;
+    width: 220px;
+    height: 120px;
+    border-radius: 5px 5px 0 0;
+}
+
+.bili-video-title {
+    color: black;
+    font-size: small;
+}
+
+.bili-video-uploader {
+    font-size: 12px;
+    color: gray;
+    position: absolute;
+    top: 160px;
+    left: 2px;
+}
+
+.bili-video-uploader span {
+    background-color: gray;
+    color: white;
+    border-radius: 2px;
+}
+
+.bili-bottom-navigate {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.accessibility-mode-on {
+    background-color: white;
+    color: black;
+}
+
+.accessibility-mode-on .mainText {
+    background-color: white;
+    color: black;
+}
+
+.navigate-accessibility {
+    background-color: white;
+    box-shadow: 2px 2px 6px #00000066;
+}
+
+.navigate-accessibility a {
+    color: black;
+}
+
+.navigate-accessibility:hover {
+    background-color: white;
+}
+
+.navigate-accessibility a:hover {
+    background-color: #d1281c;
+}

@@ -82,15 +82,20 @@ function getRandomInt(min, max) {
 
 function tagNotes() {
     let notesInText = document.querySelectorAll('.note')
-    notesInText.forEach((note, index) => {
-        note.setAttribute('id', `note-${index + 1}`)
-        note.setAttribute('onclick', `showNote(${index + 1})`)
-        note.addEventListener('mouseenter', event => {
-            showNote(index + 1)
+    notesInText.forEach((note) => {
+        let nth = note.textContent
+        if(nth == ''){
+            nth = note.getAttribute('nth')
+        }
+        note.setAttribute('id', `note-${nth}`)
+        note.setAttribute('onclick', `showNote(${nth})`)
+        note.addEventListener('mouseenter', () => {
+            showNote(nth)
         })
-        note.addEventListener('mouseleave', event => {
-            offNote(index + 1)
+        note.addEventListener('mouseleave', () => {
+            offNote(nth)
         })
+        note.innerHTML = `<a href="javascript:;" onclick="showNote(${nth})">${nth}</a>`
     })
 }
 

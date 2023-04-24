@@ -17,9 +17,10 @@
   <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/hljs/solarized-light.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
   <script>hljs.highlightAll()</script>
+  <script src="./ast-2-assets/ast-2.js"></script>
 </head>
 
-<body onload="startTime(), hello(), randomQuote(), tagNotes()">
+<body onload="init()">
   <div class="navigate" id="navigate">
     <a href="https://n-wither.github.io/writings/abs-str/index.html"
       style="line-height: unset; height: 50px;">📂<span
@@ -32,7 +33,8 @@
     <div style="position: absolute; top: 45%; left: 10px">|||</div>
     <div class="content-table">
       <span style="color: white; font-weight:bold">目录</span>
-      <a href="#chapter-1"><span>Thaumaturgy 101</span></a>
+      <a href="#thaum-101"><span>Thaumaturgy 101</span></a>
+      <a href="#letters"><span>Journey of Letters</span></a>
     </div>
   </div>
   <div class="content" id="content">
@@ -46,9 +48,9 @@
       <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
     </div>
     <div class="mainText">
-      <h2 id="chapter-1">Thaumaturgy 101</h2>
+      <h2 id="thaum-101">Thaumaturgy 101</h2>
       <p>
-        傍晚，Ella 正走在街道上，与她同行的还有渡鸦<sup class="note"><a href="javascript:;" onclick="showNote(1)">1</a></sup> Schwarz。
+        傍晚，Ella 正走在街道上，与她同行的还有渡鸦<sup class="note">1</sup> Schwarz。
       </p>
       <div class="img-box" style="max-width: 100%;">
         <img src="https://n-wither.github.io/assets/imgs/00915-3869757376.png" alt="Ella-walking-on-street.png">
@@ -65,7 +67,7 @@
         <img src="./ast-2-assets/aachen_in_library.png" alt="Aachen.png" class="img-zoom">
       </div>
       <p>“啊，ELla。”</p>
-      <p>说话的是一个看起来和 Ella 年龄相仿的魔族<sup class="note"><a href="javascript:;" onclick="showNote(2)">2</a></sup>女子，不过因为魔族的寿命比人类更长，所以她的年纪实际上比 Ella 更大。</p>
+      <p>说话的是一个看起来和 Ella 年龄相仿的魔族<sup class="note">2</sup>女子，不过因为魔族的寿命比人类更长，所以她的年纪实际上比 Ella 更大。</p>
       <p>“你们先去旁边坐坐吧，我把事情办完就下班了。”</p>
       <p>Ella 这时才注意到房间里还有一个陌生面孔。</p>
       <div class="img-box" style="float: left; max-width: 20%; margin-right: 8px;">
@@ -98,7 +100,7 @@
       <p>“我甚至不知道把我造出来的人是谁，我不可能知道这种知识。”</p>
       <p>“好吧，反正闲着也是闲着，我就给你讲讲好了，你想从哪开始？”</p>
       <p>“魔法是怎么达成目标的？”</p>
-      <p>“这说起来就长了，我得从基本原理开始讲<sup class="note"><a href="javascript:;" onclick="showNote(3)">3</a></sup>。</p>
+      <p>“这说起来就长了，我得从基本原理开始讲<sup class="note">3</sup>。</p>
       <p>“奇术的本质就是改变现实，不是所有人都有这种能力，至于为什么像我这样的人会有这种能力还没人知道，不过目前看来和遗传、种族之类的先天因素有点关系，不过也有野路子出身的魔法师存在，这都说不好。</p>
       <p>“当我施法的时候——比如我现在让那边的花盆飘起来再放下去——就会消耗奇术能量修改现实，改变了花盆的运动状态。像这种简单的过程基本上随手就能做到，复杂一些的就需要像 Selene 那样编写术式了，再复杂的还需要各种法阵和仪式之类的。</p>
       <p>“然后就是，改变现实除了要消耗奇术能量之外，还会产生‘反冲’，现实会抗拒改变，在奇术过程完成后，它会从别的方面产生一些奇怪的变化。反冲的大小跟奇术过程的强度正相关，趋势相反，比如说如果用奇术创造什么东西，现实的反冲就要破坏些什么东西。像我刚才那样的小手段不会产生什么反冲，但如果要做出远程传送这样的事情的话反冲就会非常巨大，所以大型的奇术活动都需要复杂的法阵或者仪式来引导反冲以可预见和接受的方式出现。</p>
@@ -110,7 +112,11 @@
       <p>“可以啊。” Ella 起身朝 Selene 那边走去。</p>
       <p>“就是这样的，挺不错的嘛。” 观看了 Selene 的演示后，Ella 表示赞赏。</p>
     </div>
-    <div class="tooltip">Test</div>
+    <div class="mainText">
+      <h2 id="letters">Journey of Letters</h2>
+      <p></p>
+    </div>
+    <div class="tooltip"></div>
     <div>
       <details class="info">
         <summary>注释</summary>
