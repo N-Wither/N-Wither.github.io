@@ -260,3 +260,8 @@ details.info {
 #content a {
     color: #d271ff;
 }
+
+details.info-in-text {
+    background-color: transparent;
+    border: 2px solid #333333;
+}
