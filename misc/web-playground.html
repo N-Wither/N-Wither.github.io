@@ -11,7 +11,8 @@
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <link rel="stylesheet" href="./web-playground.css">
     <title>Web Playground</title>
-    <script src="https://n-wither.github.io/assets/js/utils.js"></script>
+    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <script src="./web-playground.js" defer></script>
     <script>
         let setElements = () => {
             document.getElementById('category').innerHTML = 'Misc';
@@ -200,13 +201,94 @@
                     <button id="league-logo-filter-btn">Toggle Img Filter</button>
                 </div>
             </div>
-            <script src="./web-playground.js"></script>
             <h2>Fancy Link Effects</h2>
             <p>
                 <span style="cursor: pointer;" class="fancy-link">THIS IS A SINGLE LINE LINK</span>
                 <br>
                 <span style="cursor: pointer;" class="fancy-link">THIS IS A MULTI <br> LINE LINK</span>
             </p>
+            <h2>Dices</h2>
+            <div class="dices">
+                <div class="dice-select">
+                    <label for="dice-1">Dice #1</label>
+                    <select id="dice-1">
+                        <option value="none">None</option>
+                        <option value="4">D4</option>
+                        <option value="6" selected>D6</option>
+                        <option value="8">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                        <option value="20">D20</option>
+                    </select>
+                </div>
+                <div class="dice-select">
+                    <label for="dice-2">Dice #2</label>
+                    <select id="dice-2">
+                        <option value="none">None</option>
+                        <option value="4">D4</option>
+                        <option value="6" selected>D6</option>
+                        <option value="8">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                        <option value="20">D20</option>
+                    </select>
+                </div>
+                <div class="dice-select">
+                    <label for="dice-3">Dice #3</label>
+                    <select id="dice-3">
+                        <option value="none">None</option>
+                        <option value="4">D4</option>
+                        <option value="6" selected>D6</option>
+                        <option value="8">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                        <option value="20">D20</option>
+                    </select>
+                </div>
+                <div class="dice-select">
+                    <label for="dice-4">Dice #4</label>
+                    <select id="dice-4">
+                        <option value="none">None</option>
+                        <option value="4">D4</option>
+                        <option value="6" selected>D6</option>
+                        <option value="8">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                        <option value="20">D20</option>
+                    </select>
+                </div>
+                <div class="dice-display" id="dice-disp-1">
+                    <div id="dice-number-1"></div>
+                    <div id="dice-label-1" class="dice-label"></div>
+                </div>
+                <div class="dice-display" id="dice-disp-2">
+                    <div id="dice-number-2"></div>
+                    <div id="dice-label-2" class="dice-label"></div>
+                </div>
+                <div class="dice-display" id="dice-disp-3">
+                    <div id="dice-number-3"></div>
+                    <div id="dice-label-3" class="dice-label"></div>
+                </div>
+                <div class="dice-display" id="dice-disp-4">
+                    <div id="dice-number-4"></div>
+                    <div id="dice-label-4" class="dice-label"></div>
+                </div>
+                <div class="dice-roll">
+                    <button class="dice-roll" id="dice-roll-1" onclick="rollDice(1)">Roll!</button>
+                </div>
+                <div class="dice-roll">
+                    <button class="dice-roll" id="dice-roll-2" onclick="rollDice(2)">Roll!</button>
+                </div>
+                <div class="dice-roll">
+                    <button class="dice-roll" id="dice-roll-3" onclick="rollDice(3)">Roll!</button>
+                </div>
+                <div class="dice-roll">
+                    <button class="dice-roll" id="dice-roll-4" onclick="rollDice(4)">Roll!</button>
+                </div>
+                <div class="dice-roll-all">
+                    <button class="dice-roll" id="dice-roll-all">Roll All!</button>
+                </div>
+            </div>
             <br/>
         </div>
         <div id="footer" style="clear:both;text-align:center;">

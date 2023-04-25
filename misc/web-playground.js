@@ -67,8 +67,8 @@ let timerRunning = false; // 标记计时器是否正在运行
 let timerButton = document.getElementById('moba-time-btn');
 
 // 定义按下按钮时的回调函数
-timerButton.onclick = function() {
-    if(!editBoard.checked) return;
+timerButton.onclick = function () {
+    if (!editBoard.checked) return;
     if (timerRunning) {
         // 如果计时器正在运行，则暂停计时器
         clearInterval(timerID);
@@ -96,55 +96,55 @@ editBoard.addEventListener('change', () => {
     refreshBoard()
 })
 
-function stringMultiply(str, num){
+function stringMultiply(str, num) {
     let result = ''
-    for(i = 1; i <= num; i++){
+    for (i = 1; i <= num; i++) {
         result = result + str
     }
     return result
 }
 
-function getBestOf(){
+function getBestOf() {
     let bo = document.getElementById('moba-bo').value
     return bo
 }
 
-function getScoreToWin(){
-    return Math.ceil(parseInt(getBestOf())/2)
+function getScoreToWin() {
+    return Math.ceil(parseInt(getBestOf()) / 2)
 }
 
-function antiNegativeNum(num){
-    if(num <= 0){return 0}
+function antiNegativeNum(num) {
+    if (num <= 0) { return 0 }
     else return num
 }
 
-function formatNum(num){
+function formatNum(num) {
     num = num || 0
-    if(num < 10){
+    if (num < 10) {
         return '0' + num
     }
     else return num
 }
 
-function setScore(num, team){
+function setScore(num, team) {
     let bestOf = getBestOf()
     let score = num
-    let scoreToWin = Math.ceil(bestOf/2)
-    if(score > scoreToWin){
+    let scoreToWin = Math.ceil(bestOf / 2)
+    if (score > scoreToWin) {
         score = scoreToWin
     }
-    if(score < 0){
+    if (score < 0) {
         score = 0
     }
     let scoreHTML = stringMultiply(`<div class="score-${team}"></div>`, score) + stringMultiply(`<div class="score-blank"></div>`, scoreToWin - score)
     document.getElementById(`team-${team}-score`).innerHTML = scoreHTML
 }
 
-function setDragon(dragons, team){
-    if(!editBoard.checked) return;
+function setDragon(dragons, team) {
+    if (!editBoard.checked) return;
     let HTML = ''
     let dragonList = dragons.trim().split(' ')
-    if(dragons === ''){
+    if (dragons === '') {
         dragonList = []
     }
     // console.log(dragonList)
@@ -154,22 +154,22 @@ function setDragon(dragons, team){
     document.getElementById(`team-${team}-dragons`).innerHTML = HTML
 }
 
-function addDragon(team, dragon){
-    if(!editBoard.checked) return
-    if(team == 'blue'){
+function addDragon(team, dragon) {
+    if (!editBoard.checked) return
+    if (team == 'blue') {
         teamBlueDragonsInput.value = teamBlueDragonsInput.value + dragon + ' '
     }
-    if(team == 'red'){
+    if (team == 'red') {
         teamRedDragonsInput.value = teamRedDragonsInput.value + dragon + ' '
     }
 }
 
-function setNumCap(target, min, max){
+function setNumCap(target, min, max) {
     target.min = min
     target.max = max
 }
 
-function clearGameTime(){
+function clearGameTime() {
     gameTimeMin.value = 0
     gameTimeMinB.innerHTML = '00'
     gameTimeSec.value = 0
@@ -177,18 +177,18 @@ function clearGameTime(){
     timerCount = 0
 }
 
-function addGold(team, gold){
-    if(!editBoard.checked) return;
-    if(team == 'blue'){
+function addGold(team, gold) {
+    if (!editBoard.checked) return;
+    if (team == 'blue') {
         teamBlueGoldInput.value = parseFloat((parseFloat(teamBlueGoldInput.value) + gold).toFixed(1))
-        if(teamBlueGoldInput.value <= 0){
+        if (teamBlueGoldInput.value <= 0) {
             teamBlueGoldInput.value = '0.0'
         }
         teamBlueGold.innerHTML = parseFloat(teamBlueGoldInput.value).toFixed(1) + 'K'
     }
-    if(team == 'red'){
+    if (team == 'red') {
         teamRedGoldInput.value = parseFloat((parseFloat(teamRedGoldInput.value) + gold).toFixed(1))
-        if(teamRedGoldInput.value <= 0){
+        if (teamRedGoldInput.value <= 0) {
             teamRedGoldInput.value = '0.0'
         }
         teamRedGold.innerHTML = parseFloat(teamRedGoldInput.value).toFixed(1) + 'K'
@@ -196,39 +196,39 @@ function addGold(team, gold){
 }
 
 document.getElementById('league-logo-filter-btn').onclick = () => {
-    if(leagueLogoFilter){
+    if (leagueLogoFilter) {
         document.getElementById('league-logo-img').style.filter = 'none'
         leagueLogoFilter = false
-    }else{
+    } else {
         document.getElementById('league-logo-img').style.filter = 'brightness(0) invert()'
         leagueLogoFilter = true
     }
 }
 
-function refreshBoard(){
+function refreshBoard() {
     let bestOf = 5
-    document.getElementById('moba-bo').addEventListener('input', () =>{
+    document.getElementById('moba-bo').addEventListener('input', () => {
         bestOf = document.getElementById('moba-bo').value
     })
-    if(!editBoard.checked){return}
+    if (!editBoard.checked) { return }
 
     gameTimeMin.addEventListener(('change', 'input'), () => {
-        if(gameTimeMin.value == ''){
+        if (gameTimeMin.value == '') {
             gameTimeMin.value = 0
         }
         gameTimeMinB.innerHTML = '' + formatNum(parseInt(gameTimeMin.value))
     })
     gameTimeSec.addEventListener(('change', 'input'), () => {
-        if(gameTimeSec.value == ''){
+        if (gameTimeSec.value == '') {
             gameTimeSec.value = 0
         }
-        if(gameTimeSec.value == 60){
+        if (gameTimeSec.value == 60) {
             gameTimeSec.value = 0
             gameTimeMin.value++
             gameTimeMinB.innerHTML = formatNum(gameTimeMin.value)
         }
-        if(gameTimeSec.value == -1){
-            if(gameTimeMin.value == 0){
+        if (gameTimeSec.value == -1) {
+            if (gameTimeMin.value == 0) {
                 gameTimeSec.value = 0
                 return
             };
@@ -236,9 +236,9 @@ function refreshBoard(){
             gameTimeMin.value--
             gameTimeMinB.innerHTML = formatNum(gameTimeMin.value)
         }
-        if(parseInt(gameTimeSec.value) < 10){
+        if (parseInt(gameTimeSec.value) < 10) {
             gameTimeSecB.innerHTML = '0' + parseInt(gameTimeSec.value)
-        }else{
+        } else {
             gameTimeSecB.innerHTML = gameTimeSec.value
         }
     })
@@ -260,13 +260,13 @@ function refreshBoard(){
         setScore(score, 'blue')
     })
     teamBlueScoreBtnAdd.addEventListener('click', () => {
-        if(teamBlueScore.value >= getScoreToWin()){return}
+        if (teamBlueScore.value >= getScoreToWin()) { return }
         setNumCap(teamBlueScore, 0, getScoreToWin())
         teamBlueScore.value++
         setScore(teamBlueScore.value, 'blue')
     })
     teamBlueScoreBtnMin.addEventListener('click', () => {
-        if(teamBlueScore.value <= 0){return}
+        if (teamBlueScore.value <= 0) { return }
         setNumCap(teamBlueScore, 0, getScoreToWin())
         teamBlueScore.value--
         setScore(teamBlueScore.value, 'blue')
@@ -276,12 +276,12 @@ function refreshBoard(){
         teamBlueTurret.innerHTML = antiNegativeNum(teamBlueTurretInput.value)
     })
     teamBlueTurretBtnAdd.addEventListener('click', () => {
-        teamBlueTurretInput.value ++
+        teamBlueTurretInput.value++
         teamBlueTurretInput.value = antiNegativeNum(teamBlueTurretInput.value)
         teamBlueTurret.innerHTML = teamBlueTurretInput.value
     })
     teamBlueTurretBtnMin.addEventListener('click', () => {
-        teamBlueTurretInput.value --
+        teamBlueTurretInput.value--
         teamBlueTurretInput.value = antiNegativeNum(teamBlueTurretInput.value)
         teamBlueTurret.innerHTML = antiNegativeNum(teamBlueTurretInput.value)
     })
@@ -293,12 +293,12 @@ function refreshBoard(){
         teamBlueKill.innerHTML = teamBlueKillInput.value
     })
     teamBlueKillUp.addEventListener('click', () => {
-        teamBlueKillInput.value ++
+        teamBlueKillInput.value++
         teamBlueKillInput.value = antiNegativeNum(teamBlueKillInput.value)
         teamBlueKill.innerHTML = teamBlueKillInput.value
     })
     teamBlueKillDn.addEventListener('click', () => {
-        teamBlueKillInput.value --
+        teamBlueKillInput.value--
         teamBlueKillInput.value = antiNegativeNum(teamBlueKillInput.value)
         teamBlueKill.innerHTML = teamBlueKillInput.value
     })
@@ -307,14 +307,14 @@ function refreshBoard(){
         setDragon(dragons, 'blue')
     })
     teamBlueFilter.addEventListener('change', () => {
-        if(teamBlueFilterOn){
+        if (teamBlueFilterOn) {
             teamBlueFilterOn = false
         }
         else teamBlueFilterOn = true
-        if(!teamBlueFilterOn){
+        if (!teamBlueFilterOn) {
             document.getElementById('blue-team-logo').style.filter = 'none'
         }
-        else{
+        else {
             document.getElementById('blue-team-logo').style.filter = 'brightness(0) invert()'
         }
     })
@@ -345,13 +345,13 @@ function refreshBoard(){
         setScore(score, 'red')
     })
     teamRedScoreBtnAdd.addEventListener('click', () => {
-        if(teamRedScore.value >= getScoreToWin()){return}
+        if (teamRedScore.value >= getScoreToWin()) { return }
         // setNumCap(teamRedScore, 0, getScoreToWin())
         teamRedScore.value++
         setScore(teamRedScore.value, 'red')
     })
     teamRedScoreBtnMin.addEventListener('click', () => {
-        if(teamRedScore.value <= 0){return}
+        if (teamRedScore.value <= 0) { return }
         // (teamRedScore, 0, getScoreToWin())
         teamRedScore.value--
         setScore(teamRedScore.value, 'red')
@@ -361,12 +361,12 @@ function refreshBoard(){
         teamRedTurret.innerHTML = teamRedTurretInput.value
     })
     teamRedTurretBtnAdd.addEventListener('click', () => {
-        teamRedTurretInput.value ++
+        teamRedTurretInput.value++
         teamRedTurretInput.value = antiNegativeNum(teamRedTurretInput.value)
         teamRedTurret.innerHTML = teamRedTurretInput.value
     })
     teamRedTurretBtnMin.addEventListener('click', () => {
-        teamRedTurretInput.value --
+        teamRedTurretInput.value--
         teamRedTurretInput.value = antiNegativeNum(teamRedTurretInput.value)
         teamRedTurret.innerHTML = teamRedTurretInput.value
     })
@@ -377,12 +377,12 @@ function refreshBoard(){
         teamRedKill.innerHTML = antiNegativeNum(teamRedKillInput.value)
     })
     teamRedKillUp.addEventListener('click', () => {
-        teamRedKillInput.value ++
+        teamRedKillInput.value++
         teamRedKillInput.value = antiNegativeNum(teamRedKillInput.value)
         teamRedKill.innerHTML = teamRedKillInput.value
     })
     teamRedKillDn.addEventListener('click', () => {
-        teamRedKillInput.value --
+        teamRedKillInput.value--
         teamRedKillInput.value = antiNegativeNum(teamRedKillInput.value)
         teamRedKill.innerHTML = teamRedKillInput.value
     })
@@ -391,14 +391,14 @@ function refreshBoard(){
         setDragon(dragons, 'red')
     })
     teamRedFilter.addEventListener('change', () => {
-        if(teamRedFilterOn){
+        if (teamRedFilterOn) {
             teamRedFilterOn = false
         }
         else teamRedFilterOn = true
-        if(!teamRedFilterOn){
+        if (!teamRedFilterOn) {
             document.getElementById('red-team-logo').style.filter = 'none'
         }
-        else{
+        else {
             document.getElementById('red-team-logo').style.filter = 'brightness(0) invert()'
         }
     })
@@ -414,4 +414,71 @@ function refreshBoard(){
         let color = teamRedColor.value
         document.getElementById('team-red-logo-bg').style.backgroundColor = color
     })
+}
+
+
+// Dices
+
+function rollDice(index) {
+    let diceToDisplay = document.getElementById(`dice-number-${index}`)
+    let diceType = document.getElementById(`dice-${index}`).value
+    if (diceType == 'none') {
+        diceToDisplay.innerHTML = ''
+        setDiceLabel(index, 0, 0)
+        return
+    }
+    diceType = parseInt(diceType)
+    disableButton(index)
+    let time = 0
+    let finalNumber = 0
+    let minNum = 1
+    let maxNum = diceType + 1
+    // D10 Dices' min value is 0 and the max value is 9
+    if (diceType == 10) { minNum = 0; maxNum = 10 }
+    for (let i = 0; i < 10; i++) {
+        let number = getRandomInt(minNum, maxNum)
+        setTimeout(() => {
+            diceToDisplay.innerHTML = `${(number)}`
+            setDiceLabel(index, number, diceType)
+        }, time)
+        finalNumber = number
+        time += 100
+    }
+    return finalNumber
+}
+
+function setDiceLabel(index, num, type) {
+    let dice = document.getElementById(`dice-label-${index}`);
+    if(type == 4) dice.innerHTML = '\uf6d0';
+    else if (type == 6) {
+        if (num == 1) dice.innerHTML = '\uf525';
+        if (num == 2) dice.innerHTML = '\uf528';
+        if (num == 3) dice.innerHTML = '\uf527';
+        if (num == 4) dice.innerHTML = '\uf524';
+        if (num == 5) dice.innerHTML = '\uf523';
+        if (num == 6) dice.innerHTML = '\uf526';
+    }
+    else if (type == 8) dice.innerHTML = '\uf6d2';
+    else if (type == 10) dice.innerHTML = '\uf6cd';
+    else if (type == 12) dice.innerHTML = '\uf6ce';
+    else if (type == 20) dice.innerHTML = '\uf6cf';
+    else dice.innerHTML = ''
+}
+
+function disableButton(index) {
+    let button = document.getElementById(`dice-roll-${index}`)
+    let bigButton = document.getElementById('dice-roll-all')
+    button.setAttribute('disabled', true)
+    bigButton.setAttribute('disabled', true)
+    setTimeout(() => {
+        button.removeAttribute('disabled')
+        bigButton.removeAttribute('disabled')
+    }, 1000);
+}
+
+document.getElementById('dice-roll-all').onclick = () => {
+    rollDice(1)
+    rollDice(2)
+    rollDice(3)
+    rollDice(4)
 }
