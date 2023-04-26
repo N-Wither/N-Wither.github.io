@@ -221,6 +221,9 @@ body {
     display: flex;
     justify-content: space-between;
 }
+.dice-select select {
+    font-family: inherit;
+}
 .dice-display {
     height: 200px;
     display: flex;
