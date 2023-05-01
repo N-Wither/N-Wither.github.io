@@ -72,15 +72,15 @@
                     <div class="score-blank"></div>
                 </div>
                 <div class="dragons-blue dragons row-2" id="team-blue-dragons">
-                    <span class="drake-infernal">&#xf6d5;</span>
-                    <span class="drake-mountain">&#xf6d5;</span>
+                    <span class="infernal"></span>
+                    <span class="mountain"></span>
                 </div>
                 <div class="time row-2" id="moba-time"><span id="moba-time-min-b">42</span>:<span id="moba-time-sec-b">03</span></div>
                 <div class="dragons-red dragons row-2" id="team-red-dragons">
-                    <span class="drake-ocean">&#xf6d5;</span>
-                    <span class="drake-mountain">&#xf6d5;</span>
-                    <span class="drake-mountain">&#xf6d5;</span>
-                    <span class="drake-mountain">&#xf6d5;</span>
+                    <span class="ocean"></span>
+                    <span class="mountain"></span>
+                    <span class="mountain"></span>
+                    <span class="mountain"></span>
                 </div>
                 <div class="score-area row-2" id="team-red-score">
                     <div class="score-red"></div>
@@ -102,71 +102,75 @@
                 <div style="background-color: mediumturquoise;"><label for="team-blue-color">Team Blue </label><input type="color" id="team-blue-color" value="#48d1cc"></div>
                 <div style="background-color: crimson;"><label for="team-red-color">Team Red </label><input type="color" id="team-red-color" value="#dc143c"></div>
                 <div class="blue-side-stat">
-                    <span>Team Name <input type="text" id="moba-blue-team-name" value="T1"></span>
-                    <span>Position <input type="text" id="moba-blue-team-position" value="LCK#2"></span>
-                    <span>Score <input type="number" id="moba-blue-score" value="2" min="0"><button id="moba-blue-score-up">+</button><button id="moba-blue-score-down">-</button></span>
+                    <span><label for="moba-blue-team-name">Team Name </label><input type="text" id="moba-blue-team-name" value="T1"></span>
+                    <span><label for="moba-blue-team-position">Position </label><input type="text" id="moba-blue-team-position" value="LCK#2"></span>
+                    <span><label for="moba-blue-score">Score </label><input type="number" id="moba-blue-score" value="2" min="0" max="9"><button id="moba-blue-score-up">+</button><button id="moba-blue-score-down">-</button></span>
                 </div>
                 <div class="red-side-stat">
-                    <span>Team Name <input type="text" id="moba-red-team-name" value="DRX"></span>
-                    <span>Position <input type="text" id="moba-red-team-position" value="LCK#4"></span>
-                    <span>Score <input type="number" id="moba-red-score" value="2" min="0"><button id="moba-red-score-up">+</button><button id="moba-red-score-down">-</button></span>
+                    <span><label for="moba-red-team-name">Team Name </label><input type="text" id="moba-red-team-name" value="DRX"></span>
+                    <span><label for="moba-red-team-position">Position </label><input type="text" id="moba-red-team-position" value="LCK#4"></span>
+                    <span><label for="moba-red-score">Score </label><input type="number" id="moba-red-score" value="2" min="0" max="9"><button id="moba-red-score-up">+</button><button id="moba-red-score-down">-</button></span>
                 </div>
                 <div class="blue-side-stat">
                     <span>
-                        Turrets
-                        <input type="number" value="0" id="moba-blue-tower">
-                        <button id="moba-blue-tower-up">+</button>
-                        <button id="moba-blue-tower-down">-</button>
-                    </span>
-                    <span>
-                        W/L
-                        <input type="text" name="team-blue-w-l" id="team-blue-w-l">
+                        <label for="team-blue-w-l">W/L</label>
+                        <input type="text" id="team-blue-w-l">
                     </span>
                 </div>
                 <div class="red-side-stat">
                     <span>
-                        Turrets
-                        <input type="number" value="0" id="moba-red-tower">
-                        <button id="moba-red-tower-up">+</button>
-                        <button id="moba-red-tower-down">-</button>
-                    </span>
-                    <span>
-                        W/L
-                        <input type="text" name="team-red-w-l" id="team-red-w-l">
+                        <label for="team-red-w-l">W/L</label>
+                        <input type="text" id="team-red-w-l">
                     </span>
                 </div>
                 <div class="blue-side-stat">
                     <span>
-                        Gold <input type="number" id="moba-blue-gold" value="0.0" min="0.0"> K
+                        <label for="moba-blue-gold">Gold </label>
+                        <input type="number" id="moba-blue-gold" value="0.0" min="0.0" step="0.1"> K
                         <button onclick="addGold('blue', 0.1)">+0.1</button>
                         <button onclick="addGold('blue', -0.1)">-0.1</button>
+                        <button onclick="addGold('blue', 0.5)">+0.5</button>
+                        <button onclick="addGold('blue', -0.5)">-0.5</button>
                         <button onclick="addGold('blue', 1.0)">+1.0</button>
                         <button onclick="addGold('blue', -1.0)">-1.0</button>
                     </span>
                 </div>
                 <div class="red-side-stat">
                     <span>
-                        Gold <input type="number" id="moba-red-gold" value="0.0" min="0.0"> K
+                        <label for="moba-red-gold">Gold </label>
+                        <input type="number" id="moba-red-gold" value="0.0" min="0.0" step="0.1"> K
                         <button onclick="addGold('red', 0.1)">+0.1</button>
                         <button onclick="addGold('red', -0.1)">-0.1</button>
+                        <button onclick="addGold('red', 0.5)">+0.5</button>
+                        <button onclick="addGold('red', -0.5)">-0.5</button>
                         <button onclick="addGold('red', 1.0)">+1.0</button>
                         <button onclick="addGold('red', -1.0)">-1.0</button>
                     </span>
                 </div>
                 <div class="blue-side-stat">
-                    Kills <input type="number" id="moba-blue-kill" value="0" min="0"><button id="moba-blue-kill-up">+</button><button id="moba-blue-kill-down">-</button>
+                    <label for="moba-blue-tower">Turrets</label>
+                    <input type="number" value="0" id="moba-blue-tower">
+                    <button id="moba-blue-tower-up">+</button>
+                    <button id="moba-blue-tower-down">-</button>
+                    <label for="moba-blue-kill">Kills</label>
+                    <input type="number" id="moba-blue-kill" value="0" min="0"><button id="moba-blue-kill-up">+</button><button id="moba-blue-kill-down">-</button>
                 </div>
                 <div class="red-side-stat">
-                    Kills <input type="number" id="moba-red-kill" value="0" min="0"><button id="moba-red-kill-up">+</button><button id="moba-red-kill-down">-</button>
+                    <label for="moba-red-tower">Turrets</label>
+                    <input type="number" value="0" id="moba-red-tower">
+                    <button id="moba-red-tower-up">+</button>
+                    <button id="moba-red-tower-down">-</button>
+                    <label for="moba-red-kill">Kills</label>
+                    <input type="number" id="moba-red-kill" value="0" min="0"><button id="moba-red-kill-up">+</button><button id="moba-red-kill-down">-</button>
                 </div>
                 <div class="blue-side-stat">
-                    Dragons 
-                    <input type="text" id="moba-blue-dragons" style="max-width: max-content;">
+                    <label for="moba-blue-dragons">Dragons</label>
+                    <input type="text" id="moba-blue-dragons" style="min-width: calc(100% - 12em);">
                     <button onclick="setDragon(teamBlueDragonsInput.value, 'blue')">Set</button>
                 </div>
                 <div class="red-side-stat">
-                    Dragons
-                    <input type="text" id="moba-red-dragons" style="max-width: fit-content;">
+                    <label for="moba-red-dragons">Dragons</label>
+                    <input type="text" id="moba-red-dragons" style="min-width: calc(100% - 12em);">
                     <button onclick="setDragon(teamRedDragonsInput.value, 'red')">Set</button>
                 </div>
                 <div class="blue-side-stat">
@@ -187,17 +191,19 @@
                 </div>
                 <div class="blue-side-stat">
                     <label for="blue-team-logo">Logo Url</label>
-                    <input type="url" name="blue-team-logo" id="blue-team-logo-url" style="max-width: fit-content;">
-                    <input type="checkbox" id="blue-team-logo-filter" checked>Logo Img Filter
+                    <input type="url" name="blue-team-logo" id="blue-team-logo-url" style="min-width: 50%;">
+                    <input type="checkbox" id="blue-team-logo-filter" checked>
+                    <label for="blue-team-logo-filter">Logo Img Filter</label>
                 </div>
                 <div class="red-side-stat">
                     <label for="red-team-logo">Logo Url</label>
-                    <input type="url" name="red-team-logo" id="red-team-logo-url" style="max-width: fit-content;">
-                    <input type="checkbox" id="red-team-logo-filter" checked>Logo Img Filter
+                    <input type="url" name="red-team-logo" id="red-team-logo-url" style="min-width: 50%;">
+                    <input type="checkbox" id="red-team-logo-filter" checked>
+                    <label for="red-team-logo-filter">Logo Img Filter</label>
                 </div>
                 <div style="grid-column-end: 3; grid-column-start: 1;">
                     <label for="league-logo-url">League Logo</label>
-                    <input type="url" id="league-logo-url" style="max-width: fit-content;">
+                    <input type="url" id="league-logo-url" style="min-width: 60%;">
                     <button id="league-logo-filter-btn">Toggle Img Filter</button>
                 </div>
             </div>

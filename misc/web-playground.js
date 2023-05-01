@@ -149,7 +149,7 @@ function setDragon(dragons, team) {
     }
     // console.log(dragonList)
     dragonList.forEach(dragon => {
-        HTML = HTML + `<span class="drake-${dragon}">&#xf6d5;</span>`
+        HTML += `<span class="${dragon}"></span>`
     })
     document.getElementById(`team-${team}-dragons`).innerHTML = HTML
 }
@@ -286,6 +286,7 @@ function refreshBoard() {
         teamBlueTurret.innerHTML = antiNegativeNum(teamBlueTurretInput.value)
     })
     teamBlueGoldInput.addEventListener(('change', 'input'), () => {
+        teamBlueGoldInput.value = antiNegativeNum(teamBlueGoldInput.value);
         teamBlueGold.innerHTML = parseFloat(teamBlueGoldInput.value).toFixed(1) + 'K'
     })
     teamBlueKillInput.addEventListener(('change', 'input'), () => {
@@ -346,13 +347,13 @@ function refreshBoard() {
     })
     teamRedScoreBtnAdd.addEventListener('click', () => {
         if (teamRedScore.value >= getScoreToWin()) { return }
-        // setNumCap(teamRedScore, 0, getScoreToWin())
+        setNumCap(teamRedScore, 0, getScoreToWin())
         teamRedScore.value++
         setScore(teamRedScore.value, 'red')
     })
     teamRedScoreBtnMin.addEventListener('click', () => {
         if (teamRedScore.value <= 0) { return }
-        // (teamRedScore, 0, getScoreToWin())
+        (teamRedScore, 0, getScoreToWin())
         teamRedScore.value--
         setScore(teamRedScore.value, 'red')
     })
@@ -371,6 +372,7 @@ function refreshBoard() {
         teamRedTurret.innerHTML = teamRedTurretInput.value
     })
     teamRedGoldInput.addEventListener(('change', 'input'), () => {
+        teamRedGoldInput.value = antiNegativeNum(teamRedGoldInput.value);
         teamRedGold.innerHTML = parseFloat(teamRedGoldInput.value).toFixed(1) + 'K'
     })
     teamRedKillInput.addEventListener(('change', 'input'), () => {

@@ -126,22 +126,28 @@ body {
     justify-content: start;
 }
 
-.drake-infernal {
+.moba-scoreboard .infernal::before {
+    content: '\f6d5';
     color: orangered;
 }
-.drake-mountain {
+.moba-scoreboard .mountain::before {
+    content: '\f6d5';
     color: peru;
 }
-.drake-ocean {
+.moba-scoreboard .ocean::before {
+    content: '\f6d5';
     color: aquamarine;
 }
-.drake-cloud {
+.moba-scoreboard .cloud::before {
+    content: '\f6d5';
     color: lightsteelblue;
 }
-.drake-chemtech {
+.moba-scoreboard .chemtech::before {
+    content: '\f6d5';
     color: chartreuse;
 }
-.drake-hextech {
+.moba-scoreboard .hextech::before {
+    content: '\f6d5';
     color: darkturquoise;
 }
 
