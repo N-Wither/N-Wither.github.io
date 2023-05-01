@@ -1,0 +1,80 @@
+.msi {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff1e4;
+    padding: 8px;
+    color: #040404;
+}
+
+.msi a {
+    color: #ff0100;
+}
+
+.msi a:hover {
+    background-color: #ff0100;
+    color: white;
+}
+
+.msi ::selection {
+    background-color: #ff0100;
+    color: white;
+}
+
+.msi-logo {
+    transform: scale(0.8);
+}
+
+.msi-title {
+    color: #040404;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.msi-matches {
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: row;
+}
+
+.msi-match {
+    display: grid;
+    grid-template-columns: 32px 64px 36px;
+    grid-template-rows: 32px 32px 20px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+.msi-match div {
+    border-top: 2px solid #040404;
+    border-left: 2px solid #040404;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msi-match .msi-team-score{
+    border-right: 2px solid #040404;
+}
+
+.msi-match .msi-match-date{
+    border-right: 2px solid #040404;
+    border-bottom: 2px solid #040404;
+}
+
+.msi-match .msi-match-date {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.msi-match img {
+    max-width: 90%;
+}
+
+.msi-match-text {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
