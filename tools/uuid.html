@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../assets/css/main-1.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <title>UUID 生成器</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js"></script>
+    <script>
+        let setElements = () => {
+            document.getElementById('category').innerHTML = 'Tools';
+            document.getElementById('page-title').innerHTML = 'UUID 生成器';
+        }
+
+        function init() {
+            startTime();
+            hello();
+            randomQuote();
+            setElements();
+        }
+    </script>
+    <style>
+        .control {
+            display: flex;
+        }
+
+        .control div {
+            margin: 12px;
+        }
+    </style>
+    
+</head>
+
+<body onload="init()">
+    <div class="navigate" id="navigate">
+        <a href="./tools.html" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;"
+                id="category">Edit This</span></a>
+        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
+        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
+    </div>
+    <div class="toolbox" id="toolbox">
+        <div style="position: absolute; top: 45%; left: 10px">|||</div>
+        <div id="clock">clock</div>
+    </div>
+    <div class="content">
+        <div>
+            <h1 id="page-title">UUID 生成器</h1>
+            <hr />
+        </div>
+        <div class="mainText">
+            <p>
+                通用唯一识别码（英语：Universally Unique
+                Identifier，缩写：UUID）是用于计算机体系中以识别信息的一个128位标识符。UUID按照标准方法生成时，在实际应用中具有唯一性，且不依赖中央机构的注册和分配。UUID重复的概率接近零，可以忽略不计。
+                因此，所有人都可以自行创建和使用UUID，而且几乎可以确定其不会与既有的标识符重复。也因为如此，在不同地方产生的UUID可以使用于同一个数据库或同一个频道中，而且几乎不可能重复。
+                UUID的应用相当普遍，许多计算平台都提供了对于生成和解析UUID的支持。<a href="https://zh.wikipedia.org/zh-cn/%E9%80%9A%E7%94%A8%E5%94%AF%E4%B8%80%E8%AF%86%E5%88%AB%E7%A0%81">维基百科</a>
+            </p>
+            <br>
+            <div class="control">
+                <div>
+                    <label for="gen-count">生成数量</label>
+                    <input type="number" min="0" max="512" id="gen-count" value="1">
+                </div>
+                <div>
+                    <label for="gen-is-uppercase">字母大写</label>
+                    <input type="checkbox" id="gen-is-uppercase">
+                </div>
+                <div>
+                    <button id="gen-uuid" onclick="genUUID()">生成！</button>
+                </div>
+            </div>
+            <br>
+            <textarea cols="30" rows="10" id="result" style="font-family: monospace; resize: none;"></textarea>
+            <script defer>
+                let upperCaseCheckbox = document.getElementById('gen-is-uppercase');
+                let isUpperCase = false
+                let result = document.getElementById('result')
+
+                upperCaseCheckbox.addEventListener(('click', 'change'), () => {
+                    isUpperCase = !isUpperCase
+                })
+
+                function uuidPartFormat(part, num){
+                    let result = part;
+                    if(part.length == num) return result;
+                    else{
+                        for(let i = 0; i < num - part.length; i ++){
+                            result = '0' + result
+                        }
+                    }
+                    return result;
+                }
+        
+                function genUUID(){
+                    let genCount = document.getElementById('gen-count').value;
+                    let uuids = '';
+                    for(let i = 0; i < genCount; i ++) {
+                        let part1 = getRandomInt(0, 4294967296).toString(16);
+                        let part2 = getRandomInt(0, 65536).toString(16);
+                        let part3 = getRandomInt(0, 65536).toString(16);
+                        let part4 = getRandomInt(0, 65536).toString(16);
+                        let part5 = getRandomInt(0, 281474976710656).toString(16);
+                        let uuid = `${uuidPartFormat(part1, 8)}-${uuidPartFormat(part2, 4)}-${uuidPartFormat(part3, 4)}-${uuidPartFormat(part4, 4)}-${uuidPartFormat(part5, 12)}\n`;
+                        if(isUpperCase) uuid = uuid.toUpperCase();
+                        uuids += uuid;
+                    }
+                    if(genCount >= 10) result.rows = parseInt(genCount) + 1;
+                    result.innerHTML = uuids;
+                }
+            </script>
+        </div>
+        <div id="footer" style="clear:both;text-align:center;">
+            <hr>
+            <span id="randomQuote">Random Quote</span>
+            <br>
+            Powered by <a href="https://pages.github.com/">Github Pages</a>.
+        </div>
+    </div>
+</body>
+
+</html>

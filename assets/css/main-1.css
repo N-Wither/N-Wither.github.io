@@ -388,3 +388,20 @@ details.info summary::-webkit-details-marker {
     transition: 0.2s;
     font-size: small;
 }
+
+textarea {
+    background-color: #00000066;
+    border: none;
+    width: 100%;
+    color: white;
+    font-family: inherit;
+    padding: 6px;
+}
+
+input {
+    font-family: inherit;
+}
+
+button {
+    font-family: inherit;
+}
