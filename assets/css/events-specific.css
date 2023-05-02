@@ -78,3 +78,11 @@
     margin-bottom: 8px;
     margin-left: 8px;
 }
+
+.msi-team-score.win {
+    font-weight: bold;
+}
+
+.msi-team-score.lose {
+    color: gray;
+}
