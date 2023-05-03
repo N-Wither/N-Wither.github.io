@@ -86,3 +86,15 @@
 .msi-team-score.lose {
     color: gray;
 }
+
+.msi-team-name.win {
+    font-weight: bold;
+}
+
+.msi-team-name.lose {
+    color: gray;
+}
+
+.msi h2 {
+    background: none;
+}

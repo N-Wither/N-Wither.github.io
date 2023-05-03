@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset= "utf-8">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Red Hat Mono' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="../assets/css/page-specific/timer.css">
+    <title>计时器</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <script src="../assets/js/timer.js" defer></script>
+    <script>
+        let setElements = () => {
+            document.getElementById('category').innerHTML = 'Tools';
+            document.getElementById('page-title').innerHTML = '计时器';
+        }
+
+        function init(){
+            startTime();
+            hello();
+            randomQuote();
+            setElements();
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div class="navigate" id="navigate">
+        <a href="#" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
+        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
+        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
+    </div>
+    <div class="toolbox" id="toolbox">
+        <div style="position: absolute; top: calc(50% - 0.5em); left: 10px">|||</div>
+        <div id="clock">clock</div>
+    </div>
+    <div class="content">
+        <div>
+            <h1 id="page-title">Title</h1>
+            <hr/>
+        </div>
+        <div class="mainText">
+            <div id="timer">
+                <div id="timer-hr" class="timer-hour">00</div>
+                <div id="timer-separator-hour" class="timer-hour">:</div>
+                <div id="timer-mn">00</div>
+                <div>:</div>
+                <div id="timer-sc">00</div>
+            </div>
+            <div class="control">
+                <div>
+                    <label for="timer-hr-input">Hour</label>
+                    <input type="number" min="0" max="999" id="timer-hr-input" value="0">
+                    <label for="timer-hr-input">Minuite</label>
+                    <input type="number" min="-1" max="60" id="timer-mn-input" value="0">
+                    <label for="timer-hr-input">Second</label>
+                    <input type="number" min="-1" max="60" id="timer-sc-input" value="0">
+                </div>
+                <div>
+                    <label for="countdown">Countdown</label>
+                    <input type="checkbox" id="countdown-check">
+                </div>
+                <button id="button">Start</button>
+                <button id="clear">Clear</button>
+            </div>
+            <div class="control">
+                <div>
+                    <label for="show-hour-check">Always Display Hour</label>
+                    <input type="checkbox" id="show-hour-check" checked>
+                </div>
+            </div>
+        </div>
+        <div id="footer" style="clear:both;text-align:center;">
+            <hr/>
+            <span id="randomQuote">Random Quote</span>
+            <br>
+            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+        </div>
+    </div>
+</body>
+</html>

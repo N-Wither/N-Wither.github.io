@@ -13,7 +13,7 @@
         document.title = 'Edit This';
         let setElements = () => {
             document.getElementById('category').innerHTML = 'Edit This';
-            document.getElementById('page_title').innerHTML = 'Page Title';
+            document.getElementById('page-title').innerHTML = 'Page Title';
         }
 
         function init(){
@@ -31,12 +31,12 @@
         <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
     </div>
     <div class="toolbox" id="toolbox">
-        <div style="position: absolute; top: 45%; left: 10px">|||</div>
+        <div style="position: absolute; top: calc(50% - 0.5em); left: 10px">|||</div>
         <div id="clock">clock</div>
     </div>
     <div class="content">
         <div>
-            <h1>Title</h1>
+            <h1 id="page-title">Title</h1>
             <hr/>
         </div>
         <div class="mainText">

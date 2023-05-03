@@ -224,7 +224,7 @@ function refreshBoard() {
         }
         if (gameTimeSec.value == 60) {
             gameTimeSec.value = 0
-            gameTimeMin.value++
+            gameTimeMin.value ++
             gameTimeMinB.innerHTML = formatNum(gameTimeMin.value)
         }
         if (gameTimeSec.value == -1) {
@@ -376,7 +376,8 @@ function refreshBoard() {
         teamRedGold.innerHTML = parseFloat(teamRedGoldInput.value).toFixed(1) + 'K'
     })
     teamRedKillInput.addEventListener(('change', 'input'), () => {
-        teamRedKill.innerHTML = antiNegativeNum(teamRedKillInput.value)
+        teamRedKillInput.value = antiNegativeNum(teamRedKillInput.value)
+        teamRedKill.innerHTML = teamRedKillInput.value
     })
     teamRedKillUp.addEventListener('click', () => {
         teamRedKillInput.value++
