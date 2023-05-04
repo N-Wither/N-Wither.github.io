@@ -405,8 +405,3 @@ input {
 button {
     font-family: inherit;
 }
-
-#footer {
-    position: sticky;
-    bottom: 0;
-}
