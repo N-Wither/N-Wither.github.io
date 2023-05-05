@@ -13,6 +13,7 @@ select {
     grid-template-columns: 50px 1fr 1fr 1fr 1fr 50px 1fr 1fr 1fr 1fr 50px;
     grid-template-rows: 50px 18px;
     width: 100%;
+    user-select: none;
 }
 
 .moba-scoreboard img {
@@ -192,80 +193,4 @@ select {
 
 .red-side-stat {
     background: #dc143c66;
-}
-
-/* Fancy Link */
-.fancy-link {
-    color: white;
-    background: linear-gradient(to right, white, white) no-repeat right bottom;
-    background-size: 0 2px;
-    transition: background-size 200ms;
-}
-.fancy-link:hover {
-    background-position-x: left;
-    background-size: 100% 2px;
-}
-
-/* Dices */
-.dices {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-}
-.dices div {
-    background-color: #180a02;
-    border-color: goldenrod;
-    border-width: 2px;
-}
-.dices select {
-    background-color: #291103;
-    color: white;
-    border-color: goldenrod;
-}
-.dices select option:hover {
-    background-color: goldenrod;
-}
-.dice-select {
-    border-style: solid;
-    padding: 6px;
-    display: flex;
-    justify-content: space-between;
-}
-.dice-select select {
-    font-family: inherit;
-}
-.dice-display {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 72px;
-    flex-direction: column;
-}
-.dice-label {
-    font-size: 86px;
-}
-button.dice-roll {
-    background-color: #180a02;
-    border-color: goldenrod;
-    color: white;
-    font-family: inherit;
-    padding: 6px;
-    width: 100%;
-}
-button:active.dice-roll {
-    background-color: goldenrod;
-}
-button:disabled.dice-roll {
-    background-color: #221b18;
-    color: gray;
-}
-.dice-roll-all {
-    grid-column-start: 1;
-    grid-column-end: 5;
-}
-#dice-roll-all {
-    padding: 8px;
-    font-size: large;
-    font-weight: bold;
 }
