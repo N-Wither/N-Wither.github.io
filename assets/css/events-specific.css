@@ -95,6 +95,19 @@
     color: gray;
 }
 
+.msi-team-logo.eliminated {
+    filter: grayscale();
+}
+
+.eliminated {
+    background-color: darkgray;
+}
+
+.qualified {
+    background-color: #ff0100;
+    color: white;
+}
+
 .msi h2 {
     background: none;
 }
