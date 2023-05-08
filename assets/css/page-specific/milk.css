@@ -1,0 +1,32 @@
+#milksim {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.panel button {
+    margin: 0.5em;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.shop {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 0.5em;
+}
+
+.shop h2 {
+    position: sticky;
+    top: 0;
+}
+
+.shop button {
+    width: 100%;
+}
