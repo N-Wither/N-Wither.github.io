@@ -47,14 +47,18 @@
         </div>
         <div class="mainText">
             <div id="milksim">
-                <div class="panel">
-                    <div>牛奶：{{milk}} 桶</div>
-                    <div>手动产量：{{manualMilkAmount}} 桶/次</div>
-                    <div>自动产量：{{autoMilkAmount}} 桶/秒</div>
+                <div class="panel list">
+                    <div>牛奶：{{milk.toFixed(0)}} 桶</div>
+                    <div>手动产量：{{manualMilkAmount}} <span v-if="manualMilkModifier > 1">(+{{((manualMilkModifier - 1) * 100).toFixed(0)}}%)</span> 桶/次</div>
+                    <div>自动产量：{{autoMilkAmount}} <span v-if="autoMilkModifier > 1">(+{{((autoMilkModifier - 1) * 100).toFixed(0)}}%)</span> 桶/秒</div>
                     <button @click="manualMilk()">挤奶</button>
                     <button @click="saveGame()">保存游戏</button>
+                    <div class="news">
+                        <div style="font-weight: bold;">新闻</div>
+                        <div class="news-text">{{pickedNews}}</div>
+                    </div>
                 </div>
-                <div class="shop">
+                <div class="shop list">
                     <h2>资产</h2>
                     <div>
                         <button @click="buyProperty('milkMan')">挤奶工({{properties.milkMan.count}})</button>
@@ -73,6 +77,64 @@
                         <div>{{properties.pump.desc}}</div>
                         <div>价格：{{properties.pump.price}}</div>
                         <div>产量: 自动 {{properties.pump.productivity[0]}} 手动 {{properties.pump.productivity[1]}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyProperty('pumpjack')">牛奶钻井({{properties.pumpjack.count}})</button>
+                        <div>{{properties.pumpjack.desc}}</div>
+                        <div>价格：{{properties.pumpjack.price}}</div>
+                        <div>产量: 自动 {{properties.pumpjack.productivity[0]}} 手动 {{properties.pumpjack.productivity[1]}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyProperty('factory')">化工厂({{properties.factory.count}})</button>
+                        <div>{{properties.factory.desc}}</div>
+                        <div>价格：{{properties.factory.price}}</div>
+                        <div>产量: 自动 {{properties.factory.productivity[0]}} 手动 {{properties.factory.productivity[1]}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyProperty('exchange')">交易所({{properties.exchange.count}})</button>
+                        <div>{{properties.exchange.desc}}</div>
+                        <div>价格：{{properties.exchange.price}}</div>
+                        <div>产量: 自动 {{properties.exchange.productivity[0]}} 手动 {{properties.exchange.productivity[1]}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyProperty('magic')">魔法师({{properties.magic.count}})</button>
+                        <div>{{properties.magic.desc}}</div>
+                        <div>价格：{{properties.magic.price}}</div>
+                        <div>产量: 自动 {{properties.magic.productivity[0]}} 手动 {{properties.magic.productivity[1]}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyProperty('starship')">星舰({{properties.starship.count}})</button>
+                        <div>{{properties.starship.desc}}</div>
+                        <div>价格：{{properties.starship.price}}</div>
+                        <div>产量: 自动 {{properties.starship.productivity[0]}} 手动 {{properties.starship.productivity[1]}}</div>
+                    </div>
+                </div>
+                <div class="shop list">
+                    <h2>升级</h2>
+                    <div>
+                        <button @click="buyUpgrade('freshGrass')" :class="upgrades.freshGrass.sold">新鲜牧草 <span v-if="upgrades.freshGrass.sold">（已购买）</span></button>
+                        <div>{{upgrades.freshGrass.desc}}</div>
+                        <div>价格：{{upgrades.freshGrass.price}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyUpgrade('cowCat')" :class="upgrades.cowCat.sold">奶牛猫 <span v-if="upgrades.cowCat.sold">（已购买）</span></button>
+                        <div>{{upgrades.cowCat.desc}}</div>
+                        <div>价格：{{upgrades.cowCat.price}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyUpgrade('exoskeleton')" :class="upgrades.exoskeleton.sold">机械外骨骼 <span v-if="upgrades.exoskeleton.sold">（已购买）</span></button>
+                        <div>{{upgrades.exoskeleton.desc}}</div>
+                        <div>价格：{{upgrades.exoskeleton.price}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyUpgrade('gene')" :class="upgrades.gene.sold">转基因 <span v-if="upgrades.gene.sold">（已购买）</span></button>
+                        <div>{{upgrades.gene.desc}}</div>
+                        <div>价格：{{upgrades.gene.price}}</div>
+                    </div>
+                    <div>
+                        <button @click="buyUpgrade('school')" :class="upgrades.school.sold">奶牛学校 <span v-if="upgrades.school.sold">（已购买）</span></button>
+                        <div>{{upgrades.school.desc}}</div>
+                        <div>价格：{{upgrades.school.price}}</div>
                     </div>
                 </div>
             </div>

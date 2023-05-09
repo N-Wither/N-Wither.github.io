@@ -29,4 +29,28 @@
 
 .shop button {
     width: 100%;
+    border: none;
+    cursor: pointer
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+.list {
+    max-height: 640px;
+    overflow-y: auto;
+}
+
+button.sold {
+    background-color: #00000099;
+    color: gray;
+    cursor: not-allowed;
+    border: none;
+}
+
+.news {
+    margin-top: 4em;
+    background-color: #00000033;
+    min-height: 3em;
 }
