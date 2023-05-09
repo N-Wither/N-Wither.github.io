@@ -53,6 +53,7 @@
                     <div>自动产量：{{autoMilkAmount}} <span v-if="autoMilkModifier > 1">(+{{((autoMilkModifier - 1) * 100).toFixed(0)}}%)</span> 桶/秒</div>
                     <button @click="manualMilk()">挤奶</button>
                     <button @click="saveGame()">保存游戏</button>
+                    <button @click="loadGame()">读取游戏</button>
                     <div class="news">
                         <div style="font-weight: bold;">新闻</div>
                         <div class="news-text">{{pickedNews}}</div>

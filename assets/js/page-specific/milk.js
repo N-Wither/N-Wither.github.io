@@ -1,7 +1,7 @@
 const MilkApp = {
     data() {
         return {
-            milk: 0,
+            milk: 1000000000,
             manualMilkAmount: 1,
             manualMilkModifier: 1,
             autoMilkAmount: 0,
@@ -238,20 +238,13 @@ const MilkApp = {
                     school: this.upgrades.school.sold
                 }
             }
-            document.cookie = 'data=' + JSON.stringify(data)
-            alert('游戏已保存！')
+            navigator.clipboard.writeText(btoa(JSON.stringify(data)))
+            alert('游戏存档数据已保存到剪贴板！')
         },
 
         loadGame(){
-            if(document.cookie.indexOf('data' == -1)) return;
-            let cookies = document.cookie.split(';')
-            let rawData = {}
-            for(let cookie in cookies){
-                if(cookie.startsWith('data=')){
-                    rawData = cookie.substring(5, cookie.length)
-                }
-            }
-            let data = JSON.parse(rawData)
+            let rawData = window.prompt('输入存档数据：').trim()
+            let data = JSON.parse(atob(rawData))
             this.milk = data.milk
             this.manualMilkAmount = data.manualMilkAmount
             this.manualMilkModifier = data.manualMilkModifier
@@ -297,7 +290,6 @@ const MilkApp = {
 
     mounted() {
         this.showNews()
-        this.loadGame()
         this.autoMilk()
     }
 }
