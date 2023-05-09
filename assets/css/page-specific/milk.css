@@ -51,6 +51,46 @@ button.sold {
 
 .news {
     margin-top: 4em;
+    margin-bottom: 4em;
     background-color: #00000033;
     min-height: 3em;
+}
+
+.data {
+    background-color: #00000033;
+    resize: none;
+    width: calc(100% - 1em);
+    height: 10em;
+    display: none;
+}
+
+.data.visible {
+    display: block;
+}
+
+.data-tip {
+    background-color: #00000033;
+    width: 100%;
+    display: none;
+}
+
+.data-tip.visible {
+    display: block;
+}
+
+#milkButton {
+    height: 3em;
+}
+
+#saveButton {
+    width: 45%;
+}
+
+#loadButton {
+    width: 45%;
+}
+
+.savedata-control {
+    display: flex;
+    justify-content: space-between;
 }

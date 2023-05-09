@@ -1,7 +1,7 @@
 const MilkApp = {
     data() {
         return {
-            milk: 1000000000,
+            milk: 0,
             manualMilkAmount: 1,
             manualMilkModifier: 1,
             autoMilkAmount: 0,
@@ -239,12 +239,16 @@ const MilkApp = {
                 }
             }
             navigator.clipboard.writeText(btoa(JSON.stringify(data)))
+            document.querySelector('.data').innerHTML = btoa(JSON.stringify(data))
+            document.querySelector('.data').setAttribute('class', 'data visible')
+            document.querySelector('.data-tip').setAttribute('class', 'data-tip visible')
             alert('游戏存档数据已保存到剪贴板！')
         },
 
         loadGame(){
-            let rawData = window.prompt('输入存档数据：').trim()
-            let data = JSON.parse(atob(rawData))
+            let rawData = window.prompt('输入存档数据：')
+            if(rawData == null) return;
+            let data = JSON.parse(atob(rawData.trim()))
             this.milk = data.milk
             this.manualMilkAmount = data.manualMilkAmount
             this.manualMilkModifier = data.manualMilkModifier

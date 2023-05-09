@@ -51,13 +51,17 @@
                     <div>牛奶：{{milk.toFixed(0)}} 桶</div>
                     <div>手动产量：{{manualMilkAmount}} <span v-if="manualMilkModifier > 1">(+{{((manualMilkModifier - 1) * 100).toFixed(0)}}%)</span> 桶/次</div>
                     <div>自动产量：{{autoMilkAmount}} <span v-if="autoMilkModifier > 1">(+{{((autoMilkModifier - 1) * 100).toFixed(0)}}%)</span> 桶/秒</div>
-                    <button @click="manualMilk()">挤奶</button>
-                    <button @click="saveGame()">保存游戏</button>
-                    <button @click="loadGame()">读取游戏</button>
+                    <button @click="manualMilk()" id="milkButton">挤奶</button>
+                    <div class="savedata-control">
+                        <button @click="saveGame()" id="saveButton">保存游戏</button>
+                        <button @click="loadGame()" id="loadButton">读取游戏</button>
+                    </div>
                     <div class="news">
                         <div style="font-weight: bold;">新闻</div>
                         <div class="news-text">{{pickedNews}}</div>
                     </div>
+                    <div class="data-tip">如果数据没有保存到剪贴板，请复制下面的内容：</div>
+                    <textarea class="data" readonly></textarea>
                 </div>
                 <div class="shop list">
                     <h2>资产</h2>
