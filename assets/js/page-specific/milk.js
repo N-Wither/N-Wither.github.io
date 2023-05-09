@@ -243,8 +243,15 @@ const MilkApp = {
         },
 
         loadGame(){
-            if(document.cookie.split('data=')[1] == '') return;
-            let data = JSON.parse(document.cookie.split('data=')[1])
+            if(document.cookie.indexOf('data' == -1)) return;
+            let cookies = document.cookie.split(';')
+            let rawData = {}
+            for(let cookie in cookies){
+                if(cookie.startsWith('data=')){
+                    rawData = cookie.substring(5, cookie.length)
+                }
+            }
+            let data = JSON.parse(rawData)
             this.milk = data.milk
             this.manualMilkAmount = data.manualMilkAmount
             this.manualMilkModifier = data.manualMilkModifier
