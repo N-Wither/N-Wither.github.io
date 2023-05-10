@@ -10,8 +10,9 @@
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <script src="https://n-wither.github.io/assets/js/utils.js"></script>
+    <script src="./assets/js/page-specific/special_events.js" defer></script>
 </head>
-<body onload="startTime(), hello(), randomQuote()">
+<body onload="startTime(), hello(), randomQuote(), setLogos()">
     <div class="navigate" id="navigate">
         <a href="https://n-wither.github.io">🏠<span>Home</span></a>
         <a href="./writings/index.html">📚<span>Articles</span></a>
@@ -46,61 +47,45 @@
                         <div class="msi-match-text">Bracket Stages</div>
                         <div class="msi-match-text">Round 1</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e3/Gen.Glogo_square.png"
-                                alt="GEN"></div>
-                            <div class="msi-team-name">GEN</div>
-                            <div class="msi-team-score">BO5</div>
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/77/G2_Esportslogo_square.png"
-                                alt="G2"></div>
-                            <div class="msi-team-name">G2</div>
-                            <div class="msi-team-score">BO5</div>
+                            <div class="msi-team-logo GEN"></div>
+                            <div class="msi-team-name win">GEN</div>
+                            <div class="msi-team-score win">3</div>
+                            <div class="msi-team-logo G2"></div>
+                            <div class="msi-team-name lose">G2</div>
+                            <div class="msi-team-score lose">1</div>
                             <div class="msi-match-date">May 9 20:00</div>
                         </div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3c/MAD_Lionslogo_square.png"
-                                alt="MAD"></div>
+                            <div class="msi-team-logo MAD"></div>
                             <div class="msi-team-name">MAD</div>
                             <div class="msi-team-score">BO5</div>
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a2/T1logo_square.png"
-                                alt="T1"></div>
+                            <div class="msi-team-logo T1"></div>
                             <div class="msi-team-name">T1</div>
                             <div class="msi-team-score">BO5</div>
                             <div class="msi-match-date">May 10 20:00</div>
                         </div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/Cloud9logo_square.png"
-                                alt="C9"></div>
+                            <div class="msi-team-logo C9"></div>
                             <div class="msi-team-name">C9</div>
                             <div class="msi-team-score">BO5</div>
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/91/Bilibili_Gaminglogo_square.png"
-                                alt="BLG"></div>
+                            <div class="msi-team-logo BLG"></div>
                             <div class="msi-team-name">BLG</div>
                             <div class="msi-team-score">BO5</div>
                             <div class="msi-match-date">May 11 20:00</div>
                         </div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/00/JD_Gaminglogo_square.png"
-                                alt="JDG"></div>
+                            <div class="msi-team-logo JDG"></div>
                             <div class="msi-team-name">JDG</div>
                             <div class="msi-team-score">BO5</div>
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png"
-                                alt="GG"></div>
+                            <div class="msi-team-logo GG"></div>
                             <div class="msi-team-name">GG</div>
                             <div class="msi-team-score">BO5</div>
                             <div class="msi-match-date">May 12 20:00</div>
                         </div>
                         <div class="msi-match-text">Losers' Bracket</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"></div>
-                            <div class="msi-team-name">TBD</div>
+                            <div class="msi-team-logo G2"></div>
+                            <div class="msi-team-name">G2</div>
                             <div class="msi-team-score">BO5</div>
                             <div class="msi-team-logo"></div>
                             <div class="msi-team-name">TBD</div>
@@ -218,41 +203,29 @@
                         <div class="msi-match-text">Group A</div>
                         <div class="msi-match-text">Round 1</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/91/Bilibili_Gaminglogo_square.png"
-                                    alt="BLG"></div>
+                            <div class="msi-team-logo BLG"></div>
                             <div class="msi-team-name win">BLG</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo lose"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2a/Movistar_R7logo_square.png"
-                                    alt="R7"></div>
+                            <div class="msi-team-logo R7"></div>
                             <div class="msi-team-name lose">R7</div>
                             <div class="msi-team-score lose">0</div>
                             <div class="msi-match-date">May 3rd 20:00</div>
                         </div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png"
-                                    alt="GG"></div>
+                            <div class="msi-team-logo GG"></div>
                             <div class="msi-team-name win">GG</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo lose"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8a/GAM_Esportslogo_square.png"
-                                    alt="GAM"></div>
+                            <div class="msi-team-logo GAM"></div>
                             <div class="msi-team-name lose">GAM</div>
                             <div class="msi-team-score lose">0</div>
                             <div class="msi-match-date">May 3rd 23:00</div>
                         </div>
                         <div class="msi-match-text">Losers' Bracket</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2a/Movistar_R7logo_square.png"
-                                alt="R7"></div>
+                            <div class="msi-team-logo R7"></div>
                             <div class="msi-team-name win">R7</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo eliminated"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8a/GAM_Esportslogo_square.png"
-                                alt="GAM"></div>
+                            <div class="msi-team-logo GAM eliminated"></div>
                             <div class="msi-team-name lose eliminated">GAM</div>
                             <div class="msi-team-score lose eliminated">1</div>
                             <div class="msi-match-date">May 5th 20:00</div>
@@ -268,14 +241,10 @@
                         </div>
                         <div class="msi-match-text">Qualification Match</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo qualified"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/91/Bilibili_Gaminglogo_square.png"
-                                alt="BLG"></div>
+                            <div class="msi-team-logo BLG qualified"></div>
                             <div class="msi-team-name win qualified">BLG</div>
                             <div class="msi-team-score win qualified">2</div>
-                            <div class="msi-team-logo lose"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png"
-                                alt="GG"></div>
+                            <div class="msi-team-logo GG"></div>
                             <div class="msi-team-name lose">GG</div>
                             <div class="msi-team-score lose">1</div>
                             <div class="msi-match-date">May 4th 20:00</div>
@@ -287,14 +256,10 @@
                             <br>
                         </div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png"
-                                alt="GG"></div>
+                            <div class="msi-team-logo GG"></div>
                             <div class="msi-team-name win">GG</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo eliminated"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2a/Movistar_R7logo_square.png"
-                                alt="R7"></div>
+                            <div class="msi-team-logo R7 eliminated"></div>
                             <div class="msi-team-name lose eliminated">R7</div>
                             <div class="msi-team-score lose eliminated">0</div>
                             <div class="msi-match-date">May 6th 19:00</div>
@@ -305,41 +270,31 @@
                         <div class="msi-match-text">Group B</div>
                         <div class="msi-match-text">Round 1</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/77/G2_Esportslogo_square.png"
-                                    alt="G2"></div>
+                            <div class="msi-team-logo G2"></div>
                             <div class="msi-team-name win">G2</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo lose"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/76/LOUDlogo_square.png"
-                                    alt="LLL"></div>
+                            <div class="msi-team-logo LLL"></div>
                             <div class="msi-team-name lose">LLL</div>
                             <div class="msi-team-score lose">0</div>
                             <div class="msi-match-date">May 2nd 23:00</div>
                         </div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/48/PSG_Talonlogo_square.png"
+                            <div class="msi-team-logo PSG"><img
+                                    src=""
                                     alt="PSG"></div>
                             <div class="msi-team-name win">PSG</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo lose"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a7/DetonatioN_FocusMelogo_square.png"
-                                    alt="DFM"></div>
+                            <div class="msi-team-logo DFM"></div>
                             <div class="msi-team-name lose">DFM</div>
                             <div class="msi-team-score lose">0</div>
                             <div class="msi-match-date">May 2nd 20:00</div>
                         </div>
                         <div class="msi-match-text">Losers' Bracket</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/76/LOUDlogo_square.png"
-                                    alt="LLL"></div>
+                            <div class="msi-team-logo LLL"></div>
                             <div class="msi-team-name win">LLL</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo eliminated"><img
-                                    src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a7/DetonatioN_FocusMelogo_square.png"
-                                    alt="DFM"></div>
+                            <div class="msi-team-logo DFM eliminated"></div>
                             <div class="msi-team-name lose eliminated">DFM</div>
                             <div class="msi-team-score lose eliminated">0</div>
                             <div class="msi-match-date">May 5th 23:00</div>
@@ -355,14 +310,10 @@
                         </div>
                         <div class="msi-match-text">Qualification Match</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo qualified"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/77/G2_Esportslogo_square.png"
-                                alt="G2"></div>
+                            <div class="msi-team-logo G2 qualified"></div>
                             <div class="msi-team-name win qualified">G2</div>
                             <div class="msi-team-score win qualified">2</div>
-                            <div class="msi-team-logo lose"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/48/PSG_Talonlogo_square.png"
-                                alt="PSG"></div>
+                            <div class="msi-team-logo PSG"></div>
                             <div class="msi-team-name lose">PSG</div>
                             <div class="msi-team-score lose">0</div>
                             <div class="msi-match-date">May 4th 23:00</div>
@@ -374,14 +325,10 @@
                             <br>
                         </div>
                         <div class="msi-match">
-                            <div class="msi-team-logo"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/48/PSG_Talonlogo_square.png"
-                                alt="PSG"></div>
+                            <div class="msi-team-logo PSG"></div>
                             <div class="msi-team-name win">PSG</div>
                             <div class="msi-team-score win">2</div>
-                            <div class="msi-team-logo lose eliminated"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/76/LOUDlogo_square.png"
-                                alt="LLL"></div>
+                            <div class="msi-team-logo LLL eliminated"></div>
                             <div class="msi-team-name lose eliminated">LLL</div>
                             <div class="msi-team-score lose eliminated">0</div>
                             <div class="msi-match-date">May 6th 22:00</div>
@@ -389,16 +336,12 @@
                     </div>
                     <div>
                         <div class="msi-match-text"><br><br><br><br><br><br><br><br><br></div>
-                        <div class="msi-match-text">Last Qualification Match</div>
+                        <div class="msi-match-text">Last Chance Qualification Match</div>
                         <div class="msi-match">
-                            <div class="msi-team-logo qualified"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png"
-                                alt="GG"></div>
+                            <div class="msi-team-logo GG qualified"></div>
                             <div class="msi-team-name win qualified">GG</div>
                             <div class="msi-team-score win qualified">3</div>
-                            <div class="msi-team-logo eliminated"><img
-                                src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/48/PSG_Talonlogo_square.png"
-                                alt="PSG"></div>
+                            <div class="msi-team-logo PSG eliminated"></div>
                             <div class="msi-team-name eliminated lose">PSG</div>
                             <div class="msi-team-score eliminated lose">0</div>
                             <div class="msi-match-date">May 7th 19:00</div>
