@@ -57,9 +57,11 @@ function updateTimer() {
     timerHour.innerHTML = checkTime(hour)
     timerMin.innerHTML = checkTime(min)
     timerSec.innerHTML = checkTime(sec)
+    document.title = checkTime(hour) + ':' + checkTime(min) + ':' + checkTime(sec)
     if(timerCount < 3600 && !displayHour) {
         document.querySelectorAll('.timer-hour').forEach(element => {
             element.innerHTML = ''
+            document.title = checkTime(min) + ':' + checkTime(sec)
         })
     }
 }
