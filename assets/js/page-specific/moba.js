@@ -232,7 +232,7 @@ const MobaScoreboardApp = {
             this[team][type] ++
             let maxTime = 0
             if(type == 'elder') this[team].elderTime = 150, maxTime = 150;
-            if(type == 'baron') this[team].baronTime = 240, maxTime = 240;
+            if(type == 'baron') this[team].baronTime = 180, maxTime = 180;
             document.getElementById(`${team}-${type}-bar`).style.width = '100%'
             this[team][`${type}Timer`] = setInterval(() => {
                 this[team][`${type}Time`] --
