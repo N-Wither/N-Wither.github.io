@@ -19,14 +19,12 @@ select {
 .moba-scoreboard img {
     max-width: 40px;
     max-height: 40px;
-    filter: brightness(0) invert();
 }
 
 .moba-scoreboard div{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
 }
 
 .moba-scoreboard .row-1{
@@ -118,7 +116,7 @@ select {
 }
 
 .moba-scoreboard .dragons-blue{
-    grid-column-start: 2;
+    grid-column-start: 5;
     grid-column-end: 6;
     flex-direction: row-reverse;
     justify-content: end;
@@ -126,7 +124,7 @@ select {
 
 .moba-scoreboard .dragons-red{
     grid-column-start: 7;
-    grid-column-end: 11;
+    grid-column-end: 8;
     flex-direction: row;
     justify-content: start;
 }
@@ -193,4 +191,54 @@ select {
 
 .red-side-stat {
     background: #dc143c66;
+}
+
+img.filter-white {
+    filter: brightness(0) invert();
+}
+
+.moba-scoreboard .score-teamBlue {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: mediumturquoise;
+    border-color: white;
+    padding: 0;
+}
+
+.moba-scoreboard .score-teamRed {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: crimson;
+    border-color: white;
+    padding: 0;
+}
+
+.buff-container {
+    position: relative;
+    padding: 0;
+}
+
+.buff-container .text {
+    position: absolute;
+    z-index: 1;
+}
+
+.buff-progress {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    padding: 0;
+    z-index: 0;
+    width: 0;
+    transition: width 0.2s;
+}
+
+.baron.buff-progress {
+    background-color: blueviolet;
+}
+
+.elder.buff-progress {
+    background-color: #d9baea;
 }

@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../assets/css/page-specific/moba.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <script src="https://n-wither.github.io/assets/js/utils.js"></script>
-    <script src="../assets/js/page-specific/moba.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.prod.min.js"></script>
+    <script src="../assets/js/page-specific/moba_new.js" defer type="module"></script>
     <script>
         let title = 'Moba Scoreboard'
         document.title = title;
@@ -44,42 +45,80 @@
             <h1 id="page-title">Title</h1>
             <hr/>
         </div>
-        <div class="mainText">
+        <div class="mainText" id="scoreboard">
             <div class="moba-scoreboard">
-                <div class="team-blue row-1" id="team-blue-logo-bg"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/78/T1logo_profile.png" alt="Team Blue" id="blue-team-logo"></div>
-                <div class="team-name row-1">
-                    <span id="blue-team-name-text">T1</span>
-                    <span id="blue-team-pos-text">LCK#2</span>
+                <div class="team-blue row-1" id="team-blue-logo-bg">
+                    <img :src="teamBlue.logo" :alt="teamBlue.name" id="blue-team-logo" :class="!teamBlue.logoFilter ? '' : 'filter-white'">
                 </div>
-                <div class="towers row-1"><span style="color: mediumturquoise;" class="team-blue-stat">♜</span>&nbsp;<span id="blue-team-turret">8</span></div>
-                <div class="gold row-1"><span style="color: mediumturquoise;" class="team-blue-stat">&#xf51e;</span>&nbsp;<span id="blue-team-gold">71.8K</span></div>
-                <div class="kills row-1"><span style="color: mediumturquoise;" class="team-blue-stat">🗡</span><span>&nbsp;<span id="blue-team-kill">10</span></span></div>
-                <div class="game-label row-1"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e9/Worlds.png" alt="League Logo" id="league-logo-img"></div>
-                <div class="kills row-1"><span style="color: crimson;" class="team-red-stat">🗡</span><span>&nbsp;<span id="red-team-kill">18</span></span></div>
-                <div class="gold row-1"><span style="color: crimson;" class="team-red-stat">&#xf51e;</span>&nbsp;<span id="red-team-gold">72.9K</span></div>
-                <div class="towers row-1"><span style="color: crimson;" class="team-red-stat">♜</span>&nbsp;<span id="red-team-turret">6</span></div>
                 <div class="team-name row-1">
-                    <span id="red-team-name-text">DRX</span>
-                    <span id="red-team-pos-text">LCK#4</span>
+                    <span id="blue-team-name-text">{{ teamBlue.name }}</span>
+                    <span id="blue-team-pos-text">{{ teamBlue.pos }}</span>
                 </div>
-                <div class="team-red row-1" id="team-red-logo-bg"><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/81/DRXlogo_profile.png" alt="Team Red" id="red-team-logo"></div>
-                <div class="score-area row-2" id="team-blue-score">
+                <div class="towers row-1"><span style="color: mediumturquoise;" class="team-blue-stat">♜</span>&nbsp;<span id="blue-team-turret">{{ teamBlue.towers }}</span></div>
+                <div class="gold row-1"><span style="color: mediumturquoise;" class="team-blue-stat">&#xf51e;</span>&nbsp;<span id="blue-team-gold">{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
+                <div class="kills row-1"><span style="color: mediumturquoise;" class="team-blue-stat">🗡</span><span>&nbsp;<span id="blue-team-kill">{{ teamBlue.kills }}</span></span></div>
+                <div class="game-label row-1"><img :src="global.leagueLogo" alt="League Logo" id="league-logo-img" :class="!global.logoFilter ? '' : 'filter-white'"></div>
+                <div class="kills row-1"><span style="color: crimson;" class="team-red-stat">🗡</span><span>&nbsp;<span id="red-team-kill">{{ teamRed.kills }}</span></span></div>
+                <div class="gold row-1"><span style="color: crimson;" class="team-red-stat">&#xf51e;</span>&nbsp;<span id="red-team-gold">{{ parseFloat(teamRed.gold).toFixed(1) + 'K' }}</span></div>
+                <div class="towers row-1"><span style="color: crimson;" class="team-red-stat">♜</span>&nbsp;<span id="red-team-turret">{{ teamRed.towers }}</span></div>
+                <div class="team-name row-1">
+                    <span id="red-team-name-text">{{ teamRed.name }}</span>
+                    <span id="red-team-pos-text">{{ teamRed.pos }}</span>
+                </div>
+                <div class="team-red row-1" id="team-red-logo-bg">
+                    <img :src="teamRed.logo" :alt="teamRed.name" id="red-team-logo" :class="!teamRed.logoFilter ? '' : 'filter-white'">
+                </div>
+                <div class="score-area row-2" id="teamBlue-score">
                     <div class="score-blue"></div>
                     <div class="score-blue"></div>
                     <div class="score-blank"></div>
                 </div>
+                <div class="row-2 elder buff-container">
+                    <div class="text">
+                        <span v-if="teamBlue.elder != 0">ELDER</span>
+                        <span v-if="teamBlue.elderTime == 0 && teamBlue.elder != 0">:&nbsp;{{ teamBlue.elder }}</span>
+                        <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
+                    </div>
+                    <div class="elder buff-progress" id="teamBlue-elder-bar"></div>
+                </div>
+                <div class="row-2 baron buff-container">
+                    <div class="text">
+                        <span v-if="teamBlue.baron != 0">BARON</span>
+                        <span v-if="teamBlue.baronTime == 0 && teamBlue.baron != 0">:&nbsp;{{ teamBlue.baron }}</span>
+                        <span v-if="teamBlue.baronTime != 0">&nbsp;{{ timeFormat(teamBlue.baronTime, true) }}</span>
+                    </div>
+                    <div class="baron buff-progress" id="teamBlue-baron-bar"></div>
+                </div>
+                <div class="row-2">
+                    <div v-if="global.goldDiff > 0">+{{ Math.abs(global.goldDiff) }}K</div>
+                </div>
                 <div class="dragons-blue dragons row-2" id="team-blue-dragons">
-                    <span class="infernal"></span>
-                    <span class="mountain"></span>
+                    <span v-for="drake in teamBlue.dragons" :class="drake" v-if="typeof teamBlue.dragons == 'object'"></span>
                 </div>
-                <div class="time row-2" id="moba-time"><span id="moba-time-min-b">42</span>:<span id="moba-time-sec-b">03</span></div>
+                <div class="time row-2" id="moba-time">{{ timeFormat(global.time) }}</div>
                 <div class="dragons-red dragons row-2" id="team-red-dragons">
-                    <span class="ocean"></span>
-                    <span class="mountain"></span>
-                    <span class="mountain"></span>
-                    <span class="mountain"></span>
+                    <span v-for="drake in teamRed.dragons" :class="drake"></span>
                 </div>
-                <div class="score-area row-2" id="team-red-score">
+                <div class="row-2">
+                    <div v-if="global.goldDiff < 0">+{{ Math.abs(global.goldDiff) }}K</div>
+                </div>
+                <div class="row-2 baron buff-container">
+                    <div class="text">
+                        <span v-if="teamRed.baron != 0">BARON</span>
+                        <span v-if="teamRed.baronTime == 0 && teamRed.baron != 0">:&nbsp;{{ teamRed.baron }}</span>
+                        <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
+                    </div>
+                    <div class="baron buff-progress" id="teamRed-baron-bar"></div>
+                </div>
+                <div class="row-2 elder buff-container">
+                    <div class="text">
+                        <span v-if="teamRed.elder != 0">ELDER</span>
+                        <span v-if="teamRed.elderTime == 0 && teamRed.elder != 0">:&nbsp;{{ teamRed.elder }}</span>
+                        <span v-if="teamRed.elderTime != 0">&nbsp;{{ timeFormat(teamRed.elderTime, true) }}</span>
+                    </div>
+                    <div class="elder buff-progress" id="teamRed-elder-bar"></div>
+                </div>
+                <div class="score-area row-2" id="teamRed-score">
                     <div class="score-red"></div>
                     <div class="score-red"></div>
                     <div class="score-blank"></div>
@@ -89,10 +128,9 @@
             <div class="scoreboard-control">
                 <div class="title">Control Panel</div>
                 <div>
-                    <span><label for="edit-board">Edit Scoreboard</label><input type="radio" id="edit-board"></span>
                     <span>
                         <label for="scoreboard-theme">Theme</label>
-                        <select id="scoreboard-theme">
+                        <select id="scoreboard-theme" @change="setTheme()">
                             <option value="dark">Default Dark</option>
                             <option value="light">Default Light</option>
                             <option value="lpl">LPL</option>
@@ -103,29 +141,44 @@
                         </select>
                     </span>
                 </div>
-                <div><span><label for="moba-bo">Best of </label><input type="text" value="5" id="moba-bo"></span></div>
+                <div>
+                    <span>
+                        <label for="moba-bo">Best of </label>
+                        <input type="number" value="5" id="moba-bo" v-model="global.bestOf" min="1" step="2" @change="setBestOf()">
+                    </span>
+                </div>
                 <div>
                     <span>Time</span>
                     <input type="number" value="00" id="moba-time-min" min="0">:<input type="number" value="00" id="moba-time-sec" min="-1" max="60">
-                    <button id="moba-time-btn">Start</button>
-                    <button onclick="clearGameTime()">Clear</button>
+                    <button id="moba-time-btn" @click="toggleGameTimer()">{{ global.timing ? 'Pause' : 'Start' }}</button>
+                    <button @click="clearGameTimer()">Clear</button>
                 </div>
                 <div style="background-color: mediumturquoise;"><label for="team-blue-color">Team Blue </label><input type="color" id="team-blue-color" value="#48d1cc"></div>
                 <div style="background-color: crimson;"><label for="team-red-color">Team Red </label><input type="color" id="team-red-color" value="#dc143c"></div>
                 <div class="blue-side-stat">
-                    <span><label for="moba-blue-team-name">Team Name </label><input type="text" id="moba-blue-team-name" value="T1"></span>
-                    <span><label for="moba-blue-team-position">Position </label><input type="text" id="moba-blue-team-position" value="LCK#2"></span>
-                    <span><label for="moba-blue-score">Score </label><input type="number" id="moba-blue-score" value="2" min="0" max="9"><button id="moba-blue-score-up">+</button><button id="moba-blue-score-down">-</button></span>
+                    <span><label for="moba-blue-team-name">Team Name </label><input type="text" id="moba-blue-team-name" v-model="teamBlue.name"></span>
+                    <span><label for="moba-blue-team-position">Position </label><input type="text" id="moba-blue-team-position" v-model="teamBlue.pos"></span>
+                    <span><label for="moba-blue-score">Score </label><input type="number" id="moba-blue-score" v-model="teamBlue.score" min="0" max="3"><button @click="addScore('teamBlue', 1)">+</button><button @click="addScore('teamBlue', -1)">-</button></span>
                 </div>
                 <div class="red-side-stat">
-                    <span><label for="moba-red-team-name">Team Name </label><input type="text" id="moba-red-team-name" value="DRX"></span>
-                    <span><label for="moba-red-team-position">Position </label><input type="text" id="moba-red-team-position" value="LCK#4"></span>
-                    <span><label for="moba-red-score">Score </label><input type="number" id="moba-red-score" value="2" min="0" max="9"><button id="moba-red-score-up">+</button><button id="moba-red-score-down">-</button></span>
+                    <span><label for="moba-red-team-name">Team Name </label><input type="text" id="moba-red-team-name" v-model="teamRed.name"></span>
+                    <span><label for="moba-red-team-position">Position </label><input type="text" id="moba-red-team-position" v-model="teamRed.pos"></span>
+                    <span><label for="moba-red-score">Score </label><input type="number" id="moba-red-score" v-model="teamRed.score" min="0" max="3"><button @click="addScore('teamRed', 1)">+</button><button @click="addScore('teamRed', -1)">-</button></span>
                 </div>
                 <div class="blue-side-stat">
                     <span>
                         <label for="team-blue-w-l">W/L</label>
                         <input type="text" id="team-blue-w-l">
+                    </span>
+                    <span>
+                        <label for="team-blue-baron-add">Baron</label>
+                        <button id="team-blue-baron-add" @click="addBuff('teamBlue', 'baron')">+</button>
+                        <button @click="removeBuff('teamBlue', 'baron')">-</button>
+                    </span>
+                    <span>
+                        <label for="team-blue-elder-add">Elder Dragon</label>
+                        <button id="team-blue-elder-add" @click="addBuff('teamBlue', 'elder')">+</button>
+                        <button @click="removeBuff('teamBlue', 'elder')">-</button>
                     </span>
                 </div>
                 <div class="red-side-stat">
@@ -133,89 +186,106 @@
                         <label for="team-red-w-l">W/L</label>
                         <input type="text" id="team-red-w-l">
                     </span>
+                    <span>
+                        <label for="team-red-baron-add">Baron</label>
+                        <button id="team-red-baron-add" @click="addBuff('teamRed', 'baron')">+</button>
+                        <button @click="removeBuff('teamRed', 'baron')">-</button>
+                    </span>
+                    <span>
+                        <label for="team-red-elder-add">Elder Dragon</label>
+                        <button id="team-red-elder-add" @click="addBuff('teamRed', 'elder')">+</button>
+                        <button @click="removeBuff('teamRed', 'elder')">-</button>
+                    </span>
                 </div>
                 <div class="blue-side-stat">
                     <span>
                         <label for="moba-blue-gold">Gold </label>
-                        <input type="number" id="moba-blue-gold" value="0.0" min="0.0" step="0.1"> K
-                        <button onclick="addGold('blue', 0.1)">+0.1</button>
-                        <button onclick="addGold('blue', -0.1)">-0.1</button>
-                        <button onclick="addGold('blue', 0.4)">+0.4</button>
-                        <button onclick="addGold('blue', -0.4)">-0.4</button>
-                        <button onclick="addGold('blue', 1.0)">+1.0</button>
-                        <button onclick="addGold('blue', -1.0)">-1.0</button>
+                        <input v-model="teamBlue.gold" type="number" id="moba-blue-gold" min="0.0" step="0.1" @change="getGoldDiff()"> K
+                        <button @click="addGold('teamBlue', 0.1)">+0.1</button>
+                        <button @click="addGold('teamBlue', 0.2)">+0.2</button>
+                        <button @click="addGold('teamBlue', 0.4)">+0.4</button>
+                        <button @click="addGold('teamBlue', 0.5)">+0.5</button>
+                        <button @click="addGold('teamBlue', 1.0)">+1.0</button>
+                        <button @click="addGold('teamBlue', -0.1)">-0.1</button>
+                        <button @click="addGold('teamBlue', -1.0)">-1</button>
                     </span>
                 </div>
                 <div class="red-side-stat">
                     <span>
                         <label for="moba-red-gold">Gold </label>
-                        <input type="number" id="moba-red-gold" value="0.0" min="0.0" step="0.1"> K
-                        <button onclick="addGold('red', 0.1)">+0.1</button>
-                        <button onclick="addGold('red', -0.1)">-0.1</button>
-                        <button onclick="addGold('red', 0.4)">+0.4</button>
-                        <button onclick="addGold('red', -0.4)">-0.4</button>
-                        <button onclick="addGold('red', 1.0)">+1.0</button>
-                        <button onclick="addGold('red', -1.0)">-1.0</button>
+                        <input v-model="teamRed.gold" type="number" id="moba-red-gold" min="0.0" step="0.1" @change="getGoldDiff()"> K
+                        <button @click="addGold('teamRed', 0.1)">+0.1</button>
+                        <button @click="addGold('teamRed', 0.2)">+0.2</button>
+                        <button @click="addGold('teamRed', 0.4)">+0.4</button>
+                        <button @click="addGold('teamRed', 0.5)">+0.5</button>
+                        <button @click="addGold('teamRed', 1.0)">+1.0</button>
+                        <button @click="addGold('teamRed', -0.1)">-0.1</button>
+                        <button @click="addGold('teamRed', -1.0)">-1.0</button>
                     </span>
                 </div>
                 <div class="blue-side-stat">
                     <label for="moba-blue-tower">Turrets</label>
-                    <input type="number" value="0" id="moba-blue-tower">
-                    <button id="moba-blue-tower-up">+</button>
-                    <button id="moba-blue-tower-down">-</button>
+                    <input type="number" v-model="teamBlue.towers" id="moba-blue-tower" min="0">
+                    <button @click="addTower('teamBlue', 1)">+</button>
+                    <button @click="addTower('teamBlue', -1)">-</button>
                     <label for="moba-blue-kill">Kills</label>
-                    <input type="number" id="moba-blue-kill" value="0" min="0"><button id="moba-blue-kill-up">+</button><button id="moba-blue-kill-down">-</button>
+                    <input type="number" id="moba-blue-kill" v-model="teamBlue.kills" min="0">
+                    <button @click="addKill('teamBlue', 1)">+</button>
+                    <button @click="addKill('teamBlue', -1)">-</button>
                 </div>
                 <div class="red-side-stat">
                     <label for="moba-red-tower">Turrets</label>
-                    <input type="number" value="0" id="moba-red-tower">
-                    <button id="moba-red-tower-up">+</button>
-                    <button id="moba-red-tower-down">-</button>
+                    <input type="number" v-model="teamRed.towers" id="moba-red-tower" min="0">
+                    <button @click="addTower('teamRed', 1)">+</button>
+                    <button @click="addTower('teamRed', -1)">-</button>
                     <label for="moba-red-kill">Kills</label>
-                    <input type="number" id="moba-red-kill" value="0" min="0"><button id="moba-red-kill-up">+</button><button id="moba-red-kill-down">-</button>
+                    <input type="number" id="moba-red-kill" v-model="teamRed.kills" min="0">
+                    <button @click="teamRed.kills ++">+</button>
+                    <button @click="teamRed.kills --">-</button>
                 </div>
                 <div class="blue-side-stat">
                     <label for="moba-blue-dragons">Dragons</label>
-                    <input type="text" id="moba-blue-dragons" style="min-width: calc(100% - 12em);">
-                    <button onclick="setDragon(teamBlueDragonsInput.value, 'blue')">Set</button>
+                    <input type="text" id="moba-blue-dragons" style="min-width: calc(100% - 12em);" v-model="teamBlue.dragons">
+                    <button @click="setDragon('teamBlue')">Set</button>
                 </div>
                 <div class="red-side-stat">
                     <label for="moba-red-dragons">Dragons</label>
-                    <input type="text" id="moba-red-dragons" style="min-width: calc(100% - 12em);">
-                    <button onclick="setDragon(teamRedDragonsInput.value, 'red')">Set</button>
+                    <input type="text" id="moba-red-dragons" style="min-width: calc(100% - 12em);" v-model="teamRed.dragons">
+                    <button @click="setDragon('teamRed')">Set</button>
                 </div>
                 <div class="blue-side-stat">
-                    <button id="moba-blue-cloud" onclick="addDragon('blue', 'cloud')">Cloud</button>
-                    <button id="moba-blue-infernal" onclick="addDragon('blue', 'infernal')">Infernal</button>
-                    <button id="moba-blue-mountain" onclick="addDragon('blue', 'mountain')">Mountain</button>
-                    <button id="moba-blue-ocean" onclick="addDragon('blue', 'ocean')">Ocean</button>
-                    <button id="moba-blue-chemtech" onclick="addDragon('blue', 'chemtech')">Chemtech</button>
-                    <button id="moba-blue-hextech" onclick="addDragon('blue', 'hextech')">Hextech</button>
+                    <button id="moba-blue-cloud" @click="addDragon('teamBlue', 'cloud')">Cloud</button>
+                    <button id="moba-blue-infernal" @click="addDragon('teamBlue', 'infernal')">Infernal</button>
+                    <button id="moba-blue-mountain" @click="addDragon('teamBlue', 'mountain')">Mountain</button>
+                    <button id="moba-blue-ocean" @click="addDragon('teamBlue', 'ocean')">Ocean</button>
+                    <button id="moba-blue-chemtech" @click="addDragon('teamBlue', 'chemtech')">Chemtech</button>
+                    <button id="moba-blue-hextech" @click="addDragon('teamBlue', 'hextech')">Hextech</button>
                 </div>
                 <div class="red-side-stat">
-                    <button id="moba-red-cloud" onclick="addDragon('red', 'cloud')">Cloud</button>
-                    <button id="moba-red-infernal" onclick="addDragon('red', 'infernal')">Infernal</button>
-                    <button id="moba-red-mountain" onclick="addDragon('red', 'mountain')">Mountain</button>
-                    <button id="moba-red-ocean" onclick="addDragon('red', 'ocean')">Ocean</button>
-                    <button id="moba-red-chemtech" onclick="addDragon('red', 'chemtech')">Chemtech</button>
-                    <button id="moba-red-hextech" onclick="addDragon('red', 'hextech')">Hextech</button>
+                    <button id="moba-blue-cloud" @click="addDragon('teamRed', 'cloud')">Cloud</button>
+                    <button id="moba-blue-infernal" @click="addDragon('teamRed', 'infernal')">Infernal</button>
+                    <button id="moba-blue-mountain" @click="addDragon('teamRed', 'mountain')">Mountain</button>
+                    <button id="moba-blue-ocean" @click="addDragon('teamRed', 'ocean')">Ocean</button>
+                    <button id="moba-blue-chemtech" @click="addDragon('teamRed', 'chemtech')">Chemtech</button>
+                    <button id="moba-blue-hextech" @click="addDragon('teamRed', 'hextech')">Hextech</button>
                 </div>
                 <div class="blue-side-stat">
                     <label for="blue-team-logo">Logo Url</label>
-                    <input type="url" name="blue-team-logo" id="blue-team-logo-url" style="min-width: 50%;">
-                    <input type="checkbox" id="blue-team-logo-filter" checked>
+                    <input type="url" name="blue-team-logo" id="blue-team-logo-url" style="min-width: 50%;" v-model="teamBlue.logo">
+                    <input type="checkbox" id="blue-team-logo-filter" checked @change="teamBlue.logoFilter = !teamBlue.logoFilter">
                     <label for="blue-team-logo-filter">Logo Img Filter</label>
                 </div>
                 <div class="red-side-stat">
                     <label for="red-team-logo">Logo Url</label>
-                    <input type="url" name="red-team-logo" id="red-team-logo-url" style="min-width: 50%;">
-                    <input type="checkbox" id="red-team-logo-filter" checked>
+                    <input type="url" name="red-team-logo" id="red-team-logo-url" style="min-width: 50%;" v-model="teamRed.logo">
+                    <input type="checkbox" id="red-team-logo-filter" checked @change="teamRed.logoFilter = !teamRed.logoFilter">
                     <label for="red-team-logo-filter">Logo Img Filter</label>
                 </div>
                 <div style="grid-column-end: 3; grid-column-start: 1;">
                     <label for="league-logo-url">League Logo</label>
-                    <input type="url" id="league-logo-url" style="min-width: 60%;">
-                    <button id="league-logo-filter-btn">Toggle Img Filter</button>
+                    <input type="url" id="league-logo-url" style="min-width: 60%;" v-model="global.leagueLogo">
+                    <button @click = "setLeagueLogo()">Set</button>
+                    <button @click="global.logoFilter = !global.logoFilter">Toggle Img Filter</button>
                 </div>
             </div>
         </div>

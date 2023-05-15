@@ -95,12 +95,12 @@
     color: gray;
 }
 
-.msi-team-logo.eliminated {
-    filter: grayscale();
-}
-
 .eliminated {
     background-color: darkgray;
+}
+
+.eliminated img {
+    filter: grayscale() brightness(1.3);
 }
 
 .qualified {
