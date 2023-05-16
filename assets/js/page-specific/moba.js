@@ -229,6 +229,7 @@ const MobaScoreboardApp = {
             document.getElementById('moba-time-sec').value = 0
         },
         addBuff(team, type){
+            if(this[team][`${type}Time`] != 0) return;
             this[team][type] ++
             let maxTime = 0
             if(type == 'elder') this[team].elderTime = 150, maxTime = 150;
@@ -243,9 +244,12 @@ const MobaScoreboardApp = {
             }, 1000)
         },
         removeBuff(team, type){
-            this[team][`${type}Time`] = 0
-            clearInterval(this[team][`${type}Timer`])
-            document.getElementById(`${team}-${type}-bar`).style = `width: 0`
+            if(this[team][`${type}Time`] == 0) this[team][type] --;
+            else {
+                this[team][`${type}Time`] = 0
+                clearInterval(this[team][`${type}Timer`])
+                document.getElementById(`${team}-${type}-bar`).style = `width: 0`
+            }
         }
     },
 

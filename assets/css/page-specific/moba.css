@@ -130,28 +130,22 @@ select {
 }
 
 .moba-scoreboard .infernal::before {
-    content: '\f6d5';
-    color: orangered;
+    content: url('https://n-wither.github.io/assets/imgs/lol/infernal.svg');
 }
 .moba-scoreboard .mountain::before {
-    content: '\f6d5';
-    color: peru;
+    content: url('https://n-wither.github.io/assets/imgs/lol/mountain.svg');
 }
 .moba-scoreboard .ocean::before {
-    content: '\f6d5';
-    color: aquamarine;
+    content: url('https://n-wither.github.io/assets/imgs/lol/ocean.svg');
 }
 .moba-scoreboard .cloud::before {
-    content: '\f6d5';
-    color: lightsteelblue;
+    content: url('https://n-wither.github.io/assets/imgs/lol/cloud.svg');
 }
 .moba-scoreboard .chemtech::before {
-    content: '\f6d5';
-    color: chartreuse;
+    content: url('https://n-wither.github.io/assets/imgs/lol/chemtech.svg');
 }
 .moba-scoreboard .hextech::before {
-    content: '\f6d5';
-    color: darkturquoise;
+    content: url('https://n-wither.github.io/assets/imgs/lol/hextech.svg');
 }
 
 .scoreboard-control {
@@ -241,4 +235,11 @@ img.filter-white {
 
 .elder.buff-progress {
     background-color: #d9baea;
+}
+
+embed {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 1px
 }
