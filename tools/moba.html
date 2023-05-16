@@ -47,7 +47,7 @@
         </div>
         <div class="mainText" id="scoreboard">
             <div class="moba-scoreboard">
-                <div class="team-blue row-1" id="team-blue-logo-bg">
+                <div class="team-blue row-1" id="teamBlue-logo-bg">
                     <img :src="teamBlue.logo" :alt="teamBlue.name" id="blue-team-logo" :class="!teamBlue.logoFilter ? '' : 'filter-white'">
                 </div>
                 <div class="team-name row-1">
@@ -65,7 +65,7 @@
                     <span id="red-team-name-text">{{ teamRed.name }}</span>
                     <span id="red-team-pos-text">{{ teamRed.pos }}</span>
                 </div>
-                <div class="team-red row-1" id="team-red-logo-bg">
+                <div class="team-red row-1" id="teamRed-logo-bg">
                     <img :src="teamRed.logo" :alt="teamRed.name" id="red-team-logo" :class="!teamRed.logoFilter ? '' : 'filter-white'">
                 </div>
                 <div class="score-area row-2" id="teamBlue-score">
@@ -134,7 +134,10 @@
             </div>
             <br>
             <div class="scoreboard-control">
-                <div class="title">Control Panel</div>
+                <div class="title">
+                    Control Panel
+                    <button @click="clearAll(), setScore('teamBlue'), setScore('teamRed')">Reset</button>
+                </div>
                 <div>
                     <span>
                         <label for="scoreboard-theme">Theme</label>
@@ -152,7 +155,7 @@
                 <div>
                     <span>
                         <label for="moba-bo">Best of </label>
-                        <input type="number" value="5" id="moba-bo" v-model="global.bestOf" min="1" step="2" @change="setBestOf()">
+                        <input type="number" value="5" id="moba-bo" v-model="global.bestOf" min="1" step="2" @change="setBestOf(), setScore('teamBlue'), setScore('teamRed')">
                     </span>
                 </div>
                 <div>
@@ -161,17 +164,27 @@
                     <button id="moba-time-btn" @click="toggleGameTimer()">{{ global.timing ? 'Pause' : 'Start' }}</button>
                     <button @click="clearGameTimer()">Clear</button>
                 </div>
-                <div style="background-color: mediumturquoise;"><label for="team-blue-color">Team Blue </label><input type="color" id="team-blue-color" value="#48d1cc"></div>
-                <div style="background-color: crimson;"><label for="team-red-color">Team Red </label><input type="color" id="team-red-color" value="#dc143c"></div>
+                <div style="background-color: mediumturquoise;"><label for="team-blue-color">Team Blue </label><input type="color" @change="setColor('teamBlue')" v-model="teamBlue.color"></div>
+                <div style="background-color: crimson;"><label for="team-red-color">Team Red </label><input type="color" @change="setColor('teamRed')" v-model="teamRed.color"></div>
                 <div class="blue-side-stat">
                     <span><label for="moba-blue-team-name">Team Name </label><input type="text" id="moba-blue-team-name" v-model="teamBlue.name"></span>
                     <span><label for="moba-blue-team-position">Position </label><input type="text" id="moba-blue-team-position" v-model="teamBlue.pos"></span>
-                    <span><label for="moba-blue-score">Score </label><input type="number" id="moba-blue-score" v-model="teamBlue.score" min="0" max="3"><button @click="addScore('teamBlue', 1)">+</button><button @click="addScore('teamBlue', -1)">-</button></span>
+                    <span>
+                        <label for="moba-blue-score">Score </label>
+                        <input type="number" id="moba-blue-score" v-model="teamBlue.score" min="0" max="3" @change="setScore('teamBlue')">
+                        <button @click="addScore('teamBlue', 1)">+</button>
+                        <button @click="addScore('teamBlue', -1)">-</button>
+                    </span>
                 </div>
                 <div class="red-side-stat">
                     <span><label for="moba-red-team-name">Team Name </label><input type="text" id="moba-red-team-name" v-model="teamRed.name"></span>
                     <span><label for="moba-red-team-position">Position </label><input type="text" id="moba-red-team-position" v-model="teamRed.pos"></span>
-                    <span><label for="moba-red-score">Score </label><input type="number" id="moba-red-score" v-model="teamRed.score" min="0" max="3"><button @click="addScore('teamRed', 1)">+</button><button @click="addScore('teamRed', -1)">-</button></span>
+                    <span>
+                        <label for="moba-red-score">Score </label>
+                        <input type="number" id="moba-red-score" v-model="teamRed.score" min="0" max="3" @change="setScore('teamRed')">
+                        <button @click="addScore('teamRed', 1)">+</button>
+                        <button @click="addScore('teamRed', -1)">-</button>
+                    </span>
                 </div>
                 <div class="blue-side-stat">
                     <span>

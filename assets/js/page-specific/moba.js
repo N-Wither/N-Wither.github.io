@@ -18,7 +18,7 @@ const MobaScoreboardApp = {
                 pos: 'LCK#2',
                 score: '2',
                 winLose: '',
-                color: 'mediumturquoise',
+                color: '#48d1cc',
                 kills: '10',
                 gold: 71.8,
                 towers: 8,
@@ -37,7 +37,7 @@ const MobaScoreboardApp = {
                 pos: 'LCK#4',
                 score: '2',
                 winLose: '',
-                color: 'crimson',
+                color: '#dc143c',
                 kills: '18',
                 gold: 72.9,
                 towers: 6,
@@ -168,8 +168,8 @@ const MobaScoreboardApp = {
             let blues = document.querySelectorAll('.team-blue-stat')
             let reds = document.querySelectorAll('.team-red-stat')
             let bg = document.querySelectorAll('.row-1')
-            let blueLogoBg = document.querySelector('#team-blue-logo-bg')
-            let redLogoBg = document.querySelector('#team-red-logo-bg')
+            let blueLogoBg = document.querySelector('#teamBlue-logo-bg')
+            let redLogoBg = document.querySelector('#teamRed-logo-bg')
             let blueScores = document.querySelectorAll('.score-blue')
             let redScores = document.querySelectorAll('.score-red')
 
@@ -236,6 +236,7 @@ const MobaScoreboardApp = {
             if(type == 'baron') this[team].baronTime = 180, maxTime = 180;
             document.getElementById(`${team}-${type}-bar`).style.width = '100%'
             this[team][`${type}Timer`] = setInterval(() => {
+                if(this.global.timing == false) return;
                 this[team][`${type}Time`] --
                 document.getElementById(`${team}-${type}-bar`).style = `width: calc(100% * ${this[team][`${type}Time`]} / ${maxTime})`
                 if(this[team][`${type}Time`] == 0){
@@ -244,12 +245,36 @@ const MobaScoreboardApp = {
             }, 1000)
         },
         removeBuff(team, type){
-            if(this[team][`${type}Time`] == 0) this[team][type] --;
-            else {
+            if(this[team][`${type}Time`] == 0 && this[team][type] > 0) this[team][type] --;
+            else if(this[team][type] > 0) {
                 this[team][`${type}Time`] = 0
                 clearInterval(this[team][`${type}Timer`])
                 document.getElementById(`${team}-${type}-bar`).style = `width: 0`
             }
+            else return
+        },
+        setColor(team){
+            document.getElementById(`${team}-logo-bg`).style.background = this[team].color
+        },
+        clearAll(){
+            this.clearGameTimer()
+            this.global.leagueLogo = ''
+            this.global.goldDiff = 0
+            let teams = ['teamBlue', 'teamRed']
+            teams.forEach(team => {
+                this[team].name = ''
+                this[team].pos = ''
+                this[team].logo = ''
+                this[team].score = 0
+                this[team].kills = 0
+                this[team].gold = 2.5
+                this[team].towers = 0
+                this[team].dragons = []
+                this.removeBuff(team, 'baron')
+                this.removeBuff(team, 'elder')
+                this[team].baron = 0
+                this[team].elder = 0
+            })
         }
     },
 
