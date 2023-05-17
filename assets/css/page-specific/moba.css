@@ -131,21 +131,33 @@ select {
 
 .moba-scoreboard .infernal::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/infernal.svg');
+    top: 1px;
+    position: relative;
 }
 .moba-scoreboard .mountain::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/mountain.svg');
+    top: 1px;
+    position: relative;
 }
 .moba-scoreboard .ocean::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/ocean.svg');
+    top: 1px;
+    position: relative;
 }
 .moba-scoreboard .cloud::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/cloud.svg');
+    top: 1px;
+    position: relative;
 }
 .moba-scoreboard .chemtech::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/chemtech.svg');
+    top: 1px;
+    position: relative;
 }
 .moba-scoreboard .hextech::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/hextech.svg');
+    top: 1px;
+    position: relative;
 }
 
 .scoreboard-control {
