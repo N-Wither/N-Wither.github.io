@@ -96,11 +96,15 @@
 }
 
 .eliminated {
-    background-color: darkgray;
+    text-decoration: line-through;
 }
 
 .eliminated img {
-    filter: grayscale() brightness(1.3);
+    filter: grayscale();
+}
+
+.msi-team-score.eliminated {
+    text-decoration: none;
 }
 
 .qualified {
