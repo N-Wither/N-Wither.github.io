@@ -115,3 +115,13 @@
 .msi h2 {
     background: none;
 }
+
+.champion img,
+.runner-up img {
+    filter: brightness(0) invert();
+}
+
+.runner-up {
+    background-color: #aaaa77;
+    color: white;
+}
