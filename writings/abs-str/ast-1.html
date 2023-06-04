@@ -17,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/accessibility-mode.css">
   <title>Apocalypse 2020</title>
   <script src="https://n-wither.github.io/assets/js/utils.js"></script>
+  <script src="./ast-1-assets/apocalypse-2020.js" defer></script>
 </head>
 
 <body onload="startTime(), hello(), randomQuote(), tagNotes()">
@@ -272,15 +273,13 @@
       <p>
         然后我因为昨天晚上睡眠不足，在沙发上睡着了（现在想来外面当时那么乱我是怎么睡得着的），醒来的时候发现手机上有一条未读消息。
       </p>
-      <div
-        style="background-color: white; width: 500px; height: 500px; position: relative; box-shadow: 2px 2px 8px #00000066;">
-        <div
-          style="background-color: #ffffff; width: 500px; height: 80px; position: relative; color: black; text-align: center;">
-          <div style="position: absolute; left: 10px; top: 10px; font-size: 36px;">←</div>
+      <div class="phone">
+        <div class="phone-title">
+          <div class="phone-back-arrow">←</div>
           +666 66666666<br>
           <span style="font-size: 10px;">1 条消息</span>
         </div>
-        <div style="background-color: #cccccc; width: 300px; border-radius: 0px 8px 8px 8px; margin: 15px;">
+        <div class="talk-bubble-left">
           <span class="satan-speaking"
             style="font-family: 'Ma Shan Zheng'; color: black;">【地狱电信】你好，我是撒旦。看起来你所在的国家对枪支的管控很严，但其他国家就不一定了，为了公平起见，也为了观赏性，我让上帝往世界各地投放了一些武器，数量管够，都是从你们国家的兵工厂武器库之类的地方拿的。基本上你只要到处找找就能找到了，玩得开心点，沙扬娜拉<sup class="note">3</sup>！</span>
         </div>
@@ -306,44 +305,22 @@
       <p>
         这时我手机又震动了一下，又是一条新消息。
       </p>
-      <div
-        style="background-color: white; width: 500px; height: 700px; position: relative; box-shadow: 2px 2px 8px #00000066;">
-        <div
-          style="background-color: #ffffff; width: 500px; height: 80px; position: relative; color: black; text-align: center;">
-          <div style="position: absolute; left: 10px; top: 10px; font-size: 36px;">←</div>
+      <div class="phone">
+        <div class="phone-title">
+          <div class="phone-back-arrow">←</div>
           +777 16457243775<br>
           <span style="font-size: 10px;">10 条消息</span>
         </div>
-        <div class="talk-bubble">
-          <span class="friend-speaking" style="font-family: 'ZCOOL KuaiLe'; color: black;">Wither</span>
-        </div>
-        <div class="talk-bubble">
-          <span class="friend-speaking" style="color: black;">在吗，我是友人 C</span>
-        </div>
-        <div class="talk-bubble">
-          <span class="friend-speaking" style="color: black;">天堂给我们办手机卡了，你在哪</span>
-        </div>
-        <div class="talk-bubble-wither">
-          <span style="color: black;">我在地上</span>
-        </div>
-        <div class="talk-bubble">
-          <span class="friend-speaking" style="color: black;">啊这，你小心点</span>
-        </div>
-        <div class="talk-bubble">
-          <span class="friend-speaking" style="color: black;">我家有把武士刀，你可以拿去用，不过没开刃</span>
-        </div>
-        <div class="talk-bubble-wither">
-          <span style="color: black;">行，你那边怎样</span>
-        </div>
-        <div class="talk-bubble">
-          <span class="friend-speaking" style="color: black;">比地上好太多了，比共产主义还好，在这里要啥有啥，还不用工作，爽死了</span>
-        </div>
-        <div class="talk-bubble-wither">
-          <span style="color: black;">操，我也想来</span>
-        </div>
-        <div class="talk-bubble">
-          <span class="friend-speaking" style="color: black;">加油</span>
-        </div>
+        <div class="talk-bubble-left c">Wither</div>
+        <div class="talk-bubble-left c">在吗，我是友人 C</div>
+        <div class="talk-bubble-left c">天堂给我们办手机卡了，你在哪</div>
+        <div class="talk-bubble-right">我在地上</div>
+        <div class="talk-bubble-left c">啊这，你小心点</div>
+        <div class="talk-bubble-left c">我家有把武士刀，你可以拿去用，不过没开刃</div>
+        <div class="talk-bubble-right">行，你那边怎样</div>
+        <div class="talk-bubble-left c">比地上好太多了，比共产主义还好，在这里要啥有啥，还不用工作，爽死了</div>
+        <div class="talk-bubble-right">操，我也想来</div>
+        <div class="talk-bubble-left c">加油</div>
       </div>
       <p>
         友人 C 是我为数不多的几个朋友之一，这就是交朋友的重要性。
@@ -352,18 +329,7 @@
         那么，我的下一个目标就是去他家了，或许还能顺道找找有用的东西。
       </p>
       <h2 id="chapter-2">1-2 A Slash in the Dark</h2>
-      <div class="story-time">
-        <div class="row-1">TIME</div>
-        <div class="row-1">KILLS</div>
-        <div class="row-1">ALIVE</div>
-        <div>2020/05/10 19:10 GMT + 08:00</div>
-        <div>0</div>
-        <div class="alive-counter">
-          <div class="alive-percentage"></div>
-          <div class="death-percentage" style="width: 4.7%;"></div>
-          <div class="alive-count">6,474,818,397</div>
-        </div>
-      </div>
+      <div class="story-time" time="2020/05/10 19:10 GMT + 08:00" kill="0" alive="6474818397"></div>
       <p>
         我一路下楼，搜遍了所有我能进去的房间还是一无所获，我有点怀疑撒旦那条短信里面“只要到处找找就能找到”的真实性了，毕竟是恶魔，什么事都有可能干得出来。
       </p>
@@ -501,18 +467,7 @@
         不行，我一定要去天堂。
       </p>
       <h2 id="chapter-3">1-3 Uproar Run</h2>
-      <div class="story-time">
-        <div class="row-1">TIME</div>
-        <div class="row-1">KILLS</div>
-        <div class="row-1">ALIVE</div>
-        <div>2020/05/11 09:21 GMT + 08:00</div>
-        <div>1</div>
-        <div class="alive-counter">
-          <div class="alive-percentage"></div>
-          <div class="death-percentage" style="width: 7.6%;"></div>
-          <div class="alive-count">6,280,985,484</div>
-        </div>
-      </div>
+      <div class="story-time" time="2020/05/11 09:21 GMT + 08:00" kill="1" alive="6280985484"></div>
       <p>
         今天也是要努力活下去的一天！
       </p>
@@ -542,8 +497,7 @@
         操，是手动挡。
       </p>
       <p>
-        当初驾校报名的时候我想着以后的车都是自动挡了那我报 C2 应该没有什么问题，但是现在我真想穿越回去给我自己一<ruby>脚<rt>Dropkick</rt>
-        </ruby>，同时我真想把车主抓过来拷打他都什么年代了还在开传统汽车。
+        妈的，都什么年代了还在开传统汽车。
       </p>
       <p>
         我权衡了一下当场学会手动挡和再去找一辆自动挡的难度，还是后者比较有可行性。于是我又从车里面狼狈地钻了出来去找另一辆车。
@@ -555,7 +509,7 @@
         然后我找了一下启动按钮在哪，说真的现在的车子的启动按钮和换挡器的设计真的一个比一个花哨，毕竟也确实没啥可设计的了。
       </p>
       <p>
-        总之车子嗡一下启动了，同时也吸引了附近正在打闹的人的注意力，他们看着我露出野兽一般的目光（不过我只在动物世界里面见过），我不敢多待，一脚油门冲了出去。有人躲闪不及被我撞倒或者撞飞了，不过一部分也是因为我自从科目三过完之后就没碰过车，所以我也来不及踩刹车。不知道他们还能不能活下来，希望不要是半生不死的那种就好。
+        总之车子嗡一下启动了，同时也吸引了附近正在打闹的人的注意力，他们看着我露出凶狠的目光，我不敢多待，一脚油门冲了出去。有人躲闪不及被我撞倒或者撞飞了，不过一部分也是因为我自从科目三过完之后就没碰过车，所以我也来不及踩刹车。不知道他们还能不能活下来，希望不要是半生不死的那种就好。
       </p>
       <p>
         我打开手机上的地图，盘算下一步的计划。首先肯定是要离开 W 市的，我没有单人城市作战的经验，虽然也没有其他地方作战的经验，但不知怎的我就是觉得在城市外面的生存概率更高一些，但愿我没搞错。然后我想搞点好点的装备，我看 W
@@ -582,8 +536,8 @@
       <br>
       <br>
       <div class="paper-file">
-        <h3 style="text-align: center; font-size: larger;">天界联邦议会会议记录（节选）</h3>
-        <p style="margin-right: 0px;">
+        <h3 class="file-title">天界联邦议会会议记录（节选）</h3>
+        <p>
           时间：2020 年 5 月 11 日<br>
           地点：天界议会大厦。<br>
           主要与会者：上帝、宙斯、玉皇大帝、天照大御神、■■■■、释迦牟尼、奈亚拉托提普等
@@ -627,10 +581,10 @@
         在我开下桥之后不久，我就在后视镜里看到后面跟来了一辆车，不知道是不是故意堵桥的那个，总之要甩掉他。
       </p>
       <p>
-        我加速，他也加速，我拐弯，他也拐弯，明摆着就是盯上我了，不过我这实在没有什么值得抢的东西，不知道为什么非得抓我不可，但是说实话现在的世道真不太能用平常的逻辑来揣测别人了。
+        他把我咬得很死，不过我这实在没有什么值得抢的东西，不知道为什么非得抓我不可，但是说实话现在的世道真不太能用平常的逻辑来揣测别人了。
       </p>
       <p>
-        但我今天才第一次单独开车上路，而我后面的家伙显然经验丰富，在满大街的废车子之间辗转腾挪几乎不带减速的，这哪是我能比的，所以我们之间的距离就这样不断减少，再这样下去肯定要被追上，是时候耍一些小手段了。
+        但我今天才第一次单独开车上路，而我后面的家伙显然经验丰富，在满大街的废车子之间辗转腾挪几乎不减速，这哪是我能比的，所以我们之间的距离就这样不断减少，再这样下去肯定要被追上，是时候耍一些小手段了。
       </p>
       <p>
         我打开天窗，拿出手枪，确认前方一段距离内没有什么危险之后，我从天窗探出上半身，举枪瞄准，扣动扳机。
@@ -639,23 +593,14 @@
         随着巨大的一声枪响，子弹打中了对面的引擎盖，虽然没能杀掉他，但他还是放慢了速度，或许是打到发动机了，也可能是吓到了，不论怎样，我现在有了逃跑的机会。
       </p>
       <hr class="break">
-      <p>在这已经被暴乱搞得一团糟的城市里面穿行耗费了远多于预想的时间，直到傍晚时分才到机场附近，途中又杀了一个人，不过有了第一次的经验过后我没有产生什么愧疚感。</p>
+      <p>在这已经被暴乱搞得一团糟的城市里面穿行耗费了远多于预想的时间，直到傍晚时分才到机场附近，途中又杀了一个人，不过有了第一次的经验过后我没有产生什么愧疚感，而且这世道愧疚感也没什么用了。</p>
       <p>看着天快黑了，我觉得我还是先在附近找个地方休息一下，凌晨再进机场看看，那时候应该是风险最低的。</p>
-      <div class="story-time">
-        <div class="row-1">TIME</div>
-        <div class="row-1">KILLS</div>
-        <div class="row-1">ALIVE</div>
-        <div>2020/05/12 02:49 GMT + 08:00</div>
-        <div>2</div>
-        <div class="alive-counter">
-          <div class="alive-percentage"></div>
-          <div class="death-percentage" style="width: 11.9%;"></div>
-          <div class="alive-count">5,991,762,855</div>
-        </div>
-      </div>
+      <div class="story-time" time="2020/05/12 02:49 GMT + 08:00" kill="2" alive="5991762855"></div>
       <p>一觉醒来已经是月上中天了，看来在我睡着的时候地球人口突破了 60 亿，不过是逆向的。这才两天就死了 8 亿人，地球人真能杀。</p>
-      <p>断电的城市中除了远处零星的火光没有任何人工照明，好在月光的亮度足够，即使我夜盲也能看个大概。</p>
-      <p>带着我仅有的装备，我尽量不发出声音进入航站楼，没想到里面的消防应急灯居然还亮着，虽然有助于我看东西，但也增加了被发现的几率。</p>
+      <p>断电的城市中除了远处零星的火光没有任何人工照明，通常我在晚上的视力会降低，好在月光的亮度足够，至少能看个大概。</p>
+      <p>带着我仅有的装备，我悄悄摸进航站楼，里面的消防应急灯还亮着，虽然有助于我看东西，但也会增加被发现的几率。</p>
+      <p>我觉得武器大概会在通常有保安出没的地方，所以我在找这样的地方。</p>
+      <p>我找到了航站楼的平面图，在上面发现了警卫室的位置，然后向那边摸过去。</p>
     </div>
     <div>
       <details class="info">

@@ -32,7 +32,7 @@ const MobaScoreboardApp = {
             },
             teamRed: {
                 name: 'DRX',
-                logo: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/81/DRXlogo_profile.png',
+                logo: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d3/DRXlogo_square.png',
                 logoFilter: true,
                 pos: 'LCK#4',
                 score: '2',

@@ -1,0 +1,13 @@
+.story-title {
+    padding: 0.2em;
+}
+
+.mainText p {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.rain {
+    background-color: #344c6b;
+    color: white;
+}
