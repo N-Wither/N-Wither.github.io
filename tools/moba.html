@@ -47,28 +47,28 @@
         </div>
         <div class="mainText" id="scoreboard">
             <div class="moba-scoreboard">
-                <div class="team-blue row-1 teamBlue-logo-bg" id="teamBlue-logo-bg">
-                    <img :src="teamBlue.logo" :alt="teamBlue.name" id="blue-team-logo" :class="!teamBlue.logoFilter ? '' : 'filter-white'">
+                <div class="team-blue row-1 teamBlue-logo-bg">
+                    <img :src="teamBlue.logo" :alt="teamBlue.name" :class="!teamBlue.logoFilter ? '' : 'filter-white'">
                 </div>
                 <div class="team-name row-1">
-                    <span id="blue-team-name-text">{{ teamBlue.name }}</span>
-                    <span id="blue-team-pos-text">{{ teamBlue.pos }}</span>
+                    <span>{{ teamBlue.name }}</span>
+                    <span>{{ teamBlue.pos }}</span>
                 </div>
-                <div class="towers row-1"><span style="color: mediumturquoise;" class="team-blue-stat">♜</span>&nbsp;<span id="blue-team-turret">{{ teamBlue.towers }}</span></div>
-                <div class="gold row-1"><span style="color: mediumturquoise;" class="team-blue-stat">&#xf51e;</span>&nbsp;<span id="blue-team-gold">{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
-                <div class="kills row-1"><span style="color: mediumturquoise;" class="team-blue-stat">🗡</span><span>&nbsp;<span id="blue-team-kill">{{ teamBlue.kills }}</span></span></div>
-                <div class="game-label row-1"><img :src="global.leagueLogo" alt="League Logo" id="league-logo-img" :class="!global.logoFilter ? '' : 'filter-white'"></div>
-                <div class="kills row-1"><span style="color: crimson;" class="team-red-stat">🗡</span><span>&nbsp;<span id="red-team-kill">{{ teamRed.kills }}</span></span></div>
-                <div class="gold row-1"><span style="color: crimson;" class="team-red-stat">&#xf51e;</span>&nbsp;<span id="red-team-gold">{{ parseFloat(teamRed.gold).toFixed(1) + 'K' }}</span></div>
-                <div class="towers row-1"><span style="color: crimson;" class="team-red-stat">♜</span>&nbsp;<span id="red-team-turret">{{ teamRed.towers }}</span></div>
+                <div class="towers row-1"><span style="color: mediumturquoise;" class="team-blue-stat">♜</span>&nbsp;<span>{{ teamBlue.towers }}</span></div>
+                <div class="gold row-1"><span style="color: mediumturquoise;" class="team-blue-stat">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
+                <div class="kills row-1"><span style="color: mediumturquoise;" class="team-blue-stat">🗡</span><span>&nbsp;<span>{{ teamBlue.kills }}</span></span></div>
+                <div class="game-label row-1"><img :src="global.leagueLogo" alt="League Logo" :class="!global.logoFilter ? '' : 'filter-white'"></div>
+                <div class="kills row-1"><span style="color: crimson;" class="team-red-stat">🗡</span><span>&nbsp;<span>{{ teamRed.kills }}</span></span></div>
+                <div class="gold row-1"><span style="color: crimson;" class="team-red-stat">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamRed.gold).toFixed(1) + 'K' }}</span></div>
+                <div class="towers row-1"><span style="color: crimson;" class="team-red-stat">♜</span>&nbsp;<span>{{ teamRed.towers }}</span></div>
                 <div class="team-name row-1">
-                    <span id="red-team-name-text">{{ teamRed.name }}</span>
-                    <span id="red-team-pos-text">{{ teamRed.pos }}</span>
+                    <span>{{ teamRed.name }}</span>
+                    <span>{{ teamRed.pos }}</span>
                 </div>
-                <div class="team-red row-1 teamRed-logo-bg" id="teamRed-logo-bg">
-                    <img :src="teamRed.logo" :alt="teamRed.name" id="red-team-logo" :class="!teamRed.logoFilter ? '' : 'filter-white'">
+                <div class="team-red row-1 teamRed-logo-bg">
+                    <img :src="teamRed.logo" :alt="teamRed.name" :class="!teamRed.logoFilter ? '' : 'filter-white'">
                 </div>
-                <div class="score-area row-2 teamBlue-score" id="teamBlue-score">
+                <div class="score-area row-2 teamBlue-score">
                     <div class="score-teamBlue"></div>
                     <div class="score-teamBlue"></div>
                     <div class="score-blank"></div>
@@ -81,7 +81,7 @@
                         <span v-if="teamBlue.elderTime == 0 && teamBlue.elder != 0">&nbsp;{{ teamBlue.elder }}</span>
                         <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
                     </div>
-                    <div class="elder buff-progress teamBlue-elder-bar" id="teamBlue-elder-bar"></div>
+                    <div class="elder buff-progress teamBlue-elder-bar"></div>
                 </div>
                 <div class="row-2 baron buff-container">
                     <div class="text">
@@ -91,16 +91,16 @@
                         <span v-if="teamBlue.baronTime == 0 && teamBlue.baron != 0">&nbsp;{{ teamBlue.baron }}</span>
                         <span v-if="teamBlue.baronTime != 0">&nbsp;{{ timeFormat(teamBlue.baronTime, true) }}</span>
                     </div>
-                    <div class="baron buff-progress" id="teamBlue-baron-bar"></div>
+                    <div class="baron buff-progress teamBlue-baron-bar"></div>
                 </div>
                 <div class="row-2">
                     <div v-if="global.goldDiff > 0">▲{{ Math.abs(global.goldDiff) }}K</div>
                 </div>
-                <div class="dragons-blue dragons row-2" id="team-blue-dragons">
+                <div class="dragons-blue dragons row-2">
                     <span v-for="drake in teamBlue.dragons" :class="drake" v-if="typeof teamBlue.dragons == 'object'"></span>
                 </div>
                 <div class="time row-2" id="moba-time">{{ timeFormat(global.time) }}</div>
-                <div class="dragons-red dragons row-2" id="team-red-dragons">
+                <div class="dragons-red dragons row-2">
                     <span v-for="drake in teamRed.dragons" :class="drake"></span>
                 </div>
                 <div class="row-2">
@@ -114,7 +114,7 @@
                         <span v-if="teamRed.baronTime == 0 && teamRed.baron != 0">&nbsp;{{ teamRed.baron }}</span>
                         <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
                     </div>
-                    <div class="baron buff-progress" id="teamRed-baron-bar"></div>
+                    <div class="baron buff-progress teamRed-baron-bar"></div>
                 </div>
                 <div class="row-2 elder buff-container">
                     <div class="text">
@@ -124,7 +124,7 @@
                         <span v-if="teamRed.elderTime == 0 && teamRed.elder != 0">&nbsp;{{ teamRed.elder }}</span>
                         <span v-if="teamRed.elderTime != 0">&nbsp;{{ timeFormat(teamRed.elderTime, true) }}</span>
                     </div>
-                    <div class="elder buff-progress teamRed-elder-bar" id="teamRed-elder-bar"></div>
+                    <div class="elder buff-progress teamRed-elder-bar"></div>
                 </div>
                 <div class="score-area row-2 teamRed-score" id="teamRed-score">
                     <div class="score-teamRed"></div>
@@ -305,7 +305,6 @@
                 <div style="grid-column-end: 3; grid-column-start: 1;">
                     <label for="league-logo-url">League Logo</label>
                     <input type="url" id="league-logo-url" style="min-width: 60%;" v-model="global.leagueLogo">
-                    <button @click = "setLeagueLogo()">Set</button>
                     <button @click="global.logoFilter = !global.logoFilter">Toggle Img Filter</button>
                 </div>
             </div>
@@ -313,21 +312,21 @@
             <div class="moba-scoreboard-mobile">
                 <!-- row 1 -->
                 <div class="team-blue teamBlue-logo-bg">
-                    <img :src="teamBlue.logo" :alt="teamBlue.name" id="blue-team-logo" :class="!teamBlue.logoFilter ? '' : 'filter-white'">
+                    <img :src="teamBlue.logo" :alt="teamBlue.name" :class="!teamBlue.logoFilter ? '' : 'filter-white'">
                 </div>
                 <div class="team-name row-1">
                     <span class="team-name-text">{{ teamBlue.name }}</span>
                     <span class="team-pos-text">{{ teamBlue.pos }}</span>
                 </div>
                 <div class="league-logo row-1">
-                    <img :src="global.leagueLogo" alt="League Logo" id="league-logo-img" :class="!global.logoFilter ? '' : 'filter-white'">
+                    <img :src="global.leagueLogo" alt="League Logo" :class="!global.logoFilter ? '' : 'filter-white'">
                 </div>
                 <div class="team-name row-1">
                     <span class="team-name-text">{{ teamRed.name }}</span>
                     <span class="team-pos-text">{{ teamRed.pos }}</span>
                 </div>
                 <div class="team-red teamRed-logo-bg">
-                    <img :src="teamRed.logo" :alt="teamRed.name" id="red-team-logo" :class="!teamRed.logoFilter ? '' : 'filter-white'">
+                    <img :src="teamRed.logo" :alt="teamRed.name" :class="!teamRed.logoFilter ? '' : 'filter-white'">
                 </div>
                 <!-- row 2 -->
                 <div class="score-area teamBlue teamBlue-score row-even">
@@ -338,7 +337,7 @@
                 <div class="dragons-blue dragons row-even">
                     <span v-for="drake in teamBlue.dragons" :class="drake" v-if="typeof teamBlue.dragons == 'object'"></span>
                 </div>
-                <div class="time row-even" id="moba-time">{{ timeFormat(global.time) }}</div>
+                <div class="time row-even">{{ timeFormat(global.time) }}</div>
                 <div class="dragons-red dragons row-even">
                     <span v-for="drake in teamRed.dragons" :class="drake"></span>
                 </div>
@@ -353,12 +352,12 @@
                 <div class="kill teamRed right">{{ teamRed.kills }}</div>
                 <!-- row 4 -->
                 <div class="gold teamBlue left row-even">
-                    {{ teamBlue.gold }} K
+                    <span>{{ teamBlue.gold }}K</span>
                     <span v-if="global.goldDiff > 0">(▲{{ Math.abs(global.goldDiff) }}K)</span>
                 </div>
                 <div class="icon row-even">&#xf51e;</div>
                 <div class="gold teamRed right row-even">
-                    {{ teamRed.gold }} K
+                    <span>{{ teamRed.gold }}K</span>
                     <span v-if="global.goldDiff < 0">(▲{{ Math.abs(global.goldDiff) }}K)</span>
                 </div>
                 <!-- row 5 -->

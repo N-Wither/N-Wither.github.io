@@ -111,9 +111,6 @@ const MobaScoreboardApp = {
     },
 
     methods: {
-        setLeagueLogo() {
-            document.querySelector('#league-logo-img').setAttribute('src', this.global.leagueLogo)
-        },
         getGoldDiff() {
             this.global.goldDiff = (this.teamBlue.gold - this.teamRed.gold).toFixed(1)
         },
