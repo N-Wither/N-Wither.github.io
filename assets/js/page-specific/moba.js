@@ -152,7 +152,7 @@ const MobaScoreboardApp = {
             let scoreHTML =
                 this.stringMultiply(`<div class="score-${team}" style="background:${this.themes[this.global.theme][`${team.slice(4).toLowerCase()}Color`]}"></div>`, score) +
                 this.stringMultiply(`<div class="score-blank"></div>`, scoreToWin - score)
-            document.getElementById(`${team}-score`).innerHTML = scoreHTML
+            document.querySelectorAll(`.${team}-score`).forEach(ele => {ele.innerHTML = scoreHTML})
         },
         addTower(team, tower) {
             if (this[team].towers == 0 && tower < 0) return;
@@ -168,10 +168,10 @@ const MobaScoreboardApp = {
             let blues = document.querySelectorAll('.team-blue-stat')
             let reds = document.querySelectorAll('.team-red-stat')
             let bg = document.querySelectorAll('.row-1')
-            let blueLogoBg = document.querySelector('#teamBlue-logo-bg')
-            let redLogoBg = document.querySelector('#teamRed-logo-bg')
-            let blueScores = document.querySelectorAll('.score-blue')
-            let redScores = document.querySelectorAll('.score-red')
+            let blueLogoBg = document.querySelectorAll('.teamBlue-logo-bg')
+            let redLogoBg = document.querySelectorAll('.teamRed-logo-bg')
+            let blueScores = document.querySelectorAll('.score-teamBlue')
+            let redScores = document.querySelectorAll('.score-teamRed')
 
             blues.forEach(ele => {
                 ele.style.color = this.themes[theme].blueColor
@@ -183,8 +183,10 @@ const MobaScoreboardApp = {
                 ele.style['background-color'] = this.themes[theme].backgroundColor
                 ele.style.color = this.themes[theme].textColor
             })
-            blueLogoBg.style.background = this.themes[theme].blueLogo
-            redLogoBg.style.background = this.themes[theme].redLogo
+            document.querySelector('.moba-scoreboard-mobile').style['background-color'] = this.themes[theme].backgroundColor
+            document.querySelector('.moba-scoreboard-mobile').style.color = this.themes[theme].textColor
+            blueLogoBg.forEach(ele => {ele.style.background = this.themes[theme].blueLogo})
+            redLogoBg.forEach(ele => {ele.style.background = this.themes[theme].redLogo})
             blueScores.forEach(ele => {
                 ele.style['background-color'] = this.themes[theme].blueColor
             })
@@ -234,11 +236,11 @@ const MobaScoreboardApp = {
             let maxTime = 0
             if(type == 'elder') this[team].elderTime = 150, maxTime = 150;
             if(type == 'baron') this[team].baronTime = 180, maxTime = 180;
-            document.getElementById(`${team}-${type}-bar`).style.width = '100%'
+            document.querySelectorAll(`.${team}-${type}-bar`).forEach(ele => {ele.style.width = '100%'})
             this[team][`${type}Timer`] = setInterval(() => {
                 if(this.global.timing == false) return;
                 this[team][`${type}Time`] --
-                document.getElementById(`${team}-${type}-bar`).style = `width: calc(100% * ${this[team][`${type}Time`]} / ${maxTime})`
+                document.querySelectorAll(`.${team}-${type}-bar`).forEach(ele => {ele.style = `width: calc(100% * ${this[team][`${type}Time`]} / ${maxTime})`})
                 if(this[team][`${type}Time`] == 0){
                     clearInterval(this[team][`${type}Timer`])
                 }
@@ -249,12 +251,14 @@ const MobaScoreboardApp = {
             else if(this[team][type] > 0) {
                 this[team][`${type}Time`] = 0
                 clearInterval(this[team][`${type}Timer`])
-                document.getElementById(`${team}-${type}-bar`).style = `width: 0`
+                document.querySelectorAll(`.${team}-${type}-bar`).forEach(ele => {ele.style = `width: 0`})
             }
             else return
         },
         setColor(team){
-            document.getElementById(`${team}-logo-bg`).style.background = this[team].color
+            document.querySelectorAll(`.${team}-logo-bg`).forEach(ele => {
+                ele.style.background = this[team].color
+            })
         },
         clearAll(){
             this.clearGameTimer()
@@ -304,10 +308,10 @@ const MobaScoreboardApp = {
         let blueWL = document.getElementById('team-blue-w-l')
         let redWL = document.getElementById('team-red-w-l')
         blueWL.addEventListener(('change', 'input'), () => {
-            document.getElementById('teamBlue-score').innerHTML = blueWL.value
+            document.querySelectorAll('.teamBlue-score').forEach(ele => {ele.innerHTML = blueWL.value})
         })
         redWL.addEventListener(('change', 'input'), () => {
-            document.getElementById('teamRed-score').innerHTML = redWL.value
+            document.querySelectorAll('.teamRed-score').forEach(ele => {ele.innerHTML = redWL.value})
         })
     }
 }

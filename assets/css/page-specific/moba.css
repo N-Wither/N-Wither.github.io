@@ -82,7 +82,7 @@ select {
     background: transparent;
 }
 
-.moba-scoreboard .score-blank {
+.score-blank {
     display: block;
     width: 8px;
     height: 8px;
@@ -129,32 +129,32 @@ select {
     justify-content: start;
 }
 
-.moba-scoreboard .infernal::before {
+.dragons .infernal::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/infernal.svg');
     top: 1px;
     position: relative;
 }
-.moba-scoreboard .mountain::before {
+.dragons .mountain::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/mountain.svg');
     top: 1px;
     position: relative;
 }
-.moba-scoreboard .ocean::before {
+.dragons .ocean::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/ocean.svg');
     top: 1px;
     position: relative;
 }
-.moba-scoreboard .cloud::before {
+.dragons .cloud::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/cloud.svg');
     top: 1px;
     position: relative;
 }
-.moba-scoreboard .chemtech::before {
+.dragons .chemtech::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/chemtech.svg');
     top: 1px;
     position: relative;
 }
-.moba-scoreboard .hextech::before {
+.dragons .hextech::before {
     content: url('https://n-wither.github.io/assets/imgs/lol/hextech.svg');
     top: 1px;
     position: relative;
@@ -203,7 +203,7 @@ img.filter-white {
     filter: brightness(0) invert();
 }
 
-.moba-scoreboard .score-teamBlue {
+.score-teamBlue {
     display: block;
     width: 8px;
     height: 8px;
@@ -212,7 +212,7 @@ img.filter-white {
     padding: 0;
 }
 
-.moba-scoreboard .score-teamRed {
+.score-teamRed {
     display: block;
     width: 8px;
     height: 8px;
@@ -254,4 +254,86 @@ embed {
     height: 16px;
     position: relative;
     top: 1px
+}
+
+.moba-scoreboard-mobile {
+    display: grid;
+    grid-template-columns: 50px 150px 50px 150px 50px;
+    grid-template-rows: 50px 18px 30px 30px 30px;
+    width: 450px;
+    background-color: #333333;
+}
+
+.moba-scoreboard-mobile img {
+    max-width: 40px;
+}
+
+.moba-scoreboard-mobile div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.moba-scoreboard-mobile .score-area {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+    font-size: 0.8rem;
+}
+
+.team-name-text {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.team-pos-text {
+    font-size: 0.8rem;
+}
+
+.moba-scoreboard-mobile .dragons {
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+.moba-scoreboard-mobile .dragons-blue {
+    flex-direction: row-reverse;
+}
+
+.moba-scoreboard-mobile .dragons-red {
+    flex-direction: row;
+}
+
+.moba-scoreboard-mobile .time {
+    font-size: 0.8rem;
+}
+
+.moba-scoreboard-mobile .left {
+    grid-column: 1 / 3;
+}
+
+.moba-scoreboard-mobile .right {
+    grid-column: 4 / 6;
+}
+
+.moba-scoreboard-mobile .row-even {
+    background-color: #11111166;
+}
+
+.moba-scoreboard-mobile .gold {
+    flex-direction: row;
+}
+
+.moba-scoreboard-mobile .buff-container {
+    height: 30px;
+}
+
+.moba-scoreboard-mobile .buff-container .text {
+    flex-direction: row;
+}
+
+.moba-scoreboard-mobile .buff-progress {
+    position: absolute;
 }
