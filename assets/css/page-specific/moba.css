@@ -337,3 +337,23 @@ embed {
 .moba-scoreboard-mobile .buff-progress {
     position: absolute;
 }
+
+.moba-scoreboard-mobile .better {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.better.left {
+    right: 0;
+}
+
+.better.right {
+    left: 0;
+}
+
+.better span {
+    font-size: 0.8rem;
+    position: relative;
+    top: 2px;
+}

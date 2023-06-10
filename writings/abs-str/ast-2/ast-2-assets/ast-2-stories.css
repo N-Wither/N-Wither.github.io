@@ -1,12 +1,79 @@
+:root {
+    --background-color: #111315;
+    --text-color: #e4dac7;
+    --link-color: #FFF;
+    --selection-color: #810fb188;
+}
+
 body {
-    background: #111315;
-    color: #e4dac7;
+    background: var(--background-color);
+    color: var(--text-color);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #111315;
+    background-color: var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #e4dac7;
+    background-color: var(--text-color);
+}
+
+::selection {
+    background-color: var(--selection-color);
+    color: var(--text-color);
+}
+
+.center-item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paper-document {
+    min-height: 20rem;
+    min-width: 20rem;
+    max-width: 80%;
+    position: relative;
+    background-color: #fdfdfd;
+    box-shadow: none;
+    padding: 1.5rem;
+    box-shadow: 0px 1px 4px #000008cc;
+}
+
+.paper-document.dark {
+    background-color: #1e1e23;
+}
+
+.paper-document::before, .paper-document::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+.paper-document::before {
+    left: -4px;
+    top: 4px;
+    width: 100%;
+    height: 98%;
+    background-color: #f6f6f6;
+    transform: rotate(3.5deg);
+    box-shadow: inherit;
+}
+
+.paper-document.dark::before {
+    background-color: #2f2f34;
+}
+
+.paper-document::after {
+    left: -4px;
+    top: 4px;
+    width: 100%;
+    height: 98%;
+    background-color: #fbfbfb;
+    transform: rotate(-2.5deg);
+    box-shadow: inherit;
+}
+
+.paper-document.dark::after {
+    background-color: #313136;
 }
