@@ -114,3 +114,14 @@ function offNote(index) {
     let box = document.querySelector('.tooltip')
     box.style.opacity = 0
 }
+
+document.querySelector('.toolbox-grip').addEventListener('click', () => {
+    let toolbox = document.querySelector('#toolbox')
+    if(!toolbox.classList.contains('show')){
+        toolbox.classList.add('show')
+        document.querySelector('.toolbox-grip').textContent = '>>>'
+    }else{
+        toolbox.classList.remove('show')
+        document.querySelector('.toolbox-grip').textContent = '|||'
+    }
+})

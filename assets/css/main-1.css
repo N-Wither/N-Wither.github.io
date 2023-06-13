@@ -210,36 +210,42 @@ li.content a:hover:not(.active) {
 
 /* ToolBox */
 .toolbox {
-    transition: 0.2s;
-    right: -150px;
     top: 50px;
     padding: 5px;
-    padding-left: 30px;
+    padding-left: 50px;
     background-color: #00000033;
     position: fixed;
 }
 
-.toolbox:hover {
-    right: 0;
-}
-
 #toolbox {
-    width: 10px;
+    max-height: 500px;
+    width: 200px;
+    transform: translateX(205px);
     overflow-x: hidden;
     right: 0px;
-    transition: width 0.2s;
+    transition: all 0.2s;
+    overflow-y: scroll;
 }
 
-#toolbox:hover {
-    width: 200px;
+#toolbox:hover, #toolbox:has(*:focus), #toolbox.show {
+    transform: translateX(0);
 }
 
 #toolbox * {
     overflow-x: hidden;
 }
 
-#toolbox:has(*:focus) {
-    width: 200px;
+.toolbox-grip {
+    position: absolute;
+    /* top: calc(50% - 0.5em); */
+    left: 10px;
+    user-select: none;
+    height: calc(100% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    cursor: pointer;
 }
 
 /* Content Table */
