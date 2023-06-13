@@ -224,7 +224,6 @@ li.content a:hover:not(.active) {
     overflow-x: hidden;
     right: 0px;
     transition: all 0.2s;
-    overflow-y: scroll;
 }
 
 #toolbox:hover, #toolbox:has(*:focus), #toolbox.show {
