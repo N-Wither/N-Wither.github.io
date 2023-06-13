@@ -410,3 +410,8 @@ input {
 button {
     font-family: inherit;
 }
+
+a[target='_blank']::after {
+    content: '↪';
+    color: inherit;
+}
