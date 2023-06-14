@@ -77,3 +77,8 @@ body {
 .paper-document.dark::after {
     background-color: #313136;
 }
+
+.collapsible.info {
+    padding: 0.6em 0.6em;
+    background-color: #000008cc;
+}   

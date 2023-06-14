@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="./ast-2-assets/ast-2.css">
     <link rel="stylesheet" href="./ast-2-assets/ast-2-stories.css">
     <script src="./ast-2-assets/ast-2.js" defer></script>
-    <!--Components-->
     <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <!--Components-->
+    <script src="https://n-wither.github.io/assets/js/components/collapsible-block.js" defer></script>
     <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/collapsible-block.css">
 </head>
 <body onload="init()">
@@ -97,16 +98,17 @@
             <p>“怎么了？”</p>
             <p>“我写完了，你要看看效果吗？”</p>
             <p>“可以啊。” Ella 起身朝 Selene 那边走去。</p>
-            <p>“就是这样的，挺不错的嘛。” </p>
+            <p>“就是这样的，不错嘛。” </p>
         </div>
         <div class="tooltip"></div>
-        <div>
-            <details class="info">
-                <summary>注释</summary>
+        <div class="collapsible info">
+            <div class="open-link">显示脚注</div>
+            <div class="close-link">隐藏脚注</div>
+            <div class="content">
                 <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span id="footnote-1"><span class="italic">Corvus Corax</span></span></p>
                 <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span id="footnote-2"><span class="italic">Demonae</span></span></p>
                 <p><a href="#note-3"><sup>3</sup></a>&nbsp;<span id="footnote-3"><span>作者注：以下内容展现出的作品世界观设定主要来自<a href="https://scp-wiki-cn.wikidot.com/goc-supplemental-thaumatology" target="_blank">此系列文章</a>。</span></span></p>
-            </details>
+            </div>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
             <hr/>
