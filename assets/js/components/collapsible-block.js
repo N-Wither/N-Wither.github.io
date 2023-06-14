@@ -1,39 +1,38 @@
 /*  How to use this component:
- *  
- *  <div class="collapsible">
- *      <div class="open-link">sometext</div>
- *      <div class="close-link">othertext</div>
- *      <div class="content">yourcontent</div>
- *  </div>
+    
+    <div class="collapsible">
+        <div class="open-link">sometext</div>
+        <div class="close-link">othertext</div>
+        <div class="content">yourcontent</div>
+    </div>
 */
 
 
 document.querySelectorAll('.collapsible').forEach(el => {
-    let openLinkText = el.querySelector('.open-link').innerHTML
-    let closeLinkText = el.querySelector('.close-link').innerHTML
+    let openLinkText = el.querySelector('.open-link').innerHTML || 'Show'
+    let closeLinkText = el.querySelector('.close-link').innerHTML || 'Hide'
     let content = el.querySelector('.content').innerHTML
     let template = 
-    `<div class="collapsible__closed">
-        <a href="javascript:;" class="collapsible__closed-link">${openLinkText}</a>
+    `<div class="collapsible__link-container">
+        <a href="javascript:;" class="collapsible__link">${openLinkText}</a>
     </div>
-    <div class="collapsible__opened">
-        <a href="javascript:;" class="collapsible__opened-link">${closeLinkText}</a>
-        <div class="collapsible__content">${content}</div>
-    </div>`
+    <div class="collapsible__content">${content}</div>`
 
     el.innerHTML = template
 
-    let openLink = el.querySelector('.collapsible__closed-link')
-    let closeLink = el.querySelector('.collapsible__opened-link')
-    let closedDiv = el.querySelector('.collapsible__closed')
-    let openedDiv = el.querySelector('.collapsible__opened')
+    let computedContent = el.querySelector('.collapsible__content')
+    let height = getComputedStyle(computedContent).height
+    computedContent.style.height = 0
 
-    openLink.addEventListener('click', () => {
-        closedDiv.style.display = 'none'
-        openedDiv.style.display = 'block'
-    })
-    closeLink.addEventListener('click', () => {
-        closedDiv.style.display = 'block'
-        openedDiv.style.display = 'none'
+    let link = el.querySelector('.collapsible__link')
+    
+    link.addEventListener('click', () => {
+        if(link.innerHTML == openLinkText){
+            link.innerHTML = closeLinkText
+            computedContent.style.height = height
+        }else{
+            link.innerHTML = openLinkText
+            computedContent.style.height = 0
+        }
     })
 })

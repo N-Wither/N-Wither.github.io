@@ -10,12 +10,15 @@ body {
     font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
     vertical-align: baseline;
     transition: 0.3s;
+    min-height: 95vh;
+    position: relative;
 }
 
 div.content {
     margin-left: 10%;
     margin-right: 10%;
     transition: 0.3s;
+    min-height: 100%;
 }
 
 blockquote {
@@ -209,13 +212,6 @@ li.content a:hover:not(.active) {
 }
 
 /* ToolBox */
-.toolbox {
-    top: 50px;
-    padding: 5px;
-    padding-left: 50px;
-    background-color: #00000033;
-    position: fixed;
-}
 
 #toolbox {
     max-height: 500px;
@@ -224,6 +220,11 @@ li.content a:hover:not(.active) {
     overflow-x: hidden;
     right: 0px;
     transition: all 0.2s;
+    top: 50px;
+    padding: 5px;
+    padding-left: 50px;
+    background-color: #00000033;
+    position: fixed;
 }
 
 #toolbox:hover, #toolbox:has(*:focus), #toolbox.show {
@@ -429,8 +430,4 @@ th {
 td {
     border: 1px solid #00000066;
     padding: 0.2em;
-}
-
-.collapsible__opened {
-    display: none;
 }
