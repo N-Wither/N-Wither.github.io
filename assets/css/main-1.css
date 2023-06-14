@@ -415,3 +415,22 @@ a[target='_blank']::after {
     content: '↪';
     color: inherit;
 }
+
+table {
+    border-spacing: 0;
+}
+
+th {
+    background-color: #00000066;
+    padding: 0.2em;
+    border: 1px solid #00000066;
+}
+
+td {
+    border: 1px solid #00000066;
+    padding: 0.2em;
+}
+
+.collapsible__opened {
+    display: none;
+}
