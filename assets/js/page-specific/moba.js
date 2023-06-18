@@ -96,7 +96,8 @@ const MobaScoreboardApp = {
                     redColor: '#b60f33',
                     blueLogo: '#070707',
                     redLogo: '#070707',
-                    textColor: 'white'
+                    textColor: 'white',
+                    teamDefinedScoreColor: true
                 },
                 msi23: {
                     backgroundColor: '#020001',
@@ -146,8 +147,12 @@ const MobaScoreboardApp = {
             if (score < 0) {
                 score = 0
             }
+            let scoreColor = this.themes[this.global.theme][`${team.slice(4).toLowerCase()}Color`]
+            if(this[team].color != scoreColor && this.themes[this.global.theme].teamDefinedScoreColor){
+                scoreColor = this[team].color
+            }
             let scoreHTML =
-                this.stringMultiply(`<div class="score-${team}" style="background:${this.themes[this.global.theme][`${team.slice(4).toLowerCase()}Color`]}"></div>`, score) +
+                this.stringMultiply(`<div class="score-${team}" style="background:${scoreColor}"></div>`, score) +
                 this.stringMultiply(`<div class="score-blank"></div>`, scoreToWin - score)
             document.querySelectorAll(`.${team}-score`).forEach(ele => {ele.innerHTML = scoreHTML})
         },
@@ -267,6 +272,21 @@ const MobaScoreboardApp = {
                 this[team].pos = ''
                 this[team].logo = ''
                 this[team].score = 0
+                this[team].kills = 0
+                this[team].gold = 2.5
+                this[team].towers = 0
+                this[team].dragons = []
+                this.removeBuff(team, 'baron')
+                this.removeBuff(team, 'elder')
+                this[team].baron = 0
+                this[team].elder = 0
+            })
+        },
+        clearStat(){
+            this.clearGameTimer()
+            this.global.goldDiff = 0
+            let teams = ['teamBlue', 'teamRed']
+            teams.forEach(team => {
                 this[team].kills = 0
                 this[team].gold = 2.5
                 this[team].towers = 0

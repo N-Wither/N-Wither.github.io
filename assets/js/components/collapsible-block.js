@@ -1,4 +1,5 @@
 /*  How to use this component:
+    Add these to your HTML.
     
     <div class="collapsible">
         <div class="open-link">sometext</div>
