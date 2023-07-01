@@ -302,6 +302,8 @@ const MobaScoreboardApp = {
             this.teamBlue = this.teamRed
             this.teamRed = temp
             this.getGoldDiff()
+            this.setScore('teamBlue')
+            this.setScore('teamRed')
         }
     },
 

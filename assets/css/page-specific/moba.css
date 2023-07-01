@@ -361,3 +361,7 @@ embed {
     position: relative;
     top: 2px;
 }
+
+.score-area.teamBlue-score {
+    flex-direction: row-reverse;
+}
