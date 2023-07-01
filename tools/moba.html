@@ -158,6 +158,8 @@
                     <span>
                         <label for="moba-bo">Best of </label>
                         <input type="number" value="5" id="moba-bo" v-model="global.bestOf" min="1" step="2" @change="setBestOf(), setScore('teamBlue'), setScore('teamRed')">
+                        <span>&nbsp;</span>
+                        <button @click="swapTeam()">Swap Team</button>
                     </span>
                 </div>
                 <div>

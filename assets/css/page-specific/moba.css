@@ -78,21 +78,22 @@ select {
 }
 
 .moba-scoreboard .score-area {
-    gap: 3px;
     background: transparent;
 }
 
 .score-blank {
     display: block;
-    width: 8px;
+    width: 12px;
     height: 8px;
     background-color: #666666;
     padding: 0;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .moba-scoreboard .score-blue {
     display: block;
-    width: 8px;
+    width: 12px;
     height: 8px;
     background-color: mediumturquoise;
     border-color: white;
@@ -101,7 +102,7 @@ select {
 
 .moba-scoreboard .score-red {
     display: block;
-    width: 8px;
+    width: 12px;
     height: 8px;
     background-color: crimson;
     border-color: white;
@@ -205,20 +206,24 @@ img.filter-white {
 
 .score-teamBlue {
     display: block;
-    width: 8px;
+    width: 12px;
     height: 8px;
     background-color: mediumturquoise;
     border-color: white;
     padding: 0;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .score-teamRed {
     display: block;
-    width: 8px;
+    width: 12px;
     height: 8px;
     background-color: crimson;
     border-color: white;
     padding: 0;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .buff-container {
@@ -279,7 +284,6 @@ embed {
 .moba-scoreboard-mobile .score-area {
     flex-direction: row;
     justify-content: center;
-    gap: 4px;
     height: 100%;
     font-size: 0.8rem;
 }

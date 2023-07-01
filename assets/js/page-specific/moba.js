@@ -23,7 +23,7 @@ const MobaScoreboardApp = {
                 gold: 71.8,
                 towers: 8,
                 dragons: ['infernal', 'mountain'],
-                baron: 0,
+                baron: 2,
                 baronTime: 0,
                 baronTimer: null,
                 elder: 0,
@@ -45,7 +45,7 @@ const MobaScoreboardApp = {
                 baron: 0,
                 baronTime: 0,
                 baronTimer: null,
-                elder: 0,
+                elder: 1,
                 elderTime: 0,
                 elderTimer: null
             },
@@ -296,6 +296,12 @@ const MobaScoreboardApp = {
                 this[team].baron = 0
                 this[team].elder = 0
             })
+        },
+        swapTeam(){
+            let temp = this.teamBlue
+            this.teamBlue = this.teamRed
+            this.teamRed = temp
+            this.getGoldDiff()
         }
     },
 
