@@ -413,7 +413,7 @@ button {
 }
 
 a[target='_blank']::after {
-    content: '↪';
+    content: '↗';
     color: inherit;
 }
 

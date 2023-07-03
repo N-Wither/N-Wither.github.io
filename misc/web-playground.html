@@ -8,12 +8,10 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../assets/css/main-1.css">
-    <link rel="stylesheet" href="../assets/css/components/collapsible-block.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <link rel="stylesheet" href="./web-playground.css">
     <title>Web Playground</title>
     <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-    <script src="../assets/js/components/collapsible-block.js" defer></script>
     <script src="./web-playground.js" defer></script>
     <script>
         let setElements = () => {
@@ -27,6 +25,11 @@
             setElements();
         }
     </script>
+    <!-- components -->
+    <script src="../assets/js/components/collapsible-block.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/components/collapsible-block.css">
+    <script src="../assets/js/components/click_particles.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/components/click_particles.css">
 </head>
 <body onload="init()">
     <div class="navigate" id="navigate">
@@ -52,7 +55,7 @@
             <p>JS: <code>./web-playground.js</code></p>
             <p>HTML: F12</p>
             <h2>MOBA Scoreboard</h2>
-            Moved to <a href="../tools/moba.html">Here</a>.
+            Moved to <a href="../tools/moba.html" target="_blank">Here</a>.
             <h2>Fancy Link Effects</h2>
             <p>
                 <span style="cursor: pointer;" class="fancy-link">THIS IS A SINGLE LINE LINK</span>
@@ -60,21 +63,28 @@
                 <span style="cursor: pointer;" class="fancy-link">THIS IS A MULTI <br> LINE LINK</span>
             </p>
             <h2>Dices</h2>
-            Moved to <a href="../tools/dice.html">Here</a>.
+            Moved to <a href="../tools/dice.html" target="_blank">Here</a>.
             <h2>Collapsible Block</h2>
-            <p>Source: <a href="../assets/js/components/collapsible-block.js" target="_blank"><code>https://n-wither.github.io/assets/js/components/collapsible-block.js</code></a></p>
+            <p><a href="../assets/js/components/collapsible-block.js" target="_blank">Source</a></p>
             <div class="collapsible">
                 <div class="open-link"></div>
                 <div class="close-link"></div>
-                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quisquam distinctio dolore, placeat et, aliquid quod, ipsum molestias est temporibus dolores enim magnam blanditiis libero perferendis facere quaerat perspiciatis voluptate.</div>
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Non curabitur gravida arcu ac tortor dignissim convallis. Vel facilisis volutpat est velit egestas dui id ornare. At tellus at urna condimentum mattis pellentesque id nibh tortor. Eu augue ut lectus arcu bibendum at varius vel pharetra. Pharetra vel turpis nunc eget. In iaculis nunc sed augue. Ac felis donec et odio pellentesque diam volutpat commodo. Id diam vel quam elementum. Urna neque viverra justo nec. At consectetur lorem donec massa. Massa tincidunt nunc pulvinar sapien et ligula. Quisque non tellus orci ac auctor augue mauris. Cras ornare arcu dui vivamus arcu. Vestibulum mattis ullamcorper velit sed ullamcorper morbi. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum.</p>
+                    <p>Cursus sit amet dictum sit amet justo donec enim. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Tempus imperdiet nulla malesuada pellentesque elit eget. Sit amet cursus sit amet. Odio morbi quis commodo odio aenean sed adipiscing. Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. Sed viverra ipsum nunc aliquet bibendum enim facilisis. Adipiscing tristique risus nec feugiat in fermentum posuere. Tortor id aliquet lectus proin nibh nisl condimentum id. Consequat semper viverra nam libero justo. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit. Maecenas sed enim ut sem viverra.</p>
+                    <p>Viverra tellus in hac habitasse platea dictumst. Amet venenatis urna cursus eget nunc scelerisque viverra mauris. Ultrices eros in cursus turpis. Sed turpis tincidunt id aliquet risus feugiat. Maecenas volutpat blandit aliquam etiam erat. Volutpat maecenas volutpat blandit aliquam etiam. Et magnis dis parturient montes. Aliquet risus feugiat in ante metus dictum. Semper risus in hendrerit gravida rutrum quisque. Faucibus purus in massa tempor nec feugiat nisl pretium fusce. Venenatis lectus magna fringilla urna porttitor. Id consectetur purus ut faucibus pulvinar elementum. Congue mauris rhoncus aenean vel elit scelerisque mauris. Nulla aliquet enim tortor at. Amet nisl purus in mollis nunc sed id. Convallis tellus id interdum velit laoreet. Posuere ac ut consequat semper viverra nam libero justo. Nibh venenatis cras sed felis eget velit. Purus gravida quis blandit turpis cursus.</p>
+                </div>
             </div>
+            <h2>Click Particle Effect</h2>
+            <div><a href="../assets/js/components/click_particles.js" target="_blank">Source</a></div>
+            <p>Click ANYWHERE in this page and see what happens.</p>
             <br/>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
             <hr/>
             <span id="randomQuote">Random Quote</span>
             <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+            Powered by <a href="https://pages.github.com/" target="_blank">Github Pages</a>.
         </div>
     </div>
 </body>

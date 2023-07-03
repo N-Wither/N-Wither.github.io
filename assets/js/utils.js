@@ -74,6 +74,7 @@ function randomQuote() {
     let pick = getRandomInt(0, quotes.length);
     document.getElementById('randomQuote').innerHTML = quotes[pick];
 }
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);

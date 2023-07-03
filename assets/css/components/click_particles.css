@@ -1,0 +1,11 @@
+.click-particle {
+    animation: click-particle forwards 0.8s;
+    position: absolute;
+}
+
+@keyframes click-particle {
+    to {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}

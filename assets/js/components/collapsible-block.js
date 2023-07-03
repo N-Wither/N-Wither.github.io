@@ -26,6 +26,16 @@ document.querySelectorAll('.collapsible').forEach(el => {
     computedContent.style.height = 0
 
     let link = el.querySelector('.collapsible__link')
+
+    window.addEventListener('resize', () => {
+        computedContent.style.height = 'auto'
+        height = getComputedStyle(computedContent).height
+        if(link.innerHTML == openLinkText){
+            computedContent.style.height = 0
+        }else {
+            computedContent.style.height = height
+        }
+    })
     
     link.addEventListener('click', () => {
         if(link.innerHTML == openLinkText){
