@@ -1,4 +1,30 @@
 .collapsible__content {
     overflow-y: hidden;
-    transition: height 0.4s;
+    transition: max-height 0.5s cubic-bezier(0.75, 0, 0.25, 1);
+    background: #00000033;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.collapsible__link {
+    width: 100%;
+    padding: 0.6rem;
+    text-align: left;
+    position: relative;
+    background-color: #00000066;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.collapsible__link::after {
+    content: '+';
+    float: right;
+    font-size: 1.2rem;
+}
+
+.collapsible__link.open::after {
+    content: '-';
 }
