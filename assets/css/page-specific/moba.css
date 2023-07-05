@@ -56,7 +56,7 @@ select {
     font-size: 24px;
 }
 
-.moba-scoreboard .team-blue {
+.moba-scoreboard .team-blue, .moba-scoreboard-mobile .team-blue {
     display: flex;
     background-color: mediumturquoise;
     align-items: center;
@@ -64,7 +64,7 @@ select {
     padding: 5px;
 }
 
-.moba-scoreboard .team-red {
+.moba-scoreboard .team-red, .moba-scoreboard-mobile .team-red {
     background-color: crimson;
     display: flex;
     align-items: center;
@@ -204,6 +204,18 @@ img.filter-white {
     filter: brightness(0) invert();
 }
 
+img.filter-black {
+    filter: brightness(0);
+}
+
+img.filter-grayscale {
+    filter: grayscale();
+}
+
+img.filter-none {
+    filter: none;
+}
+
 .score-teamBlue {
     display: block;
     width: 12px;
@@ -238,12 +250,19 @@ img.filter-white {
 
 .buff-progress {
     position: absolute;
-    left: 0;
     height: 100%;
     padding: 0;
     z-index: 0;
     width: 0;
     transition: width 0.2s;
+}
+
+.buff-progress.left {
+    right: 0;
+}
+
+.buff-progress.right {
+    left: 0;
 }
 
 .baron.buff-progress {

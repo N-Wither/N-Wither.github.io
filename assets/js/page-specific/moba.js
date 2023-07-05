@@ -7,14 +7,14 @@ const MobaScoreboardApp = {
                 timing: false,
                 timer: null,
                 leagueLogo: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e9/Worlds.png',
-                logoFilter: true,
+                logoFilter: 'filter-white',
                 goldDiff: -1.1,
                 theme: 'dark'
             },
             teamBlue: {
                 name: 'T1',
                 logo: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/78/T1logo_profile.png',
-                logoFilter: true,
+                logoFilter: 'filter-white',
                 pos: 'LCK#2',
                 score: 2,
                 winLose: '',
@@ -33,7 +33,7 @@ const MobaScoreboardApp = {
             teamRed: {
                 name: 'DRX',
                 logo: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d3/DRXlogo_square.png',
-                logoFilter: true,
+                logoFilter: 'filter-white',
                 pos: 'LCK#4',
                 score: 3,
                 winLose: '',
@@ -302,6 +302,14 @@ const MobaScoreboardApp = {
             this.teamBlue = this.teamRed
             this.teamRed = temp
             this.getGoldDiff()
+            if(!this.themes[this.global.theme].teamDefinedScoreColor){
+                temp = this.teamBlue.color
+                this.teamBlue.color = this.teamRed.color
+                this.teamRed.color = temp
+            }else{
+                this.setColor('teamBlue')
+                this.setColor('teamRed')
+            }
             this.setScore('teamBlue')
             this.setScore('teamRed')
         }
