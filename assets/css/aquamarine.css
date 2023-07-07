@@ -160,6 +160,10 @@ button.menu-button.open::before {
     font-weight: bold;
 }
 
+.page-header .page-title {
+    font-size: 1.6rem;
+}
+
 .page-header .right {
     position: absolute;
     right: 0;
