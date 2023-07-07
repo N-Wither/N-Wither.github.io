@@ -89,6 +89,7 @@ button {
     box-shadow: 0px 4px 8px var(--box-shadow-color);
     display: flex;
     z-index: 99;
+    background: var(--main-background-color);
 }
 
 .page-header .menu-button {
@@ -212,7 +213,7 @@ button.menu-button.open::before {
 
 .page-header .toolbox.open, .page-header .toolbox:has(a:focus){
     top: var(--header-height);
-    width: 15%;
+    width: 20%;
 }
 
 button.toolbox-button:before {
@@ -253,7 +254,7 @@ button.toolbox-button.open::before {
 
     .page-header .menu.open {
         top: var(--header-height);
-        width: 100%;
+        width: 80%;
     }
 
     .page-header {
@@ -270,7 +271,7 @@ button.toolbox-button.open::before {
 
     .page-header .toolbox.open {
         top: var(--header-height);
-        width: 50%;
+        width: 40%;
     }
 
     .page-content {

@@ -12,7 +12,7 @@ let navigateItems = [
     {
         text: 'Tools',
         icon: '🔧',
-        url: 'https://n-wither.github.io/tools/'
+        url: 'https://n-wither.github.io/tools/tools.html'
     },
     {
         text: 'Games',
