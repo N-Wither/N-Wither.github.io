@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" class="dark-mode">
 <head>
     <meta charset= "utf-8">
-    <meta name="referrer" content="no-referrer">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/icons.css">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
-    <link rel="stylesheet" href="../assets/css/page-specific/moba.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.prod.min.js"></script>
-    <script src="../assets/js/page-specific/moba.js" defer type="module"></script>
+    <title>Moba Scoreboard</title>
+    <script src="../assets/js/utils.js" defer></script>
     <script>
-        let title = 'Moba Scoreboard'
-        document.title = title;
-        let setElements = () => {
-            document.getElementById('category').innerHTML = 'Tools';
-            document.getElementById('page-title').innerHTML = title;
-        }
-
         function init(){
-            startTime();
-            hello();
-            randomQuote();
-            setElements();
+            randomQuote()
+            startTime()
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.prod.min.js"></script>
+    <script src="../assets/js/page-specific/moba.js" defer type="module"></script>
+    
+    <link rel="stylesheet" href="../assets/css/page-specific/moba.css">
+    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/icons.css">
+    <!-- components -->
+    <script src="../assets/js/components/aquamarine-navigate-menu.js" defer></script>
 </head>
 <body onload="init()">
-    <div class="navigate" id="navigate">
-        <a href="#" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
-        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
-        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
-        <a href="https://n-wither.github.io/tools/tools.html">🔧<span>Tools</span></a>
-        <a href="https://n-wither.github.io/misc/web-playground.html">🧩<span>Misc</span></a>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="no-select menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
+        </div>
+        <div class="page-icon"></div>
+        <a class="page-category flex-center padding-all-small" href="./tools.html">
+            Tools
+        </a>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button toolbox-button">
+                <button class="no-select toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')"></button>
+            </div>
+        </div>
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+        </div>
     </div>
-    <div class="toolbox" id="toolbox">
-        <div class="toolbox-grip">|||</div>
-        <div id="clock">clock</div>
-    </div>
-    <div class="content">
+    <div class="page-content">
         <div>
-            <h1 id="page-title">Title</h1>
+            <h1 id="page-title">Moba Scoreboard</h1>
             <hr/>
         </div>
-        <div class="mainText" id="scoreboard">
+        <div id="scoreboard">
             <div class="moba-scoreboard">
                 <div class="team-blue row-1 teamBlue-logo-bg">
                     <img :src="teamBlue.logo" :alt="teamBlue.name" :class="teamBlue.logoFilter">
@@ -329,135 +330,137 @@
                 </div>
             </div>
             <br>
-            <div class="moba-scoreboard-mobile">
-                <!-- row 1 -->
-                <div class="team-blue teamBlue-logo-bg">
-                    <img :src="teamBlue.logo" :alt="teamBlue.name" :class="teamBlue.logoFilter">
-                </div>
-                <div class="team-name row-1">
-                    <span class="team-name-text">{{ teamBlue.name }}</span>
-                    <span class="team-pos-text">{{ teamBlue.pos }}</span>
-                </div>
-                <div class="league-logo row-1">
-                    <img :src="global.leagueLogo" alt="League Logo" :class="global.logoFilter">
-                </div>
-                <div class="team-name row-1">
-                    <span class="team-name-text">{{ teamRed.name }}</span>
-                    <span class="team-pos-text">{{ teamRed.pos }}</span>
-                </div>
-                <div class="team-red teamRed-logo-bg">
-                    <img :src="teamRed.logo" :alt="teamRed.name" :class="teamRed.logoFilter">
-                </div>
-                <!-- row 2 -->
-                <div class="score-area teamBlue teamBlue-score row-even">
-                    <div class="score-teamBlue"></div>
-                    <div class="score-teamBlue"></div>
-                    <div class="score-blank"></div>
-                </div>
-                <div class="dragons-blue dragons row-even">
-                    <span v-for="drake in teamBlue.dragons" :class="drake" v-if="typeof teamBlue.dragons == 'object'"></span>
-                </div>
-                <div class="time row-even">{{ timeFormat(global.time) }}</div>
-                <div class="dragons-red dragons row-even">
-                    <span v-for="drake in teamRed.dragons" :class="drake"></span>
-                </div>
-                <div class="score-area teamRed teamRed-score row-even">
-                    <div class="score-teamRed"></div>
-                    <div class="score-teamRed"></div>
-                    <div class="score-teamRed"></div>
-                </div>
-                <!-- row 3 -->
-                <div class="kill teamBlue left">
-                    {{ teamBlue.kills }}
-                    <div class="better left" v-if="teamBlue.kills > teamRed.kills">
-                        ◀
+            <div class="flex-center">
+                <div class="moba-scoreboard-mobile">
+                    <!-- row 1 -->
+                    <div class="team-blue teamBlue-logo-bg">
+                        <img :src="teamBlue.logo" :alt="teamBlue.name" :class="teamBlue.logoFilter">
                     </div>
-                </div>
-                <div class="icon">🗡</div>
-                <div class="kill teamRed right">
-                    {{ teamRed.kills }}
-                    <div class="better right" v-if="teamBlue.kills < teamRed.kills">
-                        ▶
+                    <div class="team-name row-1">
+                        <span class="team-name-text">{{ teamBlue.name }}</span>
+                        <span class="team-pos-text">{{ teamBlue.pos }}</span>
                     </div>
-                </div>
-                <!-- row 4 -->
-                <div class="gold teamBlue left row-even">
-                    <span>{{ teamBlue.gold }}K</span>
-                    <div class="better left" v-if="global.goldDiff > 0">
-                        <span>{{ Math.abs(global.goldDiff) }}K</span> ◀
+                    <div class="league-logo row-1">
+                        <img :src="global.leagueLogo" alt="League Logo" :class="global.logoFilter">
                     </div>
-                </div>
-                <div class="icon row-even">&#xf51e;</div>
-                <div class="gold teamRed right row-even">
-                    <span>{{ teamRed.gold }}K</span>
-                    <div class="better right" v-if="global.goldDiff < 0">
-                        ▶ <span>{{ Math.abs(global.goldDiff) }}K</span> 
+                    <div class="team-name row-1">
+                        <span class="team-name-text">{{ teamRed.name }}</span>
+                        <span class="team-pos-text">{{ teamRed.pos }}</span>
                     </div>
-                </div>
-                <!-- row 5 -->
-                <div class="turret teamBlue left">{{ teamBlue.towers }}
-                    <div class="better left" v-if="teamBlue.towers > teamRed.towers">
-                        ◀
+                    <div class="team-red teamRed-logo-bg">
+                        <img :src="teamRed.logo" :alt="teamRed.name" :class="teamRed.logoFilter">
                     </div>
-                </div>
-                <div class="icon">♜</div>
-                <div class="turret teamRed right">{{ teamRed.towers }}
-                    <div class="better right" v-if="teamBlue.towers < teamRed.towers">
-                        ▶
+                    <!-- row 2 -->
+                    <div class="score-area teamBlue teamBlue-score row-even">
+                        <div class="score-teamBlue"></div>
+                        <div class="score-teamBlue"></div>
+                        <div class="score-blank"></div>
                     </div>
-                </div>
-                <!-- row 6 -->
-                <div class="row-2 baron buff-container left row-even">
-                    <div class="better left" v-if="teamBlue.baron > teamRed.baron">
-                        ◀
+                    <div class="dragons-blue dragons row-even">
+                        <span v-for="drake in teamBlue.dragons" :class="drake" v-if="typeof teamBlue.dragons == 'object'"></span>
                     </div>
-                    <div class="text">
-                        <span v-if="teamBlue.baronTime == 0">{{ teamBlue.baron }}</span>
-                        <span v-if="teamBlue.baronTime != 0">{{ timeFormat(teamBlue.baronTime, true) }}</span>
+                    <div class="time row-even">{{ timeFormat(global.time) }}</div>
+                    <div class="dragons-red dragons row-even">
+                        <span v-for="drake in teamRed.dragons" :class="drake"></span>
                     </div>
-                    <div class="baron buff-progress teamBlue-baron-bar left"></div>
-                </div>
-                <div class="icon row-even"><embed src="../assets/imgs/lol/baron.svg"></div>
-                <div class="row-2 baron buff-container right row-even">
-                    <div class="better right" v-if="teamBlue.baron < teamRed.baron">
-                        ▶
+                    <div class="score-area teamRed teamRed-score row-even">
+                        <div class="score-teamRed"></div>
+                        <div class="score-teamRed"></div>
+                        <div class="score-teamRed"></div>
                     </div>
-                    <div class="text">
-                        <span v-if="teamRed.baronTime == 0">{{ teamRed.baron }}</span>
-                        <span v-if="teamRed.baronTime != 0">{{ timeFormat(teamRed.baronTime, true) }}</span>
+                    <!-- row 3 -->
+                    <div class="kill teamBlue left">
+                        {{ teamBlue.kills }}
+                        <div class="better left" v-if="teamBlue.kills > teamRed.kills">
+                            ◀
+                        </div>
                     </div>
-                    <div class="baron buff-progress teamRed-baron-bar right"></div>
-                </div>
-                <!-- row 7 -->
-                <div class="row-2 elder buff-container left">
-                    <div class="better left" v-if="teamBlue.elder > teamRed.elder">
-                        ◀
+                    <div class="icon">🗡</div>
+                    <div class="kill teamRed right">
+                        {{ teamRed.kills }}
+                        <div class="better right" v-if="teamBlue.kills < teamRed.kills">
+                            ▶
+                        </div>
                     </div>
-                    <div class="text">
-                        <span v-if="teamBlue.elderTime == 0">{{ teamBlue.elder }}</span>
-                        <span v-if="teamBlue.elderTime != 0">{{ timeFormat(teamBlue.elderTime, true) }}</span>
+                    <!-- row 4 -->
+                    <div class="gold teamBlue left row-even">
+                        <span>{{ teamBlue.gold }}K</span>
+                        <div class="better left" v-if="global.goldDiff > 0">
+                            <span>{{ Math.abs(global.goldDiff) }}K</span> ◀
+                        </div>
                     </div>
-                    <div class="elder buff-progress teamBlue-elder-bar left" id="teamBlue-elder-bar"></div>
-                </div>
-                <div class="icon"><embed src="../assets/imgs/lol/elder.svg"></div>
-                <div class="row-2 elder buff-container right">
-                    <div class="better right" v-if="teamBlue.elder < teamRed.elder">
-                        ▶
+                    <div class="icon row-even">&#xf51e;</div>
+                    <div class="gold teamRed right row-even">
+                        <span>{{ teamRed.gold }}K</span>
+                        <div class="better right" v-if="global.goldDiff < 0">
+                            ▶ <span>{{ Math.abs(global.goldDiff) }}K</span> 
+                        </div>
                     </div>
-                    <div class="text">
-                        <span v-if="teamRed.elderTime == 0">{{ teamRed.elder }}</span>
-                        <span v-if="teamRed.elderTime != 0">{{ timeFormat(teamRed.elderTime, true) }}</span>
+                    <!-- row 5 -->
+                    <div class="turret teamBlue left">{{ teamBlue.towers }}
+                        <div class="better left" v-if="teamBlue.towers > teamRed.towers">
+                            ◀
+                        </div>
                     </div>
-                    <div class="elder buff-progress teamRed-elder-bar right" id="teamRed-elder-bar"></div>
+                    <div class="icon">♜</div>
+                    <div class="turret teamRed right">{{ teamRed.towers }}
+                        <div class="better right" v-if="teamBlue.towers < teamRed.towers">
+                            ▶
+                        </div>
+                    </div>
+                    <!-- row 6 -->
+                    <div class="row-2 baron buff-container left row-even">
+                        <div class="better left" v-if="teamBlue.baron > teamRed.baron">
+                            ◀
+                        </div>
+                        <div class="text">
+                            <span v-if="teamBlue.baronTime == 0">{{ teamBlue.baron }}</span>
+                            <span v-if="teamBlue.baronTime != 0">{{ timeFormat(teamBlue.baronTime, true) }}</span>
+                        </div>
+                        <div class="baron buff-progress teamBlue-baron-bar left"></div>
+                    </div>
+                    <div class="icon row-even"><embed src="../assets/imgs/lol/baron.svg"></div>
+                    <div class="row-2 baron buff-container right row-even">
+                        <div class="better right" v-if="teamBlue.baron < teamRed.baron">
+                            ▶
+                        </div>
+                        <div class="text">
+                            <span v-if="teamRed.baronTime == 0">{{ teamRed.baron }}</span>
+                            <span v-if="teamRed.baronTime != 0">{{ timeFormat(teamRed.baronTime, true) }}</span>
+                        </div>
+                        <div class="baron buff-progress teamRed-baron-bar right"></div>
+                    </div>
+                    <!-- row 7 -->
+                    <div class="row-2 elder buff-container left">
+                        <div class="better left" v-if="teamBlue.elder > teamRed.elder">
+                            ◀
+                        </div>
+                        <div class="text">
+                            <span v-if="teamBlue.elderTime == 0">{{ teamBlue.elder }}</span>
+                            <span v-if="teamBlue.elderTime != 0">{{ timeFormat(teamBlue.elderTime, true) }}</span>
+                        </div>
+                        <div class="elder buff-progress teamBlue-elder-bar left" id="teamBlue-elder-bar"></div>
+                    </div>
+                    <div class="icon"><embed src="../assets/imgs/lol/elder.svg"></div>
+                    <div class="row-2 elder buff-container right">
+                        <div class="better right" v-if="teamBlue.elder < teamRed.elder">
+                            ▶
+                        </div>
+                        <div class="text">
+                            <span v-if="teamRed.elderTime == 0">{{ teamRed.elder }}</span>
+                            <span v-if="teamRed.elderTime != 0">{{ timeFormat(teamRed.elderTime, true) }}</span>
+                        </div>
+                        <div class="elder buff-progress teamRed-elder-bar right" id="teamRed-elder-bar"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
-            <span id="randomQuote">Random Quote</span>
-            <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
-        </div>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
     </div>
 </body>
 </html>

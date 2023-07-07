@@ -5,44 +5,62 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="./assets/css/main-1.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <script src="./assets/js/utils.js" defer></script>
+    <script>
+        function init(){
+            randomQuote()
+            startTime()
+        }
+    </script>
     <!-- components -->
     <script src="./assets/js/components/click_particles.js"></script>
     <link rel="stylesheet" href="./assets/css/components/click_particles.css">
+    <script src="./assets/js/components/aquamarine-navigate-menu.js" defer></script>
 </head>
-<body onload="startTime(), hello(), randomQuote(), setLogos()">
-    <div class="navigate" id="navigate">
-        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
-        <a href="./writings/index.html">📚<span>Articles</span></a>
-        <a href="./tools/tools.html">🔧<span>Tools</span></a>
-        <a href="./games/">🎮<span>Games</span></a>
-        <a href="./misc/web-playground.html">🧩<span>Misc</span></a>
-    </div>
-    <div class="toolbox" id="toolbox">
-        <div class="toolbox-grip">|||</div>
-        <div id="clock">clock</div>
-    </div>
-    <div class="content">
-        <div>
-            <h1>N Wither's Works</h1>
-            <hr/>
+<body onload="init()">
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
         </div>
-        <div class="mainText">
-            <div>
-                <p>Hello there, this is N Wither. I do a little bit of everything.</p>
-                <p>You can click the links in the sidebars to see my works.</p>
-                <p>My <a href="https://github.com/n-wither/">Github profile</a>.</p>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">
+            WitherWorks
+        </div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank">
+                    <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="svg-monocolor">
+                        <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')"></button>
             </div>
         </div>
-        <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
-            <span id="randomQuote">Random Quote</span>
-            <br>
-            Powered by <a href="https://pages.github.com/" target="_blank">Github Pages</a>.
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
         </div>
+    </div>
+    <div class="page-content">
+        <h1>Hello</h1>
+        <hr>
+        <p>This is N Wither. I do a little bit of everything.</p>
+        <p>You can click the links in the navigation menu to see my works.</p>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
     </div>
 </body>
 </html>

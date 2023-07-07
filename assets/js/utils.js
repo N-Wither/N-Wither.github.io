@@ -116,13 +116,23 @@ function offNote(index) {
     box.style.opacity = 0
 }
 
-document.querySelector('.toolbox-grip').addEventListener('click', () => {
-    let toolbox = document.querySelector('#toolbox')
-    if(!toolbox.classList.contains('show')){
-        toolbox.classList.add('show')
-        document.querySelector('.toolbox-grip').textContent = '>>>'
-    }else{
-        toolbox.classList.remove('show')
-        document.querySelector('.toolbox-grip').textContent = '|||'
-    }
-})
+let toolboxGrip = document.querySelector('.toolbox-grip')
+if(toolboxGrip != null){
+    toolboxGrip.addEventListener('click', () => {
+        let toolbox = document.querySelector('#toolbox')
+        if(!toolbox.classList.contains('show')){
+            toolbox.classList.add('show')
+            document.querySelector('.toolbox-grip').textContent = '>>>'
+        }else{
+            toolbox.classList.remove('show')
+            document.querySelector('.toolbox-grip').textContent = '|||'
+        }
+    })
+}
+
+function toggleClass(selector, className){
+    if(typeof selector == 'string')
+    document.querySelector(selector).classList.toggle(className);
+    else
+    selector.classList.toggle(className);
+}

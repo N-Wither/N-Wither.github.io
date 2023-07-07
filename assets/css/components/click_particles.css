@@ -1,6 +1,7 @@
 .click-particle {
     animation: click-particle forwards 0.8s;
     position: absolute;
+    user-select: none;
 }
 
 @keyframes click-particle {
