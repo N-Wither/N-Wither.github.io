@@ -1,51 +1,58 @@
 :root {
-    --main-background-color: #fcfcfc;
-    --main-text-color: #0F0F0F;
-    --secondary-text-color: #fff;
-    --main-gray-color: #cccccc;
-    --main-dark-gray-color: #888888;
-    --main-prime-theme-color: #00ffd0;
-    --main-darkened-theme-color: #1dc3a5;
+    --background-color: #fcfcfc;
+    --text-color: #0F0F0F;
+    --text-color-2: #fff;
+    --text-color-select: #fff;
+    --gray-color: #cccccc;
+    --dark-gray-color: #888888;
+    --theme-color: #00ffd0;
+    --darkened-theme-color: #1dc3a5;
     --box-shadow-color: #0F0F0F22;
-    font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
 
     --header-height: 3.6rem;
 
     scroll-behavior: smooth;
+    font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
 }
 
 :root.dark-mode {
-    --main-background-color: #1e1e1e;
-    --main-text-color: #fff;
-    --secondary-text-color: #888;
-    --main-gray-color: #3b3b3b;
-    --main-dark-gray-color: #2b2b2b;
-    --main-prime-theme-color: #1dc3a5;
-    --main-darkened-theme-color: #169d84;
+    --background-color: #1e1e1e;
+    --text-color: #fff;
+    --text-color-2: #888;
+    --text-color-select: #Fff;
+    --gray-color: #3b3b3b;
+    --dark-gray-color: #2b2b2b;
+    --theme-color: #1dc3a5;
+    --darkened-theme-color: #169d84;
     --box-shadow-color: #44444422;
 }
 
 ::selection {
-    background-color: var(--main-darkened-theme-color);
-    color: var(--secondary-text-color);
+    background-color: var(--darkened-theme-color);
+    color: var(--text-color-select);
 }
 
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--main-gray-color);
+    background: var(--dark-gray-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--main-dark-gray-color);
+    background: var(--gray-color);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--dark-gray-color);
 }
 
 body {
     margin: 0;
-    background: var(--main-background-color);
-    color: var(--main-text-color);
+    background: var(--background-color);
+    color: var(--text-color);
     position: relative;
     height: 100%;
     transition: all 0.2s;
@@ -56,8 +63,8 @@ a[target = "_blank"]::after{
 }
 
 a.content {
-    color: var(--main-darkened-theme-color);
-    background: linear-gradient(to right, var(--main-darkened-theme-color), var(--main-darkened-theme-color)) no-repeat right bottom;
+    color: var(--darkened-theme-color);
+    background: linear-gradient(to right, var(--darkened-theme-color), var(--darkened-theme-color)) no-repeat right bottom;
     background-size: 0 2px;
     transition: background-size 200ms;
     text-decoration: none;
@@ -89,13 +96,13 @@ button {
     box-shadow: 0px 4px 8px var(--box-shadow-color);
     display: flex;
     z-index: 99;
-    background: var(--main-background-color);
+    background: var(--background-color);
 }
 
 .page-header .menu-button {
     width: var(--header-height);
     height: var(--header-height);
-    background-color: var(--main-background-color);
+    background-color: var(--background-color);
 }
 
 .menu-button button {
@@ -110,12 +117,12 @@ button {
 
 .page-header a {
     text-decoration: none;
-    color: var(--main-text-color);
+    color: var(--text-color);
     transition: all 0.2s;
 }
 
 .page-header a:hover, .page-header a:focus {
-    background: var(--main-gray-color);
+    background: var(--gray-color);
 }
 
 .page-header a::after {
@@ -123,7 +130,7 @@ button {
 }
 
 .page-header a.page-category:hover, .page-header a.page-category:focus {
-    background: var(--main-darkened-theme-color);
+    background: var(--darkened-theme-color);
 }
 
 .page-header button {
@@ -133,16 +140,16 @@ button {
 
 button.menu-button::before {
     content: '☰';
-    color: var(--main-text-color);
+    color: var(--text-color);
 }
 
 button.menu-button.open::before {
     content: '✖';
-    color: var(--main-text-color);
+    color: var(--text-color);
 }
 
 .menu-button button:hover {
-    background: var(--main-gray-color);
+    background: var(--gray-color);
 }
 
 .menu-button a {
@@ -151,11 +158,11 @@ button.menu-button.open::before {
 }
 
 .page-header .page-icon {
-    background: var(--main-prime-theme-color);
+    background: var(--theme-color);
 }
 
 .page-header .page-category {
-    background: var(--main-prime-theme-color);
+    background: var(--theme-color);
     font-size: 1.4rem;
     font-weight: bold;
 }
@@ -182,8 +189,7 @@ button.menu-button.open::before {
     transition: all 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
-    white-space: nowrap;
-    background: var(--main-background-color);
+    background: var(--background-color);
     box-shadow: 0px 4px 8px #0F0F0F22;
     z-index: 100;
 }
@@ -199,19 +205,19 @@ button.menu-button.open::before {
 
 .page-header .menu a.item {
     min-height: var(--header-height);
-    border-bottom: var(--main-gray-color) solid;
+    border-bottom: var(--gray-color) solid;
     padding: 0.4rem;
     font-size: 1.4rem;
     padding: 0 0;
     width: 100%;
     height: 100%;
-    color: var(--main-text-color);
+    color: var(--text-color);
     text-decoration: none;
     transition: all 0.2s;
 }
 
 .menu a.item:hover, .menu a.item:focus {
-    background: var(--main-gray-color);
+    background: var(--gray-color);
 }
 
 .menu a.item div{
@@ -232,25 +238,40 @@ button.menu-button.open::before {
 
 .page-header .toolbox {
     right: 0;
+    transform: translateX(100%);
+    width: 20%;
+    position: fixed;
+    top: var(--header-height);
 }
 
 .page-header .toolbox.open, .page-header .toolbox:has(a:focus){
     top: var(--header-height);
     width: 20%;
+    transform: translateX(0);
 }
 
 button.toolbox-button:before {
     content: '◀';
-    color: var(--main-text-color);
+    color: var(--text-color);
 }
 
 button.toolbox-button.open::before {
     content: '▶';
-    color: var(--main-text-color);
+    color: var(--text-color);
 }
 
 .toolbox .item {
-    border-bottom: solid var(--main-gray-color);
+    border-bottom: solid var(--gray-color);
+    padding: 0.4rem;
+    overflow-x: hidden;
+}
+
+.toolbox .item a {
+    color: var(--theme-color);
+}
+
+.toolbox .item a[target = "_blank"]::after {
+    content: '↗';
 }
 
 /* Page Content*/
@@ -292,6 +313,9 @@ button.toolbox-button.open::before {
         min-height: var(--header-height);
     }
 
+    .page-header .toolbox {
+        width: 30%;
+    }
     .page-header .toolbox.open {
         top: var(--header-height);
         width: 30%;
@@ -332,11 +356,15 @@ button.toolbox-button.open::before {
 }
 
 .svg-monocolor {
-    fill: var(--main-text-color)
+    fill: var(--text-color)
 }
 
 .adapt-header {
     min-width: var(--header-height);
+}
+
+.no-bg {
+    background: none !important;
 }
 
 /* Animations */

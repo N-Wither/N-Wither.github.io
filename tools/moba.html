@@ -2,6 +2,7 @@
 <html lang="en-us" class="dark-mode">
 <head>
     <meta charset= "utf-8">
+    <meta name="referrer" content="no-referrer">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
@@ -29,8 +30,10 @@
         <div class="menu-button">
             <button class="no-select menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
         </div>
-        <div class="page-icon flex-center adapt-header">🔧</div>
-        <a class="page-category flex-center padding-all-small" href="./tools.html">Tools</a>
+        <a class="page-category flex-center padding-all-small" href="./tools.html">
+            <div class="page-icon flex-center adapt-header no-bg">🔧</div>
+            Tools
+        </a>
         <div class="flex-center page-title">Moba Scoreboard</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
@@ -40,6 +43,7 @@
         </div>
         <div class="toolbox all-menu">
             <div id="clock" class="item">Current Time</div>
+            <div class="page-info item">A scoreboard for MOBA games, based on <a href="https://github.com/vuejs/" target="_blank" class="content">Vue.js</a></div>
         </div>
     </div>
     <div class="page-content">
