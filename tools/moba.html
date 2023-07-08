@@ -22,16 +22,16 @@
     <link rel="stylesheet" href="https://n-wither.github.io/assets/css/icons.css">
     <!-- components -->
     <script src="../assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="../assets/js/components/title-observer.js" defer></script>
 </head>
 <body onload="init()">
     <div class="page-header">
         <div class="menu-button">
             <button class="no-select menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
         </div>
-        <div class="page-icon"></div>
-        <a class="page-category flex-center padding-all-small" href="./tools.html">
-            Tools
-        </a>
+        <div class="page-icon flex-center adapt-header">🔧</div>
+        <a class="page-category flex-center padding-all-small" href="./tools.html">Tools</a>
+        <div class="flex-center page-title">Moba Scoreboard</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button toolbox-button">
@@ -44,7 +44,7 @@
     </div>
     <div class="page-content">
         <div>
-            <h1 id="page-title">Moba Scoreboard</h1>
+            <h1 class="page-title">Moba Scoreboard</h1>
             <hr/>
         </div>
         <div id="scoreboard">
