@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="dark-mode">
+<head>
+    <meta charset= "utf-8">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <title>Thaumaturgy 101</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <script>
+        function init(){
+            randomQuote()
+            startTime()
+            tagNotes()
+        }
+    </script>
+    <!-- components -->
+    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/collapsible-block.js" defer></script>
+    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/collapsible-block.css">
+    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+
+    <link rel="stylesheet" href="./ast-2-assets/ast-2.css">
+    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/aquamarine.css">
+    <link rel="stylesheet" href="./ast-2-assets/ast-2-stories.css">
+
+    <style>
+        :root {
+            --background-color: #e6f7fe;
+            --text-color: #313131;
+            --text-color-2: #fff;
+            --gray-color: #cbdee6;
+            --dark-gray-color: #92c2d7;
+            --theme-color: #5dc6f3;
+            --darkened-theme-color: #35a0ce;
+            --box-shadow-color: #0d3e5422;
+            font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
+    
+            --header-height: 3.6rem;
+    
+            scroll-behavior: smooth;
+        }
+    
+        :root.dark-mode {
+            --background-color: #05171f;
+            --text-color: #d2e2f3;
+            --text-color-2: #fff;
+            --gray-color: #2f4e5b;
+            --dark-gray-color: #153645;
+            --theme-color: #419fc8;
+            --darkened-theme-color: #1b7298;
+            --box-shadow-color: #165e8022;
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
+        </div>
+        <div class="page-icon"></div>
+        <a class="page-category flex-center padding-all-small" href="./">
+            <div>Cycmatica <br> <span style="font-size: smaller;">Series</span></div>
+        </a>
+        <div class="flex-center page-title">Forever & Always</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <h1 class="page-title">Forever & Always</h1>
+        <hr>
+        <div>
+            <p></p>
+        </div>
+        <div class="tooltip"></div>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+    </div>
+</body>
+</html>
