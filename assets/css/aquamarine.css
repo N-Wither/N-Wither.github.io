@@ -367,5 +367,9 @@ button.toolbox-button.open::before {
     background: none !important;
 }
 
+.float-right {
+    float: right;
+}
+
 /* Animations */
 

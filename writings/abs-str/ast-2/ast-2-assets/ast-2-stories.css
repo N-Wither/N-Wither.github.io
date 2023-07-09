@@ -61,9 +61,10 @@
     box-shadow: none;
     padding: 1.5rem;
     box-shadow: 0px 1px 4px #000008cc;
+    margin: 2rem;
 }
 
-.paper-document.dark {
+.paper-document.dark, .dark-mode .paper-document {
     background-color: #1e1e23;
 }
 
@@ -83,7 +84,7 @@
     box-shadow: inherit;
 }
 
-.paper-document.dark::before {
+.paper-document.dark::before, .dark-mode .paper-document::before {
     background-color: #2f2f34;
 }
 
@@ -97,6 +98,6 @@
     box-shadow: inherit;
 }
 
-.paper-document.dark::after {
+.paper-document.dark::after, .dark-mode .paper-document::after {
     background-color: #313136;
 }
