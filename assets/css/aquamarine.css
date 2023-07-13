@@ -24,7 +24,7 @@
     --dark-gray-color: #2b2b2b;
     --theme-color: #1dc3a5;
     --darkened-theme-color: #169d84;
-    --box-shadow-color: #44444422;
+    --box-shadow-color: #66666622;
 }
 
 ::selection {
@@ -161,6 +161,11 @@ button.menu-button.open::before {
     background: var(--theme-color);
 }
 
+.page-icon img {
+    width: 80%;
+    height: 80%;
+}
+
 .page-header .page-category {
     background: var(--theme-color);
     font-size: 1.4rem;
@@ -186,12 +191,13 @@ button.menu-button.open::before {
     top: var(--header-height);
     overflow-x: hidden;
     width: 0;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.4s cubic-bezier(0.75, 0, 0.25, 1);
     display: flex;
     flex-direction: column;
     background: var(--background-color);
     box-shadow: 0px 4px 8px #0F0F0F22;
     z-index: 100;
+    box-shadow: 0px 4px 8px var(--box-shadow-color);
 }
 
 .page-header .menu {
@@ -363,6 +369,11 @@ button.toolbox-button.open::before {
     min-width: var(--header-height);
 }
 
+.adapt-header-strict {
+    width: var(--header-height);
+    height: var(--header-height);
+}
+
 .no-bg {
     background: none !important;
 }
@@ -373,3 +384,8 @@ button.toolbox-button.open::before {
 
 /* Animations */
 
+@keyframes rotate90 {
+    to {
+        transform: rotate(180deg);
+    }
+}
