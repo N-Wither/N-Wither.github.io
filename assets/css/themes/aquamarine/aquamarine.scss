@@ -87,11 +87,38 @@ button {
     font-family: inherit;
 }
 
+.float-div {
+    z-index: 99;
+    min-width: var(--header-height);
+    min-height: var(--header-height);
+    @include general-shadow;
+}
+
 /* Small Components */
 #clock {
     width: 100%;
     padding: 0.4rem;
     text-align: center;
+}
+
+#to-top {
+    animation: $general-transition-time ease-in show;
+
+    button {
+        width: var(--header-height);
+        height: var(--header-height);
+        background: none;
+        border: none;
+        color: inherit;
+    }
+
+    button:hover{
+        background: var(--gray-color);
+    }
+
+    &.ani__hide {
+        animation: $general-transition-time ease-in hide;
+    }
 }
 
 /* Page Header and menu */
@@ -288,13 +315,6 @@ button {
 
 .page-content {
     margin: 2rem 10rem 0 10rem;
-
-    .float-div {
-        z-index: 99;
-        min-width: var(--header-height);
-        min-height: var(--header-height);
-        @include general-shadow;
-    }
 }
 
 .page-footer {
@@ -394,3 +414,17 @@ button {
 }
 
 /* Animations */
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    to {
+        opacity: 0;
+    }
+}
