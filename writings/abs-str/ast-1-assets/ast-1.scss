@@ -1,0 +1,253 @@
+/* SASS Specific Features */
+
+
+/* General */
+:root {
+    --background-color: #fcfcfc;
+    --text-color: #0f0f0f;
+    --text-color-2: #fff;
+    --gray-color: #cccccc;
+    --dark-gray-color: #888888;
+    --theme-color: crimson;
+    --darkened-theme-color: #8b0721;
+    --box-shadow-color: #0d3e5422;
+    --link-color: crimson;
+    font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
+
+    --header-height: 3.6rem;
+
+    scroll-behavior: smooth;
+}
+
+:root.dark-mode {
+    --background-color: #222222;
+    --text-color: #eee;
+    --text-color-2: #fff;
+    --gray-color: #535353;
+    --dark-gray-color: #353535;
+    --theme-color: crimson;
+    --darkened-theme-color: #8b0721;
+    --box-shadow-color: #5b5b5b22;
+    --link-color: crimson;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--theme-color);
+}
+
+/* Page Content */
+.page-content {
+    hr.break {
+        margin: 0 8rem;
+    }
+
+    blockquote {
+        background: var(--gray-color);
+        border-left: solid var(--theme-color) 10px;
+        padding: 1.6rem;
+    }
+}
+
+/* Charaters */
+.god-speaking {
+    font-family: 'Noto Serif SC';
+}
+
+.satan-speaking {
+    font-family: 'Ma Shan Zheng';
+}
+
+.friend-speaking {
+    font-family: 'ZCOOL KuaiLe';
+}
+
+.death-speaking {
+    font-family: 'ZCOOL XiaoWei';
+}
+
+.gabriel-speaking {
+    font-family: 'ZCOOL KuaiLe';
+    text-shadow: 2px 2px 5px #f8e591;
+}
+
+/* Phone Screen */
+.phone {
+    background: var(--background-color);
+    width: 500px;
+    position: relative;
+    box-shadow: 0px 4px 12px var(--box-shadow-color);
+
+    .phone-title {
+        background-color: var(--background-color);
+        width: 500px;
+        height: 80px;
+        position: relative;
+        color: var(--text-color);
+        text-align: center;
+    }
+    
+    .phone-back-arrow {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-size: 36px;
+    }
+    
+    .talk-bubble-left {
+        background-color: var(--gray-color);
+        width: 300px;
+        border-radius: 0px 8px 8px 8px;
+        margin: 15px;
+        padding: 8px;
+        color: var(--text-color);
+    }
+    
+    .talk-bubble-right {
+        background-color: #53ccd7;
+        width: 300px;
+        border-radius: 8px 8px 0px 8px;
+        margin: 15px;
+        padding: 8px;
+        position: relative;
+        left: 160px;
+        color: var(--text-color);
+    }
+
+    .talk-bubble-left.c {
+        font-family: 'ZCOOL Kuaile';
+    }
+}
+
+/* Bilibili */
+.bili-video {
+    position: absolute;
+    box-shadow: 5px #aaaaaa;
+    width: 220px;
+    height: 180px;
+    border-radius: 5px;
+    background-color: rgb(232, 232, 232);
+    cursor: pointer;
+}
+
+.bili-video-thumbnail {
+    text-align: center;
+    width: 220px;
+    height: 120px;
+    border-radius: 5px 5px 0 0;
+}
+
+.bili-video-title {
+    color: black;
+    font-size: small;
+}
+
+.bili-video-uploader {
+    font-size: 12px;
+    color: gray;
+    position: absolute;
+    top: 160px;
+    left: 2px;
+}
+
+.bili-video-uploader span {
+    background-color: gray;
+    color: white;
+    border-radius: 2px;
+}
+
+.bili-bottom-navigate {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Paper File */
+.paper-file {
+    background-color: #ece9e1;
+    box-shadow: 2px 2px 8px #00000066;
+    color: black;
+    padding: 12px;
+    position: relative;
+}
+
+.paper-file-sticker {
+    float: right;
+    background-color: #fcfcf0;
+    box-shadow: 2px 2px 2px #00000033;
+    padding: 8px;
+    width: fit-content;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.file-title {
+    text-align: center;
+}
+
+/* Images that can be zoomed */
+.zoom {
+    transition: 0.15s;
+}
+
+.zoom:hover {
+    transform: scale(1.5);
+}
+
+/* Story Time */
+.story-time {
+    font-family: monospace;
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 0;
+    font-size: large;
+    color: #00ffff;
+    background-color: #00000066;
+}
+
+.story-time .row-1 {
+    background-color: #00000066;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.alive-counter {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.death-percentage {
+    background-color: #992244;
+    height: 100%;
+    position: absolute;
+}
+
+.alive-percentage {
+    background-color: #006666;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.alive-count {
+    position: relative;
+}
+
+/* Components */
+.tooltip {
+    position: fixed;
+    transition: all 0.2s;
+    padding: 0.8rem;
+    background: var(--dark-gray-color);
+    color: var(--text-color);
+}

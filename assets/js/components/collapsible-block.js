@@ -48,6 +48,7 @@ for(let i = 0; i < blocks.length; i ++){
     })
 
     window.addEventListener('resize', () => {
+        if(computedContent.style.maxHeight == '0px') return;
         computedContent.style.maxHeight = 'fit-content'
         setTimeout(() => {
             computedContent.style.maxHeight = computedContent.scrollHeight + 'px'

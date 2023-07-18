@@ -1,0 +1,6 @@
+.float-tooltip {
+    background: #00000088;
+    color: white;
+    position: fixed;
+    padding: 0.8rem;
+}

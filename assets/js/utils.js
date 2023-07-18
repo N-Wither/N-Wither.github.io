@@ -103,6 +103,11 @@ function tagNotes() {
 function showNote(index) {
     let content = document.querySelector(`#footnote-${index}`).innerHTML
     let box = document.querySelector('.tooltip')
+    if(box == null){
+        box = document.createElement('div')
+        box.classList.add('tooltip')
+        document.body.appendChild(box)
+    }
     box.innerHTML = content
     box.style.opacity = 1
     document.addEventListener('mousemove', e => {
