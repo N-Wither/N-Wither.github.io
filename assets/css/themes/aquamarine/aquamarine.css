@@ -13,6 +13,7 @@
   --secondary-theme-color: #fff;
   --darkened-secondary-theme-color: #ccc;
   --box-shadow-color: #0F0F0F22;
+  --link-color: #00ffd0;
   --header-height: 3.6rem;
   scroll-behavior: smooth;
   font-family: "Metropolis", "Readex Pro", "Noto Sans SC";
@@ -30,6 +31,7 @@
   --secondary-theme-color: #fff;
   --darkened-secondary-theme-color: #ccc;
   --box-shadow-color: #66666622;
+  --link-color: #00ffd0;
 }
 
 ::selection {
@@ -67,15 +69,14 @@ a[target=_blank]::after {
   content: "↗";
 }
 
-a.content {
-  color: var(--darkened-theme-color);
-  background: linear-gradient(to right, var(--darkened-theme-color), var(--darkened-theme-color)) no-repeat right bottom;
+.page-content a, .page-footer a, .toolbox a {
+  color: var(--link-color);
+  background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;
   background-size: 0 2px;
   transition: background-size 200ms;
   text-decoration: none;
 }
-
-a.content:hover, a.content:focus {
+.page-content a:hover, .page-content a:focus, .page-footer a:hover, .page-footer a:focus, .toolbox a:hover, .toolbox a:focus {
   background-position-x: left;
   background-size: 100% 2px;
 }
@@ -253,10 +254,25 @@ button {
   overflow-x: hidden;
 }
 .page-header .toolbox .item a {
-  color: var(--theme-color);
+  color: var(--link-color);
+  background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;
+  background-size: 0 2px;
+  transition: background-size 200ms;
+  text-decoration: none;
+}
+.page-header .toolbox .item a:hover, .page-header .toolbox .item a:focus {
+  background-position-x: left;
+  background-size: 100% 2px;
 }
 .page-header .toolbox .item a[target=_blank]::after {
   content: "↗";
+}
+.page-header .toolbox .content-table {
+  display: flex;
+  flex-direction: column;
+}
+.page-header .toolbox .content-table a {
+  height: 1.2rem;
 }
 .page-header .toolbox.open, .page-header .toolbox:has(a:focus) {
   top: var(--header-height);

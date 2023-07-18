@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us" class="dark-mode">
+<head>
+    <meta charset= "utf-8">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <title>Apocalypse 2020</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <script>
+        function init(){
+            randomQuote()
+            startTime()
+        }
+    </script>
+    <!-- components -->
+    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/collapsible-block.js" defer></script>
+    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/collapsible-block.css">
+
+    <style>
+        :root {
+            --background-color: #fcfcfc;
+            --text-color: #0f0f0f;
+            --text-color-2: #fff;
+            --gray-color: #cccccc;
+            --dark-gray-color: #888888;
+            --theme-color: crimson;
+            --darkened-theme-color: #8b0721;
+            --box-shadow-color: #0d3e5422;
+            font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
+    
+            --header-height: 3.6rem;
+    
+            scroll-behavior: smooth;
+        }
+    
+        :root.dark-mode {
+            --background-color: #222222;
+            --text-color: #eee;
+            --text-color-2: #fff;
+            --gray-color: #535353;
+            --dark-gray-color: #353535;
+            --theme-color: crimson;
+            --darkened-theme-color: #8b0721;
+            --box-shadow-color: #5b5b5b22;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--theme-color);
+        }
+
+        .page-content a, .page-footer a {
+            color: var(--theme-color);
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
+        </div>
+        <div class="page-icon"></div>
+        <a class="page-category flex-center padding-all-small" href="./">
+            Abstracalypse <br> Stories
+        </a>
+        <div class="flex-center page-title">Apocalypse 2020</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <div class="content-table" style="display: flex; flex-direction: column;">
+                    <strong>目录</strong>
+                    <a href="#chapter-0"><span>0 Genesis</span></a>
+                    <a href="#chapter-1"><span>1-1 Great Filter</span></a>
+                    <a href="#chapter-2"><span>1-2 A Slash in the Dark</span></a>
+                    <a href="#chapter-3"><span>1-3 Uproar Run</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <h1 class="page-title">Apocalypse 2020</h1>
+        <hr>
+        <p>Write something here.</p>
+        
+    </div>
+    <div class="page-footer">
+        <hr>
+        <div class="collapsible" style="text-align: left;">
+            <div class="open-link">显示脚注</div>
+            <div class="close-link">隐藏脚注</div>
+            <div class="content">
+                <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span id="footnote-1">《圣经·利未记》18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span></p>
+                <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span id="footnote-2">一位天使长，救赎之天使。</span></p>
+                <p><a href="#note-3"><sup>3</sup></a>&nbsp;<span id="footnote-3">日语“さようなら”（再见）的谐音。</span></p>
+            </div>
+        </div>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+    </div>
+</body>
+</html>

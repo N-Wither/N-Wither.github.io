@@ -3,6 +3,19 @@
     box-shadow: 0px 4px 8px var(--box-shadow-color);
 }
 
+@mixin general-link {
+    color: var(--link-color);
+    background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;
+    background-size: 0 2px;
+    transition: background-size 200ms;
+    text-decoration: none;
+}
+
+@mixin general-link-hover {
+    background-position-x: left;
+    background-size: 100% 2px;
+}
+
 $general-transition-time: 0.4s;
 
 /* General */
@@ -18,6 +31,7 @@ $general-transition-time: 0.4s;
     --secondary-theme-color: #fff;
     --darkened-secondary-theme-color: #ccc;
     --box-shadow-color: #0F0F0F22;
+    --link-color: #00ffd0;
 
     --header-height: 3.6rem;
 
@@ -37,6 +51,7 @@ $general-transition-time: 0.4s;
     --secondary-theme-color: #fff;
     --darkened-secondary-theme-color: #ccc;
     --box-shadow-color: #66666622;
+    --link-color: #00ffd0;
 }
 
 ::selection {
@@ -74,17 +89,14 @@ a[target = "_blank"]::after{
     content: '↗';
 }
 
-a.content {
-    color: var(--darkened-theme-color);
-    background: linear-gradient(to right, var(--darkened-theme-color), var(--darkened-theme-color)) no-repeat right bottom;
-    background-size: 0 2px;
-    transition: background-size 200ms;
-    text-decoration: none;
-}
+.page-content, .page-footer, .toolbox {
+    a {
+        @include general-link()
+    }
 
-a.content:hover, a.content:focus {
-    background-position-x: left;
-    background-size: 100% 2px;
+    a:hover, a:focus {
+        @include general-link-hover()
+    }
 }
 
 button {
@@ -289,11 +301,24 @@ button {
             overflow-x: hidden;
 
             a {
-                color: var(--theme-color);
+                @include general-link()
+            }
+
+            a:hover, a:focus {
+                @include general-link-hover()
             }
 
             a[target = "_blank"]::after {
                 content: '↗';
+            }
+        }
+
+        .content-table {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                height: 1.2rem;
             }
         }
     }
