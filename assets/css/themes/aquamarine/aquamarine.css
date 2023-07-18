@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* SASS specific */
 /* General */
 :root {
   --background-color: #fcfcfc;
@@ -13,10 +12,11 @@
   --secondary-theme-color: #fff;
   --darkened-secondary-theme-color: #ccc;
   --box-shadow-color: #0F0F0F22;
-  --link-color: #00ffd0;
+  --link-color: #1dc3a5;
   --header-height: 3.6rem;
   scroll-behavior: smooth;
   font-family: "Metropolis", "Readex Pro", "Noto Sans SC";
+  font-size: 16px;
 }
 
 :root.dark-mode {
@@ -61,7 +61,7 @@ body {
   background: var(--background-color);
   color: var(--text-color);
   position: relative;
-  height: 100%;
+  min-height: 100vh;
   transition: all 0.4s;
 }
 
@@ -291,6 +291,7 @@ button {
 /* Page Content*/
 .page-content {
   margin: 2rem 10rem 0 10rem;
+  min-height: calc(100vh - 16rem);
 }
 
 .page-footer {

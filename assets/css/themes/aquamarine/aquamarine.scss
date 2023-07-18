@@ -16,10 +16,7 @@
     background-size: 100% 2px;
 }
 
-$general-transition-time: 0.4s;
-
-/* General */
-:root {
+@mixin light-scheme-palette {
     --background-color: #fcfcfc;
     --text-color: #0F0F0F;
     --text-color-2: #fff;
@@ -31,15 +28,10 @@ $general-transition-time: 0.4s;
     --secondary-theme-color: #fff;
     --darkened-secondary-theme-color: #ccc;
     --box-shadow-color: #0F0F0F22;
-    --link-color: #00ffd0;
-
-    --header-height: 3.6rem;
-
-    scroll-behavior: smooth;
-    font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
+    --link-color: #1dc3a5;
 }
 
-:root.dark-mode {
+@mixin dark-scheme-palette {
     --background-color: #1e1e1e;
     --text-color: #fff;
     --text-color-2: #888;
@@ -52,6 +44,25 @@ $general-transition-time: 0.4s;
     --darkened-secondary-theme-color: #ccc;
     --box-shadow-color: #66666622;
     --link-color: #00ffd0;
+}
+
+$general-transition-time: 0.4s;
+
+/* General */
+:root {
+    @include light-scheme-palette();
+
+    --header-height: 3.6rem;
+
+    scroll-behavior: smooth;
+    font: {
+        family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
+        size: 16px;
+    }
+}
+
+:root.dark-mode {
+    @include dark-scheme-palette()
 }
 
 ::selection {
@@ -81,7 +92,7 @@ body {
     background: var(--background-color);
     color: var(--text-color);
     position: relative;
-    height: 100%;
+    min-height: 100vh;
     transition: all $general-transition-time;
 }
 
@@ -344,6 +355,7 @@ button {
 
 .page-content {
     margin: 2rem 10rem 0 10rem;
+    min-height: calc(100vh - 16rem);
 }
 
 .page-footer {
