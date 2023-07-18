@@ -101,3 +101,10 @@
 .paper-document.dark::after, .dark-mode .paper-document::after {
     background-color: #313136;
 }
+
+.tooltip {
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 0.8rem;
+    font-size: inherit;
+}

@@ -1,640 +1,647 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en-us" class="dark-mode">
 
 <head>
-  <meta charset="utf-8">
-  <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=ZCOOL KuaiLe' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Ma Shan Zheng' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Readex Pro' rel='stylesheet'>
-  <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-  <link rel="stylesheet" type="text/css" href="./ast-1-assets/apocalypse-2020.css">
-  <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/accessibility-mode.css">
-  <title>Apocalypse 2020</title>
-  <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-  <script src="./ast-1-assets/apocalypse-2020.js" defer></script>
+    <meta charset="utf-8">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=ZCOOL KuaiLe' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Ma Shan Zheng' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" href="./ast-1-assets/ast-1.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <title>Apocalypse 2020</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <script>
+        function init() {
+            randomQuote()
+            startTime()
+            tagNotes()
+        }
+    </script>
+    <!-- components -->
+    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/collapsible-block.js" defer></script>
+    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/collapsible-block.css">
+    <script src="./ast-1-assets/apocalypse-2020.js" defer></script>
 </head>
 
-<body onload="startTime(), hello(), randomQuote(), tagNotes()">
-  <div class="navigate" id="navigate">
-    <a href="https://n-wither.github.io/writings/abs-str/index.html"
-      style="line-height: unset; height: 50px;">📂<span
-        style="font-size: larger;"><strong>Abstracalypse<br>Stories</strong></span></a>
-    <a href="https://n-wither.github.io">🏠<span>Home</span></a>
-    <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
-    <a href="https://n-wither.github.io/tools/tools.html">🔧<span>Tools</span></a>
-    <a href="https://n-wither.github.io/misc/web-playground.html">🧩<span>Misc</span></a>
-  </div>
-  <div class="toolbox" id="toolbox">
-    <div class="toolbox-grip">|||</div>
-    <div id="clock">clock</div>
-    <div class="content-table">
-      <strong>目录</strong>
-      <a href="#chapter-0"><span>0 Genesis</span></a>
-      <a href="#chapter-1"><span>1-1 Great Filter</span></a>
-      <a href="#chapter-2"><span>1-2 A Slash in the Dark</span></a>
-      <a href="#chapter-3"><span>1-3 Uproar Run</span></a>
+<body onload="init()">
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button"
+                onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
+        </div>
+        <div class="page-icon"></div>
+        <a class="page-category flex-center padding-all-small" href="./">
+            Abstracalypse <br> Stories
+        </a>
+        <div class="flex-center page-title">Apocalypse 2020</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button"
+                    onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')"></button>
+            </div>
+        </div>
+
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <div class="content-table" style="display: flex; flex-direction: column;">
+                    <strong>目录</strong>
+                    <a href="#chapter-0"><span>0 Genesis</span></a>
+                    <a href="#chapter-1"><span>1-1 Great Filter</span></a>
+                    <a href="#chapter-2"><span>1-2 A Slash in the Dark</span></a>
+                    <a href="#chapter-3"><span>1-3 Uproar Run</span></a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="content" id="content">
-    <div class="title">
-      <span class="title-main">Apocalypse 2020</span>
-    </div>
-    <div class="mainText">
-      <blockquote>
-        这篇故事最初写于 2019 年左右，由于原作已遗失大半且充满了各种问题，故在此重写。
-      </blockquote>
-      <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
-      <button id="accessibility-switch" onclick="accModeSwitch()" type="button">点击以切换无障碍模式</button>
-      <h2 id="chapter-0">0 Genesis</h2>
-      <p>
-        圣经实际上极大地美化了，或者说就是瞎编了这个世界的起源，地球并不是上帝花 6 天时间创造出来的，地球事实上是上帝和撒旦一夜情的产物，也就是意外怀孕。
-      </p>
-      <p>
-        那时上帝还是个意气风发的青年，祂想要创造一个完美的世界，然而祂在毕业舞会上喝多了酒，稀里糊涂地被撒旦勾引上床了，第二天上帝醒来发现床上多了一个蓝色的星球，是的，这就是地球。
-      </p>
-      <p>
-        当然上帝不会真的怀孕，这么说只是方便你们理解。众所周知如果男女双方都没有做好准备的话，意外怀孕生下来的孩子通常都是个悲剧。地球也不例外，上帝的本意是好的，只不过地球还是长歪了，现在的地球已经充满了战争、瘟疫、饥荒、死亡、毒品、淫乱、污染、邪教和同性恋<sup class="note">1</sup>。
-      </p>
-      <p>
-        然而木已成舟，既然地球已经创造出来了，那也只能养着了，周一到周五归上帝管，周末归撒旦。这就是为什么人们喜欢在周末娱乐。
-      </p>
-      <p>
-        本来日子也就这么过了，但上帝仍然想着教化人类往好的一面发展，可惜祂还是高估了人类的道德水平，地球表面在人类的糟蹋下一天天变得更烂了。
-      </p>
-      <p>
-        时间来到 2020 年，上帝终于失去了最后的耐心，既然这个地球已经无可救药了，那还不如重新造一个。可是上帝终究还是仁慈的，地球上 70
-        多亿人，总还是有不少义人的，把他们也一起毁灭掉未免过于不人道了，经过一番深思熟虑，上帝想出了一个（自认为）完美的方案。
-      </p>
-      <h2 id="chapter-1">1-1 Great Filter</h2>
-      <p>
-        2020 年 5 月 9 日的晚上，我在家里打游戏。此时窗外渗进来的光把我的注意力从屏幕引向了窗外，我拉开窗帘，看到了一场只会在电影里出现的景象：
-      </p>
-      <p>
-        城市里到处竖立着金色的光柱，同时还有新的在不断产生，每一根光柱里面还有什么东西在上升，像是科幻作品里面的飞碟绑架地球人那样。但是我跟着光柱往上却看不到它们的来源，它们似乎直接通向宇宙深处。
-      </p>
-      <p>
-        我看呆了，作为一个唯物主义者的我只能将其解释为某种特别高的高科技东西了，这时我家附近也出现了一根光柱，我这才意识到那些随着光柱上升的小东西是人。现在我觉得这或许是某个外星文明在给人类采样。
-      </p>
-      <p>
-        我觉得我应该看看社交媒体。我拿起手机打开微博，里面果然有不少关于这件事的内容，我又去推特上看，也是一样。看来全世界各地都有人在上天。
-      </p>
-      <p>
-        我找到一个视频，内容是一个男人正在上天，一个女人抓住他的脚。
-      </p>
-      <p>
-        “你不要走啊！”女人哭喊。
-      </p>
-      <p>
-        “这是老天爷在叫我呢！你滚吧！”男人说着就把女人踢了下去。
-      </p>
-      <p>
-        爱情真是脆弱，我这样想。不不不，我摇摇头，现在不是感叹这个的时候。我继续看窗外，一边看看网络上的信息，但谁都说不出个所以然，就这样过了几个小时，所有光柱都消失了，也没有新的产生。
-      </p>
-      <p>
-        外面由于这件事引发的骚动也渐渐平息了下来，最后我还是去睡觉了，看看明天新闻里的专家怎么说。
-      </p>
-      <p><br></p>
-      <p>
-        第二天我很早就起来了，一方面是我想看早间新闻，另一方面是昨天晚上发生这么大的事情很难睡得熟。
-      </p>
-      <p>
-        “根据初步统计，昨晚发生的事件已导致约 10 亿人失踪，目前，世界各国仍在调查事件的起因，联合国已拟定在今天举行会议讨论这场有史以来规模最大的人类失踪事件……”
-      </p>
-      <p>
-        虽说这么多人连起来可以绕地球 4 圈，但感觉好像也不是很多啊？外面似乎还是一切正常。这次的事减少了地球的人口压力，从长远来看或许是好的。
-      </p>
-      <p>
-        这样想着，我下楼买早饭。
-      </p>
-      <p>
-        回来的路上，看到前面的人都在往天上看，我也跟着抬头，看到天上有一个身着白袍的老人，看起来是个欧美白人，但具体是雅利安还是斯拉夫还是盎格鲁撒克逊我看不出来。
-      </p>
-      <p>
-        周围的人都在议论这是怎么一回事，我也在思考这家伙是谁，突然这人说话了。
-      </p>
-      <p>
-        <span class="god-speaking">地上的人类，你们好。</span>
-      </p>
-      <p>
-        人群一下子沸腾了，我想是因为他说的不是中文，却莫名其妙地能被理解，这种情况我只在 SCP 基金会的作品里见过。
-      </p>
-      <p>
-        <span
-          class="god-speaking">我是上帝，你们应当对昨天早上或者晚上发生的事情很疑惑，在这里说明一下，因为你们人类实在是太让我失望了，所以我只能毁掉这个地球再造一个新的，但我不能一刀切，就把你们之中的义人升上了天堂，至于你们就留在地球上自生自灭吧。还有什么问题吗？</span>
-      </p>
-      <p>
-        “义人的标准是什么？”人群中有人问。
-      </p>
-      <p>
-        <span class="god-speaking">去看看圣经。还有别的吗？</span>
-      </p>
-      <p>
-        “我们真的只能等死了吗？”
-      </p>
-      <p>
-        <span class="god-speaking">是的……等等，刚才 Uriel<sup class="note">2</sup>告诉我有个人在升天的过程中因为恐高心脏病发作死了，所以空出来一个名额，你们之中将会有一个幸运儿填上这个空缺。</span>
-      </p>
-      <p>
-        人群更加沸腾了。
-      </p>
-      <p>
-        <span class="god-speaking">不过呢，为了找点乐子，也为了让你们自己救赎自己，你们如果想获得这个名额，就需要竞争，当地球上只剩下一个人的时候，那个人就会得到救赎，升入天堂。</span>
-      </p>
-      <p>
-        “要是有人躲着怎么办？”
-      </p>
-      <p>
-        <span
-          class="god-speaking">就知道你们人类不会乖乖就范。我将设置一道不断缩小的火墙，它碰到的任何人类都会被燃烧殆尽，你们的防护手段是没有用的，也不要试图逃到别的星球或者地底下去，这没有用，我看到有几个国家的元首想坐火箭或者进地堡，在此提醒你们一下。</span>
-      </p>
-      <p>
-        <span class="god-speaking">这个火墙会在讲话结束后的 3
-          个小时出现在某个随机的地方，在一年后缩小到只能容下一个人的大小，不必担心同归于尽的情况，哪怕最后二人的死亡时间只差一个普朗克时间，我们也能甄别出胜利者。完毕，祝各位好运，再见！</span>
-      </p>
-      <p>
-        上帝消失了。
-      </p>
-      <p>
-        这他妈不就是 PUBG 吗。这个上帝未免有点混沌了。
-      </p>
-      <p>
-        现在人群比之前两次还要沸腾，人们四散奔逃，就现在这个样子，估计也没人会信专家的话了，如果还有专家愿意出来讲话的话。我觉得我也得回家做点准备了，我还不想这么早就挂掉。
-      </p>
-      <p>
-        回家后我发觉我没啥可准备的，外面已经乱成一团了，但我家里能拿来自卫的只有菜刀而已，这时候我有点羡慕美国人了，不过他们那里应该已经枪林弹雨了吧。
-      </p>
-      <p>
-        还是看看电视吧，但是所有的电视台要么是机械地播放电视剧，要么就没信号了。这帮家伙，真没职业操守。
-      </p>
-      <p>
-        那就看看网上好了。
-      </p>
-      <div
-        style="background-color: white; width: 500px; height: 1000px; position: relative; box-shadow: 2px 2px 8px #00000066;">
-        <div style="background-color: rgb(255, 129, 150); width: 500px; height: 80px; position: relative;">
-          <img style="border-radius: 30px; width: 60px; height: 60px; position: absolute; left: 10px; top: 10px"
-            src="https://avatars.githubusercontent.com/u/63383462?v=4" alt="Avatar">
-          <div
-            style="background-color: rgb(218, 94, 114); width: 300px; height: 32px; border-radius: 16px; position: absolute; left: 80px; top: 10px; color: lightgray; padding-left: 10px; cursor: text;">
-            搜索…</div>
-          <div style="position: absolute; left: 80px; top: 50px; text-align: center; width: 300px;">
-            <div style="position: relative; cursor: pointer;">
-              <span style="position: absolute;">直播</span>
-              <span style="position: absolute; left: 100px;"><u>推荐</u></span>
-              <span style="position: absolute; left: 200px;">100年</span>
-            </div>
-          </div>
-        </div>
-        <div style="position: absolute; top: 80px; width: 500px; height: 840px">
-          <div class="bili-video" style="left: 20px; top: 20px;">
-            <div style="background: #66ccff;" class="bili-video-thumbnail">
-              封面图片，展示了某地出现的上帝。
-            </div>
-            <div class="bili-video-title">阿妹你看，上帝压狗</div>
-            <div class="bili-video-uploader"><span>UP</span>是牧牛人</div>
-          </div>
-          <div class="bili-video" style="left: 260px; top: 20px;">
-            <div style="background-color: #b58a52;" class="bili-video-thumbnail">
-              封面图片，UP 主的正面上半身照片。</div>
-            <div class="bili-video-title">谈谈美国的枪击问题</div>
-            <div class="bili-video-uploader"><span>UP</span>华盛顿方脸</div>
-          </div>
-          <div class="bili-video" style="left: 20px; top: 220px;">
-            <div style="background-color: #bf88e6;" class="bili-video-thumbnail">
-              封面图片，UP 主的正面上半身照片加一张图片背景。</div>
-            <div class="bili-video-title">上帝的出现，是美国的认知作战</div>
-            <div class="bili-video-uploader"><span>UP</span>性医淋林</div>
-          </div>
-          <div class="bili-video" style="left: 260px; top: 220px;">
-            <div style="background-color: #b4d4f3;" class="bili-video-thumbnail">
-              封面图片，UP 的头被 PS 到一个表情包上。</div>
-            <div class="bili-video-title">超甜翻唱❤️热爱250℃的你</div>
-            <div class="bili-video-uploader"><span>UP</span>车雷达Official
-            </div>
-          </div>
-          <div class="bili-video" style="left: 20px; top: 420px;">
-            <div style="background-color: #734f40;" class="bili-video-thumbnail">
-              封面图片，鲁迅与中年闰土。</div>
-            <div class="bili-video-title">回村三天，闰土治好了我的精神内耗</div>
-            <div class="bili-video-uploader"><span>UP</span>衣服猜想</div>
-          </div>
-          <div class="bili-video" style="left: 260px; top: 420px;">
-            <div style="background-color: #5eaedf;" class="bili-video-thumbnail">
-              封面图片，展示一堆食物衣物等行李。</div>
-            <div class="bili-video-title">兄弟们我得跑了</div>
-            <div class="bili-video-uploader"><span>UP</span>pili-11451419810
-            </div>
-          </div>
-          <div class="bili-video" style="left: 20px; top: 620px;">
-            <div style="background-color: #88dcaf;" class="bili-video-thumbnail">
-              封面图片，某地的乱象。</div>
-            <div class="bili-video-title">已经打起来了，我要怎么办</div>
-            <div class="bili-video-uploader"><span>UP</span>斯卡蒂嘶哈嘶哈</div>
-          </div>
-          <div class="bili-video" style="left: 260px; top: 620px;">
-            <div style="background-color: #ab5cd5;" class="bili-video-thumbnail">
-              封面图片，展示一位穿着 JK 制服的女子。</div>
-            <div class="bili-video-title">测测你的日语能打败 W 市多少人？</div>
-            <div class="bili-video-uploader"><span>广告</span></div>
-          </div>
-        </div>
-        <div style="position: absolute; top: 940px; width: 500px; height: 60px; background-color: rgb(255, 129, 150);">
-          <div class = "bili-bottom-navigate" style="background-color: #d45c84;">首页</div>
-          <div class = "bili-bottom-navigate" style="left: 100px;">动态</div>
-          <div class = "bili-bottom-navigate" style="left: 200px; font-size: 36px;">+</div>
-          <div class = "bili-bottom-navigate" style="left: 300px;">我的</div>
-          <div class = "bili-bottom-navigate" style="left: 400px;">购物</div>
-        </div>
-      </div>
-      <p>
-        这都是些什么牛鬼蛇神，平常那些老是刷存在感的官媒去哪了？算了，政府信得住，母猪会上树，关键时刻还得靠网友。
-      </p>
-      <p>
-        我在网上搜了些关于末日准备的视频，里面说要准备足够的食物和燃料，要有能保护自己的东西，要么搞辆坚固的车子，要么搞个地堡，还要有武器。
-      </p>
-      <p>
-        这种情况进地堡就是等死嘛，还是搞车子比较划算；至于武器……几十年前就交给警察叔叔了，现在他们好像也没有要还回来的意思，他们自用的那些也管得严，现在这样子估计已经有不少人去警察局偷枪了，我看是没啥机会了。
-      </p>
-      <p>
-        看来乱世也不是平民表现的时候。
-      </p>
-      <P>
-        我还在思考逃亡计划，电视屏幕和灯突然熄灭了，看来电力已经被破坏了，真够快的这帮人。
-      </P>
-      <p>
-        我从窗户望出去，街道上已经一片狼藉了，到处都是燃烧的车子残骸和尸体，如果我现在出去跟他们斗，我这小身板肯定要完，或许我应该在家待一段时间。
-      </p>
-      <p>
-        然后我因为昨天晚上睡眠不足，在沙发上睡着了（现在想来外面当时那么乱我是怎么睡得着的），醒来的时候发现手机上有一条未读消息。
-      </p>
-      <div class="phone">
-        <div class="phone-title">
-          <div class="phone-back-arrow">←</div>
-          +666 66666666<br>
-          <span style="font-size: 10px;">1 条消息</span>
-        </div>
-        <div class="talk-bubble-left">
-          <span class="satan-speaking"
-            style="font-family: 'Ma Shan Zheng'; color: black;">【地狱电信】你好，我是撒旦。看起来你所在的国家对枪支的管控很严，但其他国家就不一定了，为了公平起见，也为了观赏性，我让上帝往世界各地投放了一些武器，数量管够，都是从你们国家的兵工厂武器库之类的地方拿的。基本上你只要到处找找就能找到了，玩得开心点，沙扬娜拉<sup class="note">3</sup>！</span>
-        </div>
-      </div>
-      <p>
-        这东西是认真的吗，总觉得是诈骗……
-      </p>
-      <p>
-        外面传来枪声。
-      </p>
-      <p>
-        好吧，是真的。
-      </p>
-      <p>
-        我不知道这是好事还是坏事，虽然大家都有枪等于都没有枪，但和只有极少数人有枪比起来或许还是更好一些。不行，我也得去搞把枪来。
-      </p>
-      <p>
-        于是我蹑手蹑脚地带着我的东西出门了，邻居家的门是开的，不知道人去哪了，可能已经死了。虽然未经允许进别人家是不道德的，但现在也顾不得这些了，看看他们家还有些什么。
-      </p>
-      <p>
-        事实证明大多数家庭里的东西都是差不多一样的。我把邻居家的每一个抽屉柜子都翻了一遍，并没有找到什么特别有用的。
-      </p>
-      <p>
-        这时我手机又震动了一下，又是一条新消息。
-      </p>
-      <div class="phone">
-        <div class="phone-title">
-          <div class="phone-back-arrow">←</div>
-          +777 16457243775<br>
-          <span style="font-size: 10px;">10 条消息</span>
-        </div>
-        <div class="talk-bubble-left c">Wither</div>
-        <div class="talk-bubble-left c">在吗，我是友人 C</div>
-        <div class="talk-bubble-left c">天堂给我们办手机卡了，你在哪</div>
-        <div class="talk-bubble-right">我在地上</div>
-        <div class="talk-bubble-left c">啊这，你小心点</div>
-        <div class="talk-bubble-left c">我家有把武士刀，你可以拿去用，不过没开刃</div>
-        <div class="talk-bubble-right">行，你那边怎样</div>
-        <div class="talk-bubble-left c">比地上好太多了，比共产主义还好，在这里要啥有啥，还不用工作，爽死了</div>
-        <div class="talk-bubble-right">操，我也想来</div>
-        <div class="talk-bubble-left c">加油</div>
-      </div>
-      <p>
-        友人 C 是我为数不多的几个朋友之一，这就是交朋友的重要性。
-      </p>
-      <p>
-        那么，我的下一个目标就是去他家了，或许还能顺道找找有用的东西。
-      </p>
-      <h2 id="chapter-2">1-2 A Slash in the Dark</h2>
-      <div class="story-time" time="2020/05/10 19:10 GMT + 08:00" kill="0" alive="6474818397"></div>
-      <p>
-        我一路下楼，搜遍了所有我能进去的房间还是一无所获，我有点怀疑撒旦那条短信里面“只要到处找找就能找到”的真实性了，毕竟是恶魔，什么事都有可能干得出来。
-      </p>
-      <p>
-        为了避免被人发现，我弯着腰在绿化带里面穿行，他们真该选些枝叶柔软的品种，还好现在还没有蚊子。
-      </p>
-      <p>
-        就这样我到了大街附近，空气中弥漫着汽油味、血腥味、燃烧的烟雾味和许多我难以分辨的味道。现在太阳刚好在地平线上，把没有路灯的街道淹没在一片浑浊的橘红色之中。街道上放眼望去全是尸体，我想大部分人还没看到撒旦的短信就死了。
-      </p>
-      <p>
-        走大路太危险，虽然走小路距离更远，但是现在我完全没有反击的能力，还是保命要紧。哎，我一辈子都没做过坏事，为啥我不是义人……好吧，我也没做过好事就是了。
-      </p>
-      <p>
-        太阳很快就沉到了地平线以下，我周围的光照变得更加晦暗。我小时候就很怕黑，现在虽然好了一点，但也没好太多，再加上我又不能用手电，我感觉我的心脏快要跳出来了，上次有这种感觉还是高中上课玩手机被班主任抓到的时候。
-      </p>
-      <p>
-        我觉得有人在看着我，但周围黑灯瞎火的，有人藏在哪里我也看不见。说起来 W 市有 1000 多万人，经过这么一折腾，现在不知道还剩多少，不过剩下来的这些，要么是我这样的怂包，要么是战斗力拔群的狠人，希望我不要遇上后者。
-      </p>
-      <p>
-        遇到一具尸体，头被什么东西砸凹下去一块，血流了一地。想一想就觉得很恶心，还好我现在看不清细节。
-      </p>
-      <p>
-        有个人从我前面的路上走过去了，我不敢发出声音，硬憋着气等他走过去，人类从未面临过如此严峻的信任危机。
-      </p>
-      <p>
-        晚上十点多钟的时候我才到友人 C 家，这真是我这辈子保持过最长时间的紧张状态，我现在汗流浃背，快要脱水了。
-      </p>
-      <p>
-        友人 C 告诉我他家的备用钥匙藏在水表箱里面，我在一堆蜘蛛网、灰尘和铁锈里面找到了钥匙，打开了他家的门。
-      </p>
-      <p>
-        万幸的是他家看起来没有被别人入侵过，完全就是一个正常的家该有的样子。我在他的房间里看到了挂在墙上的刀，能想象出他在房间里拿着它素振的样子。不过我在用它砍人之前得先把它磨开刃了。
-      </p>
-      <p>
-        之后我就去厨房磨刀，这东西比菜刀难伺候多了，还把我手指头划了一道口子，好在最后还是完成了。我给它起名“丛雨丸”，不准吐槽，我本来想叫“蜘蛛切”的，想来还是不太文艺。
-      </p>
-      <p>
-        正当我欣赏它的曲线刀身的时候，客厅里传来开门的声音。
-      </p>
-      <p>
-        操，我忘记锁门了。
-      </p>
-      <p>
-        厨房里面没有能容得下我的藏身处，万幸的是厨房外面有个晾衣服的阳台，我带着丛雨丸踮着脚尖大跨步出了厨房，还把门关上了，可惜我没有钥匙，没法上锁，只能希望这人不要到这边来。
-      </p>
-      <p>
-        我把耳朵贴在墙上，能听到他已经进来了。然后听到抽屉柜子之类的打开的声音，估计是和我一样来翻东西的。
-      </p>
-      <p>
-        我就这样提心吊胆地站在门旁边，听他的脚步声越来越近。
-      </p>
-      <p>
-        你不要过来啊，我在心里骂娘，然而并没有什么用，看来这次是逃不过了。
-      </p>
-      <p>
-        感觉额头上有汗滴滑过，握着刀的手有点发软。我在想万一对面不是要杀我的，但我却给了他一刀会不会不太好，但是鲁迅说过他向来是不惮以最大的恶意揣测赛里斯人的，现在这种情况就算他不杀我他也迟早要杀别人或者被别人杀掉的，所以我现在先下手为强也没有什么问题，操我在想些什么。
-      </p>
-      <p>
-        算了，心理建设就到这了。
-      </p>
-      <p>
-        之后那人推开门的时候被我砍断了手，然后他想要开枪，但是没打中，一方面是我运气好了一次，另一方面这人估计今天才第一次摸枪，再加上左手腕的断口还在哗啦啦喷血，瞄不准也情有可原，然后我又给了他一刀，抢了他的枪准备走人，但想了一下还是不太人道，就给了他一个痛快。不知道你们看过那种恐怖分子砍俘虏头的视频没有，差不多就是那样。至于细节…当时挺黑的，我在这种情况下就是看不清东西，再就是人在经历这种冲击性极强的事件的时候反而是记不住什么细节的，至少对我来说是这样。
-      </p>
-      <p>
-        走的时候踩到血差点给我滑倒了，但就算没滑倒我也得去换套衣服了，血喷出来的时候也没长眼睛来着。今天晚上就在友人 C 房间凑合睡了，至于尸体就放在那吧，反正以后也不会再来了，而且我不告诉他他也不会知道家里死了人。
-      </p>
-      <p>
-        睡得正香的时候听到了奇怪的声音，好像是有人进来了，可是我这次明明把门锁了的。
-      </p>
-      <p>
-        我偷偷地披上衣服起床，凑到房门边上听动静。
-      </p>
-      <p>
-        <span class="death-speaking">Wither, 没必要这么怕，出来打个招呼。</span>
-      </p>
-      <p>
-        一瞬间汗毛直立，感觉全身都开始冒汗，这家伙怎么会知道我名字的？这声音听着完全不像我认识的任何一个人。我有点想逃跑，但是窗户外面只有空调机可以落脚，然后就没有任何逃跑路线了，事已至此，只能硬着头皮面对了。
-      </p>
-      <p>
-        我把门打开一条缝，扒着门缝往外看，客厅里面站着一个穿黑袍的人，戴着兜帽，旁边的桌子上还放着一把长柄镰刀。
-      </p>
-      <p>
-        这不死神嘛，我还以为是谁。不过为了确认，我还是问了一下。
-      </p>
-      <p>
-        “死神？”
-      </p>
-      <p>
-        <span class="death-speaking">是我，你这有个死人，我得把他的灵魂带到地狱去。</span>
-      </p>
-      <p>
-        “我还以为死人的灵魂会自己飘到地狱去。”确认了安全，我从房间里走了出来。
-      </p>
-      <p>
-        <span class="death-speaking">通常是这样，但是有些人的怨气很重，就得靠我来弄了。</span>
-      </p>
-      <p>
-        “那世界上每天死那么多人你一个人忙的来吗？”
-      </p>
-      <p>
-        <span class="death-speaking">我可以同时出现在很多地方。</span>
-      </p>
-      <p>
-        “我靠，这么牛逼。”
-      </p>
-      <p>
-        “那个，说起来你不是带来死亡的吗，为啥干起牛头马面的工作了。”
-      </p>
-      <p>
-        <span class="death-speaking">因为你们现在是自相残杀，所以我也没必要专门让人死了，另外，引渡灵魂本身就是我工作的一部分。</span>
-      </p>
-      <p>
-        “对了，你是怎么知道我叫啥的，你们有生死簿一类的东西吗？”
-      </p>
-      <p>
-        <span class="death-speaking">以前用过，但是我们现在用 <a
-            href='https://www.microsoft.com/zh-cn/microsoft-365/excel'>Excel</a> 了。</span>
-      </p>
-      <p>
-        还真是现代化。“你们地狱那边到底是什么样？”
-      </p>
-      <p>
-        <span class="death-speaking">跟你们的低端工业园差不多，如果你下地狱的话，你会被分配到某个厂去上班，每天 12 个小时，全年无休。天堂的那些人享受的东西都是我们地狱生产的。</span>
-      </p>
-      <p>
-        我操，这么恐怖。
-      </p>
-      <p>
-        <span class="death-speaking">好了，我这单快要超时了，以后有机会的话再聊，拜拜。</span>说完，死神做了一些奇怪的动作，大概是在对某个我看不见的东西做些什么，之后死神就消失了。
-      </p>
-      <p>
-        我就说支撑天堂的物质生活的生产力是哪来的，这样说来，天堂就是妥妥的食利阶层了，虽然从某个角度上讲这样不太道义，但是无论是谁都不想永远地做 997 的工作吧，本来我就是个懒狗，让我下地狱我真的会疯掉的。
-      </p>
-      <p>
-        不行，我一定要去天堂。
-      </p>
-      <h2 id="chapter-3">1-3 Uproar Run</h2>
-      <div class="story-time" time="2020/05/11 09:21 GMT + 08:00" kill="1" alive="6280985484"></div>
-      <p>
-        今天也是要努力活下去的一天！
-      </p>
-      <p>
-        但是今天楼下没有卖早饭的了，人是铁饭是钢，一顿不吃饿得慌，还好友人 C 家的冰箱里面还有些食材，在厨房里面凑合做了一餐，就是旁边的那具尸体看着有点败食欲，所以我尽量不往那边看。
-      </p>
-      <p>
-        吃完早饭我纠结着要不要告诉友人 C 他家里有死人，想了想过几天这东西就会开始在各种生化反应的过程中化成一滩烂肉实在是晦气，就没有告诉他。
-      </p>
-      <p>
-        然后我就开始想下一步的计划，基本上就是先拿到足够的物资然后离开 W 市，城市里风险太大，无论是打工还是投资还是现在。但是 W 市几千平方公里的面积可不是能轻易走出去的，而且现在没有地铁公交出租车，我得想办法搞辆代步工具。
-      </p>
-      <p>
-        我收拾好东西下楼，外面又开始闹腾起来了，明明晚上还那么安静的，看来大家的作息习惯还是不错。我拿了昨天那个试图袭击我（我不知道他是不是真的想袭击我，但是人已经死了那就我说了算）的人的 5.8 毫米口径 92
-        式手枪（这是我拍了照片发给友人 C 后他告诉我的），现在多多少少有点底气了，即便我在这之前从没摸过真枪，毕竟这个国家 99% 以上的人都没碰过。
-      </p>
-      <p>
-        街上很混乱，有人用刀砍，有人用枪打，有人用车撞，跟 <a href='https://www.rockstargames.com/gta-online'>GTAOL</a> 一个德行，好在没有挂哥，坏在不能复活。
-      </p>
-      <p>
-        路上有些车子，其中一些车门是开的，它们的主人要么是跑走了要么是死在了附近，我想这是我的机会。
-      </p>
-      <p>
-        趁着周围的人忙着打打杀杀，我一阵小跑到了一辆 SUV 旁边，车门附近躺着个脑袋凹下去的死人，大概就是车主。我从他的裤腰带上取下了车钥匙，钻进车里把钥匙插进钥匙孔，非常顺利地插入了，看来我猜对了，然后我看了一眼方向盘下面。
-      </p>
-      <p>
-        操，是手动挡。
-      </p>
-      <p>
-        妈的，都什么年代了还在开传统汽车。
-      </p>
-      <p>
-        我权衡了一下当场学会手动挡和再去找一辆自动挡的难度，还是后者比较有可行性。于是我又从车里面狼狈地钻了出来去找另一辆车。
-      </p>
-      <p>
-        冒着被当街砍死的风险，我又偷偷钻进了一辆车里面，看着档把旁边的 PRNDS，终于是我会开的了。
-      </p>
-      <p>
-        然后我找了一下启动按钮在哪，说真的现在的车子的启动按钮和换挡器的设计真的一个比一个花哨，毕竟也确实没啥可设计的了。
-      </p>
-      <p>
-        总之车子嗡一下启动了，同时也吸引了附近正在打闹的人的注意力，他们看着我露出凶狠的目光，我不敢多待，一脚油门冲了出去。有人躲闪不及被我撞倒或者撞飞了，不过一部分也是因为我自从科目三过完之后就没碰过车，所以我也来不及踩刹车。不知道他们还能不能活下来，希望不要是半生不死的那种就好。
-      </p>
-      <p>
-        我打开手机上的地图，盘算下一步的计划。首先肯定是要离开 W 市的，我没有单人城市作战的经验，虽然也没有其他地方作战的经验，但不知怎的我就是觉得在城市外面的生存概率更高一些，但愿我没搞错。然后我想搞点好点的装备，我看 W
-        市北郊的银河国际机场应该不错，好歹也是个重要地点。那么——
-      </p>
-      <p>
-        <span style="font-style: oblique; background-color: #00000033;">低德地图为您导航，前往银河国际机场，前方 500 米右转...</span>
-      </p>
-      <p>
-        是的，我怎么可能知道银河机场怎么走啊，我坐地铁都得看地图的，再说现在也没地铁了。
-      </p>
-      <p>
-        <span style="font-style: oblique; background-color: #00000033;">前方 200 米进入喜鹊洲大桥...</span>
-      </p>
-      <p>
-        我顺着导航开上桥，但是发现桥被废弃的车子堵死了，我下车查看有没有挪走这些车子的可能性，突然我意识到这些车子是人工移动成这样的，之前我在街道上虽然也遇见过很多废弃的车子，但从没见过会堵成这样的。
-      </p>
-      <p>
-        感受到危险的我四处张望，没看到有人过来，但再待下去肯定也是不行的，我得快跑，不过是原路返回然后换条路走还是直接弃车翻过去呢。还是换条路吧，且不说到那边又得找车，而且论跑步我也很可能跑不过别人，你不能指望一个终日坐在电脑前几乎不运动的人带着一身东西能跑多快。
-      </p>
-      <p>
-        于是我跑到车上一把拉上车门打方向挂 D 档踩油门，还把雨刮器开关碰开了，怎么会犯这种低级错误。不过还是逃命要紧。
-      </p>
-      <br>
-      <br>
-      <div class="paper-file">
-        <h3 class="file-title">天界联邦议会会议记录（节选）</h3>
-        <p>
-          时间：2020 年 5 月 11 日<br>
-          地点：天界议会大厦。<br>
-          主要与会者：上帝、宙斯、玉皇大帝、天照大御神、■■■■、释迦牟尼、奈亚拉托提普等
-        </p>
+    <div class="page-content">
+        <h1 class="page-title">Apocalypse 2020</h1>
         <hr>
-        <div class="paper-file-sticker" style="padding: 8px; font-size: small;">
-          <img src="https://N-Wither.github.io/assets/imgs/gabriel_white_tenma.png" alt="Gabriel's Picture" id="gab-pic"
-            class="zoom"><br>
-          Gabriel 于 2017 年。
+        <blockquote>
+            这篇故事最初写于 2019 年左右，由于原作已遗失大半且充满了各种问题，故在此重写。
+        </blockquote>
+        <noscript>本页面依赖 JavaScript 实现一些功能，而 JavaScript 目前无法运行，请考虑使用支持 JavaScript 的浏览器或者允许本网站使用 JavaScript。</noscript>
+        <h2 id="chapter-0">0 Genesis</h2>
+        <p>
+            圣经实际上极大地美化了，或者说就是瞎编了这个世界的起源，地球并不是上帝花 6 天时间创造出来的，地球事实上是上帝和撒旦一夜情的产物，也就是意外怀孕。
+        </p>
+        <p>
+            那时上帝还是个意气风发的青年，祂想要创造一个完美的世界，然而祂在毕业舞会上喝多了酒，稀里糊涂地被撒旦勾引上床了，第二天上帝醒来发现床上多了一个蓝色的星球，是的，这就是地球。
+        </p>
+        <p>
+            当然上帝不会真的怀孕，这么说只是方便你们理解。众所周知如果男女双方都没有做好准备的话，意外怀孕生下来的孩子通常都是个悲剧。地球也不例外，上帝的本意是好的，只不过地球还是长歪了，现在的地球已经充满了战争、瘟疫、饥荒、死亡、毒品、淫乱、污染、邪教和同性恋<sup class="note" data-target="footnote-1">1</sup>。
+        </p>
+        <p>
+            然而木已成舟，既然地球已经创造出来了，那也只能养着了，周一到周五归上帝管，周末归撒旦。这就是为什么人们喜欢在周末娱乐。
+        </p>
+        <p>
+            本来日子也就这么过了，但上帝仍然想着教化人类往好的一面发展，可惜祂还是高估了人类的道德水平，地球表面在人类的糟蹋下一天天变得更烂了。
+        </p>
+        <p>
+            时间来到 2020 年，上帝终于失去了最后的耐心，既然这个地球已经无可救药了，那还不如重新造一个。可是上帝终究还是仁慈的，地球上 70
+            多亿人，总还是有不少义人的，把他们也一起毁灭掉未免过于不人道了，经过一番深思熟虑，上帝想出了一个（自认为）完美的方案。
+        </p>
+        <h2 id="chapter-1">1-1 Great Filter</h2>
+        <p>
+            2020 年 5 月 9 日的晚上，我在家里打游戏。此时窗外渗进来的光把我的注意力从屏幕引向了窗外，我拉开窗帘，看到了一场只会在电影里出现的景象：
+        </p>
+        <p>
+            城市里到处竖立着金色的光柱，同时还有新的在不断产生，每一根光柱里面还有什么东西在上升，像是科幻作品里面的飞碟绑架地球人那样。但是我跟着光柱往上却看不到它们的来源，它们似乎直接通向宇宙深处。
+        </p>
+        <p>
+            我看呆了，作为一个唯物主义者的我只能将其解释为某种特别高的高科技东西了，这时我家附近也出现了一根光柱，我这才意识到那些随着光柱上升的小东西是人。现在我觉得这或许是某个外星文明在给人类采样。
+        </p>
+        <p>
+            我觉得我应该看看社交媒体。我拿起手机打开微博，里面果然有不少关于这件事的内容，我又去推特上看，也是一样。看来全世界各地都有人在上天。
+        </p>
+        <p>
+            我找到一个视频，内容是一个男人正在上天，一个女人抓住他的脚。
+        </p>
+        <p>
+            “你不要走啊！”女人哭喊。
+        </p>
+        <p>
+            “这是老天爷在叫我呢！你滚吧！”男人说着就把女人踢了下去。
+        </p>
+        <p>
+            爱情真是脆弱，我这样想。不不不，我摇摇头，现在不是感叹这个的时候。我继续看窗外，一边看看网络上的信息，但谁都说不出个所以然，就这样过了几个小时，所有光柱都消失了，也没有新的产生。
+        </p>
+        <p>
+            外面由于这件事引发的骚动也渐渐平息了下来，最后我还是去睡觉了，看看明天新闻里的专家怎么说。
+        </p>
+        <p><br></p>
+        <p>
+            第二天我很早就起来了，一方面是我想看早间新闻，另一方面是昨天晚上发生这么大的事情很难睡得熟。
+        </p>
+        <p>
+            “根据初步统计，昨晚发生的事件已导致约 10 亿人失踪，目前，世界各国仍在调查事件的起因，联合国已拟定在今天举行会议讨论这场有史以来规模最大的人类失踪事件……”
+        </p>
+        <p>
+            虽说这么多人连起来可以绕地球 4 圈，但感觉好像也不是很多啊？外面似乎还是一切正常。这次的事减少了地球的人口压力，从长远来看或许是好的。
+        </p>
+        <p>
+            这样想着，我下楼买早饭。
+        </p>
+        <p>
+            回来的路上，看到前面的人都在往天上看，我也跟着抬头，看到天上有一个身着白袍的老人，看起来是个欧美白人，但具体是雅利安还是斯拉夫还是盎格鲁撒克逊我看不出来。
+        </p>
+        <p>
+            周围的人都在议论这是怎么一回事，我也在思考这家伙是谁，突然这人说话了。
+        </p>
+        <p>
+            <span class="god-speaking">地上的人类，你们好。</span>
+        </p>
+        <p>
+            人群一下子沸腾了，我想是因为他说的不是中文，却莫名其妙地能被理解，这种情况我只在 SCP 基金会的作品里见过。
+        </p>
+        <p>
+            <span
+                class="god-speaking">我是上帝，你们应当对昨天早上或者晚上发生的事情很疑惑，在这里说明一下，因为你们人类实在是太让我失望了，所以我只能毁掉这个地球再造一个新的，但我不能一刀切，就把你们之中的义人升上了天堂，至于你们就留在地球上自生自灭吧。还有什么问题吗？</span>
+        </p>
+        <p>
+            “义人的标准是什么？”人群中有人问。
+        </p>
+        <p>
+            <span class="god-speaking">去看看圣经。还有别的吗？</span>
+        </p>
+        <p>
+            “我们真的只能等死了吗？”
+        </p>
+        <p>
+            <span class="god-speaking">是的……等等，刚才 Uriel<sup
+                    class="note">2</sup>告诉我有个人在升天的过程中因为恐高心脏病发作死了，所以空出来一个名额，你们之中将会有一个幸运儿填上这个空缺。</span>
+        </p>
+        <p>
+            人群更加沸腾了。
+        </p>
+        <p>
+            <span class="god-speaking">不过呢，为了找点乐子，也为了让你们自己救赎自己，你们如果想获得这个名额，就需要竞争，当地球上只剩下一个人的时候，那个人就会得到救赎，升入天堂。</span>
+        </p>
+        <p>
+            “要是有人躲着怎么办？”
+        </p>
+        <p>
+            <span
+                class="god-speaking">就知道你们人类不会乖乖就范。我将设置一道不断缩小的火墙，它碰到的任何人类都会被燃烧殆尽，你们的防护手段是没有用的，也不要试图逃到别的星球或者地底下去，这没有用，我看到有几个国家的元首想坐火箭或者进地堡，在此提醒你们一下。</span>
+        </p>
+        <p>
+            <span class="god-speaking">这个火墙会在讲话结束后的 3
+                个小时出现在某个随机的地方，在一年后缩小到只能容下一个人的大小，不必担心同归于尽的情况，哪怕最后二人的死亡时间只差一个普朗克时间，我们也能甄别出胜利者。完毕，祝各位好运，再见！</span>
+        </p>
+        <p>
+            上帝消失了。
+        </p>
+        <p>
+            这他妈不就是 PUBG 吗。这个上帝未免有点混沌了。
+        </p>
+        <p>
+            现在人群比之前两次还要沸腾，人们四散奔逃，就现在这个样子，估计也没人会信专家的话了，如果还有专家愿意出来讲话的话。我觉得我也得回家做点准备了，我还不想这么早就挂掉。
+        </p>
+        <p>
+            回家后我发觉我没啥可准备的，外面已经乱成一团了，但我家里能拿来自卫的只有菜刀而已，这时候我有点羡慕美国人了，不过他们那里应该已经枪林弹雨了吧。
+        </p>
+        <p>
+            还是看看电视吧，但是所有的电视台要么是机械地播放电视剧，要么就没信号了。这帮家伙，真没职业操守。
+        </p>
+        <p>
+            那就看看网上好了。
+        </p>
+        <div class="flex-center">
+            <div
+            style="height: 1000px; position: relative;" class="phone">
+            <div style="background-color: rgb(255, 129, 150); width: 500px; height: 80px; position: relative;">
+                <img style="border-radius: 30px; width: 60px; height: 60px; position: absolute; left: 10px; top: 10px"
+                    src="https://avatars.githubusercontent.com/u/63383462?v=4" alt="Avatar">
+                <div
+                    style="background-color: rgb(218, 94, 114); width: 300px; height: 32px; border-radius: 16px; position: absolute; left: 80px; top: 10px; color: lightgray; padding-left: 10px; cursor: text;">
+                    搜索…</div>
+                <div style="position: absolute; left: 80px; top: 50px; text-align: center; width: 300px;">
+                    <div style="position: relative; cursor: pointer;">
+                        <span style="position: absolute;">直播</span>
+                        <span style="position: absolute; left: 100px;"><u>推荐</u></span>
+                        <span style="position: absolute; left: 200px;">100年</span>
+                    </div>
+                </div>
+            </div>
+            <div style="position: absolute; top: 80px; width: 500px; height: 840px">
+                <div class="bili-video" style="left: 20px; top: 20px;">
+                    <div style="background: #66ccff;" class="bili-video-thumbnail">
+                        封面图片，展示了某地出现的上帝。
+                    </div>
+                    <div class="bili-video-title">阿妹你看，上帝压狗</div>
+                    <div class="bili-video-uploader"><span>UP</span>是牧牛人</div>
+                </div>
+                <div class="bili-video" style="left: 260px; top: 20px;">
+                    <div style="background-color: #b58a52;" class="bili-video-thumbnail">
+                        封面图片，UP 主的正面上半身照片。</div>
+                    <div class="bili-video-title">谈谈美国的枪击问题</div>
+                    <div class="bili-video-uploader"><span>UP</span>华盛顿方脸</div>
+                </div>
+                <div class="bili-video" style="left: 20px; top: 220px;">
+                    <div style="background-color: #bf88e6;" class="bili-video-thumbnail">
+                        封面图片，UP 主的正面上半身照片加一张图片背景。</div>
+                    <div class="bili-video-title">上帝的出现，是美国的认知作战</div>
+                    <div class="bili-video-uploader"><span>UP</span>性医淋林</div>
+                </div>
+                <div class="bili-video" style="left: 260px; top: 220px;">
+                    <div style="background-color: #b4d4f3;" class="bili-video-thumbnail">
+                        封面图片，UP 的头被 PS 到一个表情包上。</div>
+                    <div class="bili-video-title">超甜翻唱❤️热爱250℃的你</div>
+                    <div class="bili-video-uploader"><span>UP</span>车雷达Official
+                    </div>
+                </div>
+                <div class="bili-video" style="left: 20px; top: 420px;">
+                    <div style="background-color: #734f40;" class="bili-video-thumbnail">
+                        封面图片，鲁迅与中年闰土。</div>
+                    <div class="bili-video-title">回村三天，闰土治好了我的精神内耗</div>
+                    <div class="bili-video-uploader"><span>UP</span>衣服猜想</div>
+                </div>
+                <div class="bili-video" style="left: 260px; top: 420px;">
+                    <div style="background-color: #5eaedf;" class="bili-video-thumbnail">
+                        封面图片，展示一堆食物衣物等行李。</div>
+                    <div class="bili-video-title">兄弟们我得跑了</div>
+                    <div class="bili-video-uploader"><span>UP</span>pili-11451419810
+                    </div>
+                </div>
+                <div class="bili-video" style="left: 20px; top: 620px;">
+                    <div style="background-color: #88dcaf;" class="bili-video-thumbnail">
+                        封面图片，某地的乱象。</div>
+                    <div class="bili-video-title">已经打起来了，我要怎么办</div>
+                    <div class="bili-video-uploader"><span>UP</span>斯卡蒂嘶哈嘶哈</div>
+                </div>
+                <div class="bili-video" style="left: 260px; top: 620px;">
+                    <div style="background-color: #ab5cd5;" class="bili-video-thumbnail">
+                        封面图片，展示一位穿着 JK 制服的女子。</div>
+                    <div class="bili-video-title">测测你的日语能打败 W 市多少人？</div>
+                    <div class="bili-video-uploader"><span>广告</span></div>
+                </div>
+            </div>
+            <div
+                style="position: absolute; top: 940px; width: 500px; height: 60px; background-color: rgb(255, 129, 150);">
+                <div class="bili-bottom-navigate" style="background-color: #d45c84;">首页</div>
+                <div class="bili-bottom-navigate" style="left: 100px;">动态</div>
+                <div class="bili-bottom-navigate" style="left: 200px; font-size: 36px;">+</div>
+                <div class="bili-bottom-navigate" style="left: 300px;">我的</div>
+                <div class="bili-bottom-navigate" style="left: 400px;">购物</div>
+            </div>
+        </div>
         </div>
         <p>
-          <span class="god-speaking">各位现在一定很想知道<ruby>神选计划<rt>Project Decideum</rt>
-            </ruby>第一天的成果，各位请看——</span>上帝转身面向会议厅墙上巨大的显示屏，上面展示着幻灯片，负责讲解的是 Gabriel。
+            这都是些什么牛鬼蛇神，平常那些老是刷存在感的官媒去哪了？算了，政府信得住，母猪会上树，关键时刻还得靠网友。
         </p>
         <p>
-          <span class="gabriel-speaking">就如同图表展示的那样，根据统计，从计划实施开始到报告前已经有约 5
-            亿人类死于互相残杀，这个数字远远超出了我们的预期，不过这对计划的执行没有影响。</span>
+            我在网上搜了些关于末日准备的视频，里面说要准备足够的食物和燃料，要有能保护自己的东西，要么搞辆坚固的车子，要么搞个地堡，还要有武器。
         </p>
         <p>
-          “真的有这么多吗？哪怕一些人手里有枪也没法杀这么快吧？”天照大御神表示怀疑。
+            这种情况进地堡就是等死嘛，还是搞车子比较划算；至于武器……几十年前就交给警察叔叔了，现在他们好像也没有要还回来的意思，他们自用的那些也管得严，现在这样子估计已经有不少人去警察局偷枪了，我看是没啥机会了。
         </p>
         <p>
-          <span
-            class="gabriel-speaking">一方面是因为有的国家发生了政变导致某些大规模杀伤性武器被发射了，另一方面是人类的互相杀戮的欲望长期以来一直被我们所忽视导致了我们的预测失准。不过，这些死亡人类中的大多数的攻击性都很强，这些人的消耗会使得幸存人类的斗争烈度减轻，因此之后的死亡速度预计会下降。</span>
+            看来乱世也不是平民表现的时候。
+        </p>
+        <P>
+            我还在思考逃亡计划，电视屏幕和灯突然熄灭了，看来电力已经被破坏了，真够快的这帮人。
+        </P>
+        <p>
+            我从窗户望出去，街道上已经一片狼藉了，到处都是燃烧的车子残骸和尸体，如果我现在出去跟他们斗，我这小身板肯定要完，或许我应该在家待一段时间。
         </p>
         <p>
-          “既然死了那么多人，地狱有能力一次性接收这么多吗？”宙斯发问。
+            然后我因为昨天晚上睡眠不足，在沙发上睡着了（现在想来外面当时那么乱我是怎么睡得着的），醒来的时候发现手机上有一条未读消息。
         </p>
-        <p>
-          <span class="gabriel-speaking">Hades 发来的报告里说 Cerberus 已经过度疲劳，暂时让它先休息了，目前死去的人大多都聚集在冥界平原上，由地狱方面指派的恶魔看守。当前<ruby>撒旦工业集团<rt>Satan Industries Co.</rt></ruby>正在抓紧扩建厂房，预计将在 3 个月内完全吸收新来的死人。因为这些人已经死了，所以只需要最低限度的管理即可，不会对地狱的出产造成太大影响。</span>
-        </p>
-        <p>
-          <span
-            class="god-speaking">这样很好，不过还有一点，地球上剩下的这群人当中仍然有着相当数量的没有那么坏也没有那么好的人，他们没有什么斗争和杀戮欲望，让这群人继续参加神选计划无疑会非常没有节目效果。而神选计划是当前天界收视率最高的节目，我们必须做出改变。</span>
-        </p>
-        <p>…</p>
-      </div>
-      <br>
-      <br>
-      <p>
-        在我开下桥之后不久，我就在后视镜里看到后面跟来了一辆车，不知道是不是故意堵桥的那个，总之要甩掉他。
-      </p>
-      <p>
-        他把我咬得很死，不过我这实在没有什么值得抢的东西，不知道为什么非得抓我不可，但是说实话现在的世道真不太能用平常的逻辑来揣测别人了。
-      </p>
-      <p>
-        但我今天才第一次单独开车上路，而我后面的家伙显然经验丰富，在满大街的废车子之间辗转腾挪几乎不减速，这哪是我能比的，所以我们之间的距离就这样不断减少，再这样下去肯定要被追上，是时候耍一些小手段了。
-      </p>
-      <p>
-        我打开天窗，拿出手枪，确认前方一段距离内没有什么危险之后，我从天窗探出上半身，举枪瞄准，扣动扳机。
-      </p>
-      <p>
-        随着巨大的一声枪响，子弹打中了对面的引擎盖，虽然没能杀掉他，但他还是放慢了速度，或许是打到发动机了，也可能是吓到了，不论怎样，我现在有了逃跑的机会。
-      </p>
-      <hr class="break">
-      <p>在这已经被暴乱搞得一团糟的城市里面穿行耗费了远多于预想的时间，直到傍晚时分才到机场附近，途中又杀了一个人，不过有了第一次的经验过后我没有产生什么愧疚感，而且这世道愧疚感也没什么用了。</p>
-      <p>看着天快黑了，我觉得我还是先在附近找个地方休息一下，凌晨再进机场看看，那时候应该是风险最低的。</p>
-      <div class="story-time" time="2020/05/12 02:49 GMT + 08:00" kill="2" alive="5991762855"></div>
-      <p>一觉醒来已经是月上中天了，看来在我睡着的时候地球人口突破了 60 亿，不过是逆向的。这才两天就死了 8 亿人，地球人真能杀。</p>
-      <p>断电的城市中除了远处零星的火光没有任何人工照明，通常我在晚上的视力会降低，好在月光的亮度足够，至少能看个大概。</p>
-      <p>带着我仅有的装备，我悄悄摸进航站楼，里面的消防应急灯还亮着，虽然有助于我看东西，但也会增加被发现的几率。</p>
-      <p>我觉得武器大概会在通常有保安出没的地方，所以我在找这样的地方。</p>
-      <p>我找到了航站楼的平面图，在上面发现了警卫室的位置，然后向那边摸过去。</p>
-    </div>
-    <div>
-      <details class="info">
-        <summary style="font-weight: bold;">注释</summary>
-        <div>
-          <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span id="footnote-1">《圣经·利未记》18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span></p>
-          <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span id="footnote-2">一位天使长，救赎之天使。</span></p>
-          <p><a href="#note-3"><sup>3</sup></a>&nbsp;<span id="footnote-3">日语“さようなら”（再见）的谐音。</span></p>
+        <div class="flex-center">
+            <div class="phone">
+                <div class="phone-title">
+                    <div class="phone-back-arrow">←</div>
+                    +666 66666666<br>
+                    <span style="font-size: 10px;">1 条消息</span>
+                </div>
+                <div class="talk-bubble-left">
+                    <span class="satan-speaking"
+                        style="font-family: 'Ma Shan Zheng';">【地狱电信】你好，我是撒旦。看起来你所在的国家对枪支的管控很严，但其他国家就不一定了，为了公平起见，也为了观赏性，我让上帝往世界各地投放了一些武器，数量管够，都是从你们国家的兵工厂武器库之类的地方拿的。基本上你只要到处找找就能找到了，玩得开心点，沙扬娜拉<sup
+                            class="note">3</sup>！</span>
+                </div>
+            </div>
         </div>
-      </details>
-    </div>
-    <div class="tooltip">Test</div>
-    <div>
-      <details class="info">
-        <summary style="font-weight: bold;">版权/引用</summary>
-        <div>
-          文件：<a href="https://N-Wither.github.io/assets/imgs/gabriel_white_tenma.png">gabriel_white_tenma.png</a><br>
-          作者：<a href="http://www.dogakobo.com/">動画工房</a><br>
-          协议：All Rights Reserved
+        <p>
+            这东西是认真的吗，总觉得是诈骗……
+        </p>
+        <p>
+            外面传来枪声。
+        </p>
+        <p>
+            好吧，是真的。
+        </p>
+        <p>
+            我不知道这是好事还是坏事，虽然大家都有枪等于都没有枪，但和只有极少数人有枪比起来或许还是更好一些。不行，我也得去搞把枪来。
+        </p>
+        <p>
+            于是我蹑手蹑脚地带着我的东西出门了，邻居家的门是开的，不知道人去哪了，可能已经死了。虽然未经允许进别人家是不道德的，但现在也顾不得这些了，看看他们家还有些什么。
+        </p>
+        <p>
+            事实证明大多数家庭里的东西都是差不多一样的。我把邻居家的每一个抽屉柜子都翻了一遍，并没有找到什么特别有用的。
+        </p>
+        <p>
+            这时我手机又震动了一下，又是一条新消息。
+        </p>
+        <div class="flex-center">
+            <div class="phone">
+                <div class="phone-title">
+                    <div class="phone-back-arrow">←</div>
+                    +777 16457243775<br>
+                    <span style="font-size: 10px;">10 条消息</span>
+                </div>
+                <div class="talk-bubble-left c">Wither</div>
+                <div class="talk-bubble-left c">在吗，我是友人 C</div>
+                <div class="talk-bubble-left c">天堂给我们办手机卡了，你在哪</div>
+                <div class="talk-bubble-right">我在地上</div>
+                <div class="talk-bubble-left c">啊这，你小心点</div>
+                <div class="talk-bubble-left c">我家有把武士刀，你可以拿去用，不过没开刃</div>
+                <div class="talk-bubble-right">行，你那边怎样</div>
+                <div class="talk-bubble-left c">比地上好太多了，比共产主义还好，在这里要啥有啥，还不用工作，爽死了</div>
+                <div class="talk-bubble-right">操，我也想来</div>
+                <div class="talk-bubble-left c">加油</div>
+            </div>
         </div>
-        <div>
-          文件：<a href="https://N-Wither.github.io/assets/imgs/a_girl_standing_in_an_apocalypse_city_facing_the_sunset.png">a_girl_standing_in_an_apocalypse_city_facing_the_sunset.png</a><br>
-          作者：<a href="https://github.com/n-wither/">N Wither</a> with <a href="https://www.midjourney.com/home/">Midjourney</a> <br>
-          协议：<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">CC BY-NC 4.0</a>
+        <p>
+            友人 C 是我为数不多的几个朋友之一，这就是交朋友的重要性。
+        </p>
+        <p>
+            那么，我的下一个目标就是去他家了，或许还能顺道找找有用的东西。
+        </p>
+        <h2 id="chapter-2">1-2 A Slash in the Dark</h2>
+        <div class="story-time" time="2020/05/10 19:10 GMT + 08:00" kill="0" alive="6474818397"></div>
+        <p>
+            我一路下楼，搜遍了所有我能进去的房间还是一无所获，我有点怀疑撒旦那条短信里面“只要到处找找就能找到”的真实性了，毕竟是恶魔，什么事都有可能干得出来。
+        </p>
+        <p>
+            为了避免被人发现，我弯着腰在绿化带里面穿行，他们真该选些枝叶柔软的品种，还好现在还没有蚊子。
+        </p>
+        <p>
+            就这样我到了大街附近，空气中弥漫着汽油味、血腥味、燃烧的烟雾味和许多我难以分辨的味道。现在太阳刚好在地平线上，把没有路灯的街道淹没在一片浑浊的橘红色之中。街道上放眼望去全是尸体，我想大部分人还没看到撒旦的短信就死了。
+        </p>
+        <p>
+            走大路太危险，虽然走小路距离更远，但是现在我完全没有反击的能力，还是保命要紧。哎，我一辈子都没做过坏事，为啥我不是义人……好吧，我也没做过好事就是了。
+        </p>
+        <p>
+            太阳很快就沉到了地平线以下，我周围的光照变得更加晦暗。我小时候就很怕黑，现在虽然好了一点，但也没好太多，再加上我又不能用手电，我感觉我的心脏快要跳出来了，上次有这种感觉还是高中上课玩手机被班主任抓到的时候。
+        </p>
+        <p>
+            我觉得有人在看着我，但周围黑灯瞎火的，有人藏在哪里我也看不见。说起来 W 市有 1000 多万人，经过这么一折腾，现在不知道还剩多少，不过剩下来的这些，要么是我这样的怂包，要么是战斗力拔群的狠人，希望我不要遇上后者。
+        </p>
+        <p>
+            遇到一具尸体，头被什么东西砸凹下去一块，血流了一地。想一想就觉得很恶心，还好我现在看不清细节。
+        </p>
+        <p>
+            有个人从我前面的路上走过去了，我不敢发出声音，硬憋着气等他走过去，人类从未面临过如此严峻的信任危机。
+        </p>
+        <p>
+            晚上十点多钟的时候我才到友人 C 家，这真是我这辈子保持过最长时间的紧张状态，我现在汗流浃背，快要脱水了。
+        </p>
+        <p>
+            友人 C 告诉我他家的备用钥匙藏在水表箱里面，我在一堆蜘蛛网、灰尘和铁锈里面找到了钥匙，打开了他家的门。
+        </p>
+        <p>
+            万幸的是他家看起来没有被别人入侵过，完全就是一个正常的家该有的样子。我在他的房间里看到了挂在墙上的刀，能想象出他在房间里拿着它素振的样子。不过我在用它砍人之前得先把它磨开刃了。
+        </p>
+        <p>
+            之后我就去厨房磨刀，这东西比菜刀难伺候多了，还把我手指头划了一道口子，好在最后还是完成了。我给它起名“丛雨丸”，不准吐槽，我本来想叫“蜘蛛切”的，想来还是不太文艺。
+        </p>
+        <p>
+            正当我欣赏它的曲线刀身的时候，客厅里传来开门的声音。
+        </p>
+        <p>
+            操，我忘记锁门了。
+        </p>
+        <p>
+            厨房里面没有能容得下我的藏身处，万幸的是厨房外面有个晾衣服的阳台，我带着丛雨丸踮着脚尖大跨步出了厨房，还把门关上了，可惜我没有钥匙，没法上锁，只能希望这人不要到这边来。
+        </p>
+        <p>
+            我把耳朵贴在墙上，能听到他已经进来了。然后听到抽屉柜子之类的打开的声音，估计是和我一样来翻东西的。
+        </p>
+        <p>
+            我就这样提心吊胆地站在门旁边，听他的脚步声越来越近。
+        </p>
+        <p>
+            你不要过来啊，我在心里骂娘，然而并没有什么用，看来这次是逃不过了。
+        </p>
+        <p>
+            感觉额头上有汗滴滑过，握着刀的手有点发软。我在想万一对面不是要杀我的，但我却给了他一刀会不会不太好，但是鲁迅说过他向来是不惮以最大的恶意揣测赛里斯人的，现在这种情况就算他不杀我他也迟早要杀别人或者被别人杀掉的，所以我现在先下手为强也没有什么问题，操我在想些什么。
+        </p>
+        <p>
+            算了，心理建设就到这了。
+        </p>
+        <p>
+            之后那人推开门的时候被我砍断了手，然后他想要开枪，但是没打中，一方面是我运气好了一次，另一方面这人估计今天才第一次摸枪，再加上左手腕的断口还在哗啦啦喷血，瞄不准也情有可原，然后我又给了他一刀，抢了他的枪准备走人，但想了一下还是不太人道，就给了他一个痛快。不知道你们看过那种恐怖分子砍俘虏头的视频没有，差不多就是那样。至于细节…当时挺黑的，我在这种情况下就是看不清东西，再就是人在经历这种冲击性极强的事件的时候反而是记不住什么细节的，至少对我来说是这样。
+        </p>
+        <p>
+            走的时候踩到血差点给我滑倒了，但就算没滑倒我也得去换套衣服了，血喷出来的时候也没长眼睛来着。今天晚上就在友人 C 房间凑合睡了，至于尸体就放在那吧，反正以后也不会再来了，而且我不告诉他他也不会知道家里死了人。
+        </p>
+        <p>
+            睡得正香的时候听到了奇怪的声音，好像是有人进来了，可是我这次明明把门锁了的。
+        </p>
+        <p>
+            我偷偷地披上衣服起床，凑到房门边上听动静。
+        </p>
+        <p>
+            <span class="death-speaking">Wither, 没必要这么怕，出来打个招呼。</span>
+        </p>
+        <p>
+            一瞬间汗毛直立，感觉全身都开始冒汗，这家伙怎么会知道我名字的？这声音听着完全不像我认识的任何一个人。我有点想逃跑，但是窗户外面只有空调机可以落脚，然后就没有任何逃跑路线了，事已至此，只能硬着头皮面对了。
+        </p>
+        <p>
+            我把门打开一条缝，扒着门缝往外看，客厅里面站着一个穿黑袍的人，戴着兜帽，旁边的桌子上还放着一把长柄镰刀。
+        </p>
+        <p>
+            这不死神嘛，我还以为是谁。不过为了确认，我还是问了一下。
+        </p>
+        <p>
+            “死神？”
+        </p>
+        <p>
+            <span class="death-speaking">是我，你这有个死人，我得把他的灵魂带到地狱去。</span>
+        </p>
+        <p>
+            “我还以为死人的灵魂会自己飘到地狱去。”确认了安全，我从房间里走了出来。
+        </p>
+        <p>
+            <span class="death-speaking">通常是这样，但是有些人的怨气很重，就得靠我来弄了。</span>
+        </p>
+        <p>
+            “那世界上每天死那么多人你一个人忙的来吗？”
+        </p>
+        <p>
+            <span class="death-speaking">我可以同时出现在很多地方。</span>
+        </p>
+        <p>
+            “我靠，这么牛逼。”
+        </p>
+        <p>
+            “那个，说起来你不是带来死亡的吗，为啥干起牛头马面的工作了。”
+        </p>
+        <p>
+            <span class="death-speaking">因为你们现在是自相残杀，所以我也没必要专门让人死了，另外，引渡灵魂本身就是我工作的一部分。</span>
+        </p>
+        <p>
+            “对了，你是怎么知道我叫啥的，你们有生死簿一类的东西吗？”
+        </p>
+        <p>
+            <span class="death-speaking">以前用过，但是我们现在用 <a
+                    href='https://www.microsoft.com/zh-cn/microsoft-365/excel'>Excel</a> 了。</span>
+        </p>
+        <p>
+            还真是现代化。“你们地狱那边到底是什么样？”
+        </p>
+        <p>
+            <span class="death-speaking">跟你们的低端工业园差不多，如果你下地狱的话，你会被分配到某个厂去上班，每天 12 个小时，全年无休。天堂的那些人享受的东西都是我们地狱生产的。</span>
+        </p>
+        <p>
+            我操，这么恐怖。
+        </p>
+        <p>
+            <span class="death-speaking">好了，我这单快要超时了，以后有机会的话再聊，拜拜。</span>说完，死神做了一些奇怪的动作，大概是在对某个我看不见的东西做些什么，之后死神就消失了。
+        </p>
+        <p>
+            我就说支撑天堂的物质生活的生产力是哪来的，这样说来，天堂就是妥妥的食利阶层了，虽然从某个角度上讲这样不太道义，但是无论是谁都不想永远地做 997 的工作吧，本来我就是个懒狗，让我下地狱我真的会疯掉的。
+        </p>
+        <p>
+            不行，我一定要去天堂。
+        </p>
+        <h2 id="chapter-3">1-3 Uproar Run</h2>
+        <div class="story-time" time="2020/05/11 09:21 GMT + 08:00" kill="1" alive="6280985484"></div>
+        <p>
+            今天也是要努力活下去的一天！
+        </p>
+        <p>
+            但是今天楼下没有卖早饭的了，人是铁饭是钢，一顿不吃饿得慌，还好友人 C 家的冰箱里面还有些食材，在厨房里面凑合做了一餐，就是旁边的那具尸体看着有点败食欲，所以我尽量不往那边看。
+        </p>
+        <p>
+            吃完早饭我纠结着要不要告诉友人 C 他家里有死人，想了想过几天这东西就会开始在各种生化反应的过程中化成一滩烂肉实在是晦气，就没有告诉他。
+        </p>
+        <p>
+            然后我就开始想下一步的计划，基本上就是先拿到足够的物资然后离开 W 市，城市里风险太大，无论是打工还是投资还是现在。但是 W
+            市几千平方公里的面积可不是能轻易走出去的，而且现在没有地铁公交出租车，我得想办法搞辆代步工具。
+        </p>
+        <p>
+            我收拾好东西下楼，外面又开始闹腾起来了，明明晚上还那么安静的，看来大家的作息习惯还是不错。我拿了昨天那个试图袭击我（我不知道他是不是真的想袭击我，但是人已经死了那就我说了算）的人的 5.8 毫米口径 92
+            式手枪（这是我拍了照片发给友人 C 后他告诉我的），现在多多少少有点底气了，即便我在这之前从没摸过真枪，毕竟这个国家 99% 以上的人都没碰过。
+        </p>
+        <p>
+            街上很混乱，有人用刀砍，有人用枪打，有人用车撞，跟 <a href='https://www.rockstargames.com/gta-online'>GTAOL</a> 一个德行，好在没有挂哥，坏在不能复活。
+        </p>
+        <p>
+            路上有些车子，其中一些车门是开的，它们的主人要么是跑走了要么是死在了附近，我想这是我的机会。
+        </p>
+        <p>
+            趁着周围的人忙着打打杀杀，我一阵小跑到了一辆 SUV
+            旁边，车门附近躺着个脑袋凹下去的死人，大概就是车主。我从他的裤腰带上取下了车钥匙，钻进车里把钥匙插进钥匙孔，非常顺利地插入了，看来我猜对了，然后我看了一眼方向盘下面。
+        </p>
+        <p>
+            操，是手动挡。
+        </p>
+        <p>
+            妈的，都什么年代了还在开传统汽车。
+        </p>
+        <p>
+            我权衡了一下当场学会手动挡和再去找一辆自动挡的难度，还是后者比较有可行性。于是我又从车里面狼狈地钻了出来去找另一辆车。
+        </p>
+        <p>
+            冒着被当街砍死的风险，我又偷偷钻进了一辆车里面，看着档把旁边的 PRNDS，终于是我会开的了。
+        </p>
+        <p>
+            然后我找了一下启动按钮在哪，说真的现在的车子的启动按钮和换挡器的设计真的一个比一个花哨，毕竟也确实没啥可设计的了。
+        </p>
+        <p>
+            总之车子嗡一下启动了，同时也吸引了附近正在打闹的人的注意力，他们看着我露出凶狠的目光，我不敢多待，一脚油门冲了出去。有人躲闪不及被我撞倒或者撞飞了，不过一部分也是因为我自从科目三过完之后就没碰过车，所以我也来不及踩刹车。不知道他们还能不能活下来，希望不要是半生不死的那种就好。
+        </p>
+        <p>
+            我打开手机上的地图，盘算下一步的计划。首先肯定是要离开 W 市的，我没有单人城市作战的经验，虽然也没有其他地方作战的经验，但不知怎的我就是觉得在城市外面的生存概率更高一些，但愿我没搞错。然后我想搞点好点的装备，我看
+            W
+            市北郊的银河国际机场应该不错，好歹也是个重要地点。那么——
+        </p>
+        <p>
+            <span style="font-style: oblique; background-color: #00000033;">低德地图为您导航，前往银河国际机场，前方 500 米右转...</span>
+        </p>
+        <p>
+            是的，我怎么可能知道银河机场怎么走啊，我坐地铁都得看地图的，再说现在也没地铁了。
+        </p>
+        <p>
+            <span style="font-style: oblique; background-color: #00000033;">前方 200 米进入喜鹊洲大桥...</span>
+        </p>
+        <p>
+            我顺着导航开上桥，但是发现桥被废弃的车子堵死了，我下车查看有没有挪走这些车子的可能性，突然我意识到这些车子是人工移动成这样的，之前我在街道上虽然也遇见过很多废弃的车子，但从没见过会堵成这样的。
+        </p>
+        <p>
+            感受到危险的我四处张望，没看到有人过来，但再待下去肯定也是不行的，我得快跑，不过是原路返回然后换条路走还是直接弃车翻过去呢。还是换条路吧，且不说到那边又得找车，而且论跑步我也很可能跑不过别人，你不能指望一个终日坐在电脑前几乎不运动的人带着一身东西能跑多快。
+        </p>
+        <p>
+            于是我跑到车上一把拉上车门打方向挂 D 档踩油门，还把雨刮器开关碰开了，怎么会犯这种低级错误。不过还是逃命要紧。
+        </p>
+        <br>
+        <br>
+        <div class="paper-file">
+            <h3 class="file-title">天界联邦议会会议记录（节选）</h3>
+            <p>
+                时间：2020 年 5 月 11 日<br>
+                地点：天界议会大厦。<br>
+                主要与会者：上帝、宙斯、玉皇大帝、天照大御神、■■■■、释迦牟尼、奈亚拉托提普等
+            </p>
+            <hr>
+            <div class="paper-file-sticker" style="padding: 8px; font-size: small; width: max(150px, 20%);">
+                <img src="https://N-Wither.github.io/assets/imgs/gabriel_white_tenma.png" alt="Gabriel's Picture" id="gab-pic" class="zoom"><br>
+                Gabriel 于 2017 年。
+            </div>
+            <p>
+                <span class="god-speaking">各位现在一定很想知道<ruby>神选计划<rt>Project Decideum</rt>
+                    </ruby>第一天的成果，各位请看——</span>上帝转身面向会议厅墙上巨大的显示屏，上面展示着幻灯片，负责讲解的是 Gabriel。
+            </p>
+            <p>
+                <span class="gabriel-speaking">就如同图表展示的那样，根据统计，从计划实施开始到报告前已经有约 5
+                    亿人类死于互相残杀，这个数字远远超出了我们的预期，不过这对计划的执行没有影响。</span>
+            </p>
+            <p>
+                “真的有这么多吗？哪怕一些人手里有枪也没法杀这么快吧？”天照大御神表示怀疑。
+            </p>
+            <p>
+                <span
+                    class="gabriel-speaking">一方面是因为有的国家发生了政变导致某些大规模杀伤性武器被发射了，另一方面是人类的互相杀戮的欲望长期以来一直被我们所忽视导致了我们的预测失准。不过，这些死亡人类中的大多数的攻击性都很强，这些人的消耗会使得幸存人类的斗争烈度减轻，因此之后的死亡速度预计会下降。</span>
+            </p>
+            <p>
+                “既然死了那么多人，地狱有能力一次性接收这么多吗？”宙斯发问。
+            </p>
+            <p>
+                <span class="gabriel-speaking">Hades 发来的报告里说 Cerberus
+                    已经过度疲劳，暂时让它先休息了，目前死去的人大多都聚集在冥界平原上，由地狱方面指派的恶魔看守。当前<ruby>撒旦工业集团<rt>Satan Industries Co.</rt>
+                        </ruby>正在抓紧扩建厂房，预计将在 3 个月内完全吸收新来的死人。因为这些人已经死了，所以只需要最低限度的管理即可，不会对地狱的出产造成太大影响。</span>
+            </p>
+            <p>
+                <span class="god-speaking">这样很好，不过还有一点，地球上剩下的这群人当中仍然有着相当数量的没有那么坏也没有那么好的人，他们没有什么斗争和杀戮欲望，让这群人继续参加神选计划无疑会非常没有节目效果。而神选计划是当前天界收视率最高的节目，我们必须做出改变。</span>
+            </p>
+            <p>…</p>
         </div>
-      </details>
+        <br>
+        <br>
+        <p>在我开下桥之后不久，我就在后视镜里看到后面跟来了一辆车，不知道是不是故意堵桥的那个，总之要甩掉他。</p>
+        <p>他把我咬得很死，不过我这实在没有什么值得抢的东西，不知道为什么非得抓我不可，但是说实话现在的世道真不太能用平常的逻辑来揣测别人了。</p>
+        <p>但我今天才第一次单独开车上路，而我后面的家伙显然经验丰富，在满大街的废车子之间辗转腾挪几乎不减速，这哪是我能比的，所以我们之间的距离就这样不断减少，再这样下去肯定要被追上，是时候耍一些小手段了。</p>
+        <p>我打开天窗，拿出手枪，确认前方一段距离内没有什么危险之后，我从天窗探出上半身，举枪瞄准，扣动扳机。</p>
+        <p>随着巨大的一声枪响，子弹打中了对面的引擎盖，虽然没能杀掉他，但他还是放慢了速度，或许是打到发动机了，也可能是吓到了，不论怎样，我现在有了逃跑的机会。</p>
+        <hr class="break">
+        <p>在这已经被暴乱搞得一团糟的城市里面穿行耗费了远多于预想的时间，直到傍晚时分才到机场附近，途中又杀了一个人，不过有了第一次的经验过后我没有产生什么愧疚感，而且这世道愧疚感也没什么用了。</p>
+        <p>看着天快黑了，我觉得我还是先在附近找个地方休息一下，凌晨再进机场看看，那时候应该是风险最低的。</p>
+        <div class="story-time" time="2020/05/12 02:49 GMT + 08:00" kill="2" alive="5991762855"></div>
+        <p>一觉醒来已经是月上中天了，看来在我睡着的时候地球人口突破了 60 亿，不过是逆向的。这才两天就死了 8 亿人，地球人真能杀。</p>
+        <p>断电的城市中除了远处零星的火光没有任何人工照明，通常我在晚上的视力会降低，好在月光的亮度足够，至少能看个大概。</p>
+        <p>带着我仅有的装备，我悄悄摸进航站楼，里面的消防应急灯还亮着，虽然有助于我看东西，但也会增加被发现的几率。</p>
+        <p>我觉得武器大概会在通常有保安出没的地方，所以我在找这样的地方。</p>
+        <p>我找到了航站楼的平面图，在上面发现了警卫室的位置，然后向那边摸过去。</p>
     </div>
-    <div id="footer" style="clear:both;text-align:center;">
-      <hr />
-      <span id="randomQuote">Random Quote</span>
-      <br>
-      Powered by <a href="https://pages.github.com/">Github Pages</a>.
+    <div class="page-footer">
+        <hr>
+        <div class="collapsible" style="text-align: left;">
+            <div class="open-link">显示脚注</div>
+            <div class="close-link">隐藏脚注</div>
+            <div class="content">
+                <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span id="footnote-1">《圣经·利未记》18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span></p>
+                <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span id="footnote-2">一位天使长，救赎之天使。</span></p>
+                <p><a href="#note-3"><sup>3</sup></a>&nbsp;<span id="footnote-3">日语“さようなら”（再见）的谐音。</span></p>
+            </div>
+        </div>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
     </div>
-  </div>
+    <div class="tooltip"></div>
 </body>
 
 </html>
