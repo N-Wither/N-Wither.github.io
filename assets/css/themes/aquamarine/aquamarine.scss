@@ -102,11 +102,11 @@ a[target = "_blank"]::after{
 
 .page-content, .page-footer, .toolbox {
     a {
-        @include general-link()
-    }
+        @include general-link();
 
-    a:hover, a:focus {
-        @include general-link-hover()
+        &:hover, &:focus {
+            @include general-link-hover()
+        }
     }
 }
 
@@ -119,6 +119,15 @@ button {
     min-width: var(--header-height);
     min-height: var(--header-height);
     @include general-shadow;
+}
+
+hr {
+    border: none;
+    border-top: solid var(--text-color) 2px;
+
+    &.break {
+        width: 70%;
+    }
 }
 
 /* Small Components */
