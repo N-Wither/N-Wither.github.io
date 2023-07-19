@@ -43,8 +43,7 @@ function randomQuote() {
         '我第一天来文化馆上班时故意迟到了两小时，结果发现自己居然是第一个来的，我心想这地方来对了。——余华',
         '不要因为睡懒觉而感到自责，因为就算你起来也创造不了任何价值，能从浪费时间中获得乐趣，就不是浪费时间。——罗素'
     ];
-    let pick = getRandomInt(0, quotes.length);
-    document.getElementById('randomQuote').innerHTML = quotes[pick];
+    document.getElementById('randomQuote').innerHTML = quotes.getRandom();
 }
 
 // Footnote system
@@ -103,6 +102,11 @@ if(toolboxGrip != null){
 }
 
 // Tool functions
+/**
+ * Toggle a element's class.
+ * @param {string | HTMLElement} selector 
+ * @param {string} className 
+ */
 function toggleClass(selector, className){
     if(typeof selector == 'string')
     document.querySelector(selector).classList.toggle(className);
@@ -110,8 +114,18 @@ function toggleClass(selector, className){
     selector.classList.toggle(className);
 }
 
+/**
+ * Returns a random integer between the given numbers.
+ * @param {number} min 
+ * @param {number} max 
+ * @returns {number}
+ */
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+Array.prototype.getRandom = function() {
+    return this[getRandomInt(0, this.length)]
 }

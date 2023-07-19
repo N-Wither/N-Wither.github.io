@@ -239,6 +239,7 @@ const MilkApp = {
                 }
             }
             navigator.clipboard.writeText(btoa(JSON.stringify(data)))
+            localStorage.setItem('data', btoa(JSON.stringify(data)))
             document.querySelector('.data').innerHTML = btoa(JSON.stringify(data))
             document.querySelector('.data').setAttribute('class', 'data visible')
             document.querySelector('.data-tip').setAttribute('class', 'data-tip visible')
@@ -246,7 +247,10 @@ const MilkApp = {
         },
 
         loadGame(){
-            let rawData = window.prompt('输入存档数据：')
+            let rawData = ''
+            if(localStorage.getItem('data') != undefined){
+                rawData = localStorage.getItem('data')
+            } else rawData = window.prompt('输入存档数据：');
             if(rawData == null) return;
             let data = JSON.parse(atob(rawData.trim()))
             this.milk = data.milk
