@@ -355,11 +355,11 @@ button {
 
 .page-content {
     margin: 2rem 10rem 0 10rem;
-    min-height: calc(100vh - 16rem);
+    min-height: calc(100vh - 20rem);
 }
 
 .page-footer {
-    margin: 4rem 10rem 0 10rem;
+    margin: 4rem 10rem 2rem 10rem;
     text-align: center;
 }
 
@@ -367,7 +367,7 @@ button {
 
 @media screen and (orientation: portrait), screen and (max-width: 480px) {
     :root {
-        --header-height: 6rem;
+        --header-height: 4.8rem;
     }
 
     .page-header .menu {
@@ -392,11 +392,11 @@ button {
     }
 
     .page-header .toolbox {
-        width: 30%;
+        width: 36%;
     }
     .page-header .toolbox.open {
         top: var(--header-height);
-        width: 30%;
+        width: 36%;
     }
 
     .page-content {

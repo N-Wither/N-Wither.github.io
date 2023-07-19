@@ -1,43 +1,10 @@
-let darkModeIsOn = false;
-function darkModeSwitch() {
-    let body = document.body;
-    let navigate = document.getElementById('navigate');
-    if (darkModeIsOn == false) {
-        body.setAttribute('class', 'dark-mode-on');
-        navigate.setAttribute('class', 'navigate-dark');
-        document.getElementById('content').setAttribute('class', 'content-dark');
-        document.getElementById('toolbox').setAttribute('class', 'toolbox-dark');
-        darkModeIsOn = true;
-    }
-    else {
-        body.setAttribute('class', '');
-        navigate.setAttribute('class', 'navigate');
-        document.getElementById('content').setAttribute('class', 'content');
-        document.getElementById('toolbox').setAttribute('class', 'toolbox');
-        darkModeIsOn = false;
-    }
+// Auto dark mode
+let matchScheme = window.matchMedia('(prefers-color-scheme: dark)')
+if(matchScheme.matches && !document.querySelector('html').classList.contains('dark-mode')){
+    document.querySelector('html').classList.add('dark-mode')
 }
 
-let accessibilityModeIsOn = false;
-function accModeSwitch() {
-    let body = document.body;
-    let navigate = document.getElementById('navigate');
-    if (accessibilityModeIsOn == false) {
-        body.setAttribute('class', 'accessibility-mode-on');
-        navigate.setAttribute('class', 'navigate-accessibility');
-        document.getElementById('content').setAttribute('class', 'content-a11y');
-        document.getElementById('toolbox').setAttribute('class', 'toolbox-a11y');
-        accessibilityModeIsOn = true;
-    }
-    else {
-        body.setAttribute('class', '');
-        navigate.setAttribute('class', 'navigate');
-        document.getElementById('content').setAttribute('class', 'content');
-        document.getElementById('toolbox').setAttribute('class', 'toolbox');
-        accessibilityModeIsOn = false;
-    }
-}
-
+// Clock component
 function startTime() {
     var today = new Date();
     var D = today.getDate();
@@ -58,8 +25,10 @@ function checkTime(i) {
     return i;
 }
 
+// A useless func
 function hello() { console.log("Wow, you found me!") }
 
+// Show random quotes in the footer
 function randomQuote() {
     let quotes = [
         '已有的事后必再有，已行的事后必再行，日光之下并无新事。——《圣经·传道书》1:9',
@@ -69,18 +38,16 @@ function randomQuote() {
         '……可谁爱我呢？——老舍《茶馆》',
         '还好，一切如愿以偿。——《红雪》',
         '每逢你想要批评任何人的时候，要记住，这个世界上并非所有的人，都有你拥有的那些优势。——菲茨杰拉德《了不起的盖茨比》',
-        '权力导致腐败，绝对权力导致绝对腐败——阿克顿勋爵'
+        '权力导致腐败，绝对权力导致绝对腐败。——阿克顿勋爵',
+        '任何苦难，都能把我打倒。——卡夫卡',
+        '我第一天来文化馆上班时故意迟到了两小时，结果发现自己居然是第一个来的，我心想这地方来对了。——余华',
+        '不要因为睡懒觉而感到自责，因为就算你起来也创造不了任何价值，能从浪费时间中获得乐趣，就不是浪费时间。——罗素'
     ];
     let pick = getRandomInt(0, quotes.length);
     document.getElementById('randomQuote').innerHTML = quotes[pick];
 }
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
+// Footnote system
 function tagNotes() {
     let notesInText = document.querySelectorAll('.note')
     notesInText.forEach((note) => {
@@ -116,7 +83,7 @@ function showNote(index) {
     })
 }
 
-function offNote(index) {
+function offNote() {
     let box = document.querySelector('.tooltip')
     box.style.opacity = 0
 }
@@ -135,9 +102,16 @@ if(toolboxGrip != null){
     })
 }
 
+// Tool functions
 function toggleClass(selector, className){
     if(typeof selector == 'string')
     document.querySelector(selector).classList.toggle(className);
     else
     selector.classList.toggle(className);
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
 }
