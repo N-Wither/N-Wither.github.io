@@ -341,10 +341,6 @@ embed {
     grid-column: 4 / 6;
 }
 
-.moba-scoreboard-mobile .row-even {
-    background-color: #11111166;
-}
-
 .moba-scoreboard-mobile .gold {
     flex-direction: row;
 }

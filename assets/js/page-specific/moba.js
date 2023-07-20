@@ -147,14 +147,20 @@ const MobaScoreboardApp = {
             if (score < 0) {
                 score = 0
             }
+            let scoreHTML =
+                this.stringMultiply(`<div class="score-${team}"></div>`, score) +
+                this.stringMultiply(`<div class="score-blank"></div>`, scoreToWin - score)
+            document.querySelectorAll(`.${team}-score`).forEach(ele => {ele.innerHTML = scoreHTML})
+            
             let scoreColor = this.themes[this.global.theme][`${team.slice(4).toLowerCase()}Color`]
             if(this[team].color != scoreColor && this.themes[this.global.theme].teamDefinedScoreColor){
                 scoreColor = this[team].color
+                document.querySelectorAll(`.${team}-score`).forEach(el => {
+                    el.querySelectorAll(`.score-${team}`).forEach(child => {
+                        child.style.background = scoreColor
+                    })
+                })
             }
-            let scoreHTML =
-                this.stringMultiply(`<div class="score-${team}" style="background:${scoreColor}"></div>`, score) +
-                this.stringMultiply(`<div class="score-blank"></div>`, scoreToWin - score)
-            document.querySelectorAll(`.${team}-score`).forEach(ele => {ele.innerHTML = scoreHTML})
         },
         addTower(team, tower) {
             if (this[team].towers == 0 && tower < 0) return;
@@ -167,34 +173,36 @@ const MobaScoreboardApp = {
         setTheme() {
             let theme = document.getElementById('scoreboard-theme').value
             this.global.theme = theme
-            let blues = document.querySelectorAll('.team-blue-stat')
-            let reds = document.querySelectorAll('.team-red-stat')
-            let bg = document.querySelectorAll('.row-1')
-            let blueLogoBg = document.querySelectorAll('.teamBlue-logo-bg')
-            let redLogoBg = document.querySelectorAll('.teamRed-logo-bg')
-            let blueScores = document.querySelectorAll('.score-teamBlue')
-            let redScores = document.querySelectorAll('.score-teamRed')
+            // let blues = document.querySelectorAll('.team-blue-stat')
+            // let reds = document.querySelectorAll('.team-red-stat')
+            // let bg = document.querySelectorAll('.row-1')
+            // let blueLogoBg = document.querySelectorAll('.teamBlue-logo-bg')
+            // let redLogoBg = document.querySelectorAll('.teamRed-logo-bg')
+            // let blueScores = document.querySelectorAll('.score-teamBlue')
+            // let redScores = document.querySelectorAll('.score-teamRed')
 
-            blues.forEach(ele => {
-                ele.style.color = this.themes[theme].blueColor
-            })
-            reds.forEach(ele => {
-                ele.style.color = this.themes[theme].redColor
-            })
-            bg.forEach(ele => {
-                ele.style['background-color'] = this.themes[theme].backgroundColor
-                ele.style.color = this.themes[theme].textColor
-            })
-            document.querySelector('.moba-scoreboard-mobile').style['background-color'] = this.themes[theme].backgroundColor
-            document.querySelector('.moba-scoreboard-mobile').style.color = this.themes[theme].textColor
-            blueLogoBg.forEach(ele => {ele.style.background = this.themes[theme].blueLogo})
-            redLogoBg.forEach(ele => {ele.style.background = this.themes[theme].redLogo})
-            blueScores.forEach(ele => {
-                ele.style['background-color'] = this.themes[theme].blueColor
-            })
-            redScores.forEach(ele => {
-                ele.style['background-color'] = this.themes[theme].redColor
-            })
+            // blues.forEach(ele => {
+            //     ele.style.color = this.themes[theme].blueColor
+            // })
+            // reds.forEach(ele => {
+            //     ele.style.color = this.themes[theme].redColor
+            // })
+            // bg.forEach(ele => {
+            //     ele.style['background-color'] = this.themes[theme].backgroundColor
+            //     ele.style.color = this.themes[theme].textColor
+            // })
+            // document.querySelector('.moba-scoreboard-mobile').style['background-color'] = this.themes[theme].backgroundColor
+            // document.querySelector('.moba-scoreboard-mobile').style.color = this.themes[theme].textColor
+            // blueLogoBg.forEach(ele => {ele.style.background = this.themes[theme].blueLogo})
+            // redLogoBg.forEach(ele => {ele.style.background = this.themes[theme].redLogo})
+            // blueScores.forEach(ele => {
+            //     ele.style['background-color'] = this.themes[theme].blueColor
+            // })
+            // redScores.forEach(ele => {
+            //     ele.style['background-color'] = this.themes[theme].redColor
+            // })
+            document.querySelector('.moba-scoreboard').setAttribute('theme', theme)
+            document.querySelector('.moba-scoreboard-mobile').setAttribute('theme', theme)
         },
         setBestOf() {
             document.getElementById('moba-blue-score').setAttribute('max', Math.ceil(this.global.bestOf / 2))

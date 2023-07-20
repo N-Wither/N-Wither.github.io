@@ -1,0 +1,117 @@
+.moba-scoreboard, .moba-scoreboard-mobile {
+  --main-bg: #333333;
+  --blue-bg: #48d1cc;
+  --blue-color: #48d1cc;
+  --red-bg: #dc143c;
+  --red-color: #dc143c;
+  --text-color: #ffffff;
+  --row-2-bg: #33333388;
+  font-family: "Metropolis", "Noto Sans SC", "Sans Serif", "icons";
+}
+.moba-scoreboard .teamBlue-logo-bg, .moba-scoreboard-mobile .teamBlue-logo-bg {
+  background: var(--blue-bg);
+}
+.moba-scoreboard .teamRed-logo-bg, .moba-scoreboard-mobile .teamRed-logo-bg {
+  background: var(--red-bg);
+}
+.moba-scoreboard .blue-color, .moba-scoreboard-mobile .blue-color {
+  color: var(--blue-color);
+}
+.moba-scoreboard .red-color, .moba-scoreboard-mobile .red-color {
+  color: var(--red-color);
+}
+.moba-scoreboard .main-bg, .moba-scoreboard-mobile .main-bg {
+  background: var(--main-bg);
+  color: var(--text-color);
+}
+.moba-scoreboard.main-bg, .moba-scoreboard-mobile.main-bg {
+  background: var(--main-bg);
+  color: var(--text-color);
+}
+.moba-scoreboard .row-2-bg, .moba-scoreboard-mobile .row-2-bg {
+  background: var(--row-2-bg);
+  color: var(--text-color);
+}
+.moba-scoreboard .score-teamBlue, .moba-scoreboard-mobile .score-teamBlue {
+  background: var(--blue-color);
+}
+.moba-scoreboard .score-teamRed, .moba-scoreboard-mobile .score-teamRed {
+  background: var(--red-color);
+}
+.moba-scoreboard[theme=lec] .score-teamBlue, .moba-scoreboard[theme=lec] .score-teamRed, .moba-scoreboard[theme=lec] .score-blank, .moba-scoreboard[theme=lcs] .score-teamBlue, .moba-scoreboard[theme=lcs] .score-teamRed, .moba-scoreboard[theme=lcs] .score-blank, .moba-scoreboard-mobile[theme=lec] .score-teamBlue, .moba-scoreboard-mobile[theme=lec] .score-teamRed, .moba-scoreboard-mobile[theme=lec] .score-blank, .moba-scoreboard-mobile[theme=lcs] .score-teamBlue, .moba-scoreboard-mobile[theme=lcs] .score-teamRed, .moba-scoreboard-mobile[theme=lcs] .score-blank {
+  width: 8px;
+  border-radius: 50%;
+}
+.moba-scoreboard[theme=lck] .score-teamBlue, .moba-scoreboard[theme=lck] .score-teamRed, .moba-scoreboard[theme=lck] .score-blank, .moba-scoreboard-mobile[theme=lck] .score-teamBlue, .moba-scoreboard-mobile[theme=lck] .score-teamRed, .moba-scoreboard-mobile[theme=lck] .score-blank {
+  width: 8px;
+  outline: solid 1px gray;
+}
+.moba-scoreboard[theme=dark], .moba-scoreboard-mobile[theme=dark] {
+  --main-bg: #333333;
+  --blue-bg: #48d1cc;
+  --blue-color: #48d1cc;
+  --red-bg: #dc143c;
+  --red-color: #dc143c;
+  --text-color: #ffffff;
+}
+.moba-scoreboard[theme=light], .moba-scoreboard-mobile[theme=light] {
+  --main-bg: #ffffff;
+  --blue-bg: #48d1cc;
+  --blue-color: #48d1cc;
+  --red-bg: #dc143c;
+  --red-color: #dc143c;
+  --text-color: #333333;
+  --row-2-bg: #ffffff88;
+}
+.moba-scoreboard[theme=light] embed svg path, .moba-scoreboard-mobile[theme=light] embed svg path {
+  fill: var(--text-color);
+}
+.moba-scoreboard[theme=lpl], .moba-scoreboard-mobile[theme=lpl] {
+  --main-bg: #1a1e1e;
+  --blue-color: #78d0cf;
+  --blue-bg: #1a1e1e;
+  --red-color: #eb1846;
+  --red-bg: #1a1e1e;
+  --text-color: #f6f6f6;
+}
+.moba-scoreboard[theme=lck], .moba-scoreboard-mobile[theme=lck] {
+  --main-bg: #171622;
+  --blue-color: #4b6bf9;
+  --red-color: #f11c0b;
+  --blue-bg: linear-gradient(to bottom, #4b6bf9, #171622);
+  --red-bg: linear-gradient(to bottom, #f11c0b, #171622);
+  --text-color: white;
+}
+.moba-scoreboard[theme=lec], .moba-scoreboard-mobile[theme=lec] {
+  --main-bg: #020219;
+  --blue-bg: #00cbb9;
+  --blue-color: #00cbb9;
+  --red-bg: #ff5c15;
+  --red-color: #ff5c15;
+  --text-color: #ffffff;
+}
+.moba-scoreboard[theme=lcs], .moba-scoreboard-mobile[theme=lcs] {
+  --main-bg: #070707;
+  --blue-bg: #070707;
+  --blue-color: #3395b8;
+  --red-bg: #070707;
+  --red-color: #b60f33;
+  --text-color: #ffffff;
+}
+.moba-scoreboard[theme=msi23], .moba-scoreboard-mobile[theme=msi23] {
+  --main-bg: #020001;
+  --blue-bg: #aaaa77;
+  --blue-color: #aaaa77;
+  --red-bg: #fe0000;
+  --red-color: #fe0000;
+  --text-color: #fff1e6;
+}
+
+.moba-scoreboard-mobile {
+  --sep-line-color: #11111166;
+}
+.moba-scoreboard-mobile .stat-row {
+  border-top: solid var(--sep-line-color) 2px;
+}
+
+/*# sourceMappingURL=themes.css.map */
