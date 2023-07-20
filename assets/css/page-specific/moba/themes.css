@@ -42,9 +42,22 @@
   width: 8px;
   border-radius: 50%;
 }
+.moba-scoreboard[theme=lck], .moba-scoreboard-mobile[theme=lck] {
+  font-family: "termina", "icons";
+}
 .moba-scoreboard[theme=lck] .score-teamBlue, .moba-scoreboard[theme=lck] .score-teamRed, .moba-scoreboard[theme=lck] .score-blank, .moba-scoreboard-mobile[theme=lck] .score-teamBlue, .moba-scoreboard-mobile[theme=lck] .score-teamRed, .moba-scoreboard-mobile[theme=lck] .score-blank {
   width: 8px;
   outline: solid 1px gray;
+}
+.moba-scoreboard[theme=lck] .kills, .moba-scoreboard-mobile[theme=lck] .kills {
+  font-weight: normal;
+}
+.moba-scoreboard[theme=lck] .team-name-text, .moba-scoreboard-mobile[theme=lck] .team-name-text {
+  font-family: "LCK";
+  font-weight: normal;
+}
+.moba-scoreboard[theme=lpl], .moba-scoreboard-mobile[theme=lpl] {
+  font-family: "Red Hat Mono", monospace, "icons";
 }
 .moba-scoreboard[theme=dark], .moba-scoreboard-mobile[theme=dark] {
   --main-bg: #333333;
@@ -81,6 +94,7 @@
   --blue-bg: linear-gradient(to bottom, #4b6bf9, #171622);
   --red-bg: linear-gradient(to bottom, #f11c0b, #171622);
   --text-color: white;
+  --sep-line-color: #80808088;
 }
 .moba-scoreboard[theme=lec], .moba-scoreboard-mobile[theme=lec] {
   --main-bg: #020219;
@@ -112,6 +126,9 @@
 }
 .moba-scoreboard-mobile .stat-row {
   border-top: solid var(--sep-line-color) 2px;
+}
+.moba-scoreboard-mobile .dragons {
+  padding: 0 5px;
 }
 
 /*# sourceMappingURL=themes.css.map */

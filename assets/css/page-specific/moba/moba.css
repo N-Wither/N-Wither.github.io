@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'LCK';
+    src: url(https://lck.legendaries.com/fonts/LCKTitle-Extended.woff2) format('woff2');
+}
+
 body {
     font-family: 'Metropolis', 'Noto Sans SC', 'Sans Serif', 'icons';
 }
