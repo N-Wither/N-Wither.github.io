@@ -2,6 +2,7 @@
 <html lang="en-us" class="dark-mode">
 <head>
     <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="referrer" content="no-referrer">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
@@ -34,7 +35,7 @@
 <body onload="init()">
     <div class="page-header">
         <div class="menu-button">
-            <button class="no-select menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"></button>
+            <button class="no-select menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
         </div>
         <a class="page-category flex-center padding-all-small" href="./tools.html">
             <div class="page-icon flex-center adapt-header no-bg">🔧</div>
@@ -44,7 +45,7 @@
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button toolbox-button">
-                <button class="no-select toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')"></button>
+                <button class="no-select toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
             </div>
         </div>
         <div class="toolbox all-menu">
@@ -299,12 +300,12 @@
                     <button id="moba-blue-hextech" @click="addDragon('teamBlue', 'hextech')">Hextech</button>
                 </div>
                 <div class="red-side-stat">
-                    <button id="moba-blue-cloud" @click="addDragon('teamRed', 'cloud')">Cloud</button>
-                    <button id="moba-blue-infernal" @click="addDragon('teamRed', 'infernal')">Infernal</button>
-                    <button id="moba-blue-mountain" @click="addDragon('teamRed', 'mountain')">Mountain</button>
-                    <button id="moba-blue-ocean" @click="addDragon('teamRed', 'ocean')">Ocean</button>
-                    <button id="moba-blue-chemtech" @click="addDragon('teamRed', 'chemtech')">Chemtech</button>
-                    <button id="moba-blue-hextech" @click="addDragon('teamRed', 'hextech')">Hextech</button>
+                    <button id="moba-red-cloud" @click="addDragon('teamRed', 'cloud')">Cloud</button>
+                    <button id="moba-red-infernal" @click="addDragon('teamRed', 'infernal')">Infernal</button>
+                    <button id="moba-red-mountain" @click="addDragon('teamRed', 'mountain')">Mountain</button>
+                    <button id="moba-red-ocean" @click="addDragon('teamRed', 'ocean')">Ocean</button>
+                    <button id="moba-red-chemtech" @click="addDragon('teamRed', 'chemtech')">Chemtech</button>
+                    <button id="moba-red-hextech" @click="addDragon('teamRed', 'hextech')">Hextech</button>
                 </div>
                 <div class="blue-side-stat">
                     <label for="blue-team-logo">Logo Url</label>
