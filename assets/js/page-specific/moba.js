@@ -173,36 +173,15 @@ const MobaScoreboardApp = {
         setTheme() {
             let theme = document.getElementById('scoreboard-theme').value
             this.global.theme = theme
-            // let blues = document.querySelectorAll('.team-blue-stat')
-            // let reds = document.querySelectorAll('.team-red-stat')
-            // let bg = document.querySelectorAll('.row-1')
-            // let blueLogoBg = document.querySelectorAll('.teamBlue-logo-bg')
-            // let redLogoBg = document.querySelectorAll('.teamRed-logo-bg')
-            // let blueScores = document.querySelectorAll('.score-teamBlue')
-            // let redScores = document.querySelectorAll('.score-teamRed')
-
-            // blues.forEach(ele => {
-            //     ele.style.color = this.themes[theme].blueColor
-            // })
-            // reds.forEach(ele => {
-            //     ele.style.color = this.themes[theme].redColor
-            // })
-            // bg.forEach(ele => {
-            //     ele.style['background-color'] = this.themes[theme].backgroundColor
-            //     ele.style.color = this.themes[theme].textColor
-            // })
-            // document.querySelector('.moba-scoreboard-mobile').style['background-color'] = this.themes[theme].backgroundColor
-            // document.querySelector('.moba-scoreboard-mobile').style.color = this.themes[theme].textColor
-            // blueLogoBg.forEach(ele => {ele.style.background = this.themes[theme].blueLogo})
-            // redLogoBg.forEach(ele => {ele.style.background = this.themes[theme].redLogo})
-            // blueScores.forEach(ele => {
-            //     ele.style['background-color'] = this.themes[theme].blueColor
-            // })
-            // redScores.forEach(ele => {
-            //     ele.style['background-color'] = this.themes[theme].redColor
-            // })
             document.querySelector('.moba-scoreboard').setAttribute('theme', theme)
             document.querySelector('.moba-scoreboard-mobile').setAttribute('theme', theme)
+            if(this.themes[this.global.theme].teamDefinedScoreColor){
+                document.querySelectorAll('.teamBlue-logo-bg').forEach(el => {el.style = `background:${this.teamBlue.color}`})
+                document.querySelectorAll('.teamRed-logo-bg').forEach(el => {el.style = `background:${this.teamRed.color}`})
+            }else {
+                document.querySelectorAll('.teamBlue-logo-bg').forEach(el => {el.style = ''})
+                document.querySelectorAll('.teamRed-logo-bg').forEach(el => {el.style = ''})
+            }
         },
         setBestOf() {
             document.getElementById('moba-blue-score').setAttribute('max', Math.ceil(this.global.bestOf / 2))

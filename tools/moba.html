@@ -70,7 +70,7 @@
                 <div class="towers row-1 main-bg"><span class="team-blue-stat blue-color">♜</span>&nbsp;<span>{{ teamBlue.towers }}</span></div>
                 <div class="gold row-1 main-bg"><span class="team-blue-stat blue-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
                 <div class="kills row-1 main-bg"><span class="team-blue-stat blue-color">🗡</span><span>&nbsp;<span>{{ teamBlue.kills }}</span></span></div>
-                <div class="game-label row-1 main-bg"><img :src="global.leagueLogo" alt="League Logo" :class="global.logoFilter"></div>
+                <div class="game-label row-1 main-bg league-logo"><img :src="global.leagueLogo" alt="League Logo" :class="global.logoFilter"></div>
                 <div class="kills row-1 main-bg"><span class="team-red-stat red-color">🗡</span><span>&nbsp;<span>{{ teamRed.kills }}</span></span></div>
                 <div class="gold row-1 main-bg"><span class="team-red-stat red-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamRed.gold).toFixed(1) + 'K' }}</span></div>
                 <div class="towers row-1 main-bg"><span class="team-red-stat red-color">♜</span>&nbsp;<span>{{ teamRed.towers }}</span></div>
@@ -156,7 +156,7 @@
                 <div>
                     <span>
                         <label for="scoreboard-theme">Theme</label>
-                        <select id="scoreboard-theme" @change="setTheme()">
+                        <select id="scoreboard-theme" @change="setTheme(), setScore('teamBlue'), setScore('teamRed')">
                             <option value="dark">Default Dark</option>
                             <option value="light">Default Light</option>
                             <option value="lpl">LPL</option>
@@ -181,8 +181,8 @@
                     <button id="moba-time-btn" @click="toggleGameTimer()">{{ global.timing ? 'Pause' : 'Start' }}</button>
                     <button @click="clearGameTimer()">Clear</button>
                 </div>
-                <div style="background-color: mediumturquoise;"><label for="team-blue-color">Team Blue </label><input type="color" @change="setColor('teamBlue')" v-model="teamBlue.color"></div>
-                <div style="background-color: crimson;"><label for="team-red-color">Team Red </label><input type="color" @change="setColor('teamRed')" v-model="teamRed.color"></div>
+                <div style="background-color: mediumturquoise;"><label for="team-blue-color">Team Blue </label><input type="color" @change="setColor('teamBlue'), setScore('teamBlue')" v-model="teamBlue.color"></div>
+                <div style="background-color: crimson;"><label for="team-red-color">Team Red </label><input type="color" @change="setColor('teamRed'), setScore('teamRed')" v-model="teamRed.color"></div>
                 <div class="blue-side-stat">
                     <span><label for="moba-blue-team-name">Team Name </label><input type="text" id="moba-blue-team-name" v-model="teamBlue.name"></span>
                     <span><label for="moba-blue-team-position">Position </label><input type="text" id="moba-blue-team-position" v-model="teamBlue.pos"></span>
