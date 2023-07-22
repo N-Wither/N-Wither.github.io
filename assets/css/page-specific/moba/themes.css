@@ -57,7 +57,7 @@
   font-weight: normal;
 }
 .moba-scoreboard[theme=lpl], .moba-scoreboard-mobile[theme=lpl] {
-  font-family: "Red Hat Mono", monospace, "icons";
+  font-family: "JetBrains Mono", monospace, "icons";
 }
 .moba-scoreboard[theme=dark], .moba-scoreboard-mobile[theme=dark] {
   --main-bg: #333333;
