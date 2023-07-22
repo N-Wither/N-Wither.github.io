@@ -107,7 +107,6 @@
         --blue-bg: linear-gradient(to bottom, #4b6bf9, #171622);
         --red-bg: linear-gradient(to bottom, #f11c0b, #171622);
         --text-color: white;
-        --sep-line-color: #80808088;
     }
     &[theme=lec] {
         --main-bg: #020219;
@@ -116,6 +115,7 @@
         --red-bg: #ff5c15;
         --red-color: #ff5c15;
         --text-color: #ffffff;
+        --sep-line-color: #44375488;
     }
     &[theme=lcs] {
         --main-bg: #070707;
@@ -136,7 +136,7 @@
 }
 
 .moba-scoreboard-mobile {
-    --sep-line-color: #11111166;
+    --sep-line-color: #80808088;
 
     .stat-row {
         border-top: solid var(--sep-line-color) 2px;

@@ -252,7 +252,7 @@ hr.break {
 .page-header .toolbox {
   right: 0;
   transform: translateX(100%);
-  width: 20%;
+  width: 24%;
   position: fixed;
   top: var(--header-height);
 }
