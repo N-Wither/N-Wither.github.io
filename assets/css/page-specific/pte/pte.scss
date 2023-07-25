@@ -150,3 +150,26 @@ $element-size: 60px;
         top: 10px;
     }
 }
+
+.tooltip {
+    display: none;
+    background: var(--background-color);
+    border-radius: 4px;
+    padding: 8px;
+    z-index: 99;
+    animation: show 0.3s forwards;
+    box-shadow: 0px 4px 8px var(--box-shadow-color);
+}
+
+.tooltip[data-show] {
+    display: block;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

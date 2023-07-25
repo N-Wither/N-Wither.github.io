@@ -160,7 +160,7 @@ hr {
 /* Page Header and menu */
 
 .page-header {
-    position: sticky;
+    position: fixed;
     top: 0;
     right: 0;
     width: 100%;
@@ -364,7 +364,7 @@ hr {
 /* Page Content*/
 
 .page-content {
-    margin: 2rem 10rem 0 10rem;
+    margin: calc(2rem + var(--header-height)) 10rem 0 10rem;
     min-height: calc(100vh - 20rem);
 }
 
@@ -410,7 +410,7 @@ hr {
     }
 
     .page-content {
-        margin: 4rem 4rem 0 4rem;
+        margin: calc(2rem + var(--header-height)) 4rem 0 4rem;
     }
 
     .page-footer {
