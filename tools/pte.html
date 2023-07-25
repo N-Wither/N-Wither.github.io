@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <title>Periodic Table of Elements</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <script>
+        function init(){
+            randomQuote()
+            startTime()
+        }
+    </script>
+
+    <link rel="stylesheet" href="../assets/css/page-specific/pte/pte.css">
+    <script src="../assets/js/page-specific/pte.js" defer></script>
+    <!-- components -->
+    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="../assets/js/components/float-tooltip.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/components/float-tooltip.css">
+</head>
+<body onload="init()">
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <a class="page-category flex-center padding-all-small" href="./tools.html">
+            Tools
+        </a>
+        <div class="flex-center page-title" style="opacity: 1;">Periodic Table of Elements</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">The Periodic Table of Elements shows all known chemical elements.</div>
+            <div class="item">
+                <strong>Legends</strong>
+                <div style="background: #00ffff66">Non-metals</div>
+                <div style="background: #ee82ee66">Noble Gases</div>
+                <div style="background: #ffc0cb66">Alkali Metals</div>
+                <div style="background: #d5385266">Alkaline Earth Metals</div>
+                <div style="background: #e3682166">Metalloids</div>
+                <div style="background: #00ff0066">Halogens</div>
+                <div style="background: #483d8b66">Transition Metals</div>
+                <div style="background: #4682b466">Post-transition Metals</div>
+                <div style="background: #5f9ea066">Lanthanoids</div>
+                <div style="background: #04505c66">Actinoids</div>
+                <div style="background: #80808066">Superactinoids</div>
+                <div>● Radioactive Elements</div>
+                <div>* Synthetic Elements</div>
+                <div>? Theoretical Elements</div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="table-container">
+            <div class="blank"></div>
+            <div class="groups">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+                <span>11</span>
+                <span>12</span>
+                <span>13</span>
+                <span>14</span>
+                <span>15</span>
+                <span>16</span>
+                <span>17</span>
+                <span>18</span>
+            </div>
+            <div class="periods">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>*6</span>
+                <span>*7</span>
+                <span>*8</span>
+            </div>
+            <div class="table" translate="no">
+                <div class="element nonmetal" n="1" s="H" w="1.008">
+                </div>
+                <div class="blank" style="grid-column: 2 / 18;"></div>
+                <div class="element noble" n="2" s="He" w="4.0026"></div>
+
+                <div class="element alkali" n="3" s="Li" w="6.9675"></div>
+                <div class="element alkaline" n="4" s="Be" w="9.0122"></div>
+                <div class="blank" style="grid-column: 3 / 13;"></div>
+                <div class="element metalloid" n="5" s="B" w="10.8135"></div>
+                <div class="element nonmetal" n="6" s="C" w="12.0106"></div>
+                <div class="element nonmetal" n="7" s="N" w="14.0069"></div>
+                <div class="element nonmetal" n="8" s="O" w="15.9994"></div>
+                <div class="element halogen" n="9" s="F" w="18.9984"></div>
+                <div class="element noble" n="10" s="Ne" w="20.18"></div>
+
+                <div class="element alkali" n="11" s="Na" w="22.9898"></div>
+                <div class="element alkaline" n="12" s="Mg" w="24.3051"></div>
+                <div class="blank" style="grid-column: 3 / 13;"></div>
+                <div class="element post-trans" n="13" s="Al" w="26.9815"></div>
+                <div class="element metalloid" n="14" s="Si" w="28.085"></div>
+                <div class="element nonmetal" n="15" s="P" w="30.9738"></div>
+                <div class="element nonmetal" n="16" s="S" w="32.0648"></div>
+                <div class="element halogen" n="17" s="Cl" w="35.4521"></div>
+                <div class="element noble" n="18" s="Ar" w="39.9478"></div>
+
+                <div class="element alkali" n="19" s="K" w="39.0983"></div>
+                <div class="element alkaline" n="20" s="Ca" w="40.078"></div>
+                <div class="element trans" n="21" s="Sc" w="44.9559"></div>
+                <div class="element trans" n="22" s="Ti" w="47.8667"></div>
+                <div class="element trans" n="23" s="V" w="50.9415"></div>
+                <div class="element trans" n="24" s="Cr" w="51.9961"></div>
+                <div class="element trans" n="25" s="Mn" w="54.938"></div>
+                <div class="element trans" n="26" s="Fe" w="55.8451"></div>
+                <div class="element trans" n="27" s="Co" w="58.9332"></div>
+                <div class="element trans" n="28" s="Ni" w="58.6934"></div>
+                <div class="element trans" n="29" s="Cu" w="63.546"></div>
+                <div class="element trans" n="30" s="Zn" w="65.3778"></div>
+                <div class="element post-trans" n="31" s="Ga" w="69.7231"></div>
+                <div class="element metalloid" n="32" s="Ge" w="72.6298"></div>
+                <div class="element metalloid" n="33" s="As" w="74.9216"></div>
+                <div class="element nonmetal" n="34" s="Se" w="78.9711"></div>
+                <div class="element halogen" n="35" s="Br" w="79.9043"></div>
+                <div class="element noble" n="36" s="Kr" w="83.798"></div>
+                
+                <div class="element alkali" n="37" s="Rb" w="85.4677"></div>
+                <div class="element alkaline" n="38" s="Sr" w="87.6166"></div>
+                <div class="element trans" n="39" s="Y" w="88.9058"></div>
+                <div class="element trans" n="40" s="Zr" w="91.2236"></div>
+                <div class="element trans" n="41" s="Nb" w="92.9064"></div>
+                <div class="element trans" n="42" s="Mo" w="95.9488"></div>
+                <div class="element trans rad" n="43" s="Tc" w="94.4429"></div>
+                <div class="element trans" n="44" s="Ru" w="101.0649"></div>
+                <div class="element trans" n="45" s="Rh" w="102.9055"></div>
+                <div class="element trans" n="46" s="Pd" w="106.4153"></div>
+                <div class="element trans" n="47" s="Ag" w="107.8681"></div>
+                <div class="element trans" n="48" s="Cd" w="112.4138"></div>
+                <div class="element post-trans" n="49" s="In" w="114.8183"></div>
+                <div class="element post-trans" n="50" s="Sn" w="118.7101"></div>
+                <div class="element metalloid" n="51" s="Sb" w="121.7598"></div>
+                <div class="element metalloid" n="52" s="Te" w="127.6031"></div>
+                <div class="element halogen" n="53" s="I" w="126.9045"></div>
+                <div class="element noble" n="54" s="Xe" w="131.2928"></div>
+                
+                <div class="element alkali" n="55" s="Cs" w="132.9055"></div>
+                <div class="element alkaline" n="56" s="Ba" w="137.3267"></div>
+                <div class="element la" no-gen-content=true>
+                    <span class="number">57 - 71</span>
+                    <span class="symbol" style="font-size: 18px;">La - Lu</span>
+                </div>
+                <div class="element trans" n="72" s="Hf" w="178.485"></div>
+                <div class="element trans" n="73" s="Ta" w="180.9479"></div>
+                <div class="element trans" n="74" s="W" w="183.8418"></div>
+                <div class="element trans" n="75" s="Re" w="186.2067"></div>
+                <div class="element trans" n="76" s="Os" w="190.2249"></div>
+                <div class="element trans" n="77" s="Ir" w="192.2161"></div>
+                <div class="element trans" n="78" s="Pt" w="195.0844"></div>
+                <div class="element trans" n="79" s="Au" w="196.9666"></div>
+                <div class="element trans" n="80" s="Hg" w="200.5926"></div>
+                <div class="element post-trans" n="81" s="Tl" w="204.3835"></div>
+                <div class="element post-trans" n="82" s="Pb" w="207.2169"></div>
+                <div class="element post-trans rad" n="83" s="Bi" w="208.9804"></div>
+                <div class="element metalloid rad" n="84" s="Po" w="208.962"></div>
+                <div class="element halogen rad" n="85" s="At" w="209.6021"></div>
+                <div class="element noble rad" n="86" s="Rn" w="220.1901"></div>
+
+                <div class="element alkali rad" n="87" s="Fr" w="219.3234"></div>
+                <div class="element rad alkaline" n="88" s="Ra" w="226.0325"></div>
+                <div class="element ac" no-gen-content=true>
+                    <span class="number">89 - 103</span>
+                    <span class="symbol" style="font-size: 18px;">Ac - Lr</span>
+                </div>
+                <div class="element trans rad synth" n="104" s="Rf" w="266.3234"></div>
+                <div class="element trans rad synth" n="105" s="Db" w="268.1428"></div>
+                <div class="element trans rad synth" n="106" s="Sg" w="270.4869"></div>
+                <div class="element trans rad synth" n="107" s="Bh" w="270.9292"></div>
+                <div class="element trans rad synth" n="108" s="Hs" w="275.3816"></div>
+                <div class="element trans rad synth" n="109" s="Mt" w="278.1309"></div>
+                <div class="element trans rad synth" n="110" s="Ds" w="282.5755"></div>
+                <div class="element trans rad synth" n="111" s="Rg" w="283.0855"></div>
+                <div class="element trans rad synth" n="112" s="Cn" w="286.0936"></div>
+                <div class="element post-trans rad synth" n="113" s="Nh" w="287.9982"></div>
+                <div class="element post-trans rad synth" n="114" s="Fl" w="290.2171"></div>
+                <div class="element post-trans rad synth" n="115" s="Mc" w="291.542"></div>
+                <div class="element post-trans rad synth" n="116" s="Lv" w="292.4708"></div>
+                <div class="element halogen rad synth" n="117" s="Ts" w="293.7333"></div>
+                <div class="element noble rad synth" n="118" s="Og" w="295.2122"></div>
+
+                <div class="element alkali theo" n="119" s="Uue" w="[316]"></div>
+                <div class="element alkaline theo" n="120" s="Ubn" w="[320]"></div>
+                <div class="element s-ac" no-gen-content=true>
+                    <span class="number">121-127</span>
+                    <span class="symbol" style="font-size: 18px;">Ubu - Ubs</span>
+                </div>
+
+                <div class="blank" style="grid-column: 1 / 3;"></div>
+                <div class="element la" n="57" s="La" w="138.9055"></div>
+                <div class="element la" n="58" s="Ce" w="140.1157"></div>
+                <div class="element la" n="59" s="Pr" w="140.9077"></div>
+                <div class="element la" n="60" s="Nd" w="144.2416"></div>
+                <div class="element la" n="61" s="Pm" w="145.2295"></div>
+                <div class="element la" n="62" s="Sm" w="150.3647"></div>
+                <div class="element la" n="63" s="Eu" w="151.9644"></div>
+                <div class="element la" n="64" s="Gd" w="157.2521"></div>
+                <div class="element la" n="65" s="Tb" w="158.9254"></div>
+                <div class="element la" n="66" s="Dy" w="162.4995"></div>
+                <div class="element la" n="67" s="Ho" w="164.9303"></div>
+                <div class="element la" n="68" s="Er" w="167.2591"></div>
+                <div class="element la" n="69" s="Tm" w="168.9342"></div>
+                <div class="element la" n="70" s="Yb" w="173.0541"></div>
+                <div class="element la" n="71" s="Lu" w="174.9668"></div>
+
+                <div class="blank" style="grid-column:1/3;"></div>
+                <div class="element ac rad" n="89" s="Ac" w="227.0251"></div>
+                <div class="element ac rad" n="90" s="Th" w="232.038"></div>
+                <div class="element ac rad" n="91" s="Pa" w="231.0359"></div>
+                <div class="element ac rad" n="92" s="U" w="238.0289"></div>
+                <div class="element ac rad" n="93" s="Np" w="236.9815"></div>
+                <div class="element ac rad" n="94" s="Pu" w="244.0532"></div>
+                <div class="element ac rad synth" n="95" s="Am" w="242.9341"></div>
+                <div class="element ac rad synth" n="96" s="Cm" w="247.0924"></div>
+                <div class="element ac rad synth" n="97" s="Bk" w="247.0781"></div>
+                <div class="element ac rad synth" n="98" s="Cf" w="250.5137"></div>
+                <div class="element ac rad synth" n="99" s="Es" w="252.9784"></div>
+                <div class="element ac rad synth" n="100" s="Fm" w="256.8966"></div>
+                <div class="element ac rad synth" n="101" s="Md" w="258.7885"></div>
+                <div class="element ac rad synth" n="102" s="No" w="260.6703"></div>
+                <div class="element ac rad synth" n="103" s="Lr" w="264.862"></div>
+
+                <div class="blank" style="grid-column:1/3"></div>
+                <div class="element s-ac theo" n="121" s="Ubu" w="[320]"></div>
+                <div class="element s-ac theo" n="122" s="Ubb" w="[321]"></div>
+                <div class="element s-ac theo" n="123" s="Ubt" w="[325]"></div>
+                <div class="element s-ac theo" n="124" s="Ubq" w="[330]"></div>
+                <div class="element s-ac theo" n="125" s="Ubp" w="[332]"></div>
+                <div class="element s-ac theo" n="126" s="Ubh" w="[334]"></div>
+                <div class="element s-ac theo" n="127" s="Ubs" w="[335]"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+    </div>
+</body>
+</html>

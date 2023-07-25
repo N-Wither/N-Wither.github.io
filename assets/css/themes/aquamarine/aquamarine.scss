@@ -162,6 +162,7 @@ hr {
 .page-header {
     position: sticky;
     top: 0;
+    right: 0;
     width: 100%;
     height: var(--header-height);
     @include general-shadow;

@@ -1,0 +1,152 @@
+.table-container {
+    position: relative;
+    display: grid;
+    grid-template:
+        'blank groups' auto
+        'periods table' auto
+}
+
+@mixin table-header {
+    display: grid;
+    border-radius: 5px;
+    background: #00000066;
+    
+    & span {
+        padding: 6px;
+    }
+}
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$element-size: 60px;
+
+.blank {
+    grid-area: 'blank';
+}
+
+.groups {
+    @include table-header();
+    grid-template-columns: repeat(18, $element-size);
+    grid-area: 'groups';
+
+    span {
+        @include flexCenter()
+    }
+}
+
+.periods {
+    @include table-header();
+    grid-template-rows: repeat(11, $element-size);
+    grid-area: 'periods';
+
+    span {
+        @include flexCenter()
+    };
+}
+
+.table {
+    grid-area: 'table';
+    display: grid;
+    grid-template-columns: repeat(18, $element-size);
+    grid-template-rows: repeat(15, $element-size);
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    border: solid #ffffff66 2px;
+    transition: 0.3s;
+    position: relative;
+
+    span.number {
+        font-size: 8px;
+    }
+
+    span.symbol {
+        text-align: center;
+        font-size: 26px;
+    }
+
+    span.weight {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    &:hover {
+        border-color: var(--text-color);
+    }
+
+    &.nonmetal {
+        background: #00ffff66;
+    }
+
+    &.noble {
+        background: #ee82ee66;
+    }
+
+    &.alkali {
+        background: #ffc0cb66;
+    }
+
+    &.alkaline {
+        background: #d5385266;
+    }
+
+    &.metalloid {
+        background: #e3682166;
+    }
+
+    &.halogen {
+        background: #00ff0066;
+    }
+
+    &.post-trans {
+        background: #4682b466;
+    }
+
+    &.trans {
+        background: #483d8b66;
+    }
+
+    &.la {
+        background: #5f9ea066;
+    }
+
+    &.ac {
+        background: #04505c66;
+    }
+
+    &.s-ac {
+        background: #80808066;
+    }
+
+    &.rad::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: var(--text-color);
+        position: absolute;
+        right: 2px;
+        top: 2px;
+    }
+
+    &.theo::before {
+        content: '?';
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        font-size: 6px;
+    }
+
+    &.synth::after {
+        content: '*';
+        position: absolute;
+        right: 2px;
+        top: 10px;
+    }
+}

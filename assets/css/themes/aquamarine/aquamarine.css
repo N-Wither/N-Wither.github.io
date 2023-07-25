@@ -128,6 +128,7 @@ hr.break {
 .page-header {
   position: sticky;
   top: 0;
+  right: 0;
   width: 100%;
   height: var(--header-height);
   box-shadow: 0px 4px 8px var(--box-shadow-color);

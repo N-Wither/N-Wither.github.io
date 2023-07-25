@@ -1,0 +1,128 @@
+.table-container {
+  position: relative;
+  display: grid;
+  grid-template: "blank groups" auto "periods table" auto;
+}
+
+.blank {
+  grid-area: "blank";
+}
+
+.groups {
+  display: grid;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.4);
+  grid-template-columns: repeat(18, 60px);
+  grid-area: "groups";
+}
+.groups span {
+  padding: 6px;
+}
+.groups span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.periods {
+  display: grid;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.4);
+  grid-template-rows: repeat(11, 60px);
+  grid-area: "periods";
+}
+.periods span {
+  padding: 6px;
+}
+.periods span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  grid-area: "table";
+  display: grid;
+  grid-template-columns: repeat(18, 60px);
+  grid-template-rows: repeat(15, 60px);
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  border: solid rgba(255, 255, 255, 0.4) 2px;
+  transition: 0.3s;
+  position: relative;
+}
+.element span.number {
+  font-size: 8px;
+}
+.element span.symbol {
+  text-align: center;
+  font-size: 26px;
+}
+.element span.weight {
+  font-size: 8px;
+  text-align: center;
+}
+.element:hover {
+  border-color: var(--text-color);
+}
+.element.nonmetal {
+  background: rgba(0, 255, 255, 0.4);
+}
+.element.noble {
+  background: rgba(238, 130, 238, 0.4);
+}
+.element.alkali {
+  background: rgba(255, 192, 203, 0.4);
+}
+.element.alkaline {
+  background: rgba(213, 56, 82, 0.4);
+}
+.element.metalloid {
+  background: rgba(227, 104, 33, 0.4);
+}
+.element.halogen {
+  background: rgba(0, 255, 0, 0.4);
+}
+.element.post-trans {
+  background: rgba(70, 130, 180, 0.4);
+}
+.element.trans {
+  background: rgba(72, 61, 139, 0.4);
+}
+.element.la {
+  background: rgba(95, 158, 160, 0.4);
+}
+.element.ac {
+  background: rgba(4, 80, 92, 0.4);
+}
+.element.s-ac {
+  background: rgba(128, 128, 128, 0.4);
+}
+.element.rad::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: var(--text-color);
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+.element.theo::before {
+  content: "?";
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  font-size: 6px;
+}
+.element.synth::after {
+  content: "*";
+  position: absolute;
+  right: 2px;
+  top: 10px;
+}
+
+/*# sourceMappingURL=pte.css.map */

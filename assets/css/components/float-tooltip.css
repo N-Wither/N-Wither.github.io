@@ -3,4 +3,5 @@
     color: white;
     position: fixed;
     padding: 0.8rem;
+    z-index: 100;
 }
