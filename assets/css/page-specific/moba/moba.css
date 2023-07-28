@@ -291,6 +291,7 @@ embed {
     grid-template-rows: 50px 18px 30px 30px 30px;
     width: 450px;
     background-color: #333333;
+    margin: auto;
 }
 
 .moba-scoreboard-mobile img {
