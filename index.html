@@ -20,6 +20,48 @@
     <script src="./assets/js/components/click_particles.js"></script>
     <link rel="stylesheet" href="./assets/css/components/click_particles.css">
     <script src="./assets/js/components/aquamarine-navigate-menu.js" defer></script>
+
+    <style>
+        .worlds {
+            background: #1e1e1e;
+            color: white;
+            padding: 1rem;
+            margin: auto;
+        }
+        .worlds img {
+            max-width: 64px;
+            max-height: 64px;
+        }
+
+        .worlds .logo {
+            display: flex;
+            flex-direction: column;
+            width: 96px;
+            height: 96px;
+        }
+
+        .worlds .region {
+            display: flex;
+            margin-bottom: 1.2rem;
+        }
+
+        .worlds .logo span, .worlds .logo img{
+            margin: auto;
+        }
+
+        .region-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .region-logo {
+            box-shadow: 2px 0px #fff;
+        }
+        .region-logo :first-child {
+            text-align: center;
+        }
+    </style>
 </head>
 <body onload="init()">
     <div class="page-header">
@@ -58,6 +100,66 @@
         <hr>
         <p>This is N Wither. I do a little bit of everything.</p>
         <p>You can click the links in the navigation menu to see my works.</p>
+        <hr>
+        <div class="worlds">
+            <h2>Road to Worlds 2023</h2>
+            <div class="region-container">
+                <div class="container">
+                    <div class="region">
+                        <div class="logo region-logo"><span>CHINA</span><img src="https://n-wither.github.io/assets/imgs/lol/lpl_10.png" alt="LPL"><span>LPL</span></div>
+                        <div class="logo"><span>LPL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/00/JD_Gaminglogo_square.png" alt="JDG"><span>JDG</span></div>
+                        <div class="logo"><span>LPL#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/91/Bilibili_Gaminglogo_square.png" alt="BLG"><span>BLG</span></div>
+                        <div class="logo"><span>LPL#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d5/LNG_Esportslogo_square.png" alt="LNG"><span>LNG</span></div>
+                        <div class="logo"><span>LPL#4</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/58/Weibo_Gaminglogo_square.png" alt="WBG"><span>WBG</span></div>
+                    </div>
+                    <div class="region">
+                        <div class="logo region-logo"><span>KOREA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/lck-color-on-black.png" alt="LCK"><span>LCK</span></div>
+                        <div class="logo"><span>LCK#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>LCK#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>LCK#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>LCK#4</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                    </div>
+                    <div class="region">
+                        <div class="logo region-logo"><span>EMEA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516184297_LEC-01-FullonDark.png" alt="LEC"><span>LEC</span></div>
+                        <div class="logo"><span>LEC#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>LEC#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>LEC#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>LEC#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                    </div>
+                    <div class="region">
+                        <div class="logo region-logo"><span>NORTH AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/LCSNew-01-FullonDark.png" alt="LCS"><span>LCS</span></div>
+                        <div class="logo"><span>LCS#?</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/Cloud9logo_square.png" alt="C9"><span>C9</span></div>
+                        <div class="logo"><span>LCS#?</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e7/NRGlogo_square.png" alt="NRG" style="filter: invert();"><span>NRG</span></div>
+                        <div class="logo"><span>LCS#?</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>LCS#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="region">
+                        <div class="logo region-logo"><span>PACIFIC</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592515942679_PCS-01-FullonDark.png" alt="PCS"><span>PCS</span></div>
+                        <div class="logo"><span>PCS#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>PCS#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                    </div>
+                    <div class="region">
+                        <div class="logo region-logo"><span>VIETNAM</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1677578094811_VCS_SYMBOL_TITANIUM_RGB.png" alt="VCS"><span>VCS</span></div>
+                        <div class="logo"><span>VCS#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"><span>VCS#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                    </div>
+                    <div class="region">
+                        <div class="logo region-logo"><span>JAPAN</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516354053_LJL-01-FullonDark.png" alt="LJL"><span>LJL</span></div>
+                        <div class="logo"><span>LJL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo"></div>
+                        <div class="logo region-logo"><span>BRAZIL</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http%3A%2F%2Fstatic.lolesports.com%2Fleagues%2Fcblol-logo-symbol-offwhite.png" alt="CBLOL"><span>CBLOL</span></div>
+                        <div class="logo"><span>CBLOL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                    </div>
+                    <div class="region">
+                        <div class="logo region-logo"><span>LATIN AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http%3A%2F%2Fstatic.lolesports.com%2Fleagues%2F1592516315279_LLA-01-FullonDark.png" alt="LLA"><span>LLA</span></div>
+                        <div class="logo"><span>LLA#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                    </div>
+                </div>
+            </div>
+            <p>* LEC#4 and LCS#4 will participate in Worlds Qualifying Series, the winner team qualifies for Worlds 2023.</p>
+        </div>
     </div>
     <div class="page-footer">
         <hr>
