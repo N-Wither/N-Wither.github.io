@@ -1,6 +1,6 @@
 .click-particle {
     animation: click-particle forwards 0.8s;
-    position: absolute;
+    position: fixed;
     user-select: none;
     z-index: 101;
 }
