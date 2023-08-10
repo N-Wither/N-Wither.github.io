@@ -65,7 +65,7 @@
                 </div>
                 <div class="team-name row-1 main-bg">
                     <span class="team-name-text">{{ teamBlue.name }}</span>
-                    <span>{{ teamBlue.pos }}</span>
+                    <span class="team-pos-text teamBlue-pos">{{ teamBlue.pos }}</span>
                 </div>
                 <div class="towers row-1 main-bg"><span class="team-blue-stat blue-color">♜</span>&nbsp;<span>{{ teamBlue.towers }}</span></div>
                 <div class="gold row-1 main-bg"><span class="team-blue-stat blue-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
@@ -76,7 +76,7 @@
                 <div class="towers row-1 main-bg"><span class="team-red-stat red-color">♜</span>&nbsp;<span>{{ teamRed.towers }}</span></div>
                 <div class="team-name row-1 main-bg">
                     <span class="team-name-text">{{ teamRed.name }}</span>
-                    <span>{{ teamRed.pos }}</span>
+                    <span class="team-pos-text teamRed-pos">{{ teamRed.pos }}</span>
                 </div>
                 <div class="team-red row-1 teamRed-logo-bg red-bg">
                     <img :src="teamRed.logo" :alt="teamRed.name" :class="teamRed.logoFilter">
@@ -206,7 +206,7 @@
                 <div class="blue-side-stat">
                     <span>
                         <label for="team-blue-w-l">W/L</label>
-                        <input type="text" id="team-blue-w-l">
+                        <input type="text" id="team-blue-w-l" v-model="teamBlue.winLose">
                     </span>
                     <span>
                         <label for="team-blue-baron-add">Baron</label>
@@ -222,7 +222,7 @@
                 <div class="red-side-stat">
                     <span>
                         <label for="team-red-w-l">W/L</label>
-                        <input type="text" id="team-red-w-l">
+                        <input type="text" id="team-red-w-l" v-model="teamRed.winLose">
                     </span>
                     <span>
                         <label for="team-red-baron-add">Baron</label>
@@ -349,14 +349,14 @@
                 </div>
                 <div class="team-name row-1">
                     <span class="team-name-text">{{ teamBlue.name }}</span>
-                    <span class="team-pos-text">{{ teamBlue.pos }}</span>
+                    <span class="team-pos-text teamBlue-pos">{{ teamBlue.pos }}</span>
                 </div>
                 <div class="league-logo row-1">
                     <img :src="global.leagueLogo" alt="League Logo" :class="global.logoFilter">
                 </div>
                 <div class="team-name row-1">
                     <span class="team-name-text">{{ teamRed.name }}</span>
-                    <span class="team-pos-text">{{ teamRed.pos }}</span>
+                    <span class="team-pos-text teamRed-pos">{{ teamRed.pos }}</span>
                 </div>
                 <div class="team-red teamRed-logo-bg">
                     <img :src="teamRed.logo" :alt="teamRed.name" :class="teamRed.logoFilter">

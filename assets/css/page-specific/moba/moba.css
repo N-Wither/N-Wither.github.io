@@ -320,6 +320,11 @@ embed {
 
 .team-pos-text {
     font-size: 0.8rem;
+    display: flex;
+}
+
+.teamBlue-pos {
+    flex-direction: row-reverse;
 }
 
 .moba-scoreboard-mobile .dragons {

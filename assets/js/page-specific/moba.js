@@ -150,12 +150,18 @@ const MobaScoreboardApp = {
             let scoreHTML =
                 this.stringMultiply(`<div class="score-${team}"></div>`, score) +
                 this.stringMultiply(`<div class="score-blank"></div>`, scoreToWin - score)
-            document.querySelectorAll(`.${team}-score`).forEach(ele => {ele.innerHTML = scoreHTML})
+            let target = `.${team}-score`
+            if(this[team].pos == ''){
+                target = `.${team}-pos`
+                document.querySelectorAll('.teamBlue-score').forEach(el => el.innerHTML = this.teamBlue.winLose)
+                document.querySelectorAll('.teamRed-score').forEach(el => el.innerHTML = this.teamRed.winLose)
+            }
+            document.querySelectorAll(target).forEach(ele => {ele.innerHTML = scoreHTML})
             
             let scoreColor = this.themes[this.global.theme][`${team.slice(4).toLowerCase()}Color`]
             if(this[team].color != scoreColor && this.themes[this.global.theme].teamDefinedScoreColor){
                 scoreColor = this[team].color
-                document.querySelectorAll(`.${team}-score`).forEach(el => {
+                document.querySelectorAll(target).forEach(el => {
                     el.querySelectorAll(`.score-${team}`).forEach(child => {
                         child.style.background = scoreColor
                     })
