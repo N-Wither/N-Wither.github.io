@@ -311,7 +311,7 @@ hr.break {
 /* For Mobile Devices */
 @media screen and (orientation: portrait), screen and (max-width: 480px) {
   :root {
-    --header-height: 4.8rem;
+    --header-height: 3rem;
   }
   .page-header .menu {
     top: var(--header-height);
@@ -330,17 +330,17 @@ hr.break {
     min-height: var(--header-height);
   }
   .page-header .toolbox {
-    width: 36%;
+    width: 40%;
   }
   .page-header .toolbox.open {
     top: var(--header-height);
-    width: 36%;
+    width: 40%;
   }
   .page-content {
-    margin: calc(2rem + var(--header-height)) 4rem 0 4rem;
+    margin: calc(2rem + var(--header-height)) 1rem 0 1rem;
   }
   .page-footer {
-    margin: 4rem 4rem 0 4rem;
+    margin: 4rem 1rem 0 1rem;
   }
   .toolbox {
     top: var(--header-height);
