@@ -100,11 +100,11 @@
         --text-color: #f6f6f6;
     }
     &[theme=lck] {
-        --main-bg: #171622;
+        --main-bg: linear-gradient(170deg, #4b6bf9 0%, transparent 30%), linear-gradient(190deg, #f11c0b 0%, transparent 30%), #171622;
         --blue-color: #4b6bf9;
         --red-color: #f11c0b;
-        --blue-bg: linear-gradient(to bottom, #4b6bf9, #171622);
-        --red-bg: linear-gradient(to bottom, #f11c0b, #171622);
+        --blue-bg: transparent;
+        --red-bg: transparent;
         --text-color: white;
     }
     &[theme=lec] {

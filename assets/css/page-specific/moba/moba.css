@@ -15,7 +15,6 @@ select {
 
 .moba-scoreboard {
     display: grid;
-    /* grid-template-columns: 1fr; */
     grid-template-rows: 50px 18px;
     width: 100%;
     user-select: none;
@@ -134,7 +133,14 @@ select {
 
 .moba-scoreboard .dragons {
     padding: 0;
-    gap: 5px;
+}
+
+.moba-scoreboard .dragons-blue span {
+    padding-right: 5px;
+}
+
+.moba-scoreboard .dragons-red span {
+    padding-left: 5px;
 }
 
 .moba-scoreboard .dragons-blue{
