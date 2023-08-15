@@ -50,63 +50,14 @@ const MobaScoreboardApp = {
                 elderTimer: null
             },
             themes: {
-                dark: {
-                    backgroundColor: '#333333',
-                    blueColor: '#48d1cc',
-                    redColor: 'crimson',
-                    blueLogo: '#48d1cc',
-                    redLogo: 'crimson',
-                    textColor: 'white'
-                },
-                light: {
-                    backgroundColor: '#FFFFFF',
-                    blueColor: '#48d1cc',
-                    redColor: 'crimson',
-                    blueLogo: '#48d1cc',
-                    redLogo: 'crimson',
-                    textColor: '#333333'
-                },
-                lpl: {
-                    backgroundColor: '#1a1e1e',
-                    blueColor: '#78d0cf',
-                    redColor: '#eb1846',
-                    blueLogo: '#1a1e1e',
-                    redLogo: '#1a1e1e',
-                    textColor: '#f6f6f6'
-                },
-                lck: {
-                    backgroundColor: '#171622',
-                    blueColor: '#4b6bf9',
-                    redColor: '#f11c0b',
-                    blueLogo: 'linear-gradient(to bottom, #4b6bf9, #171622)',
-                    redLogo: 'linear-gradient(to bottom, #f11c0b, #171622)',
-                    textColor: 'white'
-                },
-                lec: {
-                    backgroundColor: '#020219',
-                    blueColor: '#00cbb9',
-                    redColor: '#ff5c15',
-                    blueLogo: '#00cbb9',
-                    redLogo: '#ff5c15',
-                    textColor: 'white'
-                },
-                lcs: {
-                    backgroundColor: '#070707',
-                    blueColor: '#3395b8',
-                    redColor: '#b60f33',
-                    blueLogo: '#070707',
-                    redLogo: '#070707',
-                    textColor: 'white',
-                    teamDefinedScoreColor: true
-                },
-                msi23: {
-                    backgroundColor: '#020001',
-                    blueColor: '#aaaa77',
-                    redColor: '#fe0000',
-                    blueLogo: '#aaaa77',
-                    redLogo: '#fe0000',
-                    textColor: '#fff1e6'
-                },
+                dark: {},
+                light: {},
+                lpl: {},
+                lck: {},
+                lec: {},
+                lcs: {teamDefinedScoreColor: true},
+                msi23: {},
+                lcc: {}
             }
         }
     },

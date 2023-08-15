@@ -60,90 +60,94 @@
         </div>
         <div id="scoreboard">
             <div class="moba-scoreboard">
-                <div class="team-blue row-1 teamBlue-logo-bg blue-bg">
-                    <img :src="teamBlue.logo" :alt="teamBlue.name" :class="teamBlue.logoFilter">
-                </div>
-                <div class="team-name row-1 main-bg">
-                    <span class="team-name-text">{{ teamBlue.name }}</span>
-                    <span class="team-pos-text teamBlue-pos">{{ teamBlue.pos }}</span>
-                </div>
-                <div class="towers row-1 main-bg"><span class="team-blue-stat blue-color">♜</span>&nbsp;<span>{{ teamBlue.towers }}</span></div>
-                <div class="gold row-1 main-bg"><span class="team-blue-stat blue-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
-                <div class="kills row-1 main-bg"><span class="team-blue-stat blue-color">🗡</span><span>&nbsp;<span>{{ teamBlue.kills }}</span></span></div>
-                <div class="game-label row-1 main-bg league-logo"><img :src="global.leagueLogo" alt="League Logo" :class="global.logoFilter"></div>
-                <div class="kills row-1 main-bg"><span class="team-red-stat red-color">🗡</span><span>&nbsp;<span>{{ teamRed.kills }}</span></span></div>
-                <div class="gold row-1 main-bg"><span class="team-red-stat red-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamRed.gold).toFixed(1) + 'K' }}</span></div>
-                <div class="towers row-1 main-bg"><span class="team-red-stat red-color">♜</span>&nbsp;<span>{{ teamRed.towers }}</span></div>
-                <div class="team-name row-1 main-bg">
-                    <span class="team-name-text">{{ teamRed.name }}</span>
-                    <span class="team-pos-text teamRed-pos">{{ teamRed.pos }}</span>
-                </div>
-                <div class="team-red row-1 teamRed-logo-bg red-bg">
-                    <img :src="teamRed.logo" :alt="teamRed.name" :class="teamRed.logoFilter">
+                <div class="moba-scoreboard__row-1">
+                    <div class="team-blue row-1 teamBlue-logo-bg blue-bg">
+                        <img :src="teamBlue.logo" :alt="teamBlue.name" :class="teamBlue.logoFilter">
+                    </div>
+                    <div class="team-name row-1 main-bg">
+                        <span class="team-name-text">{{ teamBlue.name }}</span>
+                        <span class="team-pos-text teamBlue-pos">{{ teamBlue.pos }}</span>
+                    </div>
+                    <div class="towers row-1 main-bg"><span class="team-blue-stat blue-color">♜</span>&nbsp;<span>{{ teamBlue.towers }}</span></div>
+                    <div class="gold row-1 main-bg"><span class="team-blue-stat blue-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
+                    <div class="kills row-1 main-bg"><span class="team-blue-stat blue-color">🗡</span><span>&nbsp;<span>{{ teamBlue.kills }}</span></span></div>
+                    <div class="game-label row-1 main-bg league-logo"><img :src="global.leagueLogo" alt="League Logo" :class="global.logoFilter"></div>
+                    <div class="kills row-1 main-bg"><span class="team-red-stat red-color">🗡</span><span>&nbsp;<span>{{ teamRed.kills }}</span></span></div>
+                    <div class="gold row-1 main-bg"><span class="team-red-stat red-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamRed.gold).toFixed(1) + 'K' }}</span></div>
+                    <div class="towers row-1 main-bg"><span class="team-red-stat red-color">♜</span>&nbsp;<span>{{ teamRed.towers }}</span></div>
+                    <div class="team-name row-1 main-bg">
+                        <span class="team-name-text">{{ teamRed.name }}</span>
+                        <span class="team-pos-text teamRed-pos">{{ teamRed.pos }}</span>
+                    </div>
+                    <div class="team-red row-1 teamRed-logo-bg red-bg">
+                        <img :src="teamRed.logo" :alt="teamRed.name" :class="teamRed.logoFilter">
+                    </div>
                 </div>
 
-                <div class="score-area row-2 teamBlue-score">
-                    <div class="score-teamBlue"></div>
-                    <div class="score-teamBlue"></div>
-                    <div class="score-blank"></div>
-                </div>
-                <div class="row-2 elder buff-container row-2-bg">
-                    <div class="text">
-                        <span v-if="teamBlue.elder != 0">
-                            <embed src="../assets/imgs/lol/elder.svg">
-                        </span>
-                        <span v-if="teamBlue.elderTime == 0 && teamBlue.elder != 0">&nbsp;{{ teamBlue.elder }}</span>
-                        <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
+                <div class="moba-scoreboard__row-2">
+                    <div class="score-area row-2 teamBlue-score">
+                        <div class="score-teamBlue"></div>
+                        <div class="score-teamBlue"></div>
+                        <div class="score-blank"></div>
                     </div>
-                    <div class="elder buff-progress teamBlue-elder-bar left"></div>
-                </div>
-                <div class="row-2 baron buff-container row-2-bg">
-                    <div class="text">
-                        <span v-if="teamBlue.baron != 0">
-                            <embed src="../assets/imgs/lol/baron.svg">
-                        </span>
-                        <span v-if="teamBlue.baronTime == 0 && teamBlue.baron != 0">&nbsp;{{ teamBlue.baron }}</span>
-                        <span v-if="teamBlue.baronTime != 0">&nbsp;{{ timeFormat(teamBlue.baronTime, true) }}</span>
+                    <div class="row-2 elder buff-container row-2-bg">
+                        <div class="text">
+                            <span v-if="teamBlue.elder != 0">
+                                <embed src="../assets/imgs/lol/elder.svg">
+                            </span>
+                            <span v-if="teamBlue.elderTime == 0 && teamBlue.elder != 0">&nbsp;{{ teamBlue.elder }}</span>
+                            <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
+                        </div>
+                        <div class="elder buff-progress teamBlue-elder-bar left"></div>
                     </div>
-                    <div class="baron buff-progress teamBlue-baron-bar left"></div>
-                </div>
-                <div class="row-2 row-2-bg">
-                    <div v-if="global.goldDiff > 0">▲{{ Math.abs(global.goldDiff) }}K</div>
-                </div>
-                <div class="dragons-blue dragons row-2 row-2-bg">
-                    <span v-for="drake in teamBlue.dragons" :class="drake" v-if="typeof teamBlue.dragons == 'object'"></span>
-                </div>
-                <div class="time row-2 row-2-bg" id="moba-time">{{ timeFormat(global.time) }}</div>
-                <div class="dragons-red dragons row-2 row-2-bg">
-                    <span v-for="drake in teamRed.dragons" :class="drake"></span>
-                </div>
-                <div class="row-2 row-2-bg">
-                    <div v-if="global.goldDiff < 0">▲{{ Math.abs(global.goldDiff) }}K</div>
-                </div>
-                <div class="row-2 baron buff-container row-2-bg">
-                    <div class="text">
-                        <span v-if="teamRed.baron != 0">
-                            <embed src="../assets/imgs/lol/baron.svg">
-                        </span>
-                        <span v-if="teamRed.baronTime == 0 && teamRed.baron != 0">&nbsp;{{ teamRed.baron }}</span>
-                        <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
+                    <div class="row-2 baron buff-container row-2-bg">
+                        <div class="text">
+                            <span v-if="teamBlue.baron != 0">
+                                <embed src="../assets/imgs/lol/baron.svg">
+                            </span>
+                            <span v-if="teamBlue.baronTime == 0 && teamBlue.baron != 0">&nbsp;{{ teamBlue.baron }}</span>
+                            <span v-if="teamBlue.baronTime != 0">&nbsp;{{ timeFormat(teamBlue.baronTime, true) }}</span>
+                        </div>
+                        <div class="baron buff-progress teamBlue-baron-bar left"></div>
                     </div>
-                    <div class="baron buff-progress teamRed-baron-bar right"></div>
-                </div>
-                <div class="row-2 elder buff-container row-2-bg">
-                    <div class="text">
-                        <span v-if="teamRed.elder != 0">
-                            <embed src="../assets/imgs/lol/elder.svg">
-                        </span>
-                        <span v-if="teamRed.elderTime == 0 && teamRed.elder != 0">&nbsp;{{ teamRed.elder }}</span>
-                        <span v-if="teamRed.elderTime != 0">&nbsp;{{ timeFormat(teamRed.elderTime, true) }}</span>
+                    <div class="row-2 row-2-bg">
+                        <div v-if="global.goldDiff > 0">▲{{ Math.abs(global.goldDiff) }}K</div>
                     </div>
-                    <div class="elder buff-progress teamRed-elder-bar right"></div>
-                </div>
-                <div class="score-area row-2 teamRed-score" id="teamRed-score">
-                    <div class="score-teamRed"></div>
-                    <div class="score-teamRed"></div>
-                    <div class="score-teamRed"></div>
+                    <div class="dragons-blue dragons row-2 row-2-bg">
+                        <span v-for="drake in teamBlue.dragons" :class="drake" v-if="typeof teamBlue.dragons == 'object'"></span>
+                    </div>
+                    <div class="time row-2 row-2-bg" id="moba-time">{{ timeFormat(global.time) }}</div>
+                    <div class="dragons-red dragons row-2 row-2-bg">
+                        <span v-for="drake in teamRed.dragons" :class="drake"></span>
+                    </div>
+                    <div class="row-2 row-2-bg">
+                        <div v-if="global.goldDiff < 0">▲{{ Math.abs(global.goldDiff) }}K</div>
+                    </div>
+                    <div class="row-2 baron buff-container row-2-bg">
+                        <div class="text">
+                            <span v-if="teamRed.baron != 0">
+                                <embed src="../assets/imgs/lol/baron.svg">
+                            </span>
+                            <span v-if="teamRed.baronTime == 0 && teamRed.baron != 0">&nbsp;{{ teamRed.baron }}</span>
+                            <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
+                        </div>
+                        <div class="baron buff-progress teamRed-baron-bar right"></div>
+                    </div>
+                    <div class="row-2 elder buff-container row-2-bg">
+                        <div class="text">
+                            <span v-if="teamRed.elder != 0">
+                                <embed src="../assets/imgs/lol/elder.svg">
+                            </span>
+                            <span v-if="teamRed.elderTime == 0 && teamRed.elder != 0">&nbsp;{{ teamRed.elder }}</span>
+                            <span v-if="teamRed.elderTime != 0">&nbsp;{{ timeFormat(teamRed.elderTime, true) }}</span>
+                        </div>
+                        <div class="elder buff-progress teamRed-elder-bar right"></div>
+                    </div>
+                    <div class="score-area row-2 teamRed-score" id="teamRed-score">
+                        <div class="score-teamRed"></div>
+                        <div class="score-teamRed"></div>
+                        <div class="score-teamRed"></div>
+                    </div>
                 </div>
             </div>
             <br>
@@ -164,6 +168,7 @@
                             <option value="lec">LEC</option>
                             <option value="lcs">LCS</option>
                             <option value="msi23">MSI 2023</option>
+                            <option value="lcc">LCC 2023</option>
                         </select>
                     </span>
                 </div>

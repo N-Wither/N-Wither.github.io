@@ -21,7 +21,6 @@
   color: var(--red-color);
 }
 .moba-scoreboard .main-bg, .moba-scoreboard-mobile .main-bg {
-  background: var(--main-bg);
   color: var(--text-color);
 }
 .moba-scoreboard.main-bg, .moba-scoreboard-mobile.main-bg {
@@ -119,6 +118,15 @@
   --red-bg: #fe0000;
   --red-color: #fe0000;
   --text-color: #fff1e6;
+}
+.moba-scoreboard[theme=lcc], .moba-scoreboard-mobile[theme=lcc] {
+  --main-bg: linear-gradient(120deg, #67da55 10%, #1a1e1e 45%, #1a1e1e 50%, #1a1e1e 55%, #e428c8 90%);
+  --blue-color: white;
+  --blue-bg: transparent;
+  --red-color: white;
+  --red-bg: transparent;
+  --text-color: #f6f6f6;
+  --sep-line-color: white;
 }
 
 .moba-scoreboard-mobile {
