@@ -140,6 +140,13 @@
         --red-bg: transparent;
         --text-color: #f6f6f6;
         --sep-line-color: white;
+
+        .score-blank {
+            background: transparent;
+            width: 10px;
+            height: 6px;
+            border: solid 1px white;
+        }
     }
 }
 

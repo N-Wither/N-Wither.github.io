@@ -128,6 +128,12 @@
   --text-color: #f6f6f6;
   --sep-line-color: white;
 }
+.moba-scoreboard[theme=lcc] .score-blank, .moba-scoreboard-mobile[theme=lcc] .score-blank {
+  background: transparent;
+  width: 10px;
+  height: 6px;
+  border: solid 1px white;
+}
 
 .moba-scoreboard-mobile {
   --sep-line-color: #80808088;
