@@ -56,8 +56,8 @@ const MobaScoreboardApp = {
                 lck: {},
                 lec: {},
                 lcs: {teamDefinedScoreColor: true},
-                msi23: {},
-                lcc: {}
+                lcc: {},
+                valorant: {}
             }
         }
     },

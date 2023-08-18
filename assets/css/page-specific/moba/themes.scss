@@ -23,6 +23,8 @@
     }
     .main-bg {
         color: var(--text-color);
+        height: 100%;
+        position: relative;
     }
     &.main-bg {
         background: var(--main-bg);
@@ -86,10 +88,6 @@
         --red-color: #dc143c;
         --text-color: #333333;
         --row-2-bg: #ffffff88;
-
-        embed svg path {
-            fill: var(--text-color)
-        }
     }
     &[theme=lpl] {
         --main-bg: #1a1e1e;
@@ -124,14 +122,6 @@
         --red-color: #b60f33;
         --text-color: #ffffff;
     }
-    &[theme=msi23] {
-        --main-bg: #020001;
-        --blue-bg: #aaaa77;
-        --blue-color: #aaaa77;
-        --red-bg: #fe0000;
-        --red-color: #fe0000;
-        --text-color: #fff1e6;
-    }
     &[theme=lcc] {
         --main-bg: linear-gradient(120deg, #67da55 10%, #1a1e1e 45%, #1a1e1e 50%, #1a1e1e 55%, #e428c8 90%);
         --blue-color: white;
@@ -146,6 +136,26 @@
             width: 10px;
             height: 6px;
             border: solid 1px white;
+        }
+    }
+    &[theme=valorant] {
+        --main-bg: #101822;
+        --blue-color: #13ffcb;
+        --blue-bg: #13ffcb66;
+        --red-color: #ff4560;
+        --red-bg: #ff456066;
+
+        .score-blank, .score-teamBlue, .score-teamRed {
+            width: 8px;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .team-name:has(.teamBlue-pos) {
+            background: linear-gradient(to right, #13ffcb 0, #13ffcb 3px, transparent 3px);
+        }
+
+        .team-name:has(.teamRed-pos) {
+            background: linear-gradient(to left, #ff4560 0, #ff4560 3px, transparent 3px);
         }
     }
 }
