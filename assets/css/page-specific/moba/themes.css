@@ -136,11 +136,11 @@
   width: 8px;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
-.moba-scoreboard[theme=valorant] .team-name:has(.teamBlue-pos), .moba-scoreboard-mobile[theme=valorant] .team-name:has(.teamBlue-pos) {
-  background: linear-gradient(to right, #13ffcb 0, #13ffcb 3px, transparent 3px);
+.moba-scoreboard[theme=valorant] .teamBlue-logo-bg, .moba-scoreboard-mobile[theme=valorant] .teamBlue-logo-bg {
+  box-shadow: 3px 0px 0px #13ffcb;
 }
-.moba-scoreboard[theme=valorant] .team-name:has(.teamRed-pos), .moba-scoreboard-mobile[theme=valorant] .team-name:has(.teamRed-pos) {
-  background: linear-gradient(to left, #ff4560 0, #ff4560 3px, transparent 3px);
+.moba-scoreboard[theme=valorant] .teamRed-logo-bg, .moba-scoreboard-mobile[theme=valorant] .teamRed-logo-bg {
+  box-shadow: -3px 0px 0px #ff4560;
 }
 
 .moba-scoreboard-mobile {

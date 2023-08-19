@@ -150,12 +150,12 @@
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
         }
 
-        .team-name:has(.teamBlue-pos) {
-            background: linear-gradient(to right, #13ffcb 0, #13ffcb 3px, transparent 3px);
+        .teamBlue-logo-bg {
+            box-shadow: 3px 0px 0px #13ffcb;
         }
 
-        .team-name:has(.teamRed-pos) {
-            background: linear-gradient(to left, #ff4560 0, #ff4560 3px, transparent 3px);
+        .teamRed-logo-bg {
+            box-shadow: -3px 0px 0px #ff4560;
         }
     }
 }
