@@ -86,7 +86,7 @@
   --text-color: #f6f6f6;
 }
 .moba-scoreboard[theme=lck], .moba-scoreboard-mobile[theme=lck] {
-  --main-bg: linear-gradient(170deg, #4b6bf9 0%, transparent 30%), linear-gradient(190deg, #f11c0b 0%, transparent 30%), #171622;
+  --main-bg: linear-gradient(170deg, #4b6bf9 0%, transparent 75px), linear-gradient(190deg, #f11c0b 0%, transparent 75px), #171622;
   --blue-color: #4b6bf9;
   --red-color: #f11c0b;
   --blue-bg: transparent;
