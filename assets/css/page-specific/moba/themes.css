@@ -7,6 +7,7 @@
   --text-color: #ffffff;
   --row-2-bg: #33333388;
   font-family: "Metropolis", "Noto Sans SC", "Sans Serif", "icons";
+  color: var(--text-color);
 }
 .moba-scoreboard .teamBlue-logo-bg, .moba-scoreboard-mobile .teamBlue-logo-bg {
   background: var(--blue-bg);
@@ -111,19 +112,12 @@
   --text-color: #ffffff;
 }
 .moba-scoreboard[theme=lcc], .moba-scoreboard-mobile[theme=lcc] {
-  --main-bg: linear-gradient(120deg, #67da55 10%, #1a1e1e 45%, #1a1e1e 50%, #1a1e1e 55%, #e428c8 90%);
-  --blue-color: white;
-  --blue-bg: transparent;
-  --red-color: white;
-  --red-bg: transparent;
-  --text-color: #f6f6f6;
-  --sep-line-color: white;
-}
-.moba-scoreboard[theme=lcc] .score-blank, .moba-scoreboard-mobile[theme=lcc] .score-blank {
-  background: transparent;
-  width: 10px;
-  height: 6px;
-  border: solid 1px white;
+  --main-bg: #1a1e1e;
+  --blue-bg: #8bcc34;
+  --blue-color: #8bcc34;
+  --red-bg: #fd439e;
+  --red-color: #fd439e;
+  --text-color: #ffffff;
 }
 .moba-scoreboard[theme=valorant], .moba-scoreboard-mobile[theme=valorant] {
   --main-bg: #101822;

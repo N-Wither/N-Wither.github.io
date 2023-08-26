@@ -193,6 +193,7 @@ select {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     background-color: #333333;
+    color: white;
 }
 
 .scoreboard-control input {
