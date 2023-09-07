@@ -1,42 +1,7 @@
-.tooltip {
-    display: none;
-    background: var(--background-color);
-    border-radius: 4px;
-    padding: 8px;
-    z-index: 99;
-    animation: show 0.3s forwards;
-    color: var(--text-color);
-    min-width: 15rem;
-    filter: drop-shadow(4px 4px 8px var(--box-shadow-color))
-}
-
-.tooltip::before {
-    padding: inherit;
-    background-color: var(--theme-color);
-    content: attr(data-index) '';
-    position: absolute;
-    top: -0.8rem;
-    left: -0.8rem;
-}
-
-.tooltip[data-show] {
-    display: block;
-    animation: 0.2s ease-in 0s tooltip-show;
-}
-
-@keyframes tooltip-show {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 .tippy-box[data-theme~='aquamarine']{
     background-color: var(--background-color);
     color: var(--text-color);
-    filter: drop-shadow(4px 4px 8px var(--box-shadow-color));
+    filter: drop-shadow(2px 2px 4px var(--box-shadow-color));
     border-radius: 0;
     min-width: 15rem;
     font-size: inherit;
@@ -51,6 +16,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(-50%, -50%);
+    transform: translate(-0.8rem, -50%);
     color: var(--text-color);
 }
