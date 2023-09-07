@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="./assets/css/components/click_particles.css">
     <script src="./assets/js/components/aquamarine-navigate-menu.js" defer></script>
 
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="./assets/js/components/hover-tooltip.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/components/hover-tooltip.css">
+
     <style>
         .worlds {
             background: #1e1e1e;
@@ -100,6 +105,11 @@
         <hr>
         <p>This is N Wither. I do a little bit of everything.</p>
         <p>You can click the links in the navigation menu to see my works.</p>
+        <p>看这里然后<a href="javascript:void 0;" class="need-tooltip">点我</a>，看看发生什么。</p>
+        <div id="tooltip-content-1" class="tooltip-content" style="display: none;">
+            <p>第一行文字</p>
+            <p>第二行文字</p>
+        </div>
         <hr>
         <div class="worlds">
             <h2 style="text-align: center;">Road to Worlds 2023</h2>

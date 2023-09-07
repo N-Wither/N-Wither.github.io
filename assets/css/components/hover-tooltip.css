@@ -32,3 +32,20 @@
         opacity: 1;
     }
 }
+
+.tippy-box[data-theme~='aquamarine']{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    filter: drop-shadow(4px 4px 8px var(--box-shadow-color));
+    border-radius: 0;
+    min-width: 15rem;
+}
+
+.tippy-box::before {
+    padding: 0.2rem;
+    background-color: var(--theme-color);
+    content: attr(data-index) '';
+    position: absolute;
+    top: -0.8rem;
+    left: -0.8rem;
+}
