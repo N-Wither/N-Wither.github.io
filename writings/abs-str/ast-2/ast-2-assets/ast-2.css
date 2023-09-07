@@ -35,16 +35,6 @@ body {
     background-color: #383838;
 }
 
-h2 {
-    background-color: #eadac3;
-    text-shadow: 2px 2px 4px #00000033;
-    padding: 8px;
-    position: relative;
-    left: -3%;
-    box-shadow: 2px 2px 6px #00000033;
-    margin: 0;
-}
-
 ::-webkit-scrollbar-track {
     background: #faf5e4;
     width: 0px;

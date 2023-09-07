@@ -191,6 +191,9 @@ elements.forEach(el => {
         el.addEventListener(event, hide);
     });
     
+    el.removeAttribute('n')
+    el.removeAttribute('s')
+    el.removeAttribute('w')
 })
 
 document.querySelectorAll('.symbol').forEach(el => {
