@@ -39,13 +39,17 @@
     filter: drop-shadow(4px 4px 8px var(--box-shadow-color));
     border-radius: 0;
     min-width: 15rem;
+    font-size: inherit;
+    padding-top: 0.2rem;
 }
 
 .tippy-box::before {
     padding: 0.2rem;
+    min-width: 1rem;
     background-color: var(--theme-color);
     content: attr(data-index) '';
     position: absolute;
     top: -0.8rem;
     left: -0.8rem;
+    color: var(--text-color);
 }

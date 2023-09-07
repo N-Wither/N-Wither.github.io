@@ -19,6 +19,5 @@ needTooltip.forEach((el, i) => {
     let index = el.getAttribute('tooltip-index') || (i + 1)
     let content = document.querySelector(`#tooltip-content-${index}`)
     let tooltip = tippy(el, {content: content.innerHTML, ...tippyConfig})
-    console.log(tooltip.popper)
     tooltip.popper.firstChild.dataset.index = el.textContent
 })

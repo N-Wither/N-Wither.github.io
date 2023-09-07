@@ -25,11 +25,16 @@
             setElements();
         }
     </script>
+    <!-- external js libs -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
     <script src="../assets/js/components/collapsible-block.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/collapsible-block.css">
     <script src="../assets/js/components/click_particles.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/click_particles.css">
+    <script src="../assets/js/components/hover-tooltip.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/components/hover-tooltip.css">
 </head>
 <body onload="init()">
     <div class="navigate" id="navigate">
@@ -85,6 +90,13 @@
             <div><a href="../assets/js/components/click_particles.js" target="_blank">Source</a></div>
             <p>Click ANYWHERE in this page and see what happens.</p>
             <br/>
+            <h2>Hover Tooltips</h2>
+            <p>看这里然后<a href="javascript:void 0;" class="need-tooltip">点我</a>，看看发生什么。</p>
+            <div id="tooltip-content-1" class="tooltip-content" style="display: none;">
+            <p>第一行文字</p>
+            <p>第二行文字</p>
+            </div>
+        </div>
         </div>
         <div id="footer" style="clear:both;text-align:center;">
             <hr/>
