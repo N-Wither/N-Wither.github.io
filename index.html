@@ -16,10 +16,15 @@
             startTime()
         }
     </script>
+    <!-- external js libs -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
     <script src="./assets/js/components/click_particles.js"></script>
     <link rel="stylesheet" href="./assets/css/components/click_particles.css">
     <script src="./assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/hover-tooltip.js" defer></script>
+    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/hover-tooltip.css">
     
     <style>
         .worlds {
@@ -60,6 +65,10 @@
         }
         .region-logo :first-child {
             text-align: center;
+        }
+
+        .need-tooltip {
+            cursor: help;
         }
     </style>
 </head>
@@ -106,60 +115,94 @@
             <div class="region-container">
                 <div class="container">
                     <div class="region">
-                        <div class="logo region-logo"><span>CHINA</span><img src="https://n-wither.github.io/assets/imgs/lol/lpl_10.png" alt="LPL"><span>LPL</span></div>
-                        <div class="logo"><span>LPL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/00/JD_Gaminglogo_square.png" alt="JDG"><span>JDG</span></div>
-                        <div class="logo"><span>LPL#2</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1682322954525_Bilibili_Gaming_logo_20211.png" alt="BLG"><span>BLG</span></div>
-                        <div class="logo"><span>LPL#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d5/LNG_Esportslogo_square.png" alt="LNG"><span>LNG</span></div>
-                        <div class="logo"><span>LPL#4</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1641202879910_3.png" alt="WBG"><span>WBG</span></div>
+                        <div class="logo region-logo"><span>CHINA</span><img src="https://n-wither.github.io/assets/imgs/lol/lpl_10.png" alt="LPL"><span class="need-tooltip">LPL</span></div>
+                        <div class="logo"><span>LPL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/00/JD_Gaminglogo_square.png" alt="JDG"><span class="need-tooltip">JDG</span></div>
+                        <div class="logo"><span>LPL#2</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1682322954525_Bilibili_Gaming_logo_20211.png" alt="BLG"><span class="need-tooltip">BLG</span></div>
+                        <div class="logo"><span>LPL#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d5/LNG_Esportslogo_square.png" alt="LNG"><span class="need-tooltip">LNG</span></div>
+                        <div class="logo"><span>LPL#4</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1641202879910_3.png" alt="WBG"><span class="need-tooltip">WBG</span></div>
                     </div>
                     <div class="region">
-                        <div class="logo region-logo"><span>KOREA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/lck-color-on-black.png" alt="LCK"><span>LCK</span></div>
-                        <div class="logo"><span>LCK#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1655210113163_GenG_logo_200407-05.png" alt="GEN"><span>GEN</span></div>
-                        <div class="logo"><span>LCK#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9c/T1logo_SK_telecom.png" alt="T1"><span>T1</span></div>
-                        <div class="logo"><span>LCK#3</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/kt_darkbackground.png" alt="KT"><span>KT</span></div>
-                        <div class="logo"><span>LCK#4</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673260049703_DPlusKIALOGO11.png" alt="DK"><span>DK</span></div>
+                        <div class="logo region-logo"><span>KOREA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/lck-color-on-black.png" alt="LCK"><span class="need-tooltip">LCK</span></div>
+                        <div class="logo"><span>LCK#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1655210113163_GenG_logo_200407-05.png" alt="GEN"><span class="need-tooltip">GEN</span></div>
+                        <div class="logo"><span>LCK#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9c/T1logo_SK_telecom.png" alt="T1"><span class="need-tooltip">T1</span></div>
+                        <div class="logo"><span>LCK#3</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/kt_darkbackground.png" alt="KT"><span class="need-tooltip">KT</span></div>
+                        <div class="logo"><span>LCK#4</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673260049703_DPlusKIALOGO11.png" alt="DK"><span class="need-tooltip">DK</span></div>
                     </div>
                     <div class="region">
-                        <div class="logo region-logo"><span>EMEA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516184297_LEC-01-FullonDark.png" alt="LEC"><span>LEC</span></div>
-                        <div class="logo"><span>LEC#2**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/77/G2_Esportslogo_square.png" alt="G2"><span>G2</span></div>
-                        <div class="logo"><span>LEC#3**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/fc/Fnaticlogo_square.png" alt="FNC"><span>FNC</span></div>
-                        <div class="logo"><span>LEC#3**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3c/MAD_Lionslogo_square.png" alt="MAD"><span>MAD</span></div>
-                        <div class="logo"><span>LEC#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9e/Team_BDSlogo_square.png" alt="BDS"><span>BDS</span></div>
+                        <div class="logo region-logo"><span>EMEA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516184297_LEC-01-FullonDark.png" alt="LEC"><span class="need-tooltip">LEC</span></div>
+                        <div class="logo"><span>LEC#2**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/77/G2_Esportslogo_square.png" alt="G2"><span class="need-tooltip">G2</span></div>
+                        <div class="logo"><span>LEC#3**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/fc/Fnaticlogo_square.png" alt="FNC"><span class="need-tooltip">FNC</span></div>
+                        <div class="logo"><span>LEC#3**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3c/MAD_Lionslogo_square.png" alt="MAD"><span class="need-tooltip">MAD</span></div>
+                        <div class="logo"><span>LEC#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9e/Team_BDSlogo_square.png" alt="BDS"><span class="need-tooltip">BDS</span></div>
                     </div>
                     <div class="region">
-                        <div class="logo region-logo"><span>NORTH AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/LCSNew-01-FullonDark.png" alt="LCS"><span>LCS</span></div>
-                        <div class="logo"><span>LCS#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1681501735148_NRG_PRIMARY_LIGHT.png" alt="NRG"><span>NRG</span></div>
-                        <div class="logo"><span>LCS#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/Cloud9logo_square.png" alt="C9"><span>C9</span></div>
-                        <div class="logo"><span>LCS#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f4/Team_Liquidlogo_square.png" alt="TL"><span>TL</span></div>
-                        <div class="logo"><span>LCS#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png" alt="GG"><span>GG</span></div>
+                        <div class="logo region-logo"><span>NORTH AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/LCSNew-01-FullonDark.png" alt="LCS"><span class="need-tooltip">LCS</span></div>
+                        <div class="logo"><span>LCS#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1681501735148_NRG_PRIMARY_LIGHT.png" alt="NRG"><span class="need-tooltip">NRG</span></div>
+                        <div class="logo"><span>LCS#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/Cloud9logo_square.png" alt="C9"><span class="need-tooltip">C9</span></div>
+                        <div class="logo"><span>LCS#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f4/Team_Liquidlogo_square.png" alt="TL"><span class="need-tooltip">TL</span></div>
+                        <div class="logo"><span>LCS#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png" alt="GG"><span class="need-tooltip">GG</span></div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="region">
-                        <div class="logo region-logo"><span>PACIFIC</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592515942679_PCS-01-FullonDark.png" alt="PCS"><span>PCS</span></div>
-                        <div class="logo"><span>PCS#2**</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1656307849320_CFO_Logo.png" alt="CFO"><span>CFO</span></div>
-                        <div class="logo"><span>PCS#2**</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1644501567410_PSG_3.png" alt="PSG"><span>PSG</span></div>
+                        <div class="logo region-logo"><span>PACIFIC</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592515942679_PCS-01-FullonDark.png" alt="PCS"><span class="need-tooltip">PCS</span></div>
+                        <div class="logo"><span>PCS#2**</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1656307849320_CFO_Logo.png" alt="CFO"><span class="need-tooltip">CFO</span></div>
+                        <div class="logo"><span>PCS#2**</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1644501567410_PSG_3.png" alt="PSG"><span class="need-tooltip">PSG</span></div>
                     </div>
                     <div class="region">
-                        <div class="logo region-logo"><span>VIETNAM</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1677578094811_VCS_SYMBOL_TITANIUM_RGB.png" alt="VCS"><span>VCS</span></div>
-                        <div class="logo"><span>VCS#2**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8a/GAM_Esportslogo_square.png" alt="GAM"><span>GAM</span></div>
-                        <div class="logo"><span>VCS#2**</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1674646643550_TEAMWHALE_LOGO_VERSIONS_W_fullwhite-06-svg.png" alt="TW"><span>TW</span></div>
+                        <div class="logo region-logo"><span>VIETNAM</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1677578094811_VCS_SYMBOL_TITANIUM_RGB.png" alt="VCS"><span class="need-tooltip">VCS</span></div>
+                        <div class="logo"><span>VCS#2**</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8a/GAM_Esportslogo_square.png" alt="GAM"><span class="need-tooltip">GAM</span></div>
+                        <div class="logo"><span>VCS#2**</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1674646643550_TEAMWHALE_LOGO_VERSIONS_W_fullwhite-06-svg.png" alt="TW"><span class="need-tooltip">TW</span></div>
                     </div>
                     <div class="region">
-                        <div class="logo region-logo"><span>JAPAN</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516354053_LJL-01-FullonDark.png" alt="LJL"><span>LJL</span></div>
-                        <div class="logo"><span>LJL#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673415140442_dfm.png" alt="DFM"><span>DFM</span></div>
+                        <div class="logo region-logo"><span>JAPAN</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516354053_LJL-01-FullonDark.png" alt="LJL"><span class="need-tooltip">LJL</span></div>
+                        <div class="logo"><span>LJL#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673415140442_dfm.png" alt="DFM"><span class="need-tooltip">DFM</span></div>
                         <div class="logo"></div>
-                        <div class="logo region-logo"><span>BRAZIL</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/cblol-logo-symbol-offwhite.png" alt="CBLOL"><span>CBLOL</span></div>
-                        <div class="logo"><span>CBLOL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span>TBD</span></div>
+                        <div class="logo region-logo"><span>BRAZIL</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/cblol-logo-symbol-offwhite.png" alt="CBLOL"><span class="need-tooltip">CBLOL</span></div>
+                        <div class="logo"><span>CBLOL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d9/Logo_square.png" alt="TBD"><span class="need-tooltip">TBD</span></div>
                     </div>
                     <div class="region">
-                        <div class="logo region-logo"><span>LATIN AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516315279_LLA-01-FullonDark.png" alt="LLA"><span>LLA</span></div>
-                        <div class="logo"><span>LLA#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2a/Movistar_R7logo_square.png" alt="R7"><span>R7</span></div>
+                        <div class="logo region-logo"><span>LATIN AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516315279_LLA-01-FullonDark.png" alt="LLA"><span class="need-tooltip">LLA</span></div>
+                        <div class="logo"><span>LLA#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2a/Movistar_R7logo_square.png" alt="R7"><span class="need-tooltip">R7</span></div>
                     </div>
                 </div>
             </div>
             <p>* LEC#4 and LCS#4 will compete in Worlds Qualifying Series for the last chance to Worlds 2023.</p>
             <p>** Lowest possible seed.</p>
+        </div>
+        <div style="display: none;">
+            <span class="tooltip-content" id="tooltip-content-1">LoL Pro League</span>
+            <span class="tooltip-content" id="tooltip-content-2">JD Gaming</span>
+            <span class="tooltip-content" id="tooltip-content-3">Bilibili Gaming</span>
+            <span class="tooltip-content" id="tooltip-content-4">LNG Esports</span>
+            <span class="tooltip-content" id="tooltip-content-5">Weibo Gaming</span>
+            <span class="tooltip-content" id="tooltip-content-6">LoL Champions Korea</span>
+            <span class="tooltip-content" id="tooltip-content-7">Gen.G</span>
+            <span class="tooltip-content" id="tooltip-content-8">T1</span>
+            <span class="tooltip-content" id="tooltip-content-9">KT Rolster</span>
+            <span class="tooltip-content" id="tooltip-content-10">Dplus KIA</span>
+            <span class="tooltip-content" id="tooltip-content-11">LoL EMEA Championship</span>
+            <span class="tooltip-content" id="tooltip-content-12">G2 Esports</span>
+            <span class="tooltip-content" id="tooltip-content-13">Fnatic</span>
+            <span class="tooltip-content" id="tooltip-content-14">MAD Lions</span>
+            <span class="tooltip-content" id="tooltip-content-15">Team BDS</span>
+            <span class="tooltip-content" id="tooltip-content-16">League Championship Series</span>
+            <span class="tooltip-content" id="tooltip-content-17">NRG</span>
+            <span class="tooltip-content" id="tooltip-content-18">Cloud 9</span>
+            <span class="tooltip-content" id="tooltip-content-19">Team Liquid</span>
+            <span class="tooltip-content" id="tooltip-content-20">Golden Guardians</span>
+            <span class="tooltip-content" id="tooltip-content-21">Pacific Championship Series</span>
+            <span class="tooltip-content" id="tooltip-content-22">CTBC Flying Oyster</span>
+            <span class="tooltip-content" id="tooltip-content-23">PSG Talon</span>
+            <span class="tooltip-content" id="tooltip-content-24">Vietnam Championship Series</span>
+            <span class="tooltip-content" id="tooltip-content-25">GAM Esports</span>
+            <span class="tooltip-content" id="tooltip-content-26">Team Whales</span>
+            <span class="tooltip-content" id="tooltip-content-27">LoL Japan League</span>
+            <span class="tooltip-content" id="tooltip-content-28">DetonatioN FocusMe</span>
+            <span class="tooltip-content" id="tooltip-content-29">CBLOL</span>
+            <span class="tooltip-content" id="tooltip-content-30">To Be Decided</span>
+            <span class="tooltip-content" id="tooltip-content-31">Liga Latinamerica</span>
+            <span class="tooltip-content" id="tooltip-content-32">Movistar R7</span>
         </div>
     </div>
     <div class="page-footer">

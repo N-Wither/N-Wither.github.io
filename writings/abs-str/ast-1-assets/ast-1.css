@@ -231,12 +231,12 @@
 }
 
 /* Components */
-.tooltip {
-  position: fixed;
-  transition: all 0.2s;
-  padding: 0.8rem;
-  background: var(--dark-gray-color);
-  color: var(--text-color);
+.need-tooltip {
+  font-family: "Metropolis", "Readex Pro", "Noto Sans SC";
+}
+
+.tippy-box {
+  font-family: "Metropolis", "Readex Pro", "Noto Sans SC";
 }
 
 /*# sourceMappingURL=ast-1.css.map */
