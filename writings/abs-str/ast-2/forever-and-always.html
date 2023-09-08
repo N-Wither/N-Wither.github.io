@@ -18,11 +18,14 @@
     </script>
     <!-- external js libs -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
     <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/collapsible-block.js" defer></script>
     <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/collapsible-block.css">
     <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/hover-tooltip.js" defer></script>
+    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/hover-tooltip.css">
     <!-- styles -->
     <link rel="stylesheet" href="./ast-2-assets/ast-2.css">
     <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
@@ -163,12 +166,46 @@
             <p>“所以，这有什么用？”</p>
             <p>“你害怕我吗？”</p>
             <p>“不，为什么问我这个？”</p>
-            <p>“我不是那种会无故伤害别人的神，但是人们面对我的时候我总是能感受到他们的恐惧，这是因为人们在面对比自己强大的对象的时候都会在潜意识中觉得这可能给自己带来危险，当然也有一部分我自己的原因。但你没有，你的理智告诉你我是没有危险的，所以你就没有害怕。”</p>
+            <p>“我不是那种会无故伤害别人的神，但是人们面对我的时候我总是能感受到他们的恐惧，这是因为人们在面对比自己强大的对象的时候都会在潜意识中觉得这可能给自己带来危险，当然也有一部分我自己的原因<a href="javascript:void 0;" class="need-tooltip"><sup>1</sup></a>。但你没有，你的理智告诉你我是没有危险的，所以你就没有害怕，这很难得。”</p>
+            <p>“他们确实有跟我说过我面对那些会影响认知的异常的时候能不受影响。”</p>
+            <p>“没错，你天生就适合去调查异常。”</p>
+            <p>“如果他们给钱的话我当然会去的，我对那种老套的‘使命’之类的东西不感冒。”</p>
+            <p>“也好，” Khroni 轻笑了一下，“你还有什么想从我这里知道的吗？”</p>
+            <p>“你知道历史的真相吗？”</p>
+            <p>“我理解你的想法，遗憾的是我不负责记录，所以我记得的东西也不会比你们记录的更多。不过，如果你想知道某个特定的时间点发生了什么，我可以带你去看。”</p>
+            <p>我没有马上回答，虽然我知道 Khroni 穿梭时间比我走路还容易，但是……</p>
+            <p>“还是以后再说吧。”</p>
+            <p>“为什么？”</p>
+            <p>“虽然我确实想知道一些事情，不过……我觉得还是让它们暂时保持神秘好了。”</p>
+            <p>“我尊重你的想法，那么你还有什么问题吗？”</p>
+            <p>“嗯，你有信徒吗？”</p>
+            <p>“当然，不过我并不依赖他们<a href="javascript:void 0;" class="need-tooltip"><sup>2</sup></a>，所以我跟他们的交流很少。”</p>
+            <p>“嗯，我还有最后一个问题。”</p>
+            <p>“说吧。”</p>
+            <p>“时间的本质是什么？”</p>
+            <p>在问出这个问题后，我看到 Khroni 的神情有些变化。</p>
+            <p>“我不知道，可能作为时间之神不知道时间是什么有些可笑，但是你们人类的哲学家也一直在探讨人的本质，所以，我觉得这也没有什么。”</p>
+            <p>她停顿了一会，可能是在思考什么。</p>
+            <p>“不过我也不是没有想过这个问题，我也经历过很多年代了，如果要我说我对时间的理解的话，我认为是变化，如果一切都不再变化的话，那时间也没有意义了，对吧？但是，无论时间过去多久，一些事情会改变，一些事情会被忘记，但我一直都会在这里，或许这也意味着变化本身是永恒不变的。”</p>
+            <p>“那，我没有什么要问的了。”</p>
+            <p>“那么，你是想再在这里四处看看，还是我现在送你回去？”</p>
+            <p>“我觉得我的事情都做完了。”</p>
+            <hr class="break">
+            <p>Khroni 直接把我送到了山脚下，可能是不想让我再复刻之前的错误，临走前她告诉我以后想来的话可以再来。</p>
+            <p>或许是我高 CRV 的原因，我觉得 Khroni 完全不像想象中的神那样威严，也有可能是她本身就是比较好说话的神，总之跟她的交流很愉快。</p>
+            <p>说起来，这里的游客好像很多来着。既然我不缺时间，那就再待上几天吧。</p>
         </div>
-        <div class="tooltip"></div>
+        <hr>
+        <div class="collapsible info">
+            <div class="open-link">显示脚注</div>
+            <div class="close-link">隐藏脚注</div>
+            <div class="content">
+                <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-1">神性实体强大的 Akiva 辐射可能会影响人的心智。</span></p>
+                <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-2">大部分的神依赖信仰存续，但 Khroni 这一类代表现实世界本身的性质的神不需要。</span></p>
+            </div>
+        </div>
     </div>
     <div class="page-footer">
-        <hr>
         <span id="randomQuote">Random Quote</span>
         <br>
         Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.

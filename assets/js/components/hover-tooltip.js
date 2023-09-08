@@ -1,4 +1,5 @@
-// First import Popper.js from here: https://unpkg.com/@popperjs/core@2 and https://unpkg.com/tippy.js@6
+// First import Popper.js from here: https://unpkg.com/@popperjs/core@2
+// Then import Tippy.js from here https://unpkg.com/tippy.js@6
 
 let needTooltip = document.querySelectorAll('.need-tooltip')
 let tooltipContents = document.querySelectorAll('.tooltip-content')
@@ -19,8 +20,10 @@ let tippyConfig = {
 
 needTooltip.forEach((el, i) => {
     if(needTooltip.length == 0 || tooltipContents.length == 0) return;
+    let error = document.createElement('div')
+    error.innerHTML = 'Error: content not found.'
     let index = el.getAttribute('tooltip-index') || (i + 1)
-    let content = document.querySelector(`#tooltip-content-${index}`) || 'Error: content not found.'
+    let content = document.querySelector(`#tooltip-content-${index}`) || error
     let tooltip = tippy(el, {content: content.innerHTML, ...tippyConfig})
     tooltip.popper.firstChild.dataset.index = el.textContent
     // console.log(tooltip.popper)

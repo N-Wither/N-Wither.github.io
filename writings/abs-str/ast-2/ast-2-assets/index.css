@@ -1,0 +1,68 @@
+.story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(0deg, #00000044, #00000044);
+    background-size: 100%;
+    background-position: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: all .2s;
+    text-shadow: #333333 2px 2px 6px;
+    position: relative;
+    color: white;
+}
+
+.story .type {
+    font-size: 0.6rem;
+    z-index: 1;
+}
+
+.story .s-title {
+    font-size: 2rem;
+    font-weight: bolder;
+    z-index: 1;
+}
+
+.story .summary {
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+.story a {
+    color: white;
+}
+
+.story:hover, .story:has(a:hover, a:focus) {
+    background-size: 120%;
+}
+
+.story .bg-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #00000044;
+    z-index: 0;
+}
+
+.worldview {
+    background-color: #00000044;
+    padding: 0.5rem;
+}
+
+.story a {
+    color: #fff;
+    background: linear-gradient(to right, #b831a6, #b831a6) no-repeat right bottom;
+    background-size: 0 2px;
+    transition: 200ms;
+    text-decoration: none;
+}
+
+.story a:hover, .story a:focus {
+    background-position-x: left;
+    background-size: 100% 2px;
+    color: #b831a6;
+}
