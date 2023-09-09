@@ -71,26 +71,24 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-let AJAXSomething = async (element, type) => {
+/**
+ * Ajax someting.
+ * @param {HTMLElement} element 
+ * @param {boolean} log
+ */
+let AJAXSomething = (element, log) => {
     let src = element.dataset.src
     let request = new XMLHttpRequest()
-    let result = 'Waiting AJAX...'
     request.onreadystatechange = () => {
         if (request.readyState == 4 && request.status == 200) {
-            switch(type){
-                case 'text': result = request.responseText; break;
-                case 'xml': result = request.responseXML; break;
-                default: element.innerHTML = request.responseText; break;
-            }
-            console.log('AJAX done: ' + src)
-        } else if (request.readyState == 4 && request.status == 200){
+            element.innerHTML = request.responseText; 
+            if(log) console.log('AJAX request done: ' + src)
+        } else if (request.readyState == 4 && request.status != 200){
             console.error(`AJAX request failed: ${request.status}`)
         }
     }
     request.open('GET', src)
     request.send()
-    console.log(result)
-    return result;
 }
 
 Array.prototype.getRandom = function() {
