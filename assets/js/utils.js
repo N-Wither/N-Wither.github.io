@@ -46,61 +46,6 @@ function randomQuote() {
     document.getElementById('randomQuote').innerHTML = quotes.getRandom();
 }
 
-// Footnote system
-function tagNotes() {
-    let notesInText = document.querySelectorAll('.note')
-    notesInText.forEach((note) => {
-        let nth = note.textContent
-        if(nth == ''){
-            nth = note.getAttribute('nth')
-        }
-        note.setAttribute('id', `note-${nth}`)
-        note.setAttribute('onclick', `showNote(${nth})`)
-        note.addEventListener('mouseenter', () => {
-            showNote(nth)
-        })
-        note.addEventListener('mouseleave', () => {
-            offNote(nth)
-        })
-        note.innerHTML = `<a href="javascript:;" onclick="showNote(${nth})">${nth}</a>`
-    })
-}
-
-function showNote(index) {
-    let content = document.querySelector(`#footnote-${index}`).innerHTML
-    let box = document.querySelector('.tooltip')
-    if(box == null){
-        box = document.createElement('div')
-        box.classList.add('tooltip')
-        document.body.appendChild(box)
-    }
-    box.innerHTML = content
-    box.style.opacity = 1
-    document.addEventListener('mousemove', e => {
-        box.style.left = e.clientX + 10 + 'px'
-        box.style.top = e.clientY + 10 + 'px'
-    })
-}
-
-function offNote() {
-    let box = document.querySelector('.tooltip')
-    box.style.opacity = 0
-}
-
-let toolboxGrip = document.querySelector('.toolbox-grip')
-if(toolboxGrip != null){
-    toolboxGrip.addEventListener('click', () => {
-        let toolbox = document.querySelector('#toolbox')
-        if(!toolbox.classList.contains('show')){
-            toolbox.classList.add('show')
-            document.querySelector('.toolbox-grip').textContent = '>>>'
-        }else{
-            toolbox.classList.remove('show')
-            document.querySelector('.toolbox-grip').textContent = '|||'
-        }
-    })
-}
-
 // Tool functions
 /**
  * Toggle a element's class.
@@ -124,6 +69,28 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+let AJAXSomething = async (element, type) => {
+    let src = element.dataset.src
+    let request = new XMLHttpRequest()
+    let result = 'Waiting AJAX...'
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200) {
+            switch(type){
+                case 'text': result = request.responseText; break;
+                case 'xml': result = request.responseXML; break;
+                default: element.innerHTML = request.responseText; break;
+            }
+            console.log('AJAX done: ' + src)
+        } else if (request.readyState == 4 && request.status == 200){
+            console.error(`AJAX request failed: ${request.status}`)
+        }
+    }
+    request.open('GET', src)
+    request.send()
+    console.log(result)
+    return result;
 }
 
 Array.prototype.getRandom = function() {
