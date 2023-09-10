@@ -95,9 +95,9 @@
   --text-color: white;
 }
 .moba-scoreboard[theme=lec], .moba-scoreboard-mobile[theme=lec] {
-  --main-bg: #020219;
-  --blue-bg: #00cbb9;
-  --blue-color: #00cbb9;
+  --main-bg: #040017;
+  --blue-bg: #00e6be;
+  --blue-color: #00e6be;
   --red-bg: #ff5c15;
   --red-color: #ff5c15;
   --text-color: #ffffff;
