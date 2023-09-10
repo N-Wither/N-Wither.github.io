@@ -70,7 +70,7 @@ let AJAXSomething = (element, log) => {
     let request = new XMLHttpRequest()
     request.onreadystatechange = () => {
         if (request.readyState == 4 && request.status == 200) {
-            element.innerHTML = request.responseText; 
+            element.innerHTML = request.responseText;
             if(log) console.log('AJAX request done: ' + src)
         } else if (request.readyState == 4 && request.status != 200){
             console.error(`AJAX request failed: ${request.status}`)
