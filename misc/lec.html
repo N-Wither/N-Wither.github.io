@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/imgs/lol/lec-final.png">
+    <title>LEC</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, rgba(238,241,188,1) 0%, rgba(32,156,144,1) 50%, rgba(15,3,17,1) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .border {
+            border: 90px solid transparent;
+            border-image: url('../assets/imgs/lol/lec-border.png') 180 180 repeat;
+            width: calc(100% - 180px);
+            height: calc(100% - 180px);
+            position: fixed;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        .lec {
+            font-size: 12rem;
+            font-family: Bebas Neue;
+        }
+        .place {
+            font-size: 5.3rem;
+            font-family: Bebas Neue;
+            transform: skewX(30deg) translate(0, 2.0rem);
+        }
+        .event {
+            font-size: 5.3rem;
+            font-family: 宋体;
+            transform: skewX(-30deg) translate(-2rem, -0.0rem) scaleX(0.8);
+            word-spacing: -20px;
+        }
+        .place-event {
+            transform: translate(0, -0.2rem);
+        }
+        img {
+            filter: brightness(0) invert();
+        }
+        img[alt=LEC]{
+            width: 13rem;
+            height: 13rem;
+        }
+        .info1, .info2 {
+            display: flex;
+            gap: 1rem;
+        }
+        .info2 img{
+            height: 8rem;
+        }
+        .vs {
+            margin: auto;
+            font-size: 3rem;
+            font-family: Bebas Neue;
+        }
+    </style>
+</head>
+<body>
+    <div class="border">
+        <div class="info1">
+            <img src="../assets/imgs/lol/lec-final.png" alt="LEC">
+            <div class="lec">LEC</div>
+            <div class="place-event">
+                <div class="place">MONTPELLIER</div>
+                <div class="event">FINALS 2023</div>
+            </div>
+        </div>
+        <div class="info2">
+            <img src="https://am-a.akamaihd.net/image?resize=500:&f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2FG2-FullonDark.png" alt="G2">
+            <div class="vs"><span>VS</span></div>
+            <img src="https://am-a.akamaihd.net/image?resize=500:&f=http%3A%2F%2Fstatic.lolesports.com%2Fteams%2F1631819669150_fnc-2021-worlds.png" alt="FNC">
+        </div>
+    </div>
+</body>
+</html>

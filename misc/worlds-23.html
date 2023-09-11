@@ -26,6 +26,9 @@
     <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
     <script src="../assets/js/components/hover-tooltip.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/hover-tooltip.css">
+    <script src="../assets/js/components/match-schedule.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/components/match-schedule.css">
+    <script src="../assets/js/page-specific/worlds-23.js" defer></script>
     <!-- styles -->
     <link rel="stylesheet" href="../assets/css/page-specific/worlds.css">
 </head>
@@ -63,54 +66,54 @@
                 <div class="container">
                     <div class="region">
                         <div class="logo region-logo"><span>CHINA</span><img src="https://n-wither.github.io/assets/imgs/lol/lpl_10.png" alt="LPL" class="light-change"><span class="need-tooltip">LPL</span></div>
-                        <div class="logo"><span>LPL#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/00/JD_Gaminglogo_square.png" alt="JDG"><span class="need-tooltip">JDG</span></div>
-                        <div class="logo"><span>LPL#2</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1682322954525_Bilibili_Gaming_logo_20211.png" alt="BLG"><span class="need-tooltip">BLG</span></div>
-                        <div class="logo"><span>LPL#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d5/LNG_Esportslogo_square.png" alt="LNG"><span class="need-tooltip">LNG</span></div>
-                        <div class="logo"><span>LPL#4</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1641202879910_3.png" alt="WBG"><span class="need-tooltip">WBG</span></div>
+                        <div class="logo"><span>LPL#1</span><div class="logo" data-team="JDG"></div><span class="need-tooltip">JDG</span></div>
+                        <div class="logo"><span>LPL#2</span><div class="logo" data-team="BLG"></div><span class="need-tooltip">BLG</span></div>
+                        <div class="logo"><span>LPL#3</span><div class="logo" data-team="LNG"></div><span class="need-tooltip">LNG</span></div>
+                        <div class="logo"><span>LPL#4</span><div class="logo" data-team="WBG"></div><span class="need-tooltip">WBG</span></div>
                     </div>
                     <div class="region">
                         <div class="logo region-logo"><span>KOREA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/lck-color-on-black.png" alt="LCK" class="light-change"><span class="need-tooltip">LCK</span></div>
-                        <div class="logo"><span>LCK#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1655210113163_GenG_logo_200407-05.png" alt="GEN"><span class="need-tooltip">GEN</span></div>
-                        <div class="logo"><span>LCK#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9c/T1logo_SK_telecom.png" alt="T1"><span class="need-tooltip">T1</span></div>
-                        <div class="logo"><span>LCK#3</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/kt_darkbackground.png" alt="KT"><span class="need-tooltip">KT</span></div>
-                        <div class="logo"><span>LCK#4</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673260049703_DPlusKIALOGO11.png" alt="DK"><span class="need-tooltip">DK</span></div>
+                        <div class="logo"><span>LCK#1</span><div class="logo" data-team="GEN"></div><span class="need-tooltip">GEN</span></div>
+                        <div class="logo"><span>LCK#2</span><div class="logo" data-team="T1"></div><span class="need-tooltip">T1</span></div>
+                        <div class="logo"><span>LCK#3</span><div class="logo" data-team="KT"></div><span class="need-tooltip">KT</span></div>
+                        <div class="logo"><span>LCK#4</span><div class="logo" data-team="DK"></div><span class="need-tooltip">DK</span></div>
                     </div>
                     <div class="region">
                         <div class="logo region-logo"><span>EMEA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516184297_LEC-01-FullonDark.png" alt="LEC"><span class="need-tooltip">LEC</span></div>
-                        <div class="logo"><span>LEC#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/77/G2_Esportslogo_square.png" alt="G2"><span class="need-tooltip">G2</span></div>
-                        <div class="logo"><span>LEC#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/fc/Fnaticlogo_square.png" alt="FNC"><span class="need-tooltip">FNC</span></div>
-                        <div class="logo"><span>LEC#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3c/MAD_Lionslogo_square.png" alt="MAD"><span class="need-tooltip">MAD</span></div>
-                        <div class="logo"><span>LEC#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9e/Team_BDSlogo_square.png" alt="BDS"><span class="need-tooltip">BDS</span></div>
+                        <div class="logo"><span>LEC#1</span><div class="logo" data-team="G2"></div><span class="need-tooltip">G2</span></div>
+                        <div class="logo"><span>LEC#2</span><div class="logo" data-team="FNC"></div><span class="need-tooltip">FNC</span></div>
+                        <div class="logo"><span>LEC#3</span><div class="logo" data-team="MAD"></div><span class="need-tooltip">MAD</span></div>
+                        <div class="logo"><span>LEC#4*</span><div class="logo" data-team="BDS"></div><span class="need-tooltip">BDS</span></div>
                     </div>
                     <div class="region">
                         <div class="logo region-logo"><span>NORTH AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/LCSNew-01-FullonDark.png" alt="LCS"><span class="need-tooltip">LCS</span></div>
-                        <div class="logo"><span>LCS#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1681501735148_NRG_PRIMARY_LIGHT.png" alt="NRG"><span class="need-tooltip">NRG</span></div>
-                        <div class="logo"><span>LCS#2</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/Cloud9logo_square.png" alt="C9"><span class="need-tooltip">C9</span></div>
-                        <div class="logo"><span>LCS#3</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f4/Team_Liquidlogo_square.png" alt="TL"><span class="need-tooltip">TL</span></div>
-                        <div class="logo"><span>LCS#4*</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png" alt="GG"><span class="need-tooltip">GG</span></div>
+                        <div class="logo"><span>LCS#1</span><div class="logo" data-team="NRG"></div><span class="need-tooltip">NRG</span></div>
+                        <div class="logo"><span>LCS#2</span><div class="logo" data-team="C9"></div><span class="need-tooltip">C9</span></div>
+                        <div class="logo"><span>LCS#3</span><div class="logo" data-team="TL"></div><span class="need-tooltip">TL</span></div>
+                        <div class="logo"><span>LCS#4*</span><div class="logo" data-team="GG"></div><span class="need-tooltip">GG</span></div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="region">
                         <div class="logo region-logo"><span>PACIFIC</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592515942679_PCS-01-FullonDark.png" alt="PCS"><span class="need-tooltip">PCS</span></div>
-                        <div class="logo"><span>PCS#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1644501567410_PSG_3.png" alt="PSG"><span class="need-tooltip">PSG</span></div>
-                        <div class="logo"><span>PCS#2</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1656307849320_CFO_Logo.png" alt="CFO"><span class="need-tooltip">CFO</span></div>
+                        <div class="logo"><span>PCS#1</span><div class="logo" data-team="PSG"></div><span class="need-tooltip">PSG</span></div>
+                        <div class="logo"><span>PCS#2</span><div class="logo" data-team="CFO"></div><span class="need-tooltip">CFO</span></div>
                     </div>
                     <div class="region">
                         <div class="logo region-logo"><span>VIETNAM</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1677578094811_VCS_SYMBOL_TITANIUM_RGB.png" alt="VCS"><span class="need-tooltip">VCS</span></div>
-                        <div class="logo"><span>VCS#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8a/GAM_Esportslogo_square.png" alt="GAM"><span class="need-tooltip">GAM</span></div>
-                        <div class="logo"><span>VCS#2</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1674646643550_TEAMWHALE_LOGO_VERSIONS_W_fullwhite-06-svg.png" alt="TW"><span class="need-tooltip">TW</span></div>
+                        <div class="logo"><span>VCS#1</span><div class="logo" data-team="GAM"></div><span class="need-tooltip">GAM</span></div>
+                        <div class="logo"><span>VCS#2</span><div class="logo" data-team="TW"></div><span class="need-tooltip">TW</span></div>
                     </div>
                     <div class="region">
                         <div class="logo region-logo"><span>JAPAN</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516354053_LJL-01-FullonDark.png" alt="LJL"><span class="need-tooltip">LJL</span></div>
-                        <div class="logo"><span>LJL#1</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673415140442_dfm.png" alt="DFM"><span class="need-tooltip">DFM</span></div>
+                        <div class="logo"><span>LJL#1</span><div class="logo" data-team="DFM"></div><span class="need-tooltip">DFM</span></div>
                         <div class="logo"></div>
                         <div class="logo region-logo"><span>BRAZIL</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/cblol-logo-symbol-offwhite.png" alt="CBLOL"><span class="need-tooltip">CBLOL</span></div>
-                        <div class="logo"><span>CBLOL#1</span><img src="https://am-a.akamaihd.net/image?resize=140:&f=http://static.lolesports.com/teams/Logo-LOUD-Esports_Original.png" alt="LLL"><span class="need-tooltip">LLL</span></div>
+                        <div class="logo"><span>CBLOL#1</span><div class="logo" data-team="LLL"></div><span class="need-tooltip">LLL</span></div>
                     </div>
                     <div class="region">
                         <div class="logo region-logo"><span>LATIN AMERICA</span><img src="https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/leagues/1592516315279_LLA-01-FullonDark.png" alt="LLA"><span class="need-tooltip">LLA</span></div>
-                        <div class="logo"><span>LLA#1</span><img src="https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2a/Movistar_R7logo_square.png" alt="R7"><span class="need-tooltip">R7</span></div>
+                        <div class="logo"><span>LLA#1</span><div class="logo" data-team="R7"></div><span class="need-tooltip">R7</span></div>
                     </div>
                 </div>
             </div>
@@ -118,12 +121,288 @@
         </div>
         <h2>Match Schedule & Results</h2>
         <h3>Worlds Qualifying Series</h3><a href="javascript:void 0;" class="need-tooltip" data-tooltip-index="About WQS">(?)</a>
-        <div></div>
+        <div class="match-schedule" data-round="1" data-row="5">
+            <div class="item header">WQS</div>
+            <div class="item info">Qualification Match</div>
+            <div class="item team"><div class="logo" data-team="BDS"></div><div class="name">BDS</div><div class="score">0</div></div>
+            <div class="item team"><div class="logo" data-team="GG"></div><div class="name">GG</div><div class="score">0</div></div>
+            <div class="item info time">2023/10/09 12:00</div>
+        </div>
         <h3>Play-in Stage</h3><a href="javascript:void 0;" class="need-tooltip" data-tooltip-index="About Play-in">(?)</a>
-        <div></div>
+        <div class="flex-wrap">
+            <div class="bracket">
+                <h4>Bracket A</h4>
+                <div class="match-schedule wqs" data-row="12" data-round="2">
+                    <div class="item header">Round 1</div>
+                    <div class="item blank"></div>
+                    <div class="item team"><div class="logo" data-team="GAM"></div><div class="name">GAM</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo" data-team="LLL"></div><div class="name">LLL</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="item team"><div class="logo" data-team="PSG"></div><div class="name">PSG</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo" data-team="R7"></div><div class="name">R7</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="item info">Loser's Bracket</div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="blank" style="grid-row: 1/4;"></div>
+                    <div class="gap z"></div>
+                    <div class="gap vertical"></div>
+                    <div class="gap rl"></div>
+                    <div class="blank" style="grid-row: 7/9;"></div>
+                    <div class="gap l"></div>
+                    <div class="gap horizontal"></div>
+                    <div class="blank" style="grid-row: 11/13;"></div>
+                    <div class="item header">Round 2</div>
+                    <div class="blank" style="grid-row: 2/4;"></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="blank" style="grid-row: 7/10;"></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                </div>
+            </div>
+            <div class="bracket">
+                <h4>Bracket B</h4>
+                <div class="match-schedule wqs" data-row="12" data-round="2">
+                    <div class="item header">Round 1</div>
+                    <div class="item blank"></div>
+                    <div class="item team"><div class="logo"></div><div class="name">BDS/GG</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo" data-team="TW"></div><div class="name">TW</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="item team"><div class="logo" data-team="CFO"></div><div class="name">CFO</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo" data-team="DFM"></div><div class="name">DFM</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="item info">Loser's Bracket</div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="blank" style="grid-row: 1/4;"></div>
+                    <div class="gap z"></div>
+                    <div class="gap vertical"></div>
+                    <div class="gap rl"></div>
+                    <div class="blank" style="grid-row: 7/9;"></div>
+                    <div class="gap l"></div>
+                    <div class="gap horizontal"></div>
+                    <div class="blank" style="grid-row: 11/13;"></div>
+                    <div class="item header">Round 2</div>
+                    <div class="blank" style="grid-row: 2/4;"></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                    <div class="blank" style="grid-row: 7/10;"></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                    <div class="item info time">TBD</div>
+                </div>
+            </div>
+        </div>
+        <div class="bracket">
+            <h4>Qualifiers</h4>
+            <div class="match-schedule" data-round="2" data-row="5">
+                <div class="item header">Match 1</div>
+                <div class="item info">Qualification Match</div>
+                <div class="item team"><div class="logo"></div><div class="name">Group A#1</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">Group B#2</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="blank" style="grid-row: 1/6;"></div>
+                <div class="item header">Match 2</div>
+                <div class="item info">Qualification Match</div>
+                <div class="item team"><div class="logo"></div><div class="name">Group B#1</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">Group A#2</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+            </div>
+        </div>
         <h3>Swiss Stage</h3><a href="javascript:void 0;" class="need-tooltip" data-tooltip-index="About Swiss">(?)</a>
-        <div></div>
+        <div class="bracket">
+            <div class="match-schedule" data-round="5" data-row="31">
+                <div class="item header">Round 1</div>
+                <div class="blank"></div>
+                <div class="item header">0-0</div>
+                <div class="blank"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 13:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 14:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 15:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 16:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 17:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 18:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 19:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/19 20:00</div>
+                <div class="blank"></div>
+                <div class="blank"></div>
+                <div class="blank" style="grid-row: 1/32"></div>
+                <div class="item header">Round 2</div>
+                <div class="blank"></div>
+                <div class="item header">1-0</div>
+                <div class="blank"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 13:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 14:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 15:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 16:00</div>
+                <div class="item header">0-1</div>
+                <div class="blank"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 17:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 18:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 19:00</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">2023/10/20 20:00</div>
+                <div class="blank" style="grid-row: 1/32"></div>
+                <div class="item header">Round 3</div>
+                <div class="item header">2-0</div>
+                <div class="item info">Qualification Match</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item header">1-1</div>
+                <div class="blank"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item header">0-2</div>
+                <div class="item info">Elimination Match</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="blank" style="grid-row: 1/32;"></div>
+                <div class="item header">Round 4</div>
+                <div class="blank" style="grid-row: 2/6;"></div>
+                <div class="item header">2-1</div>
+                <div class="item info">Qualification Match</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item header">1-2</div>
+                <div class="item info">Elimination Match</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="blank" style="grid-row: 1/32;"></div>
+                <div class="item header">Round 5</div>
+                <div class="blank" style="grid-row: 2/11;"></div>
+                <div class="item header">2-2</div>
+                <div class="item info">Qualification Match</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+            </div>
+        </div>
         <h3>Knockout Stage</h3><a href="javascript:void 0;" class="need-tooltip" data-tooltip-index="About Knockout">(?)</a>
+        <div class="bracket">
+            <div class="match-schedule" data-round="3" data-row="14">
+                <div class="item header">Quartarfinals</div>
+                <div class="blank"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="blank" style="grid-row: 1/4;"></div>
+                <div class="gap z"></div>
+                <div class="gap vertical"></div>
+                <div class="gap rl"></div>
+                <div class="blank" style="grid-row: 7/10;"></div>
+                <div class="gap z"></div>
+                <div class="gap vertical"></div>
+                <div class="gap rl"></div>
+                <div class="blank" style="grid-row: 13/15;"></div>
+                <div class="item header">Semifinals</div>
+                <div class="blank" style="grid-row: 2/4;"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="blank" style="grid-row: 7/10;"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+                <div class="blank" style="grid-row: 1/5;"></div>
+                <div class="gap dl"></div>
+                <div class="gap vertical"></div>
+                <div class="gap l"></div>
+                <div class="gap vertical"></div>
+                <div class="gap vertical"></div>
+                <div class="gap rl"></div>
+                <div class="blank" style="grid-row: auto/15;"></div>
+                <div class="item header">Finals</div>
+                <div class="blank" style="grid-row: 2/7;"></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item team"><div class="logo"></div><div class="name">TBD</div><div class="score">0</div></div>
+                <div class="item info time">TBD</div>
+            </div>
+        </div>
+
         <div style="display: none;">
             <span class="tooltip-content" id="tooltip-content-1">LoL Pro League</span>
             <span class="tooltip-content" id="tooltip-content-2">JD Gaming</span>

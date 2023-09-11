@@ -28,6 +28,7 @@
 .worlds .region {
     display: flex;
     margin-bottom: 1.2rem;
+    flex-wrap: wrap;
 }
 
 .worlds .logo span, .worlds .logo img{
@@ -53,4 +54,10 @@
 
 h3 {
     display: inline-block;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
 }
