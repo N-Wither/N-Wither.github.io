@@ -16,12 +16,13 @@ document.body.appendChild(toTop)
 toTop.style.display = 'none'
 
 let titleObserver = new IntersectionObserver(entries => {
+    let title = document.querySelector('.page-header .page-title')
     if(entries[0].intersectionRatio <= 0){
-        document.querySelector('.page-header .page-title').style.opacity = 1
+        if(title) title.style.opacity = 1;
         toTop.style.display = 'block'
         toTop.classList.remove('ani__hide')
     }else{
-        document.querySelector('.page-header .page-title').style.opacity = 0
+        if(title) title.style.opacity = 0;
         toTop.classList.add('ani__hide')
         setTimeout(() => {toTop.style.display = 'none'}, 400)
     }

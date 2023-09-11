@@ -21,10 +21,16 @@ let tippyConfig = {
 needTooltip.forEach((el, i) => {
     if(needTooltip.length == 0 || tooltipContents.length == 0) return;
     let error = document.createElement('div')
-    error.innerHTML = 'Error: content not found.'
-    let index = el.getAttribute('tooltip-index') || (i + 1)
+    let index = el.dataset.tooltipIndex || (i + 1)
+    let replacePopperIndex = false
+    if(typeof index == 'string') {
+        index = index.replace(' ', '_')
+        replacePopperIndex = true
+    }
+    error.innerHTML = `Error: content (${index}) not found.`
     let content = document.querySelector(`#tooltip-content-${index}`) || error
     let tooltip = tippy(el, {content: content.innerHTML, ...tippyConfig})
-    tooltip.popper.firstChild.dataset.index = el.textContent
+    if(!replacePopperIndex) tooltip.popper.firstChild.dataset.index = el.textContent;
+    else tooltip.popper.firstChild.dataset.index = index.replace('_', ' ')
     // console.log(tooltip.popper)
 })

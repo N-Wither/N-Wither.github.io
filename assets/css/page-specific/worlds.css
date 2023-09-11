@@ -1,0 +1,56 @@
+.page-title img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.dark-mode img.dark-change {
+    filter: brightness(0) invert();
+}
+
+.worlds {
+    /* background: #1e1e1e;
+    color: white; */
+    padding: 1rem;
+    margin: auto;
+}
+.worlds img {
+    max-width: 64px;
+    max-height: 64px;
+}
+
+.worlds .logo {
+    display: flex;
+    flex-direction: column;
+    width: 96px;
+    height: 96px;
+}
+
+.worlds .region {
+    display: flex;
+    margin-bottom: 1.2rem;
+}
+
+.worlds .logo span, .worlds .logo img{
+    margin: auto;
+}
+
+.region-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.region-logo {
+    box-shadow: 2px 0px #fff;
+}
+.region-logo :first-child {
+    text-align: center;
+}
+
+.need-tooltip {
+    cursor: help;
+}
+
+h3 {
+    display: inline-block;
+}
