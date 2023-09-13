@@ -61,23 +61,21 @@ function getRandomInt(min, max) {
 }
 
 /**
- * Ajax someting.
- * @param {HTMLElement} element 
- * @param {boolean} log
+ * Fetch something.
+ * @param {HTMLElement} target 
+ * @param {URL | RequestInfo} url 
+ * @param {string | undefined} type 
+ * @param {RequestInit | undefined} init 
  */
-let AJAXSomething = (element, log) => {
-    let src = element.dataset.src
-    let request = new XMLHttpRequest()
-    request.onreadystatechange = () => {
-        if (request.readyState == 4 && request.status == 200) {
-            element.innerHTML = request.responseText;
-            if(log) console.log('AJAX request done: ' + src)
-        } else if (request.readyState == 4 && request.status != 200){
-            console.error(`AJAX request failed: ${request.status}`)
+let fetchSomething = (target, url, type, init = {method: 'GET'}) => {
+    fetch(url, init).then(response => {
+        switch(type){
+            case 'text':
+            default :
+                response.text().then(text => target.innerHTML = text); break;
+            case 'image': response.blob().then(res => {let objUrl = URL.createObjectURL(res); target.src = objUrl}); break;
         }
-    }
-    request.open('GET', src)
-    request.send()
+    })
 }
 
 Array.prototype.getRandom = function() {
