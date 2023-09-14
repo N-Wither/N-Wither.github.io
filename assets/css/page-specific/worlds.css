@@ -1,3 +1,23 @@
+:root.dark-mode {
+    --background-color: #000000;
+    --theme-color: #b92c00;
+    --link-color: #e13d0b;
+    --box-shadow-color: #2d0902;
+    font-family: "Metropolis", "Readex Pro", "Noto Sans SC", 'Material Symbols Outlined';
+}
+
+::selection {
+    background-color: #78000188;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--theme-color);
+}
+
 .page-title img {
     max-width: 100%;
     max-height: 100%;
@@ -60,4 +80,18 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     gap: 3em;
+}
+
+.slogan {
+    font-size: 2em;
+    gap: 0.4em
+}
+.grind {
+    font-family: 'Gasoek One';
+    line-height: 95%;
+    transform: translateY(-0.1em);
+}
+.glory {
+    font-family: 'Cinzel', 'Noto Serif SC';
+    line-height: 98%;
 }

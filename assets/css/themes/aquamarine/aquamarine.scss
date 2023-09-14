@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
+
 // SASS specific
 @mixin general-shadow {
     box-shadow: 0px 4px 8px var(--box-shadow-color);
@@ -56,7 +58,7 @@ $general-transition-time: 0.4s;
 
     scroll-behavior: smooth;
     font: {
-        family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
+        family: 'Metropolis', 'Readex Pro', 'Noto Sans SC', 'Material Symbols Outlined';
         size: 16px;
     }
 }
@@ -98,6 +100,9 @@ body {
 
 a[target = "_blank"]::after{
     content: '↗';
+    content: '\e89e';
+    position: relative;
+    top: 0.1rem
 }
 
 .page-content, .page-footer, .toolbox {
@@ -210,12 +215,12 @@ hr {
     }
 
     button.menu-button::before {
-        content: '☰';
+        content: '\e5d2';
         color: var(--text-color);
     }
     
     button.menu-button.open::before {
-        content: '✖';
+        content: '\e5cd';
         color: var(--text-color);
     }
 

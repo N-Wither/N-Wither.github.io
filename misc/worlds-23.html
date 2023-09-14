@@ -7,7 +7,9 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Gasoek One' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Worlds 23</title>
     <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
@@ -22,13 +24,14 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
     <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="../assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
     <script src="../assets/js/components/hover-tooltip.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/hover-tooltip.css">
     <script src="../assets/js/components/match-schedule.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/match-schedule.css">
     <script src="../assets/js/page-specific/worlds-23.js" defer></script>
+    <script src="../assets/js/components/locale-date-time.js"></script>
     <!-- styles -->
     <link rel="stylesheet" href="../assets/css/page-specific/worlds.css">
 </head>
@@ -60,6 +63,10 @@
     <div class="page-content">
         <div class="page-title flex-center"><img src="../assets/imgs/lol/Worlds_2023.webp" alt="Worlds" class="dark-change"></div>
         <hr>
+        <div class="flex-center slogan">
+                <div class="grind">THE <br> GRIND</div>
+                <div class="glory">THE <br> GLORY</div>
+        </div>
         <div class="worlds">
             <h2>Participants</h2>
             <div class="region-container">
@@ -119,8 +126,24 @@
             </div>
             <p>* LEC#4 and LCS#4 will compete in Worlds Qualifying Series for the last chance to Worlds 2023.</p>
         </div>
+        <h2>Watch Live Stream</h2>
+        <p>
+            <b>Simplified Chinese:</b>
+            <a href="https://live.bilibili.com/6" target="_blank">Bilibili</a>|
+            <a href="https://www.huya.com/lpl" target="_blank">Huya</a>|
+            <a href="https://www.douyu.com/lpl" target="_blank">Douyu</a>
+        </p>
+        <p>
+            <b>English:</b>
+            <a href="https://www.twitch.tv/riotgames" target="_blank">Twitch</a>|
+            <a href="https://www.youtube.com/c/lolesports" target="_blank">Youtube</a>
+        </p>
         <h2>Match Schedule & Results</h2>
-        <p><b>Note</b>: Time zone is UTC+8.</p>
+        <div>
+            <span>Time Zone:</span>
+            <button id="time-zone-option:you">You</button>
+            <button id="time-zone-option:utc">UTC</button>
+        </div>
         <h3>Worlds Qualifying Series</h3><a href="javascript:void 0;" class="need-tooltip" data-tooltip-index="About WQS">(?)</a>
         <div class="match-schedule" data-round="1" data-row="5">
             <div class="item header">WQS</div>

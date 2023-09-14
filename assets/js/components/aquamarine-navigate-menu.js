@@ -1,27 +1,27 @@
 let navigateItems = [
     {
         text: 'Home',
-        icon: '🏠',
+        icon: '\ue88a',
         url: 'https://n-wither.github.io/'
     },
     {
         text: 'Articles',
-        icon: '📚',
+        icon: '\uef42',
         url: 'https://n-wither.github.io/writings/'
     },
     {
         text: 'Tools',
-        icon: '🔧',
+        icon: '\uea59',
         url: 'https://n-wither.github.io/tools/tools.html'
     },
     {
         text: 'Games',
-        icon: '🎮',
+        icon: '\uf135',
         url: 'https://n-wither.github.io/games/'
     },
     {
         text: 'Misc',
-        icon: '🧩',
+        icon: '\uf8ee',
         url: 'https://n-wither.github.io/misc/web-playground.html'
     }
 ]
