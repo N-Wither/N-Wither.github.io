@@ -11,11 +11,18 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--background-color);
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--theme-color);
+}
+
+body {
+    background: url('https://n-wither.github.io/assets/imgs/lol/worlds-bg.png') var(--background-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .page-title img {
