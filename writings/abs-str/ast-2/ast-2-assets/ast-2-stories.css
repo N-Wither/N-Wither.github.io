@@ -7,10 +7,8 @@
     --theme-color: #961796;
     --darkened-theme-color: #6c0b6c;
     --box-shadow-color: #0F0F0F22;
-    font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
 
     --header-height: 3.6rem;
-
     scroll-behavior: smooth;
 }
 

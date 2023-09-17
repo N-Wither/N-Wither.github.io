@@ -37,9 +37,9 @@ function randomQuote() {
 
 // Tool functions
 /**
- * Toggle a element's class.
- * @param {string | HTMLElement} selector 
- * @param {string} className 
+ *  Toggle a element's class.
+ *  @param {string | HTMLElement} selector 
+ *  @param {string} className 
  */
 function toggleClass(selector, className){
     if(typeof selector == 'string')
@@ -49,10 +49,10 @@ function toggleClass(selector, className){
 }
 
 /**
- * Returns a random integer between the given numbers.
- * @param {number} min 
- * @param {number} max 
- * @returns {number}
+ *  Returns a random integer between the given numbers.
+ *  @param {number} min 
+ *  @param {number} max 
+ *  @returns {number}
  */
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -61,11 +61,11 @@ function getRandomInt(min, max) {
 }
 
 /**
- * Fetch something.
- * @param {HTMLElement} target 
- * @param {URL | RequestInfo} url 
- * @param {string | undefined} type 
- * @param {RequestInit | undefined} init 
+ *  Fetch something.
+ *  @param {HTMLElement} target 
+ *  @param {URL | RequestInfo} url 
+ *  @param {string | undefined} type 
+ *  @param {RequestInit | undefined} init 
  */
 let fetchSomething = (target, url, type, init = {method: 'GET'}) => {
     fetch(url, init).then(response => {
@@ -77,6 +77,16 @@ let fetchSomething = (target, url, type, init = {method: 'GET'}) => {
         }
     })
 }
+
+/**
+ *  Fetch something and returns, but may slower idk.
+ *  @param {string | URL} url 
+ *  @returns {Promise<any>}
+ */
+let betterFetch = async (url) => {
+    let res = await fetch(url)
+    return res.text().then(text => text)
+} 
 
 Array.prototype.getRandom = function() {
     return this[getRandomInt(0, this.length)]

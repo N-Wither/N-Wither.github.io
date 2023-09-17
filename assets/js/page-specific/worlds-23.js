@@ -58,5 +58,4 @@ document.getElementById('time-zone-option:you').onclick = () => {
 document.getElementById('time-zone-option:utc').onclick = () => {
     refreshTime('UTC', setOffset)
     setOffset = 'GMT+0'
-
 }
