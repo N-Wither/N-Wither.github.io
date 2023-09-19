@@ -10,12 +10,10 @@ let getPoints = (point) => {
     }
     return points
 }
-
-let leftPoints = getPoints(props.left.point)
 </script>
 
 <template>
-    <div class="scoreboard">
+    <div class="scoreboard" :data-theme="global.theme">
         <div class="row-1">
             <div class="logo left">
                 <img :src="left.logo" :alt="left.name">
@@ -25,7 +23,9 @@ let leftPoints = getPoints(props.left.point)
                 <div class="name-pos">{{ left.pos }}</div>
             </div>
             <div class="score left">{{ left.score.filter(s => s != 'lo').length }}</div>
-            <div class="logo league"></div>
+            <div class="logo league">
+                <img :src="global.logo" :alt="global.league">
+            </div>
             <div class="score right">{{ right.score.filter(s => s != 'lo').length }}</div>
             <div class="name right">
                 <div class="name-text">{{ right.name }}</div>
@@ -37,7 +37,7 @@ let leftPoints = getPoints(props.left.point)
         </div>
         <div class="row-2">
             <div class="point-container left">
-                <div class="point" v-for="(point, index) in leftPoints" :key="index" :data-type="point"></div>
+                <div class="point" v-for="(point, index) in getPoints(left.point)" :key="index" :data-type="point"></div>
             </div>
             <div class="map flex-center">{{ global.map }}</div>
             <div class="point-container right">
@@ -48,6 +48,8 @@ let leftPoints = getPoints(props.left.point)
 </template>
 
 <style>
+@import '../assets/themes.css';
+
 .scoreboard {
     display: grid;
     grid-template-columns: auto;
@@ -55,6 +57,7 @@ let leftPoints = getPoints(props.left.point)
     margin: auto;
     text-align: center;
     width: 100%;
+    color: var(--text-color);
 }
 
 .scoreboard img {
@@ -63,9 +66,9 @@ let leftPoints = getPoints(props.left.point)
 }
 
 .row-1 {
-    background-color: #0f1519;
+    background: var(--background);
     display: grid;
-    grid-template-columns: 50px auto 50px 50px 50px auto 50px;
+    grid-template-columns: 50px 1fr 50px 50px 50px 1fr 50px;
 }
 
 .logo, .name, .score{
@@ -74,18 +77,37 @@ let leftPoints = getPoints(props.left.point)
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.logo {
-    padding: 4px;
+.name .name-text {
+    font-size: 1.6em;
+}
+
+.name .name-pos {
+    font-size: 0.8em;
 }
 
 .name.left {
-    justify-content: left;
+    align-items: normal;
+    text-align: left;
+}
+
+.name.left div {
+    margin-left: 8px;
 }
 
 .name.right {
-    justify-content: right;
+    align-items: normal;
+    text-align: right;
+}
+
+.name.right div {
+    margin-right: 8px;
+}
+
+.score {
+    font-size: 2em;
 }
 
 .map, .point-container {
@@ -93,8 +115,9 @@ let leftPoints = getPoints(props.left.point)
 }
 
 .row-2 {
+    background: var(--background-2);
     display: grid;
-    grid-template-columns: auto 70px auto;
+    grid-template-columns: 1fr 70px 1fr;
     font-size: 60%;
 }
 
@@ -117,6 +140,7 @@ let leftPoints = getPoints(props.left.point)
 .point-container .point {
     width: 8px;
     height: 8px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
 .point-container .point[data-type=blank] {
@@ -124,10 +148,10 @@ let leftPoints = getPoints(props.left.point)
 }
 
 .point-container.left .point[data-type=win] {
-    background: turquoise;
+    background: var(--left-color);
 }
 
 .point-container.right .point[data-type=win] {
-    background: crimson;
+    background: var(--right-color);
 }
 </style>

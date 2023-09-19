@@ -1,0 +1,25 @@
+.scoreboard[data-theme=valorant] {
+  --background: #111823;
+  --background-2: #00000033;
+  --left-color: #2efebb;
+  --left-color-alpha: #2efebb33;
+  --right-color: #ff4954;
+  --right-color-alpha: #ff495433;
+  --text-color: #ffffff;
+}
+.scoreboard[data-theme=valorant] .logo.left {
+  box-shadow: 2px 0 0 var(--left-color);
+}
+.scoreboard[data-theme=valorant] .logo.right {
+  box-shadow: -2px 0 0 var(--right-color);
+}
+.scoreboard[data-theme=valorant] .score.left {
+  background: var(--left-color-alpha);
+  box-shadow: -2px 0 0 var(--left-color);
+}
+.scoreboard[data-theme=valorant] .score.right {
+  background: var(--right-color-alpha);
+  box-shadow: 2px 0 0 var(--right-color);
+}
+
+/*# sourceMappingURL=themes.css.map */
