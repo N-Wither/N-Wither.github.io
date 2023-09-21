@@ -53,22 +53,27 @@ let getPoints = (point) => {
 .scoreboard {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 50px 16px;
+    grid-template-rows: 60px 18px;
     margin: auto;
     text-align: center;
     width: 100%;
     color: var(--text-color);
+    transition: 0.2s;
+}
+
+.scoreboard * {
+    transition: 0.2s;
 }
 
 .scoreboard img {
-    max-width: 42px;
-    max-height: 42px;
+    max-width: 52px;
+    max-height: 52px;
 }
 
 .row-1 {
     background: var(--background);
     display: grid;
-    grid-template-columns: 50px 1fr 50px 50px 50px 1fr 50px;
+    grid-template-columns: 60px 1fr 60px 60px 60px 1fr 60px;
 }
 
 .logo, .name, .score{
@@ -111,13 +116,13 @@ let getPoints = (point) => {
 }
 
 .map, .point-container {
-    height: 16px;
+    height: 18px;
 }
 
 .row-2 {
     background: var(--background-2);
     display: grid;
-    grid-template-columns: 1fr 70px 1fr;
+    grid-template-columns: 60px 1fr 60px;
     font-size: 60%;
 }
 
@@ -125,7 +130,7 @@ let getPoints = (point) => {
     display: flex;
     gap: 4px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .point-container.left {
@@ -147,11 +152,7 @@ let getPoints = (point) => {
     background: gray;
 }
 
-.point-container.left .point[data-type=win] {
-    background: var(--left-color);
-}
-
-.point-container.right .point[data-type=win] {
-    background: var(--right-color);
+.point-container .point[data-type=win] {
+    background: var(--text-color);
 }
 </style>

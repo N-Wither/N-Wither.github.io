@@ -13,6 +13,12 @@
     .logo.right {
         box-shadow: -2px 0 0 var(--right-color);
     }
+    &[data-swapped=true] .logo.left {
+        box-shadow: 2px 0 0 var(--right-color);
+    }
+    &[data-swapped=true] .logo.right {
+        box-shadow: -2px 0 0 var(--left-color);
+    }
 
     .score.left {
         background: var(--left-color-alpha);
@@ -21,5 +27,13 @@
     .score.right {
         background: var(--right-color-alpha);
         box-shadow: 2px 0 0 var(--right-color);
+    }
+    &[data-swapped=true] .score.left {
+        background: var(--right-color-alpha);
+        box-shadow: -2px 0 0 var(--right-color);
+    }
+    &[data-swapped=true] .score.right {
+        background: var(--left-color-alpha);
+        box-shadow: 2px 0 0 var(--left-color);
     }
 }

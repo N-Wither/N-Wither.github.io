@@ -61,23 +61,23 @@ let sort = (scores) => {
 }
 
 .details img {
-    max-width: 20px;
-    max-height: 20px;
+    max-width: 24px;
+    max-height: 24px;
 }
 
 .details-left, .details-right {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 24px;
+    height: 30px;
     background: var(--background);
     color: var(--text-color);
 }
 
 .details-left .score, .details-right .score, .logo-container{
-    width: 24px;
-    height: 24px;
-    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
 }
 
 .details *::before {

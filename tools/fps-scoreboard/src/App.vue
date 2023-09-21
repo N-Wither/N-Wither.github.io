@@ -56,10 +56,12 @@ export default {
       if(team == 'left'){
         this.left.score.push(type)
         this.right.score.push('lo')
+        if(this.left.score.filter(s => s != 'lo').length >= Math.ceil(this.global.rounds / 2) + 1) this.left.point = Math.ceil(this.global.bestOf / 2)
       }
       else {
         this.right.score.push(type)
         this.left.score.push('lo')
+        if(this.right.score.filter(s => s != 'lo').length >= Math.ceil(this.global.rounds / 2) + 1) this.right.point = Math.ceil(this.global.bestOf / 2)
       }
     },
     reduce(){
@@ -72,7 +74,7 @@ export default {
 
 <template>
   <div class="wrapper">
-    <ScoreBoard :global="global" :left="left" :right="right" />
+    <ScoreBoard :global="global" :left="left" :right="right" :data-swapped="left.score.length < Math.ceil(global.rounds / 2) ? false : true"/>
     <ScoreDetails 
       :left-scores="left.score"
       :left-logo="left.logo"
@@ -103,36 +105,38 @@ export default {
       <div class="split left">
         <label for="left-name">Team A Name</label>
         <ElInput v-model="left.name" name="left-name" />
-        <label for="left-logo">{{ left.name }} Logo</label>
+        <label for="left-logo">Team A Logo</label>
         <ElInput v-model="left.logo" name="left-logo" type="textarea" :autosize="{minRows: 2}"/>
-        <label for="left-pos">{{ left.name }} Position</label>
+        <label for="left-pos">Team A Position</label>
         <ElInput v-model="left.pos" name="left-pos" />
-        <label for="left-point">{{ left.name }} Points</label>
+        <label for="left-point">Team A Points</label>
         <ElInputNumber v-model="left.point" name="left-point" :min="0" :max="Math.ceil(global.bestOf / 2)" />
         <div>Score</div>
-        <div>
-          <ElButton @click="addScore('left', 'el')">Elimination</ElButton>
-          <ElButton @click="addScore('left', 'ex')">Exploded</ElButton>
-          <ElButton @click="addScore('left', 'de')">Defused</ElButton>
-          <ElButton @click="addScore('left', 'ti')">Time Out</ElButton>
-        </div>
+        <ElButton @click="addScore('left', 'el')">Enemy Eliminated</ElButton>
+        <div></div>
+        <ElButton @click="addScore('left', 'ex')" :disabled="right.score.length >= Math.ceil(global.rounds / 2) ? false : true">Bomb Exploded</ElButton>
+        <div></div>
+        <ElButton @click="addScore('left', 'de')" :disabled="right.score.length < Math.ceil(global.rounds / 2) ? false : true">Bomb Defused</ElButton>
+        <div></div>
+        <ElButton @click="addScore('left', 'ti')" :disabled="right.score.length < Math.ceil(global.rounds / 2) ? false : true">Time Out</ElButton>
       </div>
       <div class="split right">
         <label for="right-name">Team B Name</label>
         <ElInput v-model="right.name" name="right-name" />
-        <label for="right-logo">{{ right.name }} Logo</label>
+        <label for="right-logo">Team B Logo</label>
         <ElInput v-model="right.logo" name="right-logo" type="textarea" :autosize="{minRows: 2}"/>
-        <label for="right-pos">{{ right.name }} Position</label>
+        <label for="right-pos">Team B Position</label>
         <ElInput v-model="right.pos" name="right-pos" />
-        <label for="right-point">{{ right.name }} Points</label>
+        <label for="right-point">Team B Points</label>
         <ElInputNumber v-model="right.point" name="right-point" :min="0" :max="Math.ceil(global.bestOf / 2)" />
         <div>Score</div>
-        <div>
-          <ElButton @click="addScore('right', 'el')">Elimination</ElButton>
-          <ElButton @click="addScore('right', 'ex')">Exploded</ElButton>
-          <ElButton @click="addScore('right', 'de')">Defused</ElButton>
-          <ElButton @click="addScore('right', 'ti')">Time Out</ElButton>
-        </div>
+        <ElButton @click="addScore('right', 'el')">Enemy Eliminated</ElButton>
+        <div></div>
+        <ElButton @click="addScore('right', 'ex')" :disabled="right.score.length < Math.ceil(global.rounds / 2) ? false : true">Bomb Exploded</ElButton>
+        <div></div>
+        <ElButton @click="addScore('right', 'de')" :disabled="right.score.length >= Math.ceil(global.rounds / 2) ? false : true">Bomb Defused</ElButton>
+        <div></div>
+        <ElButton @click="addScore('right', 'ti')" :disabled="right.score.length >= Math.ceil(global.rounds / 2) ? false : true">Time Out</ElButton>
       </div>
     </div>
   </div>
@@ -164,5 +168,22 @@ export default {
 
 .split.left, .split.right {
   flex-grow: 2;
+}
+</style>
+<style>
+:root.dark-mode {
+  --el-fill-color-light: #333333;
+  --el-fill-color-regular: #ffffff;
+  --el-fill-color-blank: #2a2a2a;
+  --el-text-color-regular: #ffffff;
+  --el-text-color-placeholder: #424242;
+}
+:root.dark-mode .el-input {
+  --el-input-text-color: #ffffff;
+  --el-input-bg-color: #2a2a2a;
+}
+
+.el-input input, .el-input-number input {
+  font-family: "Metropolis", "Readex Pro", "Noto Sans SC", "Material Symbols Outlined";
 }
 </style>
