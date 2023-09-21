@@ -3,10 +3,10 @@
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
@@ -20,6 +20,8 @@
     <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+    <script type="module" crossorigin src="./assets/index-7125064d.js"></script>
+    <link rel="stylesheet" href="./assets/index-dfdd9db1.css">
 </head>
 <body onload="init()">
     <div class="page-header">
@@ -28,9 +30,9 @@
         </div>
         <div class="page-icon"></div>
         <div class="page-category flex-center padding-all-small">
-            WitherWorks
+            Tools
         </div>
-        <div class="flex-center page-title">Title</div>
+        <div class="flex-center page-title">FPS Scoreboard</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button">
@@ -48,12 +50,15 @@
         
         <div class="toolbox all-menu">
             <div id="clock" class="item">Current Time</div>
+            <div class="item"> A scoreboard for FPS games. <br> Based on <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a></div>
         </div>
     </div>
     <div class="page-content">
-        <h1 class="page-title">Title</h1>
+        <h1 class="page-title">FPS Scoreboard</h1>
         <hr>
-        <p>Write something here.</p>
+        <noscript>You need Javascript to run this page.</noscript>
+        <div id="app"></div>
+        
     </div>
     <div class="page-footer">
         <hr>
