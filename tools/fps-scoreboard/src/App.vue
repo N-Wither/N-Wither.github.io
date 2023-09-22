@@ -67,20 +67,27 @@ export default {
     reduce(){
       this.left.score.pop()
       this.right.score.pop()
+    },
+    isAtk(){
+      let half = Math.ceil(this.global.rounds / 2)
+      let current = this.left.score.length + 1
+      if(current <= half && this.global.startsAsAtk == true) return true;
+      else if (current <= half && this.global.startsAsAtk == false) return false;
+      else if (current > half && this.global.startsAsAtk == true) return false;
+      else return true
     }
   }
 }
 </script>
 
 <template>
-  <div class="wrapper">
-    <ScoreBoard :global="global" :left="left" :right="right" :data-swapped="left.score.length < Math.ceil(global.rounds / 2) || global.startsAsAtk ? false : true"/>
+  <div class="wrapper" :data-theme="global.theme">
+    <ScoreBoard :global="global" :left="left" :right="right" :data-swapped="isAtk()"/>
     <ScoreDetails 
       :left-scores="left.score"
       :left-logo="left.logo"
       :right-scores="right.score"
       :right-logo="right.logo"
-      :data-theme="global.theme"
       :rounds="global.rounds"
       :atk-start="global.startsAsAtk"
     />
@@ -107,7 +114,7 @@ export default {
         <div></div>
         <ElButton @click="reduce()">Reduce Score</ElButton>
       </div>
-      <div class="split left">
+      <div class="split left" :data-atk="isAtk()">
         <label for="left-name">Team A Name</label>
         <ElInput v-model="left.name" name="left-name" />
         <label for="left-logo">Team A Logo</label>
@@ -117,15 +124,15 @@ export default {
         <label for="left-point">Team A Points</label>
         <ElInputNumber v-model="left.point" name="left-point" :min="0" :max="Math.ceil(global.bestOf / 2)" />
         <div>Score</div>
-        <ElButton @click="addScore('left', 'el')">Enemy Eliminated</ElButton>
+        <ElButton @click="addScore('left', 'el')">&#xf230; Enemy Eliminated &#xf230;</ElButton>
         <div></div>
-        <ElButton @click="addScore('left', 'ex')" :disabled="right.score.length >= Math.ceil(global.rounds / 2) ? false : true">Bomb Exploded</ElButton>
+        <ElButton @click="addScore('left', 'ex')" :disabled="!isAtk()">&#xf685; Bomb Exploded &#xf685;</ElButton>
         <div></div>
-        <ElButton @click="addScore('left', 'de')" :disabled="right.score.length < Math.ceil(global.rounds / 2) ? false : true">Bomb Defused</ElButton>
+        <ElButton @click="addScore('left', 'de')" :disabled="isAtk()">&#xe2aa; Bomb Defused &#xe2aa;</ElButton>
         <div></div>
-        <ElButton @click="addScore('left', 'ti')" :disabled="right.score.length < Math.ceil(global.rounds / 2) ? false : true">Time Out</ElButton>
+        <ElButton @click="addScore('left', 'ti')" :disabled="isAtk()">&#xea5c; Time Out &#xea5c;</ElButton>
       </div>
-      <div class="split right">
+      <div class="split right" :data-atk="!isAtk()">
         <label for="right-name">Team B Name</label>
         <ElInput v-model="right.name" name="right-name" />
         <label for="right-logo">Team B Logo</label>
@@ -135,13 +142,13 @@ export default {
         <label for="right-point">Team B Points</label>
         <ElInputNumber v-model="right.point" name="right-point" :min="0" :max="Math.ceil(global.bestOf / 2)" />
         <div>Score</div>
-        <ElButton @click="addScore('right', 'el')">Enemy Eliminated</ElButton>
+        <ElButton @click="addScore('right', 'el')">&#xf230; Enemy Eliminated &#xf230;</ElButton>
         <div></div>
-        <ElButton @click="addScore('right', 'ex')" :disabled="right.score.length < Math.ceil(global.rounds / 2) ? false : true">Bomb Exploded</ElButton>
+        <ElButton @click="addScore('right', 'ex')" :disabled="isAtk()">&#xf685; Bomb Exploded &#xf685;</ElButton>
         <div></div>
-        <ElButton @click="addScore('right', 'de')" :disabled="right.score.length >= Math.ceil(global.rounds / 2) ? false : true">Bomb Defused</ElButton>
+        <ElButton @click="addScore('right', 'de')" :disabled="!isAtk()">&#xe2aa; Bomb Defused &#xe2aa;</ElButton>
         <div></div>
-        <ElButton @click="addScore('right', 'ti')" :disabled="right.score.length >= Math.ceil(global.rounds / 2) ? false : true">Time Out</ElButton>
+        <ElButton @click="addScore('right', 'ti')" :disabled="!isAtk()">&#xea5c; Time Out &#xea5c;</ElButton>
       </div>
     </div>
   </div>
@@ -193,5 +200,15 @@ export default {
 
 .el-input input, .el-input-number input {
   font-family: "Metropolis", "Readex Pro", "Noto Sans SC", "Material Symbols Outlined";
+}
+</style>
+<style>
+@import './assets/themes.css';
+
+.split[data-atk=true]{
+  background: var(--right-color-alpha);
+}
+.split[data-atk=false]{
+  background: var(--left-color-alpha);
 }
 </style>

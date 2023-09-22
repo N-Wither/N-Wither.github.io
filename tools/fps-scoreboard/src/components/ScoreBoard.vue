@@ -13,7 +13,7 @@ let getPoints = (point) => {
 </script>
 
 <template>
-    <div class="scoreboard" :data-theme="global.theme">
+    <div class="scoreboard">
         <div class="row-1">
             <div class="logo left">
                 <img :src="left.logo" :alt="left.name">

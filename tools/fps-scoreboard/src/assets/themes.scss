@@ -1,4 +1,4 @@
-.scoreboard[data-theme=valorant], .details[data-theme=valorant] {
+.wrapper[data-theme=valorant] {
     --background: #111823;
     --background-2: #00000033;
     --left-color: #2efebb;
@@ -13,10 +13,10 @@
     .logo.right {
         box-shadow: -2px 0 0 var(--right-color);
     }
-    &[data-swapped=true] .logo.left {
+    .scoreboard[data-swapped=true] .logo.left {
         box-shadow: 2px 0 0 var(--right-color);
     }
-    &[data-swapped=true] .logo.right {
+    .scoreboard[data-swapped=true] .logo.right {
         box-shadow: -2px 0 0 var(--left-color);
     }
 
@@ -28,11 +28,11 @@
         background: var(--right-color-alpha);
         box-shadow: 2px 0 0 var(--right-color);
     }
-    &[data-swapped=true] .score.left {
+    .scoreboard[data-swapped=true] .score.left {
         background: var(--right-color-alpha);
         box-shadow: -2px 0 0 var(--right-color);
     }
-    &[data-swapped=true] .score.right {
+    .scoreboard[data-swapped=true] .score.right {
         background: var(--left-color-alpha);
         box-shadow: 2px 0 0 var(--left-color);
     }

@@ -1,5 +1,5 @@
 <script setup>
-let props = defineProps(['leftScores', 'rightScores', 'theme', 'rounds', 'leftLogo', 'rightLogo', 'atkStart'])
+let props = defineProps(['leftScores', 'rightScores', 'rounds', 'leftLogo', 'rightLogo', 'atkStart'])
 
 let sort = (scores) => {
     let swapRound = Math.ceil(props.rounds / 2)
