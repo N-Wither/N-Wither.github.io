@@ -1,5 +1,5 @@
 <script setup>
-let props = defineProps(['leftScores', 'rightScores', 'theme', 'rounds', 'leftLogo', 'rightLogo'])
+let props = defineProps(['leftScores', 'rightScores', 'theme', 'rounds', 'leftLogo', 'rightLogo', 'atkStart'])
 
 let sort = (scores) => {
     let swapRound = Math.ceil(props.rounds / 2)
@@ -18,6 +18,14 @@ let sort = (scores) => {
     })
     return half1.concat(half2)
 }
+
+let isSwapped = (currentRound) => {
+    let half = Math.ceil(props.rounds / 2)
+    if(currentRound <= half && props.atkStart == false) return false;
+    else if (currentRound <= half && props.atkStart == true) return true;
+    else if (currentRound > half && props.atkStart == false) return true;
+    else return false
+}
 </script>
 
 <template>
@@ -31,7 +39,7 @@ let sort = (scores) => {
                 :key="index"
                 :class="'score ' + type"
                 :data-index="index <= Math.ceil(rounds / 2) ? index + 1 : index"
-                :data-swapped="index <= Math.ceil(rounds / 2) ? false : true"
+                :data-swapped="isSwapped(index)"
             >
             </div>
         </div>
@@ -44,7 +52,7 @@ let sort = (scores) => {
                 :key="index"
                 :class="'score ' + type"
                 :data-index="index <= Math.ceil(rounds / 2) ? index + 1 : index"
-                :data-swapped="index <= Math.ceil(rounds / 2) ? false : true"
+                :data-swapped="isSwapped(index)"
             >
             </div>
         </div>
@@ -58,6 +66,10 @@ let sort = (scores) => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.details * {
+    transition: 0.2s;
 }
 
 .details img {

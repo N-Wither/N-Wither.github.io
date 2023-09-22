@@ -1,7 +1,7 @@
 <script setup>
 import ScoreBoard from './components/ScoreBoard.vue'
 import ScoreDetails from './components/ScoreDetails.vue'
-import { ElInputNumber, ElInput, ElButton } from 'element-plus'
+import { ElInputNumber, ElInput, ElButton, ElSwitch } from 'element-plus'
 </script>
 
 <script>
@@ -14,7 +14,8 @@ export default {
         league: 'Valorant Champions',
         logo: 'https://liquipedia.net/commons/images/thumb/a/ae/VCT_Champions_icon_allmode.png/50px-VCT_Champions_icon_allmode.png',
         theme: 'valorant',
-        rounds: 24
+        rounds: 24,
+        startsAsAtk: false
       },
       left: {
         name: 'EVIL GENIUSES',
@@ -73,7 +74,7 @@ export default {
 
 <template>
   <div class="wrapper">
-    <ScoreBoard :global="global" :left="left" :right="right" :data-swapped="left.score.length < Math.ceil(global.rounds / 2) ? false : true"/>
+    <ScoreBoard :global="global" :left="left" :right="right" :data-swapped="left.score.length < Math.ceil(global.rounds / 2) || global.startsAsAtk ? false : true"/>
     <ScoreDetails 
       :left-scores="left.score"
       :left-logo="left.logo"
@@ -81,6 +82,7 @@ export default {
       :right-logo="right.logo"
       :data-theme="global.theme"
       :rounds="global.rounds"
+      :atk-start="global.startsAsAtk"
     />
     <hr />
     <div class="control">
@@ -95,6 +97,10 @@ export default {
         <ElInput v-model="global.league" name="league"/>
         <label for="league-logo">League Logo</label>
         <ElInput v-model="global.logo" name="league-logo" type="textarea" :autosize="{minRows: 2}"/>
+        <div>
+          <ElSwitch v-model="global.startsAsAtk" name="atk-start"></ElSwitch>
+          <label for="atk-start">Start As Attacker</label>
+        </div>
         <ElButton @click="reset(false)">Reset Stats</ElButton>
         <div></div>
         <ElButton @click="reset(true)">Reset All</ElButton>
@@ -180,6 +186,9 @@ export default {
 :root.dark-mode .el-input {
   --el-input-text-color: #ffffff;
   --el-input-bg-color: #2a2a2a;
+}
+:root.dark-mode .el-switch {
+  --el-switch-off-color: #333333;
 }
 
 .el-input input, .el-input-number input {
