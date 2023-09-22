@@ -34,7 +34,6 @@ export default {
   },
   methods: {
     reset(all) {
-      this.global.bestOf = 3
       this.global.map = 'MAP'
       this.left.score = []
       this.right.score = []
@@ -91,7 +90,7 @@ export default {
         <label for="bestof">Best of</label>
         <ElInputNumber v-model="global.bestOf" name="bestof" :min="1" :step="2"/>
         <label for="rounds">Rounds</label>
-        <ElInputNumber v-model="global.rounds" name="rounds" :min="1" />
+        <ElInputNumber v-model="global.rounds" name="rounds" :min="1"/>
         <label for="league">League Name</label>
         <ElInput v-model="global.league" name="league"/>
         <label for="league-logo">League Logo</label>
