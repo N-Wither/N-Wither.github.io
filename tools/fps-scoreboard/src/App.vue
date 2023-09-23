@@ -53,15 +53,17 @@ export default {
       }
     },
     addScore(team, type){
+      let scoresNeededToWin = Math.ceil(this.global.rounds / 2) + 1
+      let shouldAddPoint = (this[team].score.filter(s => s != 'lo').length + 1 == scoresNeededToWin) && this[team].point < Math.ceil(this.global.bestOf / 2)
       if(team == 'left'){
         this.left.score.push(type)
         this.right.score.push('lo')
-        if(this.left.score.filter(s => s != 'lo').length >= Math.ceil(this.global.rounds / 2) + 1) this.left.point = Math.ceil(this.global.bestOf / 2)
+        if(shouldAddPoint) this.left.point ++
       }
       else {
         this.right.score.push(type)
         this.left.score.push('lo')
-        if(this.right.score.filter(s => s != 'lo').length >= Math.ceil(this.global.rounds / 2) + 1) this.right.point = Math.ceil(this.global.bestOf / 2)
+        if(shouldAddPoint) this.right.point ++
       }
     },
     reduce(){

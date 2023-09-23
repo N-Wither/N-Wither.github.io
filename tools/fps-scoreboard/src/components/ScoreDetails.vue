@@ -29,7 +29,7 @@ let isSwapped = (currentRound) => {
 </script>
 
 <template>
-    <div class="details" :data-theme="theme">
+    <div class="details">
         <div class="details-left flex-center">
             <div class="flex-center logo-container">
                 <img :src="leftLogo">
@@ -66,6 +66,7 @@ let isSwapped = (currentRound) => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: hidden;
 }
 
 .details * {
@@ -134,5 +135,39 @@ let isSwapped = (currentRound) => {
 }
 .ti::before {
     content: '\ea5c';
+}
+
+.details-left .score {
+    overflow-x: hidden;
+    animation: 0.2s ease-out slideToBottom, 0.2s ease-out expand;
+}
+.details-right .score {
+    overflow-x: hidden;
+    animation: 0.2s ease-out slideToTop, 0.2s ease-out expand;
+}
+
+@keyframes slideToBottom {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slideToTop {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes expand {
+    from {
+        width: 0;
+    }
+    to {
+        width: 30px;
+    }
 }
 </style>
