@@ -56,11 +56,13 @@ export default {
       let scoresNeededToWin = Math.ceil(this.global.rounds / 2) + 1
       let shouldAddPoint = (this[team].score.filter(s => s != 'lo').length + 1 == scoresNeededToWin) && this[team].point < Math.ceil(this.global.bestOf / 2)
       if(team == 'left'){
+        if(this.isMaxRoundsReached()) return;
         this.left.score.push(type)
         this.right.score.push('lo')
         if(shouldAddPoint) this.left.point ++
       }
       else {
+        if(this.isMaxRoundsReached()) return;
         this.right.score.push(type)
         this.left.score.push('lo')
         if(shouldAddPoint) this.right.point ++
@@ -77,6 +79,12 @@ export default {
       else if (current <= half && this.global.startsAsAtk == false) return false;
       else if (current > half && this.global.startsAsAtk == true) return false;
       else return true
+    },
+    swap(){
+      [this.left, this.right] = [this.right, this.left]
+    },
+    isMaxRoundsReached(){
+      return this.left.score.length >= 100
     }
   }
 }
@@ -101,7 +109,7 @@ export default {
         <label for="bestof">Best of</label>
         <ElInputNumber v-model="global.bestOf" name="bestof" :min="1" :step="2"/>
         <label for="rounds">Rounds</label>
-        <ElInputNumber v-model="global.rounds" name="rounds" :min="1"/>
+        <ElInputNumber v-model="global.rounds" name="rounds" :min="1" :max="100"/>
         <label for="league">League Name</label>
         <ElInput v-model="global.league" name="league"/>
         <label for="league-logo">League Logo</label>
@@ -110,11 +118,13 @@ export default {
           <ElSwitch v-model="global.startsAsAtk" name="atk-start"></ElSwitch>
           <label for="atk-start">Start As Attacker</label>
         </div>
-        <ElButton @click="reset(false)">Reset Stats</ElButton>
+        <ElButton @click="reset(false)" type="warning">Reset Stats</ElButton>
         <div></div>
-        <ElButton @click="reset(true)">Reset All</ElButton>
+        <ElButton @click="reset(true)" type="danger">Reset All</ElButton>
         <div></div>
         <ElButton @click="reduce()">Reduce Score</ElButton>
+        <div></div>
+        <ElButton @click="swap()">Swap Teams</ElButton>
       </div>
       <div class="split left" :data-atk="isAtk()">
         <label for="left-name">Team A Name</label>
@@ -126,13 +136,13 @@ export default {
         <label for="left-point">Team A Points</label>
         <ElInputNumber v-model="left.point" name="left-point" :min="0" :max="Math.ceil(global.bestOf / 2)" />
         <div>Score</div>
-        <ElButton @click="addScore('left', 'el')">&#xf230; Enemy Eliminated &#xf230;</ElButton>
+        <ElButton @click="addScore('left', 'el')" :disabled="isMaxRoundsReached()">&#xf230; Enemy Eliminated &#xf230;</ElButton>
         <div></div>
-        <ElButton @click="addScore('left', 'ex')" :disabled="!isAtk()">&#xf685; Bomb Exploded &#xf685;</ElButton>
+        <ElButton @click="addScore('left', 'ex')" :disabled="!isAtk() || isMaxRoundsReached()">&#xf685; Bomb Exploded &#xf685;</ElButton>
         <div></div>
-        <ElButton @click="addScore('left', 'de')" :disabled="isAtk()">&#xe2aa; Bomb Defused &#xe2aa;</ElButton>
+        <ElButton @click="addScore('left', 'de')" :disabled="isAtk() || isMaxRoundsReached()">&#xe2aa; Bomb Defused &#xe2aa;</ElButton>
         <div></div>
-        <ElButton @click="addScore('left', 'ti')" :disabled="isAtk()">&#xea5c; Time Out &#xea5c;</ElButton>
+        <ElButton @click="addScore('left', 'ti')" :disabled="isAtk() || isMaxRoundsReached()">&#xea5c; Time Out &#xea5c;</ElButton>
       </div>
       <div class="split right" :data-atk="!isAtk()">
         <label for="right-name">Team B Name</label>
@@ -144,13 +154,13 @@ export default {
         <label for="right-point">Team B Points</label>
         <ElInputNumber v-model="right.point" name="right-point" :min="0" :max="Math.ceil(global.bestOf / 2)" />
         <div>Score</div>
-        <ElButton @click="addScore('right', 'el')">&#xf230; Enemy Eliminated &#xf230;</ElButton>
+        <ElButton @click="addScore('right', 'el')" :disabled="isMaxRoundsReached()">&#xf230; Enemy Eliminated &#xf230;</ElButton>
         <div></div>
-        <ElButton @click="addScore('right', 'ex')" :disabled="isAtk()">&#xf685; Bomb Exploded &#xf685;</ElButton>
+        <ElButton @click="addScore('right', 'ex')" :disabled="isAtk() || isMaxRoundsReached()">&#xf685; Bomb Exploded &#xf685;</ElButton>
         <div></div>
-        <ElButton @click="addScore('right', 'de')" :disabled="!isAtk()">&#xe2aa; Bomb Defused &#xe2aa;</ElButton>
+        <ElButton @click="addScore('right', 'de')" :disabled="!isAtk() || isMaxRoundsReached()">&#xe2aa; Bomb Defused &#xe2aa;</ElButton>
         <div></div>
-        <ElButton @click="addScore('right', 'ti')" :disabled="!isAtk()">&#xea5c; Time Out &#xea5c;</ElButton>
+        <ElButton @click="addScore('right', 'ti')" :disabled="!isAtk() || isMaxRoundsReached()">&#xea5c; Time Out &#xea5c;</ElButton>
       </div>
     </div>
   </div>

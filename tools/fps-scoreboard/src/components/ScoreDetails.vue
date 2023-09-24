@@ -30,9 +30,9 @@ let isSwapped = (currentRound) => {
 
 <template>
     <div class="details">
-        <div class="details-left flex-center">
+        <div class="details-left">
             <div class="flex-center logo-container">
-                <img :src="leftLogo">
+                <img :src="leftLogo" class="logo">
             </div>
             <div 
                 v-for="(type, index) in sort(props.leftScores)"
@@ -43,9 +43,9 @@ let isSwapped = (currentRound) => {
             >
             </div>
         </div>
-        <div class="details-right flex-center">
+        <div class="details-right">
             <div class="flex-center logo-container">
-                <img :src="rightLogo">
+                <img :src="rightLogo" class="logo">
             </div>
             <div 
                 v-for="(type, index) in sort(props.rightScores)"
@@ -62,11 +62,18 @@ let isSwapped = (currentRound) => {
 <style>
 .details {
     width: 100%;
+    height: 60px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     overflow-y: hidden;
+    background: var(--background);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+:is(.details, .details-left, .details-right)::-webkit-scrollbar {
+    display: none;
 }
 
 .details * {
@@ -85,11 +92,14 @@ let isSwapped = (currentRound) => {
     height: 30px;
     background: var(--background);
     color: var(--text-color);
+    justify-content: center;
 }
 
 .details-left .score, .details-right .score, .logo-container{
-    width: 30px;
-    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    max-height: 30px;
     font-size: 16px;
 }
 
@@ -164,10 +174,12 @@ let isSwapped = (currentRound) => {
 }
 @keyframes expand {
     from {
-        width: 0;
+        max-width: 0;
+        min-width: 0;
     }
     to {
-        width: 30px;
+        max-width: 30px;
+        min-width: 30px;
     }
 }
 </style>

@@ -1,5 +1,6 @@
 .wrapper[data-theme=valorant] {
   --background: #111823;
+  --background-color: #111823;
   --background-2: #00000033;
   --left-color: #2efebb;
   --left-color-alpha: #2efebb33;
