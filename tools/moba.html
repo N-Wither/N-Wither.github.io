@@ -31,6 +31,7 @@
     <!-- components -->
     <script src="../assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="../assets/js/components/title-observer.js" defer></script>
+    <script src="../assets/js/components/AJAX-svg.js" defer></script>
 </head>
 <body onload="init()">
     <div class="page-header">
@@ -95,7 +96,7 @@
                     </div>
                     <div class="row-2 elder buff-container row-2-bg">
                         <div class="text">
-                            <img src="../assets/imgs/lol/elder.svg" alt="Elder" v-if="teamBlue.elder != 0">
+                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" v-if="teamBlue.elder != 0"></span>
                             <span v-if="teamBlue.elderTime == 0 && teamBlue.elder != 0">&nbsp;{{ teamBlue.elder }}</span>
                             <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
                         </div>
@@ -103,7 +104,7 @@
                     </div>
                     <div class="row-2 baron buff-container row-2-bg">
                         <div class="text">
-                            <img src="../assets/imgs/lol/baron.svg" alt="Baron" v-if="teamBlue.baron != 0">
+                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" v-if="teamBlue.baron != 0"></span>
                             <span v-if="teamBlue.baronTime == 0 && teamBlue.baron != 0">&nbsp;{{ teamBlue.baron }}</span>
                             <span v-if="teamBlue.baronTime != 0">&nbsp;{{ timeFormat(teamBlue.baronTime, true) }}</span>
                         </div>
@@ -124,7 +125,7 @@
                     </div>
                     <div class="row-2 baron buff-container row-2-bg">
                         <div class="text">
-                            <img src="../assets/imgs/lol/baron.svg" alt="Baron" v-if="teamRed.baron != 0">
+                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" v-if="teamRed.baron != 0"></span>
                             <span v-if="teamRed.baronTime == 0 && teamRed.baron != 0">&nbsp;{{ teamRed.baron }}</span>
                             <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
                         </div>
@@ -132,7 +133,7 @@
                     </div>
                     <div class="row-2 elder buff-container row-2-bg">
                         <div class="text">
-                            <img src="../assets/imgs/lol/elder.svg" alt="Elder" v-if="teamRed.elder != 0">
+                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" v-if="teamRed.elder != 0"></span>
                             <span v-if="teamRed.elderTime == 0 && teamRed.elder != 0">&nbsp;{{ teamRed.elder }}</span>
                             <span v-if="teamRed.elderTime != 0">&nbsp;{{ timeFormat(teamRed.elderTime, true) }}</span>
                         </div>
@@ -164,6 +165,7 @@
                             <option value="lcs">LCS</option>
                             <option value="lcc">LCC 2023</option>
                             <option value="valorant">Valorant</option>
+                            <option value="asiangames">Asian Games 2022</option>
                         </select>
                     </span>
                 </div>
@@ -430,7 +432,7 @@
                     </div>
                     <div class="baron buff-progress teamBlue-baron-bar left"></div>
                 </div>
-                <div class="icon stat-row"><img src="../assets/imgs/lol/baron.svg" alt="Baron"></div>
+                <div class="icon stat-row request-svg" data-src="../assets/imgs/lol/baron.svg"></div>
                 <div class="row-2 baron buff-container right stat-row">
                     <div class="better right" v-if="teamBlue.baron < teamRed.baron">
                         ▶
@@ -452,7 +454,7 @@
                     </div>
                     <div class="elder buff-progress teamBlue-elder-bar left" id="teamBlue-elder-bar"></div>
                 </div>
-                <div class="icon stat-row"><img src="../assets/imgs/lol/elder.svg" alt="Elder"></div>
+                <div class="icon stat-row request-svg" data-src="../assets/imgs/lol/elder.svg"></div>
                 <div class="row-2 elder buff-container right stat-row">
                     <div class="better right" v-if="teamBlue.elder < teamRed.elder">
                         ▶

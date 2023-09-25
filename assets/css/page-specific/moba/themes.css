@@ -136,6 +136,17 @@
 .moba-scoreboard[theme=valorant] .teamRed-logo-bg, .moba-scoreboard-mobile[theme=valorant] .teamRed-logo-bg {
   box-shadow: -3px 0px 0px #ff4560;
 }
+.moba-scoreboard[theme=asiangames], .moba-scoreboard-mobile[theme=asiangames] {
+  --main-bg: #490c72;
+  --blue-color: white;
+  --blue-bg: transparent;
+  --red-color: white;
+  --red-bg: transparent;
+}
+.moba-scoreboard[theme=asiangames] .stat-row, .moba-scoreboard-mobile[theme=asiangames] .stat-row {
+  background: white;
+  color: #1e1e1e;
+}
 
 .moba-scoreboard-mobile {
   --sep-line-color: #80808088;
