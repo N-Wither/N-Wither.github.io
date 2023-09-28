@@ -96,7 +96,7 @@
                     </div>
                     <div class="row-2 elder buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" v-if="teamBlue.elder != 0"></span>
+                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" :style="teamBlue.elder != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamBlue.elderTime == 0 && teamBlue.elder != 0">&nbsp;{{ teamBlue.elder }}</span>
                             <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
                         </div>
@@ -104,7 +104,7 @@
                     </div>
                     <div class="row-2 baron buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" v-if="teamBlue.baron != 0"></span>
+                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" :style="teamBlue.baron != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamBlue.baronTime == 0 && teamBlue.baron != 0">&nbsp;{{ teamBlue.baron }}</span>
                             <span v-if="teamBlue.baronTime != 0">&nbsp;{{ timeFormat(teamBlue.baronTime, true) }}</span>
                         </div>
@@ -125,7 +125,7 @@
                     </div>
                     <div class="row-2 baron buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" v-if="teamRed.baron != 0"></span>
+                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" :style="teamRed.baron != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamRed.baronTime == 0 && teamRed.baron != 0">&nbsp;{{ teamRed.baron }}</span>
                             <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
                         </div>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="row-2 elder buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" v-if="teamRed.elder != 0"></span>
+                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" :style="teamRed.elder != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamRed.elderTime == 0 && teamRed.elder != 0">&nbsp;{{ teamRed.elder }}</span>
                             <span v-if="teamRed.elderTime != 0">&nbsp;{{ timeFormat(teamRed.elderTime, true) }}</span>
                         </div>
