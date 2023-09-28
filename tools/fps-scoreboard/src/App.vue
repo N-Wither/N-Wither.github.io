@@ -10,8 +10,8 @@ export default {
     return {
       global: {
         bestOf: 5,
-        map: 'LOTUS',
-        league: 'Valorant Champions',
+        map: '... | PREVIOUS: BIND PRX 5-13 EG | CURRENT: LOTUS | DECIDER: PEARL ',
+        match: 'VALORANT CHAMPIONS LA: GRAND FINALS',
         logo: 'https://liquipedia.net/commons/images/thumb/a/ae/VCT_Champions_icon_allmode.png/50px-VCT_Champions_icon_allmode.png',
         theme: 'valorant',
         rounds: 24,
@@ -105,13 +105,15 @@ export default {
     <div class="control">
       <div class="split global">
         <label for="map">Map</label>
-        <ElInput v-model="global.map" name="map" />
+        <ElInput v-model="global.map" name="map" type="textarea" :autosize="{minRows: 1}" />
+        <label for="match">Match</label>
+        <ElInput v-model="global.match" name="match" type="textarea" :autosize="{minRows: 1}" />
         <label for="bestof">Best of</label>
         <ElInputNumber v-model="global.bestOf" name="bestof" :min="1" :step="2"/>
         <label for="rounds">Rounds</label>
         <ElInputNumber v-model="global.rounds" name="rounds" :min="1" :max="100"/>
         <label for="league">League Name</label>
-        <ElInput v-model="global.league" name="league"/>
+        <ElInput v-model="global.match" name="league"/>
         <label for="league-logo">League Logo</label>
         <ElInput v-model="global.logo" name="league-logo" type="textarea" :autosize="{minRows: 2}"/>
         <div>

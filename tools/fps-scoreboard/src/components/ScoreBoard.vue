@@ -39,7 +39,9 @@ let getPoints = (point) => {
             <div class="point-container left">
                 <div class="point" v-for="(point, index) in getPoints(left.point)" :key="index" :data-type="point"></div>
             </div>
-            <div class="map flex-center">{{ global.map }}</div>
+            <div class="map-info">{{ global.map }}</div>
+            <div class="flex-center"></div>
+            <div class="match-info">{{ global.match }}</div>
             <div class="point-container right">
                 <div class="point" v-for="(point, index) in getPoints(right.point)" :key="index" :data-type="point"></div>
             </div>
@@ -53,7 +55,7 @@ let getPoints = (point) => {
 .scoreboard {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 60px 18px;
+    grid-template-rows: 60px auto;
     margin: auto;
     text-align: center;
     width: 100%;
@@ -122,8 +124,23 @@ let getPoints = (point) => {
 .row-2 {
     background: var(--background-2);
     display: grid;
-    grid-template-columns: 60px 1fr 60px;
+    grid-template-columns: 60px 1fr 0 1fr 60px;
     font-size: 60%;
+}
+
+.row-2 :is(.point-container, .flex-center, .map-info, .match-info) {
+    min-height: 16px;
+}
+
+.map-info {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.match-info {
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
 .point-container {
@@ -134,7 +151,6 @@ let getPoints = (point) => {
 }
 
 .point-container.left {
-    grid-row: 1/4;
     flex-direction: row-reverse;
 }
 
