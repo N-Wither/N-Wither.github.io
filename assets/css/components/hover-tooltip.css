@@ -12,7 +12,7 @@
     padding: 0.2rem;
     min-width: 1rem;
     background-color: var(--theme-color);
-    content: attr(data-index) '';
+    content: attr(data-index);
     position: absolute;
     top: 0;
     left: 0;

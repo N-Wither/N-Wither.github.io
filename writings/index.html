@@ -1,43 +1,77 @@
 <!DOCTYPE html>
-<html lang = "en-us">
+<html lang="en-us">
 <head>
     <meta charset= "utf-8">
-    <base href="https://n-wither.github.io"/>
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Articles</title>
-    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <title>N Wither's Works</title>
+    <script src="/assets/js/utils.js" defer></script>
+    <script>
+        function init(){
+            randomQuote()
+            startTime()
+        }
+
+        async function setContent(url) {
+            let newContent = await fetch(url)
+            let dom = new window.DOMParser().parseFromString(await newContent.text(), 'text/html')
+            document.querySelector('.page-content').innerHTML = dom.querySelector('.page-content').innerHTML
+            document.location.href = url
+        }
+    </script>
+    <!-- components -->
+    <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
 </head>
-<body onload="startTime(), hello(), randomQuote()">
-    <div>
-        <ul class="navigate">
-            <li class="sidebar"><a href="https://n-wither.github.io">Home</a></li>
-            <li class="sidebar"><a href="./writings/index.html">Articles</a></li>
+<body onload="init()">
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">
+            WitherWorks
+        </div>
+        <div class="flex-center page-title">Title</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
+                    <div class="request-svg" data-src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></div>
+                </a>
+            </div>
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <h1 class="page-title">Articles</h1>
+        <hr>
+        <ul class="content">
+            <li class="content"><a href="./abs-rev/">Abstracalypse Reviews</a></li>
+            <li class="content"><a onclick="setContent('./abs-str/')">Abstracalypse Stories</a></li>
+            <li class="content"><a href="./surftips/index.html">Surfing Tips</a></li>
+            <li class="content"><a href="./kjs/kjs-0.html">KubeJS Experienced</a></li>
         </ul>
     </div>
-    <div id="toolbox">
-        <p id="clock">clock</p>
-    </div>
-    <div class="content">
-        <div>
-            <h1>Articles</h1>
-            <hr/>
-        </div>
-        <div>
-            <ul class="content">
-                <li class="content"><a href="./writings/abs-rev/index.html">Abstracalypse Reviews</a></li>
-                <li class="content"><a href="./writings/abs-str/index.html">Abstracalypse Stories</a></li>
-                <li class="content"><a href="./writings/surftips/index.html">Surfing Tips</a></li>
-                <li class="content"><a href="./writings/kjs/kjs-0.html">KubeJS Experienced</a></li>
-            </ul>
-        </div>
-        <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
-            <span id="randomQuote">Random Quote</span>
-            <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
-        </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
     </div>
 </body>
 </html>

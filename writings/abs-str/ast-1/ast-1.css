@@ -10,7 +10,7 @@
   --darkened-theme-color: #8b0721;
   --box-shadow-color: #0d3e5422;
   --link-color: crimson;
-  font-family: "Metropolis", "Readex Pro", "Noto Sans SC";
+  font-family: "Metropolis", "Readex Pro", "Noto Sans SC"， sans-serif, 'Material Symbols Outlined';
   --header-height: 3.6rem;
   scroll-behavior: smooth;
 }

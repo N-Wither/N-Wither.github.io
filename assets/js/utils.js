@@ -1,9 +1,3 @@
-// Auto dark mode
-let matchScheme = window.matchMedia('(prefers-color-scheme: dark)')
-if(matchScheme.matches && !document.querySelector('html').classList.contains('dark-mode')){
-    document.querySelector('html').classList.add('dark-mode')
-}
-
 // Clock component
 function startTime() {
     let today = new Date();

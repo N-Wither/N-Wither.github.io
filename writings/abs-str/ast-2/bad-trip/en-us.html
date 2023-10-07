@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <title>Bad Trip</title>
+    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
+    <script>
+        function init(){
+            randomQuote()
+            startTime()
+        }
+    </script>
+    <!-- components -->
+    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+    <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="/assets/js/components/hover-tooltip.js"></script>
+    <script src="/web-components/info-tag/info-tag.js"></script>
+    <!-- styles -->
+    <link rel="stylesheet" href="../ast-2-assets/ast-2-stories.css">
+    <link rel="stylesheet" href="/assets/css/components/hover-tooltip.css">
+    <style>
+        .page-content {
+            font-family: 'Noto Serif SC', sans-serif, 'Material Symbols Outlined';
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">
+            <div>Cycmatica <br> <span style="font-size: smaller;">Series</span></div>
+        </div>
+        <div class="flex-center page-title">Bad Trip</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank">
+                    <div class="request-svg" data-src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></div>
+                </a>
+            </div>
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <b>Plot</b><br>
+                Ella encountered another mage in the trip.
+            </div>
+            <div class="item">
+                <div><b>Other Languages &#xe894;</b></div>
+                <div>
+                    <a href="./index.html">简体中文</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <h1 class="page-title">Bad Trip</h1>
+        <info-tag tag="Written by" desc="N Wither" icon="&#xe3c9" icon-type="text"></info-tag>
+        <hr>
+        <p>"Do you have anything to eat?"</p>
+        <p>"Nah."</p>
+        <p>Sighs, I'm hungry.</p>
+        <p>Though eating in this trumbling wagon is not something good enough, but me and Noviah, who is sitting opposite me now, has eaten nothing since this morning. The humid and hot air in the mountains is just depressing, now we both have no will to say anything.</p>
+        <p>How did I get here?</p> 
+        <p>I need to go to [location] for work, as the railway there is still under construction, I have to take train to [location2] first, then consider other ways. I meet Noviah in the train, her destination is also [location]. She just graduated some time ago, her mom has been expecting her to be a mage. She want's to see her families this time, I think this may be glorious for her?</p>
+        <p>Then she shared me a piece of creamed bread made by herself, tasty, a bit professional.</p>
+        <p>But accident happened when the train arrives [location3] , as the heavy rain caused the landslide, the track was buried in piles of dirt and stones, the train had to stop here.</p>
+        <p>The conductor of the train told us we need to wait for about a week to clean out the track, we can find a place to stay if we want to wait, or get a refund (certainly, not a full refund). I need to get [location] on time, or my wage will be deductioned, Noviah has also to go back in city as soon, so we accepted the refund and try to go for the next place where we can take the train.</p>
+        <p>Actually I can just take my broom and fly away, but Noviah said she can't, it's also impossible for me to take her flying so long distance, we need to find another way.</p>
+        <p>Think, if I had not eaten her bread, may be I can leave her here and fly away with no regret.</p>
+        <p>Well, Noviah looks so innocent, I'm still a bit worried about her.</p>
+        <p>Luckily there's a wagon post, that's why we are starving in the wagon now.</p>
+        <p>The coachman says we need another 2 hours to get to next town, which means I have to suffer for another 2 hours.</p>
+        <p>Now my only choice is to find something to read in my pack, I bought newspaper before my departure, I supposed to read it on the train, but that time I was chatting with Noviah, now I have time to read it.</p>
+        <p>Then I saw an article which says the rainy season of [location3] has come, travelers should notice the disasters caused by the rain.</p>
+        <p>I should have read it, maybe everything will be different now.</p>
+        <p>But regretting is useless, just go.</p>
+        <p>The wagon is finally arrived, Noviah has fallen asleep some time, I slightly shoke her.</p>
+        <p>"Noviah? We have arrived."</p>
+        <p>"……"</p>
+        <p>"Wake up?"</p>
+        <p>"…Ah…oh…"</p>
+        <hr class="break">
+        <p>"Sorry I was asleep."</p>
+        <p>"Nevermind." I said, "The next wagon is tomorrow, we got to find somewhere to eat something first."</p>
+        <p>"Do you know about here?"</p>
+        <p>"No, it's my first time to be here."</p>
+        <p>I forgot the name of this town, it's just like other towns in this mountainous region, muddy road, old wooden buildings, wandering dogs and cats, almost anything you will imagine when you think about a undeveloped mountain town.</p>
+        <p>I'm not depriciating this place, at least there is a post office with telegram service.</p>
+        <p>We found a pub, the words on it's sign has faded.</p>
+        <p>The owner was suprised to see new face in this old pub, I told him why we were here.</p>
+        <p>He can't help us in our trip, but he can make something delicious.</p>
+        <p>We found a table, seated to have our meal and talk about next several days' plan.</p>
+        <p>"Alright," I put the map on the table, "so we are now here, and the next train station is here." I'm pointing on the map, then cut a piece off the steak.</p>
+        <p>"We have another 2 towns to go." I said.</p>
+
+    </div>
+    <script>setTooltip()</script>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+    </div>
+</body>
+</html>

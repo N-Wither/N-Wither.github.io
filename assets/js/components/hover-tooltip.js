@@ -16,8 +16,8 @@ function setTooltip() {
     let needTooltip = document.querySelectorAll('.need-tooltip')
     let tooltipContents = document.querySelectorAll('.tooltip-content')
 
-    if (needTooltip.length == 0) console.warn('HoverTooltip: No tooltip is needed!')
-    if (tooltipContents.length == 0) console.warn('HoverTooltip: No tooltip content found!')
+    // if (needTooltip.length == 0) console.warn('HoverTooltip: No tooltip is needed!')
+    // if (tooltipContents.length == 0) console.warn('HoverTooltip: No tooltip content found!')
 
     needTooltip.forEach((el, i) => {
         if (needTooltip.length == 0 || tooltipContents.length == 0) return;
