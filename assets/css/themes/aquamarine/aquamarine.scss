@@ -67,16 +67,6 @@ $general-transition-time: 0.4s;
     @include dark-scheme-palette()
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        @include dark-scheme-palette()
-    }
-
-    :root.dark-mode {
-        @include light-scheme-palette()
-    }
-}
-
 ::selection {
     background-color: var(--darkened-theme-color);
     color: var(--text-color-select);
@@ -414,6 +404,12 @@ hr {
 
     .page-header .menu a.item {
         min-height: var(--header-height);
+    }
+
+    .page-header {
+        .page-icon, .page-category {
+            display: none;
+        }
     }
 
     .page-header .toolbox {

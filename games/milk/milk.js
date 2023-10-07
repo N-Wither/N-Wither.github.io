@@ -256,6 +256,7 @@ const MilkApp = {
                 this.refreshData()
                 this.milk += this.autoMilkAmount * this.autoMilkModifier
                 this.checkStage()
+                document.title = `Milk: ${this.milk.toFixed(0)}`
             }, 1000)
         },
 

@@ -16,6 +16,7 @@ document.body.appendChild(toTop)
 toTop.style.display = 'none'
 
 let titleObserver = new IntersectionObserver(entries => {
+    // let isMobileDevice = window.matchMedia('(orientation: portrait)').matches || window.matchMedia('(max-width: 480px)').matches
     let title = document.querySelector('.page-header .page-title')
     if(entries[0].intersectionRatio <= 0){
         if(title) title.style.opacity = 1;

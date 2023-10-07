@@ -6,22 +6,16 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
-    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-    <script>
-        function init(){
-            randomQuote()
-            startTime()
-        }
-    </script>
+    <script src="/assets/js/utils.js"></script>
     <!-- components -->
     <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
 </head>
-<body onload="init()">
+<body>
     <div class="page-header">
         <div class="menu-button">
             <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
@@ -57,9 +51,13 @@
     </div>
     <div class="page-footer">
         <hr>
-        <span id="randomQuote">Random Quote</span>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
         <br>
         Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
     </div>
+    <script>
+        startTime()
+        randomQuote()
+    </script>
 </body>
 </html>

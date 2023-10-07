@@ -9,18 +9,11 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
-    <script src="/assets/js/utils.js" defer></script>
+    <script src="/assets/js/utils.js"></script>
     <script>
         function init(){
             randomQuote()
             startTime()
-        }
-
-        async function setContent(url) {
-            let newContent = await fetch(url)
-            let dom = new window.DOMParser().parseFromString(await newContent.text(), 'text/html')
-            document.querySelector('.page-content').innerHTML = dom.querySelector('.page-content').innerHTML
-            document.location.href = url
         }
     </script>
     <!-- components -->
@@ -62,7 +55,7 @@
         <hr>
         <ul class="content">
             <li class="content"><a href="./abs-rev/">Abstracalypse Reviews</a></li>
-            <li class="content"><a onclick="setContent('./abs-str/')">Abstracalypse Stories</a></li>
+            <li class="content"><a href="./abs-str/">Abstracalypse Stories</a></li>
             <li class="content"><a href="./surftips/index.html">Surfing Tips</a></li>
             <li class="content"><a href="./kjs/kjs-0.html">KubeJS Experienced</a></li>
         </ul>
