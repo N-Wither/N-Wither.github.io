@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Tempel Grotesk Wide';
+    src: url('https://n-wither.github.io/assets/fonts/TempelGrotesk-wide.woff2') format('woff2');
+}
+
 :root.dark-mode {
     --background-color: #000000;
     --theme-color: #b92c00;
@@ -107,9 +112,9 @@ h3 {
     gap: 0.4em
 }
 .grind {
-    font-family: 'Gasoek One';
-    line-height: 95%;
-    transform: translateY(-0.1em);
+    font-family: 'Tempel Grotesk Wide';
+    line-height: 99%;
+    transform: translateY(-0.1em) scaleX(0.8);
 }
 .glory {
     font-family: 'Cinzel', 'Noto Serif SC';
