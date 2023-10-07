@@ -2,12 +2,15 @@ const MilkApp = {
     data() {
         return {
             milk: 0,
+            tweenedMilk: {milk: 0},
             manualMilkAmount: 1,
             manualMilkModifier: 1,
             autoMilkAmount: 0,
             autoMilkModifier: 1,
             properties: {
                 milkMan: {
+                    id: 'milkMan',
+                    name: '挤奶工',
                     desc: "从路边招聘的无业人士。",
                     count: 0,
                     base: 10,
@@ -16,6 +19,8 @@ const MilkApp = {
                     productivity: [1, 1]
                 },
                 autoMilker: {
+                    id: 'autoMilker',
+                    name: '自动挤奶器',
                     desc: "最新技术的自动挤奶器，榨干你的奶牛。",
                     count: 0,
                     base: 100,
@@ -24,6 +29,8 @@ const MilkApp = {
                     productivity: [5, 3]
                 },
                 pump: {
+                    id: 'pump',
+                    name: '泵',
                     desc: "从地下牛奶河抽取牛奶。",
                     count: 0,
                     base: 2000,
@@ -32,6 +39,8 @@ const MilkApp = {
                     productivity: [50, 20]
                 },
                 pumpjack: {
+                    id: 'pumpjack',
+                    name: '牛奶钻井',
                     desc: "从远古地层开采牛奶（以及奶气体）。",
                     count: 0,
                     base: 50000,
@@ -40,6 +49,8 @@ const MilkApp = {
                     productivity: [300, 150]
                 },
                 factory: {
+                    name: '化工厂',
+                    id: 'factory',
                     desc: "使用化工技术合成牛奶。",
                     count: 0,
                     base: 600000,
@@ -48,6 +59,8 @@ const MilkApp = {
                     productivity: [2000, 1200]
                 },
                 exchange: {
+                    name: '交易所',
+                    id: 'exchange',
                     desc: "通过商业资本活动获取牛奶。",
                     count: 0,
                     base: 3000000,
@@ -56,6 +69,8 @@ const MilkApp = {
                     productivity: [15000, 8000]
                 },
                 magic: {
+                    name: '魔法师',
+                    id: 'magic',
                     desc: "将各种液体变成牛奶。",
                     count: 0,
                     base: 15000000,
@@ -64,16 +79,30 @@ const MilkApp = {
                     productivity: [100000, 70000]
                 },
                 starship: {
+                    name: '星舰',
+                    id: 'starship',
                     desc: "从银河（Milky Way）运回牛奶。",
                     count: 0,
                     base: 100000000,
                     price: 100000000,
                     increment: 1.06,
                     productivity: [800000, 600000]
+                },
+                whiteHole: {
+                    name: '白洞',
+                    id: 'whiteHole',
+                    desc: '白洞，白色的明天在等着我们！',
+                    count: 0,
+                    base: 1600000000,
+                    price: 1600000000,
+                    increment: 1.05,
+                    productivity: [24000000, 18000000]
                 }
             },
             upgrades: {
                 freshGrass: {
+                    id: 'freshGrass',
+                    name: '新鲜牧草',
                     desc: '奶牛喜欢的新鲜牧草。\n总产量 + 1%。',
                     price: 1000,
                     type: 'all',
@@ -81,6 +110,8 @@ const MilkApp = {
                     sold: ''
                 },
                 cowCat: {
+                    id: 'cowCat',
+                    name: '奶牛猫',
                     desc: '黑白相间的猫，似乎和你的奶牛产生了共鸣。\n总产量 + 1%。',
                     price: 10000,
                     type: 'all',
@@ -88,6 +119,8 @@ const MilkApp = {
                     sold: ''
                 },
                 exoskeleton: {
+                    id: 'exoskeleton',
+                    name: '机械外骨骼',
                     desc: '强劲磁场动力。\n 手动产量 + 100%。',
                     price: 100000,
                     type: 'manual',
@@ -95,6 +128,8 @@ const MilkApp = {
                     sold: ''
                 },
                 gene: {
+                    id: 'gene',
+                    name: '转基因',
                     desc: '对你的奶牛进行基因改造。\n总产量 + 2%。',
                     price: 100000,
                     type: 'all',
@@ -102,10 +137,21 @@ const MilkApp = {
                     sold: ''
                 },
                 school: {
+                    id: 'school',
+                    name: '奶牛学校',
                     desc: '从异世界聘请魅魔教师对你的奶牛进行高等教育。\n总产量 + 2%。',
                     price: 500000,
                     type: 'all',
                     modifier: 0.02,
+                    sold: ''
+                },
+                overclock: {
+                    id: 'overclock',
+                    name: '超频工具',
+                    desc: '超频你的奶牛，注意散热。\n总产量 + 3%。',
+                    price: 2500000,
+                    type: 'all',
+                    modifier: 0.03,
                     sold: ''
                 },
             },
@@ -239,17 +285,23 @@ const MilkApp = {
                 }
             }
             navigator.clipboard.writeText(btoa(JSON.stringify(data)))
-            localStorage.setItem('data', btoa(JSON.stringify(data)))
+            localStorage.setItem('milk-game-data', btoa(JSON.stringify(data)))
             document.querySelector('.data').innerHTML = btoa(JSON.stringify(data))
             document.querySelector('.data').setAttribute('class', 'data visible')
             document.querySelector('.data-tip').setAttribute('class', 'data-tip visible')
             alert('游戏存档数据已保存到剪贴板！')
         },
 
-        loadGame(){
+        loadGame(local){
             let rawData = ''
-            if(localStorage.getItem('data') != undefined){
-                rawData = localStorage.getItem('data')
+            if(local == true){
+                if(localStorage.getItem('milk-game-data') != undefined){
+                    rawData = localStorage.getItem('milk-game-data')
+                }
+                else {
+                    rawData = window.prompt('没有找到本地存档，请输入存档数据或从头开始！')
+                    if(rawData == null) return
+                }
             } else rawData = window.prompt('输入存档数据：');
             if(rawData == null) return;
             let data = JSON.parse(atob(rawData.trim()))
@@ -293,12 +345,19 @@ const MilkApp = {
             else if(this.milk > 10000) this.stage = 3;
             else if(this.milk > 100000) this.stage = 4;
             else if(this.milk > 1000000) this.stage = 5;
+        },
+
+        updateMilk(){
+            gsap.to(this.tweenedMilk, {duration: 0.5, milk: this.milk})
+            requestAnimationFrame(this.updateMilk)
         }
     },
 
     mounted() {
         this.showNews()
         this.autoMilk()
+        this.loadGame(true)
+        requestAnimationFrame(this.updateMilk)
     }
 }
 

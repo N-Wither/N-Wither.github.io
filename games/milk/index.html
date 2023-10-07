@@ -20,6 +20,12 @@
     <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+
+    <!-- page -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.prod.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./milk.js" type="module"></script>
+    <link rel="stylesheet" href="./milk.css">
 </head>
 <body onload="init()">
     <div class="page-header">
@@ -28,9 +34,9 @@
         </div>
         <div class="page-icon"></div>
         <div class="page-category flex-center padding-all-small">
-            WitherWorks
+            Games
         </div>
-        <div class="flex-center page-title">Games</div>
+        <div class="flex-center page-title">Milking Simulator</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button">
@@ -51,12 +57,42 @@
         </div>
     </div>
     <div class="page-content">
-        <h1 class="page-title">Games</h1>
+        <h1 class="page-title">Milking Simulator</h1>
         <hr>
-        <div class="list">
-            <div class="list_item">
-                <a href="./milk/">挤奶模拟器</a><br>
-                放置游戏。
+        <div id="milksim">
+            <div class="panel list">
+                <div>牛奶：{{tweenedMilk.milk.toFixed(0)}} 桶</div>
+                <div>手动产量：{{manualMilkAmount}} <span v-if="manualMilkModifier > 1">(+{{((manualMilkModifier - 1) * 100).toFixed(0)}}%)</span> 桶/次</div>
+                <div>自动产量：{{autoMilkAmount}} <span v-if="autoMilkModifier > 1">(+{{((autoMilkModifier - 1) * 100).toFixed(0)}}%)</span> 桶/秒</div>
+                <button @click="manualMilk()" id="milkButton">挤奶</button>
+                <div class="savedata-control">
+                    <button @click="saveGame()" id="saveButton">保存游戏</button>
+                    <button @click="loadGame(true)" id="loadButton">读取本地的游戏</button>
+                    <button @click="loadGame(false)" id="loadButton">读取其他设备的游戏</button>
+                </div>
+                <div class="news">
+                    <div style="font-weight: bold;">新闻</div>
+                    <div class="news-text">{{pickedNews}}</div>
+                </div>
+                <div class="data-tip">如果数据没有保存到剪贴板，请复制下面的内容：</div>
+                <textarea class="data" readonly></textarea>
+            </div>
+            <div class="shop list">
+                <h2>资产</h2>
+                <div v-for="prop in properties">
+                    <button @click="buyProperty(prop.id)">{{ prop.name }}({{ prop.count }})</button>
+                    <div>{{prop.desc}}</div>
+                    <div>价格：{{prop.price}}</div>
+                    <div>产量: 自动 {{prop.productivity[0]}} 手动 {{prop.productivity[1]}}</div>
+                </div>
+            </div>
+            <div class="shop list">
+                <h2>升级</h2>
+                <div v-for="upgr in upgrades">
+                    <button @click="buyUpgrade(upgr.id)" :class="upgr.sold">{{ upgr.name }} <span v-if="upgr.sold">（已购买）</span></button>
+                    <div>{{upgr.desc}}</div>
+                    <div>价格：{{upgr.price}}</div>
+                </div>
             </div>
         </div>
     </div>
