@@ -275,14 +275,16 @@ const MilkApp = {
                     factory: this.properties.factory.count,
                     exchange: this.properties.exchange.count,
                     magic: this.properties.magic.count,
-                    starship: this.properties.starship.count
+                    starship: this.properties.starship.count,
+                    whiteHole: this.properties.whiteHole.count
                 },
                 upgrades: {
                     freshGrass: this.upgrades.freshGrass.sold,
                     cowCat: this.upgrades.cowCat.sold,
                     exoskeleton: this.upgrades.exoskeleton.sold,
                     gene: this.upgrades.gene.sold,
-                    school: this.upgrades.school.sold
+                    school: this.upgrades.school.sold,
+                    overclock: this.upgrades.overclock.sold
                 }
             }
             navigator.clipboard.writeText(btoa(JSON.stringify(data)))
