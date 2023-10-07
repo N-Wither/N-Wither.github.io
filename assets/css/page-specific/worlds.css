@@ -6,6 +6,19 @@
     font-family: "Metropolis", "Readex Pro", "Noto Sans SC", 'Material Symbols Outlined';
 }
 
+@media (prefers-color-scheme: dark) {
+    :root.dark-mode {
+        --text-color: #fff;
+        --text-color-2: #888;
+        --text-color-select: #Fff;
+        --gray-color: #3b3b3b;
+        --dark-gray-color: #2b2b2b;
+        --darkened-theme-color: #169d84;
+        --secondary-theme-color: #fff;
+        --darkened-secondary-theme-color: #ccc;
+    }
+}
+
 ::selection {
     background-color: #78000188;
 }
