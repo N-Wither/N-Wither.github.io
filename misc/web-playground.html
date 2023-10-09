@@ -7,8 +7,7 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css"
-        href="../assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <script src="../assets/js/utils.js" defer></script>
@@ -31,6 +30,8 @@
     <script src="../assets/js/components/hover-tooltip.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/hover-tooltip.css">
     <script src="../assets/js/components/AJAX-svg.js" defer></script>
+    <script src="../web-components/tab-view/tab-view.js" type="module"></script>
+    <script src="../web-components/info-tag/info-tag.js" type="module"></script>
 </head>
 
 <body onload="init()">
@@ -132,6 +133,56 @@
             <p>第一行文字</p>
             <p>第二行文字，这行文字很长：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus amet dignissimos laudantium commodi magnam, sequi magni! Enim et deserunt saepe blanditiis quae vel perspiciatis ipsam dignissimos possimus tenetur, illum nobis.</p>
         </div>
+        <h2>Tab View</h2>
+        <div>
+            <tab-view>
+                <div class="tab">A Tab</div>
+                <div class="page">
+                    <b>A Page</b>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem rem quam ex reprehenderit veritatis modi dignissimos cumque nemo. Repudiandae voluptatem commodi nulla alias debitis. Excepturi corrupti aspernatur assumenda voluptates officia.</p>
+                </div>
+                <div class="tab">Another Tab</div>
+                <div class="page">
+                    <b>Another Page</b>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ullam dicta earum, aspernatur numquam consectetur fugiat expedita velit maiores iure quisquam placeat, dolorum amet eligendi fuga necessitatibus facilis explicabo ut?</p>
+                </div>
+                <div class="tab">3rd Tab</div>
+                <div class="page">
+                    <p>This tab has many words.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia cum, vitae incidunt ea ratione velit sapiente quos veniam deserunt, culpa obcaecati assumenda necessitatibus illum nobis officia. Dolorem quisquam nemo animi.
+                    Quaerat nesciunt architecto est totam inventore nisi obcaecati ratione, voluptatibus, debitis vel ullam odio reprehenderit nostrum facere fugit magni rem consectetur rerum? Itaque, facere beatae? Dolore sint dolorem molestias porro.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
+                </div>
+                <div class="tab">I donno why this tab has a very long title but it's empty, weird isn't it?</div>
+                <div class="page"></div>
+                <div class="tab">Another Empty Tab</div>
+                <div class="page"></div>
+                <div class="tab">Empty Tab</div>
+                <div class="page"></div>
+                <div class="tab">Empty Tab</div>
+                <div class="page"></div>
+                <div class="tab">Empty Tab</div>
+                <div class="page"></div>
+                <div class="tab">Empty Tab</div>
+                <div class="page"></div>
+            </tab-view>
+        </div>
+        <h2>Info Tag</h2>
+        <info-tag 
+        tag="信息标签" 
+        desc="关于信息的描述" 
+        icon="&#xe88e" 
+        icon-type="text"
+        >
+        </info-tag>
     </div>
     <div class="page-footer">
         <hr>

@@ -1,7 +1,7 @@
 // Auto Dark Mode
 function autoDarkMode() {
     let dark = matchMedia('(prefers-color-scheme: dark)')
-    let html = document.querySelector('html')
+    let html = document.documentElement
     if(dark.matches && !html.classList.contains('dark-mode')){
         html.classList.add('dark-mode')
     }

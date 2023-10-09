@@ -4,8 +4,8 @@ select {
 
 /* Fancy Link */
 .fancy-link {
-    color: white;
-    background: linear-gradient(to right, white, white) no-repeat right bottom;
+    color: var(--text-color);
+    background: linear-gradient(to right, var(--text-color), var(--text-color)) no-repeat right bottom;
     background-size: 0 2px;
     transition: background-size 200ms;
 }

@@ -25,12 +25,13 @@
     --text-color-select: #fff;
     --gray-color: #cccccc;
     --dark-gray-color: #888888;
-    --theme-color: #00ffd0;
+    --theme-color: #20d6b5;
     --darkened-theme-color: #1dc3a5;
     --secondary-theme-color: #fff;
     --darkened-secondary-theme-color: #ccc;
     --box-shadow-color: #0F0F0F22;
     --link-color: #1dc3a5;
+    --border-color-common: #cfcfcf;
 }
 
 @mixin dark-scheme-palette {
@@ -46,6 +47,7 @@
     --darkened-secondary-theme-color: #ccc;
     --box-shadow-color: #66666622;
     --link-color: #00ffd0;
+    --border-color-common: #3c3c3c;
 }
 
 $general-transition-time: 0.4s;

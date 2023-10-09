@@ -9,6 +9,11 @@
     font-family: inherit;
 }
 
+:host ::selection {
+    background-color: var(--darkened-theme-color);
+    color: var(--text-color-select);
+}
+
 .icon {
     width: 4em;
     height: 4em;
