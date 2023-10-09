@@ -1,6 +1,7 @@
 @font-face {
-    font-family: 'Tempel Grotesk Wide';
-    src: url('https://n-wither.github.io/assets/fonts/TempelGrotesk-wide.woff2') format('woff2');
+    font-family: 'Tempel Grotesk';
+    src: url('/assets/fonts/TempelGrotesk.woff') format('woff');
+    font-stretch: condensed;
 }
 
 :root.dark-mode {
@@ -8,7 +9,7 @@
     --theme-color: #b92c00;
     --link-color: #e13d0b;
     --box-shadow-color: #2d0902;
-    font-family: "Metropolis", "Readex Pro", "Noto Sans SC", 'Material Symbols Outlined';
+    font-family: "Inter", "Noto Sans SC", 'Material Symbols Outlined';
 }
 
 @media (prefers-color-scheme: dark) {
@@ -97,6 +98,12 @@ body {
     cursor: help;
 }
 
+h2 {
+    font-family: 'Tempel Grotesk', "Metropolis", "Noto Sans SC";
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
 h3 {
     display: inline-block;
 }
@@ -112,11 +119,26 @@ h3 {
     gap: 0.4em
 }
 .grind {
-    font-family: 'Tempel Grotesk Wide';
+    font-family: 'Tempel Grotesk';
     line-height: 99%;
-    transform: translateY(-0.1em) scaleX(0.8);
+    transform: translateY(-0.1em);
 }
 .glory {
     font-family: 'Cinzel', 'Noto Serif SC';
     line-height: 98%;
+}
+
+.score, .name {
+    font-family: 'Tempel Grotesk';
+}
+
+.team.qualified {
+    background-color: #2f7ab2;
+}
+
+.team.eliminated {
+    background-color: #52120b;
+}
+.team.eliminated .name {
+    text-decoration: line-through;
 }
