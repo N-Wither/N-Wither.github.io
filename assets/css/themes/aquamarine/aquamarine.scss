@@ -150,7 +150,7 @@ hr {
     button {
         width: var(--header-height);
         height: var(--header-height);
-        background: none;
+        background: var(--background-color);
         border: none;
         color: inherit;
     }
@@ -393,7 +393,7 @@ hr {
 
     .page-header .menu.open {
         top: var(--header-height);
-        width: 60%;
+        width: 50%;
     }
 
     .page-header {
@@ -415,11 +415,11 @@ hr {
     }
 
     .page-header .toolbox {
-        width: 40%;
+        width: 50%;
     }
     .page-header .toolbox.open {
         top: var(--header-height);
-        width: 40%;
+        width: 50%;
     }
 
     .page-content {

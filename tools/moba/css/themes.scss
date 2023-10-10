@@ -51,28 +51,6 @@
         }
     }
 
-    &[theme=lck] {
-        .score-teamBlue, .score-teamRed, .score-blank {
-            width: 8px;
-            outline: solid 1px gray;
-        }
-
-        font-family: 'termina', 'icons';
-
-        .kills {
-            font-weight: normal;
-        }
-
-        .team-name-text {
-            font-family: 'LCK';
-            font-weight: normal;
-        }
-    }
-
-    &[theme=lpl] {
-        font-family: 'JetBrains Mono', monospace, 'icons';
-    }
-
     &[theme=dark] {
         --main-bg: #333333;
         --blue-bg: #48d1cc;
@@ -97,6 +75,8 @@
         --red-color: #eb1846;
         --red-bg: #1a1e1e;
         --text-color: #f6f6f6;
+
+        font-family: 'JetBrains Mono', monospace, 'icons';
     }
     &[theme=lck] {
         --main-bg: linear-gradient(170deg, #4b6bf9 0%, transparent 75px), linear-gradient(190deg, #f11c0b 0%, transparent 75px), #171622;
@@ -105,6 +85,22 @@
         --blue-bg: transparent;
         --red-bg: transparent;
         --text-color: white;
+
+        .score-teamBlue, .score-teamRed, .score-blank {
+            width: 8px;
+            outline: solid 1px gray;
+        }
+
+        font-family: 'termina', 'icons';
+
+        .kills {
+            font-weight: normal;
+        }
+
+        .team-name-text {
+            font-family: 'LCK';
+            font-weight: normal;
+        }
     }
     &[theme=lec] {
         --main-bg: #040017;
@@ -121,14 +117,6 @@
         --blue-color: #3395b8;
         --red-bg: #070707;
         --red-color: #b60f33;
-        --text-color: #ffffff;
-    }
-    &[theme=lcc] {
-        --main-bg: #1a1e1e;
-        --blue-bg: #8bcc34;
-        --blue-color: #8bcc34;
-        --red-bg: #fd439e;
-        --red-color: #fd439e;
         --text-color: #ffffff;
     }
     &[theme=valorant] {
@@ -151,16 +139,29 @@
             box-shadow: -3px 0px 0px #ff4560;
         }
     }
-    &[theme=asiangames] {
-        --main-bg: #490c72;
-        --blue-color: white;
+    &[theme=worlds] {
+        --main-bg: linear-gradient(90deg, #4ca7ed43 0%, transparent 40%, transparent 60%, #da401743 100%), url('https://n-wither.github.io/assets/imgs/lol/worlds-bg.png');
+        --blue-color: #2f7ab2;
         --blue-bg: transparent;
-        --red-color: white;
+        --red-color: #9b2012;
         --red-bg: transparent;
+        --sep-line-color: #38383849;
 
-        .stat-row {
-            background: white;
-            color: #1e1e1e;
+        background-size: cover;
+        
+        font-family: 'Inter', 'Metropolis', 'Noto Sans SC', sans-serif, 'icons';
+
+        .team-name-text {
+            font-family: 'Tempel Grotesk';
+        }
+
+        .score-blank, .score-teamBlue, .score-teamRed {
+            border: 1px solid white;
+            height: 6px;
+            width: 10px;
+        }
+        .score-blank {
+            background: transparent;
         }
     }
 }

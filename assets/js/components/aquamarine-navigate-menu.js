@@ -12,7 +12,7 @@ let navigateItems = [
     {
         text: 'Tools',
         icon: '\uea59',
-        url: 'https://n-wither.github.io/tools/tools.html'
+        url: 'https://n-wither.github.io/tools/'
     },
     {
         text: 'Games',

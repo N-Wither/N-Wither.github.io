@@ -6,6 +6,7 @@ function autoDarkMode() {
         html.classList.add('dark-mode')
     }
 }
+
 autoDarkMode()
 
 // Clock component

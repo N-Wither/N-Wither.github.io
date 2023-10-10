@@ -4,9 +4,9 @@
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Bad Trip</title>
     <script src="https://n-wither.github.io/assets/js/utils.js"></script>
@@ -23,13 +23,14 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="/assets/js/components/hover-tooltip.js"></script>
-    <script src="/web-components/info-tag/info-tag.js"></script>
+    <script src="/web-components/info-tag/info-tag.js" type="module"></script>
+    <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
     <!-- styles -->
     <link rel="stylesheet" href="../ast-2-assets/ast-2-stories.css">
     <link rel="stylesheet" href="/assets/css/components/hover-tooltip.css">
     <style>
         .page-content {
-            font-family: 'Noto Serif SC', sans-serif, 'Material Symbols Outlined';
+            font-family: 'Inter', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
         }
     </style>
 </head>
@@ -43,18 +44,18 @@
             <div>Cycmatica <br> <span style="font-size: smaller;">Series</span></div>
         </div>
         <div class="flex-center page-title">Bad Trip</div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
+        <div class="menu all-menu" role="navigation"></div>
+        <div class="page-options right flex-center">
             <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank">
-                    <div class="request-svg" data-src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></div>
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Github">
+                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
                 </a>
             </div>
             <div class="menu-button">
-                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+                <button class="dark-mode-button" onclick="toggleClass('html', 'dark-mode')">◐</button>
             </div>
             <div class="menu-button toolbox-button">
-                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
             </div>
         </div>
         
@@ -72,7 +73,7 @@
             </div>
         </div>
     </div>
-    <div class="page-content">
+    <div class="page-content" contenteditable>
         <h1 class="page-title">Bad Trip</h1>
         <info-tag tag="Written by" desc="N Wither" icon="&#xe3c9" icon-type="text"></info-tag>
         <hr>

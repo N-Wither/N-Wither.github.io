@@ -44,23 +44,6 @@
   width: 8px;
   border-radius: 50%;
 }
-.moba-scoreboard[theme=lck], .moba-scoreboard-mobile[theme=lck] {
-  font-family: "termina", "icons";
-}
-.moba-scoreboard[theme=lck] .score-teamBlue, .moba-scoreboard[theme=lck] .score-teamRed, .moba-scoreboard[theme=lck] .score-blank, .moba-scoreboard-mobile[theme=lck] .score-teamBlue, .moba-scoreboard-mobile[theme=lck] .score-teamRed, .moba-scoreboard-mobile[theme=lck] .score-blank {
-  width: 8px;
-  outline: solid 1px gray;
-}
-.moba-scoreboard[theme=lck] .kills, .moba-scoreboard-mobile[theme=lck] .kills {
-  font-weight: normal;
-}
-.moba-scoreboard[theme=lck] .team-name-text, .moba-scoreboard-mobile[theme=lck] .team-name-text {
-  font-family: "LCK";
-  font-weight: normal;
-}
-.moba-scoreboard[theme=lpl], .moba-scoreboard-mobile[theme=lpl] {
-  font-family: "JetBrains Mono", monospace, "icons";
-}
 .moba-scoreboard[theme=dark], .moba-scoreboard-mobile[theme=dark] {
   --main-bg: #333333;
   --blue-bg: #48d1cc;
@@ -85,6 +68,7 @@
   --red-color: #eb1846;
   --red-bg: #1a1e1e;
   --text-color: #f6f6f6;
+  font-family: "JetBrains Mono", monospace, "icons";
 }
 .moba-scoreboard[theme=lck], .moba-scoreboard-mobile[theme=lck] {
   --main-bg: linear-gradient(170deg, #4b6bf9 0%, transparent 75px), linear-gradient(190deg, #f11c0b 0%, transparent 75px), #171622;
@@ -93,6 +77,18 @@
   --blue-bg: transparent;
   --red-bg: transparent;
   --text-color: white;
+  font-family: "termina", "icons";
+}
+.moba-scoreboard[theme=lck] .score-teamBlue, .moba-scoreboard[theme=lck] .score-teamRed, .moba-scoreboard[theme=lck] .score-blank, .moba-scoreboard-mobile[theme=lck] .score-teamBlue, .moba-scoreboard-mobile[theme=lck] .score-teamRed, .moba-scoreboard-mobile[theme=lck] .score-blank {
+  width: 8px;
+  outline: solid 1px gray;
+}
+.moba-scoreboard[theme=lck] .kills, .moba-scoreboard-mobile[theme=lck] .kills {
+  font-weight: normal;
+}
+.moba-scoreboard[theme=lck] .team-name-text, .moba-scoreboard-mobile[theme=lck] .team-name-text {
+  font-family: "LCK";
+  font-weight: normal;
 }
 .moba-scoreboard[theme=lec], .moba-scoreboard-mobile[theme=lec] {
   --main-bg: #040017;
@@ -109,14 +105,6 @@
   --blue-color: #3395b8;
   --red-bg: #070707;
   --red-color: #b60f33;
-  --text-color: #ffffff;
-}
-.moba-scoreboard[theme=lcc], .moba-scoreboard-mobile[theme=lcc] {
-  --main-bg: #1a1e1e;
-  --blue-bg: #8bcc34;
-  --blue-color: #8bcc34;
-  --red-bg: #fd439e;
-  --red-color: #fd439e;
   --text-color: #ffffff;
 }
 .moba-scoreboard[theme=valorant], .moba-scoreboard-mobile[theme=valorant] {
@@ -136,16 +124,26 @@
 .moba-scoreboard[theme=valorant] .teamRed-logo-bg, .moba-scoreboard-mobile[theme=valorant] .teamRed-logo-bg {
   box-shadow: -3px 0px 0px #ff4560;
 }
-.moba-scoreboard[theme=asiangames], .moba-scoreboard-mobile[theme=asiangames] {
-  --main-bg: #490c72;
-  --blue-color: white;
+.moba-scoreboard[theme=worlds], .moba-scoreboard-mobile[theme=worlds] {
+  --main-bg: linear-gradient(90deg, #4ca7ed43 0%, transparent 40%, transparent 60%, #da401743 100%), url("https://n-wither.github.io/assets/imgs/lol/worlds-bg.png");
+  --blue-color: #2f7ab2;
   --blue-bg: transparent;
-  --red-color: white;
+  --red-color: #9b2012;
   --red-bg: transparent;
+  --sep-line-color: #38383849;
+  background-size: cover;
+  font-family: "Inter", "Metropolis", "Noto Sans SC", sans-serif, "icons";
 }
-.moba-scoreboard[theme=asiangames] .stat-row, .moba-scoreboard-mobile[theme=asiangames] .stat-row {
-  background: white;
-  color: #1e1e1e;
+.moba-scoreboard[theme=worlds] .team-name-text, .moba-scoreboard-mobile[theme=worlds] .team-name-text {
+  font-family: "Tempel Grotesk";
+}
+.moba-scoreboard[theme=worlds] .score-blank, .moba-scoreboard[theme=worlds] .score-teamBlue, .moba-scoreboard[theme=worlds] .score-teamRed, .moba-scoreboard-mobile[theme=worlds] .score-blank, .moba-scoreboard-mobile[theme=worlds] .score-teamBlue, .moba-scoreboard-mobile[theme=worlds] .score-teamRed {
+  border: 1px solid white;
+  height: 6px;
+  width: 10px;
+}
+.moba-scoreboard[theme=worlds] .score-blank, .moba-scoreboard-mobile[theme=worlds] .score-blank {
+  background: transparent;
 }
 
 .moba-scoreboard-mobile {

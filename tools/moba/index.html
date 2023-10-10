@@ -7,10 +7,11 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="../assets/css/themes/aquamarine/aquamarine.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Moba Scoreboard</title>
-    <script src="../assets/js/utils.js" defer></script>
+    <script src="/assets/js/utils.js" defer></script>
     <script>
         function init(){
             randomQuote()
@@ -18,27 +19,27 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.prod.min.js"></script>
-    <script src="../assets/js/page-specific/moba.js" defer type="module"></script>
+    <script src="./moba.js" defer type="module"></script>
     
-    <link rel="stylesheet" href="../assets/css/page-specific/moba/moba.css">
-    <link rel="stylesheet" href="../assets/css/page-specific/moba/themes.css">
+    <link rel="stylesheet" href="./css/moba.css">
+    <link rel="stylesheet" href="./css/themes.css">
     <link rel="stylesheet" href="https://n-wither.github.io/assets/css/icons.css">
-    <link rel="stylesheet" href="../assets/css/fonts/jetbrains-mono.css">
+    <link rel="stylesheet" href="/assets/css/fonts/jetbrains-mono.css">
 
     <link rel="stylesheet" href="https://use.typekit.net/gyf4dzx.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- components -->
-    <script src="../assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="../assets/js/components/title-observer.js" defer></script>
-    <script src="../assets/js/components/AJAX-svg.js" defer></script>
+    <script src="/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="/assets/js/components/title-observer.js" defer></script>
+    <script src="/assets/js/components/AJAX-svg.js" defer></script>
 </head>
 <body onload="init()">
     <div class="page-header">
         <div class="menu-button">
             <button class="no-select menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
         </div>
-        <a class="page-category flex-center padding-all-small" href="./tools.html">
+        <a class="page-category flex-center padding-all-small" href="/tools/">
             <div class="page-icon flex-center adapt-header no-bg">🔧</div>
             Tools
         </a>
@@ -96,7 +97,7 @@
                     </div>
                     <div class="row-2 elder buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" :style="teamBlue.elder != 0 ? 'display:block' : 'display: none'"></span>
+                            <span class="request-svg" data-src="/assets/imgs/lol/elder.svg" :style="teamBlue.elder != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamBlue.elderTime == 0 && teamBlue.elder != 0">&nbsp;{{ teamBlue.elder }}</span>
                             <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
                         </div>
@@ -104,7 +105,7 @@
                     </div>
                     <div class="row-2 baron buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" :style="teamBlue.baron != 0 ? 'display:block' : 'display: none'"></span>
+                            <span class="request-svg" data-src="/assets/imgs/lol/baron.svg" :style="teamBlue.baron != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamBlue.baronTime == 0 && teamBlue.baron != 0">&nbsp;{{ teamBlue.baron }}</span>
                             <span v-if="teamBlue.baronTime != 0">&nbsp;{{ timeFormat(teamBlue.baronTime, true) }}</span>
                         </div>
@@ -125,7 +126,7 @@
                     </div>
                     <div class="row-2 baron buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/baron.svg" :style="teamRed.baron != 0 ? 'display:block' : 'display: none'"></span>
+                            <span class="request-svg" data-src="/assets/imgs/lol/baron.svg" :style="teamRed.baron != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamRed.baronTime == 0 && teamRed.baron != 0">&nbsp;{{ teamRed.baron }}</span>
                             <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
                         </div>
@@ -133,7 +134,7 @@
                     </div>
                     <div class="row-2 elder buff-container row-2-bg">
                         <div class="text">
-                            <span class="request-svg" data-src="../assets/imgs/lol/elder.svg" :style="teamRed.elder != 0 ? 'display:block' : 'display: none'"></span>
+                            <span class="request-svg" data-src="/assets/imgs/lol/elder.svg" :style="teamRed.elder != 0 ? 'display:block' : 'display: none'"></span>
                             <span v-if="teamRed.elderTime == 0 && teamRed.elder != 0">&nbsp;{{ teamRed.elder }}</span>
                             <span v-if="teamRed.elderTime != 0">&nbsp;{{ timeFormat(teamRed.elderTime, true) }}</span>
                         </div>
@@ -163,9 +164,8 @@
                             <option value="lck">LCK</option>
                             <option value="lec">LEC</option>
                             <option value="lcs">LCS</option>
-                            <option value="lcc">LCC 2023</option>
                             <option value="valorant">Valorant</option>
-                            <option value="asiangames">Asian Games 2022</option>
+                            <option value="worlds">Worlds 23</option>
                         </select>
                     </span>
                 </div>
@@ -432,7 +432,7 @@
                     </div>
                     <div class="baron buff-progress teamBlue-baron-bar left"></div>
                 </div>
-                <div class="icon stat-row request-svg" data-src="../assets/imgs/lol/baron.svg"></div>
+                <div class="icon stat-row request-svg" data-src="/assets/imgs/lol/baron.svg"></div>
                 <div class="row-2 baron buff-container right stat-row">
                     <div class="better right" v-if="teamBlue.baron < teamRed.baron">
                         ▶
@@ -454,7 +454,7 @@
                     </div>
                     <div class="elder buff-progress teamBlue-elder-bar left" id="teamBlue-elder-bar"></div>
                 </div>
-                <div class="icon stat-row request-svg" data-src="../assets/imgs/lol/elder.svg"></div>
+                <div class="icon stat-row request-svg" data-src="/assets/imgs/lol/elder.svg"></div>
                 <div class="row-2 elder buff-container right stat-row">
                     <div class="better right" v-if="teamBlue.elder < teamRed.elder">
                         ▶

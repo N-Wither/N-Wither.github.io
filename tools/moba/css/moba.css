@@ -3,6 +3,12 @@
     src: url(https://lck.legendaries.com/fonts/LCKTitle-Extended.woff2) format('woff2');
 }
 
+@font-face {
+    font-family: 'Tempel Grotesk';
+    src: url('/assets/fonts/TempelGrotesk.woff') format('woff');
+    font-stretch: condensed;
+}
+
 body {
     font-family: 'Metropolis', 'Noto Sans SC', 'Sans Serif', 'Material Symbols Outlined', 'icons';
 }
@@ -42,7 +48,7 @@ select {
     grid-template-rows: 18px;
     width: 100%;
     background: var(--row2-bg);
-    font-size: 10px;
+    font-size: 0.8rem;
 }
 
 .moba-scoreboard img {
@@ -74,7 +80,7 @@ select {
 }
 
 .moba-scoreboard .team-name :nth-child(2){
-    font-size: 10px;
+    font-size: 0.8rem;
     font-weight: normal;
 }
 
