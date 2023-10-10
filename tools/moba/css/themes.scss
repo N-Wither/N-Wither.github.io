@@ -141,9 +141,9 @@
     }
     &[theme=worlds] {
         --main-bg: linear-gradient(90deg, #4ca7ed43 0%, transparent 40%, transparent 60%, #da401743 100%), url('https://n-wither.github.io/assets/imgs/lol/worlds-bg.png');
-        --blue-color: #2f7ab2;
+        --blue-color: #3f8ecb;
         --blue-bg: transparent;
-        --red-color: #9b2012;
+        --red-color: #b72f20;
         --red-bg: transparent;
         --sep-line-color: #38383849;
 
@@ -153,6 +153,7 @@
 
         .team-name-text {
             font-family: 'Tempel Grotesk';
+            font-weight: normal;
         }
 
         .score-blank, .score-teamBlue, .score-teamRed {
