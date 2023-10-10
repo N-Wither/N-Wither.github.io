@@ -136,7 +136,7 @@ h3 {
 }
 
 .team.qualified {
-    background-color: #2f7ab2;
+    background-color: #0004fc;
 }
 
 .team.eliminated {
@@ -144,4 +144,80 @@ h3 {
 }
 .team.eliminated .name {
     text-decoration: line-through;
+}
+
+.logo {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.logo[data-team=JDG] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/00/JD_Gaminglogo_square.png);
+}
+.logo[data-team=BLG] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1682322954525_Bilibili_Gaming_logo_20211.png);
+}
+.logo[data-team=LNG] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d5/LNG_Esportslogo_square.png);
+}
+.logo[data-team=WBG] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1641202879910_3.png);
+}
+.logo[data-team=GEN] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1655210113163_GenG_logo_200407-05.png);
+}
+.logo[data-team=T1] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9c/T1logo_SK_telecom.png);
+}
+.logo[data-team=KT] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/kt_darkbackground.png);
+}
+.logo[data-team=DK] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673260049703_DPlusKIALOGO11.png);
+}
+.logo[data-team=G2] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/77/G2_Esportslogo_square.png);
+}
+.logo[data-team=FNC] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/fc/Fnaticlogo_square.png);
+}
+.logo[data-team=MAD] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3c/MAD_Lionslogo_square.png);
+}
+.logo[data-team=BDS] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9e/Team_BDSlogo_square.png);
+}
+.logo[data-team=NRG] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1681501735148_NRG_PRIMARY_LIGHT.png);
+}
+.logo[data-team=C9] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/Cloud9logo_square.png);
+}
+.logo[data-team=TL] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f4/Team_Liquidlogo_square.png);
+}
+.logo[data-team=GG] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/98/Golden_Guardianslogo_square.png);
+}
+.logo[data-team=PSG] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1644501567410_PSG_3.png);
+}
+.logo[data-team=CFO] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1656307849320_CFO_Logo.png);
+}
+.logo[data-team=GAM] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8a/GAM_Esportslogo_square.png);
+}
+.logo[data-team=TW] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1674646643550_TEAMWHALE_LOGO_VERSIONS_W_fullwhite-06-svg.png);
+}
+.logo[data-team=DFM] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=120:&f=http://static.lolesports.com/teams/1673415140442_dfm.png);
+}
+.logo[data-team=LLL] {
+    background-image: url(https://am-a.akamaihd.net/image?resize=140:&f=http://static.lolesports.com/teams/Logo-LOUD-Esports_Original.png);
+}
+.logo[data-team=R7] {
+    background-image: url(https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2a/Movistar_R7logo_square.png);
 }
