@@ -146,6 +146,10 @@ h3 {
     text-decoration: line-through;
 }
 
+.team.lose {
+    color: #aaa;
+}
+
 .logo {
     background-repeat: no-repeat;
     background-position: 50% 50%;

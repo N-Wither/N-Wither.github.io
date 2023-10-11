@@ -141,9 +141,9 @@
     }
     &[theme=worlds] {
         --main-bg: linear-gradient(90deg, #4ca7ed43 0%, transparent 40%, transparent 60%, #da401743 100%), url('https://n-wither.github.io/assets/imgs/lol/worlds-bg.png');
-        --blue-color: #3f8ecb;
+        --blue-color: #51bee8;
         --blue-bg: transparent;
-        --red-color: #b72f20;
+        --red-color: #a03227;
         --red-bg: transparent;
         --sep-line-color: #38383849;
 
@@ -157,7 +157,7 @@
         }
 
         .score-blank, .score-teamBlue, .score-teamRed {
-            border: 1px solid white;
+            border: 1px solid #a0a0a0;
             height: 6px;
             width: 10px;
         }

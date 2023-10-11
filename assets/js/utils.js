@@ -96,3 +96,6 @@ let betterFetch = async (url) => {
 Array.prototype.getRandom = function() {
     return this[getRandomInt(0, this.length)]
 }
+
+// A global variable for modules configs
+moduleConfigs = {}
