@@ -17,7 +17,7 @@
 }
 
 .story .type {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     z-index: 1;
 }
 
@@ -48,11 +48,6 @@
     z-index: 0;
 }
 
-.worldview {
-    background-color: #00000044;
-    padding: 0.5rem;
-}
-
 .story a {
     color: #fff;
     background: linear-gradient(to right, #b831a6, #b831a6) no-repeat right bottom;
@@ -65,4 +60,9 @@
     background-position-x: left;
     background-size: 100% 2px;
     color: #b831a6;
+}
+
+.worldview {
+    background-color: #00000044;
+    padding: 0.5rem;
 }
