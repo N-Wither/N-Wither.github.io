@@ -147,7 +147,11 @@ h3 {
 }
 
 .team.lose {
-    color: #aaa;
+    color: #999;
+}
+
+.team.lose .logo {
+    filter: saturate(0.6) brightness(0.8);
 }
 
 .logo {
