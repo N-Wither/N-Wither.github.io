@@ -30,8 +30,9 @@
     <script src="../assets/js/components/hover-tooltip.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/hover-tooltip.css">
     <script src="../assets/js/components/AJAX-svg.js" defer></script>
-    <script src="../web-components/tab-view/tab-view.js" type="module"></script>
     <script src="../web-components/info-tag/info-tag.js" type="module"></script>
+    <script type="module" src="/web-components/aquamarine/code.js"></script>
+    <script type="module" src="/web-components/aquamarine/tab.js"></script>
 </head>
 
 <body onload="init()">
@@ -135,45 +136,50 @@
         </div>
         <h2>Tab View</h2>
         <div>
-            <tab-view>
-                <div class="tab">A Tab</div>
-                <div class="page">
-                    <b>A Page</b>
+            <aq-tab>
+                <aq-tab-button slot="tabs" open index="1">标签页</aq-tab-button>
+                <aq-tab-page slot="pages" open index="1">
+                    <b>页面</b>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem rem quam ex reprehenderit veritatis modi dignissimos cumque nemo. Repudiandae voluptatem commodi nulla alias debitis. Excepturi corrupti aspernatur assumenda voluptates officia.</p>
-                </div>
-                <div class="tab">Another Tab</div>
-                <div class="page">
-                    <b>Another Page</b>
+                </aq-tab-page>
+                <aq-tab-button slot="tabs" index="2">另一个标签页</aq-tab-button>
+                <aq-tab-page slot="pages" index="2">
+                    <b>另一个页面</b>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ullam dicta earum, aspernatur numquam consectetur fugiat expedita velit maiores iure quisquam placeat, dolorum amet eligendi fuga necessitatibus facilis explicabo ut?</p>
-                </div>
-                <div class="tab">3rd Tab</div>
-                <div class="page">
-                    <p>This tab has many words.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia cum, vitae incidunt ea ratione velit sapiente quos veniam deserunt, culpa obcaecati assumenda necessitatibus illum nobis officia. Dolorem quisquam nemo animi.
-                    Quaerat nesciunt architecto est totam inventore nisi obcaecati ratione, voluptatibus, debitis vel ullam odio reprehenderit nostrum facere fugit magni rem consectetur rerum? Itaque, facere beatae? Dolore sint dolorem molestias porro.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem, maiores quidem dolor nesciunt labore incidunt porro dolorum rem voluptates quia dolores sunt totam debitis eveniet ullam rerum perspiciatis fugiat.</p>
-                </div>
-                <div class="tab">I donno why this tab has a very long title but it's empty, weird isn't it?</div>
-                <div class="page"></div>
-                <div class="tab">Another Empty Tab</div>
-                <div class="page"></div>
-                <div class="tab">Empty Tab</div>
-                <div class="page"></div>
-                <div class="tab">Empty Tab</div>
-                <div class="page"></div>
-                <div class="tab">Empty Tab</div>
-                <div class="page"></div>
-                <div class="tab">Empty Tab</div>
-                <div class="page"></div>
-            </tab-view>
+                </aq-tab-page>
+                <aq-tab-button slot="tabs" index="3">虽然这个标签页的名字很长但是完全没有内容好奇怪哦</aq-tab-button>
+                <aq-tab-page slot="pages" index="3"></aq-tab-page>
+                <aq-tab-button slot="tabs" index="4">一个内容很多的页面</aq-tab-button>
+                <aq-tab-page slot="pages" index="4">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Non curabitur
+                        gravida arcu ac tortor dignissim convallis. Vel facilisis volutpat est velit egestas dui id ornare.
+                        At tellus at urna condimentum mattis pellentesque id nibh tortor. Eu augue ut lectus arcu bibendum
+                        at varius vel pharetra. Pharetra vel turpis nunc eget. In iaculis nunc sed augue. Ac felis donec et
+                        odio pellentesque diam volutpat commodo. Id diam vel quam elementum. Urna neque viverra justo nec.
+                        At consectetur lorem donec massa. Massa tincidunt nunc pulvinar sapien et ligula. Quisque non tellus
+                        orci ac auctor augue mauris. Cras ornare arcu dui vivamus arcu. Vestibulum mattis ullamcorper velit
+                        sed ullamcorper morbi. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum.</p>
+                    <p>Cursus sit amet dictum sit amet justo donec enim. Hac habitasse platea dictumst vestibulum rhoncus
+                        est pellentesque elit ullamcorper. Tempus imperdiet nulla malesuada pellentesque elit eget. Sit amet
+                        cursus sit amet. Odio morbi quis commodo odio aenean sed adipiscing. Volutpat ac tincidunt vitae
+                        semper quis lectus nulla at volutpat. Sed viverra ipsum nunc aliquet bibendum enim facilisis.
+                        Adipiscing tristique risus nec feugiat in fermentum posuere. Tortor id aliquet lectus proin nibh
+                        nisl condimentum id. Consequat semper viverra nam libero justo. Malesuada bibendum arc </p>
+                </aq-tab-page>
+                <aq-tab-button slot="tabs" index="5">空标签页</aq-tab-button>
+                <aq-tab-page slot="pages" index="5"></aq-tab-page>
+                <aq-tab-button slot="tabs" index="6">空标签页</aq-tab-button>
+                <aq-tab-page slot="pages" index="6"></aq-tab-page>
+                <aq-tab-button slot="tabs" index="7">空标签页</aq-tab-button>
+                <aq-tab-page slot="pages" index="7"></aq-tab-page>
+                <aq-tab-button slot="tabs" index="8">空标签页</aq-tab-button>
+                <aq-tab-page slot="pages" index="8"></aq-tab-page>
+                <aq-tab-button slot="tabs" index="9">空标签页</aq-tab-button>
+                <aq-tab-page slot="pages" index="9"></aq-tab-page>
+                <aq-tab-button slot="tabs" index="10">空标签页</aq-tab-button>
+                <aq-tab-page slot="pages" index="10"></aq-tab-page>
+            </aq-tab>
         </div>
         <h2>Info Tag</h2>
         <info-tag 
@@ -183,6 +189,20 @@
         icon-type="text"
         >
         </info-tag>
+        <h3>Code Block</h3>
+        <aq-code language="js" display-language="JavaScript">
+let a = 0
+console.log('Hello World!')
+class Foo {
+    constructor() {
+
+    }
+
+    bar(msg) {
+        console.log(msg)
+    }
+}
+        </aq-code>
     </div>
     <div class="page-footer">
         <hr>
