@@ -7,6 +7,13 @@ const template =
 const style = 
 `
 aq-tab {
+    --tab-bg: var(--gray-100);
+}
+.dark-mode aq-tab {
+    --tab-bg: var(--gray-800);
+}
+
+aq-tab {
     background: var(--background-color);
     display: block;
     transition: 0.2s;
@@ -25,7 +32,7 @@ aq-tab::part(tabs) {
 }
 
 aq-tab::part(pages) {
-    border: 2px solid var(--border-color-common);
+    border: 2px solid var(--tab-bg);
     display: block;
 }
 
@@ -38,7 +45,7 @@ aq-tab-button {
 }
 
 aq-tab-button button {
-    background-color: var(--gray-color);
+    background-color: var(--tab-bg);
     background-image: linear-gradient(to top, var(--theme-color), var(--theme-color));
     background-position: bottom;
     background-repeat: no-repeat;

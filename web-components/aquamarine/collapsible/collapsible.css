@@ -1,0 +1,28 @@
+aq-collapsible {
+    display: block;
+    transition: 0.2s;
+    margin: 0.4em 0;
+}
+
+aq-collapsible .collapsible-control{
+    border: none;
+    padding: 0.4em;
+    position: relative;
+}
+aq-collapsible .collapsible-control::before {
+    display: inline-block;
+    padding-right: 0.2em;
+    content: '▶';
+    transform-origin: center;
+    transition: 0.2s;
+}
+aq-collapsible .collapsible-control.open::before {
+    transform: rotate(90deg);
+}
+
+aq-collapsible .aq-collapsible-wrapper {
+    transition: 0.2s;
+    overflow-y: hidden;
+    padding: 0 0.8em;
+    box-sizing: border-box;
+}

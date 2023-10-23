@@ -2,15 +2,63 @@ import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/es/
 
 const style = `
 aq-code {
+    --bg-color: #fff;
+    --bg-color-2: #f8f8f8;
+    --bg-color-select: #add6ff;
+    --color-all: #333;
+    --color-comment: #008000;
+    --color-var: #0070c1;
+    --color-tag: #800000;
+    --color-number: #588658;
+    --color-attr: #e50000;
+    --color-string: #a31515;
+    --color-title: #36f9f6;
+    --color-class: #267f99;
+    --color-function: #795e26;
+    --color-keyword: #0000ff;
+    --color-property: #001080;
+    --color-literal: #0000ff;
+}
+
+.dark-mode aq-code {
+    --bg-color: #262335;
+    --bg-color-2: #443964;
+    --bg-color-select: #423f4f;
+    --color-all: #fff;
+    --color-comment: #848bbd;
+    --color-var: #ff7edb;
+    --color-tag: #68e7b8;
+    --color-number: #2ee2fa;
+    --color-attr: #ffd700;
+    --color-string: #ff8b39;
+    --color-title: #36f9f6;
+    --color-class: #fe444f;
+    --color-function: #36f9f6;
+    --color-keyword: #fede5d;
+    --color-property: #2ee2fa;
+    --color-literal: #f97e72;
+}
+
+aq-code {
     display: block;
     font-family: monospace;
-    background-color: #262335;
+    background-color: var(--bg-color);
     width: 100%;
-    padding: 1em;
+    padding: 2em 1em;
     font-size: 0.8em;
     white-space: pre-wrap;
-    color: white;
+    color: var(--color-all);
     position: relative;
+    transition: 0.2s;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+aq-code[inline] {
+    display: inline;
+    white-space: initial;
+    padding: 0.1em 0.2em;
+    width: fit-content;
 }
 
 aq-code::before {
@@ -20,11 +68,15 @@ aq-code::before {
     top: 0;
     left: 0;
     padding: 0.2em;
-    background-color: #443964;
+    background-color: var(--bg-color-2);
+}
+
+aq-code[inline]::before {
+    display: none;
 }
 
 aq-code ::selection, aq-code::selection {
-    background-color: #423f4f;
+    background-color: var(--bg-color-select);
     color: inherit;
 }
 
@@ -32,10 +84,10 @@ aq-code button.copy {
     position: absolute;
     top: 0.2em;
     right: 0.2em;
-    background-color: #443964;
+    background-color: var(--bg-color-2);
     font-family: 'Material Symbols Outlined';
     border: none;
-    color: white;
+    color: var(--color-all);
     transition: 0.2s;
 }
 
@@ -49,50 +101,69 @@ aq-code button.copy:hover, aq-code button.copy:focus {
 
 .hljs-comment,
 .hljs-quote {
-    color: #d4d0ab;
+    color: var(--color-comment);
 }
 
 .hljs-variable,
 .hljs-template-variable,
-.hljs-tag,
-.hljs-name,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
 .hljs-deletion {
-    color: #ff7edb;
+    color: var(--color-var);
+}
+
+.hljs-tag,
+.hljs-name {
+    color: var(--color-tag);
 }
 
 .hljs-number,
 .hljs-built_in,
-.hljs-literal,
 .hljs-type,
 .hljs-params,
 .hljs-meta,
 .hljs-link {
-    color: #2ee2fa;
+    color: var(--color-number);
+}
+
+.hljs-literal {
+    color: var(--color-literal);
 }
 
 .hljs-attribute,
 .hljs-attr {
-    color: #ffd700;
+    color: var(--color-attr);
+    font-style: italic;
+}
+
+.hljs-property {
+    color: var(--color-property);
 }
 
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
-    color: #ff8b39;
+    color: var(--color-string);
 }
 
 .hljs-title,
 .hljs-section {
-    color: #36f9f6;
+    color: var(--color-title);
+}
+
+.hljs-title.class_ {
+    color: var(--color-class);
+}
+
+.hljs-title.function_ {
+    color: var(--color-function);
 }
 
 .hljs-keyword,
 .hljs-selector-tag {
-    color: #fede5d;
+    color: var(--color-keyword)
 }
 
 .hljs-emphasis {
@@ -101,14 +172,6 @@ aq-code button.copy:hover, aq-code button.copy:focus {
 
 .hljs-strong {
     font-weight: bold;
-}
-
-.hljs-title.class_ {
-    color: #fe444f;
-}
-
-.hljs-title.function_ {
-    color: #36f9f6;
 }
 `
 const styleSheet = new CSSStyleSheet()
@@ -120,25 +183,31 @@ class AqCode extends HTMLElement {
         super()
     }
 
-    connectedCallback(){
+    async connectedCallback(){
         let lang = this.getAttribute('language')
+        let content = this.innerHTML
+        if(this.getAttribute('src') != null) {
+            content = await (await fetch(this.getAttribute('src'))).text()
+        }
         if(lang) {
-            let highlighted = hljs.highlight(this.innerHTML, {language: lang})
+            let highlighted = hljs.highlight(content, {language: lang})
             this.innerHTML = highlighted.value
         }
         else {
-            this.innerHTML = hljs.highlightAuto(this.innerHTML).value
+            this.innerHTML = hljs.highlightAuto(content).value
         }
         
-        let copyButton = document.createElement('button')
-        copyButton.classList.add('copy')
-        copyButton.type = 'button'
-        copyButton.title = 'Copy to Clipboard'
-        this.appendChild(copyButton)
+        if(this.getAttribute('inline') == null){
+            let copyButton = document.createElement('button')
+            copyButton.classList.add('copy')
+            copyButton.type = 'button'
+            copyButton.title = 'Copy to Clipboard'
+            this.appendChild(copyButton)
+            copyButton.addEventListener('click', () => {
+                navigator.clipboard.writeText(this.innerText.substring())
+            })
+        }
 
-        copyButton.addEventListener('click', () => {
-            navigator.clipboard.writeText(this.innerText.substring())
-        })
     }
 }
 

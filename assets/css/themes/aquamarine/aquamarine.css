@@ -184,6 +184,8 @@
   --box-shadow-color: #0F0F0F22;
   --link-color: var(--aqua-600);
   --border-color-common: #cfcfcf;
+  --button-bg: var(--gray-100);
+  --button-bg-focus: var(--gray-200);
   --header-height: 3.6rem;
   scroll-behavior: smooth;
   font-family: "Metropolis", "Readex Pro", "Noto Sans SC", "Material Symbols Outlined";
@@ -199,12 +201,14 @@
   --gray-color: #3b3b3b;
   --dark-gray-color: #2b2b2b;
   --theme-color: var(--aqua-600);
-  --darkened-theme-color: var(--aqua-500);
+  --darkened-theme-color: var(--aqua-700);
   --secondary-theme-color: #fff;
   --darkened-secondary-theme-color: #ccc;
   --box-shadow-color: #66666622;
   --link-color: var(--aqua-500);
   --border-color-common: #3c3c3c;
+  --button-bg: var(--gray-800);
+  --button-bg-focus: var(--gray-700);
 }
 
 ::selection {
@@ -259,6 +263,14 @@ a[target=_blank]::after {
 
 button {
   font-family: inherit;
+  background-color: var(--button-bg);
+  border: none;
+  transition: 0.2s;
+  color: var(--text-color);
+}
+
+button:hover, button:focus {
+  background-color: var(--button-bg-focus);
 }
 
 .float-div {
@@ -274,6 +286,15 @@ hr {
 }
 hr.break {
   width: 70%;
+}
+
+.keycap {
+  font-family: monospace;
+  color: var(--text-color);
+  border: 1px solid var(--gray-300);
+  border-radius: 0.2em;
+  padding: 0 0.2em;
+  font-size: 0.8em;
 }
 
 :not(:defined) {

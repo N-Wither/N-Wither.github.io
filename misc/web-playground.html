@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
 
 <head>
     <meta charset="utf-8">
@@ -33,6 +33,8 @@
     <script src="../web-components/info-tag/info-tag.js" type="module"></script>
     <script type="module" src="/web-components/aquamarine/code.js"></script>
     <script type="module" src="/web-components/aquamarine/tab.js"></script>
+    <script type="module" src="/web-components/aquamarine/input-number.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
 </head>
 
 <body onload="init()">
@@ -70,60 +72,28 @@
         <h1 class="page-title">Web Playground</h1>
         <h3>Some web developing tests and tricks. Plus some small toys.</h3>
         <hr>
-        <h2>Assets of this Page</h2>
-        <p>CSS: <code>./web-playground.css</code></p>
-        <p>JS: <code>./web-playground.js</code></p>
-        <p>HTML: F12</p>
-        <h2>MOBA Scoreboard</h2>
-        Moved to <a href="../tools/moba.html" target="_blank">Here</a>.
+        <p>按下 <span class="keycap">Ctrl</span> + <span class="keycap">F</span> 可以搜索此页面上的内容。</p>
         <h2>Fancy Link Effects</h2>
         <p>
             <span style="cursor: pointer;" class="fancy-link">THIS IS A SINGLE LINE LINK</span>
             <br>
             <span style="cursor: pointer;" class="fancy-link">THIS IS A MULTI <br> LINE LINK</span>
         </p>
-        <h2>Dices</h2>
-        Moved to <a href="../tools/dice.html" target="_blank">Here</a>.
         <h2>Collapsible Block</h2>
-        <p><a href="../assets/js/components/collapsible-block.js" target="_blank">Source</a></p>
-        <div class="collapsible">
-            <div class="open-link"></div>
-            <div class="close-link"></div>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Non curabitur
-                    gravida arcu ac tortor dignissim convallis. Vel facilisis volutpat est velit egestas dui id ornare.
-                    At tellus at urna condimentum mattis pellentesque id nibh tortor. Eu augue ut lectus arcu bibendum
-                    at varius vel pharetra. Pharetra vel turpis nunc eget. In iaculis nunc sed augue. Ac felis donec et
-                    odio pellentesque diam volutpat commodo. Id diam vel quam elementum. Urna neque viverra justo nec.
-                    At consectetur lorem donec massa. Massa tincidunt nunc pulvinar sapien et ligula. Quisque non tellus
-                    orci ac auctor augue mauris. Cras ornare arcu dui vivamus arcu. Vestibulum mattis ullamcorper velit
-                    sed ullamcorper morbi. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum.</p>
-                <p>Cursus sit amet dictum sit amet justo donec enim. Hac habitasse platea dictumst vestibulum rhoncus
-                    est pellentesque elit ullamcorper. Tempus imperdiet nulla malesuada pellentesque elit eget. Sit amet
-                    cursus sit amet. Odio morbi quis commodo odio aenean sed adipiscing. Volutpat ac tincidunt vitae
-                    semper quis lectus nulla at volutpat. Sed viverra ipsum nunc aliquet bibendum enim facilisis.
-                    Adipiscing tristique risus nec feugiat in fermentum posuere. Tortor id aliquet lectus proin nibh
-                    nisl condimentum id. Consequat semper viverra nam libero justo. Malesuada bibendum arcu vitae
-                    elementum curabitur vitae nunc sed velit. Maecenas sed enim ut sem viverra.</p>
-                <div class="collapsible">
-                    <div class="open-link">A collapsible block in a collapsible block</div>
-                    <div class="close-link"></div>
-                    <div class="content">
-                        <p>Viverra tellus in hac habitasse platea dictumst. Amet venenatis urna cursus eget nunc
-                            scelerisque viverra mauris. Ultrices eros in cursus turpis. Sed turpis tincidunt id aliquet
-                            risus feugiat. Maecenas volutpat blandit aliquam etiam erat. Volutpat maecenas volutpat
-                            blandit aliquam etiam. Et magnis dis parturient montes. Aliquet risus feugiat in ante metus
-                            dictum. Semper risus in hendrerit gravida rutrum quisque. Faucibus purus in massa tempor nec
-                            feugiat nisl pretium fusce. Venenatis lectus magna fringilla urna porttitor. Id consectetur
-                            purus ut faucibus pulvinar elementum. Congue mauris rhoncus aenean vel elit scelerisque
-                            mauris. Nulla aliquet enim tortor at. Amet nisl purus in mollis nunc sed id. Convallis
-                            tellus id interdum velit laoreet. Posuere ac ut consequat semper viverra nam libero justo.
-                            Nibh venenatis cras sed felis eget velit. Purus gravida quis blandit turpis cursus.</p>
-                    </div>
-                </div>
+        <a href="/web-components/aquamarine/collapsible/collapsible.js" target="_blank" rel="noopener noreferrer">源代码</a>
+        <aq-collapsible open>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis fugit quos similique ullam! Quis eius hic blanditiis veniam, molestiae, sapiente, placeat amet atque consectetur doloremque nobis minima tenetur iure aliquam.</p>
+            <aq-collapsible>
+                嵌套的可折叠块。
+                <a href="#">当使用 <span class="keycap">Tab</span> 访问折叠块中的元素时，折叠块会自动展开。</a>
+            </aq-collapsible>
+        </aq-collapsible>
+        <p>可以自定义折叠按钮上显示的文本。</p>
+        <aq-collapsible open-text="打开" close-text="关闭">
+            <div>
+                <p>一小段文字。</p>
             </div>
-        </div>
+        </aq-collapsible>
         <h2>Click Particle Effect</h2>
         <div><a href="../assets/js/components/click_particles.js" target="_blank">Source</a></div>
         <p>Click ANYWHERE in this page and see what happens.</p>
@@ -193,16 +163,29 @@
         <aq-code language="js" display-language="JavaScript">
 let a = 0
 console.log('Hello World!')
-class Foo {
+class Foo extends Bar{
     constructor() {
-
+        super()
     }
 
-    bar(msg) {
+    greet(msg) {
         console.log(msg)
     }
 }
+// This is a comment
         </aq-code>
+        <p>
+            你也可以在文本内使用此组件，只需加上 <aq-code inline language="plaintext">inline</aq-code> 属性（不需要有值，这里有值是 Highlight.js 的原因）:
+        </p>
+        <aq-code language="html" display-language="HTML">
+<aq-code inline> Your code here </aq-code>
+        </aq-code>
+        <p>
+            效果是这样的：<aq-code inline language="js">console.log('Hello World!')</aq-code>
+        </p>
+        <h3>Aquamarine Input (Number)</h3>
+        <p>因为我不知道怎样给 Web Component 做自定义事件所以你只能给里面的 input 元素做事件监听了。</p>
+        <aq-input-number min="-100" max="100" step="5" label="A number input" value="5"></aq-input-number>
     </div>
     <div class="page-footer">
         <hr>
