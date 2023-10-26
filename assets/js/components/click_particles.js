@@ -26,7 +26,9 @@ window.addEventListener('click', e => {
         newParticle.innerHTML = clickParticleConfig.content.getRandom()
     }
     document.body.appendChild(newParticle)
-    setTimeout(() => {document.body.removeChild(newParticle)}, 500)
+    newParticle.addEventListener('animationend', () => {
+        newParticle.remove()
+    })
 })
 
 function getRandomColor(){

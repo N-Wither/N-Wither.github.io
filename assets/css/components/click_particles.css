@@ -3,6 +3,7 @@
     position: fixed;
     user-select: none;
     z-index: 101;
+    pointer-events: none;
 }
 
 @keyframes click-particle {

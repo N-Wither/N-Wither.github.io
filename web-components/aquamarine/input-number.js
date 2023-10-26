@@ -118,12 +118,11 @@ styleSheet.replaceSync(style)
 document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet]
 
 export class AqInputNumber extends HTMLElement {
-    value = 0
-
     constructor(){
         super()
         // No shadow root for better custom stylesheets.
         this.innerHTML = template
+        this.inputField = this.querySelector('input')
     }
 
     connectedCallback(){
@@ -163,7 +162,7 @@ export class AqInputNumber extends HTMLElement {
             if(Number(input.value % attrs.step != 0)){
                 input.value = Number(input.value) - (Number(input.value) % attrs.step)
             }
-            this.value = Number(input.value)
+            input.value = Number(input.value)
         })
 
         addButton.addEventListener('click', () => {
@@ -175,7 +174,6 @@ export class AqInputNumber extends HTMLElement {
             if(attrs.max && Number(input.value) == attrs.max){
                 addButton.disabled = true
             }
-            this.value = Number(input.value)
         })
         minusButton.addEventListener('click', () => {
             addButton.disabled = false
@@ -186,11 +184,14 @@ export class AqInputNumber extends HTMLElement {
             if(attrs.min && Number(input.value) == attrs.min){
                 minusButton.disabled = true
             }
-            this.value = Number(input.value)
         })
 
         if(attrs.max && Number(input.value) >= attrs.max) addButton.disabled = true
         if(attrs.min && Number(input.value) <= attrs.min) minusButton.disabled = true
+    }
+
+    get value() {
+        return Number(this.inputField.value)
     }
 }
 

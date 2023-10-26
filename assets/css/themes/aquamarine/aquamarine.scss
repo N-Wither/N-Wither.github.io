@@ -36,6 +36,9 @@
 
     --button-bg: var(--gray-100);
     --button-bg-focus: var(--gray-200);
+    --header-bg: #fcfcfc99;
+    --scroll-track-color: var(--background-color);
+    --scroll-thumb-color: var(--gray-color);
 }
 
 @mixin dark-scheme-palette {
@@ -56,9 +59,12 @@
 
     --button-bg: var(--gray-800);
     --button-bg-focus: var(--gray-700);
+    --header-bg: #1e1e1e99;
+    --scroll-track-color: var(--background-color);
+    --scroll-thumb-color: var(--gray-color);
 }
 
-$general-transition-time: 0.4s;
+$general-transition-time: 0.3s;
 
 /* General */
 
@@ -249,6 +255,7 @@ $general-transition-time: 0.4s;
     @include light-scheme-palette();
 
     --header-height: 3.6rem;
+    --transition-time-common: 0.2s;
 
     scroll-behavior: smooth;
     font: {
@@ -272,15 +279,15 @@ $general-transition-time: 0.4s;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--dark-gray-color);
+    background: var(--scroll-track-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--gray-color);
+    background: var(--scroll-thumb-color);
 }
 
 ::-webkit-scrollbar-corner {
-    background: var(--dark-gray-color);
+    background: var(--scroll-track-color);
 }
 
 body {
@@ -313,8 +320,9 @@ button {
     font-family: inherit;
     background-color: var(--button-bg);
     border: none;
-    transition: 0.2s;
+    transition: var(--transition-time-common);
     color: var(--text-color);
+    padding: 0.2em;
 }
 button:hover, button:focus {
     background-color: var(--button-bg-focus);
@@ -387,12 +395,12 @@ hr {
     @include general-shadow;
     display: flex;
     z-index: 99;
-    background: var(--background-color);
+    background: var(--header-bg);
+    backdrop-filter: blur(5px);
 
     .menu-button {
         width: var(--header-height);
         height: var(--header-height);
-        background-color: var(--background-color);
 
         button {
             border: none;
@@ -401,14 +409,14 @@ hr {
             height: 100%;
             font-size: 1.6rem;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: var(--transition-time-common);
         }
     }
 
     a {
         text-decoration: none;
         color: var(--text-color);
-        transition: all 0.2s;
+        transition: var(--transition-time-common);
     }
 
     a:hover, a:focus {
@@ -469,7 +477,7 @@ hr {
         padding: 0.4rem;
         font-weight: bold;
         opacity: 0;
-        transition: opacity 0.2s;
+        transition: opacity var(--transition-time-common);
         cursor: default;
     }
 
@@ -482,7 +490,7 @@ hr {
         position: absolute;
         top: var(--header-height);
         overflow-x: hidden;
-        width: 0;
+        transform: translateX(-100%);
         transition: all $general-transition-time cubic-bezier(0.75, 0, 0.25, 1);
         display: flex;
         flex-direction: column;
@@ -493,6 +501,7 @@ hr {
 
     .menu {
         left: 0;
+        width: 20em;
 
         a.item {
             min-height: var(--header-height);
@@ -504,7 +513,7 @@ hr {
             height: 100%;
             color: var(--text-color);
             text-decoration: none;
-            transition: all 0.2s;
+            transition: var(--transition-time-common);
         }
 
         a.item:hover, a.item:focus {
@@ -525,13 +534,13 @@ hr {
 
     .menu.open, .menu:has(a:focus) {
         top: var(--header-height);
-        width: 30%;
+        transform: translateX(0);
     }
 
     .toolbox {
         right: 0;
         transform: translateX(100%);
-        width: 24%;
+        width: 20em;
         position: fixed;
         top: var(--header-height);
 
@@ -564,8 +573,6 @@ hr {
     }
 
     .toolbox.open, .toolbox:has(a:focus){
-        top: var(--header-height);
-        width: 20%;
         transform: translateX(0);
     }
 
@@ -576,7 +583,6 @@ hr {
     
     button.toolbox-button.open::before {
         content: '▶';
-        color: var(--text-color);
     }
 }
 
@@ -599,39 +605,10 @@ hr {
         --header-height: 3rem;
     }
 
-    .page-header .menu {
-        top: var(--header-height);
-    }
-
-    .page-header .menu.open {
-        top: var(--header-height);
-        width: 50%;
-    }
-
-    .page-header {
-        height: var(--header-height)
-    }
-
-    .page-header .menu-button {
-        width: var(--header-height);
-    }
-
-    .page-header .menu a.item {
-        min-height: var(--header-height);
-    }
-
     .page-header {
         .page-icon, .page-category {
             display: none;
         }
-    }
-
-    .page-header .toolbox {
-        width: 50%;
-    }
-    .page-header .toolbox.open {
-        top: var(--header-height);
-        width: 50%;
     }
 
     .page-content {
@@ -640,10 +617,6 @@ hr {
 
     .page-footer {
         margin: 4rem 1rem 0 1rem;
-    }
-
-    .toolbox {
-        top: var(--header-height);
     }
 }
 

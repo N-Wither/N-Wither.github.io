@@ -4,10 +4,10 @@ const template =
 <div class='aq-collapsible-wrapper'></div>
 `
 
-const style = await fetch('/web-components/aquamarine/collapsible/collapsible.css')
+const style = await (await fetch('/web-components/aquamarine/collapsible/collapsible.css')).text()
 
 const styleSheet = new CSSStyleSheet()
-styleSheet.replaceSync(await style.text())
+styleSheet.replaceSync(style)
 document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet]
 
 export class AqCollapsible extends HTMLElement {

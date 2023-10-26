@@ -186,7 +186,11 @@
   --border-color-common: #cfcfcf;
   --button-bg: var(--gray-100);
   --button-bg-focus: var(--gray-200);
+  --header-bg: #fcfcfc99;
+  --scroll-track-color: var(--background-color);
+  --scroll-thumb-color: var(--gray-color);
   --header-height: 3.6rem;
+  --transition-time-common: 0.2s;
   scroll-behavior: smooth;
   font-family: "Metropolis", "Readex Pro", "Noto Sans SC", "Material Symbols Outlined";
   font-size: 16px;
@@ -209,6 +213,9 @@
   --border-color-common: #3c3c3c;
   --button-bg: var(--gray-800);
   --button-bg-focus: var(--gray-700);
+  --header-bg: #1e1e1e99;
+  --scroll-track-color: var(--background-color);
+  --scroll-thumb-color: var(--gray-color);
 }
 
 ::selection {
@@ -222,15 +229,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--dark-gray-color);
+  background: var(--scroll-track-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gray-color);
+  background: var(--scroll-thumb-color);
 }
 
 ::-webkit-scrollbar-corner {
-  background: var(--dark-gray-color);
+  background: var(--scroll-track-color);
 }
 
 body {
@@ -239,7 +246,7 @@ body {
   color: var(--text-color);
   position: relative;
   min-height: 100vh;
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 
 a[target=_blank]::after {
@@ -265,8 +272,9 @@ button {
   font-family: inherit;
   background-color: var(--button-bg);
   border: none;
-  transition: 0.2s;
+  transition: var(--transition-time-common);
   color: var(--text-color);
+  padding: 0.2em;
 }
 
 button:hover, button:focus {
@@ -309,7 +317,7 @@ hr.break {
 }
 
 #to-top {
-  animation: 0.4s ease-in show;
+  animation: 0.3s ease-in show;
 }
 #to-top button {
   width: var(--header-height);
@@ -322,7 +330,7 @@ hr.break {
   background: var(--gray-color);
 }
 #to-top.ani__hide {
-  animation: 0.4s ease-in hide;
+  animation: 0.3s ease-in hide;
 }
 
 /* Page Header and menu */
@@ -335,12 +343,12 @@ hr.break {
   box-shadow: 0px 4px 8px var(--box-shadow-color);
   display: flex;
   z-index: 99;
-  background: var(--background-color);
+  background: var(--header-bg);
+  backdrop-filter: blur(5px);
 }
 .page-header .menu-button {
   width: var(--header-height);
   height: var(--header-height);
-  background-color: var(--background-color);
 }
 .page-header .menu-button button {
   border: none;
@@ -349,12 +357,12 @@ hr.break {
   height: 100%;
   font-size: 1.6rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: var(--transition-time-common);
 }
 .page-header a {
   text-decoration: none;
   color: var(--text-color);
-  transition: all 0.2s;
+  transition: var(--transition-time-common);
 }
 .page-header a:hover, .page-header a:focus {
   background: var(--gray-color);
@@ -401,7 +409,7 @@ hr.break {
   padding: 0.4rem;
   font-weight: bold;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity var(--transition-time-common);
   cursor: default;
 }
 .page-header .right {
@@ -412,8 +420,8 @@ hr.break {
   position: absolute;
   top: var(--header-height);
   overflow-x: hidden;
-  width: 0;
-  transition: all 0.4s cubic-bezier(0.75, 0, 0.25, 1);
+  transform: translateX(-100%);
+  transition: all 0.3s cubic-bezier(0.75, 0, 0.25, 1);
   display: flex;
   flex-direction: column;
   background: var(--background-color);
@@ -422,6 +430,7 @@ hr.break {
 }
 .page-header .menu {
   left: 0;
+  width: 20em;
 }
 .page-header .menu a.item {
   min-height: var(--header-height);
@@ -433,7 +442,7 @@ hr.break {
   height: 100%;
   color: var(--text-color);
   text-decoration: none;
-  transition: all 0.2s;
+  transition: var(--transition-time-common);
 }
 .page-header .menu a.item:hover, .page-header .menu a.item:focus {
   background: var(--gray-color);
@@ -449,12 +458,12 @@ hr.break {
 }
 .page-header .menu.open, .page-header .menu:has(a:focus) {
   top: var(--header-height);
-  width: 30%;
+  transform: translateX(0);
 }
 .page-header .toolbox {
   right: 0;
   transform: translateX(100%);
-  width: 24%;
+  width: 20em;
   position: fixed;
   top: var(--header-height);
 }
@@ -485,8 +494,6 @@ hr.break {
   height: 1.2rem;
 }
 .page-header .toolbox.open, .page-header .toolbox:has(a:focus) {
-  top: var(--header-height);
-  width: 20%;
   transform: translateX(0);
 }
 .page-header button.toolbox-button:before {
@@ -495,7 +502,6 @@ hr.break {
 }
 .page-header button.toolbox-button.open::before {
   content: "▶";
-  color: var(--text-color);
 }
 
 /* Page Content*/
@@ -514,40 +520,14 @@ hr.break {
   :root {
     --header-height: 3rem;
   }
-  .page-header .menu {
-    top: var(--header-height);
-  }
-  .page-header .menu.open {
-    top: var(--header-height);
-    width: 50%;
-  }
-  .page-header {
-    height: var(--header-height);
-  }
-  .page-header .menu-button {
-    width: var(--header-height);
-  }
-  .page-header .menu a.item {
-    min-height: var(--header-height);
-  }
   .page-header .page-icon, .page-header .page-category {
     display: none;
-  }
-  .page-header .toolbox {
-    width: 50%;
-  }
-  .page-header .toolbox.open {
-    top: var(--header-height);
-    width: 50%;
   }
   .page-content {
     margin: calc(2rem + var(--header-height)) 1rem 0 1rem;
   }
   .page-footer {
     margin: 4rem 1rem 0 1rem;
-  }
-  .toolbox {
-    top: var(--header-height);
   }
 }
 /* Tailwind-like util classes */
