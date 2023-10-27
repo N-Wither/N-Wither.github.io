@@ -34,6 +34,7 @@
 
 .story a {
     color: white;
+    transition: 0.2s;
 }
 
 .story:hover, .story:has(a:hover, a:focus) {
@@ -48,18 +49,8 @@
     z-index: 0;
 }
 
-.story a {
-    color: #fff;
-    background: linear-gradient(to right, #b831a6, #b831a6) no-repeat right bottom;
-    background-size: 0 2px;
-    transition: 200ms;
-    text-decoration: none;
-}
-
 .story a:hover, .story a:focus {
-    background-position-x: left;
-    background-size: 100% 2px;
-    color: #b831a6;
+    color: var(--link-color);
 }
 
 .worldview {

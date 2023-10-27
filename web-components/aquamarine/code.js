@@ -52,6 +52,7 @@ aq-code {
     transition: 0.2s;
     overflow: auto;
     box-sizing: border-box;
+    margin: 1em 0;
 }
 
 aq-code[inline] {

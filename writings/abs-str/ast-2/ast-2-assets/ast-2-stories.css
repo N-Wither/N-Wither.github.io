@@ -1,5 +1,5 @@
 :root {
-    --background-color: antiquewhite;
+    --background-color: #faebd7;
     --text-color: #0F0F0F;
     --text-color-2: #fff;
     --gray-color: #d5c1a7;
@@ -7,8 +7,10 @@
     --theme-color: #961796;
     --darkened-theme-color: #6c0b6c;
     --box-shadow-color: #0F0F0F22;
+    --link-color: var(--theme-color);
 
-    --header-height: 3.6rem;
+    --header-bg: #faebd799;
+
     scroll-behavior: smooth;
 }
 
@@ -21,19 +23,9 @@
     --theme-color: #961796;
     --darkened-theme-color: #6a0a6a;
     --box-shadow-color: #44444422;
-}
+    --link-color: var(--theme-color);
 
-.page-content a, .page-footer a {
-    color: var(--theme-color);
-    background: linear-gradient(to right, var(--theme-color), var(--theme-color)) no-repeat right bottom;
-    background-size: 0 2px;
-    transition: background-size 200ms;
-    text-decoration: none;
-}
-
-.page-content a:hover, .page-content a:focus, .page-footer a:hover, .page-footer a:focus {
-    background-position-x: left;
-    background-size: 100% 2px;
+    --header-bg: #11131599;
 }
 
 ::-webkit-scrollbar-track {
