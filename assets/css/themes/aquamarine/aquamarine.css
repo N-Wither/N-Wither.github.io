@@ -431,6 +431,8 @@ hr.break {
 .page-header .menu {
   left: 0;
   width: 20em;
+  height: 100vw;
+  align-items: flex-start;
 }
 .page-header .menu a.item {
   min-height: var(--header-height);
@@ -439,7 +441,6 @@ hr.break {
   font-size: 1.4rem;
   padding: 0 0;
   width: 100%;
-  height: 100%;
   color: var(--text-color);
   text-decoration: none;
   transition: var(--transition-time-common);
@@ -464,7 +465,7 @@ hr.break {
   right: 0;
   transform: translateX(100%);
   width: 20em;
-  position: fixed;
+  position: absolute;
   top: var(--header-height);
 }
 .page-header .toolbox .item {
