@@ -274,7 +274,6 @@ button {
   border: none;
   transition: var(--transition-time-common);
   color: var(--text-color);
-  padding: 0.2em;
 }
 
 button:hover, button:focus {
