@@ -502,7 +502,7 @@ hr {
     .menu {
         left: 0;
         width: 20em;
-        height: 100vw;
+        height: calc(100vh - var(--header-height));
         align-items: flex-start;
 
         a.item {
@@ -515,10 +515,14 @@ hr {
             color: var(--text-color);
             text-decoration: none;
             transition: var(--transition-time-common);
+            background: linear-gradient(to right, var(--theme-color), var(--theme-color));
+            background-position: left;
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
         }
 
         a.item:hover, a.item:focus {
-            background: var(--gray-color);
+            background-size: 100% 100%;
         }
 
         a.item div{

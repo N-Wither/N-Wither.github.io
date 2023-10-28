@@ -125,7 +125,7 @@ let getPoints = (point) => {
     background: var(--background-2);
     display: grid;
     grid-template-columns: 60px 1fr 0 1fr 60px;
-    font-size: 60%;
+    font-size: 0.8em;
 }
 
 .row-2 :is(.point-container, .flex-center, .map-info, .match-info) {
@@ -136,7 +136,14 @@ let getPoints = (point) => {
     display: flex;
     justify-content: left;
     align-items: center;
+    overflow-x: scroll;
+    width: 100%;
+    white-space: nowrap;
 }
+.map-info::-webkit-scrollbar {
+    display: none;
+}
+
 .match-info {
     display: flex;
     justify-content: right;
