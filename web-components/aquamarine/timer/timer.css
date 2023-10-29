@@ -1,3 +1,16 @@
 aq-timer {
     display: block;
+    margin: 0.4em;
+}
+
+aq-timer .startpause::before {
+    content: '\e037';
+}
+
+aq-timer[running] .startpause::before {
+    content: '\e034';
+}
+
+aq-timer .reset::before {
+    content: '\e042';
 }

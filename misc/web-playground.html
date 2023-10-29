@@ -35,6 +35,7 @@
     <script type="module" src="/web-components/aquamarine/tab.js"></script>
     <script type="module" src="/web-components/aquamarine/input-number.js"></script>
     <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/aquamarine/timer/timer.js"></script>
 </head>
 
 <body onload="init()">
@@ -189,6 +190,41 @@ class Foo extends Bar{
         <h3>Aquamarine Input (Number)</h3>
         <p>因为我不知道怎样给 Web Component 做自定义事件所以你只能给里面的 input 元素做事件监听了。</p>
         <aq-input-number min="-100" max="100" step="5" label="A number input" value="5"></aq-input-number>
+        <h3>Timer</h3>
+        属性列表
+        <table>
+            <thead>
+                <tr>
+                    <th>属性</th>
+                    <th>描述</th>
+                    <th>类型</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>format</td>
+                    <td>时间格式，其中的 <code>hh mm ss ms</code> 会被分别替换为小时、分、秒、毫秒，其余字符不变。默认为 <code>mm:ss</code>。</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>起始时间，以毫秒计。默认为 0。</td>
+                    <td>number</td>
+                </tr>
+                <tr>
+                    <td>countdown</td>
+                    <td>控制是否为倒计时。</td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td>step</td>
+                    <td>控制文本的刷新间隔，以毫秒计，默认为 10。可用于减少性能消耗。</td>
+                    <td>number</td>
+                </tr>
+            </tbody>
+        </table>
+        <aq-timer format="&#xe8b5ss.ms" time="300000" step="80" countdown></aq-timer>
+        <aq-timer format="hh:mm:ss" step="500"></aq-timer>
     </div>
     <div class="page-footer">
         <hr>
