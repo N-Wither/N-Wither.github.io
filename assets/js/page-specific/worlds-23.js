@@ -1,7 +1,7 @@
 let refreshTime = (timeZone, offset) => {
     let times = document.querySelectorAll('.info.time')
     times.forEach(time => {
-        if (time.textContent.length < 16) return;
+        if (time.textContent.length < 15) return;
         let raw = time.textContent + ' ' + offset
         // console.log(raw)
         time.textContent = localeDateTime(raw, timeZone).slice(0, -3)
