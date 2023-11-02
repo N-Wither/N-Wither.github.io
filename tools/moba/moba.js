@@ -6,7 +6,7 @@ const MobaScoreboardApp = {
                 time: 2523,
                 timing: false,
                 timer: null,
-                leagueLogo: 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e9/Worlds.png',
+                leagueLogo: 'https://n-wither.github.io/assets/imgs/lol/worlds.png',
                 logoFilter: 'filter-white',
                 goldDiff: -1.1,
                 theme: 'dark'

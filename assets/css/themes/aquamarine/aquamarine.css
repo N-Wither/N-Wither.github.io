@@ -192,7 +192,7 @@
   --header-height: 3.6rem;
   --transition-time-common: 0.2s;
   scroll-behavior: smooth;
-  font-family: "Metropolis", "Readex Pro", "Noto Sans SC", "Material Symbols Outlined";
+  font-family: "Metropolis", "Readex Pro", "Noto Sans SC", sans-serif, "Material Symbols Outlined";
   font-size: 16px;
 }
 
