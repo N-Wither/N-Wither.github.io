@@ -42,3 +42,44 @@ if(menu != null){
         menu.innerHTML += createNavigateItem(item.text, item.icon, item.url)
     })
 }
+
+let menuButton = document.querySelector('button.menu-button')
+let menuDiv = document.querySelector('.page-header .menu')
+
+if(menuButton && menuDiv) {
+    let pageContent = document.querySelector('.page-content')
+    let pageFooter = document.querySelector('.page-footer')
+    let targets = [pageContent, pageFooter]
+
+    let open = () => {
+        menuButton.classList.add('open')
+        menuDiv.classList.add('open')
+        targets.forEach(el => {
+            el.style.filter = 'brightness(0.8)'
+        })
+    }
+    let close = () => {
+        menuButton.classList.remove('open')
+        menuDiv.classList.remove('open')
+        targets.forEach(el => {
+            el.style.removeProperty('filter')
+            el.removeAttribute('style')
+        })
+    }
+
+    menuButton.removeAttribute('onclick')
+    menuButton.onclick = function () {
+        if(this.classList.contains('open')) {
+            close()
+            targets.forEach(el => {
+                el.removeEventListener('click', close, false)
+            })
+        }
+        else {
+            open()
+            targets.forEach(el => {
+                el.addEventListener('click', close, false)
+            })
+        }
+    }
+}
