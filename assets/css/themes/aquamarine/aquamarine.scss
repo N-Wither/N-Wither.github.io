@@ -23,6 +23,7 @@
     --background-color-darken: #ededed;
     --text-color: #0F0F0F;
     --text-color-2: #fff;
+    --text-color-secondary: var(--gray-400);
     --text-color-select: #fff;
     --gray-color: #cccccc;
     --dark-gray-color: #888888;
@@ -46,6 +47,7 @@
     --background-color-darken: #181818;
     --text-color: #fff;
     --text-color-2: #888;
+    --text-color-secondary: var(--gray-500);
     --text-color-select: #Fff;
     --gray-color: #3b3b3b;
     --dark-gray-color: #2b2b2b;
@@ -306,6 +308,28 @@ a[target = "_blank"]::after{
     top: 0.1rem
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    max-width: fit-content;
+    max-width: -moz-fit-content;
+}
+
+table {
+    border-spacing: 0;
+    border: 1px solid var(--border-color-common);
+
+    thead {
+        background: var(--background-color-darken);
+    }
+
+    th {
+        border: 1px solid var(--border-color-common);
+    }
+
+    td {
+        border: 1px solid var(--border-color-common);
+    }
+}
+
 .page-content, .page-footer, .toolbox {
     a {
         @include general-link();
@@ -388,7 +412,7 @@ hr {
 .page-header {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     height: var(--header-height);
     @include general-shadow;

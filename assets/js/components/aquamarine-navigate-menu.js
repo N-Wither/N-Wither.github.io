@@ -20,9 +20,9 @@ let navigateItems = [
         url: 'https://n-wither.github.io/games/'
     },
     {
-        text: 'Misc',
+        text: 'Aquamarine',
         icon: '\uf8ee',
-        url: 'https://n-wither.github.io/misc/web-playground.html'
+        url: 'https://n-wither.github.io/misc/aquamarine.html'
     }
 ]
 
