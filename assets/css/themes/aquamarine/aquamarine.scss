@@ -537,7 +537,6 @@ hr {
     }
 
     .menu.open, .menu:has(a:focus) {
-        top: var(--header-height);
         transform: translateX(0);
     }
 
@@ -545,8 +544,6 @@ hr {
         right: 0;
         transform: translateX(100%);
         width: 20em;
-        position: absolute;
-        top: var(--header-height);
 
         .item {
             border-bottom: solid var(--gray-color);
@@ -612,6 +609,10 @@ hr {
     .page-header {
         .page-icon, .page-category {
             display: none;
+        }
+
+        .menu {
+            width: 16em;
         }
     }
 

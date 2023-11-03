@@ -22,15 +22,14 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
-    <script src="../assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="../assets/js/components/collapsible-block.js" defer></script>
+    <script type="module" src="../assets/js/components/aquamarine-navigate-menu.js"></script>
     <link rel="stylesheet" href="../assets/css/components/collapsible-block.css">
     <script src="../assets/js/components/click_particles.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/click_particles.css">
     <script src="../assets/js/components/hover-tooltip.js" defer></script>
     <link rel="stylesheet" href="../assets/css/components/hover-tooltip.css">
-    <script src="../assets/js/components/AJAX-svg.js" defer></script>
-    <script src="../web-components/info-tag/info-tag.js" type="module"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
     <script type="module" src="/web-components/aquamarine/code.js"></script>
     <script type="module" src="/web-components/aquamarine/tab.js"></script>
     <script type="module" src="/web-components/aquamarine/input-number.js"></script>
@@ -52,7 +51,7 @@
         <div class="right flex-center">
             <div class="menu-button">
                 <a href="https://github.com/N-Wither" class="flex-center" target="_blank">
-                    <div class="request-svg" data-src="../assets/imgs/common/github-icon.svg"></div>
+                    <fetch-svg src="../assets/imgs/common/github-icon.svg"></fetch-svg>
                 </a>
             </div>
             <div class="menu-button">
@@ -69,7 +68,7 @@
             <div id="clock" class="item">Current Time</div>
         </div>
     </div>
-    <div class="page-content">
+    <div class="page-content" style="transition: 0.2s;">
         <h1 class="page-title">Web Playground</h1>
         <h3>Some web developing tests and tricks. Plus some small toys.</h3>
         <hr>

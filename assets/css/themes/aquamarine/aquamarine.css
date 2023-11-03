@@ -461,15 +461,12 @@ hr.break {
   margin: 0;
 }
 .page-header .menu.open, .page-header .menu:has(a:focus) {
-  top: var(--header-height);
   transform: translateX(0);
 }
 .page-header .toolbox {
   right: 0;
   transform: translateX(100%);
   width: 20em;
-  position: absolute;
-  top: var(--header-height);
 }
 .page-header .toolbox .item {
   border-bottom: solid var(--gray-color);
@@ -526,6 +523,9 @@ hr.break {
   }
   .page-header .page-icon, .page-header .page-category {
     display: none;
+  }
+  .page-header .menu {
+    width: 16em;
   }
   .page-content {
     margin: calc(2rem + var(--header-height)) 1rem 0 1rem;

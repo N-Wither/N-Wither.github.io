@@ -29,7 +29,7 @@ export class AqTimer extends HTMLElement {
         }
     }
 
-    #start() {
+    start() {
         if(this.running) return;
         this.running = true
         let displayArea = this.querySelector('.display')
@@ -40,7 +40,7 @@ export class AqTimer extends HTMLElement {
                 this.currentTime = Date.now()
                 if(this.currentTime - this.startTime >= this.targetTime || this.time <= 0) {
                     this.time = 0
-                    this.#stop()
+                    this.stop()
                     return
                 }
                 else this.time = this.targetTime - (this.currentTime - this.startTime)
@@ -53,7 +53,7 @@ export class AqTimer extends HTMLElement {
         this.setAttribute('running', '')
     }
 
-    #stop() {
+    stop() {
         this.running = false
         this.removeAttribute('running')
         this.querySelector('.display').innerHTML = this.#format()
@@ -83,10 +83,20 @@ export class AqTimer extends HTMLElement {
             )
     }
 
-    #reset() {
-        if(this.running) this.#stop();
+    reset() {
+        if(this.running) this.stop();
         this.time = Number(this.getAttribute('time')) || 0
+        if(this.countDown)
+        this.targetTime = this.time
         this.querySelector('.display').innerHTML = this.#format()
+    }
+
+    setTime(num) {
+        this.time = num
+        this.setAttribute('time', num)
+        if(this.countDown)
+        this.targetTime = num
+        this.querySelector('.display').innerHTML = this.#format(this.time)
     }
 
     connectedCallback() {
@@ -96,14 +106,14 @@ export class AqTimer extends HTMLElement {
 
         startButton.addEventListener('click', () => {
             if(this.running) {
-                this.#stop()
+                this.stop()
             }
             else {
-                this.#start()
+                this.start()
             }
         })
         resetButton.addEventListener('click', () => {
-            this.#reset()
+            this.reset()
         })
         displayArea.innerHTML = this.#format()
     }
