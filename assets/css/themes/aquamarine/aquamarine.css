@@ -170,6 +170,9 @@
   --theme-color-800: var(--aqua-800);
   --theme-color-900: var(--aqua-900);
   --theme-color-950: var(--aqua-950);
+  --color-info: var(--blue-400);
+  --color-warn: var(--orange-400);
+  --color-danger: var(--red-400);
   --background-color: #fcfcfc;
   --background-color-darken: #ededed;
   --text-color: #0F0F0F;
@@ -190,6 +193,7 @@
   --header-bg: #fcfcfc99;
   --scroll-track-color: var(--background-color);
   --scroll-thumb-color: var(--gray-color);
+  --blockquote-bg: #00000011;
   --header-height: 3.6rem;
   --transition-time-common: 0.2s;
   scroll-behavior: smooth;
@@ -218,6 +222,7 @@
   --header-bg: #1e1e1e99;
   --scroll-track-color: var(--background-color);
   --scroll-thumb-color: var(--gray-color);
+  --blockquote-bg: #00000033;
 }
 
 ::selection {
@@ -275,6 +280,18 @@ table th {
 }
 table td {
   border: 1px solid var(--border-color-common);
+}
+
+blockquote {
+  background-color: var(--blockquote-bg);
+  border-left: 6px solid var(--gray-color);
+  padding: 1em 0.6em;
+  position: relative;
+  box-sizing: border-box;
+}
+
+blockquote.info {
+  border-left-color: var(--color-info);
 }
 
 .page-content a, .page-footer a, .toolbox a {

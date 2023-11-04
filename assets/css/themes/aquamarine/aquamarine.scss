@@ -40,6 +40,7 @@
     --header-bg: #fcfcfc99;
     --scroll-track-color: var(--background-color);
     --scroll-thumb-color: var(--gray-color);
+    --blockquote-bg: #00000011;
 }
 
 @mixin dark-scheme-palette {
@@ -64,6 +65,7 @@
     --header-bg: #1e1e1e99;
     --scroll-track-color: var(--background-color);
     --scroll-thumb-color: var(--gray-color);
+    --blockquote-bg: #00000033;
 }
 
 $general-transition-time: 0.3s;
@@ -254,6 +256,10 @@ $general-transition-time: 0.3s;
     --theme-color-900: var(--aqua-900);
     --theme-color-950: var(--aqua-950);
 
+    --color-info: var(--blue-400);
+    --color-warn: var(--orange-400);
+    --color-danger: var(--red-400);
+
     @include light-scheme-palette();
 
     --header-height: 3.6rem;
@@ -328,6 +334,17 @@ table {
     td {
         border: 1px solid var(--border-color-common);
     }
+}
+
+blockquote {
+    background-color: var(--blockquote-bg);
+    border-left: 6px solid var(--gray-color);
+    padding: 1em 0.6em;
+    position: relative;
+    box-sizing: border-box;
+}
+blockquote.info {
+    border-left-color: var(--color-info);
 }
 
 .page-content, .page-footer, .toolbox {

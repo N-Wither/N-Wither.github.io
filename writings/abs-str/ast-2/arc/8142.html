@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,18 @@
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Works</title>
+    <title>ARC#8142</title>
     <script src="/assets/js/utils.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
     <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
     <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
     <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
+    <!-- styles -->
+    <link rel="stylesheet" href="../ast-2-assets/ast-2-stories.css">
+    <link rel="stylesheet" href="/assets/css/components/hover-tooltip.css">
 </head>
 <body>
     <div class="page-header">
@@ -21,10 +27,8 @@
             <button class="menu-button" title="Toggle Navigation Menu"></button>
         </div>
         <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            WitherWorks
-        </div>
-        <div class="flex-center page-title">Title</div>
+        <div class="page-category flex-center padding-all-small">ARC Records Collection</div>
+        <div class="flex-center page-title">ARC#8142</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button">
@@ -39,15 +43,41 @@
                 <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
             </div>
         </div>
-        
         <div class="toolbox all-menu">
             <div id="clock" class="item">Current Time</div>
         </div>
     </div>
     <div class="page-content">
-        <h1 class="page-title">Title</h1>
+        <div class="page-title">
+            ARC#8142
+        </div>
         <hr>
-        <p>Write something here.</p>
+        <h2>概述</h2>
+        <p>#8142 是发生在大陆南部地区的一种危险异常现象，当满足以下条件时：</p>
+        <ul>
+            <li>时间处于 22:00 - 4:00 之间</li>
+            <li>当事人正在乘坐交通工具</li>
+            <li>除当事人之外的同行者不超过 3 人</li>
+            <li>当事人对此路段不熟悉</li>
+            <li>除当事人及交通工具携带的光源以外没有其他光照（月光，路灯等）</li>
+        </ul>
+        <p>#8142 事件将有 0.6% 的概率（估算）发生。</p>
+        <p>
+            此事件发生时，当事人将注意到乘坐的交通工具开始出现问题并最终无法继续前进，较强的光源
+            <a href="javascript:void 0;" class="need-tooltip">
+                <sup>1</sup>
+            </a>
+            将失效，如果当事人和/或随行者离开交通工具超过 10 米，他们将因为未知原因消失。
+        </p>
+        <p>追踪这些消失人员的尝试全部都失败了，所有消失人员的踪迹最终都停留在了消失地点。由于此类事件已有较久的历史，具体的失踪人数无法统计。</p>
+        <p><strong>注意：</strong>如果你发现你遭遇了此类事件，请继续阅读“应对方案”部分并照做，这能保证你的安全。</p>
+        <h2>应对方案</h2>
+        <blockquote class="info">此方案已成为南部地区的常识教育的一部分。</blockquote>
+        <p>只要遵循此方案，#8142 事件不会对人造成任何实质性的伤害，请保持冷静。</p>
+        <p></p>
+    </div>
+    <div style="display: none;">
+        <span class="tooltip-content" id="tooltip-content-1">根据统计，照亮范围在约 10 米以上的照明用具均会失效。</span>
     </div>
     <div class="page-footer">
         <hr>
