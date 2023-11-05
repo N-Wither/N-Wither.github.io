@@ -181,12 +181,13 @@
   --text-color-select: #fff;
   --gray-color: #cccccc;
   --dark-gray-color: #888888;
-  --theme-color: var(--aqua-500);
-  --darkened-theme-color: var(--aqua-600);
+  --theme-color: var(--theme-color-500);
+  --darkened-theme-color: var(--theme-color-600);
   --secondary-theme-color: #fff;
   --darkened-secondary-theme-color: #ccc;
   --box-shadow-color: #0F0F0F22;
-  --link-color: var(--aqua-600);
+  --link-color: var(--theme-color-600);
+  --link-color-visited: var(--theme-color-800);
   --border-color-common: #cfcfcf;
   --button-bg: var(--gray-100);
   --button-bg-focus: var(--gray-200);
@@ -194,6 +195,7 @@
   --scroll-track-color: var(--background-color);
   --scroll-thumb-color: var(--gray-color);
   --blockquote-bg: #00000011;
+  --category-text-color: #ffffff;
   --header-height: 3.6rem;
   --transition-time-common: 0.2s;
   scroll-behavior: smooth;
@@ -210,12 +212,13 @@
   --text-color-select: #Fff;
   --gray-color: #3b3b3b;
   --dark-gray-color: #2b2b2b;
-  --theme-color: var(--aqua-600);
-  --darkened-theme-color: var(--aqua-700);
+  --theme-color: var(--theme-color-600);
+  --darkened-theme-color: var(--theme-color-700);
   --secondary-theme-color: #fff;
   --darkened-secondary-theme-color: #ccc;
   --box-shadow-color: #66666622;
-  --link-color: var(--aqua-500);
+  --link-color: var(--theme-color-500);
+  --link-color-visited: var(--theme-color-700);
   --border-color-common: #3c3c3c;
   --button-bg: var(--gray-800);
   --button-bg-focus: var(--gray-700);
@@ -223,6 +226,7 @@
   --scroll-track-color: var(--background-color);
   --scroll-thumb-color: var(--gray-color);
   --blockquote-bg: #00000033;
+  --category-text-color: var(--text-color);
 }
 
 ::selection {
@@ -304,6 +308,9 @@ blockquote.info {
 .page-content a:hover, .page-content a:focus, .page-footer a:hover, .page-footer a:focus, .toolbox a:hover, .toolbox a:focus {
   background-position-x: left;
   background-size: 100% 2px;
+}
+.page-content a:visited, .page-footer a:visited, .toolbox a:visited {
+  --link-color: var(--link-color-visited);
 }
 
 button {
@@ -440,6 +447,7 @@ hr.break {
   background: var(--theme-color);
   font-size: 1.4rem;
   font-weight: bold;
+  color: var(--category-text-color);
 }
 .page-header .page-title {
   font-size: 1.6rem;
@@ -536,17 +544,18 @@ hr.break {
   transform: translateX(0);
 }
 .page-header button.toolbox-button:before {
-  content: "◀";
+  content: "\e2ea";
   color: var(--text-color);
 }
 .page-header button.toolbox-button.open::before {
-  content: "▶";
+  content: "\e5e1";
 }
 
 /* Page Content*/
 .page-content {
   margin: calc(2rem + var(--header-height)) 10rem 0 10rem;
   min-height: calc(100vh - 20rem);
+  overflow-x: scroll;
 }
 
 .page-footer {
