@@ -298,6 +298,10 @@ blockquote.info {
   border-left-color: var(--color-info);
 }
 
+input {
+  font-family: inherit;
+}
+
 .page-content a, .page-footer a, .toolbox a {
   color: var(--link-color);
   background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;

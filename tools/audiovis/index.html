@@ -8,24 +8,24 @@
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Works</title>
+    <title>Audio Visualizer</title>
     <script src="/assets/js/utils.js"></script>
     <!-- components -->
-    <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
-    <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="./audiovis.js"></script>
 </head>
 <body>
     <div class="page-header">
         <div class="menu-button">
-            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
         </div>
         <div class="page-icon"></div>
         <div class="page-category flex-center padding-all-small">
-            WitherWorks
+            Tools
         </div>
-        <div class="flex-center page-title">Title</div>
+        <div class="flex-center page-title">Audio Visualizer</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button">
@@ -46,42 +46,11 @@
         </div>
     </div>
     <div class="page-content">
-        <h1 class="page-title">Tools</h1>
+        <h1 class="page-title">Audio Visualizer</h1>
         <hr>
-        <p>
-            网页小工具（或者玩具），一切都在前端实现。
-        </p>
-        <br/>
-        <div class="list">
-            <div class="list_item">
-                <a href="./uuid.html">UUID 生成器</a><br>
-                生成 UUID。
-            </div>
-            <div class="list_item">
-                <a href="./timer.html">计时器</a><br>
-                正计时和倒计时。
-            </div>
-            <div class="list_item">
-                <a href="./moba/">MOBA 游戏计分板</a><br>
-                MOBA 游戏的计分板，主要是英雄联盟。
-            </div>
-            <div class="list_item">
-                <a href="./fps-scoreboard/dist/">FPS 游戏计分板</a><br>
-                FPS 游戏的计分板，主要是无畏契约。
-            </div>
-            <div class="list_item">
-                <a href="./dice.html">骰子</a><br>
-                4 个骰子，从 D4 到 D20。
-            </div>
-            <div class="list_item">
-                <a href="./pte.html">元素周期表</a><br>
-                目前所有已知化学元素的基本信息。
-            </div>
-            <div class="list_item">
-                <a href="./audiovis/">音频可视化</a><br>
-                上传你的音乐，然后播放，看看发生什么。
-            </div>
-        </div>
+        <input type="file" name="audiofile" id="audiofile">
+        <canvas height="256"></canvas>
+        <audio src="" controls></audio>
     </div>
     <div class="page-footer">
         <hr>

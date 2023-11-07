@@ -351,6 +351,10 @@ blockquote.info {
     border-left-color: var(--color-info);
 }
 
+input {
+    font-family: inherit;
+}
+
 .page-content, .page-footer, .toolbox {
     a {
         @include general-link();
