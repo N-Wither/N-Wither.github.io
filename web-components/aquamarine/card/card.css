@@ -1,52 +1,68 @@
-aq-card {
+:host {
+    display: block;
+    flex-direction: column;
+    transition: 0.2s;
+    margin: 0.6em 0;
+    max-width: 100%;
+}
+
+:host[horizontal] {
+    flex-direction: row;
+}
+
+.card__base {
     display: flex;
     flex-direction: column;
     transition: 0.2s;
     background: var(--background-color-darken);
     max-width: fit-content;
-    min-width: 30em;
-    margin: 0.6em 0;
 }
-
-aq-card[horizontal] {
+.card__base.horizontal {
     flex-direction: row;
 }
 
 @media screen and (max-width: 480px) {
-    aq-card[horizontal] {
+    .card__base.horizontal {
         flex-direction: column;
         min-width: 100%;
     }
 }
 
-aq-card::part(card-image-container) {
+.card__image-container {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-aq-card::part(card-content) {
+.card__content {
     display: flex;
     flex-direction: column;
 }
 
-aq-card::part(card-header) {
+.card__header {
     padding: 0.6em;
     display: flex;
     border-bottom: 1px solid var(--border-color-common);
 }
 
-aq-card::part(card-body) {
+.card__body {
     display: flex;
     flex-direction: column;
     padding: 0.6em;
 }
 
-aq-card::part(card-footer) {
+.card__footer {
     padding: 0.6em;
     display: flex;
     color: var(--text-color-secondary);
     border-top: 1px solid var(--border-color-common);
     margin-top: auto;
+}
+
+.card__base:not(.has-header) .card__header{
+    display: none;
+}
+.card__base:not(.has-footer) .card__footer{
+    display: none;
 }
