@@ -36,6 +36,7 @@
     <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
     <script type="module" src="/web-components/aquamarine/timer/timer.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+    <script type="module" src="/web-components/aquamarine/audio/audio.js"></script>
 </head>
 
 <body onload="init()">
@@ -72,7 +73,7 @@
     <div class="page-content" style="transition: 0.2s;">
         <h1 class="page-title">Aquamarine Web Components</h1>
         <hr>
-        <p>这个页面展示了一些我写的 Web Components，服务于 Aquamarine 网页主题。</p>
+        <p>这个页面是为了展示 Aquamarine 网页主题，以及一些适用于这个主题的组件。</p>
         <p>按下 <span class="keycap">Ctrl</span> + <span class="keycap">F</span> 可以搜索此页面上的内容。</p>
         <h2>Collapsible Block</h2>
         <a href="/web-components/aquamarine/collapsible/collapsible.js" target="_blank" rel="noopener noreferrer">源代码</a>
@@ -238,12 +239,25 @@ class Foo extends Bar{
         <aq-card>
             <p>一段没啥用的文字，仅供展示。</p>
         </aq-card>
-        <h3>Blockquote</h3>
+        <h2>Blockquote</h3>
         <p>这是纯 CSS 实现的。</p>
         <blockquote>最普通的引用块。</blockquote>
         <blockquote class="info">信息</blockquote>
         <blockquote class="warn">警告</blockquote>
         <blockquote class="danger">危险</blockquote>
+        <h2>Audio</h3>
+        <p>本质上就是把原生的 audio 元素套了一层壳。</p>
+        <input type="file" id="audio-file">
+        <script>
+            let input = document.querySelector('#audio-file')
+            input.onchange = function() {
+                let file = this.files[0]
+                let src = URL.createObjectURL(file)
+                document.querySelector('aq-audio').setSrc(src)
+                document.querySelector('aq-audio').setTitle(file.name)
+            }
+        </script>
+        <aq-audio></aq-audio>
     </div>
     <div class="page-footer">
         <hr>

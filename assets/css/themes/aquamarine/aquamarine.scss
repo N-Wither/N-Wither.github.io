@@ -176,13 +176,16 @@ blockquote {
     padding: 1em 0.6em;
     position: relative;
     box-sizing: border-box;
+    margin: 1em 2em;
 
     &::before {
+        position: absolute;
+        left: 0.4em;
+        top: 50%;
         margin-right: 1rem;
         font-size: 2em;
         display: inline-block;
         line-height: 1rem;
-        transform: translateY(50%);
         height: 100%;
     }
     &::after {
@@ -195,6 +198,9 @@ blockquote {
         opacity: 0.3;
         z-index: -1;
     }
+}
+blockquote:is(.info, .warn, .danger) {
+    padding-left: 3.6em;
 }
 blockquote.info {
     border-left-color: var(--color-info);
@@ -525,7 +531,6 @@ hr {
 .page-content {
     margin: calc(2rem + var(--header-height)) 10rem 0 10rem;
     min-height: calc(100vh - 20rem);
-    overflow-x: scroll;
 }
 
 .page-footer {
