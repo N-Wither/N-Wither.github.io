@@ -5,6 +5,10 @@
     margin: 0.4em 0;
 }
 
+::selection {
+    background-color: var(--darkened-theme-color);
+    color: var(--text-color-select);
+}
 
 img {
     width: 60px;
@@ -64,7 +68,7 @@ option {
 
 .audio__body {
     display: grid;
-    grid-template-rows: 20px 16px 24px;
+    grid-template-rows: auto 16px 24px;
 }
 .audio__control,
 .audio__volume {
@@ -102,6 +106,7 @@ option {
     pointer-events: none;
     position: absolute;
     left: 4px;
+    user-select: none;
 }
 .audio__title {
     display: flex;

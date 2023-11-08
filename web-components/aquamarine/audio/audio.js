@@ -25,6 +25,7 @@ const template =
         <div class='audio__playback'>
             <span class='audio__playback-icon'>\ue9e4</span>
             <select class='audio__playback-rate' title='Speed'>
+                <option value='0.25'>0.25x</option>
                 <option value='0.5'>0.5x</option>
                 <option value='0.75'>0.75x</option>
                 <option value='1' selected>1x</option>
@@ -93,10 +94,9 @@ export class AqAudio extends HTMLElement{
             let duration = this.doms.audio.duration
             let time = this.doms.audio.currentTime
             this.doms.time.innerHTML = `${this.#formatTime(time)}/${this.#formatTime(duration)}`
-            this.doms.progressBar.value = Math.round((time / duration) * 100)
+            this.doms.progressBar.value = Math.round((time / duration) * 100) || 0
         }
         this.doms.audio.ondurationchange = () => {
-            this.duration = this.doms.audio.duration
             this.doms.time.innerHTML = `0:00/${this.#formatTime(this.duration)}`
         }
         this.doms.audio.onended = () => {
@@ -138,14 +138,14 @@ export class AqAudio extends HTMLElement{
         }
 
         this.doms.volumeBar.onmousedown = e => {
-            this.setVolume(this.#getProgress(this.doms.volumeBar, e.clientX))
+            this.volume = this.#getProgress(this.doms.volumeBar, e.clientX)
             this.#mouseDown = true
         }
         this.doms.volumeBar.onmouseup = () => this.#mouseDown = false
         this.doms.volumeBar.onmousemove = e => {
             if(this.#mouseDown == true) {
                 let target = this.#getProgress(this.doms.volumeBar, e.clientX)
-                this.setVolume(target)
+                this.volume = target
             }
         }
         this.doms.volumeBar.onmouseleave = () => this.#mouseDown = false
@@ -162,23 +162,10 @@ export class AqAudio extends HTMLElement{
         this.doms.forwardButton.onclick = () => this.setCurrentTimeOffset(5)
 
         this.doms.speedSelect.onchange = () => {
-            this.doms.audio.playbackRate = Number(this.doms.speedSelect.value)
+            this.playbackRate = Number(this.doms.speedSelect.value)
         }
     }
 
-    setSrc(src) {
-        this.src = src
-        this.doms.audio.src = src
-    }
-    setTitle(title) {
-        this.audioTitle = title
-        this.doms.title.innerHTML = title
-    }
-    setVolume(volume) {
-        this.doms.audio.volume = volume
-        this.volume = volume
-        this.preservedVolume = volume
-    }
     setCurrentTimeOffset(time) {
         this.doms.audio.currentTime += time
     }
@@ -210,6 +197,27 @@ export class AqAudio extends HTMLElement{
         let cursorX = x - startX
         let target = Math.max(cursorX / length, 0)
         return target
+    }
+
+    get currentTime() {return this.doms.audio.currentTime}
+    set currentTime(t) {this.doms.audio.currentTime = t}
+    get volume() {return this.doms.audio.volume}
+    set volume(v) {this.doms.audio.volume = v}
+    get src() {return this.doms.audio.src}
+    set src(src) {this.doms.audio.src = src}
+    get audioTitle() {return this.doms.title.innerHTML}
+    set audioTitle(t) {this.doms.title.innerHTML = t}
+    get duration() {return this.doms.audio.duration}
+    get playbackRate() {return this.doms.audio.playbackRate}
+    set playbackRate(r) {this.doms.audio.playbackRate = r}
+    get audioElement() {return this.doms.audio}
+    set audioElement(e) {
+        if(e instanceof HTMLMediaElement == false) {
+            throw new TypeError('the parameter should be a HTMLMediaElemnt')
+        }
+        // this.doms.audio = e
+        this.doms.audio.remove()
+        this.shadowRoot.querySelector('.audio__body').insertBefore(e, this.doms.title)
     }
 }
 

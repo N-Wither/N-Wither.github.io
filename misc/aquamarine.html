@@ -253,8 +253,8 @@ class Foo extends Bar{
             input.onchange = function() {
                 let file = this.files[0]
                 let src = URL.createObjectURL(file)
-                document.querySelector('aq-audio').setSrc(src)
-                document.querySelector('aq-audio').setTitle(file.name)
+                document.querySelector('aq-audio').src = src
+                document.querySelector('aq-audio').audioTitle = file.name
             }
         </script>
         <aq-audio></aq-audio>
