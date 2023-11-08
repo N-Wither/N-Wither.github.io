@@ -112,8 +112,8 @@ a[target=_blank]::after {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  max-width: fit-content;
   max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 table {
@@ -290,6 +290,7 @@ hr.break {
   display: flex;
   z-index: 99;
   background: var(--header-bg);
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 .page-header .menu-button {
@@ -321,6 +322,7 @@ hr.break {
 }
 .page-header button {
   color: inherit;
+  -webkit-user-select: none;
   user-select: none;
 }
 .page-header button.menu-button::before {
@@ -498,6 +500,7 @@ hr.break {
 }
 
 .no-select {
+  -webkit-user-select: none;
   user-select: none;
 }
 

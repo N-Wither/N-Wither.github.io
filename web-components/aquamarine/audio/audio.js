@@ -6,7 +6,6 @@ const template =
 `<div class='audio__base'>
 <div part='thumbnail' class='audio__thumbnail'></div>
 <div class='audio__body'>
-    <audio></audio>
     <div part='title' class='audio__title'></div>
     <div part='progress' class='audio__progress'>
         <div part='time' class='audio__time'>0:00/0:00</div>
@@ -20,7 +19,7 @@ const template =
         </div>
         <div part='volume' class='audio__volume' title='volume'>
             <span class='audio__volume-icon'>\ue050</span>
-            <progress min='0' max='1' value='1' class='audio__volume-bar'></progress>
+            <progress max='1' value='1' class='audio__volume-bar'></progress>
         </div>
         <div class='audio__playback'>
             <span class='audio__playback-icon'>\ue9e4</span>
@@ -46,12 +45,13 @@ export class AqAudio extends HTMLElement{
     constructor() {
         super()
         this.attachShadow({mode: 'open'}).innerHTML = template
+        this.innerHTML = '<audio></audio>'
         this.shadowRoot.adoptedStyleSheets.push(styleSheet)
 
         this.doms = {
             title: this.shadowRoot.querySelector('.audio__title'),
             thumbnail: this.shadowRoot.querySelector('.audio__thumbnail'),
-            audio: this.shadowRoot.querySelector('audio'),
+            audio: this.querySelector('audio'),
             playButton: this.shadowRoot.querySelector('.audio__button-play'),
             backwardButton: this.shadowRoot.querySelector('.audio__button-backward'),
             forwardButton: this.shadowRoot.querySelector('.audio__button-forward'),

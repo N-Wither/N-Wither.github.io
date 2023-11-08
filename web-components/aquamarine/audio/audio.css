@@ -1,5 +1,6 @@
 :host {
     display: block;
+    max-width: -moz-fit-content;
     max-width: fit-content;
     background: var(--background-color-darken);
     margin: 0.4em 0;
@@ -106,6 +107,7 @@ option {
     pointer-events: none;
     position: absolute;
     left: 4px;
+    -webkit-user-select: none;
     user-select: none;
 }
 .audio__title {
