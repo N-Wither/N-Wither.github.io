@@ -45,7 +45,7 @@ export class AqAudio extends HTMLElement{
     constructor() {
         super()
         this.attachShadow({mode: 'open'}).innerHTML = template
-        this.innerHTML = '<audio></audio>'
+        if(this.innerHTML.includes('<audio></audio>') == false) this.innerHTML = '<audio></audio>';
         this.shadowRoot.adoptedStyleSheets.push(styleSheet)
 
         this.doms = {
