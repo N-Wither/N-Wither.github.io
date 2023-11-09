@@ -1,3 +1,5 @@
+import { AqProgress } from "/web-components/aquamarine/progress/progress.js"
+
 const style = await fetch('/web-components/aquamarine/audio/audio.css').then(resp => resp.text())
 const styleSheet = new CSSStyleSheet()
 styleSheet.replaceSync(style)
@@ -8,8 +10,8 @@ const template =
 <div class='audio__body'>
     <div part='title' class='audio__title'></div>
     <div part='progress' class='audio__progress'>
-        <div part='time' class='audio__time'>0:00/0:00</div>
-        <progress part='progress_bar' class='audio__progress-bar' max='100' value='0'></progress>
+        <div part='time' class='audio__time' style='z-index:1;'>0:00/0:00</div>
+        <aq-progress part='progress_bar' class='audio__progress-bar' max='100' value='0'></aq-progress>
     </div>
     <div part='control' class='audio__control'>
         <div class='audio__control-play'>
@@ -19,11 +21,11 @@ const template =
         </div>
         <div part='volume' class='audio__volume' title='volume'>
             <span class='audio__volume-icon'>\ue050</span>
-            <progress max='1' value='1' class='audio__volume-bar'></progress>
+            <aq-progress max='1' value='1' class='audio__volume-bar'></aq-progress>
         </div>
-        <div class='audio__playback'>
+        <label class='audio__playback' title='Speed'>
             <span class='audio__playback-icon'>\ue9e4</span>
-            <select class='audio__playback-rate' title='Speed'>
+            <select class='audio__playback-rate'>
                 <option value='0.25'>0.25x</option>
                 <option value='0.5'>0.5x</option>
                 <option value='0.75'>0.75x</option>
@@ -33,7 +35,7 @@ const template =
                 <option value='1.75'>1.75x</option>
                 <option value='2'>2x</option>
             </select>
-        </div>
+        </label>
         <button class='audio__button-download' title='Download'>\uf090</button>
     </div>
 </div>
@@ -65,7 +67,8 @@ export class AqAudio extends HTMLElement{
         this.attrs = {
             title: this.getAttribute('audio-title'),
             thumbnail: this.getAttribute('thumbnail'),
-            src: this.getAttribute('src')
+            src: this.getAttribute('src'),
+            loop: this.getAttribute('loop') != null ? true : false,
         }
 
         if(this.attrs.title != null) {
@@ -81,7 +84,6 @@ export class AqAudio extends HTMLElement{
             this.doms.audio.src = this.attrs.src
             this.src = this.attrs.src
         }
-
     }
 
     connectedCallback() {
@@ -94,13 +96,15 @@ export class AqAudio extends HTMLElement{
             let duration = this.doms.audio.duration
             let time = this.doms.audio.currentTime
             this.doms.time.innerHTML = `${this.#formatTime(time)}/${this.#formatTime(duration)}`
-            this.doms.progressBar.value = Math.round((time / duration) * 100) || 0
+            this.doms.progressBar.value = (time / duration) * 100 || 0
         }
         this.doms.audio.ondurationchange = () => {
             this.doms.time.innerHTML = `0:00/${this.#formatTime(this.duration)}`
         }
         this.doms.audio.onended = () => {
             this.pause()
+            if(this.attrs.loop)
+            this.play()
         }
         this.doms.audio.onvolumechange = () => {
             if(this.doms.audio.volume > 0) this.doms.volumeIcon.textContent = '\ue050'
@@ -219,6 +223,15 @@ export class AqAudio extends HTMLElement{
         this.doms.audio.remove()
         this.shadowRoot.querySelector('.audio__body').insertBefore(e, this.doms.title)
     }
+    get loop() {return this.attrs.loop}
+    set loop(l) {
+        this.attrs.loop = Boolean(l)
+        if(this.loop == true) this.setAttribute('loop', '')
+        else this.removeAttribute('loop')
+    }
 }
 
 customElements.define('aq-audio', AqAudio)
+if(customElements.get('aq-progress') == undefined){
+    customElements.define('aq-progress', AqProgress)
+}

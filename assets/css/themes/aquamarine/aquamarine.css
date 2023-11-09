@@ -200,6 +200,18 @@ input {
   font-family: inherit;
 }
 
+input[type=file]::-webkit-file-upload-button {
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  background: var(--button-bg);
+  transition: var(--transition-time-common);
+}
+
+input[type=file]:is(:hover, :focus)::-webkit-file-upload-button {
+  background: var(--button-bg-focus);
+}
+
 .page-content a, .page-footer a, .toolbox a {
   color: var(--link-color);
   background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;

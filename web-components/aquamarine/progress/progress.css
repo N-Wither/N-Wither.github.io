@@ -1,0 +1,19 @@
+:host {
+    display: inline-block;
+    min-width: 12em;
+    min-height: 0.4em;
+    transition: 0.2s;
+    background-color: var(--gray-color);
+}
+
+.progress__bar {
+    min-height: 0.4em;
+    height: 100%;
+    background-color: var(--gray-color);
+    background-image: linear-gradient(var(--theme-color), var(--theme-color));
+    background-repeat: no-repeat;
+    background-position: left;
+    transform: scaleX(0);
+    transition: 0.2s;
+    transform-origin: 0%;
+}

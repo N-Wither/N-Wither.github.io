@@ -48,11 +48,31 @@ window.addEventListener(
         let audio = document.querySelector('audio');
         let aqAudio = document.querySelector('aq-audio');
 
+        let audioCtx
+        let source
+        let analyser
+        let buffer
+
+        let inited = false
+
         file.onchange = () => {
             let audioFile = file.files[0];
             aqAudio.src = URL.createObjectURL(audioFile);
             aqAudio.audioTitle = audioFile.name;
             aqAudio.audioElement.load();
+
+            if(inited == false) {
+                audioCtx = new AudioContext();
+                source = audioCtx.createMediaElementSource(audio);
+                analyser = audioCtx.createAnalyser();
+
+                source.connect(analyser);
+                analyser.connect(audioCtx.destination);
+                analyser.fftSize = 128;
+                buffer = new Uint8Array(analyser.frequencyBinCount);
+
+                inited == true
+            }
         };
 
         canvas.width =
@@ -61,16 +81,6 @@ window.addEventListener(
         canvas.height = 256 * devicePixelRatio;
 
         let canvasCtx = canvas.getContext('2d');
-        let audioCtx = new AudioContext();
-
-        let source = audioCtx.createMediaElementSource(audio);
-        let analyser = audioCtx.createAnalyser();
-
-        source.connect(analyser);
-        analyser.connect(audioCtx.destination);
-        analyser.fftSize = 128;
-
-        let buffer = new Uint8Array(analyser.frequencyBinCount);
 
         let gainArr = bezier(
             [
