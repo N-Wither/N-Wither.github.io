@@ -1,6 +1,7 @@
 .click-particle {
     animation: click-particle forwards 0.8s;
     position: fixed;
+    -webkit-user-select: none;
     user-select: none;
     z-index: 101;
     pointer-events: none;

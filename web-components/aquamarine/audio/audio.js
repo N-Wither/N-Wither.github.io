@@ -115,9 +115,13 @@ export class AqAudio extends HTMLElement{
         this.doms.progressBar.onmousedown = e => {
             let target = this.#getProgress(this.doms.progressBar, e.clientX)
             this.setCurrentTimeRatio(target)
+            this.doms.progressBar.style.transition = '0s'
             this.#mouseDown = true
         }
-        this.doms.progressBar.onmouseup = () => this.#mouseDown = false
+        this.doms.progressBar.onmouseup = () => {
+            this.#mouseDown = false
+            this.doms.progressBar.style.removeProperty('transition')
+        }
         this.doms.progressBar.onmousemove = e => {
             if(this.#mouseDown == true) {
                 let target = this.#getProgress(this.doms.progressBar, e.clientX)

@@ -44,7 +44,7 @@ aq-code {
     font-family: monospace;
     background-color: var(--bg-color);
     width: 100%;
-    padding: 2em 1em;
+    padding: 2em 1em 1em 1em;
     font-size: 0.8em;
     white-space: pre-wrap;
     color: var(--color-all);
@@ -98,6 +98,17 @@ aq-code button.copy::before {
 
 aq-code button.copy:hover, aq-code button.copy:focus {
     filter: brightness(1.1);
+}
+
+.code__base {
+    display: flex;
+}
+.code__lines {
+    color: var(--text-color-secondary);
+    user-select: none;
+}
+.code__area {
+    padding-left: 0.8em;
 }
 
 .hljs-comment,
@@ -177,7 +188,15 @@ aq-code button.copy:hover, aq-code button.copy:focus {
 `
 const styleSheet = new CSSStyleSheet()
 styleSheet.replaceSync(style)
-document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet]
+document.adoptedStyleSheets.push(styleSheet)
+
+const template = 
+`
+<div class='code__base'>
+    <div class='code__lines'></div>
+    <div class='code__area'></div>
+</div>
+`
 
 class AqCode extends HTMLElement {
     constructor() {
@@ -187,15 +206,27 @@ class AqCode extends HTMLElement {
     async connectedCallback(){
         let lang = this.getAttribute('language')
         let content = this.innerHTML
+        let codeArea = this
+        if(this.getAttribute('inline') == null){
+            this.innerHTML = template
+            codeArea = this.querySelector('.code__area')
+            codeArea.innerHTML = content
+            content = content.replace('\n', '')
+            let lineNumber = content.match(/\n/ig).length
+            for(let i = 0; i < lineNumber; i ++) {
+                this.querySelector('.code__lines').innerHTML += `${i+1}\n`
+            }
+        }
+
         if(this.getAttribute('src') != null) {
             content = await (await fetch(this.getAttribute('src'))).text()
         }
         if(lang) {
             let highlighted = hljs.highlight(content, {language: lang})
-            this.innerHTML = highlighted.value
+            codeArea.innerHTML = highlighted.value
         }
         else {
-            this.innerHTML = hljs.highlightAuto(content).value
+            codeArea.innerHTML = hljs.highlightAuto(content).value
         }
         
         if(this.getAttribute('inline') == null){
@@ -205,7 +236,7 @@ class AqCode extends HTMLElement {
             copyButton.title = 'Copy to Clipboard'
             this.appendChild(copyButton)
             copyButton.addEventListener('click', () => {
-                navigator.clipboard.writeText(this.innerText.substring())
+                navigator.clipboard.writeText(codeArea.innerText.substring())
             })
         }
 

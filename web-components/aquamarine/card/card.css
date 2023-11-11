@@ -15,6 +15,7 @@
     flex-direction: column;
     transition: 0.2s;
     background: var(--background-color-darken);
+    max-width: -moz-fit-content;
     max-width: fit-content;
 }
 .card__base.horizontal {

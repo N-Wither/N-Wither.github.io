@@ -78,7 +78,7 @@ window.addEventListener(
         canvas.width =
             document.querySelector('.page-content').scrollWidth *
             devicePixelRatio;
-        canvas.height = 256 * devicePixelRatio;
+        canvas.height = canvas.width * 0.25;
 
         let canvasCtx = canvas.getContext('2d');
 
