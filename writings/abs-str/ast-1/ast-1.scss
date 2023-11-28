@@ -12,7 +12,6 @@
     --darkened-theme-color: #8b0721;
     --box-shadow-color: #0d3e5422;
     --link-color: crimson;
-    font-family: 'Metropolis', 'Readex Pro', 'Noto Sans SC';
 
     --header-height: 3.6rem;
 
@@ -250,4 +249,14 @@
     padding: 0.8rem;
     background: var(--dark-gray-color);
     color: var(--text-color);
+}
+
+aq-collapsible {
+    .collapsible-control {
+        width: 100%;
+        text-align: left;
+    }
+    .aq-collapsible-wrapper {
+        background-color: var(--background-color-darken);
+    }
 }

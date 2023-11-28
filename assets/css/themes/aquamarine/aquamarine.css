@@ -469,12 +469,12 @@ hr.break {
 
 /* Page Content*/
 .page-content {
-  margin: calc(2rem + var(--header-height)) 10rem 0 10rem;
+  margin: calc(2rem + var(--header-height)) min(10rem, 10%) 0 min(10rem, 10%);
   min-height: calc(100vh - 20rem);
 }
 
 .page-footer {
-  margin: 4rem 10rem 2rem 10rem;
+  margin: 4rem min(10rem, 10%) 2rem min(10rem, 10%);
   text-align: center;
 }
 

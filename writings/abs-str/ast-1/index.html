@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Ma Shan Zheng' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="stylesheet" href="./ast-1.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Apocalypse 2020</title>
@@ -27,13 +27,14 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
-    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/collapsible-block.js" defer></script>
+    <script src="/assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="/assets/js/components/title-observer.js" defer></script>
     <link rel="stylesheet" href="https://n-wither.github.io/assets/css/components/collapsible-block.css">
     <script src="/assets/js/components/hover-tooltip.js" defer></script>
     <link rel="stylesheet" href="/assets/css/components/hover-tooltip.css">
     <script src="/web-components/info-tag/info-tag.js"></script>
+    <script type="module" src="/web-components/reading-progress/readingprog.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
 
     <script src="./apocalypse-2020.js" defer></script>
 </head>
@@ -634,20 +635,17 @@
     </div>
     <div class="page-footer">
         <hr>
-        <div class="collapsible" style="text-align: left;">
-            <div class="open-link">显示脚注</div>
-            <div class="close-link">隐藏脚注</div>
-            <div class="content">
-                <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-1">《圣经·利未记》18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span></p>
-                <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-2">一位天使长，救赎之天使。</span></p>
-                <p><a href="#note-3"><sup>3</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-3">日语“さようなら”（再见）的谐音。</span></p>
-            </div>
-        </div>
+        <aq-collapsible open-text="展开脚注" close-text="隐藏脚注">
+            <p><a href="#note-1"><sup>1</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-1">《圣经·利未记》18:22：“你不可与男人同睡交合，像与女人同睡交合一样，这是可憎的事。”另，本人不反对同性恋。</span></p>
+            <p><a href="#note-2"><sup>2</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-2">一位天使长，救赎之天使。</span></p>
+            <p><a href="#note-3"><sup>3</sup></a>&nbsp;<span class="tooltip-content" id="tooltip-content-3">日语“さようなら”（再见）的谐音。</span></p>
+        </aq-collapsible>
         <span id="randomQuote">Random Quote</span>
         <br>
         Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
     </div>
     <div class="tooltip"></div>
+    <reading-progress text="阅读进度"></reading-progress>
 </body>
 
 </html>

@@ -10,7 +10,6 @@
   --darkened-theme-color: #8b0721;
   --box-shadow-color: #0d3e5422;
   --link-color: crimson;
-  font-family: "Metropolis", "Readex Pro", "Noto Sans SC"， sans-serif, 'Material Symbols Outlined';
   --header-height: 3.6rem;
   scroll-behavior: smooth;
 }
@@ -231,12 +230,20 @@
 }
 
 /* Components */
-.need-tooltip {
-  font-family: "Metropolis", "Readex Pro", "Noto Sans SC";
+.tooltip {
+  position: fixed;
+  transition: all 0.2s;
+  padding: 0.8rem;
+  background: var(--dark-gray-color);
+  color: var(--text-color);
 }
 
-.tippy-box {
-  font-family: "Metropolis", "Readex Pro", "Noto Sans SC";
+aq-collapsible .collapsible-control {
+  width: 100%;
+  text-align: left;
+}
+aq-collapsible .aq-collapsible-wrapper {
+  background-color: var(--background-color-darken);
 }
 
 /*# sourceMappingURL=ast-1.css.map */

@@ -1,0 +1,23 @@
+:host {
+    display: block;
+    position: fixed;
+    left: 2em;
+    bottom: 2em;
+    color: var(--text-color-secondary);
+}
+
+progress {
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0.6em;
+    width: 10em;
+}
+
+::-webkit-progress-bar {
+    background-color: var(--background-color-darken);
+}
+
+::-webkit-progress-value {
+    background-color: var(--theme-color);
+}
