@@ -100,7 +100,7 @@ body {
   background: var(--background-color);
   color: var(--text-color);
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - (2rem + var(--header-height)));
   transition: all 0.3s;
 }
 
@@ -212,6 +212,26 @@ input[type=file]:is(:hover, :focus)::-webkit-file-upload-button {
   background: var(--button-bg-focus);
 }
 
+button {
+  font-family: inherit;
+  background-color: var(--button-bg);
+  border: none;
+  transition: var(--transition-time-common);
+  color: var(--text-color);
+}
+
+button:hover, button:focus {
+  background-color: var(--button-bg-focus);
+}
+
+hr {
+  border: none;
+  border-top: solid var(--text-color) 2px;
+}
+hr.break {
+  width: 70%;
+}
+
 .page-content a, .page-footer a, .toolbox a {
   color: var(--link-color);
   background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;
@@ -227,31 +247,11 @@ input[type=file]:is(:hover, :focus)::-webkit-file-upload-button {
   --link-color: var(--link-color-visited);
 }
 
-button {
-  font-family: inherit;
-  background-color: var(--button-bg);
-  border: none;
-  transition: var(--transition-time-common);
-  color: var(--text-color);
-}
-
-button:hover, button:focus {
-  background-color: var(--button-bg-focus);
-}
-
 .float-div {
   z-index: 99;
   min-width: var(--header-height);
   min-height: var(--header-height);
   box-shadow: 0px 4px 8px var(--box-shadow-color);
-}
-
-hr {
-  border: none;
-  border-top: solid var(--text-color) 2px;
-}
-hr.break {
-  width: 70%;
 }
 
 .keycap {
@@ -412,6 +412,7 @@ hr.break {
 }
 .page-header .menu a.item:hover, .page-header .menu a.item:focus {
   background-size: 100% 100%;
+  color: var(--category-text-color);
 }
 .page-header .menu a.item div {
   display: flex;
@@ -447,7 +448,7 @@ hr.break {
   background-size: 100% 2px;
 }
 .page-header .toolbox .item a[target=_blank]::after {
-  content: "↗";
+  content: "\e89e";
 }
 .page-header .toolbox .content-table {
   display: flex;
@@ -550,6 +551,21 @@ hr.break {
   to {
     opacity: 0;
   }
+}
+/* Components */
+button[title="Toggle Dark Mode"] {
+  user-select: none;
+  color: transparent;
+  position: relative;
+}
+button[title="Toggle Dark Mode"]::before {
+  color: var(--text-color);
+  content: "\e518";
+  position: absolute;
+}
+
+:root.dark-mode button[title="Toggle Dark Mode"]::before {
+  content: "\e51c";
 }
 
 /*# sourceMappingURL=aquamarine.css.map */

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="../ast-2-assets/img/ella_avatar.png">
+    <title>The Invisible Girl</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/reading-progress/readingprog.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
+    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="../ast-2-assets/ast-2-stories.css">
+    <style>
+        :root {
+            font-family: 'Noto Serif SC', sans-serif, 'Material Symbols Outlined';
+        }
+    </style>
+</head>
+<body>
+    <reading-progress text="阅读进度"></reading-progress>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center"></div>
+        <div class="flex-center page-title">The Invisible Girl</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <strong>剧情</strong>
+                <p>Ella 在咖啡馆遇见了一名别人都看不见的女孩，至少表面上是这样……</p>
+            </div>
+            <div class="item">
+                <aq-collapsible open-text="作者的话" close-text="感谢观看">
+                    <p>特别鸣谢：<a href="https://scp-wiki-cn.wikidot.com/scp-055" rel="noopener" target="_blank">SCP-055</a> by qntm & CptBellman</p>
+                    <info-tag icon="../ast-2-assets/img/ella_avatar.png" tag="Ella 可爱捏" desc="😊"></info-tag>
+                </aq-collapsible>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <nav style="display: none;">
+            <a href="/writings/">文章</a> >
+            <a href="/writings/abs-str/">Abstracalypse Stories</a> >
+            <a href="/writings/abs-str/ast-2/">Cycmatica</a> >
+        </nav>
+        <h1 class="page-title">The Invisible Girl</h1>
+        <hr>
+        <p>Reminiscence 咖啡馆，我有空的时候基本上都会来这坐坐。</p>
+        <p>今天也和平常一样，我端着我的咖啡和蛋糕想找个座位，但是现在人有点太多了，我好像只能跟别人拼桌了。</p>
+        <p>“这里有人吗？”我对面前坐着的女孩问道。</p>
+        <p>但是她只是以一种奇怪的神情看着我，好像遇到了什么不得了的事情。</p>
+        <p>我不明所以，但是我还是重复了一遍我的问题。</p>
+        <p>“你……能看到我啊？”</p>
+        <p>“虽然我不知道你是什么意思，但是如果你没意见的话我就坐这了。”</p>
+        <p>一直端着盘子站着有点尴尬，有什么事还是先坐下再说。</p>
+        <p>“所以你刚才说我能看到你，是什么意思啊？”我抿了一口咖啡，啊，果然还是得加牛奶和糖。</p>
+        <p>“呃，不知道是怎么回事，大家都看不见我，也听不到我说话，自从我变成这样开始，你还是第一个跟我说话的人。”</p>
+        <p>“哦，也就是说，我现在在别人看来就是在对空气说话吗？”为了避免别人的注意，我压低了点声音。</p>
+        <p>“虽然说是这样没错，但是你的关注点是不是有点奇怪……”</p>
+        <p>“我见过的怪事多了，不过你这样的我也是第一次见。说起来，你应该不是天生就这样的吧？”</p>
+        <p>“嗯，我十岁之前都还是好好的，但是，不知道从什么时候开始，大家都好像看不到我也听不到我了，无论我做什么大家都一点反应都没有。”</p>
+        <p>“你家人也没反应吗？”</p>
+        <p>“是的，”她说到这里的时候显得有点失落，“他们表现的就好像……好像我从来就不存在一样。”</p>
+        <p>“那确实……挺伤人的。对了，你在家有自己的房间吗，或者照片之类的能说明有你在的东西？”</p>
+        <p>“有倒是有，但是，他们都看不见，我的房间在我变成这样之后就改成杂物间了。一开始的时候我还在想办法让他们注意到我，在纸上写字，然后举到我爸妈面前之类的，但是都一点用都没有。”</p>
+        <p>实在难以想象一个十岁的小姑娘遇到这种情况会是怎样的心情，要承受多大的压力，不过我显然不会问她这个。</p>
+        <p>“在我想了所有办法都没有效果之后我还是放弃了，在那之后一段时间我还是住在家里，我妈甚至没注意到要洗的衣服有些根本不是她和我爸的。”</p>
+        <p>“后来怎样了？”</p>
+        <p>“后来我发现这样子有时候也不错，比如坐火车不需要买票，所以我就离家出走了，从那以后我就一直在世界各地转悠。虽然一路上也看了不少东西，但是没人能跟我说话真的很难受。不过，为什么你就能看到我呢？”</p>
+        <p>“我也不知道……等等，你说过你有和家人的照片是吧？”</p>
+        <p>“嗯，你是要看吗？”她把手探进自己的包里面开始翻找。</p>
+        <p>“是的，我刚才想到点东西，如果你愿意的话可以帮我验证一下。”</p>
+        <p>“是什么？” 她已经找到了那张照片，“我从家里面带出来的，不知道我爸妈有没有发现。”</p>
+        <p>我接过照片，然后把我的想法告诉了她。</p>
+        <p>“我觉得，别人可能并不是看不到你，只是注意不到。”</p>
+        <p>“可是，我一个大活人站在面前怎么会注意不到呢？”</p>
+        <p>“所以这就是异常情况了，不讲道理的。总之我找个人试试看，你也跟着过来。”</p>
+        <p>我带着照片和她走到吧台，老板 Ramii 看到我，向我走了过来。</p>
+        <p>“怎么了 Ella，还想点别的东西吗？”</p>
+        <p>“不是，你看看这个。” 我把照片递给她看。</p>
+        <p>“怎么了，你认识他们吗？”</p>
+        <p>“只是我最近搞的一个项目的小测试，这张照片上有几个人？”</p>
+        <p>“三个啊，这应该是一家三口吧，这是爸爸，这是妈妈，是这样吧？”</p>
+        <p>“嗯，谢谢了。”</p>
+        <p>“没事。”</p>
+        <p>回到座位上后，我把照片还了回去。</p>
+        <p>“你看，大家还是能看到你的。”</p>
+        <p>“可是她指着人说这是谁的时候直接把我略过了。”</p>
+        <p>“所以说注意不到嘛，更别说记住你了。”</p>
+        <p>“为什么你就可以呢，你记忆力有那么好？”</p>
+        <p>“没有，我记忆力就是平均水平，我只是，怎么说呢，对影响认知的东西免疫。”</p>
+        <p>“所以，别人看不见我是因为他们的认知被影响了？”</p>
+        <p>“应该是的。”</p>
+        <p>“这样啊，我算是知道些东西了，虽然别人还是看不到我。”</p>
+        <p>“这也没有办法。话说，我感觉像你这样的特性在 ARC 应该会有人感兴趣的吧，说不定他们能帮帮你。”</p>
+        <p>“那个研究异常的组织？”</p>
+        <p>“没错，”我点点头，“但是我想知道他们要怎么研究一个自己看不见也记不住的东西。”</p>
+        <p>“我也不知道，我从变成这样开始就没上过学了，怎么可能知道搞研究的事。”</p>
+        <p>“只是说说罢了，不过，要是你想的话，我可以帮你联系一下他们，说不准能有用。”</p>
+        <p>“我……我不太想被人研究，我习惯自由自在的生活了，所以还是算了，毕竟我已经找到能说话的人了。”</p>
+        <p>“行。”我点点头。如果我是 ARC 正式雇员的话应该会继续劝说她，但是我不是，所以我还是尊重她的意愿 <a href="javascript:void 0;" class="need-tooltip"><sup>1</sup></a>。</p>
+        <p>我发现周围的人好像在往我这边看了，而且咖啡已经被我喝掉了最后一口，我想这次聊天差不多得结束了。</p>
+        <p>“啊，我得走了，你之后有什么计划吗？”</p>
+        <p>“我不知道，大概还是继续这样到处旅行？”</p>
+        <p>“那倒也不错。”我从我的包里面拿出一张名片递给她。“不过你要是还有什么事情要找我的话就联系我。”</p>
+        <p>“谢谢，我真的好久没跟人说过话了。”</p>
+        <p>“就这样吧，如果有机会的话，以后再联系。”</p>
+        <hr class="break">
+        <p>后来我收到她寄过来的一封信。</p>
+        <div class="paper">
+            <p>从我们上次见面有一个月了吧，不知道你还记不记得我。我没怎么上过学，所以我也不是很会写信。我是看着别人的信封抄的格式，不知道能不能送到。这张纸是我从邮局桌子上面拿的别人不要的，背面的字不是我写的，别在意。</p>
+            <p>但是我没有钱，所以我只能偷了两张邮票粘上去，我也不想的，但是我是在不知道怎么挣钱，你能帮我想想办法吗。</p>
+            <p>我现在在 Samporton 呆着，本来想坐船到海那边去的，但是这几天一直刮风下雨，船开不了，我听说是巨风来了。<small>这个词是这么写的吗，不知道</small></p>
+            <p>这里是个好地方，风景很漂亮，可惜我不会画画。</p>
+            <p><del>然后就是，我还有很多想写的，但是我实在写不出来了，我不知道怎么写。</del></p>
+            <p>有机会再见面吧，<del>那个叫 Remini </del><small>实在不会写，对不起</small>我们第一次见的那个咖啡店的蛋糕很好吃。</p>
+            <p>对了，你要是想给我写信的话，就送到我这个邮局来，我还会在这里呆上<a href="javascript:void 0;" class="need-tooltip"><sup>2</sup></a>大概一个星期吧，可能更长一点。</p>
+            <p>如果这信没送到你手里的话，也行吧，反正我有人说话了。我还会继续给你写信的。</p>
+        </div>
+    </div>
+    <div style="display: none;">
+        <div class="tooltip-content" id="tooltip-content-1">我必须补充一下，ARC 不是一个没有人情味的组织，最终也是要遵从她本人意见的。</div>
+        <div class="tooltip-content" id="tooltip-content-2">通过字迹的变化来看她写到这里之后停了一会。</div>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>. <br>
+        <span style="color: var(--aqua-500);">Aquamarine</span> Theme by N Wither
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+    </script>
+</body>
+</html>

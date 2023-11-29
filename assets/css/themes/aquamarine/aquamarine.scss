@@ -137,7 +137,7 @@ body {
     background: var(--background-color);
     color: var(--text-color);
     position: relative;
-    min-height: 100vh;
+    min-height: calc(100vh - calc(2rem + var(--header-height)));
     transition: all $general-transition-time;
 }
 
@@ -251,6 +251,26 @@ input[type=file]:is(:hover, :focus)::-webkit-file-upload-button {
     background: var(--button-bg-focus);
 }
 
+button {
+    font-family: inherit;
+    background-color: var(--button-bg);
+    border: none;
+    transition: var(--transition-time-common);
+    color: var(--text-color);
+}
+button:hover, button:focus {
+    background-color: var(--button-bg-focus);
+}
+
+hr {
+    border: none;
+    border-top: solid var(--text-color) 2px;
+
+    &.break {
+        width: 70%;
+    }
+}
+
 .page-content, .page-footer, .toolbox {
     a {
         @include general-link();
@@ -265,31 +285,11 @@ input[type=file]:is(:hover, :focus)::-webkit-file-upload-button {
     }
 }
 
-button {
-    font-family: inherit;
-    background-color: var(--button-bg);
-    border: none;
-    transition: var(--transition-time-common);
-    color: var(--text-color);
-}
-button:hover, button:focus {
-    background-color: var(--button-bg-focus);
-}
-
 .float-div {
     z-index: 99;
     min-width: var(--header-height);
     min-height: var(--header-height);
     @include general-shadow;
-}
-
-hr {
-    border: none;
-    border-top: solid var(--text-color) 2px;
-
-    &.break {
-        width: 70%;
-    }
 }
 
 .keycap {
@@ -474,6 +474,7 @@ hr {
 
         a.item:hover, a.item:focus {
             background-size: 100% 100%;
+            color: var(--category-text-color);
         }
 
         a.item div{
@@ -511,7 +512,7 @@ hr {
             }
 
             a[target = "_blank"]::after {
-                content: '↗';
+                content: '\e89e';
             }
         }
 
@@ -634,4 +635,21 @@ hr {
     to {
         opacity: 0;
     }
+}
+
+/* Components */
+button[title="Toggle Dark Mode"] {
+    user-select: none;
+    color: transparent;
+    position: relative;
+
+    &::before {
+        color: var(--text-color);
+        content: '\e518';
+        position: absolute;
+    }
+}
+
+:root.dark-mode button[title="Toggle Dark Mode"]::before {
+    content: '\e51c';
 }
