@@ -6,7 +6,7 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Cycmatica Series</title>
     <script src="/assets/js/utils.js"></script>
@@ -20,6 +20,7 @@
     <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
     <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
     <!-- styles -->
     <link rel="stylesheet" href="./ast-2-assets/ast-2-stories.css">
     <link rel="stylesheet" href="./ast-2-assets/index.css">
@@ -37,12 +38,7 @@
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Github">
-                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
-                </a>
-            </div>
-            <div class="menu-button">
-                <button onclick="toggleClass('html', 'dark-mode')">◐</button>
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
             </div>
             <div class="menu-button toolbox-button">
                 <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
@@ -60,12 +56,22 @@
         <p>这是一个发生在一个魔法的世界之中的故事系列，它们之间可能是相关或者无关的，换句话说它们不一定完全处于同一个世界观之内，即使是同一个世界观下的故事也有可能发生冲突，但这些不重要。以下是所有的故事列表，按照世界观分类排列。</p>
         <div>
             <h2>Cycmatica</h2>
-            <p>标准 Cycmatica 世界。</p>
-            <div class="story">
-                <div class="type">Short Story</div>
-                <div class="s-title"><a href="./stories/the_invisible_girl.html">The Invisible Girl</a></div>
-                <div class="summary"></div>
-            </div>
+            <p>正常的 Cycmatica 世界。</p>
+            <ul>
+                <li><a href="./stories/the_invisible_girl.html">The Invisible Girl</a></li>
+                <li>
+                    <aq-collapsible open-text="Fragment/" close-text="Fragment/" open id="fragment">
+                        <ul class="file-list">
+                            <li><a href="./stories/fragment-memories.html">Memories</a></li>
+                            <li><a href="javascript:alert('暂未发布')">Eternity</a></li>
+                            <li><a href="javascript:alert('暂未发布')">Wanderlust</a></li>
+                            <li><a href="javascript:alert('暂未发布')">Iridescent</a></li>
+                            <li><a href="javascript:alert('暂未发布')">Illusion</a></li>
+                            <li><a href="javascript:alert('暂未发布')">Nihilo</a></li>
+                        </ul>
+                    </aq-collapsible>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="page-footer">

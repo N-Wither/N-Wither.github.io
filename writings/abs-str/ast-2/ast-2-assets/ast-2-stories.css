@@ -47,6 +47,7 @@
 .paper-document {
     min-height: 20rem;
     min-width: 20rem;
+    max-width: min(60rem, 80%);
     position: relative;
     background-color: #fdfdfd;
     box-shadow: none;
@@ -67,12 +68,12 @@
 }
 
 .paper-document::before {
-    left: -4px;
+    left: -5px;
     top: 4px;
     width: 100%;
     height: 98%;
     background-color: #f6f6f6;
-    transform: rotate(3.5deg);
+    transform: rotate(-2.5deg);
     box-shadow: inherit;
 }
 
@@ -81,12 +82,12 @@
 }
 
 .paper-document::after {
-    left: -4px;
-    top: 4px;
+    left: -3px;
+    top: 1px;
     width: 100%;
     height: 98%;
     background-color: #fbfbfb;
-    transform: rotate(-2.5deg);
+    transform: rotate(1.4deg);
     box-shadow: inherit;
 }
 

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="../ast-2-assets/img/ella_avatar.png">
+    <title>Fragment/Memories</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/reading-progress/readingprog.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
+    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="../ast-2-assets/ast-2-stories.css">
+    <link rel="stylesheet" href="../ast-2-assets/themes/nihilo.css">
+    <style>
+        .page-category {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+    <reading-progress text="阅读进度"></reading-progress>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">Fragment/</div>
+        <div class="flex-center page-title">Memories</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <p>Fragment/ 系列的第一章：Memories</p>
+                <p>
+                    特别鸣谢：<a href="https://arcaea.lowiro.com" target="_blank" rel="noopener">Arcaea</a><br>
+                    以及： <a href="https://scp-wiki-cn.wikidot.com/scp-6183" target="_blank" rel="noopener">SCP-6183</a> by Billith
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <nav>
+            <a href="/writings/">文章</a> >
+            <a href="/writings/abs-str/">Abstracalypse Stories</a> >
+            <a href="/writings/abs-str/ast-2/index.html#fragment">Fragment</a> /
+        </nav>
+        <h1 class="page-title">Memories</h1>
+        <hr>
+        <div class="notation"><big>页面 1/12</big></div>
+        <div class="paper-document">
+            <p>找到一个奇怪的地方，好像还没别人找到过。</p>
+            <p>我在这里找到了很多的水晶碎片，就是在其他地方也能找到的那些，但是这里的水晶数量要多太多了，还有一些很大的完整的水晶柱，或许这里是一条矿脉什么的。</p>
+            <p>这里的水晶不知为何在发出微弱的光，颜色一直在变，但总体上是蓝色、紫色、粉色和白色。</p>
+            <p>我不知道这些水晶里面是不是有什么奇怪的能量，所以我没敢去碰那些大的，只是捡了一些发光的水晶碎片回来。</p>
+            <p>明天再研究研究。</p>
+        </div>
+        <div class="notation"><big>页面 2/12</big></div>
+        <div class="paper-document">
+            <p>做了一些测试，这些东西完全跟其他的水晶碎片是一样的：硬度、折射率、透明度等等，唯一的不同就是它们会发光，但我对这完全没有头绪，发光肯定需要能量，但这能量是从哪里来的？是这些水晶里面以某种方式储存的还是从周围环境中，以一种特殊的机制获取的？</p>
+            <p>我找了别人帮我看，他说这东西里面有种魔法效应，但是是一种完全没见过的东西，具体他也说不出个所以然，很奇怪。</p>
+            <p>又去捡了一些这种水晶碎片回来，晚上我躺在床上看着它们发光的时候有种莫名的感觉，我觉得它们在散发一些除了光线之外的东西，不知道是什么。</p>
+            <p>有点头昏，大概是这两天工作做太多了，先休息休息。</p>
+        </div>
+        <div class="notation"><big>页面 3/12</big></div>
+        <div class="paper-document">
+            <p>做了一个奇怪的梦，我梦见我在一个完全没见过的地方生活，那里的人穿的衣服风格也很特别，口音也是没听过的一种。</p>
+            <p>我在那里似乎是一个普通人，有一个妻子和两个孩子，是一家公司的职员。</p>
+            <p>早上，和家人在一起吃完早餐后，我走路去上班，然后就是一天的工作，各种我没见过的表格、数据。奇怪的是，我并没有这种工作的经历，我在梦里面却做得很流畅，而且我还记得那些文件上面的一些细节，比如公司的名字、客户的地址等等。</p>
+            <p>在我在梦中躺到床上睡觉之后，我就在现实中醒来了。</p>
+            <p>我不知道这个梦有什么意义，我之前从没做过这样的梦，只是我对这个梦的记忆有点太清晰了，所以写在这里。</p>
+            <p>对那种水晶的研究还是没什么进展，如果之后还是这样的话，我想我应该去做点别的事情了。</p>
+        </div>
+        <div class="notation"><big>页面 4/12</big></div>
+        <div class="paper-document">
+            <p>我最近又在做一些奇怪的梦，跟之前写的那个很像，每次我都是在体验另一个人的生活，世界各地的男女老少，从古代到现代，而且细节都异常清晰。</p>
+            <p>而且，在很多的梦境里面，我都做着我完全不了解的事情，但是从理论上讲，梦都是来自现实的经历。</p>
+            <p>这绝对不正常，哪怕梦境是最天马行空的想象，人也不可能想象出完全没有概念的东西，我怀疑是那些水晶的问题，但是我没有证据。</p>
+            <p>考虑到那些梦境是如此详实，我觉得我可能有必要去验证一下。</p>
+        </div>
+        <div class="notation"><big>页面 5/12</big></div>
+        <div class="paper-document">
+            <p>休假期间，我买了一张票，我还记得我第一次做这种梦里面那家公司的名字，我多方打听知道了这家公司的地址，如果说我的梦境能凭空捏造出一个我没听说过的公司的名字，那要么是天大的巧合，要么就是哪里不正常。</p>
+            <p>总之，我应该去看看。</p>
+            <p>而我今天受到了我人生中最大的冲击。</p>
+            <p>那家公司，无论是名字还是他们大楼的外表，都跟我梦到的一模一样，这怎么可能呢？</p>
+            <p>我还记得我在梦中扮演的那个雇员的名字，我问了这家公司里面的人，一开始的几个都对这个名字没有印象，但当我问到一个看起来年纪比较大的员工的时候，他说这人四年前是他同事，现在早就离职了。</p>
+            <p>我问他他知不知道这个人的其他信息，他只知道这人住在附近的一条街上，除此之外他也忘记得差不多了。</p>
+            <p>之后我又去那条街上面打听我在梦中扮演的那个人，最后在一个老妇那里知道了这人的住址。</p>
+            <p>当我敲了他家的门之后，开门的是一个女人，虽然容貌稍有不同，但显然就是那个梦中人的妻子。我问她这里是不是我找的那个人的家，她说是的，还说他现在在外面工作，问我有什么事，我编了个理由搪塞过去就离开了，我觉得已经不需要再看、再问更多了。</p>
+            <p>所以，虽然没有直接的证据，但是这种奇怪的梦境刚好在我开始研究这种水晶之后出现，我认为这应该就是水晶的问题，我得再回到我捡到这些水晶的地方去看看。</p>
+        </div>
+        <div class="notation"><big>页面 6/12</big></div>
+        <div class="paper-document">
+            <p>我想我几乎可以确认了。</p>
+            <p>当我再次回到那些水晶之间时，我发现在那些大型的水晶柱当中，除了那种不断变化的微光之外，还隐约闪烁着影像，虽然看不清具体内容，但还是可以大概分辨出，这些都是我做的那种怪梦一样的第一视角。</p>
+            <p>我记得我第一次来的时候还没有这些影像，可能是受到了这些水晶的影响之后我才能看见。</p>
+            <p>除了这些影像之外，我似乎还能听到一些模糊微弱的声音，这些声音太弱了，我没法分辨它们是真的还是我过度紧张产生的心理作用。</p>
+            <p>我好像又有研究的思路了。</p>
+        </div>
+        <div class="notation"><big>页面 7/12</big></div>
+        <div class="paper-document">
+            <p>得停下了。</p>
+            <p>我今天想给我家人写信过去，但是把地址错写成了一个完全没听说过的地方，我记录了我这段时间以来做的所有怪梦，我敢保证没有一个跟这个地方有关。可是在我填地址的时候，这一串字符就十分自然地写了出来，好像我以前就写过很多遍一样。</p>
+            <p>水晶，它不是在植入梦境，它是在给我植入不属于我的记忆。</p>
+            <p>我把那些水晶放回了我采集它们的地方，这样应该就不会再受影响了。</p>
+            <p>除此之外，我想再去采访一些我在梦中扮演的那些人。</p>
+        </div>
+        <div class="notation"><big>页面 8/12</big></div>
+        <div class="paper-document">
+            <p>更加奇怪的事情发生了。</p>
+            <p>尽管我找到了几个在梦中扮演的人，但当问到我在梦中经历的那些事情的时候，他们都说没有印象，但背景信息，诸如人名、地名、家庭成员等等都是完全正确的。</p>
+            <p>是这些水晶利用这些人的信息构造了不存在的记忆吗？可是如果这些记忆都是构造出来的，那它构造得有些过于精妙了，尽管都是日常生活，但我实在找不出任何叙事上的漏洞，梦中的一切都太自然了。</p>
+            <p>而且，如果这些记忆真的是构造出来的，那它这样做的目的是什么？只是为了影响我的心智吗？</p>
+        </div>
+        <div class="notation"><big>页面 9/12</big></div>
+        <div class="paper-document">
+            <p>我应该接近真相了。</p>
+            <p>我最近看到一片文章，里面说信息也是能量，能量是守恒的，信息也不会真正消失，只是无法再被获取。看到这个之后，我萌生了一个猜想。</p>
+            <p>为了验证，我还是又取得了一些水晶回来，这是为了再做一些梦，这次需要的是不那么详尽的那些。</p>
+        </div>
+        <div class="notation"><big>页面 10/12</big></div>
+        <div class="paper-document">
+            <p>我已经知道了。</p>
+            <p>我挑选了几个稍稍缺乏细节的梦，然后想办法找到了当事人，这次他们还是说他们忘记了，但是在我的不断提醒下，他们最终还是回忆起了那些事情，那些我梦到的、以及我近段时间多次弄混的事情。</p>
+            <p>我猜的没错，我们忘记的那些事情，并不是真的消失了，它们通过某些未知的机制转移到了这些异界的水晶里面，如果接触到人类，其中存储的记忆便会投射到人的思维中。同样地，这也能解释为什么我做的那些梦大多都是无聊的日常生活，因为这些事情最容易被忘记。</p>
+            <p>验证了我的发现，我太激动了，写到这里的时候我手都在发抖。</p>
+        </div>
+        <div class="notation"><big>页面 11/12</big></div>
+        <div class="paper-document">
+            <p>我看到了更多东西。</p>
+            <p>水晶给我带来了太多人的记忆，我感觉自己好像是在穿越时空，尽管我的身体一直躺在床上，我的思维却在无尽的记忆海洋中畅游。</p>
+            <p>尽管我在白天也会想起一些事情，但还是在梦中见到的最为清晰。</p>
+            <p>这段时间我最渴望的事情就是忙完一天的工作之后躺在床上入睡，山川湖海、悲欢离合，这些花样繁多的记忆不断通过水晶写入我的脑海。</p>
+            <p>我记得童年时期和朋友到森林里探险，在暴风雪中的小木屋和爱人共进晚餐，在银白的沙滩上触摸海浪。我最早的深刻的记忆是和我家人在一起去北方的 Morsein 雪山脚下的度假村滑雪，又或者是在高中的毕业舞会上和我暗恋的女孩跳舞……我经历了这么多人的故事，可能有一天我还会经历我自己的。</p>
+            <p>我感觉这些水晶跟我之间的联系愈发明显，却仍如此飘渺，仿佛我是它们的一部分，却又与它们分离。</p>
+            <p>我从药店买了些助眠药物。</p>
+        </div>
+        <div class="notation"><big>页面 12/12</big></div>
+        <div class="paper-document" style="display: flex;">
+            <p style="margin: auto; text-align: center;"><ruby>太美妙了<rt>Wonderful</rt></ruby>。</p>
+        </div>
+    </div>
+    <div style="display: none;">
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>. <br>
+        <span style="color: var(--aqua-500);">Aquamarine</span> Theme by N Wither
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+    </script>
+</body>
+</html>

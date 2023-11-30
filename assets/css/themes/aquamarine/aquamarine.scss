@@ -141,6 +141,10 @@ body {
     transition: all $general-transition-time;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 a[target = "_blank"]::after{
     content: '↗';
     content: '\e89e';
@@ -269,6 +273,49 @@ hr {
     &.break {
         width: 70%;
     }
+}
+
+ul {
+    padding-inline-start: 1.8em;
+
+    ul {
+        padding-inline-start: 1.2em
+    }
+
+    &.file-list {
+        list-style-type: none;
+        padding-inline-start: 0em;
+        line-height: 1em;
+
+        li::before {
+            content: '├';
+            margin-right: 0.2em;
+        }
+
+        li:last-child::before {
+            content: '└'
+        }
+    }
+}
+
+@mixin styledBoxes {
+    background-color: var(--background-color-darken);
+    text-align: center;
+    padding: 2em 3em;
+}
+
+.notation {
+    $border: 0.2em solid var(--border-color-common);
+    border-left: $border;
+    border-right: $border;
+    @include styledBoxes();
+    margin: 0.4em 0;
+}
+
+.modal {
+    border: 0.25em solid var(--border-color-common);
+    @include styledBoxes();
+    margin: 0.4em 1.6em;
 }
 
 .page-content, .page-footer, .toolbox {

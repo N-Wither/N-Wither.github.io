@@ -104,6 +104,10 @@ body {
   transition: all 0.3s;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a[target=_blank]::after {
   content: "↗";
   content: "\e89e";
@@ -230,6 +234,42 @@ hr {
 }
 hr.break {
   width: 70%;
+}
+
+ul {
+  padding-inline-start: 1.8em;
+}
+ul ul {
+  padding-inline-start: 1.2em;
+}
+ul.file-list {
+  list-style-type: none;
+  padding-inline-start: 0em;
+  line-height: 1em;
+}
+ul.file-list li::before {
+  content: "├";
+  margin-right: 0.2em;
+}
+ul.file-list li:last-child::before {
+  content: "└";
+}
+
+.notation {
+  border-left: 0.2em solid var(--border-color-common);
+  border-right: 0.2em solid var(--border-color-common);
+  background-color: var(--background-color-darken);
+  text-align: center;
+  padding: 2em 3em;
+  margin: 0.4em 0;
+}
+
+.modal {
+  border: 0.25em solid var(--border-color-common);
+  background-color: var(--background-color-darken);
+  text-align: center;
+  padding: 2em 3em;
+  margin: 0.4em 1.6em;
 }
 
 .page-content a, .page-footer a, .toolbox a {
