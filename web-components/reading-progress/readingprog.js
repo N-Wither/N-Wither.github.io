@@ -54,7 +54,9 @@ export default class ReadingProgress extends HTMLElement {
     }
 
     #update() {
-        this.shadowRoot.querySelector('progress').value = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100
+        let value = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100
+        if(isNaN(value) == true) value = 100
+        this.shadowRoot.querySelector('progress').value = value
     }
 }
 

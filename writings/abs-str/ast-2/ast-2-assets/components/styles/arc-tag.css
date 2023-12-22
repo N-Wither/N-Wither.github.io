@@ -1,0 +1,54 @@
+:host {
+    display: block;
+    flex: 1 1 auto;
+    font-family: 'Poppins';
+    --accent-color: var(--text-color);
+    --secondary-color: var(--accent-color);
+    --tag-bg: ;
+}
+
+.base {
+    display: grid;
+    grid-template: 
+        'i h' 1em
+        'i d' 3em / 4em 1fr;
+    border-top: 0.3em solid var(--accent-color);
+    border-bottom: 0.3em solid var(--secondary-color);
+    position: relative;
+}
+
+.base::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, var(--accent-color) 50%, var(--secondary-color) 50%);
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.icon, .header, .desc {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    grid-area: i;
+    justify-content: center;
+    font-size: 2em;
+}
+
+.icon img {
+    width: 3.6rem;
+    height: 3.6rem;
+}
+
+.header {
+    grid-area: h;
+    font-weight: bold;
+}
+
+.desc {
+    grid-area: d;
+    font-size: 1.6em;
+    line-height: 0.8em;
+}

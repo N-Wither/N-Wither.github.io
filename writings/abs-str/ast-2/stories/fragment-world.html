@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="../ast-2-assets/img/ella_avatar.png">
+    <title>Fragment/Memories</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/reading-progress/readingprog.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
+    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script type="module" src="../ast-2-assets/components/arc-header.js"></script>
+    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="../ast-2-assets/ast-2-stories.css">
+    <link rel="stylesheet" href="../ast-2-assets/themes/nihilo.css">
+    <style>
+        .page-category {
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+    <reading-progress text="阅读进度"></reading-progress>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">Fragment/</div>
+        <div class="flex-center page-title">Memories</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <p>Fragment/ 系列的第一章：Memories</p>
+                <p>
+                    特别鸣谢：<a href="https://arcaea.lowiro.com" target="_blank" rel="noopener">Arcaea</a><br>
+                    以及： <a href="https://scp-wiki-cn.wikidot.com/scp-6183" target="_blank" rel="noopener">SCP-6183</a> by Billith
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <nav>
+            <a href="/writings/">Articles</a> >
+            <a href="/writings/abs-str/">Abstracalypse Stories</a> >
+            <a href="/writings/abs-str/ast-2/index.html#fragment">Fragment</a> /
+        </nav>
+        <arc-header
+            class="page-title"
+            item-index="0317"
+            item-alias="The Everland"
+        >
+            <arc-tag
+                icon-text="L/D"
+                header="TYPE"
+                desc="LOCATION/<br>DIMENSION"
+                style="--accent-color: var(--gray-600); --secondary-color: var(--purple-600)"
+            ></arc-tag>
+            <arc-tag
+                icon-text="EXT"
+                header="STATUS"
+                desc="EXTANT"
+                style="--accent-color: var(--green-500)"
+            ></arc-tag>
+            <arc-tag
+                icon-text="2?"
+                header="DIFFICULTY"
+                desc="NORMAL/<br>VARIABLE"
+                style="--accent-color: var(--blue-600); --secondary-color: var(--aqua-300)"
+            ></arc-tag>
+            <arc-tag
+                icon-text="2?"
+                header="RISK"
+                desc="MILD/<br>VARIABLE"
+                level="2"
+                style="--secondary-color: var(--aqua-300)"
+            ></arc-tag>
+        </arc-header>
+    </div>
+    <div style="display: none;">
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>. <br>
+        <span style="color: var(--aqua-500);">Aquamarine</span> Theme by N Wither
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+    </script>
+</body>
+</html>

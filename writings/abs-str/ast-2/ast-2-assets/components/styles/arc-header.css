@@ -1,0 +1,40 @@
+:host {
+    display: block;
+}
+
+.base {
+    display: flex;
+    flex-direction: column;
+}
+
+.header :is(h1, h2, h3, h4, h5, h6){
+    margin-top: 0px;
+}
+
+.header h1 {
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.header span {
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+.separator {
+    width: 100%;
+    height: 0.3em;
+    background: var(--text-color);
+    margin-bottom: 0.2em;
+}
+
+.main slot {
+    display: flex;
+    gap: 0.2em;
+    flex-wrap: wrap;
+}
+
+info-tag {
+    flex-grow: 1;
+    min-width: none;
+}
