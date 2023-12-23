@@ -9,9 +9,11 @@ export class AqShowup extends HTMLElement {
         super()
     }
 
+    repeat = false
+
     #observer = new IntersectionObserver(entries => {
         let entry = entries[0]
-        if(entry.intersectionRatio > 0) {
+        if(entry.isIntersecting) {
             entry.target.animate([
                 {
                     transform: 'translateY(100%)',
@@ -27,7 +29,9 @@ export class AqShowup extends HTMLElement {
                 easing: 'ease'
             })
 
-            this.#observer.unobserve(entry.target)
+            if(this.repeat == false) {
+                this.#observer.unobserve(entry.target)
+            }
         }
     })
 
@@ -39,6 +43,10 @@ export class AqShowup extends HTMLElement {
             for(let el of this.children) {
                 this.#observer.observe(el)
             }
+        }
+
+        if(this.getAttribute('repeat') != null) {
+            this.repeat = true
         }
     }
 

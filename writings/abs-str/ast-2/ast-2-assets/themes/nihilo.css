@@ -1,38 +1,38 @@
 :root {
-    --theme-color-50:  var(--purple-50);
-    --theme-color-100: var(--purple-100);
-    --theme-color-200: var(--purple-200);
-    --theme-color-300: var(--purple-300);
-    --theme-color-400: var(--purple-400);
-    --theme-color-500: var(--purple-500);
-    --theme-color-600: var(--purple-600);
-    --theme-color-700: var(--purple-700);
-    --theme-color-800: var(--purple-800);
-    --theme-color-900: var(--purple-900);
-    --theme-color-950: var(--purple-950);
+    --theme-color-50:  var(--indigo-50);
+    --theme-color-100: var(--indigo-100);
+    --theme-color-200: var(--indigo-200);
+    --theme-color-300: var(--indigo-300);
+    --theme-color-400: var(--indigo-400);
+    --theme-color-500: var(--indigo-500);
+    --theme-color-600: var(--indigo-600);
+    --theme-color-700: var(--indigo-700);
+    --theme-color-800: var(--indigo-800);
+    --theme-color-900: var(--indigo-900);
+    --theme-color-950: var(--indigo-950);
 }
 
 :root {
-    --background-color: #f7eef8;
-    --background-color-darken: #eee0ef;
+    --background-color: #fdfdfd;
+    --background-color-darken: #ebeff1;
     --text-color: #151316;
     --text-color-2: #fff;
     --text-color-secondary: var(--gray-400);
     --text-color-select: #fff;
-    --gray-color: #e5c8e7;
+    --gray-color: #cdc8e7;
     --dark-gray-color: #888888;
     --theme-color: var(--theme-color-500);
     --darkened-theme-color: var(--theme-color-600);
     --secondary-theme-color: #fff;
     --darkened-secondary-theme-color: #ccc;
-    --box-shadow-color: #e1cce399;
+    --box-shadow-color: #d3cce399;
     --link-color: var(--theme-color-600);
     --link-color-visited: var(--theme-color-800);
-    --border-color-common: #e5c7e7;
+    --border-color-common: #d1c7e7;
 
-    --button-bg: var(--purple-100);
-    --button-bg-focus: var(--purple-200);
-    --header-bg: #f7eef899;
+    --button-bg: var(--indigo-100);
+    --button-bg-focus: var(--indigo-200);
+    --header-bg: #f2eef899;
     --scroll-track-color: var(--background-color);
     --scroll-thumb-color: var(--gray-color);
     --blockquote-bg: #00000011;
@@ -40,14 +40,14 @@
 }
 
 :root.dark-mode {
-    --background-color: #171317;
-    --background-color-darken: #1a161a;
+    --background-color: #141317;
+    --background-color-darken: #17161a;
     --text-color: #fff;
     --text-color-2: #888;
     --text-color-secondary: var(--gray-500);
     --text-color-select: #Fff;
-    --gray-color: #342934;
-    --dark-gray-color: #2b2b2b;
+    --gray-color: #2b2934;
+    --dark-gray-color: #2b2934;
     --theme-color: var(--theme-color-600);
     --darkened-theme-color: var(--theme-color-700);
     --secondary-theme-color: #fff;
@@ -57,9 +57,9 @@
     --link-color-visited: var(--theme-color-700);
     --border-color-common: #362436;
 
-    --button-bg: var(--purple-800);
-    --button-bg-focus: var(--purple-700);
-    --header-bg: #17131799;
+    --button-bg: var(--indigo-800);
+    --button-bg-focus: var(--indigo-700);
+    --header-bg: #14131799;
     --scroll-track-color: var(--background-color);
     --scroll-thumb-color: var(--gray-color);
     --blockquote-bg: #00000033;
