@@ -165,6 +165,15 @@
             background: transparent;
         }
     }
+    &[theme=demacia] {
+        --main-bg: #101d38;
+        --blue-color: #5e99c1;
+        --blue-bg: transparent;
+        --red-color: #c0a776;
+        --red-bg: transparent;
+        --text-color: #f6f6f6;
+        font-family: 'JetBrains Mono', monospace, 'icons';
+    }
 }
 
 .moba-scoreboard-mobile {
