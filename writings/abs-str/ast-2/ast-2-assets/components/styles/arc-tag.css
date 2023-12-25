@@ -1,7 +1,7 @@
 :host {
     display: block;
     flex: 1 1 auto;
-    font-family: 'Poppins';
+    font-family: 'Poppins', 'Material Symbols Outlined', sans-serif;
     --accent-color: var(--text-color);
     --secondary-color: var(--accent-color);
     --tag-bg: ;
