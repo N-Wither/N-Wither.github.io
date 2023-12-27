@@ -325,7 +325,7 @@ embed {
 .moba-scoreboard-mobile {
     display: grid;
     grid-template-columns: 50px 150px 50px 150px 50px;
-    grid-template-rows: 50px 18px 30px 30px 30px;
+    grid-template-rows: auto 50px 18px 30px 30px 30px;
     width: 450px;
     background-color: #333333;
     margin: auto;
@@ -409,6 +409,12 @@ embed {
     position: absolute;
     display: flex;
     flex-direction: row;
+}
+
+.moba-scoreboard-mobile .tournament-name {
+    grid-column: 1 / 6;
+    text-align: center;
+    border-bottom: solid var(--sep-line-color) 2px;
 }
 
 .better.left {

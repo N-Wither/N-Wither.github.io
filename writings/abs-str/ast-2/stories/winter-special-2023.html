@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" data-version="1">
+<html lang="zh-cn" data-version="1">
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +7,34 @@
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
-    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Works</title>
+    <link rel="shortcut icon" href="../ast-2-assets/img/ella_avatar.png">
+    <title>Winter Special 2023</title>
     <script src="/assets/js/utils.js"></script>
     <!-- components -->
     <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
-    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
-    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/reading-progress/readingprog.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
+    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script type="module" src="/web-components/aquamarine/showup.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="../ast-2-assets/ast-2-stories.css">
+    <link rel="stylesheet" href="../ast-2-assets/themes/icey.css">
 </head>
 <body>
+    <reading-progress text="阅读进度"></reading-progress>
     <div class="page-header">
         <div class="menu-button">
             <button class="menu-button" title="Toggle Navigation Menu"></button>
         </div>
         <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            WitherWorks
-        </div>
-        <div class="flex-center page-title">Title</div>
+        <div class="page-category flex-center padding-all-small">&#xeb3b;</div>
+        <div class="flex-center page-title">Winter Special 2023</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
-            <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
-                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
-                </a>
-            </div>
             <div class="menu-button">
                 <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
             </div>
@@ -45,15 +48,20 @@
         </div>
     </div>
     <div class="page-content">
-        <h1 class="page-title">Title</h1>
-        <hr>
-        <p>Write something here.</p>
+        <aq-showup>
+            <h1 class="page-title">Winter Special 2023</h1>
+            <hr>
+            <p></p>
+        </aq-showup>
+    </div>
+    <div style="display: none;">
     </div>
     <div class="page-footer">
         <hr>
-        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <span id="randomQuote">Random Quote</span>
         <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>. <br>
+        <span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--theme-color);">Icey</span> Theme by N Wither
     </div>
     <script>
         startTime()
