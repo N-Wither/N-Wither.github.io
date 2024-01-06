@@ -413,8 +413,20 @@ embed {
 
 .moba-scoreboard-mobile .tournament-name {
     grid-column: 1 / 6;
-    text-align: center;
     border-bottom: solid var(--sep-line-color) 2px;
+    position: relative;
+    height: 18px;
+}
+.moba-scoreboard-mobile .tournament-name input {
+    position: absolute;
+    inset: 0;
+    font-family: inherit;
+    text-align: center;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1rem;
+    padding: 0.1rem;
 }
 
 .better.left {
