@@ -1,6 +1,6 @@
-import ArcTag from "./arc-tag.js"
+import AriaTag from "./aria-tag.js"
 
-const style = await fetch('/writings/abs-str/ast-2/ast-2-assets/components/styles/arc-header.css').then(res => res.text())
+const style = await fetch('/writings/abs-str/ast-2/ast-2-assets/components/styles/aria-header.css').then(res => res.text())
 const styleSheet = new CSSStyleSheet()
 styleSheet.replaceSync(style)
 
@@ -17,7 +17,7 @@ const template = `
 </div>
 `
 
-export class ArcHeader extends HTMLElement {
+export class AriaHeader extends HTMLElement {
     constructor(){
         super()
     }
@@ -32,7 +32,7 @@ export class ArcHeader extends HTMLElement {
     }
 }
 
-customElements.define('arc-header', ArcHeader)
-if(customElements.get('arc-tag') == undefined) {
-    customElements.define('arc-tag', ArcTag)
+customElements.define('aria-header', AriaHeader)
+if(customElements.get('aria-tag') == undefined) {
+    customElements.define('aria-tag', AriaTag)
 }

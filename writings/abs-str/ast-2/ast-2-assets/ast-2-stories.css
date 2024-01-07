@@ -123,4 +123,5 @@ hr.break::after {
     position: relative;
     content: '\00a7';
     top: -0.8rem;
+    transition: 0.3s;
 }

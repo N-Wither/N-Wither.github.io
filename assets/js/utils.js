@@ -99,3 +99,12 @@ Array.prototype.getRandom = function() {
 
 // A global variable for modules configs
 moduleConfigs = {}
+
+// Update Template
+let templateVersion = Number(document.documentElement.getAttribute('data-version'))
+switch(templateVersion){
+    default: {}
+    case 1: {
+        document.querySelectorAll('a[target=_blank]').forEach(e => e.setAttribute('rel', 'noopener'))
+    }
+}

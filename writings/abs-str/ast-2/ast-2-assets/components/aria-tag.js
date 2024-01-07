@@ -1,4 +1,4 @@
-const style = await fetch('/writings/abs-str/ast-2/ast-2-assets/components/styles/arc-tag.css').then(res => res.text())
+const style = await fetch('/writings/abs-str/ast-2/ast-2-assets/components/styles/aria-tag.css').then(res => res.text())
 const styleSheet = new CSSStyleSheet()
 styleSheet.replaceSync(style)
 
@@ -35,7 +35,7 @@ const template =`
 </div>
 `
 
-export default class ArcTag extends HTMLElement {
+export default class AriaTag extends HTMLElement {
     constructor(){
         super()
     }
