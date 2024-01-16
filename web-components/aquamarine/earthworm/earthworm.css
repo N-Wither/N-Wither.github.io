@@ -1,0 +1,32 @@
+:host {
+    display: block;
+    margin: 1rem 1rem;
+    --border: 0.1em solid var(--border-color-common)
+}
+
+.base {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: var(--border);
+}
+
+.base ::slotted(:not(a)) {
+    cursor: not-allowed;
+}
+
+.prev, .curr, .next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.curr {
+    border-left: var(--border);
+    border-right: var(--border);
+}
+.prev::before {
+    content: '<';
+}
+.next::after {
+    content: '>';
+}

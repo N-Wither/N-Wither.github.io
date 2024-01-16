@@ -44,7 +44,8 @@
     --scroll-track-color: var(--background-color);
     --scroll-thumb-color: var(--theme-color);
     --blockquote-bg: #00000011;
-    --category-text-color: #ffffff;
+    // --category-text-color: #ffffff;
+    --selection-bg: color-mix(in srgb, var(--darkened-theme-color) 60%, transparent);
 }
 
 @mixin dark-scheme-palette {
@@ -71,7 +72,8 @@
     --scroll-track-color: var(--background-color);
     --scroll-thumb-color: var(--theme-color);
     --blockquote-bg: #00000033;
-    --category-text-color: var(--text-color);
+    // --category-text-color: var(--text-color);
+    --selection-bg: color-mix(in srgb, var(--darkened-theme-color) 60%, transparent);
 }
 
 $general-transition-time: 0.3s;
@@ -99,6 +101,7 @@ $general-transition-time: 0.3s;
 
     --header-height: 3.6rem;
     --transition-time-common: 0.2s;
+    --transition-time-fast: 0.1s;
 
     scroll-behavior: smooth;
     font: {
@@ -112,7 +115,7 @@ $general-transition-time: 0.3s;
 }
 
 ::selection {
-    background-color: var(--darkened-theme-color);
+    background-color: var(--selection-bg);
     color: var(--text-color-select);
 }
 
@@ -387,6 +390,12 @@ ul {
     .menu-button {
         width: var(--header-height);
         height: var(--header-height);
+        background-image: linear-gradient(180deg, var(--theme-color), var(--theme-color));
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100% 0%;
+        transition: var(--transition-time-common);
+        position: relative;
 
         button {
             border: none;
@@ -397,16 +406,42 @@ ul {
             cursor: pointer;
             transition: var(--transition-time-common);
         }
+
+        // button:hover {
+        //     background: var(--gray-color);
+        // }
+
+        a {
+            width: var(--header-height);
+            height: var(--header-height);
+        }
+        
+        &:hover, &:has(*:hover, *:focus) {
+            background-size: 100% 100%;
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            display: block;
+            inset: 0;
+            background-image: linear-gradient(180deg, var(--darkened-theme-color), var(--darkened-theme-color));
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: 100% 0%;
+            transition: var(--transition-time-fast);
+            z-index: -1;
+        }
+
+        &:hover::after {
+            background-size: 100% 100%;
+        }
     }
 
     a {
         text-decoration: none;
         color: var(--text-color);
         transition: var(--transition-time-common);
-    }
-
-    a:hover, a:focus {
-        background: var(--gray-color);
     }
 
     a::after {
@@ -433,17 +468,6 @@ ul {
         color: var(--text-color);
     }
 
-    .menu-button {
-        button:hover {
-            background: var(--gray-color);
-        }
-
-        a {
-            width: var(--header-height);
-            height: var(--header-height);
-        }
-    }
-
     .page-icon {
         background: var(--theme-color);
 
@@ -454,10 +478,8 @@ ul {
     }
 
     .page-category {
-        background: var(--theme-color);
         font-size: 1.4rem;
         font-weight: bold;
-        color: var(--category-text-color);
     }
 
     .page-title {
@@ -503,15 +525,31 @@ ul {
             color: var(--text-color);
             text-decoration: none;
             transition: var(--transition-time-common);
-            background: linear-gradient(to right, var(--theme-color), var(--theme-color));
+            background: linear-gradient(var(--theme-color), var(--theme-color));
             background-position: left;
             background-size: 0% 100%;
             background-repeat: no-repeat;
+            position: relative;
         }
 
-        a.item:hover, a.item:focus {
+        a.item:is(:hover, :focus) {
             background-size: 100% 100%;
             color: var(--category-text-color);
+        }
+
+        a.item::after {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            content: '';
+            background: linear-gradient(var(--darkened-theme-color), var(--darkened-theme-color));
+            background-position: left;
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            transition: var(--transition-time-fast);
+        }
+        a.item:is(:hover, :focus)::after {
+            background-size: 100% 100%;
         }
 
         a.item div{
@@ -552,15 +590,6 @@ ul {
                 content: '\e89e';
             }
         }
-
-        .content-table {
-            display: flex;
-            flex-direction: column;
-
-            a {
-                height: 1.2rem;
-            }
-        }
     }
 
     .toolbox.open, .toolbox:has(a:focus){
@@ -597,9 +626,9 @@ ul {
     }
 
     .page-header {
-        .page-icon, .page-category {
-            display: none;
-        }
+        // .page-icon, .page-category {
+        //     display: none;
+        // }
 
         .menu {
             width: 16em;

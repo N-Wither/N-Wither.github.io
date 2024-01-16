@@ -1,56 +1,69 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" data-version="2">
 <head>
     <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title></title>
-    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-    <script>
-        document.title = 'KubeJS Experienced';
-        let setElements = () => {
-            document.getElementById('category').innerHTML = 'KubeJS<br>Experienced';
-            document.getElementById('page_title').innerHTML = 'KubeJS Experienced';
-        }
-    </script>
+    <title>KubeJS Experienced</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
 </head>
-<body onload="startTime(), hello(), randomQuote(), setElements()">
-    <div class="navigate" id="navigate">
-        <a href="#" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
-        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
-        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
-        <a href="https://n-wither.github.io/tools/tools.html">🔧<span>Tools</span></a>
-        <a href="https://n-wither.github.io/misc/web-playground.html">🧩<span>Misc</span></a>
-    </div>
-    <div class="toolbox" id="toolbox">
-        <div class="toolbox-grip">|||</div>
-        <div id="clock">clock</div>
-    </div>
-    <div class="content">
-        <div>
-            <h1 id = 'page_title'>Title</h1>
-            <hr/>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
         </div>
-        <div class="mainText">
-            <p>
-                这是一个关于如何使用 <a href="https://kubejs.com/">KubeJS</a> 模组的系列文章。
-            </p>
-            <div class="table-vertical">
-                <a href="./kjs-1.html"><span>1</span> 基础知识</a>
-                <a href="./kjs-2.html"><span>2</span> 配方事件</a>
-                <a href="./kjs-3.html"><span>3</span> 模组兼容</a>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">WitherBlog</div>
+        <div class="flex-center page-title">KubeJS Experienced</div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
+                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
+                </a>
             </div>
-            <br/>
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
         </div>
-        <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
-            <span id="randomQuote">Random Quote</span>
-            <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
         </div>
     </div>
+    <div class="page-content">
+        <h1 class="page-title">KubeJS Experienced</h1>
+        <hr>
+        <p>
+            这是一个关于如何使用 <a href="https://kubejs.com/">KubeJS</a> 模组的系列文章。
+        </p>
+        <ul class="table-vertical">
+            <li><a href="./kjs-1.html"><span>1</span> 基础知识</a></li>
+            <li><a href="./kjs-2.html"><span>2</span> 配方事件</a></li>
+            <li><a href="./kjs-3.html"><span>3</span> 模组兼容</a></li>
+        </ul>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
 </body>
 </html>

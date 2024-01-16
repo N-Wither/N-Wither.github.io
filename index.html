@@ -9,17 +9,11 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="./assets/imgs/wither-logo.png">
     <title>N Wither's Works</title>
-    <script src="./assets/js/utils.js"></script>
-    <script>
-        function init(){
-            randomQuote()
-            startTime()
-        }
-    </script>
+    <script src="/assets/js/utils.js"></script>
     <!-- components -->
-    <script src="./assets/js/components/click_particles.js"></script>
-    <link rel="stylesheet" href="./assets/css/components/click_particles.css">
-    <script src="./assets/js/components/aquamarine-navigate-menu.js" defer></script>
+    <script src="/assets/js/components/click_particles.js"></script>
+    <link rel="stylesheet" href="/assets/css/components/click_particles.css">
+    <script src="/assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
 
     <style>
@@ -33,13 +27,12 @@
         }
     </style>
 </head>
-<body onload="init()">
+<body>
     <div class="page-header">
         <div class="menu-button">
             <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
         </div>
-        <div class="page-icon adapt-header-strict flex-center">
-            <img src="./assets/imgs/wither-logo.png" alt="Logo">
+        <div class="page-icon">
         </div>
         <div class="page-category flex-center padding-all-small">
             WitherWorks
@@ -74,5 +67,10 @@
         <br>
         Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
     </div>
+    <script>
+        randomQuote()
+        startTime()
+        aof()
+    </script>
 </body>
 </html>

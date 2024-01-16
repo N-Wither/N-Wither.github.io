@@ -1,64 +1,74 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" data-version="2">
 <head>
     <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/hljs/a11y-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll()</script>
-    <title></title>
-    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-    <script>
-        document.title = '配方事件 | KubeJS Experienced';
-        let setElements = () => {
-            document.getElementById('category').innerHTML = 'KubeJS<br>Experienced';
-            document.getElementById('page_title').innerHTML = '配方事件';
-            document.getElementById('sub_title').innerHTML = 'RecipeEventJS';
-        }
-    </script>
+    <title>配方事件 - KubeJS Experienced</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/web-components/aquamarine/code.js"></script>
+    <script type="module" src="/web-components/aquamarine/earthworm/earthworm.js"></script>
 </head>
-<body onload="startTime(), hello(), randomQuote(), setElements()">
-    <div class="navigate" id="navigate">
-        <a href="./kjs-0.html" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
-        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
-        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
-        <a href="https://n-wither.github.io/tools/tools.html">🔧<span>Tools</span></a>
-        <a href="https://n-wither.github.io/misc/web-playground.html">🧩<span>Misc</span></a>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">WitherBlog</div>
+        <div class="flex-center page-title">配方事件</div>
+        <div class="menu all-menu" role="menu list"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
+                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
+                </a>
+            </div>
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <b>目录</b>
+                <ol>
+                    <li><a href="#sect-1">工作台合成</a></li>
+                    <li><a href="#sect-2">移除与修改配方</a></li>
+                    <li><a href="#sect-3">使用带 NBT 的物品</a></li>
+                    <li><a href="#sect-4">其他的原版配方</a></li>
+                    <li><a href="#sect-5">使用 JSON 配方</a></li>
+                    <li><a href="#sect-6">使用函数</a></li>
+                </ol>
+            </div>
+        </div>
     </div>
-    <div class="toolbox" id="toolbox">
-        <div class="toolbox-grip">|||</div>
-        <div id="clock">clock</div>
-        <div class="chapter-select">
-            <a href="./kjs-1.html">上一篇</a>
-            <a href="./kjs-0.html">目录</a>
-            <a href="./kjs-3.html">下一篇</a>
-        </div>
-        <div class="content-table">
-            <a href="#sect-1">工作台合成</a>
-            <a href="#sect-2">移除与修改配方</a>
-            <a href="#sect-3">使用带 NBT 的物品</a>
-            <a href="#sect-4">其他的原版配方</a>
-            <a href="#sect-5">使用 JSON 配方</a>
-            <a href="#sect-6">使用函数</a>
-        </div>
-    </div>
-    <div class="content">
-        <div>
-            <h1 id = 'page_title'>Title</h1>
-            <h3 id = 'sub_title'></h2>
-            <hr/>
-        </div>
-        <div class="mainText">
-            <h2>前言</h2>
+    <div class="page-content">
+        <h1 class="page-title">配方事件</h1>
+        <hr>
+        <nav>
+            <a href="./kjs-0.html">KubeJS Experienced</a>
+            <span>/</span>
+            <a href="#">配方事件</a>
+        </nav>
+        <h2>前言</h2>
             <p>在开始写代码之前，你自然是最好有一些编程基础，大学的 C 语言课就足够了。当然没有也没关系，照着我写的做就是了，但是如果你有一定的理解能力，那你就可以触类旁通，我也不必那么费心。</p>
             <p>然后介绍一下这些：</p>
             <blockquote class="info">蓝色的 blockquote 表示信息与提示。</blockquote>
-            <blockquote class="notice">黄色的 blockquote 表示应当注意。</blockquote>
-            <blockquote class="warn">红色的 blockquote 表示警告。</blockquote>
+            <blockquote class="warn">黄色的 blockquote 表示应当注意。</blockquote>
+            <blockquote class="danger">红色的 blockquote 表示警告。</blockquote>
             <p>魔改模组绝大部分用途都是改配方，这篇文章教你改配方。</p>
             <p>我推荐你使用<a href="https://www.curseforge.com/minecraft/mc-mods/probejs">ProbeJS</a>，它能在 VSCode 里面提供代码提示和补全。</p>
             <h2 id="sect-1">工作台合成</h2>
@@ -67,7 +77,7 @@
             <blockquote class="info">
                 关于 JavaScript 的基本数据类型，请看<a href="https://www.runoob.com/js/js-datatypes.html">这篇文章</a>。
             </blockquote>
-<pre><code class="hljs language-js">
+            <aq-code language="js" display-language="JavaScript">
 // priority: 0
 // 上面一行的作用是设定此 JS 文件加载的优先级，数字大的先加载。
 onEvent('recipes', event =&gt; {                      // 指定代码作用的事件，'event'可以改成任何合法的变量名
@@ -94,12 +104,12 @@ onEvent('recipes', event =&gt; {                      // 指定代码作用的�
 ServerEvents.recipes(event =&gt; {
     // 和上面一样的代码
 })
-</code>从上一篇文章搬运过来的，稍微改了一下</pre>
+            </aq-code>
             写完后保存文件，在游戏里面使用<code>/reload</code>来应用更改。
             <blockquote class="info">在未指定配方 ID 的情况下，KubeJS 会随机分配一个 ID。如果你指定的配方 ID 和现有的 ID 相同，则新设定的配方会覆盖旧的。</blockquote>
             <blockquote class="info">如果你发现你写的代码没有生效，请在<code>logs/kubejs</code>查看日志！</blockquote>
             <p>默认情况下，工作台配方可以被镜像（类似锄头的配方）和缩小（类似木棍）。如果你想写类似于 Mystical Agriculture 精华合成的那种配方，就像这样写：</p>
-<pre><code class="hljs lang-js">
+            <aq-code language="js" display-language="JavaScript">
 onEvent('recipes', e =&gt; {
     e.shaped('4x minecraft:stick', [
         ' P ',
@@ -107,11 +117,11 @@ onEvent('recipes', e =&gt; {
         '   '
     ], {P: '#minecraft:planks'}).noMirror().noShrink()      // 这两个方法没有先后顺序
 })
-</code></pre>
+            </aq-code>
             <p>这样你就必须把木板放到第一行第二个格子和第二行第一个格子才能合成出木棍了，不能镜像，也不能放到别处（哪怕形状一样）。</p>
             <h2 id="sect-2">移除与修改配方</h2>
             <p>直接上示例。</p>
-<pre><code class="hljs language-js">
+            <aq-code language="js" display-language="JavaScript">
 onEvent('recipes', e =&gt; {
     e.remove({output: 'minecraft:golden_apple'})    // 移除所有输出金苹果的配方，包括其他模组添加的
     e.remove({id: 'minecraft:golden_apple'})        // 移除配方 ID 为 'minecrfat:golden_apple' 的配方，也就是原版的金苹果配方
@@ -122,17 +132,17 @@ onEvent('recipes', e =&gt; {
     })                                              // 移除所有不输出金苹果的配方，换句话说你只能合成金苹果
     e.remove({})                                    // 移除所有配方，除非你想重新做一个游戏，否则不要使用
 })
-</code></pre>
+            </aq-code>
             <p><code>remove()</code>中需要的是配方过滤器，也适用于修改配方。</p>
-<pre><code class="hljs lang-js">
+            <aq-code language="js" display-language="JavaScript">
 // 为了方便写文章，省略 onEvent()
 // 你还是要写的
-e.replaceInput({output: 'minecraft:golden_apple'}, 'minecraft:gold_ingot', 'minecraft:copper_ingot')   // 将金苹果配方中的金锭换成铜锭，天下哪有这么好的事！
-e.replaceOutput({}, 'minecraft:golden_apple', 'minecraft:golden_carrot')                               // 将所有输出金苹果的配方换成输出金胡萝卜，至少挺扛饿！
-</code></pre>
+e.replaceInput({output: 'minecraft:golden_apple'}, 'minecraft:gold_ingot', 'minecraft:copper_ingot')   // 将金苹果配方中的金锭换成铜锭
+e.replaceOutput({}, 'minecraft:golden_apple', 'minecraft:golden_carrot')                               // 将所有输出金苹果的配方换成输出金胡萝卜
+            </aq-code>
             <h2 id="sect-3">使用带 NBT 的物品</h2>
             <p>假如你想合成一本附魔书：</p>
-<pre><code class="hljs lang-js">
+            <aq-code language="js" display-language="JavaScript">
 e.shaped(Item.of('minecraft:enchanted_book', '{StoredEnchantments:[{lvl:3,id:"minecraft:fortune"}]}')  // 可以去掉 NBT 外的引号把它变成一个对象
     [' D ', 'DBD', ' D '],
     {
@@ -140,22 +150,22 @@ e.shaped(Item.of('minecraft:enchanted_book', '{StoredEnchantments:[{lvl:3,id:"mi
         B: 'minecraft:book'
     }
 )
-</code></pre>
+            </aq-code>
             <p><code>Item.of()</code> 接受 2 或 3 个参数，第一个参数为物品 ID 或标签，第二个参数为数量或 NBT，第三个参数为 NBT。</p>
             <p>NBT 的数据类型为 <code>Internal.CompoundTag_</code>，表现为 JavaScript 对象。</p>
             <p><code>Item</code>类还有一些其他的方法，我会在之后提到。</p>
             <h2 id="sect-4">其他的原版配方</h2>
-<pre><code class="hljs lang-js">
+            <aq-code language="js" display-language="JavaScript">
 e.smelting(output, input).id('mod:id')                         // 熔炉
 e.smelting(output, input).cookTime(Number).xp(Number)          // 设定熔炼时间和获取的经验，也适用于高炉、烟熏炉和营火烹饪
 e.blasting(output, input)                                      // 高炉
 e.smoking(output, input)                                       // 烟熏炉
 e.campfireCooking(output, input)                               // 营火烹饪
 e.smithing(output, input1, input2)                             // 锻造台
-</code></pre>
+            </aq-code>
             如果你想修改酿造台配方，请安装 <a href="https://www.curseforge.com/minecraft/mc-mods/morejs">MoreJS</a>。
-<pre><code class="lang-js">
-    // for 1.18 pls use: onEvent("morejs.potion_brewing.register", event =&gt; { ... })
+            <aq-code language="js" display-language="JavaScript">
+// for 1.18 pls use: onEvent("morejs.potion_brewing.register", event =&gt; { ... })
     MoreJSEvents.registerPotionBrewing(event =&gt; {
         /**
          * 1. Argument: The top ingredient of the brewing stand
@@ -195,9 +205,9 @@ e.smithing(output, input1, input2)                             // 锻造台
          */
         event.removeByPotion("minecraft:awkward", null, null);
     });
-</code>摘自 <a href="https://github.com/AlmostReliable/morejs/wiki/Potion-Brewing">MoreJS Wiki</a></pre>
+            </aq-code>
             <h2 id="sect-5">使用 JSON 配方</h2>
-<pre><code class="lang-js">
+            <aq-code language="js" display-language="JavaScript">
     // 用法：
     event.custom(Internal.JsonElement_)
     // 示例
@@ -224,11 +234,11 @@ e.smithing(output, input1, input2)                             // 锻造台
         ],
         processingTime: 100
     })
-</code>摘自 <a href="https://mods.latvian.dev/books/kubejs/page/recipes">KubeJS Wiki</a></pre>
+            </aq-code>
             <blockquote class="info">如果你不知道你想要添加的配方 JSON 长什么样，去 mod 的 jar 文件里找 <code>data/modid/recipes/</code>。</blockquote>
             <h2 id="sect-6">使用函数</h2>
             <p>为了方便，有时候会用函数封装上面那样的 JSON 配方。</p>
-<pre><code class="lang-js">
+            <aq-code language="js" display-language="JavaScript">
     // 第一种方法
     function createCrushing(results, ingredients, time){
         event.custom({
@@ -250,10 +260,10 @@ e.smithing(output, input1, input2)                             // 锻造台
         [Item.of('minecraft:apple').toJson(),Item.of('minecraft:carrot').toJson()],
         100
     )
-</code></pre>
+            </aq-code>
             <p>上面使用的是普通的函数，这适用于大多数配方，你也可以在函数中添加更多的处理逻辑，这样你就能直接在参数里面用<code>'2x minecraft:apple'</code>了。</p>
             <p>下面介绍另一种函数：构造函数。</p>
-<pre><code class="lang-js">
+            <aq-code language="js" display-language="JavaScript">
     function draconicFusionCrafting(result, catalyst){
         // 使用了 this 之后，这个函数就成为了一个构造函数，相当于一个类，不过 class 在 KubeJS 中不可用。
         this.type = 'draconicevolution:fusion_crafting'
@@ -310,7 +320,7 @@ e.smithing(output, input1, input2)                             // 锻造台
             {"item": "draconicevolution:medium_chaos_frag"}
         ])
     ).id('productivebees:chaos_bee')
-</code></pre>
+            </aq-code>
             <blockquote class="info">
                 关于命名，推荐的方法是：<br>
                 常量使用全大写，单词之间使用下划线连接。（<code>THE_CONSTANT</code>）<br>
@@ -318,14 +328,22 @@ e.smithing(output, input1, input2)                             // 锻造台
                 类名使用大驼峰命名法。（<code>TheClass</code>）<br>
                 当然命名方法不是唯一的，但是请尽量在你的项目中使用同一套命名规则。
             </blockquote>
-            <br/>
-        </div>
-        <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
-            <span id="randomQuote">Random Quote</span>
-            <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
-        </div>
+            <aq-earthworm>
+                <a href="./kjs-1.html" slot="prev">基础知识</a>
+                <a href="./kjs-0.html" slot="curr">KJSEXP</a>
+                <a href="./kjs-3.html" slot="next">模组兼容</a>
+            </aq-earthworm>
     </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
 </body>
 </html>

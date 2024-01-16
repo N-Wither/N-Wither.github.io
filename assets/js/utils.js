@@ -101,10 +101,13 @@ Array.prototype.getRandom = function() {
 moduleConfigs = {}
 
 // Update Template
-let templateVersion = Number(document.documentElement.getAttribute('data-version'))
-switch(templateVersion){
-    default: {}
-    case 1: {
-        document.querySelectorAll('a[target=_blank]').forEach(e => e.setAttribute('rel', 'noopener'))
-    }
+let dmb = document.querySelector(`button[onclick="toggleClass('html', 'dark-mode')"]`)
+if(dmb){dmb.title = 'Toggle Dark Mode'}
+let tv = Number(document.documentElement.getAttribute('data-version'))
+if (tv > 1 && tv < 3) {
+    let t = document.querySelector('.page-header .page-title').remove()
+    if(t) t.remove();
 }
+
+// Outer Link Fix
+let aof = () => {document.querySelectorAll('a[target=_blank]').forEach(e => e.setAttribute('rel', 'noopener'))}

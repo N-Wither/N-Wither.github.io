@@ -219,14 +219,19 @@ class AqCode extends HTMLElement {
         }
 
         if(this.getAttribute('src') != null) {
-            content = await (await fetch(this.getAttribute('src'))).text()
+            content = (await fetch(this.getAttribute('src'))).text()
         }
-        if(lang) {
-            let highlighted = hljs.highlight(content, {language: lang})
-            codeArea.innerHTML = highlighted.value
-        }
-        else {
-            codeArea.innerHTML = hljs.highlightAuto(content).value
+        // if(lang) {
+        //     let highlighted = hljs.highlight(content, {language: lang})
+        //     codeArea.innerHTML = highlighted.value
+        // }
+        // else {
+        //     codeArea.innerHTML = content
+        // }
+        codeArea.innerHTML = content
+        codeArea.classList.add(`lang-${lang}`)
+        if(lang){
+            hljs.highlightElement(codeArea)
         }
         
         if(this.getAttribute('inline') == null){

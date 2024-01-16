@@ -2,27 +2,27 @@ let navigateItems = [
     {
         text: 'Home',
         icon: '\ue88a',
-        url: 'https://n-wither.github.io/'
+        url: '/'
     },
     {
         text: 'Articles',
         icon: '\uef42',
-        url: 'https://n-wither.github.io/writings/'
+        url: '/writings/'
     },
     {
         text: 'Tools',
         icon: '\uea59',
-        url: 'https://n-wither.github.io/tools/'
+        url: '/tools/'
     },
     {
         text: 'Games',
         icon: '\uf135',
-        url: 'https://n-wither.github.io/games/'
+        url: '/games/'
     },
     {
         text: 'Aquamarine',
         icon: '\uf8ee',
-        url: 'https://n-wither.github.io/misc/aquamarine.html'
+        url: '/misc/aquamarine.html'
     }
 ]
 
@@ -50,20 +50,11 @@ if(menuButton && menuDiv) {
     let pageContent = document.querySelector('.page-content')
     let pageFooter = document.querySelector('.page-footer')
 
-    // let cover = document.createElement('div')
-    // cover.classList.add('menu-backdrop')
-    // cover.style = 'min-height:100vh;min-width:100vw;z-index:98;position:fixed;background:#00000044;left:0;top:0;backdrop-filter:blur(5px);pointer-events:none;opacity:0;'
-    // document.body.appendChild(cover)
-
     let targets = [pageContent, pageFooter]
 
     let open = () => {
         menuButton.classList.add('open')
         menuDiv.classList.add('open')
-        // cover.animate([{ opacity: 0 }, { opacity: 1 }], {
-        //     fill: 'forwards',
-        //     duration: 200,
-        // });
     }
     let close = () => {
         if (
@@ -72,10 +63,6 @@ if(menuButton && menuDiv) {
         ) {
             menuButton.classList.remove('open');
             menuDiv.classList.remove('open');
-            // cover.animate([{ opacity: 1 }, { opacity: 0 }], {
-            //     fill: 'forwards',
-            //     duration: 200,
-            // });
         }
     };
 

@@ -1,67 +1,68 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" data-version="2">
 <head>
     <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/hljs/a11y-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll()</script>
-    <title></title>
-    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-    <script>
-        document.title = '模组兼容 | KubeJS Experienced';
-        let setElements = () => {
-            document.getElementById('category').innerHTML = 'KubeJS<br>Experienced';
-            document.getElementById('page_title').innerHTML = '模组兼容';
-            document.getElementById('sub_title').innerHTML = 'Mod Compat';
-        }
-    </script>
-    <style>
-        .forbidden {
-            cursor: not-allowed;
-        }
-
-        h2 {
-            padding: 5px;
-        }
-    </style>
+    <title>模组兼容 - KubeJS Experienced</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/web-components/aquamarine/code.js"></script>
+    <script type="module" src="/web-components/aquamarine/earthworm/earthworm.js"></script>
 </head>
-<body onload="startTime(), hello(), randomQuote(), setElements()">
-    <div class="navigate" id="navigate">
-        <a href="./kjs-0.html" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
-        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
-        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
-        <a href="https://n-wither.github.io/tools/tools.html">🔧<span>Tools</span></a>
-        <a href="https://n-wither.github.io/misc/web-playground.html">🧩<span>Misc</span></a>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">WitherBlog</div>
+        <div class="flex-center page-title">模组兼容</div>
+        <div class="menu all-menu" role="menu list"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
+                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
+                </a>
+            </div>
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item">
+                <b>目录</b>
+                <ol>
+                    <li><a href="#sect-1">JEI / REI</a></li>
+                    <li><a href="#sect-2">Create</a></li>
+                </ol>
+            </div>
+        </div>
     </div>
-    <div class="toolbox" id="toolbox">
-        <div class="toolbox-grip">|||</div>
-        <div id="clock">clock</div>
-        <div class="chapter-select">
-            <a href="./kjs-2.html">上一篇</a>
-            <a href="./kjs-0.html">目录</a>
-            <span class="forbidden">下一篇</span>
-        </div>
-        <div class="content-table">
-            <a href="#sect-1">JEI / REI</a>
-            <a href="#sect-2">Create</a>
-        </div>
-    </div>
-    <div class="content">
-        <div>
-            <h1 id = 'page_title'>Title</h1>
-            <h3 id = 'sub_title'></h2>
-            <hr/>
-        </div>
-        <div class="mainText">
-            <blockquote class="notice">本页面的内容并不全面，且可能不是最新的！</blockquote>
+    <div class="page-content">
+        <h1 class="page-title">模组兼容</h1>
+        <hr>
+        <nav>
+            <a href="./kjs-0.html">KubeJS Experienced</a>
+            <span>/</span>
+            <a href="#">模组兼容</a>
+        </nav>
+        <blockquote class="notice">本页面的内容并不全面，且可能不是最新的！</blockquote>
             <h2 id="sect-1">JEI / REI</h2>
             <blockquote class="info">本节事件均为 Client 事件，你需要把它们放在<code>client_scripts</code>文件夹。</blockquote>
-<pre><code class="lang-js">
+<aq-code language="js" display-language="JavaScript">
     // 隐藏物品和流体
     // 1.19 的写法为 JEIEvents.hide('item', event =&gt;{})
     // 如果是 REI，就将 jei 换成 rei
@@ -101,9 +102,9 @@
         // 这会在日志中打印所有的配方类型
         // 你也可以看配方 JSON 文件里面的 type 的值
     })
-</code></pre>
+</aq-code>
         <blockquote class="notice">以下事件只适用于 REI，在 1.16，REI 兼容只能在 Fabric 使用，对于 1.18+，Forge 和 Fabric 都可使用。</blockquote>
-<pre><code class="lang-js">
+<aq-code language="js" display-language="JavaScript">
     onEvent('rei.group', event =&gt; {
         // This event allows you to add custom entry groups to REI, which can be used to clean up the entry list significantly.
         // As a simple example, we can add a 'Swords' group which will contain all (vanilla) swords
@@ -149,11 +150,11 @@
         // you can also group fluids in much the same way as you can group items, for instance:
         event.groupFluidsByTag('kubejs:rei_groups/fluid_tagged_as_water', '\'Water\' (yeah right lmao)', 'minecraft:water')
 })
-</code>摘自 <a href="https://mods.latvian.dev/books/kubejs-legacy/page/rei-integration">KubeJS Wiki</a></pre>
+</aq-code>
         <h2 id="sect-2">Create</h2>
         <blockquote class="notice">需要安装 <a href="https://www.curseforge.com/minecraft/mc-mods/kubejs-create">KubeJS Create</a>！</blockquote>
         <blockquote class="info">如无特殊说明，本节所有事件均为 Server 事件。</blockquote>
-<pre><code class="lang-js">
+<aq-code language="js" display-language="JavaScript">
     onEvent('recipes', e =&gt;{
         // 粉碎轮粉碎
         // 如果只有一个输出物品，可以不用数组，这也适用于很多其他配方
@@ -163,14 +164,23 @@
             Item.of('minecraft:gold_nugget').withChance(0.25)
         ], 'minecraft:golden_apple')
     })
-</code></pre>
-        </div>
-        <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
-            <span id="randomQuote">Random Quote</span>
-            <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
-        </div>
+</aq-code>
+            <aq-earthworm>
+                <a href="./kjs-2.html" slot="prev">基础知识</a>
+                <a href="./kjs-0.html" slot="curr">KJSEXP</a>
+                <span slot="next">暂无</span>
+            </aq-earthworm>
     </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
 </body>
 </html>

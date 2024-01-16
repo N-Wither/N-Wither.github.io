@@ -40,9 +40,10 @@
   --scroll-track-color: var(--background-color);
   --scroll-thumb-color: var(--theme-color);
   --blockquote-bg: #00000011;
-  --category-text-color: #ffffff;
+  --selection-bg: color-mix(in srgb, var(--darkened-theme-color) 60%, transparent);
   --header-height: 3.6rem;
   --transition-time-common: 0.2s;
+  --transition-time-fast: 0.1s;
   scroll-behavior: smooth;
   font-family: "Metropolis", "Readex Pro", "Noto Sans SC", sans-serif, "Material Symbols Outlined";
   font-size: 16px;
@@ -71,11 +72,11 @@
   --scroll-track-color: var(--background-color);
   --scroll-thumb-color: var(--theme-color);
   --blockquote-bg: #00000033;
-  --category-text-color: var(--text-color);
+  --selection-bg: color-mix(in srgb, var(--darkened-theme-color) 60%, transparent);
 }
 
 ::selection {
-  background-color: var(--darkened-theme-color);
+  background-color: var(--selection-bg);
   color: var(--text-color-select);
 }
 
@@ -338,6 +339,12 @@ ul.file-list li:last-child::before {
 .page-header .menu-button {
   width: var(--header-height);
   height: var(--header-height);
+  background-image: linear-gradient(180deg, var(--theme-color), var(--theme-color));
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 0%;
+  transition: var(--transition-time-common);
+  position: relative;
 }
 .page-header .menu-button button {
   border: none;
@@ -348,13 +355,32 @@ ul.file-list li:last-child::before {
   cursor: pointer;
   transition: var(--transition-time-common);
 }
+.page-header .menu-button a {
+  width: var(--header-height);
+  height: var(--header-height);
+}
+.page-header .menu-button:hover, .page-header .menu-button:has(*:hover, *:focus) {
+  background-size: 100% 100%;
+}
+.page-header .menu-button::after {
+  position: absolute;
+  content: "";
+  display: block;
+  inset: 0;
+  background-image: linear-gradient(180deg, var(--darkened-theme-color), var(--darkened-theme-color));
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 0%;
+  transition: var(--transition-time-fast);
+  z-index: -1;
+}
+.page-header .menu-button:hover::after {
+  background-size: 100% 100%;
+}
 .page-header a {
   text-decoration: none;
   color: var(--text-color);
   transition: var(--transition-time-common);
-}
-.page-header a:hover, .page-header a:focus {
-  background: var(--gray-color);
 }
 .page-header a::after {
   content: "";
@@ -375,13 +401,6 @@ ul.file-list li:last-child::before {
   content: "\e5cd";
   color: var(--text-color);
 }
-.page-header .menu-button button:hover {
-  background: var(--gray-color);
-}
-.page-header .menu-button a {
-  width: var(--header-height);
-  height: var(--header-height);
-}
 .page-header .page-icon {
   background: var(--theme-color);
 }
@@ -390,10 +409,8 @@ ul.file-list li:last-child::before {
   height: 80%;
 }
 .page-header .page-category {
-  background: var(--theme-color);
   font-size: 1.4rem;
   font-weight: bold;
-  color: var(--category-text-color);
 }
 .page-header .page-title {
   font-size: 1.6rem;
@@ -435,14 +452,29 @@ ul.file-list li:last-child::before {
   color: var(--text-color);
   text-decoration: none;
   transition: var(--transition-time-common);
-  background: linear-gradient(to right, var(--theme-color), var(--theme-color));
+  background: linear-gradient(var(--theme-color), var(--theme-color));
   background-position: left;
   background-size: 0% 100%;
   background-repeat: no-repeat;
+  position: relative;
 }
-.page-header .menu a.item:hover, .page-header .menu a.item:focus {
+.page-header .menu a.item:is(:hover, :focus) {
   background-size: 100% 100%;
   color: var(--category-text-color);
+}
+.page-header .menu a.item::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: linear-gradient(var(--darkened-theme-color), var(--darkened-theme-color));
+  background-position: left;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: var(--transition-time-fast);
+}
+.page-header .menu a.item:is(:hover, :focus)::after {
+  background-size: 100% 100%;
 }
 .page-header .menu a.item div {
   display: flex;
@@ -480,13 +512,6 @@ ul.file-list li:last-child::before {
 .page-header .toolbox .item a[target=_blank]::after {
   content: "\e89e";
 }
-.page-header .toolbox .content-table {
-  display: flex;
-  flex-direction: column;
-}
-.page-header .toolbox .content-table a {
-  height: 1.2rem;
-}
 .page-header .toolbox.open, .page-header .toolbox:has(a:focus) {
   transform: translateX(0);
 }
@@ -513,9 +538,6 @@ ul.file-list li:last-child::before {
 @media screen and (orientation: portrait), screen and (max-width: 480px) {
   :root {
     --header-height: 3rem;
-  }
-  .page-header .page-icon, .page-header .page-category {
-    display: none;
   }
   .page-header .menu {
     width: 16em;

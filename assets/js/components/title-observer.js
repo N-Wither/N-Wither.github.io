@@ -19,18 +19,15 @@ toTop.style.display = 'none'
 
 let titleObserver = new IntersectionObserver(entries => {
     // let isMobileDevice = window.matchMedia('(orientation: portrait)').matches || window.matchMedia('(max-width: 480px)').matches
-    let title = document.querySelector('.page-header .page-title')
     toTop.addEventListener('animationend', () => {
         if(toTop.classList.contains('ani__hide'))
         toTop.style.display = 'none'
     })
     
     if(entries[0].intersectionRatio <= 0){
-        if(title) title.style.opacity = 1;
         toTop.style.display = 'block'
         toTop.classList.remove('ani__hide')
     }else{
-        if(title) title.style.opacity = 0;
         toTop.classList.add('ani__hide')
         // setTimeout(() => {toTop.style.display = 'none'}, 400)
     }
