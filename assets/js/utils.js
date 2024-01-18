@@ -105,7 +105,7 @@ let dmb = document.querySelector(`button[onclick="toggleClass('html', 'dark-mode
 if(dmb){dmb.title = 'Toggle Dark Mode'}
 let tv = Number(document.documentElement.getAttribute('data-version'))
 if (tv > 1 && tv < 3) {
-    let t = document.querySelector('.page-header .page-title').remove()
+    let t = document.querySelector('.page-header .page-title')
     if(t) t.remove();
 }
 
