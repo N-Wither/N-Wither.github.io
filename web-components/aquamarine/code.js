@@ -18,6 +18,7 @@ aq-code {
     --color-keyword: #0000ff;
     --color-property: #001080;
     --color-literal: #0000ff;
+    --color-regexp: #911f3f;
 }
 
 .dark-mode aq-code {
@@ -37,15 +38,17 @@ aq-code {
     --color-keyword: #fede5d;
     --color-property: #2ee2fa;
     --color-literal: #f97e72;
+    --color-regexp: #f97e72;
 }
 
 aq-code {
+    --aq-code-fs: 0.8em;
     display: block;
     font-family: monospace;
     background-color: var(--bg-color);
     width: 100%;
     padding: 2em 1em 1em 1em;
-    font-size: 0.8em;
+    font-size: var(--aq-code-fs);
     white-space: pre-wrap;
     color: var(--color-all);
     position: relative;
@@ -100,6 +103,10 @@ aq-code button.copy:hover, aq-code button.copy:focus {
     filter: brightness(1.1);
 }
 
+aq-code .code__area span {
+    line-height: var(--aq-code-fs);
+}
+
 .code__base {
     display: flex;
 }
@@ -120,9 +127,12 @@ aq-code button.copy:hover, aq-code button.copy:focus {
 .hljs-template-variable,
 .hljs-selector-id,
 .hljs-selector-class,
-.hljs-regexp,
 .hljs-deletion {
     color: var(--color-var);
+}
+
+.hljs-regexp {
+    color: var(--color-regexp);
 }
 
 .hljs-tag,
@@ -146,7 +156,6 @@ aq-code button.copy:hover, aq-code button.copy:focus {
 .hljs-attribute,
 .hljs-attr {
     color: var(--color-attr);
-    font-style: italic;
 }
 
 .hljs-property {
@@ -221,13 +230,7 @@ class AqCode extends HTMLElement {
         if(this.getAttribute('src') != null) {
             content = (await fetch(this.getAttribute('src'))).text()
         }
-        // if(lang) {
-        //     let highlighted = hljs.highlight(content, {language: lang})
-        //     codeArea.innerHTML = highlighted.value
-        // }
-        // else {
-        //     codeArea.innerHTML = content
-        // }
+
         codeArea.innerHTML = content
         codeArea.classList.add(`lang-${lang}`)
         if(lang){

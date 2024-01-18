@@ -264,7 +264,7 @@ e.smithing(output, input1, input2)                             // 锻造台
             <p>上面使用的是普通的函数，这适用于大多数配方，你也可以在函数中添加更多的处理逻辑，这样你就能直接在参数里面用<code>'2x minecraft:apple'</code>了。</p>
             <p>下面介绍另一种函数：构造函数。</p>
             <aq-code language="js" display-language="JavaScript">
-    function draconicFusionCrafting(result, catalyst){
+    function DraconicFusionCrafting(result, catalyst){
         // 使用了 this 之后，这个函数就成为了一个构造函数，相当于一个类，不过 class 在 KubeJS 中不可用。
         this.type = 'draconicevolution:fusion_crafting'
         this.result = result
@@ -275,7 +275,7 @@ e.smithing(output, input1, input2)                             // 锻造台
     }
 
     // 通过原型（prototype）为构造函数添加方法
-    draconicFusionCrafting.prototype = {
+    DraconicFusionCrafting.prototype = {
         // 下面是一个 JSDocument 注释，说明了函数使用的参数的类型，这样你在写代码的时候编辑器就能提示你应该填什么类型的参数了
         /**
          * @param {number} energy
@@ -303,7 +303,7 @@ e.smithing(output, input1, input2)                             // 锻造台
     // 用法：
     e.custom(
         // 不要漏掉 new 关键字
-        new draconicFusionCrafting(
+        new DraconicFusionCrafting(
             Item.of('productivebees:spawn_egg_configurable_bee', '{EntityTag:{type:"productivebees:chaos"}}').toJson(),
             Item.of('productivebees:spawn_egg_configurable_bee', '{EntityTag:{type:"productivebees:awakened"}}').toJson()
         )

@@ -65,34 +65,6 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-/**
- *  Fetch something.
- *  @param {HTMLElement} target 
- *  @param {URL | RequestInfo} url 
- *  @param {string | undefined} type 
- *  @param {RequestInit | undefined} init 
- */
-let fetchSomething = (target, url, type, init = {method: 'GET'}) => {
-    fetch(url, init).then(response => {
-        switch(type){
-            case 'text':
-            default :
-                response.text().then(text => target.innerHTML = text); break;
-            case 'image': response.blob().then(res => {let objUrl = URL.createObjectURL(res); target.src = objUrl}); break;
-        }
-    })
-}
-
-/**
- *  Fetch something and returns, but may slower idk.
- *  @param {string | URL} url 
- *  @returns {Promise<any>}
- */
-let betterFetch = async (url) => {
-    let res = await fetch(url)
-    return res.text().then(text => text)
-} 
-
 Array.prototype.getRandom = function() {
     return this[getRandomInt(0, this.length)]
 }
