@@ -66,6 +66,10 @@ function updateTimer() {
     }
 }
 
+function checkTime(num){
+    return num < 10 ? '0' + num : num
+}
+
 // addEventListeners
 timerHourInput.addEventListener(('change', 'input'), () => {
     timerHourInput.value = antiNegativeNum(timerHourInput.value)

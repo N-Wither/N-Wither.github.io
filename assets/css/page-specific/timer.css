@@ -3,9 +3,15 @@
     width: 100%;
     height: 300px;
     font-size: 200px;
-    justify-content: center;
-    align-items: center;
     font-family: 'Chakra Petch', monospace;
+}
+
+#timer-hr {
+    margin-left: auto;
+}
+
+#timer-sc {
+    margin-right: auto;
 }
 
 .control {

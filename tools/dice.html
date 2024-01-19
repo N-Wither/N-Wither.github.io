@@ -1,139 +1,142 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" data-version="3">
 <head>
     <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://n-wither.github.io/assets/css/icons.css">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://N-Wither.github.io/assets/css/main-1.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>Template</title>
-    <script src="https://n-wither.github.io/assets/js/utils.js" defer></script>
-    <script src="../assets/js/page-specific/dice.js" defer></script>
-    <link rel="stylesheet" href="../assets/css/page-specific/dice.css">
-    <script>
-        let title = 'Dice'
-        document.title = title;
-        let setElements = () => {
-            document.getElementById('category').innerHTML = 'Tools';
-            document.getElementById('page-title').innerHTML = title;
-        }
+    <title>Dice - Tools</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
 
-        function init(){
-            startTime();
-            hello();
-            randomQuote();
-            setElements();
-        }
-    </script>
+    <script src="/assets/js/page-specific/dice.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/page-specific/dice.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
 </head>
-<body onload="init()">
-    <div class="navigate" id="navigate">
-        <a href="#" style="line-height: unset; height: 50px;">📂<span style="font-size: larger; font-weight: bolder;" id="category">Edit This</span></a>
-        <a href="https://n-wither.github.io">🏠<span>Home</span></a>
-        <a href="https://n-wither.github.io/writings/index.html">📚<span>Articles</span></a>
-        <a href="https://n-wither.github.io/tools/tools.html">🔧<span>Tools</span></a>
-        <a href="https://n-wither.github.io/misc/web-playground.html">🧩<span>Misc</span></a>
-    </div>
-    <div class="toolbox" id="toolbox">
-        <div class="toolbox-grip">|||</div>
-        <div id="clock">clock</div>
-    </div>
-    <div class="content">
-        <div>
-            <h1 id="page-title">Title</h1>
-            <hr/>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
         </div>
-        <div class="mainText">
-            <div class="dices">
-                <div class="dice-select">
-                    <label for="dice-1">Dice #1</label>
-                    <select id="dice-1">
-                        <option value="none">None</option>
-                        <option value="4">D4</option>
-                        <option value="6" selected>D6</option>
-                        <option value="8">D8</option>
-                        <option value="10">D10</option>
-                        <option value="12">D12</option>
-                        <option value="20">D20</option>
-                    </select>
-                </div>
-                <div class="dice-select">
-                    <label for="dice-2">Dice #2</label>
-                    <select id="dice-2">
-                        <option value="none">None</option>
-                        <option value="4">D4</option>
-                        <option value="6" selected>D6</option>
-                        <option value="8">D8</option>
-                        <option value="10">D10</option>
-                        <option value="12">D12</option>
-                        <option value="20">D20</option>
-                    </select>
-                </div>
-                <div class="dice-select">
-                    <label for="dice-3">Dice #3</label>
-                    <select id="dice-3">
-                        <option value="none">None</option>
-                        <option value="4">D4</option>
-                        <option value="6" selected>D6</option>
-                        <option value="8">D8</option>
-                        <option value="10">D10</option>
-                        <option value="12">D12</option>
-                        <option value="20">D20</option>
-                    </select>
-                </div>
-                <div class="dice-select">
-                    <label for="dice-4">Dice #4</label>
-                    <select id="dice-4">
-                        <option value="none">None</option>
-                        <option value="4">D4</option>
-                        <option value="6" selected>D6</option>
-                        <option value="8">D8</option>
-                        <option value="10">D10</option>
-                        <option value="12">D12</option>
-                        <option value="20">D20</option>
-                    </select>
-                </div>
-                <div class="dice-display" id="dice-disp-1">
-                    <div id="dice-number-1"></div>
-                    <div id="dice-label-1" class="dice-label"></div>
-                </div>
-                <div class="dice-display" id="dice-disp-2">
-                    <div id="dice-number-2"></div>
-                    <div id="dice-label-2" class="dice-label"></div>
-                </div>
-                <div class="dice-display" id="dice-disp-3">
-                    <div id="dice-number-3"></div>
-                    <div id="dice-label-3" class="dice-label"></div>
-                </div>
-                <div class="dice-display" id="dice-disp-4">
-                    <div id="dice-number-4"></div>
-                    <div id="dice-label-4" class="dice-label"></div>
-                </div>
-                <div class="dice-roll">
-                    <button class="dice-roll" id="dice-roll-1" onclick="rollDice(1)">Roll!</button>
-                </div>
-                <div class="dice-roll">
-                    <button class="dice-roll" id="dice-roll-2" onclick="rollDice(2)">Roll!</button>
-                </div>
-                <div class="dice-roll">
-                    <button class="dice-roll" id="dice-roll-3" onclick="rollDice(3)">Roll!</button>
-                </div>
-                <div class="dice-roll">
-                    <button class="dice-roll" id="dice-roll-4" onclick="rollDice(4)">Roll!</button>
-                </div>
-                <div class="dice-roll-all">
-                    <button class="dice-roll" id="dice-roll-all">Roll All!</button>
-                </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">
+            Tools
+        </div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
             </div>
         </div>
-        <div id="footer" style="clear:both;text-align:center;">
-            <hr/>
-            <span id="randomQuote">Random Quote</span>
-            <br>
-            Powered by <a href="https://pages.github.com/" >Github Pages</a>.
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
         </div>
     </div>
+    <div class="page-content">
+        <h1 class="page-title">Dice</h1>
+        <hr>
+        <div class="dices">
+            <div class="dice-select">
+                <label for="dice-1">Dice #1</label>
+                <select id="dice-1">
+                    <option value="none">None</option>
+                    <option value="4">D4</option>
+                    <option value="6" selected>D6</option>
+                    <option value="8">D8</option>
+                    <option value="10">D10</option>
+                    <option value="12">D12</option>
+                    <option value="20">D20</option>
+                </select>
+            </div>
+            <div class="dice-select">
+                <label for="dice-2">Dice #2</label>
+                <select id="dice-2">
+                    <option value="none">None</option>
+                    <option value="4">D4</option>
+                    <option value="6" selected>D6</option>
+                    <option value="8">D8</option>
+                    <option value="10">D10</option>
+                    <option value="12">D12</option>
+                    <option value="20">D20</option>
+                </select>
+            </div>
+            <div class="dice-select">
+                <label for="dice-3">Dice #3</label>
+                <select id="dice-3">
+                    <option value="none">None</option>
+                    <option value="4">D4</option>
+                    <option value="6" selected>D6</option>
+                    <option value="8">D8</option>
+                    <option value="10">D10</option>
+                    <option value="12">D12</option>
+                    <option value="20">D20</option>
+                </select>
+            </div>
+            <div class="dice-select">
+                <label for="dice-4">Dice #4</label>
+                <select id="dice-4">
+                    <option value="none">None</option>
+                    <option value="4">D4</option>
+                    <option value="6" selected>D6</option>
+                    <option value="8">D8</option>
+                    <option value="10">D10</option>
+                    <option value="12">D12</option>
+                    <option value="20">D20</option>
+                </select>
+            </div>
+            <div class="dice-display" id="dice-disp-1">
+                <div id="dice-number-1"></div>
+                <div id="dice-label-1" class="dice-label"></div>
+            </div>
+            <div class="dice-display" id="dice-disp-2">
+                <div id="dice-number-2"></div>
+                <div id="dice-label-2" class="dice-label"></div>
+            </div>
+            <div class="dice-display" id="dice-disp-3">
+                <div id="dice-number-3"></div>
+                <div id="dice-label-3" class="dice-label"></div>
+            </div>
+            <div class="dice-display" id="dice-disp-4">
+                <div id="dice-number-4"></div>
+                <div id="dice-label-4" class="dice-label"></div>
+            </div>
+            <div class="dice-roll">
+                <button class="dice-roll" id="dice-roll-1" onclick="rollDice(1)">Roll!</button>
+            </div>
+            <div class="dice-roll">
+                <button class="dice-roll" id="dice-roll-2" onclick="rollDice(2)">Roll!</button>
+            </div>
+            <div class="dice-roll">
+                <button class="dice-roll" id="dice-roll-3" onclick="rollDice(3)">Roll!</button>
+            </div>
+            <div class="dice-roll">
+                <button class="dice-roll" id="dice-roll-4" onclick="rollDice(4)">Roll!</button>
+            </div>
+            <div class="dice-roll-all">
+                <button class="dice-roll" id="dice-roll-all">Roll All!</button>
+            </div>
+        </div>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
 </body>
 </html>

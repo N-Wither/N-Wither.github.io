@@ -1,11 +1,9 @@
 /* Dices */
-body {
-    font-family: 'Metropolis', 'Montserrat', 'Noto Sans SC', 'Sans Serif', 'icons';
-}
 .dices {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto auto auto;
+    font-family: 'Metropolis', 'Montserrat', 'Noto Sans SC', 'Sans Serif', 'icons';
 }
 .dices div {
     background-color: #180a02;
@@ -40,18 +38,18 @@ body {
 .dice-label {
     font-size: 86px;
 }
-button.dice-roll {
+.dices button.dice-roll {
     background-color: #180a02;
-    border-color: goldenrod;
+    border: 2px solid goldenrod;
     color: white;
     font-family: inherit;
     padding: 6px;
     width: 100%;
 }
-button:active.dice-roll {
+.dices button:active.dice-roll {
     background-color: goldenrod;
 }
-button:disabled.dice-roll {
+.dices button:disabled.dice-roll {
     background-color: #221b18;
     color: gray;
 }

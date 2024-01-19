@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" data-version="3">
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,21 +11,19 @@
     <title>N Wither's Works</title>
     <script src="/assets/js/utils.js"></script>
     <!-- components -->
-    <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
-    <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
 </head>
 <body>
     <div class="page-header">
         <div class="menu-button">
-            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
         </div>
         <div class="page-icon"></div>
         <div class="page-category flex-center padding-all-small">
             WitherWorks
         </div>
-        <div class="flex-center page-title">Title</div>
         <div class="menu all-menu"></div>
         <div class="right flex-center">
             <div class="menu-button">
@@ -37,7 +35,7 @@
                 <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
             </div>
             <div class="menu-button toolbox-button">
-                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
             </div>
         </div>
         
@@ -87,11 +85,12 @@
         <hr>
         <span id="randomQuote" onload="randomQuote()">Random Quote</span>
         <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
     </div>
     <script>
         startTime()
         randomQuote()
+        aof()
     </script>
 </body>
 </html>
