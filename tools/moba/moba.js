@@ -58,7 +58,6 @@ const MobaScoreboardApp = {
                 lcs: {teamDefinedScoreColor: true},
                 valorant: {},
                 worlds: {},
-                demacia: {}
             }
         }
     },

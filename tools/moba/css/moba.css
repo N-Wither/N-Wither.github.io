@@ -446,3 +446,9 @@ embed {
 .score-area.teamBlue-score {
     flex-direction: row-reverse;
 }
+
+fetch-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
