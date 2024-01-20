@@ -9,7 +9,11 @@ const MobaScoreboardApp = {
                 leagueLogo: 'https://n-wither.github.io/assets/imgs/lol/worlds.png',
                 logoFilter: 'filter-white',
                 goldDiff: -1.1,
-                theme: 'dark'
+                theme: 'dark',
+                goldDiffOverTime: {
+                    x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                    y: [0, 0.2, 0.4, 0.9, 1.5, 1.9, 2.2, 1.2, 0.6, -0.4]
+                }
             },
             teamBlue: {
                 name: 'T1',
@@ -65,6 +69,7 @@ const MobaScoreboardApp = {
     methods: {
         getGoldDiff() {
             this.global.goldDiff = (this.teamBlue.gold - this.teamRed.gold).toFixed(1)
+            return this.global.goldDiff
         },
         addGold(team, amount) {
             let gold = parseFloat(this[team].gold)
@@ -229,6 +234,7 @@ const MobaScoreboardApp = {
         clearStat(){
             this.clearGameTimer()
             this.global.goldDiff = 0
+            this.global.goldDiffOverTime = {x: [0], y: [0]}
             let teams = ['teamBlue', 'teamRed']
             teams.forEach(team => {
                 this[team].kills = 0
@@ -256,6 +262,47 @@ const MobaScoreboardApp = {
             }
             this.setScore('teamBlue')
             this.setScore('teamRed')
+        },
+        plot(){
+            let trace = {
+                x: this.global.goldDiffOverTime.x,
+                y: this.global.goldDiffOverTime.y,
+                mode: 'lines',
+                fill: 'tozeroy',
+                name: ''
+            }
+
+            let layout = {
+                title: 'Gold Difference Over Time',
+                font: {
+                    family: 'Metropolis, sans-serif',
+                    color: '#f3f3f3'
+                },
+                plot_bgcolor: '#333333',
+                paper_bgcolor: '#333333',
+                margin: {
+                    b: 32,
+                    l: 32,
+                    r: 32,
+                    t: 36
+                },
+                colorway: ['#48d1cc'],
+                yaxis: {
+                    title: 'GD (k)'
+                },
+                xaxis: {
+                    title: 'Time (min)'
+                }
+            }
+
+            Plotly.newPlot('ecochart', [trace], layout)
+        },
+        getCurrentTime(){
+            return this.global.time / 60
+        },
+        pushGoldData(){
+            this.global.goldDiffOverTime.y.push(this.getGoldDiff())
+            this.global.goldDiffOverTime.x.push(this.getCurrentTime())
         }
     },
 

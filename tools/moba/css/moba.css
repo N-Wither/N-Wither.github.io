@@ -452,3 +452,16 @@ fetch-svg {
     align-items: center;
     justify-content: center;
 }
+
+.aftergame {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#ecochart {
+    width: 450px;
+    height: 236px;
+    background-color: #333333;
+    margin: auto;
+}
