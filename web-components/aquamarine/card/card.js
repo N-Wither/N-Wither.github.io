@@ -1,7 +1,7 @@
-import { parseCss } from '/web-components/aquamarine/_lib/parse-css.js'
+import css from '/web-components/aquamarine/lib/parse-css.js'
 
 const style = await (await fetch('/web-components/aquamarine/card/card.css')).text()
-const styleSheet = parseCss(style)
+const styleSheet = css(style)
 
 const template = 
 `
@@ -17,7 +17,7 @@ const template =
 </div>
 `
 
-document.adoptedStyleSheets.push(parseCss(
+document.adoptedStyleSheets.push(css(
     `aq-card img {
         width: 100%;
     }`
