@@ -18,6 +18,7 @@
   --color-info: var(--blue-400);
   --color-warn: var(--orange-400);
   --color-danger: var(--red-400);
+  --color-safe: var(--green-500);
   --background-color: #fcfcfc;
   --background-color-darken: #ededed;
   --text-color: #0F0F0F;
@@ -99,6 +100,10 @@ a[target=_blank]::after {
   content: "\e89e";
   position: relative;
   top: 0.1rem;
+}
+
+a.no-deco[target=_blank]::after {
+  display: none;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -216,6 +221,31 @@ button {
 
 button:hover, button:focus {
   background-color: var(--button-bg-focus);
+}
+
+.btn-primary {
+  min-width: 8rem;
+  min-height: 2rem;
+  transition: var(--transition-time-common);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+  background-color: var(--theme-color-500);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--theme-color-400);
+}
+
+.btn-regular {
+  min-width: 8rem;
+  min-height: 2rem;
+  transition: var(--transition-time-common);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
 }
 
 hr {
@@ -402,11 +432,12 @@ ul.file-list li:last-child::before {
   color: var(--text-color);
 }
 .page-header .page-icon {
-  background: var(--theme-color);
+  display: flex;
 }
 .page-header .page-icon img {
-  width: 80%;
-  height: 80%;
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
 }
 .page-header .page-category {
   font-size: 1.4rem;
@@ -550,6 +581,10 @@ ul.file-list li:last-child::before {
   }
 }
 /* Tailwind-like util classes */
+.flex {
+  display: flex;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
@@ -558,6 +593,10 @@ ul.file-list li:last-child::before {
 
 .flex-center.left {
   justify-content: left;
+}
+
+.flex-wrap, .flex.wrap {
+  flex-wrap: wrap;
 }
 
 .padding-all-small {
@@ -588,6 +627,10 @@ ul.file-list li:last-child::before {
 
 .float-right {
   float: right;
+}
+
+.full-width {
+  width: 100%;
 }
 
 /* Animations */

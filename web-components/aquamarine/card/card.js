@@ -1,10 +1,11 @@
+import css from '/web-components/aquamarine/_lib/css.js'
+
 const style = await (await fetch('/web-components/aquamarine/card/card.css')).text()
-const styleSheet = new CSSStyleSheet()
-styleSheet.replaceSync(style)
+const styleSheet = css(style)
 
 const template = 
 `
-<div class='card__base'>
+<div class='card__base' part='card-base'>
     <div part='card-image-container' class='card__image-container'>
         <slot name='image' part='image' class='card__image'></slot>
     </div>
@@ -14,8 +15,13 @@ const template =
         <slot name='footer' part='card-footer' class='card__footer'></slot>
     </div>
 </div>
-
 `
+
+document.adoptedStyleSheets.push(css(
+    `aq-card img {
+        width: 100%;
+    }`
+))
 
 export class AqCard extends HTMLElement {
     constructor(){

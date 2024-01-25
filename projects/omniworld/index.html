@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-version="3">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="./assets/omniworld_icon.png">
+    <title>Omniworld</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script>
+    <script>
+        let pjax
+
+        document.addEventListener('DOMContentLoaded', () => {
+            pjax = new Pjax({
+                elements: [".pjax"],
+                selectors: [".page-content", "title"],
+                cacheBust: true
+            })
+        })
+    </script>
+    <style>
+        aq-card{
+            margin: 0.2em 0;
+        }
+        aq-card::part(card-base){
+            max-width: 100%;
+            min-width: 240px;
+        }
+        aq-card img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon">
+            <img src="./assets/omniworld_icon.png" alt="Omniworld Icon">
+        </div>
+        <div class="page-category flex-center padding-all-small">
+            Omniworld
+        </div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <h1 class="page-title">OMNIWORLD</h1>
+        <hr>
+        <p>厌倦了那些只为折磨玩家的所谓“深度魔改”？想找个休闲整合包又觉得内容不够多？在不折磨不成活的困难包和千篇一律的休闲包以及粗制滥造的堆砌包之间，我成功地开辟了一条从未有人在国内走过的道路<a href="javascript:void 0;" class="need-tooltip"><sup>1</sup></a>：高质量水槽包<a href="javascript:void 0;" class="need-tooltip"><sup>2</sup></a>！</p>
+        <p>深受 <a href="https://www.curseforge.com/members/atmteam" target="_blank">All The Mods 系列</a>以及<a href="https://www.curseforge.com/minecraft/modpacks/enigmatica9" target="_blank" rel="noopener noreferrer"> Enigmatica 系列</a>的影响，Omniworld 志在打造一个物质极大丰富且充分保障玩家自由发展的世界，无论你是哪种玩家，我相信这个系列的整合包中都有足够的内容供你体验！</p>
+        <h2>支持的版本！</h2>
+        <div class="flex-center flex-wrap" style="gap: 1em">
+            <aq-card>
+                <h3 slot="header">1.20.1</h3>
+                <div>
+                    <p>还在开发，不太稳定，推荐想要尝鲜的玩家。</p>
+                    <p>
+                        <b>状态：</b>
+                        <span style="color: var(--color-safe);">更新中</span>
+                    </p>
+                    <p>
+                        <b>最新版本：</b>
+                        <span>3.4.0 Cornflower</span>
+                    </p>
+                    <div class="flex-center flex-wrap" style="gap: 0.2em">
+                        <a href="owr.html" class="pjax"><button class="btn-regular">查看详情</button></a>
+                        <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta#list/path=%2FOmniworld%20R%2F1.20.1" target="_blank" class="no-deco"><button class="btn-primary">立即下载</button></a>
+                    </div>
+                </div>
+            </aq-card>
+            <aq-card>
+                <h3 slot="header">1.18.2</h3>
+                <div>
+                    <p>最成熟、最稳定的版本，推荐不想频繁更新的玩家。</p>
+                    <p>
+                        <b>状态：</b>
+                        <span style="color: var(--color-danger);">停止更新</span>
+                    </p>
+                    <p>
+                        <b>最新版本：</b>
+                        <span>2.10.0 Opal</span>
+                    </p>
+                    <div class="flex-center flex-wrap" style="gap: 0.2em">
+                        <a href="ow2.html" class="pjax" style="display: none;"><button class="btn-regular">查看详情</button></a>
+                        <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta#list/path=%2FOmniworld%20R%2F1.18.2" target="_blank" class="no-deco"><button class="btn-primary">立即下载</button></a>
+                    </div>
+                </div>
+            </aq-card>
+            <aq-card>
+                <h3 slot="header">1.16.5</h3>
+                <div>
+                    <p>不再推荐玩这个版本。</p>
+                    <p>
+                        <b>状态：</b>
+                        <span style="color: var(--color-danger);">停止更新</span>
+                    </p>
+                    <p>
+                        <b>最新版本：</b>
+                        <span>1.9.3</span>
+                    </p>
+                    <div class="flex-center flex-wrap" style="gap: 0.2em">
+                        <a href="ow.html" class="pjax" style="display: none;"><button class="btn-regular">查看详情</button></a>
+                        <a href="https://pan.baidu.com/s/1vLy-sjXb4W6r1zGzGnmLtQ?pwd=4tge" target="_blank" class="no-deco"><button class="btn-regular">立即下载</button></a>
+                    </div>
+                </div>
+            </aq-card>
+        </div>
+        <p>不同版本的内容有些许不同。</p>
+        <p>如果你喜欢这个作品，请考虑<a href="https://afdian.net/a/NWither" target="_blank" rel="noopener noreferrer">赞助</a>，赞助者可以在游戏中留下你独特的痕迹！</p>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
+    </div>
+    <div style="display:none">
+        <div class="tooltip-content" id="tooltip-content-1">但是在国外早就不少了</div>
+        <div class="tooltip-content" id="tooltip-content-2">自创名词</div>
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
+</body>
+</html>

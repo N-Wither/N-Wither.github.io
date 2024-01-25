@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-version="3">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="./assets/omniworld_icon.png">
+    <title>Omniworld R</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script>
+    <script>
+        let pjax
+
+        document.addEventListener('DOMContentLoaded', () => {
+            pjax = new Pjax({
+                elements: [".pjax"],
+                selectors: [".page-content", "title"],
+                cacheBust: true
+            })
+        })
+    </script>
+    <style>
+        aq-card{
+            margin: 0.2em 0;
+        }
+        aq-card::part(card-base){
+            max-width: 100%;
+            min-width: 240px;
+        }
+        aq-card img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon">
+            <img src="./assets/omniworld_icon.png" alt="Omniworld Icon">
+        </div>
+        <div class="page-category flex-center padding-all-small">
+            Omniworld
+        </div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <nav><a href="./index.html" class="pjax">Omniworld</a> / <span>Omniworld R</span></nav>
+        <h1 class="page-title">Omniworld Renewed</h1>
+        <hr>
+        <p>Omniworld 系列最新力作！</p>
+        <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta#list/path=%2FOmniworld%20R%2F1.20.1" target="_blank" class="no-deco"><button class="btn-primary full-width" style="font-size: larger;">立即下载</button></a>
+        <h2>亮点</h2>
+        <div class="flex wrap" style="gap: 0.2rem;">
+            <div style="flex: 30%;">
+                <aq-card>
+                    <img src="./assets/sniff.png" alt="Sniffer" slot="image">
+                    <h3 slot="header">时代先驱！国内最早跟进 1.20 的大型整合包</h3>
+                    <p>Omniworld 永远追随 MC 更新换代的脚步，哪怕是有着一大堆的模组要跟进。</p>
+                    <p style="color: var(--text-color-secondary);">如果你发现了更早的，告诉我，然后我删掉这一段。</p>
+                </aq-card>
+                <aq-card>
+                    <img src="./assets/aether.png" alt="Aether" slot="image">
+                    <h3 slot="header">我回来了！经典模组回归 1.20</h3>
+                    <p>Aether 模组在一众经典模组中打赢了复活赛来到了 1.20，现在骗过无数萌新的荧石传送门现在可在 Omniworld R 中成功激活。此外 Aether 的纹理也得到了更新，以更好地契合现在的 Minecraft 纹理。</p>
+                    <p>除了 Aether 之外，Ender IO 也同样在 1.20 复活，如果你在为机器的面不够用或者线缆管道太乱而烦恼，现在你可以在一个方块的空间内放下四种管道了！</p>
+                    <p style="color: var(--text-color-secondary);">免责声明：Ender IO 目前不是完全体，如果你发现此模组的内容不完整，本人不承担任何责任。</p>
+                </aq-card>
+            </div>
+            <div style="flex: 30%;">
+                <aq-card>
+                    <img src="./assets/gt.png" alt="GregTech" slot="image">
+                    <h3 slot="header">格雷科技！史上最简单的格雷整合包</h3>
+                    <p>Omniworld R 首次引进了 GregTech 模组，此模组一直以来因其复杂度而出名，但是在 Omniworld R 中，我为此模组几乎所有的材料都制作了 Mystical Agriculture 的种子和 Productive Bees 的蜜蜂，你不需要为材料制作而等待，把你的时间用在刀刃上！</p>
+                </aq-card>
+                <aq-card>
+                    <img src="./assets/betterend.png" alt="BetterEnd" slot="image">
+                    <h3 slot="header">其人之道！在 Forge 使用 Fabric 模组</h3>
+                    <p>通过 Sinytra Connector，身为 Forge 整合包的 Omniworld R 加载了两个知名的 Fabric 模组：Better Nether 和 BetterEnd！自从 BetterEnd Forge 停止在了 1.16，Forge 玩家再也不能欣赏到美丽神秘的末地景色，现在我们又能骄傲地挺起胸膛，并向 Fabric 玩家炫耀 Forge 的模组内容之丰富了。</p>
+                </aq-card>
+            </div>
+            <div style="flex: 30%;">
+                <aq-card>
+                    <img src="./assets/ae2.png" alt="AE2" slot="image">
+                    <h3 slot="header">AE 回归！而且变得更好用了</h3>
+                    <p>现在 AE2 重新回归了 Omniworld，而且它现在没有了频道限制，AE Additions 模组也添加了不限种类的存储磁盘，此外 AE 和 RS 的处理器和成型/破坏核心可以互相通用！无论你是哪一边，现在都能满足！</p>
+                </aq-card>
+                <aq-card>
+                    <img src="./assets/ee.png" alt="Emendatus Enigmatica" slot="image">
+                    <h3 slot="header">遥遥领先！自主研发的矿物统一机制</h3>
+                    <p>1.16.5 的 Omniworld 中，矿物统一基于 Emendatus Enigmatica，而这个模组只有 1.16 和 1.19 版本，完美地避开了 1.18 和 1.20，给 Omniworld 系列带来了严重的卡脖子问题。</p>
+                    <p>在学习了更多 JavaScript 知识以及认识到必须自主研发之后，我发明了 Emendatus Enigmatica JS，使用 JS 实现了 Emendatus Enigmatica 的大部分功能，而且扩展性非常强！</p>
+                </aq-card>
+            </div>
+        </div>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
+    </div>
+    <div style="display:none">
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
+</body>
+</html>

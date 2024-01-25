@@ -76,6 +76,16 @@
     --selection-bg: color-mix(in srgb, var(--darkened-theme-color) 60%, transparent);
 }
 
+@mixin btn {
+    min-width: 8rem;
+    min-height: 2rem;
+    transition: var(--transition-time-common);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.2rem;
+}
+
 $general-transition-time: 0.3s;
 
 /* General */
@@ -96,6 +106,7 @@ $general-transition-time: 0.3s;
     --color-info: var(--blue-400);
     --color-warn: var(--orange-400);
     --color-danger: var(--red-400);
+    --color-safe: var(--green-500);
 
     @include light-scheme-palette();
 
@@ -138,6 +149,10 @@ a[target = "_blank"]::after{
     content: '\e89e';
     position: relative;
     top: 0.1rem
+}
+
+a.no-deco[target="_blank"]::after{
+    display: none;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -256,6 +271,18 @@ button {
 }
 button:hover, button:focus {
     background-color: var(--button-bg-focus);
+}
+
+.btn-primary {
+    @include btn();
+    background-color: var(--theme-color-500);
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--theme-color-400);
+}
+
+.btn-regular {
+    @include btn();
 }
 
 hr {
@@ -469,11 +496,12 @@ ul {
     }
 
     .page-icon {
-        background: var(--theme-color);
+        display: flex;
 
         img {
-            width: 80%;
-            height: 80%;
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
         }
     }
 
@@ -647,6 +675,10 @@ ul {
 
 /* Tailwind-like util classes */
 
+.flex {
+    display: flex;
+}
+
 .flex-center {
     display: flex;
     justify-content: center;
@@ -655,6 +687,10 @@ ul {
 
 .flex-center.left {
     justify-content: left;
+}
+
+.flex-wrap, .flex.wrap {
+    flex-wrap: wrap;
 }
 
 .padding-all-small {
@@ -685,6 +721,10 @@ ul {
 
 .float-right {
     float: right;
+}
+
+.full-width {
+    width: 100%;
 }
 
 /* Animations */
