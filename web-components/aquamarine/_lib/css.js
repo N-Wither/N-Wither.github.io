@@ -3,7 +3,7 @@
  * @param {string} css 
  * @returns {CSSStyleSheet}
  */
-export default function css(css){
+export function css(css){
     let s = new CSSStyleSheet()
     s.replaceSync(css)
     return s

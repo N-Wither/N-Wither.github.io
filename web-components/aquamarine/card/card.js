@@ -1,4 +1,4 @@
-import css from '/web-components/aquamarine/_lib/css.js'
+import { css } from '/web-components/aquamarine/_lib/css.js'
 
 const style = await (await fetch('/web-components/aquamarine/card/card.css')).text()
 const styleSheet = css(style)
