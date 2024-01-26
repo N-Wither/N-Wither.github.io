@@ -78,7 +78,6 @@
 
 ::selection {
   background-color: var(--selection-bg);
-  color: var(--text-color-select);
 }
 
 body {
