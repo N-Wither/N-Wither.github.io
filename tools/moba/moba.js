@@ -11,8 +11,8 @@ const MobaScoreboardApp = {
                 goldDiff: -1.1,
                 theme: 'dark',
                 goldDiffOverTime: {
-                    x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-                    y: [0, 0.2, 0.4, 0.9, 1.5, 1.9, 2.2, 1.2, 0.6, -0.4]
+                    x: [0],
+                    y: [0]
                 }
             },
             teamBlue: {
@@ -264,6 +264,8 @@ const MobaScoreboardApp = {
             this.setScore('teamRed')
         },
         plot(){
+            this.pushGoldData()
+
             let trace = {
                 x: this.global.goldDiffOverTime.x,
                 y: this.global.goldDiffOverTime.y,
@@ -272,14 +274,17 @@ const MobaScoreboardApp = {
                 name: ''
             }
 
+            let scoreboard = document.querySelector('.moba-scoreboard-mobile')
+            let bgColor = this.rgbToHex(getComputedStyle(scoreboard).backgroundColor)
+
             let layout = {
                 title: 'Gold Difference Over Time',
                 font: {
-                    family: 'Metropolis, sans-serif',
-                    color: '#f3f3f3'
+                    family: getComputedStyle(scoreboard).fontFamily + ', Metropolis, sans-serif',
+                    color: this.rgbToHex(getComputedStyle(scoreboard).color)
                 },
-                plot_bgcolor: '#333333',
-                paper_bgcolor: '#333333',
+                plot_bgcolor: bgColor,
+                paper_bgcolor: bgColor,
                 margin: {
                     b: 32,
                     l: 32,
@@ -287,9 +292,6 @@ const MobaScoreboardApp = {
                     t: 36
                 },
                 colorway: ['#48d1cc'],
-                yaxis: {
-                    title: 'GD (k)'
-                },
                 xaxis: {
                     title: 'Time (min)'
                 }
@@ -303,6 +305,11 @@ const MobaScoreboardApp = {
         pushGoldData(){
             this.global.goldDiffOverTime.y.push(this.getGoldDiff())
             this.global.goldDiffOverTime.x.push(this.getCurrentTime())
+        },
+        rgbToHex(c){
+            let color = '#'
+            c.replace('rgb(', '').replace(')', '').split(', ').forEach(num => color += Number(num).toString(16).padStart(2, '0'))
+            return color
         }
     },
 

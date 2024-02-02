@@ -132,6 +132,7 @@
   --red-bg: transparent;
   --sep-line-color: #38383849;
   background-size: cover;
+  background-color: #000000;
   font-family: "Inter", "Metropolis", "Noto Sans SC", sans-serif, "icons";
 }
 .moba-scoreboard[theme=worlds] .team-name-text, .moba-scoreboard-mobile[theme=worlds] .team-name-text {

@@ -455,13 +455,17 @@ fetch-svg {
 
 .aftergame {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column;
 }
 
 #ecochart {
+    /* border-top: solid var(--sep-line-color) 2px; */
     width: 450px;
-    height: 236px;
-    background-color: #333333;
+    height: 160px;
+    background: var(--main-bg);
     margin: auto;
+}
+
+.plot-container {
+    background: var(--main-bg);
 }

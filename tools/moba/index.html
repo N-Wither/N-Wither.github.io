@@ -159,7 +159,7 @@
                 <div>
                     <span>
                         <label for="scoreboard-theme">Theme</label>
-                        <select id="scoreboard-theme" @change="setTheme(), setScore('teamBlue'), setScore('teamRed')">
+                        <select id="scoreboard-theme" @change="setTheme(), setScore('teamBlue'), setScore('teamRed'), plot()">
                             <option value="dark">Default Dark</option>
                             <option value="light">Default Light</option>
                             <option value="lpl">LPL</option>
@@ -251,7 +251,7 @@
                         <button @click="addGold('teamBlue', -0.1)">-0.1</button>
                         <button @click="addGold('teamBlue', -1.0)">-1.0</button>
                     </span>
-                    <button @click="pushGoldData()">Record Gold Diff</button>
+                    <button @click="plot()">Record Gold Diff</button>
                 </div>
                 <div class="red-side-stat">
                     <span>
@@ -265,7 +265,7 @@
                         <button @click="addGold('teamRed', -0.1)">-0.1</button>
                         <button @click="addGold('teamRed', -1.0)">-1.0</button>
                     </span>
-                    <button @click="pushGoldData()">Record Gold Diff</button>
+                    <button @click="plot()">Record Gold Diff</button>
                 </div>
                 <div class="blue-side-stat">
                     <label for="moba-blue-tower">Turrets</label>
@@ -348,7 +348,7 @@
                 </div>
             </div>
             <br>
-            <button @click="plot()">Plot Gold Diff</button>
+            <h2>Aftergame Stats</h2>
             <div class="aftergame">
                 <div class="moba-scoreboard-mobile main-bg">
                     <div class="tournament-name">
