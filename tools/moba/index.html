@@ -268,6 +268,30 @@
                     <button @click="plot()">Record Gold Diff</button>
                 </div>
                 <div class="blue-side-stat">
+                    <div>
+                        <label for="moba-blue-grub">Void Grubs</label>
+                        <button @click="addObj('teamBlue', 'voidGrubs', 1)" name="moba-blue-grub">+</button>
+                        <button @click="addObj('teamBlue', 'voidGrubs', -1)">-</button>
+                    </div>
+                    <div>
+                        <label for="moba-blue-herald">Rift Heralds</label>
+                        <button @click="addObj('teamBlue', 'heralds', 1)" name="moba-blue-herald">+</button>
+                        <button @click="addObj('teamBlue', 'heralds', -1)">-</button>
+                    </div>
+                </div>
+                <div class="red-side-stat">
+                    <div>
+                        <label for="moba-red-grub">Void Grubs</label>
+                        <button @click="addObj('teamRed', 'voidGrubs', 1)" name="moba-red-grub">+</button>
+                        <button @click="addObj('teamRed', 'voidGrubs', -1)">-</button>
+                    </div>
+                    <div>
+                        <label for="moba-red-herald">Rift Heralds</label>
+                        <button @click="addObj('teamRed', 'heralds', 1)" name="moba-red-herald">+</button>
+                        <button @click="addObj('teamRed', 'heralds', -1)">-</button>
+                    </div>
+                </div>
+                <div class="blue-side-stat">
                     <label for="moba-blue-tower">Turrets</label>
                     <input type="number" v-model="teamBlue.towers" id="moba-blue-tower" min="0">
                     <button @click="addTower('teamBlue', 1)">+</button>
@@ -431,6 +455,38 @@
                         </div>
                     </div>
                     <!-- row 6 -->
+                    <div class="void-grub teamBlue left stat-row">
+                        {{ teamBlue.voidGrubs}}
+                        <div class="better left" v-if="teamBlue.voidGrubs > teamRed.voidGrubs">
+                            ◀
+                        </div>
+                    </div>
+                    <div class="icon stat-row">
+                        <span>VG</span>
+                    </div>
+                    <div class="void-grub teamBlue right stat-row">
+                        {{ teamRed.voidGrubs}}
+                        <div class="better right" v-if="teamBlue.voidGrubs < teamRed.voidGrubs">
+                            ▶
+                        </div>
+                    </div>
+                    <!-- row 7 -->
+                    <div class="void-grub teamBlue left stat-row">
+                        {{ teamBlue.heralds}}
+                        <div class="better left" v-if="teamBlue.heralds > teamRed.heralds">
+                            ◀
+                        </div>
+                    </div>
+                    <div class="icon stat-row">
+                        <span>TH</span>
+                    </div>
+                    <div class="void-grub teamBlue right stat-row">
+                        {{ teamRed.heralds}}
+                        <div class="better right" v-if="teamBlue.heralds < teamRed.heralds">
+                            ▶
+                        </div>
+                    </div>
+                    <!-- row 8 -->
                     <div class="row-2 baron buff-container left stat-row">
                         <div class="better left" v-if="teamBlue.baron > teamRed.baron">
                             ◀
@@ -452,7 +508,7 @@
                         </div>
                         <div class="baron buff-progress teamRed-baron-bar right"></div>
                     </div>
-                    <!-- row 7 -->
+                    <!-- row 9 -->
                     <div class="row-2 elder buff-container left stat-row">
                         <div class="better left" v-if="teamBlue.elder > teamRed.elder">
                             ◀

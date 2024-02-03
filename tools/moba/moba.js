@@ -32,7 +32,9 @@ const MobaScoreboardApp = {
                 baronTimer: null,
                 elder: 0,
                 elderTime: 0,
-                elderTimer: null
+                elderTimer: null,
+                voidGrubs: 0,
+                heralds: 0
             },
             teamRed: {
                 name: 'DRX',
@@ -51,7 +53,9 @@ const MobaScoreboardApp = {
                 baronTimer: null,
                 elder: 1,
                 elderTime: 0,
-                elderTimer: null
+                elderTimer: null,
+                voidGrubs: 0,
+                heralds: 0
             },
             themes: {
                 dark: {},
@@ -310,6 +314,9 @@ const MobaScoreboardApp = {
             let color = '#'
             c.replace('rgb(', '').replace(')', '').split(', ').forEach(num => color += Number(num).toString(16).padStart(2, '0'))
             return color
+        },
+        addObj(team, thing, count){
+            this[team][thing] += count
         }
     },
 
