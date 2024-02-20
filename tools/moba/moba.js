@@ -216,23 +216,14 @@ const MobaScoreboardApp = {
             })
         },
         clearAll(){
-            this.clearGameTimer()
+            this.clearStat()
             this.global.leagueLogo = ''
-            this.global.goldDiff = 0
             let teams = ['teamBlue', 'teamRed']
             teams.forEach(team => {
                 this[team].name = ''
                 this[team].pos = ''
                 this[team].logo = ''
                 this[team].score = 0
-                this[team].kills = 0
-                this[team].gold = 2.5
-                this[team].towers = 0
-                this[team].dragons = []
-                this.removeBuff(team, 'baron')
-                this.removeBuff(team, 'elder')
-                this[team].baron = 0
-                this[team].elder = 0
             })
         },
         clearStat(){
@@ -249,6 +240,8 @@ const MobaScoreboardApp = {
                 this.removeBuff(team, 'elder')
                 this[team].baron = 0
                 this[team].elder = 0
+                this[team].voidGrubs = 0
+                this[team].heralds = 0
             })
         },
         swapTeam(){
