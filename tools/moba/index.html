@@ -75,6 +75,7 @@
                         <span class="team-name-text">{{ teamBlue.name }}</span>
                         <span class="team-pos-text teamBlue-pos">{{ teamBlue.pos }}</span>
                     </div>
+                    <div class="void-grub row-1 main-bg"><span class="team-blue-stat blue-color">&#xf8f6;</span>&nbsp;<span>{{ teamBlue.voidGrubs }}</span></div>
                     <div class="towers row-1 main-bg"><span class="team-blue-stat blue-color">♜</span>&nbsp;<span>{{ teamBlue.towers }}</span></div>
                     <div class="gold row-1 main-bg"><span class="team-blue-stat blue-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamBlue.gold).toFixed(1) + 'K' }}</span></div>
                     <div class="kills row-1 main-bg"><span class="team-blue-stat blue-color">🗡</span><span>&nbsp;<span>{{ teamBlue.kills }}</span></span></div>
@@ -82,6 +83,7 @@
                     <div class="kills row-1 main-bg"><span class="team-red-stat red-color">🗡</span><span>&nbsp;<span>{{ teamRed.kills }}</span></span></div>
                     <div class="gold row-1 main-bg"><span class="team-red-stat red-color">&#xf51e;</span>&nbsp;<span>{{ parseFloat(teamRed.gold).toFixed(1) + 'K' }}</span></div>
                     <div class="towers row-1 main-bg"><span class="team-red-stat red-color">♜</span>&nbsp;<span>{{ teamRed.towers }}</span></div>
+                    <div class="void-grub row-1 main-bg"><span class="team-red-stat red-color">&#xf8f6;</span>&nbsp;<span>{{ teamRed.voidGrubs }}</span></div>
                     <div class="team-name row-1 main-bg">
                         <span class="team-name-text">{{ teamRed.name }}</span>
                         <span class="team-pos-text teamRed-pos">{{ teamRed.pos }}</span>
@@ -104,6 +106,9 @@
                             <span v-if="teamBlue.elderTime != 0">&nbsp;{{ timeFormat(teamBlue.elderTime, true) }}</span>
                         </div>
                         <div class="elder buff-progress teamBlue-elder-bar left"></div>
+                    </div>
+                    <div class="row-2 heralds row-2-bg">
+                        <span v-if="teamBlue.heralds > 0">&#xf6db; {{ teamBlue.heralds }}</span>
                     </div>
                     <div class="row-2 baron buff-container row-2-bg">
                         <div class="text">
@@ -133,6 +138,9 @@
                             <span v-if="teamRed.baronTime != 0">&nbsp;{{ timeFormat(teamRed.baronTime, true) }}</span>
                         </div>
                         <div class="baron buff-progress teamRed-baron-bar right"></div>
+                    </div>
+                    <div class="row-2 heralds row-2-bg">
+                        <span v-if="teamRed.heralds > 0">&#xf6db; {{ teamRed.heralds }}</span>
                     </div>
                     <div class="row-2 elder buff-container row-2-bg">
                         <div class="text">
@@ -462,7 +470,7 @@
                         </div>
                     </div>
                     <div class="icon stat-row">
-                        <span>VG</span>
+                        <span>&#xf8f6;</span>
                     </div>
                     <div class="void-grub teamBlue right stat-row">
                         {{ teamRed.voidGrubs}}
@@ -478,7 +486,7 @@
                         </div>
                     </div>
                     <div class="icon stat-row">
-                        <span>RH</span>
+                        <span>&#xf6db;</span>
                     </div>
                     <div class="void-grub teamBlue right stat-row">
                         {{ teamRed.heralds}}

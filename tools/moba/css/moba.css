@@ -36,7 +36,7 @@ select {
 
 .moba-scoreboard .moba-scoreboard__row-1 {
     display: grid;
-    grid-template-columns: 50px 1fr 1fr 1fr 1fr 50px 1fr 1fr 1fr 1fr 50px;
+    grid-template-columns: 50px 1fr 1fr 1fr 1fr 1fr 50px 1fr 1fr 1fr 1fr 1fr 50px;
     grid-template-rows: 50px;
     width: 100%;
     background: var(--main-bg);
@@ -44,7 +44,7 @@ select {
 
 .moba-scoreboard .moba-scoreboard__row-2 {
     display: grid;
-    grid-template-columns: 50px 1fr 1fr 1fr 1fr 50px 1fr 1fr 1fr 1fr 50px;
+    grid-template-columns: 50px 1fr 1fr 1fr 1fr 1fr 50px 1fr 1fr 1fr 1fr 1fr 50px;
     grid-template-rows: 18px;
     width: 100%;
     background: var(--row2-bg);
@@ -84,11 +84,7 @@ select {
     font-weight: normal;
 }
 
-.moba-scoreboard .towers :nth-child(1){
-    font-size: 24px;
-}
-
-.moba-scoreboard .gold :nth-child(1){
+.moba-scoreboard :is(.towers, .gold, .void-grub) :nth-child(1){
     font-size: 24px;
 }
 
@@ -114,7 +110,7 @@ select {
 }
 
 .moba-scoreboard .score-area {
-    background: transparent;
+    /* background: transparent; */
 }
 
 .score-blank {
@@ -158,15 +154,11 @@ select {
 }
 
 .moba-scoreboard .dragons-blue{
-    grid-column-start: 5;
-    grid-column-end: 6;
     flex-direction: row-reverse;
     justify-content: end;
 }
 
 .moba-scoreboard .dragons-red{
-    grid-column-start: 7;
-    grid-column-end: 8;
     flex-direction: row;
     justify-content: start;
 }
