@@ -1,6 +1,6 @@
 import css from '/web-components/aquamarine/lib/parse-css.js'
 
-const style = await (await fetch('/web-components/aquamarine/card/card.css')).text()
+const style = await fetch('/web-components/aquamarine/card/card.css').then(r => r.text())
 const styleSheet = css(style)
 
 const template = 

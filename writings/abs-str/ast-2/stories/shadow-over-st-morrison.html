@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-version="3">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="/writings/abs-str/ast-2/ast-2-assets/img/ella_avatar.png">
+    <title>Shadow Over Saint Morrison</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
+
+    <link rel="stylesheet" href="/writings/abs-str/ast-2/ast-2-assets/ast-2-stories.css">
+</head>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">
+            <div>
+                <div>银鸥生活周刊</div>
+                <div style="font-size: x-small;">南部人民最爱杂志，源自 2004</div>
+            </div>
+        </div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+            <div class="item" role="doc-abstract"><p>在这一期的专栏中，Ella 回忆了自己学生时代的一场有点恐怖的事件。</p></div>
+        </div>
+    </div>
+    <div class="page-content">
+        <h1 class="page-title">Shadow Over Saint Morrison</h1>
+        <h3>Saint Morrison 的阴霾</h3>
+        <info-tag icon="/writings/abs-str/ast-2/ast-2-assets/img/ella_avatar.png">
+            <span class="f-large f-bold" slot="title">Ella Rosenberg</span>
+            <span>魔法使，旅行作家。</span>
+        </info-tag>
+        <hr>
+        <p>最近我都没遇到什么有意思的事情来给我写这个专栏，我问编辑能不能跳过这一期，她说不行，你不写的话读者要炎上的，短的也行，好吧。所以这次我就讲讲以前发生在我学校的一件事，以及我第一次接触 ARIA 是怎样的。</p>
+        <p>那是 2016 年，那时候我还在 Saint Morrison 学院读二年级，每天都是一大堆的课。那时候我刚认识 Matthew 不久，而 Aachen 和 Selene 得等到我毕业之后到 Exur 定居之后再说了。总而言之当时的生活极度无聊，以至于我对那个时候都没留下什么记忆，除了少数几件事，这次要写的就是其中之一。</p>
+        <p>那时的校园传说中流传着一个神秘黑色影子的事情，大家说这个东西会在你一个人在巷子一类的又暗又狭小的地方的时候冒出来攻击你，已经有好几个人受害了，但是来调查的人无论怎样都找不出什么线索。一时间人心惶惶，学院官方因为事情还没法确认，只能让我们自己小心些，那时大家都尽量不独自行动，生怕自己变成下一个受害者。</p>
+        <p>虽然我也有点怕，但我还是好奇心重，所以就是又怕又想看看这到底是个什么玩意，终于这个命运还是降临到了我身上。</p>
+        <p>不知道该惊吓还是高兴，总之我在某天的晚上遇到了这个玩意，那时候我在回宿舍的路上，想抄近路，结果这个东西就从我没注意到的暗处朝我扑了过来，还好我反应快躲过了，我才有机会仔细看看那是个什么东西，当然也没那么仔细，可能只有一两秒给我反应，很快那东西又扑过来想对我做些什么，我又躲开了，就这样重复几次之后，我才想起来我能用魔法，然后我用法杖给了它几发光弹，它被命中之后就消散了，只留下我在原地一身冷汗，气喘吁吁。</p>
+        <p>我把自己的经历报告了上去，可能是学院自己没办法处理了，他们叫了 ARIA 过来采访我。</p>
+        <div class="paper-document">
+            <p class="align-center f-bold f-large">会话记录</p>
+            <hr>
+            <p><span class="f-bold">在场人员：</span>[采访者]，Ella Rosenberg</p>
+            <hr>
+            <p><span class="f-bold">[采访者]：</span>你能描述一下这个实体的样子吗？</p>
+            <p><span class="f-bold">Ella：</span>大概是一团黑雾组成的有点像人形的东西，当时看不清细节，你懂的。</p>
+            <p><span class="f-bold">[采访者]：</span>我的目的是为了尽快调查清楚，所以请你尽可能描述得详细一点。</p>
+            <p><span class="f-bold">Ella：</span>好吧，它就是一团黑乎乎的东西，就跟工厂烟囱里面排出来的烟差不多，总之那时候太暗了，学院不知道是为了省电还是怎样不开路灯，那玩意又是黑色的，所以就看不清楚了。哦，你能帮我跟学校上面说一声叫他们晚上把路灯打开吗？</p>
+            <p><span class="f-bold">[采访者]：</span>我想这不在我的责任范围内。你还有什么可提供的信息吗？</p>
+            <p><span class="f-bold">Ella：</span>唉。然后就是这东西好像能直接用魔法攻击驱散掉，我不知道有没有伤害到它，除此之外就没啥了，整件事过去得太快了，我真没记住多少细节。</p>
+            <p><span class="f-bold">[采访者]：</span>好的，确定没有其他的了吗？</p>
+            <p><span class="f-bold">Ella：</span>没有了，如果我之后想起来的话再跟你们说。</p>
+            <p><span class="f-bold">[采访者]：</span>感谢你的配合，如果之后你再次遇到它的话，请尽快联系我们。</p>
+            <p><span class="f-bold">Ella：</span>行。</p>
+            <p class="align-center f-italic">&lt;会话结束&gt;</p>
+        </div>
+        <p>之后嘛，ARIA 又调查了几个受害者，但是他们好像都被吓坏了还是怎样，都说不出什么有用的东西，所以 ARIA 绕来绕去还是再一次找了我，让我加入他们的调查队伍。一开始我想用课业繁重这样的理由推脱掉，但是他们给了我一个不能拒绝的报酬价位，你们知道钱对一个学生是有多大的吸引力（对现在的我仍然如此），最后我还是跟着他们干了。</p>
+        <p>说是协助调查，其实也就是让我自己把那玩意引出来，他们说之后会给这东西起一个临时编号，但现在我早忘记那个数字是多少了，反正不重要。总之嘛，一个鬼鬼祟祟的女孩子在黑暗中独自行走，这样的事情无论怎样都很奇怪，事实上我也没能把那东西引出来，或许是因为 ARIA 的人埋伏在附近的缘故。之后他们干脆让我一个人干了，我说我一个人能干啥，他们说你看看能不能把那玩意用魔法禁锢住，好吧。</p>
+        <p>就这样我每天都进行着作为诱饵的工作，ARIA 的调查组也让学院打开其他区域的路灯来缩小那东西出现的范围，所以这怎么就不在他们的责任范围内了？</p>
+        <p>那可是半个多月啊，再持续下去的话，就没时间留给我其他的冒险故事了，所以我最后肯定是再次遇到了那东西，不然就太无聊了。</p>
+        <p>战斗过程就不说了，跟一团没有实体的黑雾（还是黑影）之间的缠斗没有什么值得写的，反正就是它追我躲，而且 ARIA 叫我控制而不是攻击它，所以我也不能像上次那样用魔法光弹了。之后我找准机会对它用了禁锢的魔法，但是它在被禁锢之后分裂成了好几块，当时我还做不到在这样短的时间里面应对多个目标，所以我最终还是只控制住了它的一小部分，剩下的都逃走了，更难过的是，唯一剩下的一小块也在 ARIA 的人赶来的时候消失掉了，真是白费功夫。他们告诉我说没关系的，至少能够确认这东西只在一个人的时候才会出现了。那也行吧，也不是毫无收获。</p>
+        <p>之后他们就开始讨论到底要怎样对付这个东西了，有人觉得应该想点别的办法把它抓住永除后患，有人觉得既然抓不住干脆就把校园里面的每个地方都装上灯好了，我是支持后者的，但是学院那边觉得装灯的方案太花钱了。他们就这样吵了好久，沟通效率低得令人发指。期间也有 ARIA 的人试图单独行动然后把那东西抓住，但是也都失败了。</p>
+        <p>最终，在这东西没法被抓住和除掉的事实、以及学生们日益增长的不满之下，学院最后还是屈服了，答应安装更多的路灯，以及每天晚上会把它们打开。</p>
+        <p>大胜利！自此这个事件就算是结束了，在那之后就没听说过还有人遭遇这个黑色阴影的事情了。</p>
+        <p>所以你会问：这东西到底是啥？</p>
+        <p>说真的，当时确实没人知道这是个什么东西，事件结束之后 ARIA 也停掉了进一步的调查，我觉得这东西的资料大概早就被他们归档了，这很现实，你不能指望每个东西都得有一个解释，经常看我这个专栏的读者应该会同意的。</p>
+        <p>但是吧，我现在也算是见多识广了，而且不给一个解释的话，这篇文章就毫无意义了，所以我还是得给个说法，当然不一定是对的。</p>
+        <p>我之前说这东西会攻击人，这没错，但事实上从始至终都没有一个人受伤，它的攻击是心理或者感知上的，换句话说也就是通过心灵感应吓你而已，虽然被搞的时候确实很恐怖，但也没什么实质性的伤害，当时最严重的受害者也只是神经衰弱一段时间就好了，后来也是身体健康。至于我，看过我以前的故事的人都知道这东西没法把我怎么样的，所以我没事。</p>
+        <p>那么这跟我的说法有什么关系呢，我不知道你们怕不怕黑，我小时候怕过，后来自己有照明手段了也就不怕了。你们也知道有时候一些魔法使的心理活动能影响到周围的东西，所以这个黑漆漆的玩意可能就是通过某些人对黑暗的恐惧而产生的促动产物，也就是具象化的怕黑心理。另外，这大概就能解释它的出现条件：一个人走在黑暗中，这应该是最容易让人害怕的环境之一了，一个胆小的魔法使处在这样的坏境下，说不定就会无意中创造出这个黑色怪物，它代表着人最原始的恐惧之一。</p>
+        <p>嗯，就是这样，大家晚上走夜路的时候记得打个灯。</p>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
+</body>
+</html>

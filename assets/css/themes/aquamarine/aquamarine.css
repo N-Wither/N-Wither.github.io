@@ -92,6 +92,7 @@ body {
 * {
   box-sizing: border-box;
   scrollbar-color: var(--theme-color) var(--background-color);
+  position: relative;
 }
 
 a[target=_blank]::after {
@@ -99,6 +100,7 @@ a[target=_blank]::after {
   content: "\e89e";
   position: relative;
   top: 0.1rem;
+  color: var(--text-color);
 }
 
 a.no-deco[target=_blank]::after {
@@ -321,6 +323,23 @@ ul.file-list li:last-child::before {
   border-radius: 0.2em;
   padding: 0 0.2em;
   font-size: 0.8em;
+}
+
+.f-bold {
+  font-weight: bold;
+}
+
+.f-italic {
+  font-style: italic;
+}
+
+.f-large {
+  font-size: large;
+}
+
+.align-center {
+  text-align: center;
+  max-width: unset;
 }
 
 :not(:defined) {

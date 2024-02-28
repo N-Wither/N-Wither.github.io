@@ -2,10 +2,15 @@ const template =
 `
     
     <div part='icon'>
+        <slot name='icon'></slot>
     </div>
     <div part='info'>
-        <div part='name'></div>
-        <div part='desc'></div>
+        <div part='name'>
+            <slot name='title'></slot>
+        </div>
+        <div part='desc'>
+            <slot></slot>
+        </div>
     </div>
 `
 const style = `
@@ -61,19 +66,18 @@ info-tag::part(desc) {
 
 const styleSheet = new CSSStyleSheet()
 styleSheet.replaceSync(style)
-document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet]
+document.adoptedStyleSheets.push(styleSheet)
 
 
 class InfoTag extends HTMLElement {
     constructor() {
         super()
-
-        const sRoot = this.attachShadow({mode: 'open'})
-        sRoot.innerHTML = template
+        this.attachShadow({mode: 'open'})
     }
 
     connectedCallback() {
         const sRoot = this.shadowRoot
+        sRoot.innerHTML = template
         let iconType = this.getAttribute('icon-type') || 'img'
         let name = this.getAttribute('tag') || 'Tag'
         let desc = this.getAttribute('desc') || 'Description'
@@ -94,8 +98,10 @@ class InfoTag extends HTMLElement {
             iconContainer.appendChild(span)
         }
 
-        sRoot.querySelector('[part=name]').innerHTML = name
-        sRoot.querySelector('[part=desc]').innerHTML = desc
+        if(this.innerHTML == ''){
+            sRoot.querySelector('[part=name]').innerHTML = name
+            sRoot.querySelector('[part=desc]').innerHTML = desc
+        }
     }
 }
 window.customElements.define('info-tag', InfoTag)

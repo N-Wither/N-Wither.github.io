@@ -51,6 +51,7 @@ export class AqAudio extends HTMLElement{
         this.shadowRoot.adoptedStyleSheets.push(styleSheet)
 
         this.doms = {
+            base: this.shadowRoot.querySelector('.audio__base'),
             title: this.shadowRoot.querySelector('.audio__title'),
             thumbnail: this.shadowRoot.querySelector('.audio__thumbnail'),
             audio: this.querySelector('audio'),
@@ -78,7 +79,7 @@ export class AqAudio extends HTMLElement{
             this.doms.thumbnail.innerHTML = `<img src='${this.attrs.thumbnail}'>`
         }
         else {
-            this.shadowRoot.querySelector('.audio__base').classList.add('no-thumbnail')
+            this.doms.base.classList.add('no-thumbnail')
         }
         if(this.attrs.src != null) {
             this.doms.audio.src = this.attrs.src
@@ -232,6 +233,21 @@ export class AqAudio extends HTMLElement{
         this.attrs.loop = Boolean(l)
         if(this.loop == true) this.setAttribute('loop', '')
         else this.removeAttribute('loop')
+    }
+    get thumbnail() {
+        return this.attrs.thumbnail
+    }
+    set thumbnail(s) {
+        if(s){
+            this.attrs.thumbnail = s
+            if(this.doms.base.classList.contains('no-thumbnail')){
+                this.doms.base.classList.remove('no-thumbnail')
+            }
+            this.doms.thumbnail.innerHTML = `<img src='${this.attrs.thumbnail}'>`
+        }
+        else {
+            this.doms.base.classList.add('no-thumbnail')
+        }
     }
 }
 

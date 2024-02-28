@@ -1,0 +1,27 @@
+aq-badge {
+    --aq-badge-dist: 0.5rem;
+    --aq-badge-round: 0.5rem;
+    display: block;
+    position: absolute;
+    left: var(--aq-badge-dist);
+    transform: translate(0, -50%);
+    background-color: var(--theme-color);
+    padding: 0.2rem;
+}
+
+aq-badge[size=large] {
+    padding: 0.4rem;
+}
+
+aq-badge[pos=right] {
+    left: unset;
+    right: var(--aq-badge-dist);
+}
+aq-badge[pos=center] {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+aq-badge[round] {
+    border-radius: var(--aq-badge-round);
+}
