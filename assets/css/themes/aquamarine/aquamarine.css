@@ -48,6 +48,7 @@
   scroll-behavior: smooth;
   font-family: "Metropolis", "Readex Pro", "Noto Sans SC", sans-serif, "Material Symbols Outlined";
   font-size: 16px;
+  scrollbar-color: var(--theme-color) var(--background-color);
 }
 
 :root.dark-mode {
@@ -91,7 +92,6 @@ body {
 
 * {
   box-sizing: border-box;
-  scrollbar-color: var(--theme-color) var(--background-color);
   position: relative;
 }
 
