@@ -1,29 +1,54 @@
+let langs = {
+    'en-us': {
+        home: 'Home',
+        proj: 'Projects',
+        artc: 'Articles',
+        tool: 'Tools',
+        game: 'Games'
+    },
+    'zh-cn': {
+        home: '首页',
+        proj: '项目',
+        artc: '文章',
+        tool: '工具',
+        game: '游戏'
+    }
+}
+
+let userLang = document.documentElement.lang.toLowerCase()
+let chosenLang = langs['en-us']
+switch(userLang) {
+    case 'zh-cn': chosenLang = langs['zh-cn'];
+    default: ;
+}
+console.log(userLang);
+
 let navigateItems = [
     {
-        text: 'Home',
+        text: chosenLang.home,
         icon: '\ue88a',
         url: '/'
     },
     {
-        text: 'Articles',
+        text: chosenLang.proj,
+        icon: '\uf8ee',
+        url: '/projects/'
+    },
+    {
+        text: chosenLang.artc,
         icon: '\uef42',
         url: '/writings/'
     },
     {
-        text: 'Tools',
+        text: chosenLang.tool,
         icon: '\uea59',
         url: '/tools/'
     },
     {
-        text: 'Games',
+        text: chosenLang.game,
         icon: '\uf135',
         url: '/games/'
     },
-    {
-        text: 'Aquamarine',
-        icon: '\uf8ee',
-        url: '/misc/aquamarine.html'
-    }
 ]
 
 function createNavigateItem(text, icon = '🏠', url = '#'){

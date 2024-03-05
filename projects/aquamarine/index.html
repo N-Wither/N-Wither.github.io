@@ -7,10 +7,10 @@
     <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="../assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
-    <script src="../assets/js/utils.js" defer></script>
+    <script src="/assets/js/utils.js" defer></script>
     <script>
         function init() {
             randomQuote()
@@ -22,12 +22,12 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
-    <script type="module" src="../assets/js/components/aquamarine-navigate-menu.js"></script>
-    <link rel="stylesheet" href="../assets/css/components/collapsible-block.css">
-    <script src="../assets/js/components/click_particles.js" defer></script>
-    <link rel="stylesheet" href="../assets/css/components/click_particles.css">
-    <script src="../assets/js/components/hover-tooltip.js" defer></script>
-    <link rel="stylesheet" href="../assets/css/components/hover-tooltip.css">
+    <script type="module" src="/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <link rel="stylesheet" href="/assets/css/components/collapsible-block.css">
+    <script src="/assets/js/components/click_particles.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/components/click_particles.css">
+    <script src="/assets/js/components/hover-tooltip.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/components/hover-tooltip.css">
     <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
     <script type="module" src="/web-components/info-tag/info-tag.js"></script>
     <script type="module" src="/web-components/aquamarine/code.js"></script>
@@ -54,7 +54,7 @@
         <div class="right flex-center">
             <div class="menu-button">
                 <a href="https://github.com/N-Wither" class="flex-center" target="_blank">
-                    <fetch-svg src="../assets/imgs/common/github-icon.svg"></fetch-svg>
+                    <fetch-svg src="/assets/imgs/common/github-icon.svg"></fetch-svg>
                 </a>
             </div>
             <div class="menu-button">
@@ -164,32 +164,24 @@
                 </aq-tab>
             </div>
             <h2>Info Tag</h2>
-            <info-tag tag="信息标签" desc="关于信息的描述" icon="&#xe88e" icon-type="text">
-            </info-tag>
+            <info-tag tag="信息标签" desc="关于信息的描述" icon="&#xe88e" icon-type="text"></info-tag>
             <h2>Code Block</h2>
             <aq-code language="js" display-language="JavaScript">
 let a = 0
 console.log('Hello World!')
 class Foo extends Bar{
-constructor() {
-super()
-}
+    constructor() {
+        super()
+    }
 
 greet(msg) {
-console.log(msg)
-}
+    console.log(msg)
+    }
 }
 // This is a comment
             </aq-code>
             <p>
-                你也可以在文本内使用此组件，只需加上 <aq-code inline language="plaintext">inline</aq-code> 属性（不需要有值，这里有值是 Highlight.js
-                的原因）:
-            </p>
-            <aq-code language="html" display-language="HTML">
-<aq-code inline> Your code here </aq-code>
-            </aq-code>
-            <p>
-                效果是这样的：<aq-code inline language="js">console.log('Hello World!')</aq-code>
+                你也可以在文本内使用此组件，只需加上 <aq-code inline language="plaintext">inline</aq-code> 属性，效果是这样的：<aq-code inline language="js">console.log('Hello World!')</aq-code>
             </p>
 
             <h2>Timer</h2>
@@ -283,7 +275,7 @@ console.log(msg)
             <aq-audio></aq-audio>
 
             <h2>Image Block</h2>
-            <aq-image-block src="/writings/abs-str/ast-2/ast-2-assets/img/ella_avatar.png" caption="Ella" width="200"
+            <aq-image-block src="/projects/c/assets/img/ella_avatar.png" caption="Ella" width="200"
                 height="200"></aq-image-block>
 
             <h2>Showup</h2>

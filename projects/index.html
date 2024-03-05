@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-us" data-version="3">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <title>N Wither's Projects</title>
+    <script src="/assets/js/utils.js"></script>
+    <!-- components -->
+    <script type="module" src="/assets/js/components/aquamarine-navigate-menu.js"></script>
+    <script type="module" src="/assets/js/components/title-observer.js"></script>
+    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+</head>
+<body>
+    <div class="page-header">
+        <div class="menu-button">
+            <button class="menu-button" title="Toggle Navigation Menu"></button>
+        </div>
+        <div class="page-icon"></div>
+        <div class="page-category flex-center padding-all-small">
+            Projects
+        </div>
+        <div class="menu all-menu"></div>
+        <div class="right flex-center">
+            <div class="menu-button">
+                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
+                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
+                </a>
+            </div>
+            <div class="menu-button">
+                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+            </div>
+            <div class="menu-button toolbox-button">
+                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
+            </div>
+        </div>
+        
+        <div class="toolbox all-menu">
+            <div id="clock" class="item">Current Time</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <h1 class="page-title">Projects</h1>
+        <hr>
+        <div class="flex wrap" style="gap: 0.4em;">
+            <aq-card style="max-width: 20em;">
+                <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
+                <h3 slot="header">Omniworld</h3>
+                <p>The BEST modpack I've ever made! <a href="/projects/omniworld/">Read More...</a></p>
+            </aq-card>
+            <aq-card style="max-width: 20em;">
+                <h3 slot="header">Cycmatica</h3>
+                <p>Original novel series.<a href="/projects/c/">Read More...</a></p>
+            </aq-card>
+            <aq-card style="max-width: 20em;">
+                <h3 slot="header">Aquamarine</h3>
+                <p>Homemade web components.<a href="/projects/aquamarine/">Read More...</a></p>
+            </aq-card>
+        </div>
+    </div>
+    <div class="page-footer">
+        <hr>
+        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
+        <br>
+        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
+    </div>
+    <script>
+        startTime()
+        randomQuote()
+        aof()
+    </script>
+</body>
+</html>
