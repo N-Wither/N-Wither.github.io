@@ -1,9 +1,10 @@
 :host {
     display: block;
-    position: fixed;
+    position: fixed !important;
     left: 2em;
     bottom: 2em;
     color: var(--text-color-secondary);
+    z-index: 99;
 }
 
 progress {

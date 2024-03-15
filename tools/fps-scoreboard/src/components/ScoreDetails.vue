@@ -67,9 +67,8 @@ let isSwapped = (currentRound) => {
     flex-direction: column;
     overflow-y: hidden;
     background: var(--background);
-    justify-content: center;
-    align-items: center;
     position: relative;
+    scrollbar-width: none;
 }
 
 :is(.details, .details-left, .details-right)::-webkit-scrollbar {
@@ -88,11 +87,10 @@ let isSwapped = (currentRound) => {
 .details-left, .details-right {
     display: flex;
     flex-direction: row;
-    width: 100%;
     height: 30px;
     background: var(--background);
     color: var(--text-color);
-    justify-content: center;
+    margin: 0 auto;
 }
 
 .details-left .score, .details-right .score, .logo-container{

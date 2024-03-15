@@ -4,8 +4,8 @@
     --text-color-2: #fff;
     --gray-color: #d5c1a7;
     --dark-gray-color: #b19571;
-    --theme-color: #961796;
-    --darkened-theme-color: #6c0b6c;
+    --theme-color: #8158c2;
+    --darkened-theme-color: #5430a2;
     --box-shadow-color: #0F0F0F22;
     --link-color: var(--theme-color);
 
@@ -21,10 +21,10 @@
     --text-color-2: #888;
     --gray-color: #3b3b3b;
     --dark-gray-color: #2b2b2b;
-    --theme-color: #961796;
-    --darkened-theme-color: #6a0a6a;
+    --theme-color: #8158c2;
+    --darkened-theme-color: #9c5fd4;
     --box-shadow-color: #44444422;
-    --link-color: #b329b3;
+    --link-color: var(--theme-color);
 
     --header-bg: #11131599;
     --paper-color: #1c1d1f;

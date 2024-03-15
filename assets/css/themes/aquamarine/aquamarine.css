@@ -367,7 +367,7 @@ ul.file-list li:last-child::before {
   background: var(--gray-color);
 }
 #to-top.ani__hide {
-  animation: 0.3s ease-in hide;
+  animation: 300ms ease-in 0ms 1 normal none running hide;
 }
 
 /* Page Header and menu */

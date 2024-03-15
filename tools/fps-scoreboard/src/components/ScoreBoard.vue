@@ -139,6 +139,7 @@ let getPoints = (point) => {
     overflow-x: scroll;
     width: 100%;
     white-space: nowrap;
+    scrollbar-width: none;
 }
 .map-info::-webkit-scrollbar {
     display: none;

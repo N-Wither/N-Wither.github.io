@@ -13,6 +13,9 @@ styleSheet.replaceSync(style)
 export default class ReadingProgress extends HTMLElement {
     constructor() {
         super()
+    }
+
+    connectedCallback(){
         this.#render()
     }
 

@@ -15,3 +15,7 @@
     box-sizing: border-box;
     padding: 0.2em;
 }
+
+.imgblk__img {
+    max-width: 100%;
+}

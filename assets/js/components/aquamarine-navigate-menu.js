@@ -21,7 +21,6 @@ switch(userLang) {
     case 'zh-cn': chosenLang = langs['zh-cn'];
     default: ;
 }
-console.log(userLang);
 
 let navigateItems = [
     {
