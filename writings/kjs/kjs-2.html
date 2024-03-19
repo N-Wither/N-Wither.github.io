@@ -33,13 +33,13 @@
                 </a>
             </div>
             <div class="menu-button">
-                <button onclick="toggleClass('html', 'dark-mode')" title="Toggle Dark Mode">◐</button>
+                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
             </div>
             <div class="menu-button toolbox-button">
                 <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
             </div>
         </div>
-        
+
         <div class="toolbox all-menu">
             <div id="clock" class="item">Current Time</div>
             <div class="item">
@@ -179,23 +179,23 @@ e.smithing(output, input1, input2)                             // 锻造台
             }),
             Item.of("minecraft:potion", { Potion: "kubejs:felix_felicis" }) // This is a custom made potion. It's not vanilla
         );
-    
+
         event.addCustomBrewing("minecraft:diamond", "minecraft:emerald", "minecraft:gold_ingot");
-    
+
         /**
          * 1. Argument: The bottom ingredient of the brewing stand
          * 2. Argument: The input potion of the brewing stand
          * 3. Argument: The result potion of the brewing
          */
         event.addPotionBrewing("minecraft:emerald", "minecraft:fire_resistance", "minecraft:strength");
-    
+
         /**
          * Simpler call which automatically use `potion:water` as the input potion.
          * 1. Argument: The bottom ingredient of the brewing stand
          * 3. Argument: The result potion of the brewing
          */
         event.addPotionBrewing("minecraft:nether_star", "minecraft:levitation");
-    
+
         /**
          * Removes all potions where an awkward potion is used as theb base potion ingredient.
          * 1. Argument: The input potion id to filter.
