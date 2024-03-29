@@ -39,6 +39,7 @@
     <script type="module" src="/web-components/aquamarine/showup.js"></script>
     <script type="module" src="/web-components/aquamarine/image-block.js"></script>
     <script type="module" src="/web-components/aqv2/components/window.js"></script>
+    <script type="module" src="/web-components/aqv2/components/console.js"></script>
 </head>
 
 <body onload="init()">
@@ -295,6 +296,20 @@ greet(msg) {
                     <p>Another window!</p>
                 </aq-window>
             </div>
+
+            <h2>Console</h2>
+            <p>一个控制台，你可以在浏览器的控制台里面使用<code>aqconsole</code>来引用它。因为我不会解析字符串的 JavaScript 代码，所以这里没有输入框。</p>
+            <p>此外，你可以直接使用<code>.html()</code>方法直接往这里面放 HTML 元素！</p>
+            <aq-console id="aqconsole" style="min-height: 20em;"></aq-console>
+            <script>
+                let aqconsole = document.getElementById('aqconsole')
+                setTimeout(() => {
+                    aqconsole.log('Hello world!')
+                    aqconsole.warn('Something not good...')
+                    aqconsole.error(new Error('Something is broken!').stack)
+                    aqconsole.table([{type: 'cat', weight: '2kg', can: 'meow'}, {type: 'dog', weight: '4kg', can: 'woof'}])
+                }, 1000)
+            </script>
 
         </aq-showup>
     </div>

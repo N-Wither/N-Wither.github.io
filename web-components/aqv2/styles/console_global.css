@@ -1,0 +1,34 @@
+aq-console {
+    display: block;
+    font-family: monospace;
+    height: 10em;
+    max-height: 10em;
+    overflow: auto;
+    background-color: var(--background-color-darken);
+    font-size: 0.8em;
+    scroll-behavior: smooth;
+    transition: 0.2s;
+}
+
+aq-console .aqconsole__base {
+    display: block;
+}
+
+aq-console .aqconsole__entry {
+    padding: 0.1em 0.2em;
+    white-space: pre;
+}
+
+aq-console .inputfield {
+    width: 100%;
+    font-family: monospace;
+    display: none;
+}
+
+aq-console .warn {
+    background-color: color-mix(in srgb, var(--color-warn) 60%, transparent);
+}
+
+aq-console .error {
+    background-color: color-mix(in srgb, var(--color-danger) 60%, transparent);
+}

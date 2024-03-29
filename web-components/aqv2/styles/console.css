@@ -1,0 +1,17 @@
+.aqconsole__base {
+    display: block;
+}
+
+.inputfield {
+    width: 100%;
+    font-family: monospace;
+    display: none;
+}
+
+.warn {
+    background-color: var(--color-warn);
+}
+
+.error {
+    background-color: var(--color-danger);
+}
