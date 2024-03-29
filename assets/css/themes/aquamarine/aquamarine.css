@@ -92,7 +92,6 @@ body {
 
 * {
   box-sizing: border-box;
-  position: relative;
 }
 
 a[target=_blank]::after {
@@ -367,7 +366,7 @@ ul.file-list li:last-child::before {
   background: var(--gray-color);
 }
 #to-top.ani__hide {
-  animation: 300ms ease-in 0ms 1 normal none running hide;
+  animation: 0.3s ease-in hide;
 }
 
 /* Page Header and menu */

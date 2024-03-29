@@ -38,6 +38,7 @@
     <script type="module" src="/web-components/aquamarine/audio/audio.js"></script>
     <script type="module" src="/web-components/aquamarine/showup.js"></script>
     <script type="module" src="/web-components/aquamarine/image-block.js"></script>
+    <script type="module" src="/web-components/aqv2/components/window.js"></script>
 </head>
 
 <body onload="init()">
@@ -280,6 +281,20 @@ greet(msg) {
 
             <h2>Showup</h2>
             <p><code>&lt;aq-showup&gt;</code>中的元素会在进入视口的时候具有渐显效果，这个页面本身就包裹在里面。</p>
+
+            <h2>Window</h2>
+            <p>一个可拖动可调整大小的窗口，里面可以放任何东西。默认的浮动范围是它的<code>offsetParent</code>，如果加上<code>float</code>属性，它的浮动范围会变成全屏。</p>
+            <div style="position: relative; height: 30em;">
+                <aq-window width="20em" height="18em">
+                    <span slot="title">Window</span>
+                    <p>Hello World!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ratione voluptas error reprehenderit facere necessitatibus laborum assumenda explicabo nulla ut earum est, saepe repellendus. Magni, saepe neque voluptas similique commodi corrupti porro odio at est suscipit quas vitae dignissimos, inventore nemo asperiores dolorem ipsam dolorum? Molestias velit ipsa alias nemo officiis quos quaerat est odit quidem animi iure obcaecati delectus maxime dolorem, corporis saepe. Voluptatem, itaque, nam culpa nesciunt expedita non aliquam facilis veniam quis nobis nemo eum, odit delectus?</p>
+                </aq-window>
+                <aq-window>
+                    <span slot="title">Window2</span>
+                    <p>Another window!</p>
+                </aq-window>
+            </div>
 
         </aq-showup>
     </div>

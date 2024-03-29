@@ -1,0 +1,49 @@
+.aqwindow__base {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    /* overflow: hidden; */
+}
+
+.aqwindow__titlebar {
+    user-select: none;
+    display: flex;
+    background-color: var(--border-color-common);
+    position: relative;
+    min-height: 1em;
+    padding: 0.2em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding-right: 4em;
+}
+
+.aqwindow__name {
+    pointer-events: none;
+}
+
+.aqwindow__control {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+}
+
+.control button {
+    min-width: 1em;
+    min-height: 1.4em;
+    font-family: inherit;
+    background-color: var(--border-color-common);
+    border: none;
+    transition: var(--transition-time-common);
+    color: var(--text-color);
+}
+.control button:is(:hover, :focus) {
+    background-color: var(--button-bg-focus);
+}
+
+.aqwindow__body {
+    /* min-height: 12em; */
+    padding: 0.2em;
+    overflow: auto;
+    resize: both;
+}
