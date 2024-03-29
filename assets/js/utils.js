@@ -1,13 +1,49 @@
+// ThemeMode LocalStorage Key
+let THEME_MODE_KEY = 'theme-mode';
+// Theme Mods
+let THEME_MODES = {
+    light: 'light',
+    dark: 'dark',
+};
+
 // Auto Dark Mode
 function autoDarkMode() {
+    let themeMode = localStorage.getItem(THEME_MODE_KEY);
+    if (themeMode && themeMode in THEME_MODES){
+        applyThemeMode(themeMode);
+        return;
+    }
     let dark = matchMedia('(prefers-color-scheme: dark)')
-    let html = document.documentElement
-    if(dark.matches && !html.classList.contains('dark-mode')){
-        html.classList.add('dark-mode')
+    if(dark.matches){
+        localStorage.setItem(THEME_MODE_KEY, themeMode = THEME_MODES.dark);
+    } else {
+        localStorage.setItem(THEME_MODE_KEY, themeMode = THEME_MODES.light);
+    }
+    applyThemeMode(themeMode);
+}
+
+// Apply theme mode
+function applyThemeMode(mode) {
+    let html = document.documentElement;
+    if (mode === THEME_MODES.dark) {
+        html.classList.add('dark-mode');
+    } else {
+        html.classList.remove('dark-mode');
     }
 }
 
 autoDarkMode()
+
+// Toggle theme mode
+function toggleThemeMode() {
+    let themeMode = localStorage.getItem(THEME_MODE_KEY);
+    if (themeMode === THEME_MODES.dark) {
+        localStorage.setItem(THEME_MODE_KEY, themeMode = THEME_MODES.light);
+    } else {
+        localStorage.setItem(THEME_MODE_KEY, themeMode = THEME_MODES.dark);
+    }
+    applyThemeMode(themeMode);
+}
 
 // Clock component
 function startTime() {
@@ -43,8 +79,8 @@ function randomQuote() {
 // Tool functions
 /**
  *  Toggle a element's class.
- *  @param {string | HTMLElement} selector 
- *  @param {string} className 
+ *  @param {string | HTMLElement} selector
+ *  @param {string} className
  */
 function toggleClass(selector, className){
     if(typeof selector == 'string')
@@ -55,8 +91,8 @@ function toggleClass(selector, className){
 
 /**
  *  Returns a random integer between the given numbers.
- *  @param {number} min 
- *  @param {number} max 
+ *  @param {number} min
+ *  @param {number} max
  *  @returns {number}
  */
 function getRandomInt(min, max) {
@@ -73,7 +109,7 @@ Array.prototype.getRandom = function() {
 moduleConfigs = {}
 
 // Update Template
-let dmb = document.querySelector(`button[onclick="toggleClass('html', 'dark-mode')"]`)
+let dmb = document.querySelector(`button[onclick="toggleThemeMode()"]`)
 if(dmb){dmb.title = 'Toggle Dark Mode'}
 let tv = Number(document.documentElement.getAttribute('data-version'))
 if (tv > 1 && tv < 3) {
