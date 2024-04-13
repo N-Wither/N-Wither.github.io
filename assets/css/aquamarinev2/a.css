@@ -1,0 +1,31 @@
+@charset "UTF-8";
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;
+  background-size: 0 2px;
+  transition: background-size 200ms;
+}
+a:visited {
+  color: var(--link-color-visited);
+}
+a:is(:hover, :focus) {
+  background-position-x: left;
+  background-size: 100% 2px;
+}
+a.no-deco {
+  background: none;
+}
+
+a[target=_blank]::after {
+  content: "↗";
+  content: "\e89e";
+  position: relative;
+  top: 0.1rem;
+}
+
+a.no-deco[target=_blank]::after {
+  display: none;
+}
+
+/*# sourceMappingURL=a.css.map */

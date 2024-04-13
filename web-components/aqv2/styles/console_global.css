@@ -4,7 +4,7 @@ aq-console {
     height: 10em;
     max-height: 10em;
     overflow: auto;
-    background-color: var(--background-color-darken);
+    background-color: var(--background-color-dk);
     font-size: 0.8em;
     scroll-behavior: smooth;
     transition: 0.2s;

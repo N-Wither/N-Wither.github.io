@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     transition: 0.2s;
-    background: var(--background-color-darken);
+    background: var(--background-color-dk);
     max-width: -moz-fit-content;
     max-width: fit-content;
 }
@@ -45,7 +45,7 @@
 .card__header {
     padding: 0.6em;
     display: flex;
-    border-bottom: 1px solid var(--border-color-common);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .card__body {
@@ -57,8 +57,8 @@
 .card__footer {
     padding: 0.6em;
     display: flex;
-    color: var(--text-color-secondary);
-    border-top: 1px solid var(--border-color-common);
+    color: var(--text-color-lt);
+    border-top: 1px solid var(--border-color);
     margin-top: auto;
 }
 

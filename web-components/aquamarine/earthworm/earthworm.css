@@ -1,7 +1,7 @@
 :host {
     display: block;
     margin: 1rem 1rem;
-    --border: 0.1em solid var(--border-color-common)
+    --border: 0.1em solid var(--border-color)
 }
 
 .base {

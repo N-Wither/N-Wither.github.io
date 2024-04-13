@@ -9,7 +9,7 @@ const style =
 aq-tab {
     --tab-bg: var(--gray-100);
 }
-.dark-mode aq-tab {
+.theme-dark aq-tab {
     --tab-bg: var(--gray-800);
 }
 
@@ -20,8 +20,8 @@ aq-tab {
 }
 
 aq-tab ::selection {
-    background-color: var(--darkened-theme-color);
-    color: var(--text-color-select);
+    background-color: var(--accent-color-dk);
+    color: var(--text-color-selected);
 }
 
 aq-tab::part(tabs) {
@@ -46,7 +46,7 @@ aq-tab-button {
 
 aq-tab-button button {
     background-color: var(--tab-bg);
-    background-image: linear-gradient(to top, var(--theme-color), var(--theme-color));
+    background-image: linear-gradient(to top, var(--accent-color), var(--accent-color));
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100% 0%;

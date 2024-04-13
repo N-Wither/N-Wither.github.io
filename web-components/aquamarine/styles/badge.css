@@ -5,7 +5,7 @@ aq-badge {
     position: absolute;
     left: var(--aq-badge-dist);
     transform: translate(0, -50%);
-    background-color: var(--theme-color);
+    background-color: var(--accent-color);
     padding: 0.2rem;
 }
 

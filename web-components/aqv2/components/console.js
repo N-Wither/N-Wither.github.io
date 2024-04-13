@@ -178,7 +178,7 @@ export default class AqConsole extends HTMLElement {
         })
 
         table.classList.add('aqconsole__entry')
-        this.#outputfield.appendChild(table)
+        this.#addElement(table)
     }
 
     get lines(){

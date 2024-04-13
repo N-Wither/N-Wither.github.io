@@ -4,25 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/table.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Works</title>
-    <script src="/assets/js/utils.js" defer></script>
-    <script>
-        function init() {
-            randomQuote()
-            startTime()
-        }
-    </script>
+    <title>Aquamarine Web Components</title>
     <link rel="stylesheet" href="./web-playground.css">
     <!-- external js libs -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
-    <script type="module" src="/assets/js/components/aquamarine-navigate-menu.js"></script>
     <link rel="stylesheet" href="/assets/css/components/collapsible-block.css">
     <script src="/assets/js/components/click_particles.js" defer></script>
     <link rel="stylesheet" href="/assets/css/components/click_particles.css">
@@ -40,40 +32,17 @@
     <script type="module" src="/web-components/aquamarine/image-block.js"></script>
     <script type="module" src="/web-components/aqv2/components/window.js"></script>
     <script type="module" src="/web-components/aqv2/components/console.js"></script>
+    <script type="module" src="/web-components/aqv2/components/example.js"></script>
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
 </head>
 
-<body onload="init()">
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')"
-                title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            WitherWorks
-        </div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank">
-                    <fetch-svg src="/assets/imgs/common/github-icon.svg"></fetch-svg>
-                </a>
-            </div>
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class=" toolbox-button"
-                    onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')"
-                    title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content" style="transition: 0.2s;">
+<body>
+    <page-header>
+        <div class="f-bold" slot="category" style="font-size: 1.4em; margin: auto;">Aquamarine</div>
+    </page-header>
+    <page-body>
         <aq-showup>
             <h1 class="page-title">Aquamarine Web Components</h1>
             <hr>
@@ -301,24 +270,22 @@ greet(msg) {
             <p>一个控制台，你可以在浏览器的控制台里面使用<code>aqconsole</code>来引用它。因为我不会解析字符串的 JavaScript 代码，所以这里没有输入框。</p>
             <p>此外，你可以直接使用<code>.html()</code>方法直接往这里面放 HTML 元素！</p>
             <aq-console id="aqconsole" style="min-height: 20em;"></aq-console>
-            <script>
-                let aqconsole = document.getElementById('aqconsole')
-                setTimeout(() => {
-                    aqconsole.log('Hello world!')
-                    aqconsole.warn('Something not good...')
-                    aqconsole.error(new Error('Something is broken!').stack)
-                    aqconsole.table([{type: 'cat', weight: '2kg', can: 'meow'}, {type: 'dog', weight: '4kg', can: 'woof'}])
-                }, 1000)
-            </script>
 
+            <h2>LitElement Example</h2>
+            <p>基于 LitElement 的 Web Component。</p>
+            <p>别问我为什么几乎每一个框架的组件示例都是这样一个计数按钮。</p>
+            <aq-example></aq-example>
         </aq-showup>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
-    </div>
+    </page-body>
+    <page-footer></page-footer>
+    <script>
+        let aqconsole = document.getElementById('aqconsole')
+        setTimeout(() => {
+            aqconsole.log('Hello world!')
+            aqconsole.warn('Something not good...')
+            aqconsole.error(new Error('Something is broken!').stack)
+            aqconsole.table([{type: 'cat', weight: '2kg', can: 'meow'}, {type: 'dog', weight: '4kg', can: 'woof'}])
+        }, 1000)
+    </script>
 </body>
-
 </html>

@@ -1,0 +1,15 @@
+table {
+  border-spacing: 0;
+  border: 1px solid var(--border-color);
+}
+table thead {
+  background: var(--background-color-dk);
+}
+table th {
+  border: 1px solid var(--border-color);
+}
+table td {
+  border: 1px solid var(--border-color);
+}
+
+/*# sourceMappingURL=table.css.map */

@@ -1,0 +1,18 @@
+input {
+  accent-color: var(--accent-color);
+  font-family: inherit;
+}
+
+input[type=file]::-webkit-file-upload-button {
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  background: var(--button-bg);
+  transition: var(--transition-time-common);
+}
+
+input[type=file]:is(:hover, :focus)::-webkit-file-upload-button {
+  background: var(--button-bg-focus);
+}
+
+/*# sourceMappingURL=input.css.map */

@@ -7,7 +7,7 @@
 .aqwindow__titlebar {
     user-select: none;
     display: flex;
-    background-color: var(--border-color-common);
+    background-color: var(--border-color);
     position: relative;
     min-height: 1em;
     padding: 0.2em;
@@ -32,7 +32,7 @@
     min-width: 1em;
     min-height: 1.4em;
     font-family: inherit;
-    background-color: var(--border-color-common);
+    background-color: var(--border-color);
     border: none;
     transition: var(--transition-time-common);
     color: var(--text-color);

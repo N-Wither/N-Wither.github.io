@@ -1,0 +1,34 @@
+button {
+  font-family: inherit;
+  background-color: var(--button-bg);
+  border: none;
+  transition: var(--transition-time-common);
+  color: var(--text-color);
+}
+button:is(:hover, :focus) {
+  background-color: var(--button-bg-focus);
+}
+button.btn-primary {
+  min-width: 8rem;
+  min-height: 2rem;
+  transition: var(--transition-time-common);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+  background-color: var(--theme-color-500);
+}
+button.btn-primary:is(:hover, :focus) {
+  background-color: var(--theme-color-400);
+}
+button.btn-regular {
+  min-width: 8rem;
+  min-height: 2rem;
+  transition: var(--transition-time-common);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+}
+
+/*# sourceMappingURL=button.css.map */

@@ -3,7 +3,7 @@ import html from "/web-components/aqv2/lib/html.js";
 
 const style = await fetch('/web-components/aqv2/styles/window.css').then(res => res.text())
 const globalStyle = await fetch('/web-components/aqv2/styles/window_global.css').then(res => res.text())
-const template = `
+const template = html`
 <div class='aqwindow__base'>
     <div class='aqwindow__titlebar' draggable='true'>
         <slot name='title' class='aqwindow__name'></slot>
@@ -36,7 +36,7 @@ export default class AqWindow extends HTMLElement {
         local: css(style),
         global: css(globalStyle)
     }
-    static template = html(template)
+    static template = template
     static windows = []
     static observedAttributes = ['float', 'width', 'height']
 

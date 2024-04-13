@@ -1,6 +1,6 @@
 :host {
     display: block;
-    background-color: var(--background-color-darken);
+    background-color: var(--background-color-dk);
     max-width: fit-content;
 }
 
@@ -11,7 +11,7 @@
 
 .imgblk__caption {
     text-align: center;
-    border-bottom: 2px solid var(--theme-color);
+    border-bottom: 2px solid var(--accent-color);
     box-sizing: border-box;
     padding: 0.2em;
 }

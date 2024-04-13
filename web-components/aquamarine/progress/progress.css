@@ -3,14 +3,14 @@
     min-width: 12em;
     min-height: 0.4em;
     transition: 0.2s;
-    background-color: var(--gray-color);
+    background-color: var(--border-color);
 }
 
 .progress__bar {
     min-height: 0.4em;
     height: 100%;
-    background-color: var(--gray-color);
-    background-image: linear-gradient(var(--theme-color), var(--theme-color));
+    background-color: var(--border-color);
+    background-image: linear-gradient(var(--accent-color), var(--accent-color));
     background-repeat: no-repeat;
     background-position: left;
     transform: scaleX(0);

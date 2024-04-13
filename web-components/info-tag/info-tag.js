@@ -1,6 +1,6 @@
 const template = 
 `
-    
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/selection.css">
     <div part='icon'>
         <slot name='icon'></slot>
     </div>
@@ -20,14 +20,14 @@ info-tag {
     height: fit-content;
     display: flex;
     flex-direction: row;
-    border: 2px solid var(--border-color-common);
+    border: 2px solid var(--border-color);
     padding: 0.1em;
     font-family: inherit;
 }
 
 info-tag ::selection {
-    background-color: var(--darkened-theme-color);
-    color: var(--text-color-select);
+    background-color: var(--accent-color-dk);
+    color: var(--text-color-selected);
 }
 
 info-tag::part(icon) {

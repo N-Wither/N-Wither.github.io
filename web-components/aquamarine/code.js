@@ -21,7 +21,7 @@ aq-code {
     --color-regexp: #911f3f;
 }
 
-.dark-mode aq-code {
+:is(.dark-mode, .theme-dark) aq-code {
     --bg-color: #262335;
     --bg-color-2: #443964;
     --bg-color-select: #423f4f;
@@ -244,7 +244,17 @@ class AqCode extends HTMLElement {
             copyButton.title = 'Copy to Clipboard'
             this.appendChild(copyButton)
             copyButton.addEventListener('click', () => {
-                navigator.clipboard.writeText(codeArea.innerText.substring())
+                if(navigator.clipboard){
+                    navigator.clipboard.writeText(codeArea.innerText.substring())
+                }
+                else {
+                    let input = document.createElement('input')
+                    input.setAttribute('value', codeArea.innerText.substring())
+                    document.body.appendChild(input)
+                    input.select()
+                    document.execCommand('copy')
+                    document.body.removeChild(input)
+                }
             })
         }
 

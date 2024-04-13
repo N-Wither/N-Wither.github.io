@@ -3,60 +3,28 @@
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="./assets/css/themes/aquamarine/aquamarine.css">
-    <link rel="shortcut icon" href="./assets/imgs/wither-logo.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/aquamarinev2/global.css">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
-    <script src="/assets/js/utils.js"></script>
     <!-- components -->
     <script src="/assets/js/components/click_particles.js"></script>
     <link rel="stylesheet" href="/assets/css/components/click_particles.css">
-    <script src="/assets/js/components/aquamarine-navigate-menu.js" defer></script>
     <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
-
-    <style>
-        .dark-mode img.dark-change {
-            filter: brightness(0) invert();
-        }
-
-        a img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-    </style>
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
 </head>
 <body>
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon">
-        </div>
-        <div class="page-category flex-center padding-all-small">
-            WitherWorks
-        </div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank">
-                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
-                </a>
-            </div>
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
+    <page-header>
+        <div class="f-bold" slot="category" style="font-size: 1.4em; margin: auto;">WitherWorks</div>
+        <header-button slot="button">
+            <a href="https://github.com/N-Wither" class="flex-center no-deco" target="_blank">
+                <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
+            </a>
+        </header-button>
+    </page-header>
+    <page-body>
         <h1>Hello</h1>
         <hr>
         <p>This is N Wither. I do a little bit of everything.</p>
@@ -67,17 +35,7 @@
             <h3 slot="header">Omniworld</h3>
             <p>The BEST modpack I've ever made! <a href="/projects/omniworld/">Read More...</a></p>
         </aq-card>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
-    </div>
-    <script>
-        randomQuote()
-        startTime()
-        aof()
-    </script>
+    </page-body>
+    <page-footer></page-footer>
 </body>
 </html>
