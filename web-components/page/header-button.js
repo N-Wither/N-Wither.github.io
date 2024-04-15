@@ -27,6 +27,13 @@ export let headerButtonStyle = css`
     display: flex;
 }
 
+.base slot {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .base::after {
     position: absolute;
     content: "";
@@ -40,7 +47,7 @@ export let headerButtonStyle = css`
     z-index: -1;
 }
 
-.base:hover, .base:hover::after {
+.base:hover, .base:hover::after, .base:has(*:focus), .base:has(*:focus)::after {
     background-size: 100% 100%;
 }
 `
@@ -53,9 +60,7 @@ export class HeaderButton extends LitElement{
     render() {
         return html`
         <div class='base'>
-            <button class='button'>
-                <slot></slot>
-            </button>
+            <slot></slot>
         </div>
         `
     }

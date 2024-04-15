@@ -6,7 +6,7 @@ export const style = css`
     position: fixed;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: var(--header-height);
     box-shadow: 0px 4px 8px var(--shadow-color);
     display: flex;
@@ -17,8 +17,6 @@ export const style = css`
 
 slot[name=category] {
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
     height: var(--header-height);
 }
 

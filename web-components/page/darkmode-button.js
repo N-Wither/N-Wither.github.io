@@ -1,5 +1,6 @@
 import { html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { headerButtonStyle, HeaderButton } from './header-button.js';
+import '../aqv2/components/tooltip.js';
 
 export class DarkModeButton extends HeaderButton {
     static THEME_MODE_KEY = 'theme-mode';
@@ -48,9 +49,12 @@ export class DarkModeButton extends HeaderButton {
         let isAlreadyDark = document.documentElement.classList.contains('theme-dark') || localStorage.getItem('theme-mode') == 'dark'
         return html`
         <div class="base ${isAlreadyDark ? 'theme-dark' : ''}">
-            <button class="button" @click=${this.toggleThemeMode} title='Toggle Dark Mode'>
-                <slot></slot>
-            </button>
+            <aq-tooltip>
+                <button class="button" @click=${this.toggleThemeMode}>
+                    <slot></slot>
+                </button>
+                <div slot='tooltip'>Toggle dark mode.</div>
+            </aq-tooltip>
         </div>
         `
     }
@@ -63,14 +67,24 @@ export class DarkModeButton extends HeaderButton {
     static styles = [
         headerButtonStyle,
         css`
+            .button {
+                width: var(--header-height);
+                height: var(--header-height);
+            }
             .button::before {
                 color: var(--text-color);
                 content: '\ue518';
                 position: absolute;
             }
-
             .theme-dark .button::before {
                 content: '\ue51c';
+            }
+            aq-tooltip {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                justify-content: center;
             }
         `,
     ];

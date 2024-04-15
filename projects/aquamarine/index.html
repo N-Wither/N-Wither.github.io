@@ -8,18 +8,14 @@
     <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/table.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Aquamarine Web Components</title>
     <link rel="stylesheet" href="./web-playground.css">
-    <!-- external js libs -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
     <!-- components -->
     <link rel="stylesheet" href="/assets/css/components/collapsible-block.css">
     <script src="/assets/js/components/click_particles.js" defer></script>
     <link rel="stylesheet" href="/assets/css/components/click_particles.css">
-    <script src="/assets/js/components/hover-tooltip.js" defer></script>
-    <link rel="stylesheet" href="/assets/css/components/hover-tooltip.css">
     <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
     <script type="module" src="/web-components/info-tag/info-tag.js"></script>
     <script type="module" src="/web-components/aquamarine/code.js"></script>
@@ -33,15 +29,22 @@
     <script type="module" src="/web-components/aqv2/components/window.js"></script>
     <script type="module" src="/web-components/aqv2/components/console.js"></script>
     <script type="module" src="/web-components/aqv2/components/example.js"></script>
-    <script type="module" src="/web-components/page/header.js"></script>
-    <script type="module" src="/web-components/page/body.js"></script>
-    <script type="module" src="/web-components/page/footer.js"></script>
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/page/page-info.js"></script>
+    <script type="module" src="/web-components/page/reading-progress.js"></script>
 </head>
 
 <body>
     <page-header>
         <div class="f-bold" slot="category" style="font-size: 1.4em; margin: auto;">Aquamarine</div>
     </page-header>
+    <tool-box>
+        <page-info>
+            <p>自制的 Web Components.</p>
+        </page-info>
+        <to-top></to-top>
+        <reading-progress></reading-progress>
+    </tool-box>
     <page-body>
         <aq-showup>
             <h1 class="page-title">Aquamarine Web Components</h1>
@@ -275,6 +278,12 @@ greet(msg) {
             <p>基于 LitElement 的 Web Component。</p>
             <p>别问我为什么几乎每一个框架的组件示例都是这样一个计数按钮。</p>
             <aq-example></aq-example>
+
+            <h2>Tooltip</h2>
+            <aq-tooltip>
+                <button class="btn-regular">Click or hover or focus me!</button>
+                <div slot="tooltip">A Tooltip</div>
+            </aq-tooltip>
         </aq-showup>
     </page-body>
     <page-footer></page-footer>
