@@ -11,6 +11,7 @@ export let toolboxItemStyle = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: var(--transition-time-common);
 }
 
 .activator:is(:focus, :hover){

@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
+import { localize } from '../aqv2/lib/localize.js';
 
 export class PageInfo extends LitElement {
     constructor(){
@@ -16,10 +17,10 @@ export class PageInfo extends LitElement {
                     <div class='icon'>\ue88e</div>
                     <div class='desc'>INFO</div>
                 </button>
-                <div slot='tooltip'>About this page</div>
+                <div slot='tooltip'>${localize(PageInfo.lang, '1', 'About this page')}</div>
             </aq-tooltip>
             <dialog class='info'>
-                <button @click=${this.closeInfo} class='close' title='Close this dialog'>\ue5cd</button>
+                <button @click=${this.closeInfo} class='close' title=${localize(PageInfo.lang, '2', 'Close this dialog')}>\ue5cd</button>
                 <slot></slot>
             </dialog>
         </div>
@@ -81,6 +82,15 @@ export class PageInfo extends LitElement {
             }
             `
         ]
+    }
+
+    static get lang(){
+        return {
+            'zh-cn': {
+                '1': '关于此页面',
+                '2': '关闭对话框'
+            }
+        }
     }
 
     openInfo(){

@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/table.css">
-    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Aquamarine Web Components</title>
-    <link rel="stylesheet" href="./web-playground.css">
     <!-- components -->
     <link rel="stylesheet" href="/assets/css/components/collapsible-block.css">
     <script src="/assets/js/components/click_particles.js" defer></script>
@@ -43,7 +41,24 @@
             <p>自制的 Web Components.</p>
         </page-info>
         <to-top></to-top>
-        <reading-progress></reading-progress>
+        <reading-progress>
+            <div>
+                <b>目录</b>
+                <ul>
+                    <li>Collapsible Block</li>
+                    <li>Tab View</li>
+                    <li>Info Tag</li>
+                    <li>Code Block</li>
+                    <li>Timer</li>
+                    <li>Card</li>
+                    <li>Image Block</li>
+                    <li>Showup</li>
+                    <li>Window</li>
+                    <li>Console</li>
+                    <li>Tooltip</li>
+                </ul>
+            </div>
+        </reading-progress>
     </tool-box>
     <page-body>
         <aq-showup>
@@ -228,12 +243,7 @@ greet(msg) {
             <aq-card>
                 <p>一段没啥用的文字，仅供展示。</p>
             </aq-card>
-            <h2>Blockquote</h2>
-            <p>这是纯 CSS 实现的。</p>
-            <blockquote>最普通的引用块。</blockquote>
-            <blockquote class="info">信息</blockquote>
-            <blockquote class="warn">警告</blockquote>
-            <blockquote class="danger">危险</blockquote>
+
             <h2>Audio</h2>
             <p>本质上就是把原生的 audio 元素套了一层壳。</p>
             <input type="file" id="audio-file">
@@ -274,14 +284,9 @@ greet(msg) {
             <p>此外，你可以直接使用<code>.html()</code>方法直接往这里面放 HTML 元素！</p>
             <aq-console id="aqconsole" style="min-height: 20em;"></aq-console>
 
-            <h2>LitElement Example</h2>
-            <p>基于 LitElement 的 Web Component。</p>
-            <p>别问我为什么几乎每一个框架的组件示例都是这样一个计数按钮。</p>
-            <aq-example></aq-example>
-
             <h2>Tooltip</h2>
             <aq-tooltip>
-                <button class="btn-regular">Click or hover or focus me!</button>
+                <button class="btn-regular">Hover or focus me!</button>
                 <div slot="tooltip">A Tooltip</div>
             </aq-tooltip>
         </aq-showup>
@@ -294,7 +299,7 @@ greet(msg) {
             aqconsole.warn('Something not good...')
             aqconsole.error(new Error('Something is broken!').stack)
             aqconsole.table([{type: 'cat', weight: '2kg', can: 'meow'}, {type: 'dog', weight: '4kg', can: 'woof'}])
-        }, 1000)
+        }, 3000)
     </script>
 </body>
 </html>

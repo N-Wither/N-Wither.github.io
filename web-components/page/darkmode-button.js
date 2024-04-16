@@ -1,6 +1,7 @@
 import { html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { headerButtonStyle, HeaderButton } from './header-button.js';
 import '../aqv2/components/tooltip.js';
+import { localize } from '../aqv2/lib/localize.js';
 
 export class DarkModeButton extends HeaderButton {
     static THEME_MODE_KEY = 'theme-mode';
@@ -8,6 +9,12 @@ export class DarkModeButton extends HeaderButton {
         light: 'light',
         dark: 'dark',
     };
+
+    static lang = {
+        'zh-cn': {
+            '1': '切换亮色/暗色模式'
+        }
+    }
 
     autoDarkmode() {
         let themeMode = localStorage.getItem(DarkModeButton.THEME_MODE_KEY);
@@ -53,7 +60,7 @@ export class DarkModeButton extends HeaderButton {
                 <button class="button" @click=${this.toggleThemeMode}>
                     <slot></slot>
                 </button>
-                <div slot='tooltip'>Toggle dark mode.</div>
+                <div slot='tooltip'>${localize(DarkModeButton.lang, '1', 'Toggle dark mode.')}</div>
             </aq-tooltip>
         </div>
         `

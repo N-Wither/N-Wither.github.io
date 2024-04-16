@@ -1,7 +1,9 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
+import { localize } from '../aqv2/lib/localize.js';
 
+/**@extends {HTMLElement} */
 export class ReadingProgress extends LitElement {
     constructor(){
         super()
@@ -18,6 +20,23 @@ export class ReadingProgress extends LitElement {
                 max-height: 0px;
                 transition: var(--transition-time-common);
             }
+
+            .table-of-contents {
+                position: fixed;
+                right: calc(var(--header-height) + 2em);
+                top: calc(var(--header-height) + 1em);
+                background: var(--background-color);
+                box-shadow: 0px 4px 8px var(--shadow-color);
+                padding: 1em;
+                z-index: 98;
+                max-width: 70vw;
+                max-height: 50vh;
+                overflow: auto;
+            }
+
+            .table-of-contents.closed {
+                display: none;
+            }
             `
         ]
     }
@@ -28,17 +47,32 @@ export class ReadingProgress extends LitElement {
         }
     }
 
+    static get lang(){
+        return {
+            'zh-cn': {
+                '1': '阅读进度。',
+                '2': '点击打开/关闭目录。'
+            }
+        }
+    }
+
     render(){
         return html`
         <div class='base'>
             <link rel='stylesheet' href='/assets/css/aquamarinev2/button.css'>
             <aq-tooltip>
-                <button class='activator'>
+                <button class='activator' @click=${this.toggleTable}>
                     <div class='icon'>\uef42</div>
                     <div class='desc'>${this.progress}%</div>
                 </button>
-                <div slot='tooltip'>Reading progress</div>
+                <div slot='tooltip'>
+                    ${localize(ReadingProgress.lang, '1', 'Reading progress.')}
+                    ${this.childElementCount > 0 ? localize(ReadingProgress.lang, '2', 'Click to open/close table of contents.') : ''}
+                </div>
             </aq-tooltip>
+            <div class='table-of-contents ${this.childElementCount == 0 ? 'closed' : ''}'>
+                <slot></slot>
+            </div>
         </div>
         `
     }
@@ -46,17 +80,22 @@ export class ReadingProgress extends LitElement {
     connectedCallback(){
         super.connectedCallback()
 
-        let observer = new IntersectionObserver(entries => {
-            let target = entries[0]
-            if(target.intersectionRatio <= 0){
-                this.show()
-            }
-            else {
-                this.hide()
-            }
-        })
-        
-        observer.observe(document.querySelector('h1'))
+        if(this.childElementCount == 0){
+            let observer = new IntersectionObserver(entries => {
+                let target = entries[0]
+                if(target.intersectionRatio <= 0){
+                    this.show()
+                }
+                else {
+                    this.hide()
+                }
+            })
+            
+            observer.observe(document.querySelector('h1'))
+        }
+        else {
+            this.show()
+        }
 
         window.addEventListener('scroll', () => {this.trackScroll()})
     }
@@ -69,12 +108,36 @@ export class ReadingProgress extends LitElement {
     hide(){
         this.style.removeProperty('max-height')
         this.setAttribute('tabindex', 1)
+        this.blur()
     }
 
     trackScroll(){
         let value = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100
         if(isNaN(value) == true) value = 100
         this.progress = value.toFixed(0)
+    }
+
+    toggleTable(){
+        /**@type {HTMLDivElement} */
+        let table = this.shadowRoot?.querySelector('.table-of-contents')
+        let keyframes = [
+            {transform: 'translateX(20%)', opacity: 0},
+            {transform: 'translateX(0%)', opacity: 1}
+        ]
+        if(table.classList.contains('closed')){
+            if(this.childElementCount == 0) return;
+            table.classList.remove('closed')
+            table.animate(
+                keyframes,
+                {duration: 100, fill: 'forwards', easing: 'ease-in'}
+            )
+        }
+        else {
+            table.animate(keyframes, {
+                duration: 100, fill: 'forwards', direction: 'reverse', easing: 'ease-out'
+            })
+            setTimeout(() => table.classList.add('closed'), 100)
+        }
     }
 }
 

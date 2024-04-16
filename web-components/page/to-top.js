@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
+import { localize } from '../aqv2/lib/localize.js';
 
 export class ToTop extends LitElement {
     constructor(){
@@ -21,6 +22,14 @@ export class ToTop extends LitElement {
         ]
     }
 
+    static get lang(){
+        return {
+            'zh-cn': {
+                '1': '回到顶部',
+            }
+        }
+    }
+
     render(){
         return html`
         <div class='base'>
@@ -30,7 +39,7 @@ export class ToTop extends LitElement {
                     <div class='icon'>\ue25a</div>
                     <div class='desc'>TOP</div>
                 </button>
-                <div slot='tooltip'>Back to top</div>
+                <div slot='tooltip'>${localize(ToTop.lang, '1', 'Back to top')}</div>
             </aq-tooltip>
         </div>
         `
@@ -64,6 +73,7 @@ export class ToTop extends LitElement {
     hide(){
         this.style.removeProperty('max-height')
         this.setAttribute('tabindex', 1)
+        this.blur()
     }
 }
 
