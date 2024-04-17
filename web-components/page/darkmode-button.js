@@ -1,7 +1,7 @@
 import { html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { headerButtonStyle, HeaderButton } from './header-button.js';
 import '../aqv2/components/tooltip.js';
-import { localize } from '../aqv2/lib/localize.js';
+import { createLocalizer } from '../aqv2/lib/localize.js';
 
 export class DarkModeButton extends HeaderButton {
     static THEME_MODE_KEY = 'theme-mode';
@@ -10,11 +10,18 @@ export class DarkModeButton extends HeaderButton {
         dark: 'dark',
     };
 
-    static lang = {
-        'zh-cn': {
-            '1': '切换亮色/暗色模式'
+    static get lang() {
+        return {
+            'zh-cn': {
+                1: '切换亮色/暗色模式'
+            },
+            default: {
+                1: 'Toggle dark mode.'
+            }
         }
     }
+
+    #localize = createLocalizer(DarkModeButton.lang)
 
     autoDarkmode() {
         let themeMode = localStorage.getItem(DarkModeButton.THEME_MODE_KEY);
@@ -57,10 +64,10 @@ export class DarkModeButton extends HeaderButton {
         return html`
         <div class="base ${isAlreadyDark ? 'theme-dark' : ''}">
             <aq-tooltip>
-                <button class="button" @click=${this.toggleThemeMode}>
+                <button class="button" @click=${this.toggleThemeMode} name=${this.#localize('1')}>
                     <slot></slot>
                 </button>
-                <div slot='tooltip'>${localize(DarkModeButton.lang, '1', 'Toggle dark mode.')}</div>
+                <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>
         </div>
         `

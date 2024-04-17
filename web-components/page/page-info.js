@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
-import { localize } from '../aqv2/lib/localize.js';
+import { createLocalizer } from '../aqv2/lib/localize.js';
 
 export class PageInfo extends LitElement {
     constructor(){
@@ -13,14 +13,14 @@ export class PageInfo extends LitElement {
         <div class='base'>
             <link rel='stylesheet' href='/assets/css/aquamarinev2/button.css'>
             <aq-tooltip>
-                <button class='activator' @click=${this.openInfo}>
+                <button class='activator' @click=${this.openInfo} name=${this.#localize('1')}>
                     <div class='icon'>\ue88e</div>
                     <div class='desc'>INFO</div>
                 </button>
-                <div slot='tooltip'>${localize(PageInfo.lang, '1', 'About this page')}</div>
+                <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>
             <dialog class='info'>
-                <button @click=${this.closeInfo} class='close' title=${localize(PageInfo.lang, '2', 'Close this dialog')}>\ue5cd</button>
+                <button @click=${this.closeInfo} class='close' title=${this.#localize('2')}>\ue5cd</button>
                 <slot></slot>
             </dialog>
         </div>
@@ -89,9 +89,15 @@ export class PageInfo extends LitElement {
             'zh-cn': {
                 '1': '关于此页面',
                 '2': '关闭对话框'
+            },
+            default: {
+                1: 'About this page',
+                2: 'Close this dialog'
             }
         }
     }
+
+    #localize = createLocalizer(PageInfo.lang)
 
     openInfo(){
         let dialog = this.shadowRoot?.querySelector('dialog.info')

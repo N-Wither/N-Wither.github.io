@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
-import { localize } from '../aqv2/lib/localize.js';
+import { createLocalizer } from '../aqv2/lib/localize.js';
 
 /**@extends {HTMLElement} */
 export class ReadingProgress extends LitElement {
@@ -50,25 +50,30 @@ export class ReadingProgress extends LitElement {
     static get lang(){
         return {
             'zh-cn': {
-                '1': '阅读进度。',
-                '2': '点击打开/关闭目录。'
+                1: '阅读进度。',
+                2: '点击打开/关闭目录。',
+            },
+            default: {
+                1: 'Reading progress.',
+                2: 'Click to open/close table of contents.'
             }
         }
     }
 
+    #localize = createLocalizer(ReadingProgress.lang)
+
     render(){
+        let desc = this.#localize('1') + (this.childElementCount > 0 ? this.#localize('2') : '')
+
         return html`
         <div class='base'>
             <link rel='stylesheet' href='/assets/css/aquamarinev2/button.css'>
             <aq-tooltip>
-                <button class='activator' @click=${this.toggleTable}>
+                <button class='activator' @click=${this.toggleTable} name=${desc}>
                     <div class='icon'>\uef42</div>
                     <div class='desc'>${this.progress}%</div>
                 </button>
-                <div slot='tooltip'>
-                    ${localize(ReadingProgress.lang, '1', 'Reading progress.')}
-                    ${this.childElementCount > 0 ? localize(ReadingProgress.lang, '2', 'Click to open/close table of contents.') : ''}
-                </div>
+                <div slot='tooltip'>${desc}</div>
             </aq-tooltip>
             <div class='table-of-contents ${this.childElementCount == 0 ? 'closed' : ''}'>
                 <slot></slot>
@@ -107,7 +112,7 @@ export class ReadingProgress extends LitElement {
 
     hide(){
         this.style.removeProperty('max-height')
-        this.setAttribute('tabindex', 1)
+        this.setAttribute('tabindex', 0)
         this.blur()
     }
 
@@ -138,6 +143,7 @@ export class ReadingProgress extends LitElement {
             })
             setTimeout(() => table.classList.add('closed'), 100)
         }
+        this.blur()
     }
 }
 

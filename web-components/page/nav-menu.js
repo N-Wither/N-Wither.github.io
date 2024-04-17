@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import '../aqv2/components/tooltip.js'
-import { localize } from '../aqv2/lib/localize.js';
+import { createLocalizer } from '../aqv2/lib/localize.js';
 
 const langs = {
     'en-us': {
@@ -140,17 +140,22 @@ export class NavMenu extends LitElement {
     static get lang(){
         return {
             'zh-cn': {
-                '1': '打开/关闭导航菜单'
+                1: '打开/关闭导航菜单'
+            },
+            default: {
+                1: 'Toggle navigation menu.'
             }
         }
     }
+
+    #localize = createLocalizer(NavMenu.lang)
 
     render(){
         return html`
         <header-button>
             <aq-tooltip>
-                <button class='nav-menu-switch' @click=${this.toggleMenu}></button>
-                <div slot='tooltip'>${localize(NavMenu.lang, '1', 'Toggle navigation menu.')}</div>
+                <button class='nav-menu-switch' @click=${this.toggleMenu} name=${this.#localize('1')}></button>
+                <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>
         </header-button>
         <div class='nav-menu'>
