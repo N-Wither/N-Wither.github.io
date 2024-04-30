@@ -23,10 +23,12 @@ export class DarkModeButton extends HeaderButton {
 
     #localize = createLocalizer(DarkModeButton.lang)
 
-    autoDarkmode() {
+    static #channel = new BroadcastChannel('aquamarine-page-theme')
+
+    static autoDarkmode() {
         let themeMode = localStorage.getItem(DarkModeButton.THEME_MODE_KEY);
         if (themeMode && themeMode in DarkModeButton.THEME_MODES) {
-            this.applyThemeMode(themeMode);
+            DarkModeButton.applyThemeMode(themeMode);
             return;
         }
         let dark = matchMedia('(prefers-color-scheme: dark)');
@@ -35,10 +37,10 @@ export class DarkModeButton extends HeaderButton {
         } else {
             localStorage.setItem(DarkModeButton.THEME_MODE_KEY, (themeMode = DarkModeButton.THEME_MODES.light));
         }
-        this.applyThemeMode(themeMode);
+        DarkModeButton.applyThemeMode(themeMode);
     }
     
-    applyThemeMode(mode) {
+    static applyThemeMode(mode, broadCast = true) {
         let html = document.documentElement;
         if (mode === DarkModeButton.THEME_MODES.dark) {
             html.classList.add('theme-dark');
@@ -47,16 +49,19 @@ export class DarkModeButton extends HeaderButton {
             html.classList.remove('theme-dark');
             this.shadowRoot?.querySelector('.base')?.classList.remove('theme-dark')
         }
+        if(broadCast === true){
+            DarkModeButton.#channel.postMessage({theme: mode})
+        }
     }
 
-    toggleThemeMode() {
+    static toggleThemeMode() {
         let themeMode = localStorage.getItem(DarkModeButton.THEME_MODE_KEY);
         if (themeMode === DarkModeButton.THEME_MODES.dark) {
             localStorage.setItem(DarkModeButton.THEME_MODE_KEY, themeMode = DarkModeButton.THEME_MODES.light);
         } else {
             localStorage.setItem(DarkModeButton.THEME_MODE_KEY, themeMode = DarkModeButton.THEME_MODES.dark);
         }
-        this.applyThemeMode(themeMode);
+        DarkModeButton.applyThemeMode(themeMode);
     }
 
     render() {
@@ -64,7 +69,7 @@ export class DarkModeButton extends HeaderButton {
         return html`
         <div class="base ${isAlreadyDark ? 'theme-dark' : ''}">
             <aq-tooltip>
-                <button class="button" @click=${this.toggleThemeMode} name=${this.#localize('1')}>
+                <button class="button" @click=${DarkModeButton.toggleThemeMode} name=${this.#localize('1')}>
                     <slot></slot>
                 </button>
                 <div slot='tooltip'>${this.#localize('1')}</div>
@@ -75,7 +80,7 @@ export class DarkModeButton extends HeaderButton {
 
     connectedCallback() {
         super.connectedCallback();
-        this.autoDarkmode();
+        DarkModeButton.autoDarkmode();
     }
 
     static styles = [

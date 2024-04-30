@@ -112,13 +112,14 @@ export class ReadingProgress extends LitElement {
 
     hide(){
         this.style.removeProperty('max-height')
-        this.setAttribute('tabindex', 0)
+        this.setAttribute('tabindex', -1)
         this.blur()
     }
 
     trackScroll(){
         let value = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100
         if(isNaN(value) == true) value = 100
+        if(value > 100) value = 100
         this.progress = value.toFixed(0)
     }
 
@@ -129,18 +130,14 @@ export class ReadingProgress extends LitElement {
             {transform: 'translateX(20%)', opacity: 0},
             {transform: 'translateX(0%)', opacity: 1}
         ]
+        let options = {duration: 100, fill: 'forwards', easing: 'ease-in'}
         if(table.classList.contains('closed')){
             if(this.childElementCount == 0) return;
             table.classList.remove('closed')
-            table.animate(
-                keyframes,
-                {duration: 100, fill: 'forwards', easing: 'ease-in'}
-            )
+            table.animate(keyframes, options)
         }
         else {
-            table.animate(keyframes, {
-                duration: 100, fill: 'forwards', direction: 'reverse', easing: 'ease-out'
-            })
+            table.animate(keyframes, {...options, direction: 'reverse'})
             setTimeout(() => table.classList.add('closed'), 100)
         }
         this.blur()

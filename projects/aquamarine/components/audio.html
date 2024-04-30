@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio 音频</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/aquamarine/audio/audio.js"></script>
+</head>
+<body>
+    <page-header>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">Aquamarine</div>
+    </page-header>
+    <tool-box>
+    </tool-box>
+    <page-body>
+        <h1>Audio 音频</h1>
+        <hr>
+        <blockquote class="info">此组件可能在未来重写</blockquote>
+        <p>本质上就是把原生的 audio 元素套了一层壳。</p>
+        <input type="file" id="audio-file">
+        <script>
+            let input = document.querySelector('#audio-file')
+            input.onchange = function () {
+                let file = this.files[0]
+                let src = URL.createObjectURL(file)
+                document.querySelector('aq-audio').src = src
+                document.querySelector('aq-audio').audioTitle = file.name
+            }
+        </script>
+        <aq-audio></aq-audio>
+    </page-body>
+    <page-footer></page-footer>
+</body>
+</html>

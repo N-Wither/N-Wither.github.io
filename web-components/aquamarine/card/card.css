@@ -20,12 +20,15 @@
 }
 .card__base.horizontal {
     flex-direction: row;
+    max-width: initial;
 }
 
 @media screen and (max-width: 480px) {
     .card__base.horizontal {
         flex-direction: column;
         min-width: 100%;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
     }
 }
 
@@ -40,6 +43,10 @@
 .card__content {
     display: flex;
     flex-direction: column;
+}
+
+.card__base.horizontal .card__content {
+    width: 100%;
 }
 
 .card__header {

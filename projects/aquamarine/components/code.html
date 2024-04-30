@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Code 代码块</h1>
+    <hr>
+    <p>基于 Highlight.js 格式化。</p>
+    <aq-code language="js" display-language="JavaScript">
+let a = 0
+console.log('Hello World!')
+class Foo extends Bar{
+    constructor() {
+        super()
+    }
+
+greet(msg) {
+    console.log(msg)
+    }
+}
+// This is a comment
+    </aq-code>
+    <p>
+        你也可以在文本内使用此组件，只需加上 <aq-code inline language="plaintext">inline</aq-code> 属性，效果是这样的：<aq-code inline language="js">console.log('Hello World!')</aq-code>
+    </p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Timer 计时器</h1>
+    <hr>
+    <p>属性列表</p>
+    <table>
+        <thead>
+            <tr>
+                <th>属性</th>
+                <th>描述</th>
+                <th>类型</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>format</td>
+                <td>时间格式，其中的 <code>hh mm ss ms</code> 会被分别替换为小时、分、秒、毫秒，其余字符不变。默认为 <code>mm:ss</code>。</td>
+                <td>string</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>起始时间，以毫秒计。默认为 0。</td>
+                <td>number</td>
+            </tr>
+            <tr>
+                <td>countdown</td>
+                <td>控制是否为倒计时。</td>
+                <td>boolean</td>
+            </tr>
+            <tr>
+                <td>step</td>
+                <td>控制文本的刷新间隔，以毫秒计，默认为 10。可用于减少性能消耗。</td>
+                <td>number</td>
+            </tr>
+        </tbody>
+    </table>
+    <aq-timer format="&#xe8b5ss.ms" time="300000" step="80" countdown></aq-timer>
+    <aq-timer format="hh:mm:ss" step="500"></aq-timer>
+</body>
+</html>

@@ -203,7 +203,9 @@ html {
   --border-color: #cfcfcf;
   --button-bg: var(--gray-100);
   --button-bg-focus: var(--gray-200);
+  --button-bg-disabled: var(--gray-300);
   --header-bg: #fcfcfc99;
+  --input-bg: #00000011;
 }
 
 html.theme-dark {
@@ -221,7 +223,9 @@ html.theme-dark {
   --border-color: #3c3c3c;
   --button-bg: var(--gray-800);
   --button-bg-focus: var(--gray-700);
+  --button-bg-disabled: var(--gray-900);
   --header-bg: #1e1e1e99;
+  --input-bg: #00000033;
 }
 
 html {

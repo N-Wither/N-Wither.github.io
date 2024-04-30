@@ -30,5 +30,12 @@ button.btn-regular {
   justify-content: center;
   margin-top: 0.2rem;
 }
+button:disabled {
+  cursor: not-allowed;
+  background-color: var(--button-bg-disabled);
+}
+button:disabled:is(:hover, :focus) {
+  background-color: var(--button-bg-disabled);
+}
 
 /*# sourceMappingURL=button.css.map */

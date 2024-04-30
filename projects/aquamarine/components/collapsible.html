@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Collapsible</h1>
+    <hr>
+    <aq-collapsible open>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis fugit quos similique ullam! Quis eius
+            hic blanditiis veniam, molestiae, sapiente, placeat amet atque consectetur doloremque nobis minima
+            tenetur iure aliquam.</p>
+        <aq-collapsible>
+            嵌套的可折叠块。
+            <a href="#">当使用 <span class="keycap">Tab</span> 访问折叠块中的元素时，折叠块会自动展开。</a>
+            <aq-collapsible>
+                <a href="#">三重嵌套</a>
+            </aq-collapsible>
+        </aq-collapsible>
+    </aq-collapsible>
+    <p>可以自定义折叠按钮上显示的文本。</p>
+    <aq-collapsible open-text="点击打开" close-text="点击关闭">
+        <div>
+            <p>一小段文字。</p>
+        </div>
+    </aq-collapsible>
+</body>
+</html>

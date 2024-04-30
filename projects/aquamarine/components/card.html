@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Card 卡片</h1>
+    <hr>
+    <blockquote class="warn">此组件将在未来重写</blockquote>
+    <p>有两种排版方式：水平和垂直。</p>
+    <p>这么大的东西好像不太适合称作卡片了，但是你可以用 CSS 确定大小。</p>
+    <aq-card horizontal>
+        <img src="/projects/c/assets/img/selene-in-library.png" slot="image" style="width: 300px;">
+        <h1 slot="header">这是标题</h1>
+        <div>
+            <p>这是正文。</p>
+        </div>
+        <span slot="footer">这是页脚</span>
+    </aq-card>
+    <aq-card>
+        <img src="/projects/c/assets/img/ella_avatar.png" slot="image" style="width: 100%;">
+        <h1 slot="header">这也是标题</h1>
+        <div>
+            <p>这也是正文。</p>
+        </div>
+        <span slot="footer">还是页脚</span>
+    </aq-card>
+    没有图片也是可以的：
+    <aq-card>
+        <p>一段没啥用的文字，仅供展示。</p>
+    </aq-card>
+</body>
+</html>

@@ -1,305 +1,100 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
-    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
-    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
-    <link rel="stylesheet" href="/assets/css/aquamarinev2/table.css">
-    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Aquamarine Web Components</title>
-    <!-- components -->
-    <link rel="stylesheet" href="/assets/css/components/collapsible-block.css">
-    <script src="/assets/js/components/click_particles.js" defer></script>
-    <link rel="stylesheet" href="/assets/css/components/click_particles.css">
-    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
-    <script type="module" src="/web-components/info-tag/info-tag.js"></script>
-    <script type="module" src="/web-components/aquamarine/code.js"></script>
-    <script type="module" src="/web-components/aquamarine/tab.js"></script>
-    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
-    <script type="module" src="/web-components/aquamarine/timer/timer.js"></script>
-    <script type="module" src="/web-components/aquamarine/card/card.js"></script>
-    <script type="module" src="/web-components/aquamarine/audio/audio.js"></script>
-    <script type="module" src="/web-components/aquamarine/showup.js"></script>
-    <script type="module" src="/web-components/aquamarine/image-block.js"></script>
-    <script type="module" src="/web-components/aqv2/components/window.js"></script>
-    <script type="module" src="/web-components/aqv2/components/console.js"></script>
-    <script type="module" src="/web-components/aqv2/components/example.js"></script>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/table.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/page/page-info.js"></script>
     <script type="module" src="/web-components/page/reading-progress.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/aquamarine/tab.js"></script>
+    <script type="module" src="/web-components/aquamarine/code.js"></script>
+    <script type="module" src="/web-components/aquamarine/timer/timer.js"></script>
+    <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+    <script type="module" src="/web-components/aqv2/components/window.js"></script>
+    <script type="module" src="/web-components/aqv2/components/console.js"></script>
+    <script type="module" src="/web-components/aqv2/components/tooltip.js"></script>
+    <script type="module" src="/web-components/aqv2/components/slider.js"></script>
+    <script type="module" src="/web-components/aqv2/components/input-number.js"></script>
+    <style>
+        .frame-wrapper {
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            min-height: 100%;
+        }
+    </style>
 </head>
-
 <body>
     <page-header>
-        <div class="f-bold" slot="category" style="font-size: 1.4em; margin: auto;">Aquamarine</div>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">Aquamarine</div>
     </page-header>
     <tool-box>
         <page-info>
-            <p>自制的 Web Components.</p>
+            <p>自制的 Web Components，一开始是完全自制，后来基于 Lit。</p>
         </page-info>
         <to-top></to-top>
         <reading-progress>
-            <div>
+            <div class="content-navigation">
                 <b>目录</b>
                 <ul>
-                    <li>Collapsible Block</li>
-                    <li>Tab View</li>
-                    <li>Info Tag</li>
-                    <li>Code Block</li>
-                    <li>Timer</li>
-                    <li>Card</li>
-                    <li>Image Block</li>
-                    <li>Showup</li>
-                    <li>Window</li>
-                    <li>Console</li>
-                    <li>Tooltip</li>
+                    <li><a href="javascript:setFrame('main')">组件简介</a></li>
+                    <li><a href="javascript:setFrame('collapsible')">Collapsible 折叠</a></li>
+                    <li><a href="javascript:setFrame('tab')">Tab 分页</a></li>
+                    <li><a href="javascript:setFrame('code')">Code 代码块</a></li>
+                    <li><a href="javascript:setFrame('timer')">Timer 计时器</a></li>
+                    <li><a href="javascript:setFrame('card')">Card 卡片</a></li>
+                    <li><a href="./components/audio.html">Audio 音频</a></li>
+                    <li><a href="javascript:setFrame('window')">Window 窗口</a></li>
+                    <li><a href="./components/console.html">Console 控制台</a></li>
+                    <li><a href="javascript:setFrame('tooltip')">Tooltip 工具提示</a></li>
+                    <li><a href="javascript:setFrame('input')">Input 输入控件</a></li>
                 </ul>
             </div>
         </reading-progress>
     </tool-box>
     <page-body>
-        <aq-showup>
-            <h1 class="page-title">Aquamarine Web Components</h1>
-            <hr>
-            <p>这个页面是为了展示 Aquamarine 网页主题，以及一些适用于这个主题的组件。</p>
-            <p>按下 <span class="keycap">Ctrl</span> + <span class="keycap">F</span> 可以搜索此页面上的内容。</p>
-            <h2>Collapsible Block</h2>
-            <a href="/web-components/aquamarine/collapsible/collapsible.js" target="_blank"
-                rel="noopener noreferrer">源代码</a>
-            <aq-collapsible open>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis fugit quos similique ullam! Quis eius
-                    hic blanditiis veniam, molestiae, sapiente, placeat amet atque consectetur doloremque nobis minima
-                    tenetur iure aliquam.</p>
-                <aq-collapsible>
-                    嵌套的可折叠块。
-                    <a href="#">当使用 <span class="keycap">Tab</span> 访问折叠块中的元素时，折叠块会自动展开。</a>
-                    <aq-collapsible>
-                        <a href="#">三重嵌套</a>
-                    </aq-collapsible>
-                </aq-collapsible>
-            </aq-collapsible>
-            <p>可以自定义折叠按钮上显示的文本。</p>
-            <aq-collapsible open-text="点击打开" close-text="点击关闭">
-                <div>
-                    <p>一小段文字。</p>
-                </div>
-            </aq-collapsible>
-            <h2>Tab View</h2>
-            <div>
-                <aq-tab>
-                    <aq-tab-button slot="tabs" open index="1">标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" open index="1">
-                        <b>页面</b>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem rem quam ex
-                            reprehenderit veritatis modi dignissimos cumque nemo. Repudiandae voluptatem commodi nulla
-                            alias debitis. Excepturi corrupti aspernatur assumenda voluptates officia.</p>
-                    </aq-tab-page>
-                    <aq-tab-button slot="tabs" index="2">另一个标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" index="2">
-                        <b>另一个页面</b>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ullam dicta earum,
-                            aspernatur numquam consectetur fugiat expedita velit maiores iure quisquam placeat, dolorum
-                            amet eligendi fuga necessitatibus facilis explicabo ut?</p>
-                    </aq-tab-page>
-                    <aq-tab-button slot="tabs" index="3">虽然这个标签页的名字很长但是完全没有内容好奇怪哦</aq-tab-button>
-                    <aq-tab-page slot="pages" index="3"></aq-tab-page>
-                    <aq-tab-button slot="tabs" index="4">一个内容很多的页面</aq-tab-button>
-                    <aq-tab-page slot="pages" index="4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore
-                            et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Non
-                            curabitur
-                            gravida arcu ac tortor dignissim convallis. Vel facilisis volutpat est velit egestas dui id
-                            ornare.
-                            At tellus at urna condimentum mattis pellentesque id nibh tortor. Eu augue ut lectus arcu
-                            bibendum
-                            at varius vel pharetra. Pharetra vel turpis nunc eget. In iaculis nunc sed augue. Ac felis
-                            donec et
-                            odio pellentesque diam volutpat commodo. Id diam vel quam elementum. Urna neque viverra
-                            justo nec.
-                            At consectetur lorem donec massa. Massa tincidunt nunc pulvinar sapien et ligula. Quisque
-                            non tellus
-                            orci ac auctor augue mauris. Cras ornare arcu dui vivamus arcu. Vestibulum mattis
-                            ullamcorper velit
-                            sed ullamcorper morbi. Justo eget magna fermentum iaculis eu non diam phasellus vestibulum.
-                        </p>
-                        <p>Cursus sit amet dictum sit amet justo donec enim. Hac habitasse platea dictumst vestibulum
-                            rhoncus
-                            est pellentesque elit ullamcorper. Tempus imperdiet nulla malesuada pellentesque elit eget.
-                            Sit amet
-                            cursus sit amet. Odio morbi quis commodo odio aenean sed adipiscing. Volutpat ac tincidunt
-                            vitae
-                            semper quis lectus nulla at volutpat. Sed viverra ipsum nunc aliquet bibendum enim
-                            facilisis.
-                            Adipiscing tristique risus nec feugiat in fermentum posuere. Tortor id aliquet lectus proin
-                            nibh
-                            nisl condimentum id. Consequat semper viverra nam libero justo. Malesuada bibendum arc </p>
-                    </aq-tab-page>
-                    <aq-tab-button slot="tabs" index="5">空标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" index="5"></aq-tab-page>
-                    <aq-tab-button slot="tabs" index="6">空标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" index="6"></aq-tab-page>
-                    <aq-tab-button slot="tabs" index="7">空标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" index="7"></aq-tab-page>
-                    <aq-tab-button slot="tabs" index="8">空标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" index="8"></aq-tab-page>
-                    <aq-tab-button slot="tabs" index="9">空标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" index="9"></aq-tab-page>
-                    <aq-tab-button slot="tabs" index="10">空标签页</aq-tab-button>
-                    <aq-tab-page slot="pages" index="10"></aq-tab-page>
-                </aq-tab>
-            </div>
-            <h2>Info Tag</h2>
-            <info-tag tag="信息标签" desc="关于信息的描述" icon="&#xe88e" icon-type="text"></info-tag>
-            <h2>Code Block</h2>
-            <aq-code language="js" display-language="JavaScript">
-let a = 0
-console.log('Hello World!')
-class Foo extends Bar{
-    constructor() {
-        super()
-    }
-
-greet(msg) {
-    console.log(msg)
-    }
-}
-// This is a comment
-            </aq-code>
-            <p>
-                你也可以在文本内使用此组件，只需加上 <aq-code inline language="plaintext">inline</aq-code> 属性，效果是这样的：<aq-code inline language="js">console.log('Hello World!')</aq-code>
-            </p>
-
-            <h2>Timer</h2>
-            属性列表
-            <table>
-                <thead>
-                    <tr>
-                        <th>属性</th>
-                        <th>描述</th>
-                        <th>类型</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>format</td>
-                        <td>时间格式，其中的 <code>hh mm ss ms</code> 会被分别替换为小时、分、秒、毫秒，其余字符不变。默认为 <code>mm:ss</code>。</td>
-                        <td>string</td>
-                    </tr>
-                    <tr>
-                        <td>time</td>
-                        <td>起始时间，以毫秒计。默认为 0。</td>
-                        <td>number</td>
-                    </tr>
-                    <tr>
-                        <td>countdown</td>
-                        <td>控制是否为倒计时。</td>
-                        <td>boolean</td>
-                    </tr>
-                    <tr>
-                        <td>step</td>
-                        <td>控制文本的刷新间隔，以毫秒计，默认为 10。可用于减少性能消耗。</td>
-                        <td>number</td>
-                    </tr>
-                </tbody>
-            </table>
-            <aq-timer format="&#xe8b5ss.ms" time="300000" step="80" countdown></aq-timer>
-            <aq-timer format="hh:mm:ss" step="500"></aq-timer>
-            <h2>Card</h2>
-            <p>有两种排版方式：水平和垂直。在移动端，水平排版会自动转为垂直排版。</p>
-            <p>这么大的东西好像不太适合称作卡片了，但是你可以用 CSS 确定大小。</p>
-            <aq-card horizontal>
-                <img src="https://scp-wiki.wdfiles.com/local--files/scp-7819/corridor.png" slot="image" width="300px">
-                <h1 slot="header">SCP-7819</h1>
-                <div>
-                    <p><b>项目等级：</b>Keter / 未收容</p>
-                    <p><b>特殊收容措施：</b>若你目前正在SCP-7819影响下，请立即参阅附录1。SCP-7819仍在被研究的过程中；若你确信你已与它发生过接触，请立即联系研究首席。</p>
-                    <p><b>描述：</b>SCP-7819是一处掠食性地点，会在美国大陆内的美国编号公路系统的各个出口旁出现。SCP-7819的形态整体固定；它表现为一家小型路边旅馆或汽车旅馆（具体的布局各异），宣传尚有空房，其外部标志总是标注为“宽憩酒店”。
-                    </p>
-                    <p>...</p>
-                </div>
-                <span slot="footer"><a href="http://scp-wiki-cn.wikidot.com/scp-7819" slot="footer">SCP-7819</a> by
-                    Rounderhouse, CC-BY-SA 3.0</span>
-            </aq-card>
-            <aq-card>
-                <img src="http://scp-wiki.wdfiles.com/local--files/fragment:scp-6000-2/bubble4.png" slot="image"
-                    style="width: 100%;">
-                <h1 slot="header">SCP-6000</h1>
-                <div>
-                    <p><b>项目等级：</b>Keter</p>
-                    <p><b>特殊收容措施：</b>目前针对SCP-6000采取的措施在于通过任何必要手段来掩盖它的存在。作为FUSILLADE项目的信息部门，基金会的资源将主要用于制造虚假信息与隐瞒信息，同时设计永久性的收容或毁灭解决方案。任何未经授权进入SCP-6000禁区的个人都将受到严厉的惩罚。更多收容细节见附录6000.3。
-                    </p>
-                    <p><b>描述：</b>SCP-6000是一个巨型挤压裂口，中心坐标南纬2°9′47.1816′，西经55°7′35.9328′，位于巴西的亚马逊雨林。SCP-6000代表了基金会所遇到过的最大的W型运输通道，俗称
-                        "门径"。SCP-6000目前从其东北侧到西南侧长达19公里。受SCP-6000直接影响的区域要大得多，并且已在该区域周围建立了一个直径为8公里的临时安全边界，被指定为隔离区。</p>
-                    <p>...</p>
-                </div>
-                <span slot="footer"><a href="http://scp-wiki-cn.wikidot.com/scp-7819" slot="footer">SCP-6000</a> by
-                    Rounderhouse, CC-BY-SA 3.0</span>
-            </aq-card>
-            没有图片也是可以的：
-            <aq-card>
-                <p>一段没啥用的文字，仅供展示。</p>
-            </aq-card>
-
-            <h2>Audio</h2>
-            <p>本质上就是把原生的 audio 元素套了一层壳。</p>
-            <input type="file" id="audio-file">
-            <script>
-                let input = document.querySelector('#audio-file')
-                input.onchange = function () {
-                    let file = this.files[0]
-                    let src = URL.createObjectURL(file)
-                    document.querySelector('aq-audio').src = src
-                    document.querySelector('aq-audio').audioTitle = file.name
+        <h1></h1>
+        <div class="frame-wrapper">
+            <!-- <iframe src="/projects/aquamarine/components/main.html" frameborder="0" title="details"></iframe> -->
+        </div>
+        <script>
+            // function setFrame(url){
+            //     let frame = document.querySelector('iframe')
+            //     let finalUrl = `/projects/aquamarine/components/${url}.html`
+            //     if(frame.contentWindow.location.pathname != finalUrl){
+            //         frame.src = finalUrl
+            //     }
+            // }
+            async function setFrame(url){
+                let frame = document.querySelector('.frame-wrapper')
+                let parser = new DOMParser()
+                let finalUrl = `./components/${url}.html`
+                if(frame.dataset.url != finalUrl){
+                    let source = await fetch(finalUrl).then(r => r.text())
+                    let parsed = parser.parseFromString(source, 'text/html')
+                    frame.innerHTML = parsed.body.innerHTML
+                    frame.dataset.url = finalUrl
                 }
-            </script>
-            <aq-audio></aq-audio>
-
-            <h2>Image Block</h2>
-            <aq-image-block src="/projects/c/assets/img/ella_avatar.png" caption="Ella" width="200"
-                height="200"></aq-image-block>
-
-            <h2>Showup</h2>
-            <p><code>&lt;aq-showup&gt;</code>中的元素会在进入视口的时候具有渐显效果，这个页面本身就包裹在里面。</p>
-
-            <h2>Window</h2>
-            <p>一个可拖动可调整大小的窗口，里面可以放任何东西。默认的浮动范围是它的<code>offsetParent</code>，如果加上<code>float</code>属性，它的浮动范围会变成全屏。</p>
-            <div style="position: relative; height: 30em;">
-                <aq-window width="20em" height="18em">
-                    <span slot="title">Window</span>
-                    <p>Hello World!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ratione voluptas error reprehenderit facere necessitatibus laborum assumenda explicabo nulla ut earum est, saepe repellendus. Magni, saepe neque voluptas similique commodi corrupti porro odio at est suscipit quas vitae dignissimos, inventore nemo asperiores dolorem ipsam dolorum? Molestias velit ipsa alias nemo officiis quos quaerat est odit quidem animi iure obcaecati delectus maxime dolorem, corporis saepe. Voluptatem, itaque, nam culpa nesciunt expedita non aliquam facilis veniam quis nobis nemo eum, odit delectus?</p>
-                </aq-window>
-                <aq-window>
-                    <span slot="title">Window2</span>
-                    <p>Another window!</p>
-                </aq-window>
-            </div>
-
-            <h2>Console</h2>
-            <p>一个控制台，你可以在浏览器的控制台里面使用<code>aqconsole</code>来引用它。因为我不会解析字符串的 JavaScript 代码，所以这里没有输入框。</p>
-            <p>此外，你可以直接使用<code>.html()</code>方法直接往这里面放 HTML 元素！</p>
-            <aq-console id="aqconsole" style="min-height: 20em;"></aq-console>
-
-            <h2>Tooltip</h2>
-            <aq-tooltip>
-                <button class="btn-regular">Hover or focus me!</button>
-                <div slot="tooltip">A Tooltip</div>
-            </aq-tooltip>
-        </aq-showup>
+            }
+            setFrame('main')
+            // function frameAutoHeight(){
+            //     let height = frame.contentWindow.document.documentElement.scrollHeight
+            //     if(Number(frame.height) !== height){
+            //         frame.height = height
+            //     }
+            // }
+            // setInterval(frameAutoHeight, 100)
+        </script>
     </page-body>
     <page-footer></page-footer>
-    <script>
-        let aqconsole = document.getElementById('aqconsole')
-        setTimeout(() => {
-            aqconsole.log('Hello world!')
-            aqconsole.warn('Something not good...')
-            aqconsole.error(new Error('Something is broken!').stack)
-            aqconsole.table([{type: 'cat', weight: '2kg', can: 'meow'}, {type: 'dog', weight: '4kg', can: 'woof'}])
-        }, 3000)
-    </script>
 </body>
 </html>

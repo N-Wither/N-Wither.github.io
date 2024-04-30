@@ -33,5 +33,14 @@ button {
         justify-content: center;
         margin-top: 0.2rem;
     }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: var(--button-bg-disabled);
+    }
+
+    &:disabled:is(:hover, :focus){
+        background-color: var(--button-bg-disabled);
+    }
 }
 

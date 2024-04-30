@@ -78,7 +78,7 @@ export class ToTop extends LitElement {
 
     hide(){
         this.style.removeProperty('max-height')
-        this.setAttribute('tabindex', 0)
+        this.setAttribute('tabindex', -1)
         this.blur()
     }
 }

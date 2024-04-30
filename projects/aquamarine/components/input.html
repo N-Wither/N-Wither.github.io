@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Input 输入控件</h1>
+    <hr>
+    <p>这些控件的默认插槽都作为 label 使用。</p>
+    <h2>Slider 滑块</h2>
+    <aq-slider><div>A Slider</div></aq-slider>
+    <table>
+        <thead>
+            <tr>
+                <th>属性</th>
+                <th>描述</th>
+                <th>类型</th>
+                <th>默认值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>value</td>
+                <td>当前值</td>
+                <td>number</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>min</td>
+                <td>最小值</td>
+                <td>number</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>max</td>
+                <td>最大值</td>
+                <td>number</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>step</td>
+                <td>步进大小</td>
+                <td>number</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>formatter</td>
+                <td>控制如何在 tooltip 中显示数值，不能通过 attribute 设定。</td>
+                <td>Function</td>
+                <td>value => value</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Input&lt;Number&gt; 数字输入框</h2>
+    <aq-input-number min="0" max="10"><span>Number:</span></aq-input-number>
+</body>
+</html>
