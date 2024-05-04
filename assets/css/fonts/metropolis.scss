@@ -1,0 +1,64 @@
+@mixin font($style, $weight, $url) {
+    font-family: 'Metropolis';
+    font-style: $style;
+    font-weight: $weight;
+    src: $url format('woff2');
+    font-display: swap;
+    unicode-range: U+0000-007E, U+00A1-00A3, U+00A5, U+00A8-00A9, U+00AB, U+00AE-00B0, U+00B4, U+00B6-00B8, U+00BB, U+00BF-0107, U+010C-0113, U+0116-011B, U+011E-011F, U+0122-0123, U+012A-012B, U+012E-0131, U+0136-0137, U+0139-013A, U+013D-013E, U+0141-0148, U+014C-014D, U+0150-015B, U+015E-0165, U+016A-016B, U+016E-017E;
+}
+
+@font-face {
+    @include font(normal, 100, url('/assets/fonts/metropolis/Metropolis-Thin.woff2'))
+}
+@font-face {
+    @include font(normal, 200, url('/assets/fonts/metropolis/Metropolis-ExtraLight.woff2'))
+}
+@font-face {
+    @include font(normal, 300, url('/assets/fonts/metropolis/Metropolis-Light.woff2'))
+}
+@font-face {
+    @include font(normal, 400, url('/assets/fonts/metropolis/Metropolis-Regular.woff2'))
+}
+@font-face {
+    @include font(normal, 500, url('/assets/fonts/metropolis/Metropolis-Medium.woff2'))
+}
+@font-face {
+    @include font(normal, 600, url('/assets/fonts/metropolis/Metropolis-SemiBold.woff2'))
+}
+@font-face {
+    @include font(normal, 700, url('/assets/fonts/metropolis/Metropolis-Bold.woff2'))
+}
+@font-face {
+    @include font(normal, 800, url('/assets/fonts/metropolis/Metropolis-ExtraBold.woff2'))
+}
+@font-face {
+    @include font(normal, 900, url('/assets/fonts/metropolis/Metropolis-Black.woff2'))
+}
+
+@font-face {
+    @include font(italic, 100, url('/assets/fonts/metropolis/Metropolis-ThinItalic.woff2'))
+}
+@font-face {
+    @include font(italic, 200, url('/assets/fonts/metropolis/Metropolis-ExtraLightItalic.woff2'))
+}
+@font-face {
+    @include font(italic, 300, url('/assets/fonts/metropolis/Metropolis-LightItalic.woff2'))
+}
+@font-face {
+    @include font(italic, 400, url('/assets/fonts/metropolis/Metropolis-RegularItalic.woff2'))
+}
+@font-face {
+    @include font(italic, 500, url('/assets/fonts/metropolis/Metropolis-MediumItalic.woff2'))
+}
+@font-face {
+    @include font(italic, 600, url('/assets/fonts/metropolis/Metropolis-SemiBold.woff2'))
+}
+@font-face {
+    @include font(italic, 700, url('/assets/fonts/metropolis/Metropolis-Bold.woff2'))
+}
+@font-face {
+    @include font(italic, 800, url('/assets/fonts/metropolis/Metropolis-ExtraBoldItalic.woff2'))
+}
+@font-face {
+    @include font(italic, 900, url('/assets/fonts/metropolis/Metropolis-BlackItalic.woff2'))
+}

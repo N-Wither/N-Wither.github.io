@@ -57,12 +57,14 @@ export class AqTooltip extends LitElement {
         this.placement = 'auto'
         /**@type {string} */
         this.trigger = 'mouseenter focus'
+        this.target = undefined
     }
 
     static get properties(){
         return {
             placement: {type: String},
             trigger: {type: String},
+            target: {type: String}
         }
     }
 
@@ -70,6 +72,9 @@ export class AqTooltip extends LitElement {
         return css`
         :host {
             display: contents;
+        }
+        :host([target]){
+            display: none;
         }
         .base {
             position: relative;
@@ -104,21 +109,34 @@ export class AqTooltip extends LitElement {
     connectedCallback(){
         super.connectedCallback()
 
-        let children = []
-        for(let el of this.children){
-            if(el.slot != 'tooltip') children.push(el)
-        }
-
-        let tooltip = this.querySelector('[slot=tooltip]')
-
-        tippy(children, {
-            content: tooltip,
+        let tippyProperties = {
             placement: this.placement,
             trigger: this.trigger,
             appendTo: () => document.body,
             interactive: true,
             theme: 'aquamarine',
-        })
+        }
+
+        if(this.target != undefined) {
+            tippy(this.target, {
+                ...tippyProperties,
+                content: this.innerHTML,
+                allowHTML: true
+            })
+        }
+        else {
+            let children = []
+            for(let el of this.children){
+                if(el.slot != 'tooltip') children.push(el)
+            }
+
+            let tooltip = this.querySelector('[slot=tooltip]')
+
+            tippy(children, {
+                ...tippyProperties,
+                content: tooltip.cloneNode(true),
+            })
+        }
     }
 }
 

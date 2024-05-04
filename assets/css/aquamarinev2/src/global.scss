@@ -1,6 +1,6 @@
 // Fonts
-@import url('https://n-wither.github.io/assets/css/metropolis.css');
-@import url('https://fonts.googleapis.com/css?family=Noto Sans SC');
+@import url('/assets/css/fonts/metropolis.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
 
 // Cross Imports
@@ -218,6 +218,7 @@ html {
     --accent-color-dk: var(--theme-color-600);
     --background-color: #fcfcfc;
     --background-color-dk: #ededed;
+    --background-color-lt: #fefefe;
     --text-color: #0f0f0f;
     --text-color-lt: var(--gray-400);
     --text-color-selected: #ffffff;
@@ -241,6 +242,7 @@ html.theme-dark {
     --accent-color-dk: var(--theme-color-700);
     --background-color: #1e1e1e;
     --background-color-dk: #181818;
+    --background-color-lt: #212121;
     --text-color: #fcfcfc;
     --text-color-lt: #888888;
     --text-color-selected: #fcfcfc;
@@ -265,6 +267,7 @@ html {
     font: {
         family: 'Metropolis', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
         size: 16px;
+        weight: 300;
     }
     scrollbar-color: var(--accent-color) var(--background-color);
 }
@@ -284,7 +287,7 @@ body {
 
 hr {
     border: none;
-    border-top: solid var(--text-color) 2px;
+    border-top: solid var(--border-color) 2px;
 
     &.break {
         width: 70%;
@@ -312,6 +315,12 @@ ul {
             content: '└'
         }
     }
+}
+
+code {
+    background-color: var(--background-color-dk);
+    font-size: 0.9em;
+    padding: 0 0.2em;
 }
 
 @mixin styledBoxes {

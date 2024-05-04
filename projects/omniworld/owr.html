@@ -1,36 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-cn" data-version="3">
+<html lang="zh-cn">
 <head>
-    <meta charset= "utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <title>Omniworld Renewed</title>
     <link rel="shortcut icon" href="./assets/omniworld_icon.webp">
-    <title>Omniworld R</title>
-    <script src="/assets/js/utils.js"></script>
-    <!-- components -->
-    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
-    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
-    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
-    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
-    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script>
-    <script>
-        let pjax
-
-        document.addEventListener('DOMContentLoaded', () => {
-            pjax = new Pjax({
-                elements: [".pjax"],
-                selectors: [".page-content", "title"],
-                cacheBust: true
-            })
-        })
-    </script>
     <style>
         aq-card{
             margin: 0.2em 0;
@@ -45,31 +23,16 @@
     </style>
 </head>
 <body>
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon">
-            <img src="./assets/omniworld_icon.webp" alt="Omniworld Icon">
-        </div>
-        <div class="page-category flex-center padding-all-small">
+    <page-header>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold flex-center">
+            <img src="./assets/omniworld_icon.webp" alt="Omniworld Icon" style="width: 1.8em;">
             Omniworld
         </div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
+    </page-header>
+    <tool-box>
+        <to-top></to-top>
+    </tool-box>
+    <page-body>
         <nav><a href="./index.html" class="pjax">Omniworld</a> / <span>Omniworld R</span></nav>
         <h1 class="page-title">Omniworld Renewed</h1>
         <hr>
@@ -82,14 +45,14 @@
                     <img src="./assets/sniff.webp" alt="Sniffer" slot="image">
                     <h3 slot="header">时代先驱！国内最早跟进 1.20 的大型整合包</h3>
                     <p>Omniworld 永远追随 MC 更新换代的脚步，哪怕是有着一大堆的模组要跟进。</p>
-                    <p style="color: var(--text-color-secondary);">如果你发现了更早的，告诉我，然后我删掉这一段。</p>
+                    <p style="color: var(--text-color-lt);">如果你发现了更早的，告诉我，然后我删掉这一段。</p>
                 </aq-card>
                 <aq-card>
                     <img src="./assets/aether.webp" alt="Aether" slot="image">
                     <h3 slot="header">我回来了！经典模组回归 1.20</h3>
                     <p>Aether 模组在一众经典模组中打赢了复活赛来到了 1.20，现在骗过无数萌新的荧石传送门现在可在 Omniworld R 中成功激活。此外 Aether 的纹理也得到了更新，以更好地契合现在的 Minecraft 纹理。</p>
                     <p>除了 Aether 之外，Ender IO 也同样在 1.20 复活，如果你在为机器的面不够用或者线缆管道太乱而烦恼，现在你可以在一个方块的空间内放下四种管道了！</p>
-                    <p style="color: var(--text-color-secondary);">免责声明：Ender IO 目前不是完全体，如果你发现此模组的内容不完整，本人不承担任何责任。</p>
+                    <p style="color: var(--text-color-lt);">免责声明：Ender IO 目前不是完全体，如果你发现此模组的内容不完整，本人不承担任何责任。</p>
                 </aq-card>
                 <aq-card>
                     <img src="./assets/cave.webp" alt="Cave" slot="image">
@@ -154,19 +117,7 @@
                 </aq-card>
             </div>
         </div>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
-    </div>
-    <div style="display:none">
-    </div>
-    <script>
-        startTime()
-        randomQuote()
-        aof()
-    </script>
+    </page-body>
+    <page-footer></page-footer>
 </body>
 </html>

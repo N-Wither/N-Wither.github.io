@@ -1,36 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-cn" data-version="3">
+<html lang="zh-cn">
 <head>
-    <meta charset= "utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
-    <link rel="shortcut icon" href="./assets/omniworld_icon.webp">
     <title>Omniworld</title>
-    <script src="/assets/js/utils.js"></script>
-    <!-- components -->
-    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
-    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
-    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
-    <script type="module" src="/assets/js/components/hover-tooltip.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="shortcut icon" href="./assets/omniworld_icon.webp">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <script type="module" src="/web-components/aqv2/components/tooltip.js"></script>
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
-    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script>
-    <script>
-        let pjax
-
-        document.addEventListener('DOMContentLoaded', () => {
-            pjax = new Pjax({
-                elements: [".pjax"],
-                selectors: [".page-content", "title"],
-                cacheBust: true
-            })
-        })
-    </script>
     <style>
         aq-card{
             margin: 0.2em 0;
@@ -43,59 +24,42 @@
             width: 100%;
         }
     </style>
+    <style>
+        .game-versions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .game-versions .card-container {
+            display: flex;
+            flex: 30%;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .card-container aq-card {
+            flex: 1;
+            min-height: 100%;
+        }
+
+        .card-container aq-card::part(card-base) {
+            min-height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon">
-            <img src="./assets/omniworld_icon.webp" alt="Omniworld Icon">
-        </div>
-        <div class="page-category flex-center padding-all-small">
+    <page-header>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold flex-center">
+            <img src="./assets/omniworld_icon.webp" alt="Omniworld Icon" style="width: 1.8em;">
             Omniworld
         </div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
-        <style>
-            .game-versions {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1em;
-            }
-
-            .game-versions .card-container {
-                display: flex;
-                flex: 30%;
-                height: 100%;
-                flex-direction: column;
-            }
-
-            .card-container aq-card {
-                flex: 1;
-                min-height: 100%;
-            }
-
-            .card-container aq-card::part(card-base) {
-                min-height: 100%;
-            }
-        </style>
+    </page-header>
+    <page-body>
         <h1 class="page-title">OMNIWORLD</h1>
         <hr>
-        <p>厌倦了那些只为折磨玩家的所谓“深度魔改”？想找个休闲整合包又觉得内容不够多？在不折磨不成活的困难包和千篇一律的休闲包以及粗制滥造的堆砌包之间，我成功地开辟了一条从未有人在国内走过的道路<a href="javascript:void 0;" class="need-tooltip"><sup>1</sup></a>：高质量水槽包<a href="javascript:void 0;" class="need-tooltip"><sup>2</sup></a>！</p>
+        <content-table></content-table>
+        <p>厌倦了那些只为折磨玩家的所谓“深度魔改”？想找个休闲整合包又觉得内容不够多？在不折磨不成活的困难包和千篇一律的休闲包以及粗制滥造的堆砌包之间，我成功地开辟了一条从未有人在国内走过的道路<a class="tooltip-1" href="javascript:;"><sup>1</sup></a>：高质量水槽包<a class="tooltip-2" href="javascript:;"><sup>2</sup></a>！</p>
         <p>深受 <a href="https://www.curseforge.com/members/atmteam" target="_blank">All The Mods 系列</a>以及<a href="https://www.curseforge.com/minecraft/modpacks/enigmatica9" target="_blank" rel="noopener noreferrer"> Enigmatica 系列</a>的影响，Omniworld 志在打造一个物质极大丰富且充分保障玩家自由发展的世界，无论你是哪种玩家，我相信这个系列的整合包中都有足够的内容供你体验！</p>
         <h2>支持的版本！</h2>
         <div class="game-versions">
@@ -162,21 +126,13 @@
         </div>
         <p>不同版本的内容有些许不同。</p>
         <p>如果你喜欢这个作品，请考虑<a href="https://afdian.net/a/NWither" target="_blank" rel="noopener noreferrer">赞助</a>，赞助者可以在游戏中留下你独特的痕迹！</p>
-        <div style="display:none">
-            <div class="tooltip-content" id="tooltip-content-1">但是在国外早就不少了</div>
-            <div class="tooltip-content" id="tooltip-content-2">自创名词</div>
-        </div>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
-    </div>
-    <script>
-        startTime()
-        randomQuote()
-        aof()
-    </script>
+        <aq-tooltip target=".tooltip-1">
+            <div>然而国外早就有很多了</div>
+        </aq-tooltip>
+        <aq-tooltip target=".tooltip-2">
+            <div>自创名词</div>
+        </aq-tooltip>
+    </page-body>
+    <page-footer></page-footer>
 </body>
 </html>

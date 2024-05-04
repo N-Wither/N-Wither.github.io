@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
+import '../aqv2/components/icon.js'
 import { createLocalizer } from '../aqv2/lib/localize.js';
 
 export class ToTop extends LitElement {
@@ -41,7 +42,7 @@ export class ToTop extends LitElement {
             <link rel='stylesheet' href='/assets/css/aquamarinev2/button.css'>
             <aq-tooltip>
                 <button class='activator' @click=${this.scrollToTop} name=${this.#localize('1')}>
-                    <div class='icon'>\ue25a</div>
+                    <aq-icon class='icon' name='arrow_upward'></aq-icon>
                     <div class='desc'>TOP</div>
                 </button>
                 <div slot='tooltip'>${this.#localize('1')}</div>

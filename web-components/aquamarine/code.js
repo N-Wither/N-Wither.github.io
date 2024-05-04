@@ -214,6 +214,9 @@ class AqCode extends HTMLElement {
 
     async connectedCallback(){
         let lang = this.getAttribute('language')
+        if(this.getAttribute('display-language') == null){
+            this.setAttribute('display-language', lang)
+        }
         let content = this.innerHTML
         let codeArea = this
         if(this.getAttribute('inline') == null){
@@ -245,11 +248,11 @@ class AqCode extends HTMLElement {
             this.appendChild(copyButton)
             copyButton.addEventListener('click', () => {
                 if(navigator.clipboard){
-                    navigator.clipboard.writeText(codeArea.innerText.substring())
+                    navigator.clipboard.writeText(codeArea.innerText.trim())
                 }
                 else {
                     let input = document.createElement('input')
-                    input.setAttribute('value', codeArea.innerText.substring())
+                    input.setAttribute('value', codeArea.innerText.trim())
                     document.body.appendChild(input)
                     input.select()
                     document.execCommand('copy')

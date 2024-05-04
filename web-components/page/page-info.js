@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
+import '../aqv2/components/icon.js'
 import { createLocalizer } from '../aqv2/lib/localize.js';
 
 export class PageInfo extends LitElement {
@@ -14,13 +15,15 @@ export class PageInfo extends LitElement {
             <link rel='stylesheet' href='/assets/css/aquamarinev2/button.css'>
             <aq-tooltip>
                 <button class='activator' @click=${this.openInfo} name=${this.#localize('1')}>
-                    <div class='icon'>\ue88e</div>
+                    <aq-icon class='icon' name='info'></aq-icon>
                     <div class='desc'>INFO</div>
                 </button>
                 <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>
             <dialog class='info'>
-                <button @click=${this.closeInfo} class='close' title=${this.#localize('2')}>\ue5cd</button>
+                <button @click=${this.closeInfo} class='close' title=${this.#localize('2')}>
+                    <aq-icon name='close'></aq-icon>
+                </button>
                 <slot></slot>
             </dialog>
         </div>

@@ -16,6 +16,7 @@ export class PageBody extends LitElement {
     }
 
     render(){
+        this.role = 'main'
         return html`
         <slot></slot>
         `

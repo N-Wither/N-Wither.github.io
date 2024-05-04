@@ -1,0 +1,59 @@
+html {
+    --theme-color-50: var(--violet-50);
+    --theme-color-100: var(--violet-100);
+    --theme-color-200: var(--violet-200);
+    --theme-color-300: var(--violet-300);
+    --theme-color-400: var(--violet-400);
+    --theme-color-500: var(--violet-500);
+    --theme-color-600: var(--violet-600);
+    --theme-color-700: var(--violet-700);
+    --theme-color-800: var(--violet-800);
+    --theme-color-900: var(--violet-900);
+    --theme-color-950: var(--violet-950);
+}
+
+html {
+    --accent-color: var(--theme-color-500);
+    --accent-color-dk: var(--theme-color-600);
+    --background-color: #faebd7;
+    --background-color-dk: #f0dec7;
+    --text-color: #0f0f0f;
+    --text-color-lt: var(--gray-400);
+    --text-color-selected: #ffffff;
+    --text-color-contrast: var(--text-color-selected);
+    --shadow-color: #0f0f0f22;
+    --link-color: var(--theme-color-600);
+    --link-color-visited: var(--theme-color-700);
+    --border-color: var(--gray-300);
+
+    --button-bg: var(--gray-100);
+    --button-bg-focus: var(--gray-200);
+    --button-bg-disabled: var(--gray-300);
+
+    --header-bg: #faebd799;
+
+    --input-bg: #00000011;
+}
+
+html.theme-dark {
+    --accent-color: var(--theme-color-600);
+    --accent-color-dk: var(--theme-color-700);
+    --background-color: #111315;
+    --background-color-dk: #181818;
+    --text-color: #e4dac7;
+    --text-color-lt: #888888;
+    --text-color-selected: #fcfcfc;
+    --text-color-contrast: #161616;
+    --shadow-color: #66666622;
+    --link-color: var(--theme-color-500);
+    --link-color-visited: var(--theme-color-600);
+    --border-color: #3c3c3c;
+
+    --button-bg: var(--gray-800);
+    --button-bg-focus: var(--gray-700);
+    --button-bg-disabled: var(--gray-900);
+
+    --header-bg: #11131599;
+
+    --input-bg: #00000033;
+}

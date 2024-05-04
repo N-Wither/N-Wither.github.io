@@ -20,8 +20,8 @@ a {
 }
 
 a[target = "_blank"]::after{
-    content: '↗';
-    content: '\e89e';
+    font-family: 'Material Symbols Outlined';
+    content: 'open_in_new';
     position: relative;
     top: 0.1rem;
 }

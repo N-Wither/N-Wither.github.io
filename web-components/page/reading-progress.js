@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
+import '../aqv2/components/icon.js'
 import { createLocalizer } from '../aqv2/lib/localize.js';
 
 /**@extends {HTMLElement} */
@@ -70,7 +71,7 @@ export class ReadingProgress extends LitElement {
             <link rel='stylesheet' href='/assets/css/aquamarinev2/button.css'>
             <aq-tooltip>
                 <button class='activator' @click=${this.toggleTable} name=${desc}>
-                    <div class='icon'>\uef42</div>
+                    <aq-icon class='icon' name='toc'></aq-icon>
                     <div class='desc'>${this.progress}%</div>
                 </button>
                 <div slot='tooltip'>${desc}</div>

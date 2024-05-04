@@ -6,6 +6,7 @@ export class ToolBox extends LitElement {
     }
 
     render(){
+        this.role = 'toolbar'
         return html`
         <div class='base'>
             <slot></slot>

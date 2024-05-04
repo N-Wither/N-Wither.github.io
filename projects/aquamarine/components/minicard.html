@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Minicard 小卡片</h1>
+    <hr>
+    <div class="flex wrap">
+        <aq-minicard>
+            <aq-icon slot="icon" name="info"></aq-icon>
+            <div class="f-bold" slot="header">Info</div>
+            <div>Something.</div>
+        </aq-minicard>
+        <aq-minicard icon="/projects/c/assets/img/ella_avatar2.png">
+            <div slot="sub">Info of info</div>
+            <div class="f-bold" slot="header">Info</div>
+            <div>Something longer but not too long.</div>
+        </aq-minicard>
+        <aq-minicard icon="info" sub="Info of info" header="Info">
+            <div>Something.</div>
+        </aq-minicard>
+        <aq-minicard>
+            <div>It's not recommended to put very long text in this element.</div>
+        </aq-minicard>
+    </div>
+    <aq-code language="html">
+&lt;aq-minicard&gt;
+    &lt;aq-icon slot="icon" name="info"&gt;&lt;/aq-icon&gt;
+    &lt;div class="f-bold" slot="header"&gt;Info&lt;/div&gt;
+    &lt;div&gt;Something.&lt;/div&gt;
+&lt;/aq-minicard&gt;
+&lt;aq-minicard icon="/projects/c/assets/img/ella_avatar2.png"&gt;
+    &lt;div slot="sub"&gt;Info about info&lt;/div&gt;
+    &lt;div class="f-bold" slot="header"&gt;Info&lt;/div&gt;
+    &lt;div&gt;Something longer but not too long.&lt;/div&gt;
+&lt;/aq-minicard&gt;
+&lt;aq-minicard icon="info" sub="Info of info" header="Info"&gt;
+    &lt;div>Something.&lt;/div&gt;
+&lt;/aq-minicard&gt;
+&lt;aq-minicard&gt;
+    &lt;div&gt;It's not recommended to put very long text in this element.&lt;/div&gt;
+&lt;/aq-minicard&gt;
+    </aq-code>
+    <p>特有的 CSS 变量：</p>
+    <table>
+        <thead>
+            <tr>
+                <th>名称</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>--aq-minicard_height</code></td>
+                <td>元素的高度</td>
+            </tr>
+            <tr>
+                <td><code>--aq-minicard_width</code></td>
+                <td>元素的最小宽度</td>
+            </tr>
+            <tr>
+                <td><code>--aq-minicard_max-width</code></td>
+                <td>元素的最大宽度</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -10,7 +10,10 @@ export class PageFooter extends LitElement {
         <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
         <hr>
         <p>${PageFooter.quotes[Math.floor(Math.random() * PageFooter.quotes.length)]}</p>
-        <P>Powered by <a href='https://pages.github.com' target='_blank' rel="noopener noreferrer">Github Pages</a>.</P>
+        <div role='contentinfo'>
+            <slot></slot>
+            <p>Powered by <a href='https://pages.github.com' target='_blank' rel="noopener noreferrer">Github Pages</a>.</p>
+        </div>
         `
     }
 

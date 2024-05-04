@@ -1,55 +1,23 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
 <head>
-    <meta charset= "utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <title>Cycmatica</title>
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>Cycmatica Series</title>
-    <script src="/assets/js/utils.js"></script>
-    <script>
-        function init(){
-            randomQuote()
-            startTime()
-        }
-    </script>
-    <!-- components -->
-    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
-    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="./assets/themes/violite.css">
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
     <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
-    <!-- styles -->
-    <link rel="stylesheet" href="./assets/ast-2-stories.css">
-    <link rel="stylesheet" href="./assets/index.css">
 </head>
-<body onload="init()">
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            Abstracalypse Stories
-        </div>
-        <div class="flex-center page-title">Cycmatica Series</div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
+<body>
+    <page-header>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">Cycmatica</div>
+    </page-header>
+    <page-body>
         <h1 class="page-title">Cycmatica Series</h1>
         <hr>
         <h2>这是什么？</h2>
@@ -82,15 +50,9 @@
                 </li>
             </ul>
         </div>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
-    </div>
-    <script>
-        aof()
-    </script>
+    </page-body>
+    <page-footer>
+        <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
+    </page-footer>
 </body>
 </html>

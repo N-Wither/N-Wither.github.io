@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import '../aqv2/components/tooltip.js'
 import { createLocalizer } from '../aqv2/lib/localize.js';
+import '../aqv2/components/icon.js'
 
 const langs = {
     'en-us': {
@@ -19,7 +20,7 @@ const langs = {
     }
 }
 
-const userLang = document.documentElement.lang.toLowerCase()
+const userLang = navigator?.language.toLowerCase() || document.documentElement.lang.toLowerCase()
 let chosenLang = langs['en-us']
 switch(userLang) {
     case 'zh-cn': chosenLang = langs['zh-cn']; break;
@@ -63,7 +64,7 @@ export class NavMenu extends LitElement {
         return css`
         .nav-menu-switch {
             display: block;
-            font-family: inherit;
+            font-family: 'Material Symbols Outlined';
             font-size: 1.6rem;
             border: none;
             background: none;
@@ -86,13 +87,6 @@ export class NavMenu extends LitElement {
     
         .nav-menu.open, .nav-menu:has(:focus) {
             transform: translateX(0)
-        }
-    
-        .nav-menu-switch::before {
-            content: "\ue5d2";
-        }
-        .nav-menu-switch.open::before {
-            content: '\ue5cd';
         }
 
         a.item {
@@ -154,7 +148,7 @@ export class NavMenu extends LitElement {
         return html`
         <header-button>
             <aq-tooltip>
-                <button class='nav-menu-switch' @click=${this.toggleMenu} name=${this.#localize('1')}></button>
+                <button class='nav-menu-switch' @click=${this.toggleMenu} name=${this.#localize('1')}>menu</button>
                 <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>
         </header-button>
@@ -201,12 +195,14 @@ export class NavMenu extends LitElement {
         if(this.menu.classList.contains('open') == false) {
             this.menu.classList.add('open')
             this.switch.classList.add('open')
+            this.switch.innerHTML = 'close'
         }
     }
 
     #close(){
         this.menu.classList.remove('open')
         this.switch.classList.remove('open')
+        this.switch.innerHTML = 'menu'
     }
 }
 
