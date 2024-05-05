@@ -8,23 +8,26 @@
 <body>
     <h1>Code 代码块</h1>
     <hr>
-    <p>基于 Highlight.js 格式化。</p>
+    <p>基于 <a href="https://shiki.matsu.io/" target="_blank" rel="noopener noreferrer">Shiki</a> 格式化。</p>
     <aq-code language="js" display-language="JavaScript">
-let a = 0
-console.log('Hello World!')
-class Foo extends Bar{
-    constructor() {
-        super()
-    }
-
-greet(msg) {
-    console.log(msg)
-    }
-}
-// This is a comment
+        let a = 0
+        console.log('Hello World!')
+        class Foo extends Bar{
+            constructor() {
+                super()
+            }
+        
+            greet(msg) {
+                console.log(msg)
+            }
+        }
+        // This is a comment
     </aq-code>
     <p>
         你也可以在文本内使用此组件，只需加上 <aq-code inline language="plaintext">inline</aq-code> 属性，效果是这样的：<aq-code inline language="js">console.log('Hello World!')</aq-code>
     </p>
+    <p>使用<code>src</code>属性可以让它加载别处的代码文件。</p>
+    <p>此组件的源代码：</p>
+    <aq-code src="/web-components/aqv2/components/code.js" language="js"></aq-code>
 </body>
 </html>

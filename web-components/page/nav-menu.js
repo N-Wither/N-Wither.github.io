@@ -181,12 +181,14 @@ export class NavMenu extends LitElement {
             let body = document.querySelector('page-body')
             let footer = document.querySelector('page-footer')
             if(body) body.addEventListener('click', () => {
-                this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
-                this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
+                // this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
+                // this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
+                this.#close()
             }, {once: true});
             if(footer) footer.addEventListener('click', () => {
-                this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
-                this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
+                // this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
+                // this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
+                this.#close()
             }, {once: true});
         }
     }

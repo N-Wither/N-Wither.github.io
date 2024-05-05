@@ -72,7 +72,8 @@ export class AqMiniCard extends LitElement {
             width: 100%;
         }
         .icon-wrapper{
-            width: var(--aq-minicard_height);
+            min-width: var(--aq-minicard_height);
+            height: var(--aq-minicard_height);
             display: flex;
             align-items: center;
             justify-content: center;
