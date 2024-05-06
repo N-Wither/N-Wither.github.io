@@ -31,3 +31,25 @@ input[type=file]::-webkit-file-upload-button {
 input[type=file]:is(:hover, :focus)::-webkit-file-upload-button {
     background: var(--button-bg-focus);
 }
+
+input[type=color] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 2em;
+    height: 1.6em;
+    background-color: var(--button-bg);
+    border: none;
+    cursor: pointer;
+    transition-property: background-size, background-color;
+    transition-duration: var(--transition-time-common);
+}
+input[type=color]:is(:hover, :focus){
+    background-color: var(--button-bg-focus);
+}
+input[type=color]::-webkit-color-swatch {
+    border: none;
+}
+input[type=color]::-moz-color-swatch {
+    border: none;
+}

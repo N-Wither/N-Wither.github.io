@@ -31,12 +31,23 @@
         <hr>
         <p>This is N Wither. I do a little bit of everything.</p>
         <p>You can click the links in the navigation menu to see my works.</p>
-        <h2>Featured Page</h2>
-        <aq-card style="max-width: 20em;">
-            <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
-            <h3 slot="header">Omniworld</h3>
-            <p>The BEST modpack I've ever made! <a href="/projects/omniworld/">Read More...</a></p>
+        <h2>New Article</h2>
+        <aq-card>
+            <div class="f-bold f-large" slot="header">色彩入门：为什么你的画面显得脏</div>
+            <p>颜色，明暗与色彩空间。<a href="/writings/surftips/stp-2.html">阅读更多…</a></p>
         </aq-card>
+        <h2>Featured Pages</h2>
+        <div class="flex wrap" style="gap: 0.2em;">
+            <aq-card style="flex-grow: 1; max-width: 20em;">
+                <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
+                <div class="f-bold f-large" slot="header">Omniworld</div>
+                <p>The BEST modpack I've ever made! <a href="/projects/omniworld/">Read More...</a></p>
+            </aq-card>
+            <aq-card style="flex-grow: 1;">
+                <div class="f-bold f-large" slot="header">Aquamarine</div>
+                <p>CSS and Web Components. <a href="/projects/aquamarine/">Read More...</a></p>
+            </aq-card>
+        </div>
     </page-body>
     <page-footer></page-footer>
 </body>

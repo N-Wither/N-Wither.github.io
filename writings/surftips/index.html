@@ -1,69 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-cn" data-version="3">
+<html lang="zh-cn">
 <head>
-    <meta charset= "utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
-    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>Surfing Tips - N Wither's Blogs</title>
-    <script src="/assets/js/utils.js"></script>
-    <!-- components -->
-    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
-    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
-    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
 </head>
 <body>
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            WitherBlog
-        </div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
-                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
-                </a>
-            </div>
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
-        <h1 class="page-title">Surfing Tips</h1>
-        <h3>冲浪技巧</h3>
+    <page-header>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">WitherBlog</div>
+    </page-header>
+    <page-body>
+        <h1>Surfing Tips</h1>
+        <div class="f-bold f-large" role="doc-subtitle">冲浪技巧</div>
         <hr>
-        <p>
-            我发现很多人虽然整天上网，但其实根本不知道怎样才能上得爽，不仅让自己爽，也让网友爽，所以我写了这些文章，都是个人经验，但应该对你有用。
-        </p>
-        <ul class="content">
-            <li class="content"><a href="./stp-1.html">01 怎样自己解决问题</a></li>
-        </ul>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
-    </div>
-    <script>
-        startTime()
-        randomQuote()
-        aof()
-    </script>
+        <ol class="content">
+            <li class="content"><a href="./stp-1.html">怎样自己解决问题</a></li>
+            <li class="content"><a href="./stp-2.html">色彩入门：为什么你的画面显得脏</a></li>
+        </ol>
+    </page-body>
+    <page-footer></page-footer>
 </body>
 </html>

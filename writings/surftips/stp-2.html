@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色彩入门：为什么你的画面显得脏</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/page/page-info.js"></script>
+    <script type="module" src="/web-components/page/reading-progress.js"></script>
+    <style>
+        .r { color: red; }
+        .g { color: lime; }
+        .b { color: blue; }
+        .color-showcase {height: 2em; display: flex; align-items: center; justify-content: center;}
+        .hsl-rainbow {background: linear-gradient(to right, hsl(360 100% 50%), hsl(315 100% 50%), hsl(270 100% 50%), hsl(225 100% 50%), hsl(180 100% 50%), hsl(135 100% 50%), hsl(90 100% 50%), hsl(45 100% 50%), hsl(0 100% 50%));}
+        .grayscale {filter: grayscale();}
+        .saturation-showcase {background: linear-gradient(to right, hsl(270, 10%, 50%), hsl(270, 100%, 50%));}
+        .flex .color-showcase { flex-grow: 1;}
+        .oklch-rainbow {background: linear-gradient(to right, oklch(80% 0.1 360), oklch(80% 0.1 315), oklch(80% 0.1 270), oklch(80% 0.1 225), oklch(80% 0.1 180), oklch(80% 0.1 135), oklch(80% 0.1 90), oklch(80% 0.1 45), oklch(80% 0.1 0));}
+        .oklch-rainbow-2 {background: linear-gradient(to right, oklch(80% 0.3 360), oklch(80% 0.3 315), oklch(80% 0.3 270), oklch(80% 0.3 225), oklch(80% 0.3 180), oklch(80% 0.3 135), oklch(80% 0.3 90), oklch(80% 0.3 45), oklch(80% 0.3 0));}
+        .flex.wrap { gap: 0.2em; }
+        .a11y {background-color: #e4e4e4;}
+    </style>
+</head>
+<body>
+    <page-header>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">WitherBlog</div>
+    </page-header>
+    <tool-box>
+        <page-info>
+            <div>一篇关于色彩明暗关系以及色彩空间的文章。</div>
+        </page-info>
+        <to-top></to-top>
+        <reading-progress>
+            <div class="content-navigation">
+                <b>目录</b>
+                <ul>
+                    <li><a href="#section-1">色彩与明暗关系</a></li>
+                    <li><a href="#section-2">RGB 与 HSL 颜色</a></li>
+                    <li><a href="#section-3">OKLCH 颜色</a></li>
+                </ul>
+            </div>
+        </reading-progress>
+    </tool-box>
+    <page-body>
+        <h1>色彩入门：为什么你的画面显得脏</h1>
+        <hr>
+        <h2 id="section-1">色彩与明暗关系</h2>
+        <p>现在该开始上色了，你从颜色选择器或者色板中选择了一个看起来不错的颜色，一通涂涂抹抹之后，得到的画面却有种莫名奇妙的灰暗感，如果你给别人看看，他们大概会说你的画面不干净。你在想，为什么我选的颜色看起来都还好，组合起来就发灰呢？</p>
+        <p>因为你想当然地认为鲜艳的颜色就不会显得灰，但事实上色彩和明暗的关系并不这样简单。</p>
+        <p>人类对于画面的感知很大程度上基于明暗关系，明暗关系是空间感的来源。色彩运用得好的作品，即使把它变成灰阶图像也依然准确而精美，这就是为什么素描是绘画的基础，也是为什么黑白漫画比彩色漫画高贵。</p>
+        <p>另外，你可能听说过一个叫做“藏色”的技法，简单来说就是在画面中物体的边缘、角落或者阴影中加上一些看似不合常理的颜色，但是结果是会使得画面更加生动，如果你把图片变成黑白，你会发现这些多出的颜色消失了，因为它们没有影响到明暗关系，所以在灰阶图像中和周围的颜色合体了。</p>
+        <p>好的，现在你知道问题出在哪了，你以为你选的颜色很合适，实际上它不符合明暗关系，那么怎样才能选出一个符合明暗关系的颜色呢？</p>
+        <h2 id="section-2">RGB 与 HSL 颜色</h2>
+        <p>我们都知道电脑显示各种各样的颜色是由红（<span class="r">R</span>）绿（<span class="g">G</span>）蓝（<span class="b">B</span>）三种颜色组合产生的，你也经常见到由 6 位（或者 8 位，但是透明度不在这篇文章的讨论范围内）十六进制数字组成的 HEX 颜色代码。RGB 颜色非常符合电脑的直觉，但是不符合人类的。</p>
+        <p>看看下面这些按钮上的颜色代码，想想它对应的是什么颜色，然后点击它看看你猜的有多接近！</p>
+        <div class="flex wrap" style="gap: 0.2em;">
+            <button class="btn-regular" onclick="this.style.backgroundColor = '#82eba5'" name="color-test-1">#82eba5</button>
+            <button class="btn-regular" onclick="this.style.backgroundColor = '#f79868'" name="color-test-2">#f79868</button>
+            <button class="btn-regular" onclick="this.style.backgroundColor = '#a985e4'" name="color-test-3">#a985e4</button>
+        </div>
+        <p>如果你没有这方面的经验的话大概率是猜不出来的，因此为了节省大家在调色盘上选取颜色的时间，HSL 应运而生了。</p>
+        <p>HSL 使用色相（Hue）、饱和度（Saturation）和明度（Lightness）定义颜色，这是一个圆柱形的三维坐标系，色相的范围是 0° 到 360°，也就是绕着坐标系的原点转一圈，越往外饱和度越高，越往上明度越高。</p>
+        <p>下面的渐变图案展示了色相在 360° 的范围内是怎样变化的。</p>
+        <div class="color-showcase hsl-rainbow"></div>
+        <p>下面是一个颜色选取器，你可以把它调成 HSL 模式试试使用它选取颜色。（一些浏览器可能不支持，我是在 Chromium 内核的浏览器上写这篇文章的）</p>
+        <label>
+            <span>选择颜色</span>
+            <input type="color" name="color-picker-1" value="#ffffff">
+        </label>
+        <p>选择想要的色相，然后调整明度和饱和度，看起来非常符合人类直觉，然而，HSL 的明暗表现仍然存在问题。</p>
+        <p>我把上面的那张渐变图案复制过来，但是把它变成灰阶图像，这样你就能直接看出颜色的明暗关系了。</p>
+        <div class="color-showcase hsl-rainbow grayscale"></div>
+        <p>神奇的事情发生了：青色、绿色和黄色显然比其他颜色更亮，但是在这张渐变图像的源代码中，所有颜色的饱和度和明度都是一样的。</p>
+        <p>这说明 HSL 的明度并不完全对应视觉上的明度（以下称为亮度），即使保持明度不变，色相的改变也会影响亮度。</p>
+        <p>此外，饱和度也会影响亮度。看看下面的例子：</p>
+        <div class="flex wrap">
+            <div class="color-showcase saturation-showcase"></div>
+            <div class="color-showcase saturation-showcase grayscale"></div>
+        </div>
+        <p>饱和度提高了，但是亮度却降低了，很多时候这不是我们想要的，大多数时候我们都认为饱和度越高看起来应该更亮才对。此外，在色相没有变化的情况下，左侧的颜色看起来偏品红，右侧的颜色看起来更蓝，出现了色调的不一致。</p>
+        <p>在进行无障碍设计时，也要考虑颜色亮度，看看下面的例子：</p>
+        <div class="flex wrap">
+            <div class="color-showcase a11y" style="color: hsl(135, 100%, 50%);">hsl(90, 100%, 50%)</div>
+            <div class="color-showcase a11y" style="color: hsl(225, 100%, 50%);">hsl(225, 100%, 50%)</div>
+        </div>
+        <p>在明度相同的情况下，绿色文字与背景的对比度显然比蓝色要低，这就不方便视觉上有困难的人士阅读了。</p>
+        <p>那么，既然 HSL 也有这方面的缺点的话，还能用什么呢？</p>
+        <h2 id="section-3">OKLCH 颜色</h2>
+        <p>OKLCH 是 OKLAB 的圆柱坐标系版本，OKLAB 使用亮度（Lightness）、代表红绿的 A 轴和代表黄蓝的 B 轴组成的直角坐标系表示颜色。而 OKLCH 则使用亮度、色度（Chroma）和色相（Hue）表示颜色。</p>
+        <p>如果你不知道什么是色度，简单来说就是红色能有多红，蓝色能有多蓝的程度。你应该听说过 DCI-P3 色域比常规的 sRGB 色域容量更大的说法，就是因为 P3 色域能支持的三原色的色度范围更大，更具体地说，在 P3 色域中的纯红色，看起来比 sRGB 中的纯红色更红。</p>
+        <p>OKLCH 支持的色度范围理论上是没有上限的，但是你的屏幕能支持的颜色空间有限，对于 sRGB 和 P3，色度在 0.37 以下，而容量更大的 Rec2020 则在 0.47 以下。</p>
+        <p>OKLCH 的亮度是最接近人眼对颜色亮度的感知机制的，下面是使用 OKLCH 的情况下，同一亮度的颜色组成的渐变（需要<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/color_value/oklch#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7" target="_blank" rel="noopener noreferrer">浏览器支持</a>），以及灰阶版本：</p>
+        <div class="flex wrap">
+            <div class="color-showcase oklch-rainbow"></div>
+            <div class="color-showcase oklch-rainbow grayscale"></div>
+        </div>
+        <p>非常好，这些颜色的亮度完全一致。但是你应该注意到了这个渐变图案的饱和度明显低于之前使用 HSL 的渐变，这是因为我的设备对于色彩空间的支持度有限（P3），如果把色度拉得太高，有些颜色就不能正常地显示出来了：</p>
+        <div class="flex wrap">
+            <div class="color-showcase oklch-rainbow-2"></div>
+            <div class="color-showcase oklch-rainbow-2 grayscale"></div>
+        </div>
+        <p>可以看到右侧的灰阶图像中出现了亮度变化，这是因为对于不同的色相和亮度，你的设备能支持的色度范围是不同的，如果 OKLCH 颜色超出了你的设备色域，浏览器会选取一个最接近的、你的设备能够显示的颜色，但是这样就不能保证亮度一致了。</p>
+        <p>如果你想试用 OKLCH，可以试试<a href="https://oklch.com/" target="_blank" rel="noopener noreferrer">这个在线工具</a>，你可以在这个工具中选取 OKLCH 颜色并转换为 RGB 颜色，同时也可以测试你的显示设备的色域容积（记得打开 HDR！我之前就没开导致不能显示 P3 颜色）。</p>
+    </page-body>
+    <page-footer></page-footer>
+</body>
+</html>
