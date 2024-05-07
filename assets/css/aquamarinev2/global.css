@@ -279,26 +279,9 @@ ul.file-list li:last-child::before {
 }
 
 code {
-  background-color: var(--background-color-dk);
+  background-color: var(--input-bg);
   font-size: 0.9em;
   padding: 0 0.2em;
-}
-
-.notation {
-  border-left: 0.2em solid var(--border-color-common);
-  border-right: 0.2em solid var(--border-color-common);
-  background-color: var(--background-color-darken);
-  text-align: center;
-  padding: 2em 3em;
-  margin: 0.4em 0;
-}
-
-.modal {
-  border: 0.25em solid var(--border-color-common);
-  background-color: var(--background-color-darken);
-  text-align: center;
-  padding: 2em 3em;
-  margin: 0.4em 1.6em;
 }
 
 .float-div {

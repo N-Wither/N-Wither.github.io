@@ -1,0 +1,114 @@
+:root {
+  --ribbon-color: var(--accent-color);
+}
+
+:root {
+  --paper-color: #fdfdfd;
+  --paperstack-shadow-color: #0000001a;
+  --paperstack-shadow-color-dk: #0000001a;
+  --paperstack-shadow-color-lt: #0000000d;
+}
+
+:root.theme-dark {
+  --paper-color: #1e1e23;
+  --paperstack-shadow-color: #00000acc;
+  --paperstack-shadow-color-dk: #000007e6;
+  --paperstack-shadow-color-lt: #0000070d;
+}
+
+.paper {
+  max-width: max(80%, 50rem);
+  min-height: 16rem;
+  background-color: var(--paper-color);
+  box-shadow: 0px 1px 4px var(--shadow-color);
+  margin-inline: auto;
+  padding: 1.6rem;
+  position: relative;
+}
+.paper:has(.ribbon) {
+  padding-top: 4em;
+}
+
+.paperstack {
+  position: relative;
+  min-height: 20rem;
+  min-width: 20rem;
+  max-width: min(60rem, 80%);
+  background-color: var(--paper-color);
+  padding: 1.5rem;
+  box-shadow: 0px 1px 4px var(--shadow-color);
+  margin-block: 3.6rem;
+  margin-inline: auto;
+}
+.paperstack:has(.ribbon) {
+  padding-top: 4em;
+}
+.paperstack::before, .paperstack::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.paperstack::before {
+  left: -5px;
+  top: 4px;
+  width: 100%;
+  height: 98%;
+  background-color: inherit;
+  transform: rotate(-2.5deg);
+  box-shadow: 0px 1px 1.9px -4px var(--paperstack-shadow-color), 0px 6px 15px -4px var(--paperstack-shadow-color-dk);
+}
+.paperstack::after {
+  left: -3px;
+  top: 1px;
+  width: 100%;
+  height: 98%;
+  background-color: inherit;
+  transform: rotate(1.4deg);
+  box-shadow: 0px 1px 1.9px -4px var(--paperstack-shadow-color), 0px 6px 15px -4px var(--paperstack-shadow-color-lt);
+}
+
+.notation {
+  background-color: var(--background-color-dk);
+  border-left: 0.2em solid var(--border-color);
+  border-right: 0.2em solid var(--border-color);
+  max-width: max(80%, 45em);
+  text-align: center;
+  padding: 2em 3em;
+  margin-inline: auto;
+  margin-block: 1em;
+}
+
+.modal {
+  border: 0.25em solid var(--border-color);
+  max-width: max(85%, 50em);
+  text-align: center;
+  padding: 2em 3em;
+  margin-inline: auto;
+  margin-block: 1em;
+}
+
+.ribbon {
+  --f: .5em; /* control the folded part*/
+  --r: .8em; /* control the ribbon shape */
+  position: absolute;
+  top: 20px;
+  left: calc(-1 * var(--f));
+  padding-inline: 0.25em;
+  line-height: 1.8;
+  background: var(--ribbon-color);
+  border-bottom: var(--f) solid rgba(0, 0, 0, 0.3333333333);
+  border-right: var(--r) solid rgba(0, 0, 0, 0);
+  clip-path: polygon(calc(100% - var(--r)) 0, 0 0, 0 calc(100% - var(--f)), var(--f) 100%, var(--f) calc(100% - var(--f)), calc(100% - var(--r)) calc(100% - var(--f)), 100% calc(50% - var(--f) / 2));
+  box-shadow: 0px 1px 4px var(--shadow-color);
+}
+
+.jotting {
+  text-align: center;
+  padding: 2em 3em;
+  margin-inline: auto;
+  margin-block: 1em;
+  border: dotted 0.2em var(--border-color);
+  max-width: max(60%, 45em);
+}
+
+/*# sourceMappingURL=styled-div.css.map */

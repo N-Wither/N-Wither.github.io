@@ -318,29 +318,9 @@ ul {
 }
 
 code {
-    background-color: var(--background-color-dk);
+    background-color: var(--input-bg);
     font-size: 0.9em;
     padding: 0 0.2em;
-}
-
-@mixin styledBoxes {
-    background-color: var(--background-color-darken);
-    text-align: center;
-    padding: 2em 3em;
-}
-
-.notation {
-    $border: 0.2em solid var(--border-color-common);
-    border-left: $border;
-    border-right: $border;
-    @include styledBoxes();
-    margin: 0.4em 0;
-}
-
-.modal {
-    border: 0.25em solid var(--border-color-common);
-    @include styledBoxes();
-    margin: 0.4em 1.6em;
 }
 
 .float-div {
