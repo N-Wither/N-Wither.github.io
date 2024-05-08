@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给从在线 JS 导入的东西提供类型提示</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/aqv2/components/code.js"></script>
+</head>
+<body>
+    <page-header>
+        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">WitherBlog</div>
+    </page-header>
+    <tool-box>
+        <to-top></to-top>
+    </tool-box>
+    <page-body>
+        <h1>给从在线 JS 导入的东西提供类型提示</h1>
+        <hr>
+        <p>大家都知道这是一个静态站点，但是我在写 JS 的时候，为了方便也会从 CDN 上面引入一些现成的库，像是这样：</p>
+        <aq-code language="javascript">
+            import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+
+            // 做剩下的事情……
+        </aq-code>
+        <p>但是呢，这样引入东西的没有类型提示，写起来不得不去参考文档，有没有更好的办法呢？</p>
+        <p>有的，首先你需要安装<a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">Node.js</a>，然后在你的项目中打开终端，输入下面的指令：</p>
+        <aq-code language="shell">
+            npm install [package] -save-dev
+        </aq-code>
+        <p>然后建立一个文件夹用于存放 d.ts 文件。</p>
+        <p>在里面创建一个 d.ts 文件，写下这些：</p>
+        <aq-code language="typescript">
+            declare module 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js' /* 你引入的 JS 的 URL */{
+                export * from 'lit' // npm 中的包名
+            }
+
+            // 如果你要用的包不支持 ESModule 只支持 CommonJS 的话
+            declare module 'https://cdn.jsdelivr.net/npm/shiki@1.4.0/+esm' {
+                import shiki = require('shiki')
+                export = shiki
+            }
+        </aq-code>
+        <p>最后在你的 JS 文件开头写下 <code>&lt;reference path="the/path/to/your.d.ts" \&gt;</code>，是的，<a href="https://www.tslang.cn/docs/handbook/triple-slash-directives.html" target="_blank" rel="noopener noreferrer">三斜线指令</a> 在 JS 中也能用，毕竟它其实就是注释。</p>
+        <p>好了，现在导入的东西也有非常好的类型提示了。</p>
+    </page-body>
+    <page-footer></page-footer>
+</body>
+</html>

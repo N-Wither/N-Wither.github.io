@@ -1,80 +1,39 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
-    <meta charset= "utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <title>404</title>
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Works</title>
-    <script src="/assets/js/utils.js"></script>
-    <!-- components -->
-    <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
-    <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
 </head>
 <body>
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            WitherWorks
-        </div>
-        <div class="flex-center page-title">404</div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
-                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
-                </a>
-            </div>
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
+    <page-header>
+    </page-header>
+    <page-body>
         <h1 class="page-title">404 Page Not Found :(</h1>
         <hr>
-        <p class="desc">The page you're looking for does not exist! Try checking your spelling or <a href="/">go back to homepage</a>.</p>
-    </div>
-    <script>
-        let userLang = navigator.language
-        let lang = {
-            'zh-CN': {
-                title: '404 页面不存在 :(',
-                desc: '你要找的页面不存在！试试检查地址拼写或者<a href="/">返回主页</a>。'
+        <p class="desc">The page you're looking for does not exist! Try checking your URL spelling or <a href="/">go back to homepage</a>.</p>
+        <script>
+            let userLang = navigator.language
+            let lang = {
+                'zh-CN': {
+                    title: '404 页面不存在 :(',
+                    desc: '你要找的页面不存在！试试检查地址拼写或者<a href="/">返回主页</a>。'
+                }
             }
-        }
-        let title = document.querySelector('.page-content .page-title')
-        let desc = document.querySelector('.page-content .desc')
-        if(userLang == 'zh-CN') {
-            title.innerHTML = lang[userLang].title
-            desc.innerHTML = lang[userLang].desc
-            document.documentElement.lang = userLang
-        }
-    </script>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
-    </div>
-    <script>
-        startTime()
-        randomQuote()
-    </script>
+            let title = document.querySelector('.page-title')
+            let desc = document.querySelector('.desc')
+            if(userLang == 'zh-CN') {
+                title.innerHTML = lang[userLang].title
+                desc.innerHTML = lang[userLang].desc
+                document.documentElement.lang = userLang
+            }
+        </script>
+    </page-body>
+    <page-footer></page-footer>
 </body>
 </html>

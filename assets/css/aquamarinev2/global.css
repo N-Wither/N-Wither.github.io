@@ -340,6 +340,7 @@ code {
 
 .flex-wrap, .flex.wrap {
   flex-wrap: wrap;
+  gap: 0.2em;
 }
 
 .padding-all-small {
@@ -368,8 +369,12 @@ code {
   background: none !important;
 }
 
-.float-right {
+.float-right, .float.right {
   float: right;
+}
+
+.float-left, .float.left {
+  float: left;
 }
 
 .full-width {
