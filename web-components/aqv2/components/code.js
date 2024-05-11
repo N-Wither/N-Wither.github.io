@@ -7,7 +7,6 @@ import { createLocalizer } from '../lib/localize.js'
 import './icon.js'
 import './tooltip.js'
 
-/**@extends {HTMLElement} */
 export class AqCodeblock extends LitElement {
     constructor() {
         super();
