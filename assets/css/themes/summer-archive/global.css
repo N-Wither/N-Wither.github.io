@@ -1,0 +1,113 @@
+/*
+Use with <script type="module" src="/assets/js/csspainters/gradientdots.js"></script>
+*/
+
+html {
+    --accent-color: #97afdb;
+    --accent-color-dk: #7993c4;
+    --background-color: #f4f7fe;
+    --background-color-dk: #edf4fe;
+    --text-color: #484e5c;
+    --text-color-lt: #374455;
+    --border-color: #bfceeb;
+
+    --link-color: var(--accent-color);
+    --link-color-visited: var(--accent-color-dk);
+
+    background-image: linear-gradient(to bottom left, #f2f7fd, #e6f0fa, #bad3f1);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+
+html.theme-dark {
+    --accent-color: #71a4b5;
+    --accent-color-dk: #406874;
+    --background-color: #28394b;
+    --background-color-dk: #20303d;
+    --text-color: #ebeff0;
+    --text-color-lt: #bec2cb;
+    --border-color: #8591a1;
+
+    --link-color: var(--accent-color);
+    --link-color-visited: var(--accent-color-dk);
+
+    background-image:
+        linear-gradient(to bottom left, #4b6a9833 5%, transparent),
+        linear-gradient(to bottom right, #0c1013, #22333b, #334e57);
+}
+
+body {
+    background-color: transparent;
+}
+
+@property --dot-size {
+    syntax: "<length>";
+    initial-value: 4px;
+    inherits: false;
+}
+
+@property --dot-spacing {
+    syntax: "<length>";
+    initial-value: 6px;
+    inherits: false;
+}
+
+@property --dot-color {
+    syntax: "<color>";
+    initial-value: #9db0d8;
+    inherits: false;
+}
+
+@property --dot-direction {
+    syntax: "<string>";
+    initial-value: 'down';
+    inherits: false;
+}
+
+@supports (background-image: paint(gradient-dots)) {
+    page-header {
+        background-color: transparent;
+        background-image: paint(gradient-dots);
+        --dot-size: 4px;
+        --dot-spacing: 6px;
+        --dot-color: #9db0d8;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+    
+    html.theme-dark page-header{
+        --dot-color: #334460;
+    }
+
+    page-footer {
+        background-image: paint(gradient-dots);
+        --dot-size: 4px;
+        --dot-spacing: 6px;
+        --dot-color: #e4eaf6;
+        --dot-direction: top;
+    }
+
+    html.theme-dark page-footer {
+        --dot-color: #334460;
+    }
+}
+
+page-header {
+    animation-name: header-background;
+    animation-duration: 0.2s;
+    animation-timeline: scroll();
+    transition: all 0.2s;
+}
+
+@keyframes header-background {
+    0% {
+        background-color: #00000000;
+        box-shadow: 0px 4px 8px #00000000;
+    }
+    15%, 100% {
+        background-color: var(--background-color);
+        box-shadow: 0px 4px 8px var(--shadow-color);
+        --dot-color: #00000000;
+    }
+}

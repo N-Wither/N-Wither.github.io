@@ -4,6 +4,7 @@
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/themes/summer-archive/global.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <!-- components -->
@@ -13,10 +14,14 @@
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/page/page-info.js"></script>
+    <script type="module" src="/assets/js/csspainters/gradientdots.js"></script>
 </head>
 <body>
     <page-header>
-        <div class="f-bold" slot="category" style="font-size: 1.4em; margin: auto;">WitherWorks</div>
+        <div slot="category" class="flex center" style="flex-direction: column;">
+            <div class="f-bold" style="font-size: 1.4em;">WitherWorks</div>
+            <div class="f-bold">Summer Special</div>
+        </div>
         <header-button slot="button">
             <a href="https://github.com/N-Wither" class="flex-center no-deco" target="_blank">
                 <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
@@ -68,8 +73,10 @@
         data-lang="zh-CN"
         crossorigin="anonymous"
         async>
-</script>
+        </script>
     </page-body>
-    <page-footer></page-footer>
+    <page-footer>
+        <p> <span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--accent-color);">Summer Archive</span> Theme by N Wither</p>
+    </page-footer>
 </body>
 </html>

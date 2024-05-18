@@ -22,7 +22,7 @@ export class PageFooter extends LitElement {
         return css`
         :host {
             display: block;
-            margin: 4rem min(10rem, 10%) 2rem min(10rem, 10%);
+            padding: 4rem min(10rem, 10%) 2rem min(10rem, 10%);
             text-align: center;
         }
         `
