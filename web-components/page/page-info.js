@@ -3,6 +3,7 @@ import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
 import '../aqv2/components/icon.js'
 import { createLocalizer } from '../aqv2/lib/localize.js';
+import { dialogStyles } from './styles/dialog.js';
 
 export class PageInfo extends LitElement {
     constructor(){
@@ -33,57 +34,7 @@ export class PageInfo extends LitElement {
     static get styles(){
         return [
             toolboxItemStyle,
-            css`
-            .info {
-                background: var(--background-color);
-                color: inherit;
-                border: none;
-                box-shadow: 0px 4px 8px var(--shadow-color);
-                min-width: 12em;
-                min-height: 8em;
-                padding: 2em 1em;
-                max-width: 80vw;
-                overflow: auto;
-                transition: var(--trasition-time-common);
-            }
-
-            .info::backdrop {
-                animation: backdrop-animation forwards 0.1s;
-            }
-
-            .close {
-                background: var(--button-bg);
-                color: inherit;
-                font-family: inherit;
-                transition: var(--transition-time-common);
-                position: absolute;
-                right: 0;
-                top: 0;
-                width: 1.4em;
-                height: 1.4em;
-                font-size: 1.2em;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .close:is(:hover, :focus){
-                background: var(--color-danger);
-            }
-
-            @keyframes backdrop-animation {
-                0% {backdrop-filter: brightness(1) blur(0);}
-                100% {backdrop-filter: brightness(80%) blur(4px);}
-            }
-            @keyframes backdrop-animation-closing {
-                0% {backdrop-filter: brightness(80%) blur(4px);}
-                100% {backdrop-filter: brightness(1) blur(0);}
-            }
-
-            .info.closing::backdrop {
-                animation: backdrop-animation-closing forwards 0.1s;
-            }
-            `
+            dialogStyles
         ]
     }
 

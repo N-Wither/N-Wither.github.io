@@ -24,8 +24,8 @@ export class ReadingProgress extends LitElement {
 
             .table-of-contents {
                 position: fixed;
-                right: calc(var(--header-height) + 2em);
-                top: calc(var(--header-height) + 1em);
+                right: calc(var(--toolbox-width) + 2em);
+                top: calc(var(--toolbox-width) + 1em);
                 background: var(--background-color);
                 box-shadow: 0px 4px 8px var(--shadow-color);
                 padding: 1em;
@@ -107,7 +107,7 @@ export class ReadingProgress extends LitElement {
     }
 
     show(){
-        this.style.maxHeight = 'var(--header-height)'
+        this.style.maxHeight = 'var(--toolbox-width)'
         this.removeAttribute('tabindex')
     }
 

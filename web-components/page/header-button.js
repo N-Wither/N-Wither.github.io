@@ -11,8 +11,8 @@ export let headerButtonStyle = css`
     align-items: center;
     justify-content: center;
     color: inherit;
-    width: 100%;
-    height: 100%;
+    width: var(--header-height);
+    height: var(--header-height);
 }
 
 .base {
@@ -22,7 +22,7 @@ export let headerButtonStyle = css`
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100% 0%;
-    transition: var(--transition-time-common);
+    transition: var(--transition-time-slower);
     position: relative;
     display: flex;
 }
@@ -43,12 +43,20 @@ export let headerButtonStyle = css`
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100% 0%;
-    transition: var(--transition-time-fast);
+    transition: var(--transition-time-common);
     z-index: -1;
 }
 
 .base:hover, .base:hover::after, .base:has(*:focus), .base:has(*:focus)::after {
     background-size: 100% 100%;
+}
+
+aq-tooltip {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 `
 

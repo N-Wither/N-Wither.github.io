@@ -53,3 +53,19 @@ input[type=color]::-webkit-color-swatch {
 input[type=color]::-moz-color-swatch {
     border: none;
 }
+
+select {
+    background-color: var(--input-bg);
+    font-family: inherit;
+    border: none;
+    color: inherit;
+    padding: 0.2em;
+
+    option {
+        background-color: var(--input-bg);
+
+        &:hover, &:focus {
+            background-color: var(--accent-color);
+        }
+    }
+}

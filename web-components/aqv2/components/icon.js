@@ -39,9 +39,11 @@ class AqIcon extends LitElement {
             word-wrap: normal;
             direction: ltr;
             -webkit-font-smoothing: antialiased;
+            --icon-font-size: 24px;
         }
         .icon {
             font-family: 'Material Symbols Outlined';
+            font-size: var(--icon-font-size);
         }
         `
     }

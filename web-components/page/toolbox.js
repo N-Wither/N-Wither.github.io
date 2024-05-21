@@ -19,16 +19,13 @@ export class ToolBox extends LitElement {
         :host {
             display: block;
             position: fixed;
-            top: calc(var(--header-height) + 1em);
+            top: calc(var(--toolbox-width) + 1em);
             right: 0.8em;
             z-index: 999;
             transition: var(--transition-time-common);
-        }
-
-        .base {
             background: var(--background-color);
             box-shadow: 0px 4px 8px var(--shadow-color);
-            width: var(--header-height);
+            width: var(--toolbox-width);
         }
         `
     }

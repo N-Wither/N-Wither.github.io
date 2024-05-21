@@ -73,7 +73,7 @@ export class ToTop extends LitElement {
     }
 
     show(){
-        this.style.maxHeight = 'var(--header-height)'
+        this.style.maxHeight = 'var(--toolbox-width)'
         this.removeAttribute('tabindex')
     }
 

@@ -58,4 +58,18 @@ input[type=color]::-moz-color-swatch {
   border: none;
 }
 
+select {
+  background-color: var(--input-bg);
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  padding: 0.2em;
+}
+select option {
+  background-color: var(--input-bg);
+}
+select option:hover, select option:focus {
+  background-color: var(--accent-color);
+}
+
 /*# sourceMappingURL=input.css.map */

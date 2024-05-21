@@ -1,4 +1,4 @@
 ::selection {
     color: inherit;
-    background-color: color-mix(in srgb, var(--accent-color-dk) 60%, transparent 60%);
+    background-color: var(--selection-background);
 }

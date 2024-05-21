@@ -13,20 +13,37 @@
     <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
     <script type="module" src="/web-components/page/combined.js"></script>
-    <script type="module" src="/web-components/page/page-info.js"></script>
     <script type="module" src="/assets/js/csspainters/gradientdots.js"></script>
+    <script type="module" src="/web-components/aqv2/components/translate.js"></script>
+    <script type="module" src="/web-components/page/languages.js"></script>
 </head>
 <body>
+    <script>
+        window.aqLanguageMap = {
+            'zh-cn': {
+                1: '夏季特别版',
+                2: '最新文章',
+                3: '精选系列',
+                4: '存放我的各种各样的作品的站点。',
+                5: '在导航菜单中有更多可看。',
+                6: '关于我的更多信息…',
+                omni_desc: '我做过的<b>最好的</b>整合包！',
+                aq_desc: 'CSS 和 Web Components。',
+                read_more: '阅读更多…'
+            }
+        }
+    </script>
     <page-header>
         <div slot="category" class="flex center" style="flex-direction: column;">
             <div class="f-bold" style="font-size: 1.4em;">WitherWorks</div>
-            <div class="f-bold">Summer Special</div>
+            <div class="f-bold"><aq-ts key="1">Summer Special</aq-ts></div>
         </div>
         <header-button slot="button">
             <a href="https://github.com/N-Wither" class="flex-center no-deco" target="_blank">
                 <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
             </a>
         </header-button>
+        <choose-language slot="button"></choose-language>
     </page-header>
     <tool-box>
         <to-top></to-top>
@@ -34,9 +51,10 @@
     <page-body>
         <h1>Hello</h1>
         <hr>
-        <p>This is N Wither. I do a little bit of everything.</p>
-        <p>You can click the links in the navigation menu to see my works.</p>
-        <h2>Latest Article</h2>
+        <p><aq-ts key="4">This is N Wither. I do a little bit of everything.</aq-ts></p>
+        <p><aq-ts key="5">You can click the links in the navigation menu to see my works.</aq-ts></p>
+        <p><a href="/about.html"><aq-ts key="6">More about me...</aq-ts></a></p>
+        <h2><aq-ts key="2">Latest Article</aq-ts></h2>
         <div class="flex wrap">
             <aq-card>
                 <div class="f-bold f-large" slot="header">色彩入门：为什么你的画面显得脏</div>
@@ -47,16 +65,16 @@
                 <p>原生 JS 受害者提升生活质量的尝试。<a href="/writings/surftips/stp-3.html">阅读更多…</a></p>
             </aq-card>
         </div>
-        <h2>Featured Pages</h2>
+        <h2><aq-ts key="3">Featured Pages</aq-ts></h2>
         <div class="flex wrap">
             <aq-card style="flex-grow: 1; max-width: 20em;">
                 <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
                 <div class="f-bold f-large" slot="header">Omniworld</div>
-                <p>The BEST modpack I've ever made! <a href="/projects/omniworld/">Read More...</a></p>
+                <p><aq-ts key="omni_desc">The BEST modpack I've ever made!</aq-ts> <a href="/projects/omniworld/"><aq-ts key="read_more">Read More...</aq-ts></a></p>
             </aq-card>
             <aq-card style="flex-grow: 1;">
                 <div class="f-bold f-large" slot="header">Aquamarine</div>
-                <p>CSS and Web Components. <a href="/projects/aquamarine/">Read More...</a></p>
+                <p><aq-ts key="aq_desc">CSS and Web Components.</aq-ts> <a href="/projects/aquamarine/"><aq-ts key="read_more">Read More...</aq-ts></a></p>
             </aq-card>
         </div>
         <script src="https://giscus.app/client.js"

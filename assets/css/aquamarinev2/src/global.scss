@@ -207,8 +207,11 @@ html {
     --color-neutral: var(--gray-400);
 
     --header-height: 3.6rem;
-    --transition-time-common: 0.2s;
+    --toolbox-width: 3.6rem;
     --transition-time-fast: 0.1s;
+    --transition-time-common: 0.2s;
+    --transition-time-slow: 0.3s;
+    --transition-time-slower: 0.4s;
     --nav-menu-width: 18em;
 }
 
@@ -227,6 +230,7 @@ html {
     --link-color: var(--theme-color-600);
     --link-color-visited: var(--theme-color-700);
     --border-color: #cfcfcf;
+    --selection-background: color-mix(in srgb, var(--accent-color-dk) 60%, transparent 60%);
 
     --button-bg: var(--gray-100);
     --button-bg-focus: var(--gray-200);
@@ -251,6 +255,7 @@ html.theme-dark {
     --link-color: var(--theme-color-500);
     --link-color-visited: var(--theme-color-600);
     --border-color: #3c3c3c;
+    --selection-background: color-mix(in srgb, var(--accent-color-dk) 60%, transparent 60%);
 
     --button-bg: var(--gray-800);
     --button-bg-focus: var(--gray-700);
@@ -345,6 +350,7 @@ code {
 @media screen and (orientation: portrait), screen and (max-width: 480px) {
     html {
         --header-height: 3rem;
+        --toolbox-width: 3rem;
         --nav-menu-width: 16em;
     }
 }

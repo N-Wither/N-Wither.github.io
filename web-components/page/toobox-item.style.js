@@ -5,8 +5,8 @@ export let toolboxItemStyle = css`
     background: transparent;
     color: inherit;
     font-family: inherit;
-    width: var(--header-height);
-    height: var(--header-height);
+    width: var(--toolbox-width);
+    height: var(--toolbox-width);
     display: flex;
     flex-direction: column;
     justify-content: center;

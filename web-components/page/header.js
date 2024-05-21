@@ -13,13 +13,14 @@ export class PageHeader extends LitElement {
     }
 
     render(){
+        let isFixedTheme = document.documentElement.hasAttribute('data-theme-fixed')
         return html`
         <div class='page-header base'>
             <nav-menu></nav-menu>
             <slot name='category'></slot>
             <div class='button-area'>
                 <slot name='button'></slot>
-                <darkmode-button slot='button'></darkmode-button>
+                ${isFixedTheme? '' : html`<darkmode-button></darkmode-button>`}
             </div>
         </div>
         `
