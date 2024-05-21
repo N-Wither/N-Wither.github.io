@@ -7,10 +7,10 @@ const template =
 const style = 
 `
 aq-tab {
-    --tab-bg: var(--gray-100);
+    --tab-bg: var(--border-color);
 }
 .theme-dark aq-tab {
-    --tab-bg: var(--gray-800);
+    --tab-bg: var(--border-color);
 }
 
 aq-tab {
@@ -19,16 +19,14 @@ aq-tab {
     transition: 0.2s;
 }
 
-aq-tab ::selection {
-    background-color: var(--accent-color-dk);
-    color: var(--text-color-selected);
-}
-
 aq-tab::part(tabs) {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     flex-direction: row;
+    position: sticky;
+    top: var(--header-height);
+    z-index: 10;
 }
 
 aq-tab::part(pages) {
@@ -56,6 +54,7 @@ aq-tab-button button {
     font-family: inherit;
     color: var(--text-color);
     width: 100%;
+    height: 100%;
 }
 
 aq-tab-button button:hover, aq-tab-button button:focus {
@@ -65,6 +64,7 @@ aq-tab-button button:hover, aq-tab-button button:focus {
 
 aq-tab-button[open] button {
     background-size: 100% 100%;
+    color: var(--text-color-contrast);
 }
 
 aq-tab-page {

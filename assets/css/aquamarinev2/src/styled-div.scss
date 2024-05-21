@@ -28,6 +28,7 @@
     background-color: var(--paper-color);
     box-shadow: 0px 1px 4px var(--shadow-color);
     margin-inline: auto;
+    margin-block: 0.4em;
     padding: 1.6rem;
     @include paper();
 }
@@ -96,7 +97,7 @@
     position: absolute;
     top: 20px;
     left: calc(-1*var(--f));
-    padding-inline: .25em;
+    padding-inline: 0.8em;
     line-height: 1.8;
     background: var(--ribbon-color);
     border-bottom: var(--f) solid #0005;
@@ -106,6 +107,11 @@
         var(--f) calc(100% - var(--f)),calc(100% - var(--r)) calc(100% - var(--f)),
         100% calc(50% - var(--f)/2));
     box-shadow: 0px 1px 4px var(--shadow-color);
+    color: var(--text-color-contrast);
+
+    :is(h1, h2, h3, h4, h5, h6) {
+        margin: 0
+    }
 }
 
 .jotting {

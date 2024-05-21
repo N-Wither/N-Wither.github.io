@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C1000</title>
+    <link rel="shortcut icon" href="/projects/c/assets/img/ella_avatar.png">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/styled-div.css">
+    <link rel="stylesheet" href="/projects/c/assets/themes/violite.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/aquamarine/tab.js"></script>
+    <script type="module" src="/web-components/page/reading-progress.js"></script>
+    <script type="module" src="/web-components/aquamarine/image-block.js"></script>
+    <style>
+        @supports (background-clip: text){
+            .rainbow-text {
+                background-image: linear-gradient(to right, #ff0000, #ff00bf, #8000ff, #0040ff, #00ffff, #00ff40, #80ff00, #ffbf00, #ff0000);
+                color: transparent;
+                background-clip: text;
+            }
+        }
+
+        .hidden {
+            color: black;
+            background-color: black;
+            transition: 0.2s;
+        }
+
+        .hidden:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div slot="category" class="flex center" style="flex-direction: column;">
+            <div class="f-bold" style="font-size: 1.4em;">LMCA</div>
+            <div class="f-bold" style="font-size: 0.8em;">多元宇宙数据库</div>
+        </div>
+    </page-header>
+    <tool-box>
+        <to-top></to-top>
+        <reading-progress></reading-progress>
+    </tool-box>
+    <page-body>
+        <h1 class="page-title">世界 C98CA3D380B0D4F7 "C1000"</h1>
+        <hr>
+        <aq-tab>
+            <aq-tab-button index="1" open slot="tabs">概况</aq-tab-button>
+            <aq-tab-page index="1" open slot="pages">
+                <p>这里的人们生活在一个称为“地球”的行星上，表面将近 70% 是海洋，剩下的部分是一片庞大的陆地，以及分布在大陆周边的众多或大或小的岛屿。</p>
+                <p>不同的种族构成了一个多元化的社会，大多数人口分布在城镇。由于地理以及历史上的原因，不同的地区各个种族的人口占比也会有所不同。</p>
+                <p>在这里奇术，或者说魔法司空见惯，拥有魔法能力的人口占比约为 3%，某些种族会更容易拥有魔法方面的天赋。许多学者认为大陆上的种族分化来源于很久以前的某次魔法相关的事件。</p>
+                <p>由于各个社群的文化和人口组成，大陆上的社会结构总体上为城邦自治，但在某些方面也有由跨区域组织设立的统一标准（主要是工业上的）。</p>
+            </aq-tab-page>
+            <aq-tab-button index="2" slot="tabs">数据</aq-tab-button>
+            <aq-tab-page index="2" slot="pages">
+                <ul>
+                    <li><span class="f-bold">ID</span>：<span>C98CA3D380B0D4F7</span></li>
+                    <li><span class="f-bold">别名</span>：<span>C1000</span></li>
+                    <li><span class="f-bold">相对时间流速</span>：<span>1.0</span></li>
+                    <li><span class="f-bold">相对时间差</span>：<span>0s</span></li>
+                    <li><span class="f-bold">α</span>：<span>~0.00729735256</span></li>
+                    <li><span class="f-bold">旅行者满意度</span>：<span style="color: var(--color-safe);">82%</span></li>
+                </ul>
+            </aq-tab-page>
+            <aq-tab-button index="3" slot="tabs">有何可写</aq-tab-button>
+            <aq-tab-page index="3" slot="pages">
+                <p>总体上而言，这是一个较为典型的日式西幻风格的世界，这个世界中的故事基调应当是轻松愉快的，当然也会存在一些比较黑暗的部分，毕竟有些难过的事情还是不能避免的。</p>
+                <p>如果确实要写一些更加黑深残的故事，<a href="javascript:alert('暂未发布')">Dissonance</a>世界会更加适合。</p>
+                <p>以下是一些常见的，适用于这个世界的写作主题：</p>
+                <ul>
+                    <li>风土人情</li>
+                    <li>奇妙旅程</li>
+                    <li>奇葩人物</li>
+                    <li>神秘档案</li>
+                    <li>诸如此类...</li>
+                </ul>
+                <p>如果你对这个世界有任何疑问，可以联系我！</p>
+                <p>想在这个世界观下写东西？很好，你只需要按照通常的给 GitHub 上面的仓库作贡献的方式添加或者修改文章就好了。当然在这之前最好先跟我说一声，我好给你一些指导和建议（例如怎样使用我做的这些几乎没有注释的组件）。</p>
+            </aq-tab-page>
+            <aq-tab-button index="4" slot="tabs">重要人物</aq-tab-button>
+            <aq-tab-page index="4" slot="pages">
+                <p>a.k.a 主角团</p>
+                <div class="paper">
+                    <div class="ribbon">
+                        <h3>Ella Rosenberg</h3>
+                    </div>
+                    <div class="float right">
+                        <aq-image-block src="/projects/c/assets/img/ella_avatar2.png" caption="Ella" width="120">
+                            <span>Ella</span>
+                        </aq-image-block>
+                    </div>
+                    <p>大部分时间都在无所事事的魔法使，经常在世界各地旅行，有时是工作需要，有时则只是为了玩。</p>
+                    <p>会给杂志写文章赚点稿费。</p>
+                    <p>因为未知的原因拥有免疫反模因和认知危害的能力。</p>
+                    <p><span class="hidden">是不是很可爱是不是很可爱？（发癫）</span></p>
+                </div>
+                <div class="paper">
+                    <div class="ribbon">
+                        <h3>Ruperta Aachen</h3>
+                    </div>
+                    <div class="float right">
+                        <aq-image-block src="/projects/c/assets/img/aachen_avatar.png" caption="Aachen" width="120">
+                            <span>Aachen</span>
+                        </aq-image-block>
+                    </div>
+                    <p>图书馆档案室的管理员，Ella 的好友之一。</p>
+                    <p>因为她的大部分工作时间实际上都是在摸鱼，所以她非常喜欢这份工作，曾表示“要做一辈子的档案员”。</p>
+                    <p>讨厌被不熟的人摸角、翅膀和尾巴。</p>
+                </div>
+                <div class="paper">
+                    <div class="ribbon">
+                        <h3>Selene Adrian</h3>
+                    </div>
+                    <div class="float right">
+                        <aq-image-block src="/projects/c/assets/img/selene_avatar.png" caption="Selene" width="120">
+                            <span>Selene</span>
+                        </aq-image-block>
+                    </div>
+                    <p>ARIA 实习生，经常跟随 Ella 或者 Matthew 工作。</p>
+                    <p>目前还在大学学习，平时也会在图书馆兼职。</p>
+                </div>
+                <div class="paper">
+                    <div class="ribbon">
+                        <h3>Matthew MacFarlane</h3>
+                    </div>
+                    <div class="float right">
+                        <aq-image-block src="/projects/c/assets/img/matthew_avatar.png" caption="Matthew" width="120">
+                            <span>Matthew</span>
+                        </aq-image-block>
+                    </div>
+                    <p>ARIA 调查部职员，算是 Ella 的半个同事。</p>
+                    <p>因为工作需要，大部分时间都在外出差。</p>
+                    <p>经常给 Ella 介绍工作机会，因为 ARIA 总是需要一些临时人手。</p>
+                </div>
+            </aq-tab-page>
+            <aq-tab-button index="5" slot="tabs">术语列表</aq-tab-button>
+            <aq-tab-page index="5" slot="pages">
+                <p>[建设中]</p>
+            </aq-tab-page>
+            <aq-tab-button index="6" slot="tabs">FAQ</aq-tab-button>
+            <aq-tab-page index="6" slot="pages">
+                <ul>
+                    <li class="f-bold">这个世界的科技水平如何？</li>
+                    <p>大概相当于我们的世界的 19 世纪末期，但是掺杂了更多的魔法元素。</p>
+                    <li class="f-bold">有冒险家公会吗？</li>
+                    <p>没有。这玩意属实是刻板印象，如果某人需要短期工作，可以看看当地的报纸或者楼下的公告板。</p>
+                    <li class="f-bold">不同种族之间可以通婚吗？</li>
+                    <p>可以，但是由于心理上的原因，大部分人还是会选择和自己同一种族的人组建家庭。</p>
+                    <li class="f-bold">我看到 Ella 的介绍里面出现了两个熟悉的术语……</li>
+                    <p>是的，一些设定来源于 <a href="https://scp-wiki.wikidot.com/" target="_blank" rel="noopener noreferrer"> SCP 基金会</a>，我觉得它们很 <span class="rainbow-text">COOL</span>，所以就<ruby>借用<rt>偷来</rt></ruby>了。</p>
+                    <li class="f-bold">ARIA 是不是类似 SCP 基金会？</li>
+                    <p>虽然二者都会研究异常现象，但是 SCP 基金会官僚气息严重，且致力于阻止世界认识异常和魔法。ARIA 则反之，更像是<a href="https://scp-wiki.wikidot.com/voice-of-vanguard" target="_blank" rel="noopener noreferrer">先锋会</a>。</p>
+                    <li class="f-bold">为什么这个世界会叫 C1000 这么奇怪的名字？</li>
+                    <p>不知道。</p>
+                    <li class="f-bold">我能用这个世界观写东西吗？</li>
+                    <p>当然可以，为什么不？请查看“有何可写”部分了解更多！</p>
+                </ul>
+            </aq-tab-page>
+        </aq-tab>
+    </page-body>
+    <page-footer>
+        <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
+    </page-footer>
+</body>
+</html>

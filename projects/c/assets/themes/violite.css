@@ -24,7 +24,7 @@ html {
     --shadow-color: #0f0f0f22;
     --link-color: var(--theme-color-600);
     --link-color-visited: var(--theme-color-700);
-    --border-color: var(--gray-300);
+    --border-color: #f2d7b1;
 
     --button-bg: var(--gray-100);
     --button-bg-focus: var(--gray-200);
@@ -33,6 +33,8 @@ html {
     --header-bg: #faebd799;
 
     --input-bg: #00000011;
+
+    --paper-color: #fef6ec !important;
 }
 
 html.theme-dark {
@@ -43,7 +45,7 @@ html.theme-dark {
     --text-color: #e4dac7;
     --text-color-lt: #888888;
     --text-color-selected: #fcfcfc;
-    --text-color-contrast: #161616;
+    --text-color-contrast: var(--text-color-selected);
     --shadow-color: #66666622;
     --link-color: var(--theme-color-500);
     --link-color-visited: var(--theme-color-600);
@@ -56,4 +58,6 @@ html.theme-dark {
     --header-bg: #11131599;
 
     --input-bg: #00000033;
+
+    --paper-color: #1e1e23 !important;
 }
