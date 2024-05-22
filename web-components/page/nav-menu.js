@@ -71,6 +71,7 @@ export class NavMenu extends LitElement {
             color: inherit;
             width: var(--header-height);
             height: var(--header-height);
+            user-select: none;
         }
     
         .nav-menu {
@@ -148,7 +149,7 @@ export class NavMenu extends LitElement {
         return html`
         <header-button>
             <aq-tooltip>
-                <button class='nav-menu-switch' @click=${this.toggleMenu} name=${this.#localize('1')}>menu</button>
+                <button class='nav-menu-switch' @click=${this.toggleMenu} name=${this.#localize('1')} translate='no'>menu</button>
                 <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>
         </header-button>
