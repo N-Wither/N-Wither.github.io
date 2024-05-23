@@ -218,7 +218,7 @@ export class AqSnackbar extends LitElement {
 
 customElements.define('aq-snackbar', AqSnackbar);
 
-window.aqSnackbar = function(options = {}) {
+export function aqSnackbar(options = {}) {
     if(typeof options == 'string'){
         options = {message: options}
     }
@@ -244,3 +244,5 @@ window.aqSnackbar = function(options = {}) {
 
     snackbar.show();
 }
+
+window.aqSnackbar = aqSnackbar;

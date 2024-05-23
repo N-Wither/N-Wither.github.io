@@ -209,7 +209,7 @@ html {
   --button-bg: var(--gray-100);
   --button-bg-focus: var(--gray-200);
   --button-bg-disabled: var(--gray-300);
-  --header-bg: #fcfcfc99;
+  --header-bg: #fcfcfc;
   --input-bg: #00000011;
 }
 
@@ -231,7 +231,7 @@ html.theme-dark {
   --button-bg: var(--gray-800);
   --button-bg-focus: var(--gray-700);
   --button-bg-disabled: var(--gray-900);
-  --header-bg: #1e1e1e99;
+  --header-bg: #1e1e1e;
   --input-bg: #00000033;
 }
 

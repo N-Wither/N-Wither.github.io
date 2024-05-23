@@ -9,7 +9,7 @@ export class PageBody extends LitElement {
         return css`
         :host{
             display: block;
-            margin: calc(2rem + var(--header-height)) min(10rem, 10%) 0 min(10rem, 10%);
+            margin: 0 min(10rem, 10%);
             min-height: calc(100vh - 20rem);
         }
         `

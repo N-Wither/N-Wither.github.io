@@ -77,8 +77,7 @@ export class PageInfo extends LitElement {
             duration: 100,
             fill: 'forwards',
             ease: 'ease-in'
-        })
-        setTimeout(() => {dialog.close()}, 100)
+        }).onfinish = () => { dialog.close() }
     }
 }
 

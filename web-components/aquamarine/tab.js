@@ -40,6 +40,7 @@ aq-tab-button, aq-tab-page {
 
 aq-tab-button {
     flex-grow: 1;
+    position: relative;
 }
 
 aq-tab-button button {
@@ -58,6 +59,7 @@ aq-tab-button button {
 }
 
 aq-tab-button button:hover, aq-tab-button button:focus {
+    background-color: var(--tab-bg);
     background-size: 100% 100%;
     filter: brightness(1.1);
 }
@@ -65,6 +67,21 @@ aq-tab-button button:hover, aq-tab-button button:focus {
 aq-tab-button[open] button {
     background-size: 100% 100%;
     color: var(--text-color-contrast);
+}
+
+aq-tab-button[open]::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 100%;
+    z-index: 1;
+    border-style: solid;
+    border-color: var(--accent-color) transparent transparent transparent;
+    border-width: 0.575em;
+    animation: activePointer 0.2s ease-in-out forwards;
 }
 
 aq-tab-page {
@@ -76,6 +93,15 @@ aq-tab-page {
 
 aq-tab-page[open] {
     margin: 0.8em 0.8em;
+}
+
+@keyframes activePointer {
+    from {
+        border-width: 0;
+    }
+    to {
+        border-width: 0.575em;
+    }
 }
 `
 const styleSheet = new CSSStyleSheet()
@@ -119,13 +145,13 @@ export class AqTabButton extends HTMLElement {
         let button = this.querySelector('button[part=aq-tab-button]')
         button.addEventListener('click', () => {
             buttons.forEach(el => el.removeAttribute('open'))
-            this.setAttribute('open', true)
+            this.setAttribute('open', '')
             let index = this.getAttribute('index')
             let currntPage = tab.querySelector('aq-tab-page[open]')
             currntPage.removeAttribute('open')
             currntPage.style.maxHeight = '0px'
             let targetPage = tab.querySelector(`aq-tab-page[index="${index}"]`)
-            targetPage.setAttribute('open', true)
+            targetPage.setAttribute('open', '')
             let calculatedHeight = targetPage.scrollHeight
             targetPage.style.maxHeight = calculatedHeight + 'px'
 
