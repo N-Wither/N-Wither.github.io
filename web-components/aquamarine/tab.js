@@ -1,3 +1,5 @@
+import css from './lib/parse-css.js'
+
 const template = 
 `
 <slot part='tabs' name='tabs'></slot>
@@ -5,7 +7,7 @@ const template =
 `
 
 const style = 
-`
+css`
 aq-tab {
     --tab-bg: var(--border-color);
 }
@@ -69,7 +71,7 @@ aq-tab-button[open] button {
     color: var(--text-color-contrast);
 }
 
-aq-tab-button[open]::before {
+aq-tab-button::before {
     content: '';
     position: absolute;
     width: 0;
@@ -80,8 +82,12 @@ aq-tab-button[open]::before {
     z-index: 1;
     border-style: solid;
     border-color: var(--accent-color) transparent transparent transparent;
+    border-width: 0;
+    transition: 0.2s;
+}
+
+aq-tab-button[open]::before {
     border-width: 0.575em;
-    animation: activePointer 0.2s ease-in-out forwards;
 }
 
 aq-tab-page {
@@ -94,19 +100,8 @@ aq-tab-page {
 aq-tab-page[open] {
     margin: 0.8em 0.8em;
 }
-
-@keyframes activePointer {
-    from {
-        border-width: 0;
-    }
-    to {
-        border-width: 0.575em;
-    }
-}
 `
-const styleSheet = new CSSStyleSheet()
-styleSheet.replaceSync(style)
-document.adoptedStyleSheets = [...document.adoptedStyleSheets, styleSheet]
+document.adoptedStyleSheets.push(style)
 
 
 export class AqTab extends HTMLElement {

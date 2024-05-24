@@ -28,15 +28,20 @@ export class AqSnackbar extends LitElement {
         setTimeout(() => {this.close()}, this.duration);
 
         return html`
-        <slot name='icon'></slot>
-        ${this.icon ? html`<aq-icon name="${this.icon}"></aq-icon>` : ''}
+        <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+        <div class='icon'>
+            <slot name='icon'></slot>
+            ${this.icon ? html`<aq-icon name="${this.icon}"></aq-icon>` : ''}
+        </div>
         <div class='message'>
             <slot></slot>
             ${this.html ? this.htmlMessage(this.message) : this.message}
         </div>
-        <slot name='action'></slot>
-        <slot name='close'></slot>
-        ${this.closeable ? html`<button class='close-button' @click=${this.close}><aq-icon name='close'></aq-icon></button>` : ''}
+        <div class='close'>
+            <slot name='action'></slot>
+            <slot name='close'></slot>
+            ${this.closeable ? html`<button class='close-button' @click=${this.close}><aq-icon name='close'></aq-icon></button>` : ''}
+        </div>
         `
     }
 
@@ -140,9 +145,9 @@ export class AqSnackbar extends LitElement {
         }
 
         :host {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 2em 1fr 2em;
+            grid-template-rows: auto;
             position: fixed;
             z-index: 9999;
             background-color: var(--snackbar-background-color);
@@ -152,7 +157,7 @@ export class AqSnackbar extends LitElement {
             flex-wrap: wrap;
             word-wrap: break-word;
             opacity: 0;
-            box-shadow: 0px 1px 4px var(--shadow-color);
+            box-shadow: 0px 4px 8px var(--shadow-color);
             max-width: min(90%, 50em);
         }
 
@@ -197,6 +202,9 @@ export class AqSnackbar extends LitElement {
         }
 
         .message {
+            display: flex;
+            align-items: center;
+            justify-content: block-start;
             max-width: 100%;
             white-space: wrap;
             overflow: auto;

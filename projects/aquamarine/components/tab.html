@@ -11,25 +11,26 @@
     <h1>Tab 分页</h1>
     <hr>
     <div>
+        <p>现已重写，修复了被隐藏的标签页中的元素依然可被 <kbd>Tab</kbd> 访问的 bug，另外元素名称以及某些语法与之前不同了。</p>
         <aq-tab>
-            <aq-tab-button slot="tabs" open index="1">标签页</aq-tab-button>
-            <aq-tab-page slot="pages" open index="1">
+            <aq-tab-label active value="1">标签页</aq-tab-label>
+            <aq-tab-panel active value="1">
                 <b>页面</b>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem rem quam ex
                     reprehenderit veritatis modi dignissimos cumque nemo. Repudiandae voluptatem commodi nulla
                     alias debitis. Excepturi corrupti aspernatur assumenda voluptates officia.</p>
-            </aq-tab-page>
-            <aq-tab-button slot="tabs" index="2">另一个标签页</aq-tab-button>
-            <aq-tab-page slot="pages" index="2">
+            </aq-tab-panel>
+            <aq-tab-label value="2">另一个标签页</aq-tab-label>
+            <aq-tab-panel value="2">
                 <b>另一个页面</b>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus ullam dicta earum,
                     aspernatur numquam consectetur fugiat expedita velit maiores iure quisquam placeat, dolorum
                     amet eligendi fuga necessitatibus facilis explicabo ut?</p>
-            </aq-tab-page>
-            <aq-tab-button slot="tabs" index="3">虽然这个标签页的名字很长但是完全没有内容好奇怪哦</aq-tab-button>
-            <aq-tab-page slot="pages" index="3"></aq-tab-page>
-            <aq-tab-button slot="tabs" index="4">一个内容很多的页面</aq-tab-button>
-            <aq-tab-page slot="pages" index="4">
+            </aq-tab-panel>
+            <aq-tab-label value="3">这个标签页不知为何有一个非常长的名字但是里面却没有任何内容，我想知道为什么？这真的很奇怪</aq-tab-label>
+            <aq-tab-panel value="3"></aq-tab-panel>
+            <aq-tab-label value="4">一个内容很多的页面</aq-tab-label>
+            <aq-tab-panel value="4">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                     labore
                     et dolore magna aliqua. Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Non
@@ -59,20 +60,62 @@
                     Adipiscing tristique risus nec feugiat in fermentum posuere. Tortor id aliquet lectus proin
                     nibh
                     nisl condimentum id. Consequat semper viverra nam libero justo. Malesuada bibendum arc </p>
-            </aq-tab-page>
-            <aq-tab-button slot="tabs" index="5">空标签页</aq-tab-button>
-            <aq-tab-page slot="pages" index="5"></aq-tab-page>
-            <aq-tab-button slot="tabs" index="6">空标签页</aq-tab-button>
-            <aq-tab-page slot="pages" index="6"></aq-tab-page>
-            <aq-tab-button slot="tabs" index="7">空标签页</aq-tab-button>
-            <aq-tab-page slot="pages" index="7"></aq-tab-page>
-            <aq-tab-button slot="tabs" index="8">空标签页</aq-tab-button>
-            <aq-tab-page slot="pages" index="8"></aq-tab-page>
-            <aq-tab-button slot="tabs" index="9">空标签页</aq-tab-button>
-            <aq-tab-page slot="pages" index="9"></aq-tab-page>
-            <aq-tab-button slot="tabs" index="10">空标签页</aq-tab-button>
-            <aq-tab-page slot="pages" index="10"></aq-tab-page>
+            </aq-tab-panel>
+            <aq-tab-label value="5">空标签页</aq-tab-label>
+            <aq-tab-panel value="5"></aq-tab-panel>
+            <aq-tab-label value="6">空标签页</aq-tab-label>
+            <aq-tab-panel value="6"></aq-tab-panel>
+            <aq-tab-label value="7">空标签页</aq-tab-label>
+            <aq-tab-panel value="7"></aq-tab-panel>
+            <aq-tab-label value="8">空标签页</aq-tab-label>
+            <aq-tab-panel value="8"></aq-tab-panel>
+            <aq-tab-label value="9">空标签页</aq-tab-label>
+            <aq-tab-panel value="9"></aq-tab-panel>
+            <aq-tab-label value="10">空标签页</aq-tab-label>
+            <aq-tab-panel value="10"></aq-tab-panel>
         </aq-tab>
+        <h2>用法</h2>
+        <aq-code language="html">
+            <aq-tab>
+                <aq-tab-label value="1" active>标签页1</aq-tab-label>
+                <aq-tab-panel value="1" active>内容1</aq-tab-panel>
+                <aq-tab-label value="2">标签页2</aq-tab-label>
+                <aq-tab-panel value="2">内容2</aq-tab-panel>
+            </aq-tab>
+        </aq-code>
+        <p>不需要手动指定 <code>slot</code> 的值，它们会自己去往该去的地方。</p>
+        <h2>属性</h2>
+        <p>仅适用于 <code>aq-tab-label</code> 和 <code>aq-tab-panel</code></p>
+        <table>
+            <tr>
+                <th>名称</th>
+                <th>类型</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>value</td>
+                <td>string</td>
+                <td>标签页的标识符</td>
+            </tr>
+            <tr>
+                <td>active</td>
+                <td>boolean</td>
+                <td>标签页是否处于显示状态</td>
+            </tr>
+        </table>
+        <h2>可用事件</h2>
+        <table>
+            <tr>
+                <th>名称</th>
+                <th>描述</th>
+                <th>备注</th>
+            </tr>
+            <tr>
+                <td>tab-change</td>
+                <td>标签页切换（同一标签页被重复点击也算）</td>
+                <td>使用 <code>event.detail.value</code> 可以获取到被打开的标签页的 <code>value</code></td>
+            </tr>
+        </table>
     </div>
 </body>
 

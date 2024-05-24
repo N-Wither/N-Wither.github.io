@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Snackbar 消息条</h1>
+    <hr>
+    <p>用于显示弹出消息。引入这个元素会同时引入一个全局函数 <code>aqSnackbar</code>。</p>
+    <p>你可以在控制台试试下面的代码。</p>
+    <aq-code language="js">
+        aqSnackbar('Message')
+        aqSnackbar({message: 'Message', type: 'success', placement: 'top-right'})
+    </aq-code>
+    <p>这个函数的详细信息：</p>
+    <aq-code language="ts">
+        interface AqSnackbarProperties {
+            message: string | HTMLElement,
+            type: 'info' | 'success' | 'warning' | 'error',
+            placement: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right',
+            html: boolean,
+            duration: number,
+            icon: string,
+            closeable: boolean
+        }
+
+        declare function aqSnackbar(message: string)
+        declare function aqSnackbar(prop: AqSnackbarProperties)
+    </aq-code>
+    <p>显然<code>AqSnackbarProperties</code>里面的属性也是这个组件上的属性。</p>
+    <div class="flex wrap">
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Info', icon: 'info'})">普通消息</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Success', type: 'success', icon: 'check'})">表示成功的消息</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Warning', type: 'warning', icon: 'warning'})">表示警告的消息</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Error', type: 'error', icon: 'error'})">表示出错的消息</button>
+    </div>
+    <div class="flex wrap">
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', placement: 'top-left'})">左上</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', placement: 'top-center'})">中上</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', placement: 'top-right'})">右上</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', placement: 'bottom-left'})">左下</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', placement: 'bottom-center'})">中下</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', placement: 'bottom-right'})">右下</button>
+    </div>
+    <div class="flex wrap">
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', icon: 'info'})">带图标的</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: 'Message', closeable: true})">带关闭按钮的</button>
+        <button class="btn-regular" onclick="aqSnackbar({message: `我本来没想过写这个组件，但是某一天我觉得 <code>alert()</code> 不好看，所以我就花了一些时间写了这个组件，感谢 <a href='https:\/\/code.fittentech.com' target='_blank' rel='noopener noreferrer'>Fitten Code</a> 的帮助给我省下了一些时间和精力。`, closeable: true, icon: 'info', duration: 8000, html: true})">带图标和关闭按钮的很长的 HTML 消息</button>
+    </div>
+    <h2>Slot</h2>
+    <table>
+        <tr>
+            <th>名称</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td>[默认]</td>
+            <td>消息内容</td>
+        </tr>
+        <tr>
+            <td>icon</td>
+            <td>图标</td>
+        </tr>
+        <tr>
+            <td>action</td>
+            <td>除了关闭消息之外的动作，例如打开某个其他东西</td>
+        </tr>
+        <tr>
+            <td>close</td>
+            <td>自定义关闭按钮</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -109,6 +109,7 @@ export class AqCodeblock extends LitElement {
                 top: 0;
             }
             aq-icon {
+                --icon-font-size: 16px !important;
                 font-size: 1em;
             }
             button {

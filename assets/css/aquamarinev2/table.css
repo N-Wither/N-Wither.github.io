@@ -2,7 +2,7 @@ table {
   border-spacing: 0;
   border: 1px solid var(--border-color);
 }
-table thead {
+table thead, table th {
   background: var(--background-color-dk);
 }
 table th {
