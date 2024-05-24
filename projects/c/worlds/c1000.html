@@ -14,6 +14,7 @@
     <script type="module" src="/web-components/aqv2/components/tab.js"></script>
     <script type="module" src="/web-components/page/reading-progress.js"></script>
     <script type="module" src="/web-components/aquamarine/image-block.js"></script>
+    <script type="module" src="/web-components/aqv2/components/snackbar.js"></script>
     <style>
         @supports (background-clip: text){
             .rainbow-text {
@@ -69,7 +70,7 @@
             <aq-tab-label value="3" slot="tabs">有何可写</aq-tab-label>
             <aq-tab-panel value="3" slot="pages">
                 <p>总体上而言，这是一个较为典型的日式西幻风格的世界，这个世界中的故事基调应当是轻松愉快的，当然也会存在一些比较黑暗的部分，毕竟有些难过的事情还是不能避免的。</p>
-                <p>如果确实要写一些更加黑深残的故事，<a href="javascript:alert('暂未发布')">Dissonance</a>世界会更加适合。</p>
+                <p>如果确实要写一些更加黑深残的故事，<a href="javascript:;" id="wip-a">Dissonance</a>世界会更加适合。</p>
                 <p>以下是一些常见的，适用于这个世界的写作主题：</p>
                 <ul>
                     <li>风土人情</li>
@@ -162,6 +163,16 @@
                 </ul>
             </aq-tab-panel>
         </aq-tab>
+        <aq-snackbar placement="top-center" id="wip" persistant duration="5000" icon="info">
+            <div>我还没写</div>
+            <div slot="close">好吧</div>
+            <button slot="action" onclick="aqSnackbar('抱歉啦')">:(</button>
+        </aq-snackbar>
+        <script type="module">
+            let wip = document.getElementById('wip')
+            let a = document.getElementById('wip-a')
+            a.onclick = () => { wip.show() }
+        </script>
     </page-body>
     <page-footer>
         <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>

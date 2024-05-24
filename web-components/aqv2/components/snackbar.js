@@ -10,7 +10,8 @@ export class AqSnackbar extends LitElement {
             placement: { type: String },
             html: { type: Boolean },
             icon: { type: String },
-            closeable: { type: Boolean }
+            closeable: { type: Boolean },
+            persistant: {type: Boolean}
         }
     }
 
@@ -23,31 +24,44 @@ export class AqSnackbar extends LitElement {
     html = false;
     icon = '';
     closeable = false;
+    persistant = false;
+
+    #initialShow = true;
+    #timerId = null;
 
     render() {
-        setTimeout(() => {this.close()}, this.duration);
+        if(this.persistant == true && this.#initialShow == true){
+            this.close()
+            this.#initialShow = false
+        }
+        else {
+            this.#timerId = setTimeout(() => {this.close()}, this.duration);
+        }
 
         return html`
         <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
         <div class='icon'>
-            <slot name='icon'></slot>
-            ${this.icon ? html`<aq-icon name="${this.icon}"></aq-icon>` : ''}
+            <slot name='icon'>
+                ${this.icon ? html`<aq-icon name="${this.icon}"></aq-icon>` : ''}
+            </slot>
         </div>
         <div class='message'>
-            <slot></slot>
-            ${this.html ? this.htmlMessage(this.message) : this.message}
+            <slot>
+                ${this.html ? this.htmlMessage(this.message) : this.message}
+            </slot>
         </div>
         <div class='close'>
-            <slot name='action'></slot>
-            <slot name='close'></slot>
-            ${this.closeable ? html`<button class='close-button' @click=${this.close}><aq-icon name='close'></aq-icon></button>` : ''}
+            <slot name='action' class='action-button'></slot>
+            <slot name='close' @click=${this.close} class='close-button'>
+                ${this.closeable ? html`<button><aq-icon name='close'></aq-icon></button>` : ''}
+            </slot>
         </div>
         `
     }
 
     close(ignoreDuration = false){
         let animation
-        let animationOptions = {duration: 200, easing: 'ease-in-out'}
+        let animationOptions = {duration: 200, easing: 'ease-in-out', fill: 'forwards'}
 
         switch(this.placement){
             case 'top-center':
@@ -83,19 +97,25 @@ export class AqSnackbar extends LitElement {
             }
         }
 
-        if(this.duration > 0 || ignoreDuration == true){
+        if((this.duration > 0 || ignoreDuration == true) && this.persistant == false){
             animation.onfinish = () => {
                 this.remove();
             }
+        }
+
+        if(this.#timerId != null) {
+            clearTimeout(this.#timerId);
+            this.#timerId = null;
         }
     }
 
     show(){
         let animationOptions = {duration: 200, easing: 'ease-in-out', fill: 'forwards'}
+        let animation
         switch(this.placement){
             case 'top-center':
             default: {
-                this.animate([
+                animation = this.animate([
                     {opacity: 0, translate: '0 -100%'},
                     {opacity: 1, translate: '0 0'}
                 ], animationOptions)
@@ -103,7 +123,7 @@ export class AqSnackbar extends LitElement {
             }
             case 'bottom-left':
             case 'top-left': {
-                this.animate([
+                animation = this.animate([
                     {opacity: 0, translate: '-100%'},
                     {opacity: 1, translate: '0'}
                 ], animationOptions)
@@ -111,19 +131,23 @@ export class AqSnackbar extends LitElement {
             }
             case 'bottom-right':
             case 'top-right': {
-                this.animate([
+                animation = this.animate([
                     {opacity: 0, translate: '100%'},
                     {opacity: 1, translate: '0'}
                 ], animationOptions)
                 break;
             }
             case 'bottom-center': {
-                this.animate([
+                animation = this.animate([
                     {opacity: 0, translate: '0 100%'},
                     {opacity: 1, translate: '0 0'}
                 ], animationOptions)
                 break;
             }
+        }
+
+        if(this.duration > 0) {
+            animation.onfinish = () => { this.#timerId = setTimeout(() => {this.close()}, this.duration) }
         }
     }
 
@@ -146,13 +170,13 @@ export class AqSnackbar extends LitElement {
 
         :host {
             display: grid;
-            grid-template-columns: 2em 1fr 2em;
+            grid-template-columns: 2.4em 1fr auto;
             grid-template-rows: auto;
             position: fixed;
             z-index: 9999;
             background-color: var(--snackbar-background-color);
             color: var(--snackbar-text-color);
-            padding: 1em;
+            padding: 1em 0.4em;
             min-width: 20em;
             flex-wrap: wrap;
             word-wrap: break-word;
@@ -210,15 +234,24 @@ export class AqSnackbar extends LitElement {
             overflow: auto;
         }
 
-        .close button, .close-button {
+        .close button, .close-button, .action-button {
             background: none;
             border: none;
             color: inherit;
             transition: var(--transition-time-common);
+            padding: 0;
+            cursor: pointer;
         }
 
-        :is(.close button, .close-button):is(:hover, :focus) {
+        :is(.close button, .close-button, .action-button):is(:hover, :focus) {
             color: var(--accent-color);
+        }
+
+        .icon slot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
         `
     }

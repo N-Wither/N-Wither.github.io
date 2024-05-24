@@ -16,6 +16,7 @@ export class AqTab extends LitElement {
             gap: 0.1em;
             position: sticky;
             top: var(--header-height);
+            z-index: 1;
         }
         .panel {
             display: block;

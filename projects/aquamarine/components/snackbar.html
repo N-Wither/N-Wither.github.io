@@ -49,6 +49,7 @@
         <button class="btn-regular" onclick="aqSnackbar({message: 'Message', closeable: true})">带关闭按钮的</button>
         <button class="btn-regular" onclick="aqSnackbar({message: `我本来没想过写这个组件，但是某一天我觉得 <code>alert()</code> 不好看，所以我就花了一些时间写了这个组件，感谢 <a href='https:\/\/code.fittentech.com' target='_blank' rel='noopener noreferrer'>Fitten Code</a> 的帮助给我省下了一些时间和精力。`, closeable: true, icon: 'info', duration: 8000, html: true})">带图标和关闭按钮的很长的 HTML 消息</button>
     </div>
+    <p>如果你要预先在文档中安放一个此组件以供之后使用，需要加上 <code>persistant</code> 属性，否则它会在显示一次之后从文档中移除。</p>
     <h2>Slot</h2>
     <table>
         <tr>
