@@ -14,6 +14,8 @@ export class AqTab extends LitElement {
             flex-wrap: wrap;
             background-color: var(--border-color);
             gap: 0.1em;
+            position: sticky;
+            top: var(--header-height);
         }
         .panel {
             display: block;
@@ -77,7 +79,7 @@ export class AqTabLabel extends LitElement {
             background-size: 100% 0;
             background-repeat: no-repeat;
             background-position: bottom;
-            transition: background-size 0.2s ease-in-out;
+            transition: 0.2s ease-in-out;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -87,6 +89,7 @@ export class AqTabLabel extends LitElement {
         }
         :host([active]) .activator {
             background-size: 100% 100%;
+            color: var(--text-color-contrast);
         }
         :host::after {
             content: '';

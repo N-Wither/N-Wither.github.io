@@ -218,7 +218,7 @@ export class AqSnackbar extends LitElement {
         }
 
         :is(.close button, .close-button):is(:hover, :focus) {
-            background-color: #ffffff33;
+            color: var(--accent-color);
         }
         `
     }
