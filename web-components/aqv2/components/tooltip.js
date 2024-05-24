@@ -7,13 +7,13 @@ let tooltipStyle = aqCss`
         background: var(--background-color);
         color: var(--text-color);
         border-radius: 0;
-        box-shadow: 0px 4px 8px var(--shadow-color);
+        box-shadow: var(--general-shadow);
     }
     .tippy-box[data-theme~='aquamarine'] .tippy-arrow{
         color: var(--background-color);
     }
     .tippy-box[data-theme~='aquamarine'] .tippy-arrow::before {
-        filter: drop-shadow(0px 4px 8px var(--shadow-color));
+        filter: drop-shadow(var(--general-shadow));
     }
     .tippy-box[data-animation=fade][data-state=hidden]{
         opacity:0

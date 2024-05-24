@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" data-theme-fixed>
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/assets/css/aquamarinev2/global.css">
-    <link rel="stylesheet" href="/assets/css/themes/summer-archive/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/themes/retrowave/global.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <!-- components -->
@@ -31,7 +31,8 @@
                 omni_desc: '我做过的<b>最好的</b>整合包！',
                 aq_desc: 'CSS 和 Web Components。',
                 read_more: '阅读更多…',
-                konami: '30 条命！'
+                konami: '30 条命！',
+                github: '我的 Github 主页！'
             }
         }
     </script>
@@ -41,9 +42,14 @@
             <div class="f-bold"><aq-ts key="1">Summer Special</aq-ts></div>
         </div>
         <header-button slot="button">
-            <a href="https://github.com/N-Wither" class="flex-center no-deco" target="_blank">
-                <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
-            </a>
+            <aq-tooltip>
+                <a href="https://github.com/N-Wither" class="flex-center no-deco" target="_blank">
+                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
+                </a>
+                <div slot="tooltip">
+                    <aq-ts key="github">My Github profile!</aq-ts>
+                </div>
+            </aq-tooltip>
         </header-button>
         <choose-language slot="button"></choose-language>
     </page-header>
@@ -74,7 +80,7 @@
                 <div class="f-bold f-large" slot="header">Omniworld</div>
                 <p><aq-ts key="omni_desc">The BEST modpack I've ever made!</aq-ts> <a href="/projects/omniworld/"><aq-ts key="read_more">Read More...</aq-ts></a></p>
             </aq-card>
-            <aq-card style="flex-grow: 1;">
+            <aq-card style="flex-grow: 1; max-width: fit-content;">
                 <div class="f-bold f-large" slot="header">Aquamarine</div>
                 <p><aq-ts key="aq_desc">CSS and Web Components.</aq-ts> <a href="/projects/aquamarine/"><aq-ts key="read_more">Read More...</aq-ts></a></p>
             </aq-card>
@@ -96,7 +102,7 @@
         </script>
     </page-body>
     <page-footer>
-        <p> <span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--accent-color);">Summer Archive</span> Theme by N Wither</p>
+        <p> <span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--accent-color);">Retrowave</span> Theme by N Wither</p>
     </page-footer>
 </body>
 </html>

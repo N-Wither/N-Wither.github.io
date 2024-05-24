@@ -7,10 +7,6 @@
 @import url('./a.css');
 @import url('./selection.css');
 
-@mixin general-shadow {
-    box-shadow: 0px 4px 8px var(--shadow-color);
-}
-
 // Color Palette
 html {
     --gray-50: #f1f1f1;
@@ -213,6 +209,8 @@ html {
     --transition-time-slow: 0.3s;
     --transition-time-slower: 0.4s;
     --nav-menu-width: 18em;
+
+    --general-shadow: 0px 4px 8px var(--shadow-color);
 }
 
 // Themes
@@ -332,7 +330,7 @@ code {
     z-index: 99;
     min-width: var(--header-height);
     min-height: var(--header-height);
-    @include general-shadow;
+    box-shadow: var(--general-shadow);
 }
 
 .keycap, kbd {

@@ -153,7 +153,7 @@ export class NavMenu extends LitElement {
                 <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>
         </header-button>
-        <div class='nav-menu'>
+        <div class='nav-menu' part="menu">
             ${navigateItems.map(item => html`
             <a class = "item" href = "${item.url}">
                 <div class = "container">

@@ -189,6 +189,7 @@ html {
   --transition-time-slow: 0.3s;
   --transition-time-slower: 0.4s;
   --nav-menu-width: 18em;
+  --general-shadow: 0px 4px 8px var(--shadow-color);
 }
 
 html {
@@ -293,7 +294,7 @@ code {
   z-index: 99;
   min-width: var(--header-height);
   min-height: var(--header-height);
-  box-shadow: 0px 4px 8px var(--shadow-color);
+  box-shadow: var(--general-shadow);
 }
 
 .keycap, kbd {

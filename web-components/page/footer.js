@@ -9,7 +9,7 @@ export class PageFooter extends LitElement {
     render() {
         return html`
         <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
-        <hr>
+        <hr part="divider">
         <p>${this.#localize(1 + Math.floor(Math.random() * PageFooter.quotes))}</p>
         <div role='contentinfo'>
             <slot></slot>

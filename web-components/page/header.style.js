@@ -7,7 +7,7 @@ export const style = css`
     top: 0;
     width: 100%;
     height: var(--header-height);
-    box-shadow: 0px 4px 8px var(--shadow-color);
+    box-shadow: var(--general-shadow);
     display: flex;
     z-index: 99;
     background-color: var(--header-bg);

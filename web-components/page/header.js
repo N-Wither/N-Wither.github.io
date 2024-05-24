@@ -15,10 +15,10 @@ export class PageHeader extends LitElement {
     render(){
         let isFixedTheme = document.documentElement.hasAttribute('data-theme-fixed')
         return html`
-        <div class='page-header base'>
-            <nav-menu></nav-menu>
-            <slot name='category'></slot>
-            <div class='button-area'>
+        <div class='page-header base' part='base'>
+            <nav-menu part='nav-menu'></nav-menu>
+            <slot name='category' part='category'></slot>
+            <div class='button-area' part='buttons'>
                 <slot name='button'></slot>
                 ${isFixedTheme? '' : html`<darkmode-button></darkmode-button>`}
             </div>

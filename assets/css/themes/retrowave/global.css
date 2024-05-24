@@ -1,0 +1,140 @@
+@import url(/assets/css/fonts/ark-pixel.css);
+
+html {
+    font-family: 'ark-pixel', sans-serif, 'Material Symbols Outlined';
+    font-weight: 400;
+}
+
+html {
+    --accent-color: #f40095;
+    --accent-color-dk: #0d9ed9;
+    --background-color: #241b2f;
+    --background-color-dk: #171520;
+    --background-color-lt: #262335;
+    --text-color: #fff;
+    --text-color-lt: var(--gray-400);
+    --text-color-selected: #ffffff;
+    --text-color-contrast: var(--text-color-selected);
+    --shadow-color: #66666622;
+    --link-color: #f40095;
+    --link-color-visited: #0d9ed9;
+    --border-color: #4e4857;
+    --selection-background: color-mix(in srgb, var(--accent-color-dk) 60%, transparent 60%);
+
+    --button-bg: var(--gray-100);
+    --button-bg-focus: var(--gray-200);
+    --button-bg-disabled: var(--gray-300);
+
+    --header-bg: transparent;
+
+    --input-bg: var(--background-color-dk);
+
+    --general-shadow: 4px 4px 0px #171520cc;
+
+    --bg-image-1: linear-gradient(to right, var(--accent-color-dk), var(--accent-color));
+
+    --color-safe: #6deeb8;
+    --color-warn: #fede5d;
+    --color-danger: #fe4450;
+}
+
+page-header {
+    background-image: linear-gradient(to bottom, rgba(252,250,82,1) 0%, rgba(252,204,101,1) 25%, rgba(36,27,47,1) 25%, rgba(36,27,47,1) 36%, rgba(252,190,107,1) 36%, rgba(252,163,118,1) 49%, rgba(36,27,47,1) 49%, rgba(36,27,47,1) 56%, rgba(252,148,124,1) 56%, rgba(252,129,132,1) 65%, rgba(36,27,47,1) 65%, rgba(36,27,47,1) 69%, rgba(252,121,135,1) 69%, rgba(252,104,142,1) 75%, rgba(36,27,47,1) 75%, rgba(36,27,47,1) 79%, rgba(252,100,144,1) 79%, rgba(252,92,147,1) 83%, rgba(36,27,47,1) 83%, rgba(36,27,47,1) 85%, rgba(252,81,151,1) 85%, rgba(252,74,154,1) 89%, rgba(36,27,47,1) 89%, rgba(36,27,47,1) 90%, rgba(252,64,158,1) 90%, rgba(252,62,159,1) 94%, rgba(36,27,47,1) 94%, rgba(36,27,47,1) 95%, rgba(252,59,160,1) 95%, rgba(252,56,161,1) 100%);
+}
+
+page-header::part(base) {
+    filter: drop-shadow(var(--general-shadow));
+}
+
+hr, page-footer::part(divider) {
+    border-image: var(--bg-image-1) 1;
+}
+
+/* Grid */
+body, html::before {
+    background-image: linear-gradient(#8850d188 .1em, transparent .1em), linear-gradient(90deg, #8850d188 .1em, transparent .1em);
+    background-size: 3em 3em;
+    background-attachment: fixed;
+    position: relative;
+    animation: gridBackground 1.5s linear infinite;
+}
+
+html::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+    z-index: -1;
+}
+
+/* Sky */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(to bottom, #121441 0%, #a148c7 70%, #7533a4 70%, #1e085d 71%, #0c012c 100%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: -3;
+}
+
+/* Sun */
+body::after {
+    --sun-size: 20vw;
+    animation: sun 6s linear infinite;
+    content: "";
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    width: var(--sun-size);
+    height: var(--sun-size);
+    background-size: var(--sun-size) var(--sun-size);
+    background-attachment: fixed;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom, rgba(252,250,82,1) 0%, rgba(252,204,101,1) 25%, transparent 25%, transparent 36%, rgba(252,190,107,1) 36%, rgba(252,163,118,1) 49%, transparent 49%, transparent 56%, rgba(252,148,124,1) 56%, rgba(252,129,132,1) 65%, transparent 65%, transparent 69%, rgba(252,121,135,1) 69%, rgba(252,104,142,1) 75%, transparent 75%, transparent 79%, rgba(252,100,144,1) 79%, rgba(252,92,147,1) 83%, transparent 83%, transparent 85%, rgba(252,81,151,1) 85%, rgba(252,74,154,1) 89%, transparent 89%, transparent 90%, rgba(252,64,158,1) 90%, rgba(252,62,159,1) 94%, transparent 94%, transparent 95%, rgba(252,59,160,1) 95%, rgba(252,56,161,1) 100%);
+}
+
+/* mobile devices */
+@media only screen and (max-width: 768px) {
+    body::after {
+        --sun-size: 50vw;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    max-width: fit-content;
+    text-shadow: var(--general-shadow);
+    background-image: var(--bg-image-1);
+    background-size: 100% 70%;
+    background-position: 0.6em 0;
+    background-repeat: no-repeat;
+}
+
+a {
+    background-image: var(--bg-image-1);
+}
+
+aq-image-block {
+    box-shadow: var(--general-shadow);
+}
+
+@keyframes gridBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 3em;
+    }
+}
+
+@keyframes sun {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 var(--sun-size);
+    }
+}
