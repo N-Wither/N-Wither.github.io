@@ -156,8 +156,8 @@ aq-tab::part(panel){
     border: none;
 }
 aq-tab-label {
-    --tab-label-bg-default-size: 0 0.15em;
-    --tab-label-bg-active-size: 100% 0.15em;
+    --tab-label-bg-size-default: 0 0.15em;
+    --tab-label-bg-size-active: 100% 0.15em;
     --tab-label-bg-image: var(--bg-image-1);
 }
 

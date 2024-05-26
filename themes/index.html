@@ -14,6 +14,7 @@
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/page/reading-progress.js"></script>
     <script type="module" src="/web-components/aqv2/components/tab.js"></script>
+    <script type="module" src="/assets/js/csspainters/gradientdots.js"></script>
 </head>
 <body>
     <page-header>
@@ -28,6 +29,7 @@
                     <button class="btn-regular" onclick="chooseTheme('aquamarine')">Aquamarine</button>
                     <button class="btn-regular" onclick="chooseTheme('violite')">Violite</button>
                     <button class="btn-regular" onclick="chooseTheme('retrowave')">Retrowave</button>
+                    <button class="btn-regular" onclick="chooseTheme('nord_archive')">Nord Archive</button>
                 </div>
             </div>
         </reading-progress>
@@ -111,22 +113,21 @@
         let themeTitle = document.getElementById('theme-title')
         let themeDesc = document.getElementById('theme-desc')
         let themeInfo = document.getElementById('theme-info')
+
+        let defaultFont = `<p>西文字体是 <a href="https://github.com/dw5/Metropolis" target="_blank" rel="noopener noreferrer">Metropolis</a>；其他文字字体是 <a href="https://github.com/adobe-fonts/source-han-sans" target="_blank" rel="noopener noreferrer">思源黑体</a>；图标字体是 <a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer">Material Symbols Outlined</a>。</p>`
+
         let themes = {
             aquamarine: {
                 url: '',
                 title: 'Aquamarine',
                 desc: '这个站点的基础版式，简洁、快速、宽屏。',
-                info: `
-                <p>西文字体是 <a href="https://github.com/dw5/Metropolis" target="_blank" rel="noopener noreferrer">Metropolis</a>；其他文字字体是 <a href="https://github.com/adobe-fonts/source-han-sans" target="_blank" rel="noopener noreferrer">思源黑体</a>；图标字体是 <a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer">Material Symbols Outlined</a>。</p>
-                `
+                info: defaultFont
             },
             violite: {
                 url: '/assets/css/themes/violite/global.css',
                 title: 'Violite',
                 desc: 'Aquamarine 的换色版本，温馨、优雅、可爱。',
-                info: `
-                <p>西文字体是 <a href="https://github.com/dw5/Metropolis" target="_blank" rel="noopener noreferrer">Metropolis</a>；其他文字字体是 <a href="https://github.com/adobe-fonts/source-han-sans" target="_blank" rel="noopener noreferrer">思源黑体</a>；图标字体是 <a href="https://fonts.google.com/icons" target="_blank" rel="noopener noreferrer">Material Symbols Outlined</a>。</p>
-                `
+                info: defaultFont
             },
             retrowave: {
                 url: '/assets/css/themes/retrowave/global.css',
@@ -140,6 +141,15 @@
                     <button class="btn-regular" onclick="document.documentElement.classList.toggle('static-sun')">切换太阳的动画</button>
                     <button class="btn-regular" onclick="document.documentElement.classList.toggle('static-grid')">切换网格的动画</button>
                 </div>
+                `
+            },
+            nord_archive: {
+                url: '/assets/css/themes/nord-archive/global.css',
+                title: 'Nord Archive',
+                desc: '现代、冷色。',
+                info: `
+                ${defaultFont}
+                <p>引入 <code>/assets/js/csspainters/gradientdots.js</code> 以使用高级 CSS 自定义特性（也就是标题栏和页脚的波点背景）。</p>
                 `
             }
         }

@@ -81,9 +81,10 @@ export class AqTabLabel extends LitElement {
             background-color: var(--background-color-dk);
             position: relative;
 
-            --tab-label-bg-position: left bottom;
-            --tab-label-bg-default-size: 0% 100%;
-            --tab-label-bg-active-size: 100% 100%;
+            --tab-label-bg-position-default: right bottom;
+            --tab-label-bg-position-active: left bottom;
+            --tab-label-bg-size-default: 0% 100%;
+            --tab-label-bg-size-active: 100% 100%;
             --tab-label-bg-image: linear-gradient(to top, var(--accent-color), var(--accent-color));
         }
         .activator {
@@ -96,19 +97,20 @@ export class AqTabLabel extends LitElement {
             cursor: pointer;
             padding: 0.8em;
             background-image: var(--tab-label-bg-image);
-            background-size: var(--tab-label-bg-default-size);
+            background-size: var(--tab-label-bg-size-default);
             background-repeat: no-repeat;
-            background-position: var(--tab-label-bg-position);
-            transition: 0.2s ease-in-out;
+            background-position: var(--tab-label-bg-position-default);
+            transition: background-size 0.2s ease-in-out, color 0.2s ease-in-out;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .activator:is(:hover, :focus) {
-            background-size: var(--tab-label-bg-active-size);
+            background-size: var(--tab-label-bg-size-active);
+            background-position: var(--tab-label-bg-position-active);
         }
         :host([active]) .activator {
-            background-size: var(--tab-label-bg-active-size);
+            background-size: var(--tab-label-bg-size-active);
             color: var(--text-color-contrast);
         }
         :host::after {

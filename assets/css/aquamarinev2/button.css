@@ -20,6 +20,7 @@ button.btn-primary {
 }
 button.btn-primary:is(:hover, :focus) {
   background-color: var(--theme-color-400);
+  color: var(--text-color-contrast);
 }
 button.btn-regular {
   min-width: 8rem;

@@ -2,17 +2,32 @@
 Use with <script type="module" src="/assets/js/csspainters/gradientdots.js"></script>
 */
 
+
 html {
-    --accent-color: #97afdb;
-    --accent-color-dk: #7993c4;
+    --theme-color-50: #eef1f9;
+    --theme-color-100: #dde4f3;
+    --theme-color-200: #ccd6ed;
+    --theme-color-300: #bac9e7;
+    --theme-color-400: #a9bce1;
+    --theme-color-500: #97afdb;
+    --theme-color-600: #7c8fb3;
+    --theme-color-700: #63718c;
+    --theme-color-800: #4a5467;
+    --theme-color-900: #333945;
+    --theme-color-950: #1d1f25;
+
     --background-color: #f4f7fe;
     --background-color-dk: #edf4fe;
     --text-color: #484e5c;
-    --text-color-lt: #374455;
+    --text-color-lt: #5c6375;
     --border-color: #bfceeb;
 
     --link-color: var(--accent-color);
     --link-color-visited: var(--accent-color-dk);
+
+    --button-bg: var(--theme-color-100);
+    --button-bg-focus: var(--theme-color-200);
+    --button-bg-disabled: var(--theme-color-800);
 
     background-image: linear-gradient(to bottom left, #f2f7fd, #e6f0fa, #bad3f1);
     background-attachment: fixed;
@@ -21,16 +36,30 @@ html {
 }
 
 html.theme-dark {
-    --accent-color: #71a4b5;
-    --accent-color-dk: #537e8a;
+    --theme-color-50: #e7eff2;
+    --theme-color-100: #d0e0e6;
+    --theme-color-200: #b9d1d9;
+    --theme-color-300: #a1c2cd;
+    --theme-color-400: #89b3c1;
+    --theme-color-500: #71a4b5;
+    --theme-color-600: #5e8794;
+    --theme-color-700: #4b6a75;
+    --theme-color-800: #3a4f57;
+    --theme-color-900: #28363a;
+    --theme-color-950: #181e20;
+
     --background-color: #28394b;
     --background-color-dk: #20303d;
     --text-color: #ebeff0;
-    --text-color-lt: #bec2cb;
+    --text-color-lt: #adb4c4;
     --border-color: #8591a1;
 
     --link-color: var(--accent-color);
     --link-color-visited: var(--accent-color-dk);
+
+    --button-bg: var(--background-color-dk);
+    --button-bg-focus: var(--theme-color-700);
+    --button-bg-disabled: var(--theme-color-800);
 
     background-image:
         linear-gradient(to bottom left, #4b6a9833 5%, transparent),
