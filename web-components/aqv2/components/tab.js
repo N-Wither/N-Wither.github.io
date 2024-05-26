@@ -26,10 +26,23 @@ export class AqTab extends LitElement {
         `
     }
 
+    static get properties() {
+        return {
+            value: {type: String}
+        }
+    }
+
     render() {
+        if(this.value != undefined) {
+            let label = this.querySelector(`aq-tab-label[value="${this.value}"]`)
+            let panel = this.querySelector(`aq-tab-panel[value="${this.value}"]`)
+            label.open()
+            panel.open()
+        }
+
         return html`
-        <slot name="label" class='label' @click=${this.open}></slot>
-        <slot name="panel" class='panel'></slot>
+        <slot name="label" class='label' @click=${this.open} part="label"></slot>
+        <slot name="panel" class='panel' part="panel"></slot>
         `
     }
 
@@ -49,6 +62,7 @@ export class AqTab extends LitElement {
         panel.open()
 
         this.dispatchEvent(new CustomEvent('tab-change', {detail: {value: label.value}}))
+        this.value = label.value
     }
 }
 export class AqTabLabel extends LitElement {
@@ -66,6 +80,11 @@ export class AqTabLabel extends LitElement {
             flex-grow: 1;
             background-color: var(--background-color-dk);
             position: relative;
+
+            --tab-label-bg-position: left bottom;
+            --tab-label-bg-default-size: 0% 100%;
+            --tab-label-bg-active-size: 100% 100%;
+            --tab-label-bg-image: linear-gradient(to top, var(--accent-color), var(--accent-color));
         }
         .activator {
             background-color: transparent;
@@ -76,20 +95,20 @@ export class AqTabLabel extends LitElement {
             border: none;
             cursor: pointer;
             padding: 0.8em;
-            background-image: linear-gradient(to top, var(--accent-color), var(--accent-color));
-            background-size: 100% 0;
+            background-image: var(--tab-label-bg-image);
+            background-size: var(--tab-label-bg-default-size);
             background-repeat: no-repeat;
-            background-position: bottom;
+            background-position: var(--tab-label-bg-position);
             transition: 0.2s ease-in-out;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .activator:is(:hover, :focus) {
-            background-size: 100% 100%;
+            background-size: var(--tab-label-bg-active-size);
         }
         :host([active]) .activator {
-            background-size: 100% 100%;
+            background-size: var(--tab-label-bg-active-size);
             color: var(--text-color-contrast);
         }
         :host::after {
@@ -115,7 +134,7 @@ export class AqTabLabel extends LitElement {
     render() {
         this.setAttribute('slot', 'label')
         return html`
-        <button class='activator'><slot></slot></button>
+        <button class='activator' part='activator'><slot></slot></button>
         `
     }
 

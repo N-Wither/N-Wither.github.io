@@ -13,6 +13,9 @@ const template = `
 </div>
 `
 
+/**
+ * @deprecated Use \<figure\> instead.
+ */
 export class AqImageBlock extends HTMLElement {
     static observedAttributes = ['src', 'caption', 'width', 'height']
 

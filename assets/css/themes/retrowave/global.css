@@ -1,11 +1,11 @@
-@import url(/assets/css/fonts/ark-pixel.css);
+@import url(/assets/css/fonts/fusion-pixel.css);
 
 html {
-    font-family: 'ark-pixel', sans-serif, 'Material Symbols Outlined';
+    font-family: 'fusion-pixel', sans-serif, 'Material Symbols Outlined';
     font-weight: 400;
 }
 
-html {
+html, html.theme-dark {
     --accent-color: #f40095;
     --accent-color-dk: #0d9ed9;
     --background-color: #241b2f;
@@ -21,13 +21,13 @@ html {
     --border-color: #4e4857;
     --selection-background: color-mix(in srgb, var(--accent-color-dk) 60%, transparent 60%);
 
-    --button-bg: var(--gray-100);
-    --button-bg-focus: var(--gray-200);
-    --button-bg-disabled: var(--gray-300);
+    --button-bg: #262335;
+    --button-bg-focus: #363542;
+    --button-bg-disabled: var(--background-color-dk);
 
     --header-bg: transparent;
 
-    --input-bg: var(--background-color-dk);
+    --input-bg: #171520cc;
 
     --general-shadow: 4px 4px 0px #171520cc;
 
@@ -36,6 +36,9 @@ html {
     --color-safe: #6deeb8;
     --color-warn: #fede5d;
     --color-danger: #fe4450;
+
+    --theme-color-400: var(--accent-color-dk);
+    --theme-color-500: var(--accent-color);
 }
 
 page-header {
@@ -67,6 +70,10 @@ html::before {
     z-index: -1;
 }
 
+html.static-grid::before {
+    animation: none;
+}
+
 /* Sky */
 body::before {
     content: "";
@@ -86,7 +93,7 @@ body::after {
     content: "";
     position: fixed;
     left: 50%;
-    top: 45%;
+    top: 50%;
     transform: translate(-50%, -50%);
     z-index: -2;
     width: var(--sun-size);
@@ -95,6 +102,10 @@ body::after {
     background-attachment: fixed;
     border-radius: 50%;
     background-image: linear-gradient(to bottom, rgba(252,250,82,1) 0%, rgba(252,204,101,1) 25%, transparent 25%, transparent 36%, rgba(252,190,107,1) 36%, rgba(252,163,118,1) 49%, transparent 49%, transparent 56%, rgba(252,148,124,1) 56%, rgba(252,129,132,1) 65%, transparent 65%, transparent 69%, rgba(252,121,135,1) 69%, rgba(252,104,142,1) 75%, transparent 75%, transparent 79%, rgba(252,100,144,1) 79%, rgba(252,92,147,1) 83%, transparent 83%, transparent 85%, rgba(252,81,151,1) 85%, rgba(252,74,154,1) 89%, transparent 89%, transparent 90%, rgba(252,64,158,1) 90%, rgba(252,62,159,1) 94%, transparent 94%, transparent 95%, rgba(252,59,160,1) 95%, rgba(252,56,161,1) 100%);
+}
+
+html.static-sun body::after {
+    animation: none;
 }
 
 /* mobile devices */
@@ -119,6 +130,35 @@ a {
 
 aq-image-block {
     box-shadow: var(--general-shadow);
+}
+
+aq-code {
+    --aq-code-bg: #262335;
+}
+
+button:not([disabled]):is(:hover, :focus) {
+    box-shadow: var(--general-shadow);
+    translate: -0.1em -0.1em;
+}
+button:focus {
+    outline: 0.1em solid var(--accent-color);
+}
+
+.float {
+    box-shadow: var(--general-shadow);
+}
+
+aq-tab {
+    background-color: var(--background-color);
+    box-shadow: var(--general-shadow);
+}
+aq-tab::part(panel){
+    border: none;
+}
+aq-tab-label {
+    --tab-label-bg-default-size: 0 0.15em;
+    --tab-label-bg-active-size: 100% 0.15em;
+    --tab-label-bg-image: var(--bg-image-1);
 }
 
 @keyframes gridBackground {

@@ -9,14 +9,16 @@ const langs = {
         proj: 'Projects',
         artc: 'Articles',
         tool: 'Tools',
-        game: 'Games'
+        game: 'Games',
+        theme: 'Themes'
     },
     'zh-cn': {
         home: '首页',
         proj: '项目',
         artc: '文章',
         tool: '工具',
-        game: '游戏'
+        game: '游戏',
+        theme: '主题'
     }
 }
 
@@ -53,6 +55,11 @@ const navigateItems = [
         icon: '\uf135',
         url: '/games/'
     },
+    {
+        text: chosenLang.theme,
+        icon: '\ue40a',
+        url: '/themes/'
+    }
 ]
 
 export class NavMenu extends LitElement {

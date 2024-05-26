@@ -1,15 +1,16 @@
 table {
+  --table-border: 0.1em solid var(--border-color);
   border-spacing: 0;
-  border: 1px solid var(--border-color);
+  border: var(--table-border);
+  background-color: var(--background-color);
+  border-collapse: collapse;
 }
 table thead, table th {
   background: var(--background-color-dk);
 }
-table th {
-  border: 1px solid var(--border-color);
-}
-table td {
-  border: 1px solid var(--border-color);
+table th, table td {
+  border: var(--table-border);
+  padding: 0.4em;
 }
 
 /*# sourceMappingURL=table.css.map */

@@ -33,6 +33,7 @@ button.btn-regular {
 button:disabled {
   cursor: not-allowed;
   background-color: var(--button-bg-disabled);
+  color: var(--text-color-lt);
 }
 button:disabled:is(:hover, :focus) {
   background-color: var(--button-bg-disabled);

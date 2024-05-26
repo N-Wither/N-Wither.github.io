@@ -343,13 +343,36 @@ code {
     font-size: 0.8em;;
 }
 
+figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: min-content;
+
+    img {
+        display: block;
+    }
+
+    figcaption {
+        border-bottom: 0.15em solid var(--accent-color);
+        text-align: center;
+        margin: 0;
+        padding: 0.2em;
+    }
+}
+
 // On Mobile Devices
 
-@media screen and (orientation: portrait), screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
     html {
         --header-height: 3rem;
         --toolbox-width: 3rem;
         --nav-menu-width: 16em;
+    }
+
+    .float, .float.left, .float.right {
+        max-width: 100%;
+        --breakout-margin: 0;
     }
 }
 
@@ -417,14 +440,34 @@ code {
     background: none !important;
 }
 
+.float {
+    --breakout-margin: -2em;
+    max-width: 25vw;
+    background-color: var(--background-color-dk);
+}
+
 .float-right, .float.right {
     float: right;
+    margin-left: 1em;
+
+    &.breakout {
+        margin-right: var(--breakout-margin);
+    }
 }
 
 .float-left, .float.left {
     float: left;
+    margin-right: 1em;
+
+    &.breakout {
+        margin-left: var(--breakout-margin);
+    }
 }
 
 .full-width {
     width: 100%;
+}
+
+.margin-auto {
+    margin: auto;
 }

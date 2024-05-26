@@ -37,6 +37,7 @@ button {
     &:disabled {
         cursor: not-allowed;
         background-color: var(--button-bg-disabled);
+        color: var(--text-color-lt);
     }
 
     &:disabled:is(:hover, :focus){

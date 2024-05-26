@@ -181,7 +181,7 @@ export class AqSnackbar extends LitElement {
             flex-wrap: wrap;
             word-wrap: break-word;
             opacity: 0;
-            box-shadow: 0px 4px 8px var(--shadow-color);
+            box-shadow: var(--general-shadow);
             max-width: min(90%, 50em);
         }
 

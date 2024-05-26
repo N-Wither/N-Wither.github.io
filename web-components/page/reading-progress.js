@@ -27,7 +27,7 @@ export class ReadingProgress extends LitElement {
                 right: calc(var(--toolbox-width) + 2em);
                 top: calc(var(--toolbox-width) + 1em);
                 background: var(--background-color);
-                box-shadow: 0px 4px 8px var(--shadow-color);
+                box-shadow: var(--general-shadow);
                 padding: 1em;
                 z-index: 98;
                 max-width: 70vw;

@@ -17,12 +17,15 @@ blockquote {
     &::before {
         position: absolute;
         left: 0.4em;
-        top: 50%;
+        top: 0;
         margin-right: 1rem;
         font-size: 2em;
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         line-height: 1rem;
         height: 100%;
+        font-family: 'Material Symbols Outlined';
     }
     &::after {
         content: '';
@@ -43,7 +46,7 @@ blockquote.info {
     background: unset;
 
     &::before {
-        content: '\e88e';
+        content: 'info';
     }
     &::after {
         background: var(--color-info);
@@ -54,7 +57,7 @@ blockquote.warn {
     background: unset;
 
     &::before {
-        content: '\e002';
+        content: 'warning';
     }
     &::after {
         background: var(--color-warn);
@@ -65,7 +68,7 @@ blockquote.danger {
     background: unset;
 
     &::before {
-        content: '\e99a';
+        content: 'dangerous';
     }
     &::after {
         background: var(--color-danger);
