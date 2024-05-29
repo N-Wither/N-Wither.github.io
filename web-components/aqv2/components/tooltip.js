@@ -1,8 +1,7 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import tippy from 'https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/+esm'
-import aqCss from '../lib/css.js'
 
-let tooltipStyle = aqCss`
+let tooltipStyle = css`
     .tippy-box[data-theme~='aquamarine']{
         background: var(--background-color);
         color: var(--text-color);
@@ -45,7 +44,7 @@ let tooltipStyle = aqCss`
     .tippy-content{position:relative;padding:5px 9px;z-index:1}
 `
 
-document.adoptedStyleSheets.push(tooltipStyle)
+document.adoptedStyleSheets.push(tooltipStyle.styleSheet)
 
 /**
  * @extends {HTMLElement}

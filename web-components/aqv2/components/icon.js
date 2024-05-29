@@ -50,8 +50,9 @@ class AqIcon extends LitElement {
     }
 
     render(){
+        this.translate = false
         if(this.name != undefined){
-            return html`<div class='icon'>${this.name}</div>`
+            return html`<div class='icon' translate='no'>${this.name}</div>`
         }
         else if (this.src != null && this.src.endsWith('.svg')){
             getSvg(this.src, this.shadowRoot)

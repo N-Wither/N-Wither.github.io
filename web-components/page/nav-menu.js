@@ -29,7 +29,7 @@ switch(userLang) {
     default: ;
 }
 
-const navigateItems = [
+export const navigateItems = [
     {
         text: chosenLang.home,
         icon: '\ue88a',

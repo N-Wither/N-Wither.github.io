@@ -1,7 +1,6 @@
 @import url(/assets/css/fonts/fusion-pixel.css);
 
 html {
-    font-family: 'fusion-pixel', sans-serif, 'Material Symbols Outlined';
     font-weight: 400;
 }
 
@@ -39,9 +38,13 @@ html, html.theme-dark {
 
     --theme-color-400: var(--accent-color-dk);
     --theme-color-500: var(--accent-color);
+
+    --font-common: 'fusion-pixel', sans-serif, 'Material Symbols Outlined';
+    --font-monospace: 'fusion-pixel', monospace;
 }
 
 page-header {
+    --header-background-filter: none;
     background-image: linear-gradient(to bottom, rgba(252,250,82,1) 0%, rgba(252,204,101,1) 25%, rgba(36,27,47,1) 25%, rgba(36,27,47,1) 36%, rgba(252,190,107,1) 36%, rgba(252,163,118,1) 49%, rgba(36,27,47,1) 49%, rgba(36,27,47,1) 56%, rgba(252,148,124,1) 56%, rgba(252,129,132,1) 65%, rgba(36,27,47,1) 65%, rgba(36,27,47,1) 69%, rgba(252,121,135,1) 69%, rgba(252,104,142,1) 75%, rgba(36,27,47,1) 75%, rgba(36,27,47,1) 79%, rgba(252,100,144,1) 79%, rgba(252,92,147,1) 83%, rgba(36,27,47,1) 83%, rgba(36,27,47,1) 85%, rgba(252,81,151,1) 85%, rgba(252,74,154,1) 89%, rgba(36,27,47,1) 89%, rgba(36,27,47,1) 90%, rgba(252,64,158,1) 90%, rgba(252,62,159,1) 94%, rgba(36,27,47,1) 94%, rgba(36,27,47,1) 95%, rgba(252,59,160,1) 95%, rgba(252,56,161,1) 100%);
 }
 

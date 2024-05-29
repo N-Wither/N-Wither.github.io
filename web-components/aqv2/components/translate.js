@@ -25,10 +25,13 @@ export class AqTranslate extends LitElement {
         `
     }
 
-    key = 'default'
-    fallback = this.innerHTML
-    lang = navigator.language.toLowerCase()
-    mapName = 'aqLanguageMap'
+    constructor(){
+        super()
+        this.key = 'default'
+        this.fallback = this.innerHTML
+        this.lang = navigator.language.toLowerCase()
+        this.mapName = 'aqLanguageMap'
+    }
 
     #translate(){
         const map = window?.[this.mapName] ?? {}
@@ -42,7 +45,7 @@ export class AqTranslate extends LitElement {
     }
 
     reload(){
-        this.shadowRoot.innerHTML = `<span>${this.#translate().innerHTML}</span>`
+        this.shadowRoot.innerHTML = `${this.#translate().innerHTML}`
     }
 }
 
@@ -62,7 +65,6 @@ export function resetLanguage(lang){
     const elements = getElements()
     elements.forEach(element => element.lang = lang)
     document.documentElement.lang = lang
-    reloadTranslations()
 }
 
 window.reloadTranslations = reloadTranslations

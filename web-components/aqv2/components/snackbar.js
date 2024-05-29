@@ -15,16 +15,19 @@ export class AqSnackbar extends LitElement {
         }
     }
 
-    message = '';
-    duration = 3000;
-    /**@type {'info'|'success'|'warning'|'error'} */
-    type = 'info';
-    /**@type {'top-center'|'top-left'|'top-right'|'bottom-center'|'bottom-left'|'bottom-right'} */
-    placement = 'top-center'
-    html = false;
-    icon = '';
-    closeable = false;
-    persistant = false;
+    constructor(){
+        super();
+        this.message = '';
+        this.duration = 3000;
+        /**@type {'info'|'success'|'warning'|'error'} */
+        this.type = 'info';
+        /**@type {'top-center'|'top-left'|'top-right'|'bottom-center'|'bottom-left'|'bottom-right'} */
+        this.placement = 'top-center'
+        this.html = false;
+        this.icon = '';
+        this.closeable = false;
+        this.persistant = false;
+    }
 
     #initialShow = true;
     #timerId = null;

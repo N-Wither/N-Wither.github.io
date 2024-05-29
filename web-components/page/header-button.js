@@ -16,7 +16,7 @@ export let headerButtonStyle = css`
 }
 
 .base {
-    width: var(--header-height);
+    min-width: var(--header-height);
     height: var(--header-height);
     background-image: linear-gradient(180deg, var(--accent-color), var(--accent-color));
     background-repeat: no-repeat;
@@ -47,7 +47,7 @@ export let headerButtonStyle = css`
     z-index: -1;
 }
 
-.base:hover, .base:hover::after, .base:has(*:focus), .base:has(*:focus)::after {
+.base:hover, .base:hover::after, .base:focus-within, .base:focus-within::after {
     background-size: 100% 100%;
 }
 

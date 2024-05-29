@@ -103,6 +103,7 @@ body {
         --dot-color: #9db0d8;
         backdrop-filter: none;
         box-shadow: none;
+        --header-background-filter: none;
     }
     
     html.theme-dark page-header{

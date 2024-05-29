@@ -11,7 +11,10 @@ export const style = css`
     display: flex;
     z-index: 99;
     background-color: var(--header-bg);
-    /* backdrop-filter: blur(0.1rem); */
+}
+
+:host {
+    --header-background-filter: blur(0.1rem);
 }
 
 slot[name=category] {
@@ -20,18 +23,46 @@ slot[name=category] {
 }
 
 .base {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     transition: var(--transition-time-common);
     position: relative;
     width: 100%;
+    backdrop-filter: var(--header-background-filter);
+}
+
+nav-menu {
+    display: none;
+}
+
+.category {
+    padding-inline-start: 1em;
 }
 
 .button-area {
-    position: absolute;
-    right: 0;
-    top: 0;
     height: var(--header-height);
     display: flex;
+}
+
+.nav-widescreen {
+    padding-inline-start: 1em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-widescreen .item {
+    display: flex;
+    color: var(--text-color);
+    text-decoration: none;
+    height: 100%;
+    align-items: center;
+    padding-inline: 0.4em;
+    transition: var(--transition-time-common);
+}
+
+.nav-widescreen .item:is(:hover, :focus){
+    color: var(--text-color-contrast);
 }
 
 .button-area a {
@@ -40,5 +71,16 @@ slot[name=category] {
 
 .button-area a::before {
     display: none;
+}
+
+/** On Mobile Devices */
+@media screen and (max-width: 800px) {
+    .nav-widescreen {
+        display: none;
+    }
+
+    nav-menu {
+        display: block;
+    }
 }
 `
