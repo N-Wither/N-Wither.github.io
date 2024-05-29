@@ -12,7 +12,7 @@ html {
     --theme-color-950: var(--violet-950);
 }
 
-html {
+html, html[data-theme-fixed].theme-dark {
     --accent-color: var(--theme-color-500);
     --accent-color-dk: var(--theme-color-600);
     --background-color: #faebd7;

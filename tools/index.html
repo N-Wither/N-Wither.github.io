@@ -1,96 +1,57 @@
 <!DOCTYPE html>
-<html lang="en-us" data-version="3">
+<html lang="zh-cn">
 <head>
-    <meta charset= "utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/aquamarine/aquamarine.css">
+    <title>Tools</title>
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Works</title>
-    <script src="/assets/js/utils.js"></script>
-    <!-- components -->
-    <script type="module" src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js"></script>
-    <script type="module" src="https://n-wither.github.io/assets/js/components/title-observer.js"></script>
-    <script type="module" src="/web-components/fetch-svg/fetch-svg.js"></script>
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
 </head>
 <body>
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            WitherWorks
-        </div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
-                    <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
-                </a>
-            </div>
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class="toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
-        <h1 class="page-title">Tools</h1>
+    <page-header>
+        <div class="f-bold f-xl flex-center" slot="category">WitherWorks</div>
+    </page-header>
+    <page-body>
+        <h1>Tools</h1>
         <hr>
         <p>
             网页小工具（或者玩具），一切都在前端实现。
         </p>
         <br/>
-        <div class="list">
-            <div class="list_item">
+        <ul>
+            <li>
                 <a href="./uuid.html">UUID 生成器</a><br>
                 生成 UUID。
-            </div>
-            <div class="list_item">
+            </li>
+            <li>
                 <a href="./timer.html">计时器</a><br>
                 正计时和倒计时。
-            </div>
-            <div class="list_item">
+            </li>
+            <li>
                 <a href="./moba/">MOBA 游戏计分板</a><br>
                 MOBA 游戏的计分板，主要是英雄联盟。
-            </div>
-            <div class="list_item">
+            </li>
+            <li>
                 <a href="./fps-scoreboard/dist/">FPS 游戏计分板</a><br>
                 FPS 游戏的计分板，主要是无畏契约。
-            </div>
-            <div class="list_item">
+            </li>
+            <li>
                 <a href="./dice.html">骰子</a><br>
                 4 个骰子，从 D4 到 D20。
-            </div>
-            <div class="list_item">
+            </li>
+            <li>
                 <a href="./pte.html">元素周期表</a><br>
                 目前所有已知化学元素的基本信息。
-            </div>
-            <div class="list_item">
+            </li>
+            <li>
                 <a href="./audiovis/">音频可视化</a><br>
                 上传你的音乐，然后播放，看看发生什么。
-            </div>
-        </div>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote" onload="randomQuote()">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages</a>.
-    </div>
-    <script>
-        startTime()
-        randomQuote()
-        aof()
-    </script>
+            </li>
+        </ul>
+    </page-body>
+    <page-footer></page-footer>
 </body>
 </html>

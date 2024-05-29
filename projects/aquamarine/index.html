@@ -37,7 +37,7 @@
 </head>
 <body>
     <page-header>
-        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">Aquamarine</div>
+        <div slot="category" class="f-bold f-xl flex center">Aquamarine</div>
     </page-header>
     <tool-box>
         <page-info>
@@ -80,6 +80,7 @@
             //         frame.src = finalUrl
             //     }
             // }
+            let validUrls = ['main', 'collapsible', 'tab', 'code', 'timer', 'card', 'minicard', 'window', 'tooltip', 'input', 'icon', 'snackbar']
             async function setFrame(url){
                 let frame = document.querySelector('.frame-wrapper')
                 let parser = new DOMParser()
@@ -90,8 +91,15 @@
                     frame.innerHTML = parsed.body.innerHTML
                     frame.dataset.url = finalUrl
                 }
+                window.location.hash = url
             }
-            setFrame('main')
+            let hash = window.location.hash.replace('#', '')
+            if(validUrls.includes(hash)) {
+                setFrame(hash)
+            }
+            else {
+                setFrame('main')
+            }
             // function frameAutoHeight(){
             //     let height = frame.contentWindow.document.documentElement.scrollHeight
             //     if(Number(frame.height) !== height){

@@ -17,7 +17,7 @@ export class ChooseLanguage extends HeaderButton {
     render() {
         return html`
         <div class='base'>
-            <aq-tooltip>
+            <aq-tooltip interactive>
                 <button class="button">
                     <aq-icon name='language'></aq-icon>
                 </button>

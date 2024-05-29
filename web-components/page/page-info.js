@@ -53,31 +53,34 @@ export class PageInfo extends LitElement {
 
     #localize = createLocalizer(PageInfo.lang)
 
+    /**@returns {HTMLDialogElement} */
+    get #dialog() {
+        return this.shadowRoot?.querySelector('dialog.info')
+    }
+
     openInfo(){
-        let dialog = this.shadowRoot?.querySelector('dialog.info')
-        dialog.classList.remove('closing')
-        dialog.showModal()
-        dialog.animate([
+        this.#dialog.classList.remove('closing')
+        this.#dialog.showModal()
+        this.#dialog.animate([
             {transform: 'translateY(30%)', opacity: 0},
             {transform: 'translateY(0%)', opacity: 1}
         ], {
             duration: 100,
             fill: 'forwards',
-            ease: 'ease-in'
+            ease: 'ease-out'
         })
     }
 
     closeInfo(){
-        let dialog = this.shadowRoot?.querySelector('dialog.info')
-        dialog.classList.add('closing')
-        dialog.animate([
+        this.#dialog.classList.add('closing')
+        this.#dialog.animate([
             {transform: 'translateY(0%)', opacity: 1},
             {transform: 'translateY(30%)', opacity: 0}
         ], {
             duration: 100,
             fill: 'forwards',
-            ease: 'ease-in'
-        }).onfinish = () => { dialog.close() }
+            ease: 'ease-out'
+        }).onfinish = () => { this.#dialog.close() }
     }
 }
 

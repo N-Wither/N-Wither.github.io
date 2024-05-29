@@ -1,70 +1,29 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-cn">
 <head>
-    <meta charset= "utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://n-wither.github.io/assets/css/metropolis.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Noto Serif SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans SC' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="https://n-wither.github.io/assets/css/themes/aquamarine/aquamarine.css">
+    <title>Games</title>
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
-    <title>N Wither's Works</title>
-    <script src="https://n-wither.github.io/assets/js/utils.js"></script>
-    <script>
-        function init(){
-            randomQuote()
-            startTime()
-        }
-    </script>
-    <!-- components -->
-    <script src="https://n-wither.github.io/assets/js/components/AJAX-svg.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/aquamarine-navigate-menu.js" defer></script>
-    <script src="https://n-wither.github.io/assets/js/components/title-observer.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
 </head>
-<body onload="init()">
-    <div class="page-header">
-        <div class="menu-button">
-            <button class="menu-button" onclick="toggleClass('.page-header .menu', 'open'); toggleClass(this, 'open')" title="Toggle Navigation Menu"></button>
-        </div>
-        <div class="page-icon"></div>
-        <div class="page-category flex-center padding-all-small">
-            WitherWorks
-        </div>
-        <div class="flex-center page-title">Games</div>
-        <div class="menu all-menu"></div>
-        <div class="right flex-center">
-            <div class="menu-button">
-                <a href="https://github.com/N-Wither" class="flex-center" target="_blank" title="Go to my Github profile">
-                    <div class="request-svg" data-src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></div>
-                </a>
-            </div>
-            <div class="menu-button">
-                <button onclick="toggleThemeMode()" title="Toggle Dark Mode">◐</button>
-            </div>
-            <div class="menu-button toolbox-button">
-                <button class=" toolbox-button" onclick="toggleClass('.page-header .toolbox', 'open'); toggleClass(this, 'open')" title="Toggle Toolbox"></button>
-            </div>
-        </div>
-
-        <div class="toolbox all-menu">
-            <div id="clock" class="item">Current Time</div>
-        </div>
-    </div>
-    <div class="page-content">
-        <h1 class="page-title">Games</h1>
+<body>
+    <page-header>
+        <div class="f-bold f-xl flex-center" slot="category">WitherWorks</div>
+    </page-header>
+    <page-body>
+        <h1>Games</h1>
         <hr>
-        <div class="list">
-            <div class="list_item">
+        <ul>
+            <li>
                 <a href="./milk/">挤奶模拟器</a><br>
                 放置游戏。
-            </div>
-        </div>
-    </div>
-    <div class="page-footer">
-        <hr>
-        <span id="randomQuote">Random Quote</span>
-        <br>
-        Powered by <a class="content" href="https://pages.github.com/" target="_blank">Github Pages</a>.
-    </div>
+            </li>
+        </ul>
+    </page-body>
+    <page-footer></page-footer>
 </body>
 </html>

@@ -19,7 +19,7 @@ export class ToolBox extends LitElement {
         :host {
             display: block;
             position: fixed;
-            top: calc(var(--toolbox-width) + 1em);
+            top: calc(var(--header-height) + 1em);
             right: 0.8em;
             z-index: 999;
             transition: var(--transition-time-common);

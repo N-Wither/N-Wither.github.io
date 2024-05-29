@@ -194,7 +194,7 @@ html {
   --font-monospace: monospace;
 }
 
-html {
+html, html[data-theme-fixed].theme-dark {
   --accent-color: var(--theme-color-500);
   --accent-color-dk: var(--theme-color-600);
   --background-color: #fcfcfc;
@@ -236,6 +236,10 @@ html.theme-dark {
   --button-bg-disabled: var(--gray-900);
   --header-bg: #1e1e1ecc;
   --input-bg: #00000033;
+}
+
+html.thin-header {
+  --header-height: 2.2em ;
 }
 
 html {
@@ -347,6 +351,18 @@ figure figcaption {
 
 .f-large {
   font-size: large;
+}
+
+.f-larger {
+  font-size: larger;
+}
+
+.f-xl {
+  font-size: x-large;
+}
+
+.f-xxl {
+  font-size: xx-large;
 }
 
 .align-center {

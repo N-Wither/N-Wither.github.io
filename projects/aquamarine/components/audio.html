@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
-    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/table.css">
     <script type="module" src="/web-components/page/combined.js"></script>
-    <script type="module" src="/web-components/aquamarine/audio/audio.js"></script>
+    <script type="module" src="/web-components/aqv2/components/audio.js"></script>
 </head>
 <body>
     <page-header>
@@ -20,8 +20,7 @@
     <page-body>
         <h1>Audio 音频</h1>
         <hr>
-        <blockquote class="info">此组件可能在未来重写</blockquote>
-        <p>本质上就是把原生的 audio 元素套了一层壳。</p>
+        <p>本质上就是把原生的 audio 元素套了一层壳。但是也有一些新功能。</p>
         <input type="file" id="audio-file">
         <script>
             let input = document.querySelector('#audio-file')
@@ -29,10 +28,36 @@
                 let file = this.files[0]
                 let src = URL.createObjectURL(file)
                 document.querySelector('aq-audio').src = src
-                document.querySelector('aq-audio').audioTitle = file.name
+                document.querySelector('aq-audio').name = file.name
             }
         </script>
         <aq-audio></aq-audio>
+        <h2>属性</h2>
+        <p>原生 audio 元素上的大多数属性在这上面都有，这里介绍最重要的属性。</p>
+        <table>
+            <tr>
+                <th>名称</th>
+                <th>描述</th>
+                <th>类型</th>
+            </tr>
+            <tr>
+                <td>src</td>
+                <td>音频文件的地址</td>
+                <td>string</td>
+            </tr>
+            <tr>
+                <td>thumbnail</td>
+                <td>封面图片的地址</td>
+                <td>string</td>
+            </tr>
+            <tr>
+                <td>loop</td>
+                <td>是否循环播放</td>
+                <td>boolean</td>
+            </tr>
+        </table>
+        <h2>该说不说</h2>
+        <p>这绝对是我写过的最复杂的一个组件，不仅是因为里面 DOM 多，而且你不知道 audio 上面有多少属性。我不知道我是怎么想的要重写这个组件的，写完之后的代码我自己都不想再看，说实话原来的那个就已经很不错了。</p>
     </page-body>
     <page-footer></page-footer>
 </body>

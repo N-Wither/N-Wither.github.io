@@ -76,7 +76,7 @@ window.addEventListener(
         };
 
         canvas.width =
-            document.querySelector('.page-content').scrollWidth *
+            document.querySelector('page-body').scrollWidth *
             devicePixelRatio;
         canvas.height = canvas.width * 0.25;
 

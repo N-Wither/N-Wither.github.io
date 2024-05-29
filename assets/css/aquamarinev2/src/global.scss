@@ -217,7 +217,7 @@ html {
 }
 
 // Themes
-html {
+html, html[data-theme-fixed].theme-dark {
     --accent-color: var(--theme-color-500);
     --accent-color-dk: var(--theme-color-600);
     --background-color: #fcfcfc;
@@ -266,6 +266,9 @@ html.theme-dark {
 
     --input-bg: #00000033;
 }
+
+// settings
+html.thin-header { --header-height: 2.2em }
 
 // General
 html {
@@ -382,17 +385,12 @@ figure {
 
 // Atom Classes
 
-.f-bold {
-    font-weight: bold;
-}
-
-.f-italic {
-    font-style: italic;
-}
-
-.f-large {
-    font-size: large;
-}
+.f-bold { font-weight: bold; }
+.f-italic { font-style: italic; }
+.f-large { font-size: large; }
+.f-larger { font-size: larger; }
+.f-xl { font-size: x-large; }
+.f-xxl { font-size: xx-large; }
 
 .align-center {
     text-align: center;

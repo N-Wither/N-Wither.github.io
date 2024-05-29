@@ -57,13 +57,15 @@ export class AqTooltip extends LitElement {
         /**@type {string} */
         this.trigger = 'mouseenter focus'
         this.target = undefined
+        this.interactive = false
     }
 
     static get properties(){
         return {
             placement: {type: String},
             trigger: {type: String},
-            target: {type: String}
+            target: {type: String},
+            interactive: {type: Boolean},
         }
     }
 
@@ -112,12 +114,12 @@ export class AqTooltip extends LitElement {
             placement: this.placement,
             trigger: this.trigger,
             appendTo: () => document.body,
-            interactive: true,
+            interactive: this.interactive,
             theme: 'aquamarine',
         }
 
         if(this.target != undefined) {
-            tippy(this.target, {
+            this.tippyInstance = tippy(this.target, {
                 ...tippyProperties,
                 content: this.innerHTML,
                 allowHTML: true
@@ -131,11 +133,15 @@ export class AqTooltip extends LitElement {
 
             let tooltip = this.querySelector('[slot=tooltip]')
 
-            tippy(children, {
+            this.tippyInstance = tippy(children, {
                 ...tippyProperties,
-                content: tooltip.cloneNode(true),
+                content: tooltip
             })
         }
+    }
+
+    get tooltipContent(){
+        return this?.tippyInstance[0].popper.querySelector('[slot=tooltip]')
     }
 }
 
