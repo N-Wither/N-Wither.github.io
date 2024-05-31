@@ -194,7 +194,7 @@ html {
   --font-monospace: monospace;
 }
 
-html, html[data-theme-fixed].theme-dark {
+html {
   --accent-color: var(--theme-color-500);
   --accent-color-dk: var(--theme-color-600);
   --background-color: #fcfcfc;
@@ -328,6 +328,10 @@ figure figcaption {
   text-align: center;
   margin: 0;
   padding: 0.2em;
+}
+
+nav {
+  padding-block-start: 1em;
 }
 
 @media only screen and (max-width: 768px) {

@@ -17,11 +17,6 @@ export const style = css`
     --header-background-filter: blur(0.1rem);
 }
 
-slot[name=category] {
-    display: flex;
-    height: var(--header-height);
-}
-
 .base {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -36,6 +31,8 @@ nav-menu {
 }
 
 .category {
+    display: flex;
+    height: var(--header-height);
     padding-inline-start: 1em;
 }
 
@@ -77,6 +74,10 @@ nav-menu {
 @media screen and (max-width: 800px) {
     .nav-widescreen {
         display: none;
+    }
+
+    .category {
+        padding-inline-start: 0.4em;
     }
 
     nav-menu {

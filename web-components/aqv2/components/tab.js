@@ -41,8 +41,8 @@ export class AqTab extends LitElement {
         }
 
         return html`
-        <slot name="label" class='label' @click=${this.open} part="label"></slot>
-        <slot name="panel" class='panel' part="panel"></slot>
+        <slot name="label" class='label' @click=${this.open} part="label" role='tablist'></slot>
+        <slot name="panel" class='panel' part="panel" role='tabpanel'></slot>
         `
     }
 
@@ -55,7 +55,10 @@ export class AqTab extends LitElement {
         let allLabels = this.querySelectorAll('aq-tab-label')
         let allPanels = this.querySelectorAll('aq-tab-panel')
 
-        allLabels.forEach(l => l.removeAttribute('active'))
+        allLabels.forEach(l => {
+            l.removeAttribute('active')
+            l.removeAttribute('aria-selected')
+        })
         allPanels.forEach(p => p.close())
 
         label.open()
@@ -142,6 +145,7 @@ export class AqTabLabel extends LitElement {
 
     open() {
         this.setAttribute('active', '')
+        this.ariaSelected = true
     }
 }
 export class AqTabPanel extends LitElement {

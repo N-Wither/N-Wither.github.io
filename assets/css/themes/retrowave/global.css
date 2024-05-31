@@ -143,6 +143,9 @@ button:not([disabled]):is(:hover, :focus) {
     box-shadow: var(--general-shadow);
     translate: -0.1em -0.1em;
 }
+button:not([disabled]):active {
+    translate: 0 0;
+}
 button:focus {
     outline: 0.1em solid var(--accent-color);
 }

@@ -12,9 +12,9 @@
     <hr>
     <div>
         <p>现已重写，修复了被隐藏的标签页中的元素依然可被 <kbd>Tab</kbd> 访问的 bug，另外元素名称以及某些语法与之前不同了。</p>
-        <aq-tab>
-            <aq-tab-label active value="1">标签页</aq-tab-label>
-            <aq-tab-panel active value="1">
+        <aq-tab value="1">
+            <aq-tab-label value="1">标签页</aq-tab-label>
+            <aq-tab-panel value="1">
                 <b>页面</b>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem rem quam ex
                     reprehenderit veritatis modi dignissimos cumque nemo. Repudiandae voluptatem commodi nulla
@@ -76,9 +76,9 @@
         </aq-tab>
         <h2>用法</h2>
         <aq-code language="html">
-            <aq-tab>
-                <aq-tab-label value="1" active>标签页1</aq-tab-label>
-                <aq-tab-panel value="1" active>内容1</aq-tab-panel>
+            <aq-tab value="1">
+                <aq-tab-label value="1">标签页1</aq-tab-label>
+                <aq-tab-panel value="1">内容1</aq-tab-panel>
                 <aq-tab-label value="2">标签页2</aq-tab-label>
                 <aq-tab-panel value="2">内容2</aq-tab-panel>
             </aq-tab>
@@ -112,8 +112,8 @@
             </tr>
             <tr>
                 <td>tab-change</td>
-                <td>标签页切换（同一标签页被重复点击也算）</td>
-                <td>使用 <code>event.detail.value</code> 可以获取到被打开的标签页的 <code>value</code></td>
+                <td>标签页切换</td>
+                <td>使用 <code>event.detail.value</code> 可以获取到被打开的标签页的 <code>value</code>。<code>event.target.value</code> 的值不准确。</td>
             </tr>
         </table>
     </div>
