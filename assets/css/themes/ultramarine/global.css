@@ -1,0 +1,40 @@
+html {
+    --theme-color-50:  var(--blue-50);
+    --theme-color-100: var(--blue-100);
+    --theme-color-200: var(--blue-200);
+    --theme-color-300: var(--blue-300);
+    --theme-color-400: var(--blue-400);
+    --theme-color-500: var(--blue-500);
+    --theme-color-600: var(--blue-600);
+    --theme-color-700: var(--blue-700);
+    --theme-color-800: var(--blue-800);
+    --theme-color-900: var(--blue-900);
+    --theme-color-950: var(--blue-950);
+}
+
+html {
+    --theme-color: var(--theme-color-700);
+    --theme-color-dk: var(--theme-color-800);
+
+    --link-color: var(--theme-color-700);
+    --link-color-visited: var(--theme-color-800);
+
+    background-image: url('/assets/imgs/common/oceanview.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body {
+    background-color: transparent;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: min(8rem, 8%);
+    right: min(8rem, 8%);
+    z-index: -1;
+    background-color: var(--header-bg);
+}

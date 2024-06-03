@@ -17,6 +17,15 @@
     <script type="module" src="/web-components/aqv2/components/translate.js"></script>
     <script type="module" src="/web-components/page/languages.js"></script>
     <script type="module" src="/assets/js/misc/konami.js"></script>
+    <style>
+        @supports (background-clip: text){
+            .pride {
+                background-image: linear-gradient(to right, #ff0000, #ff00bf, #8000ff, #0040ff, #00ffff, #00ff40, #80ff00, #ffbf00, #ff0000);
+                color: transparent;
+                background-clip: text;
+            }
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -39,7 +48,7 @@
     <page-header>
         <div slot="category" class="flex center" style="flex-direction: column;">
             <div class="f-bold f-xl">WitherWorks</div>
-            <div class="f-bold"><aq-ts key="1">Summer Special</aq-ts></div>
+            <div class="f-bold pride"><aq-ts key="1">Summer Special</aq-ts></div>
         </div>
         <header-button slot="button">
             <aq-tooltip>
