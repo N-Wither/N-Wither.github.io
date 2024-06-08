@@ -244,6 +244,7 @@ html.thin-header {
 
 html {
   scroll-behavior: smooth;
+  line-height: 24px;
   font-family: var(--font-common);
   font-size: 16px;
   font-weight: 300;
@@ -259,7 +260,7 @@ body {
   background: var(--background-color);
   color: var(--text-color);
   position: relative;
-  min-height: calc(100vh - (2rem + var(--header-height)));
+  min-height: 100vh;
   transition: all var(--transition-time-common);
 }
 

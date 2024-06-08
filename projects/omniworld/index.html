@@ -12,6 +12,7 @@
     <script type="module" src="/web-components/page/body.js"></script>
     <script type="module" src="/web-components/page/footer.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
     <style>
         aq-card{
             margin: 0.2em 0;
@@ -41,10 +42,27 @@
         .card-container aq-card {
             flex: 1;
             min-height: 100%;
+            width: 100%;
+            max-width: unset;
         }
 
         .card-container aq-card::part(card-base) {
             min-height: 100%;
+        }
+
+        .sponsors {
+            line-height: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .sponsors li {
+            flex-grow: 1;
+        }
+
+        .sponsors li::marker {
+            content: '';
         }
     </style>
 </head>
@@ -67,14 +85,14 @@
                 <aq-card>
                     <h3 slot="header">1.20.1</h3>
                     <div>
-                        <p>还在开发，不太稳定，推荐想要尝鲜的玩家。</p>
+                        <p>最新的版本，推荐想要尝鲜的玩家。</p>
                         <p>
                             <b>状态：</b>
                             <span style="color: var(--color-safe);">更新中</span>
                         </p>
                         <p>
                             <b>最新版本：</b>
-                            <span>3.5.0 Magnolia</span>
+                            <span>3.6.0 Gypsophila</span>
                         </p>
                         <div class="flex-center flex-wrap" style="gap: 0.2em">
                             <a href="owr.html" class="pjax"><button class="btn-regular">查看详情</button></a>
@@ -126,6 +144,66 @@
         </div>
         <p>不同版本的内容有些许不同。</p>
         <p>如果你喜欢这个作品，请考虑<a href="https://afdian.net/a/NWither" target="_blank" rel="noopener noreferrer">赞助</a>，赞助者可以在游戏中留下你独特的痕迹！</p>
+        <aq-collapsible open-text="打开赞助者列表" close-text="关闭赞助者列表">
+            <ul class="sponsors">
+                <li>阿卡迪亚小胎子</li>
+                <li>逐暮晨曦</li>
+                <li>Darkness_Yami</li>
+                <li>Xjnp</li>
+                <li>空歌</li>
+                <li>qqvpp</li>
+                <li>totoro</li>
+                <li>虚实之影</li>
+                <li>尚书玻璃</li>
+                <li>loasites</li>
+                <li>旺柴</li>
+                <li>爱发电用户_wT4g</li>
+                <li>White_Road</li>
+                <li>Xaz.</li>
+                <li>qq1305981673</li>
+                <li>為龍</li>
+                <li>BlitzMomo</li>
+                <li>QiHuang02</li>
+                <li>唐送萝卜</li>
+                <li>冬冬</li>
+                <li>爱发电用户_dsA4</li>
+                <li>yiyi</li>
+                <li>QAQ_Strawberry</li>
+                <li>Naya_Z</li>
+                <li>向往</li>
+                <li>Raitu</li>
+                <li>Rainbow</li>
+                <li>Fatediversity</li>
+                <li>唯我铭心</li>
+                <li>原型智能-v1.3.3387v</li>
+                <li>shenn_ma</li>
+                <li>爱发电用户_vxEr</li>
+                <li>water_flowers</li>
+                <li>LiQvnMoFa</li>
+                <li>EnochHcx</li>
+                <li>LenYanYan</li>
+                <li>RouYal</li>
+                <li>JustZiya</li>
+                <li>Echo</li>
+                <li>Quan_Q</li>
+                <li>亚津子</li>
+                <li>爱发电用户_nrkj</li>
+                <li>爱发电用户_0fc54</li>
+                <li>卡卡米</li>
+                <li>DongAnFeng</li>
+                <li>L2too</li>
+                <li>爱发电用户_bec4a</li>
+                <li>Its_Dafuq</li>
+                <li>gjmhmm8</li>
+                <li>ExpCreeper_</li>
+                <li>爱发电用户_w49a</li>
+                <li>ZeFeng_1236</li>
+                <li>爱发电用户_WEPN</li>
+                <li>爱发电用户_nqm7</li>
+                <li>键中间</li>
+                <li>爱发电用户_ed26f</li>
+            </ul>
+        </aq-collapsible>
         <aq-tooltip target=".tooltip-1">
             <div>然而国外早就有很多了</div>
         </aq-tooltip>

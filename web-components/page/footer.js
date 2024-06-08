@@ -2,9 +2,6 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/co
 import { createLocalizer } from '../aqv2/lib/localize.js'
 
 export class PageFooter extends LitElement {
-    constructor(){
-        super()
-    }
 
     render() {
         return html`
