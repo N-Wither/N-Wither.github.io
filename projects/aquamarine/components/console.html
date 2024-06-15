@@ -13,26 +13,68 @@
 </head>
 <body>
     <page-header>
-        <div slot="category" style="margin: auto; font-size: 1.4em;" class="f-bold">Aquamarine</div>
+        <div slot="category" class="f-bold f-xl flex center">Aquamarine</div>
     </page-header>
     <tool-box>
     </tool-box>
     <page-body>
         <h1>Console 控制台</h1>
         <hr>
-        <p>一个控制台，你可以在浏览器的控制台里面使用<code>aqconsole</code>来引用它。因为我不会解析字符串的 JavaScript 代码，所以这里没有输入框。</p>
+        <p>一个控制台，你可以在浏览器的控制台里面使用<code>aqconsole</code>来引用它。因为我不会安全地解析字符串的 JavaScript 代码，所以这里没有输入框。</p>
         <p>此外，你可以直接使用<code>.html()</code>方法直接往这里面放 HTML 元素！</p>
         <aq-console id="aqconsole" style="min-height: 20em;"></aq-console>
+        <h2>属性和方法</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td><code>lines</code></td>
+                    <td><code>number</code></td>
+                    <td>控制台能够显示的条目数量，当条目数量达到上限却还要添加新的条目时，最早的条目会被移除。</td>
+                </tr>
+                <tr>
+                    <td><code>log()</code></td>
+                    <td><code>(...data: any[]) => void</code></td>
+                    <td>同<code>console.log()</code>。但是不支持附带样式，如果你有这种需求请使用 <code>html()</code> 代替之。</td>
+                </tr>
+                <tr>
+                    <td><code>warn()</code></td>
+                    <td><code>(...data: any[]) => void</code></td>
+                    <td>同<code>console.warn()</code>。</td>
+                </tr>
+                <tr>
+                    <td><code>error()</code></td>
+                    <td><code>(...data: any[]) => void</code></td>
+                    <td>同<code>console.error()</code>。</td>
+                </tr>
+                <tr>
+                    <td><code>clear()</code></td>
+                    <td><code>() => void</code></td>
+                    <td>同<code>console.clear()</code>。</td>
+                </tr>
+                <tr>
+                    <td><code>html()</code></td>
+                    <td><code>(h: string | Node, action: 'move' | 'clone' = 'clone') => typeof h</code></td>
+                    <td>如果第一个参数是字符串，则第二个参数没有作用。如果第一个参数是一个节点，则第二个参数将决定出现在控制台里面的是此节点的复制品还是它的本体。如果你想在控制台里面展示一个具有点击事件的按钮，使用 <code>'move'</code>会是最好的选择。这种情况下，如果此节点已经处在控制台中，则此节点所在的条目将被移动到控制台的最底下。</td>
+                </tr>
+            </tbody>
+        </table>
     </page-body>
     <page-footer></page-footer>
-    <script>
+    <script type="module">
         let aqconsole = document.getElementById('aqconsole')
-        setTimeout(() => {
+        window.aqconsole = aqconsole
+        let error = new Error('Something is broken!')
+        aqconsole.addEventListener('render', () => {
             aqconsole.log('Hello world!')
             aqconsole.warn('Something not good...')
-            aqconsole.error(new Error('Something is broken!').stack)
+            aqconsole.error(error.stack)
             aqconsole.table([{type: 'cat', weight: '2kg', can: 'meow'}, {type: 'dog', weight: '4kg', can: 'woof'}])
-        }, 3000)
+        }, {once: true})
     </script>
 </body>
 </html>

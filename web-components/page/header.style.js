@@ -11,6 +11,7 @@ export const style = css`
     display: flex;
     z-index: 99;
     background-color: var(--header-bg);
+    line-height: unset;
 }
 
 :host {
@@ -46,6 +47,7 @@ nav-menu {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    line-height: 1em;
 }
 
 .nav-widescreen .item {

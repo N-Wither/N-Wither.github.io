@@ -22,6 +22,8 @@ html {
     background-image: url('/assets/imgs/common/oceanview.webp');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom center;
 }
 
 body {

@@ -32,32 +32,32 @@ switch(userLang) {
 export const navigateItems = [
     {
         text: chosenLang.home,
-        icon: '\ue88a',
+        icon: 'home',
         url: '/'
     },
     {
         text: chosenLang.proj,
-        icon: '\uf8ee',
+        icon: 'dataset',
         url: '/projects/'
     },
     {
         text: chosenLang.artc,
-        icon: '\uef42',
+        icon: 'article',
         url: '/writings/'
     },
     {
         text: chosenLang.tool,
-        icon: '\uea59',
+        icon: 'construction',
         url: '/tools/'
     },
     {
         text: chosenLang.game,
-        icon: '\uf135',
+        icon: 'stadia_controller',
         url: '/games/'
     },
     {
         text: chosenLang.theme,
-        icon: '\ue40a',
+        icon: 'palette',
         url: '/themes/'
     }
 ]
@@ -91,6 +91,7 @@ export class NavMenu extends LitElement {
             height: calc(100vh - var(--header-height));
             background: var(--background-color);
             box-shadow: 0px 4px 8px var(--shadow-color);
+            line-height: 1em;
         }
     
         .nav-menu.open, .nav-menu:has(:focus) {
@@ -164,7 +165,7 @@ export class NavMenu extends LitElement {
             ${navigateItems.map(item => html`
             <a class = "item" href = "${item.url}">
                 <div class = "container">
-                    <div class = "icon">${item.icon}</div>
+                    <aq-icon name=${item.icon}></aq-icon>
                     <div class = "text">${item.text}</div>
                 </div>
             </a>

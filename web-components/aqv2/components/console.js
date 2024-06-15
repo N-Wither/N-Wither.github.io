@@ -1,5 +1,5 @@
-import css from "/web-components/aqv2/lib/css.js";
-import html from "/web-components/aqv2/lib/html.js";
+import css from '../lib/css.js';
+import html from '../lib/html.js';
 
 const style = await fetch('/web-components/aqv2/styles/console.css').then(res => res.text())
 const globalStyle = await fetch('/web-components/aqv2/styles/console_global.css').then(res => res.text())
@@ -58,6 +58,7 @@ export default class AqConsole extends HTMLElement {
                 this.#inputfield.value = ''
             }
         })
+        this.dispatchEvent(new Event('render'))
     }
 
     #createDiv(){
@@ -113,8 +114,35 @@ export default class AqConsole extends HTMLElement {
         this.#text(false, 'error', ...data)
     }
 
-    html(h){
-        this.#text(true, 'html', h)
+    /**
+     * @param {string | Node} h 
+     * @param {'move' | 'clone'} action 
+     */
+    html(h, action = 'clone'){
+        if(typeof h === 'string') {
+            this.#text(true, 'html', h)
+            return h
+        }
+        else if (typeof h === 'object' && h instanceof Node) {
+            let div = this.#createDiv()
+            div.classList.add('aqconsole__entry', 'html')
+            let content = h;
+            if(action === 'clone') {
+                content = h.cloneNode(true)
+                div.appendChild(content)
+            }
+            else if(action === 'move') {
+                if(this.#outputfield.contains(h)){
+                    let entry = h.parentElement
+                    this.#outputfield.removeChild(entry)
+                    this.#addElement(entry)
+                    return h
+                }
+                else div.appendChild(content)
+            }
+            this.#addElement(div)
+            return content
+        }
     }
 
     clear(){

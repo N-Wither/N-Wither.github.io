@@ -10,7 +10,8 @@ class AqIcon extends LitElement {
     static get properties(){
         return {
             name: {type: String},
-            src: {type: String}
+            src: {type: String},
+            size: {type: String}
         }
     }
 
@@ -40,6 +41,9 @@ class AqIcon extends LitElement {
             direction: ltr;
             -webkit-font-smoothing: antialiased;
             --icon-font-size: 24px;
+        }
+        :host([size="small"]) {
+            --icon-font-size: 16px;
         }
         .icon {
             font-family: 'Material Symbols Outlined';

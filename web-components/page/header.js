@@ -4,6 +4,7 @@ import './nav-menu.js'
 import { navigateItems } from './nav-menu.js';
 import './darkmode-button.js'
 import './header-button.js'
+import '../aqv2/components/icon.js'
 
 export class PageHeader extends LitElement {
     constructor(){
@@ -24,7 +25,7 @@ export class PageHeader extends LitElement {
                 ${navigateItems.map(item => html`
                 <header-button>
                     <a class = "item" href = "${item.url}">
-                        <div class = "icon">${item.icon}</div>
+                        <aq-icon name="${item.icon}" size='small'></aq-icon>
                         <div class = "text">${item.text}</div>
                     </a>
                 </header-button>
