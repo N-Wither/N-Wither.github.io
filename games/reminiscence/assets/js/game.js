@@ -566,7 +566,7 @@ class ReminiscenceGame extends LitElement {
     }
 
     #renderInventory(filter) {
-        let itemList = Object.keys(this.currentData.inventory ?? {});
+        let itemList = Object.keys(this.currentData.inventory ?? {}).sort();
         if (itemList.length == 0) {
             return html`<aq-ts key="ui.emptyInventory"></aq-ts>`;
         } else {
@@ -600,7 +600,7 @@ class ReminiscenceGame extends LitElement {
     }
 
     #renderPurchase() {
-        let itemList = Object.keys(itemProperties).filter(item => itemProperties[item].tag.includes('ingredient'));
+        let itemList = Object.keys(itemProperties).filter(item => itemProperties[item].tag.includes('ingredient')).sort();
         return html`${itemList.map(item => html`<purchase-item item=${item} price=${itemProperties[item].price}></purchase-item>`)}`;
     }
 

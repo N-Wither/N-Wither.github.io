@@ -22,6 +22,18 @@ dayZero2.rewards = [
         data: {
             recipe: 'bagel'
         }
+    },
+    {
+        type: 'recipe',
+        data: {
+            recipe: 'toast'
+        }
+    },
+    {
+        type: 'recipe',
+        data: {
+            recipe: 'cupcake'
+        }
     }
 ]
 

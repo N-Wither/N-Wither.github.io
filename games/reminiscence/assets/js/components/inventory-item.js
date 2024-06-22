@@ -45,7 +45,10 @@ export class InventoryItem extends LitElement {
             </div>
             <div slot='tooltip'>
                 <div><aq-ts key='item.${this.item}.desc'></aq-ts></div>
-                ${itemProperties[this.item].tag.includes('product') ? html`<div><aq-ts key='ui.price'></aq-ts>: ${itemProperties[this.item].price}</div>` : ''}
+                ${
+                    itemProperties[this.item].tag.includes('product') ? 
+                    html`<hr><div><aq-ts key='ui.price'></aq-ts>: ${itemProperties[this.item].price} × ${this.count} = ${this.count * itemProperties[this.item].price}</div>` 
+                    : ''}
             </div>
         </aq-tooltip>
         `

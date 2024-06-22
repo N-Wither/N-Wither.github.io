@@ -20,6 +20,7 @@ export class RecipeItem extends LitElement {
             </div>
             <div slot='tooltip'>
                 <div><aq-ts key='item.${this.item}.desc'></aq-ts></div>
+                <hr>
                 <div><aq-ts key='ui.recipe'></aq-ts>:</div>
                 <div>${Object.keys(this.recipe).map(key => html`<span><aq-ts key='item.${key}'></aq-ts> × ${this.recipe[key]}</span><br>`)}</div>
             </div>

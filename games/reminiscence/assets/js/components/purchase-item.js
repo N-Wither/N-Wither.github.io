@@ -20,6 +20,7 @@ export class PurchaseItem extends LitElement {
             </div>
             <div slot='tooltip'>
                 <div><aq-ts key='item.${this.item}.desc'></aq-ts></div>
+                <hr>
                 <div><aq-ts key='ui.price'></aq-ts>: <span class='price'>${this.price}</span> × ${itemProperties[this.item].buyCount} = ${this.price * itemProperties[this.item].buyCount}</div>
             </div>
         </aq-tooltip>
