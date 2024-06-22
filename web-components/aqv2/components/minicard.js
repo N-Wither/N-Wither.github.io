@@ -8,7 +8,7 @@ export class AqMiniCard extends LitElement {
         this.icon = null
         this.sub = null
         this.header = null
-        this.contnent = null
+        this.content = null
     }
 
     static get properties(){
@@ -46,7 +46,7 @@ export class AqMiniCard extends LitElement {
                     </div>
                 </div>
                 <div class='content'>
-                    <slot></slot>
+                    <slot>${this.content}</slot>
                 </div>
             </div>
         </div>

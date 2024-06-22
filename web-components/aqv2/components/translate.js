@@ -39,7 +39,7 @@ export class AqTranslate extends LitElement {
             document.documentElement.lang = this.lang
         }
         const span = document.createElement('span')
-        const result = map?.[this.lang]?.[this.key] ?? this.fallback
+        const result = map?.[this.lang]?.[this.key] ?? map?.['default']?.[this.key] ?? this.fallback
         span.innerHTML = result
         return span
     }

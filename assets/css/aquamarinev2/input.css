@@ -72,4 +72,9 @@ select option:hover, select option:focus {
   background-color: var(--accent-color);
 }
 
+textarea {
+  background-color: var(--input-bg);
+  border: none;
+}
+
 /*# sourceMappingURL=input.css.map */
