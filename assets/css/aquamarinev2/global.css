@@ -385,6 +385,10 @@ nav {
   align-items: center;
 }
 
+.flex.column {
+  flex-direction: column;
+}
+
 :is(.flex-center, .flex.center).left {
   justify-content: left;
 }
@@ -448,6 +452,14 @@ nav {
 
 .margin-auto {
   margin: auto;
+}
+
+.lh-unset {
+  line-height: unset;
+}
+
+.lh-initial {
+  line-height: initial;
 }
 
 /*# sourceMappingURL=global.css.map */
