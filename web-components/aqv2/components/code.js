@@ -126,7 +126,7 @@ export class AqCodeblock extends LitElement {
 
     /**@type {string} */
     #sourceText;
-    #channel = new BroadcastChannel('aquamarine-page-theme')
+    // #channel = new BroadcastChannel('aquamarine-page-theme')
     #localize = createLocalizer(AqCodeblock.lang)
 
     render() {
@@ -135,9 +135,9 @@ export class AqCodeblock extends LitElement {
         let theme = localStorage.getItem('theme-mode') ?? 'light'
         this.dataset.theme = theme
 
-        this.#channel.addEventListener('message', e => {
-            this.dataset.theme = e.data.theme
-        })
+        // this.#channel.addEventListener('message', e => {
+        //     this.dataset.theme = e.data.theme
+        // })
 
         this.#formatAsync(this.inline)
         return html`
@@ -179,6 +179,7 @@ export class AqCodeblock extends LitElement {
                 line.dataset.line = index + 1
             })
         }
+        return html
     }
 
     copy(){

@@ -41,19 +41,35 @@ export class AqTab extends LitElement {
         }
 
         return html`
-        <slot name="label" class='label' @click=${this.open} part="label" role='tablist'></slot>
+        <slot name="label" class='label' @label-click=${this.#handleLabelClick} part="label" role='tablist'></slot>
         <slot name="panel" class='panel' part="panel" role='tabpanel'></slot>
         `
     }
 
-    /**@param {MouseEvent} e  */
-    open(e){
+    /**
+     * 
+     * @param {CustomEvent<{value: string}>} event 
+     * @returns 
+     */
+    #handleLabelClick(event) {
+        this.open(event.detail.value)
+    }
+
+    open(value) {
         /**@type {AqTabLabel} */
-        let label = e.target;
-        if(label.hasAttribute('active') == true) return;
-        let panel = this.querySelector(`aq-tab-panel[value="${label.value}"]`)
+        let label = this.querySelector(`aq-tab-label[value="${value}"]`)
+        /**@type {AqTabPanel} */
+        let panel = this.querySelector(`aq-tab-panel[value="${value}"]`)
+        /**@type {NodeListOf<AqTabLabel>} */
         let allLabels = this.querySelectorAll('aq-tab-label')
+        /**@type {NodeListOf<AqTabPanel>} */
         let allPanels = this.querySelectorAll('aq-tab-panel')
+
+        if(label == null) {
+            let validLabelValues = Array.from(allLabels).map(l => l.value)
+            throw new Error(`Label with value ${value} not found. Valid value(s): ${validLabelValues.join(', ')}`)
+        };
+        if(label.hasAttribute('active') == true) return;
 
         allLabels.forEach(l => {
             l.removeAttribute('active')
@@ -68,6 +84,7 @@ export class AqTab extends LitElement {
         this.value = label.value
     }
 }
+
 export class AqTabLabel extends LitElement {
     static get properties() {
         return {
@@ -139,13 +156,17 @@ export class AqTabLabel extends LitElement {
     render() {
         this.setAttribute('slot', 'label')
         return html`
-        <button class='activator' part='activator'><slot></slot></button>
+        <button class='activator' part='activator' @click=${this.#makeEvent}><slot></slot></button>
         `
     }
 
     open() {
         this.setAttribute('active', '')
         this.ariaSelected = true
+    }
+
+    #makeEvent() {
+        this.dispatchEvent(new CustomEvent('label-click', {detail: {value: this.value}, bubbles: true}))
     }
 }
 export class AqTabPanel extends LitElement {

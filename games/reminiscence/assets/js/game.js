@@ -8,6 +8,7 @@ import { GameData, defaultData } from './game-data.js'
 import { gameEvents } from './events/events.js'
 import { createElement, compareObjects, includes } from './utils.js';
 import { itemProperties } from './items.js';
+import { createElement as el } from '../../../../assets/js/aquery/dom.js'
 
 import './components/inventory-item.js'
 import './components/recipe-item.js'
@@ -406,9 +407,9 @@ class ReminiscenceGame extends LitElement {
     }
 
     #createDialogItem(name, text, icon) {
-        let item = createElement('aq-minicard');
-        let header = createElement('aq-ts').attribute('key', name).attribute('slot', 'header');
-        let content = createElement('aq-ts').attribute('key', text);
+        let item = el('aq-minicard').get();
+        let header = el('aq-ts').attr('key', name).attr('slot', 'header').get();
+        let content = el('aq-ts').attr('key', text).get();
 
         item.appendChild(header);
         item.appendChild(content);
@@ -594,7 +595,7 @@ class ReminiscenceGame extends LitElement {
             return html`<aq-ts key="ui.emptyRecipes"></aq-ts>`;
         } else {
             return html`${recipeList.map(item =>
-                createElement('recipe-item').property('recipe', itemProperties[item].recipe).property('item', item)
+                el('recipe-item').prop('recipe', itemProperties[item].recipe).prop('item', item).get()
             )}`;
         }
     }

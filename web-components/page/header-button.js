@@ -58,6 +58,11 @@ aq-tooltip {
     align-items: center;
     justify-content: center;
 }
+
+::selection {
+    color: inherit;
+    background-color: var(--selection-background);
+}
 `
 
 export class HeaderButton extends LitElement{

@@ -24,7 +24,7 @@ export class DarkModeButton extends HeaderButton {
 
     #localize = createLocalizer(DarkModeButton.lang)
 
-    static #channel = new BroadcastChannel('aquamarine-page-theme')
+    // static #channel = new BroadcastChannel('aquamarine-page-theme')
 
     get #icon(){
         if(this.shadowRoot){
@@ -67,7 +67,7 @@ export class DarkModeButton extends HeaderButton {
             }
         }
         if(broadCast === true){
-            DarkModeButton.#channel.postMessage({theme: mode})
+            // DarkModeButton.#channel.postMessage({theme: mode})
         }
     }
 
