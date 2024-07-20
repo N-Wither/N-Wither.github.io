@@ -1,6 +1,11 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 
 export let headerButtonStyle = css`
+:host {
+    --header-button-cursor: pointer;
+    --header-button-height: var(--header-height);
+}
+
 .button {
     border: none;
     background: none;
@@ -11,13 +16,13 @@ export let headerButtonStyle = css`
     align-items: center;
     justify-content: center;
     color: inherit;
-    width: var(--header-height);
-    height: var(--header-height);
+    width: var(--header-button-height);
+    height: var(--header-button-height);
 }
 
 .base {
-    min-width: var(--header-height);
-    height: var(--header-height);
+    min-width: var(--header-button-height);
+    height: var(--header-button-height);
     background-image: linear-gradient(180deg, var(--accent-color), var(--accent-color));
     background-repeat: no-repeat;
     background-position: top;
@@ -25,6 +30,7 @@ export let headerButtonStyle = css`
     transition: var(--transition-time-slower);
     position: relative;
     display: flex;
+    cursor: var(--header-button-cursor);
 }
 
 .base slot {

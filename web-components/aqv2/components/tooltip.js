@@ -52,7 +52,7 @@ document.adoptedStyleSheets.push(tooltipStyle.styleSheet)
 export class AqTooltip extends LitElement {
     constructor(){
         super()
-        /**@type {'auto'|'left'|'top'|'right'|'bottom'} */
+        /**@type {'auto'|'left'|'left-start'|'left-end'|'right'|'right-start'|'right-end'|'top'|'top-start'|'top-end'|'bottom'|'bottom-start'|'bottom-end'} */
         this.placement = 'auto'
         /**@type {string} */
         this.trigger = 'mouseenter focus'

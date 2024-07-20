@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-us" data-theme-fixed>
+<html lang="en-us">
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
-    <link rel="stylesheet" href="/assets/css/themes/retrowave/global.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <!-- components -->
@@ -13,17 +12,9 @@
     <script src="/web-components/fetch-svg/fetch-svg.js" type="module"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
     <script type="module" src="/web-components/page/combined.js"></script>
-    <script type="module" src="/assets/js/csspainters/gradientdots.js"></script>
     <script type="module" src="/web-components/aqv2/components/translate.js"></script>
     <script type="module" src="/web-components/page/languages.js"></script>
     <script type="module" src="/assets/js/misc/konami.js"></script>
-    <style>
-        @supports (background-clip: text){
-            .subtitle {
-                background-image: var(--bg-image-1);
-            }
-        }
-    </style>
 </head>
 <body>
     <script>
@@ -46,11 +37,10 @@
     <page-header>
         <div slot="category" class="flex center column lh-initial">
             <div class="f-bold f-xl">WitherWorks</div>
-            <div class="f-bold subtitle"><aq-ts key="1">Summer Special</aq-ts></div>
         </div>
         <header-button slot="button">
-            <aq-tooltip>
-                <a href="https://github.com/N-Wither" class="flex-center no-deco" target="_blank">
+            <aq-tooltip placement="bottom" style="display: block; width: 100%;">
+                <a href="https://github.com/N-Wither" class="flex-center no-deco full-width" target="_blank" style="height: var(--header-height);">
                     <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
                 </a>
                 <div slot="tooltip">
@@ -65,7 +55,7 @@
     </tool-box>
     <page-body>
         <h1>Hello</h1>
-        <hr>
+        <hr class="construction">
         <p><aq-ts key="4">This is N Wither. I do a little bit of everything.</aq-ts></p>
         <p><aq-ts key="5">You can click the links in the navigation menu to see my works.</aq-ts></p>
         <p><a href="/about.html"><aq-ts key="6">More about me...</aq-ts></a></p>

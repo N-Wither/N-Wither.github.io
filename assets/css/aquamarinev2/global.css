@@ -270,6 +270,7 @@ hr {
 }
 hr.break {
   width: 70%;
+  border-top-style: dashed;
 }
 
 ul {

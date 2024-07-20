@@ -85,7 +85,7 @@ export class DarkModeButton extends HeaderButton {
         let isAlreadyDark = document.documentElement.classList.contains('theme-dark') || localStorage.getItem('theme-mode') == 'dark'
         return html`
         <div class="base ${isAlreadyDark ? 'theme-dark' : ''}">
-            <aq-tooltip>
+            <aq-tooltip placement='bottom'>
                 <button class="button" @click=${this.toggleThemeMode} name=${this.#localize('1')}>
                     <aq-icon name=${isAlreadyDark ? 'dark_mode' : 'light_mode'}></aq-icon>
                 </button>

@@ -119,3 +119,35 @@
     border: dotted 0.2em var(--border-color);
     max-width: max(60%, 45em);
 }
+
+div.warning-stripe {
+    --warning-stripe-color-1: black;
+    --warning-stripe-color-2: var(--yellow-500);
+    --warning-stripe-width: 36px;
+    --warning-stripe-padding-top: 1.6em;
+    --warning-stripe-padding-left: 2em;
+
+    @include styledBoxes();
+    position: relative;
+    background-color: var(--background-color);
+    
+    &::before {
+        position: absolute;
+        inset: 0;
+        content: '';
+        background-image: repeating-linear-gradient(45deg, var(--warning-stripe-color-1) 0, var(--warning-stripe-color-1) var(--warning-stripe-width), var(--warning-stripe-color-2) var(--warning-stripe-width), var(--warning-stripe-color-2) calc(2 * var(--warning-stripe-width)));
+        background-attachment: fixed;
+        clip-path: polygon(
+            0% 0%,
+            0% 100%,
+            var(--warning-stripe-padding-left) 100%,
+            var(--warning-stripe-padding-left) var(--warning-stripe-padding-top),
+            calc(100% - var(--warning-stripe-padding-left)) var(--warning-stripe-padding-top),
+            calc(100% - var(--warning-stripe-padding-left)) calc(100% - var(--warning-stripe-padding-top)),
+            var(--warning-stripe-padding-left) calc(100% - var(--warning-stripe-padding-top)),
+            var(--warning-stripe-padding-left) 100%,
+            100% 100%,
+            100% 0%
+            );
+    }
+}
