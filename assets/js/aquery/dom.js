@@ -15,16 +15,23 @@ function createElement(tagName, content) {
  * @returns
  */
 function select(selector, unwrap = false) {
-    let el = document.querySelector(selector);
-    if (el == null) {
-        return null;
-    } else {
-        if (unwrap == true) {
-            return el;
+    if(typeof selector === 'string') {
+        let el = document.querySelector(selector);
+        if (el == null) {
+            return null;
         } else {
-            return new DOMUtils._BetterElementWrapper(el);
+            return unwrap == true ? el : new DOMUtils._BetterElementWrapper(el);
         }
     }
+    else if (typeof selector === 'object') {
+        if(selector instanceof Document) {
+            return document;
+        }
+        else if (selector instanceof HTMLElement) {
+            return unwrap == true ? selector : new DOMUtils._BetterElementWrapper(selector);
+        }
+    }
+    else throw new TypeError('Invalid selector.');
 }
 
 /**

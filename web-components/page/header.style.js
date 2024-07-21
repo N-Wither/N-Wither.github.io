@@ -72,6 +72,11 @@ nav-menu {
     display: none;
 }
 
+::selection {
+    color: inherit;
+    background-color: var(--selection-background);
+}
+
 /** On Mobile Devices */
 @media screen and (max-width: 800px) {
     .nav-widescreen {

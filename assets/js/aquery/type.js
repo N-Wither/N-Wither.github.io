@@ -13,7 +13,7 @@ export class TypeUtils {
         let type = typeof value;
         if (type === targetType) {
             return true;
-        } else if (type === 'object' && typeof targetType === 'function') {
+        } else if (TypeUtils.isObject(value) && typeof targetType === 'function') {
             return value instanceof targetType;
         } else {
             return false;
@@ -33,13 +33,13 @@ export class TypeUtils {
         if (result === true) {
             return true;
         } else {
-            if (typeof value !== 'object' && typeof targetType !== 'function') {
+            if (TypeUtils.isObject(value) === false && typeof targetType !== 'function') {
                 throw new TypeError(`${message} Expected ${targetType}, but got ${typeof value}.`);
-            } else if (typeof value === 'object' && typeof targetType === 'function') {
+            } else if (TypeUtils.isObject(value) === true && typeof targetType === 'function') {
                 throw new TypeError(`${message} Expected instance of ${targetType.name}, but got ${value.constructor.name}.`);
-            } else if (typeof value !== 'object' && typeof targetType === 'function') {
+            } else if (TypeUtils.isObject(value) === false && typeof targetType === 'function') {
                 throw new TypeError(`${message} Expected instance of ${targetType.name}, but got ${typeof value}.`);
-            } else if (typeof value === 'object' && typeof targetType !== 'function') {
+            } else if (TypeUtils.isObject(value) === true && typeof targetType !== 'function') {
                 throw new TypeError(`${message} Expected ${targetType}, but got ${value.constructor.name}.`);
             }
         }
@@ -59,11 +59,24 @@ export class TypeUtils {
 
     /**
      * Check if a given object is iterable.
-     * @param {object} obj
+     * @param {any} o
      * @returns
      */
-    static isIterable(obj) {
-        TypeUtils.checkWithError(obj, 'object');
-        return obj != null && typeof obj[Symbol.iterator] === 'function';
+    static isIterable(o) {
+        if(o == undefined) {
+            return false;
+        }
+        else {
+            return typeof o[Symbol.iterator] === 'function';
+        }
+    }
+
+    /**
+     * Check if a given value is an object (including functions).
+     * @param {*} v 
+     * @returns 
+     */
+    static isObject(v) {
+        return (typeof v === 'object' && v !== null) || typeof v === 'function';
     }
 }
