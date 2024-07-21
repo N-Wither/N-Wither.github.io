@@ -13,7 +13,7 @@
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/page/page-info.js"></script>
     <script type="module" src="/web-components/page/reading-progress.js"></script>
-    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/aqv2/components/details.js"></script>
     <script type="module" src="/web-components/aquamarine/timer/timer.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
     <script type="module" src="/web-components/aqv2/components/window.js"></script>
@@ -49,7 +49,7 @@
                 <b>目录</b>
                 <ul>
                     <li><a href="javascript:setFrame('main')">简介</a></li>
-                    <li><a href="javascript:setFrame('collapsible')">Collapsible 折叠</a></li>
+                    <li><a href="javascript:setFrame('details')">Details 详细信息</a></li>
                     <li><a href="javascript:setFrame('tab')">Tab 分页</a></li>
                     <li><a href="javascript:setFrame('code')">Code 代码块</a></li>
                     <li><a href="javascript:setFrame('timer')">Timer 计时器</a></li>
@@ -80,7 +80,7 @@
             //         frame.src = finalUrl
             //     }
             // }
-            let validUrls = ['main', 'collapsible', 'tab', 'code', 'timer', 'card', 'minicard', 'window', 'tooltip', 'input', 'icon', 'snackbar']
+            let validUrls = ['main', 'details', 'tab', 'code', 'timer', 'card', 'minicard', 'window', 'tooltip', 'input', 'icon', 'snackbar']
             async function setFrame(url){
                 let frame = document.querySelector('.frame-wrapper')
                 let parser = new DOMParser()
