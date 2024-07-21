@@ -52,8 +52,8 @@ export class TypeUtils {
      * @returns
      */
     static isSubclassOf(sub, sup) {
-        TypeUtils.checkWithError(sub, Function, 'The first argument is invalid.');
-        TypeUtils.checkWithError(sup, Function, 'The second argumant is invalid.');
+        TypeUtils.checkWithError(sub, 'function', 'The first argument is invalid.');
+        TypeUtils.checkWithError(sup, 'function', 'The second argumant is invalid.');
         return sup.isPrototypeOf(sub);
     }
 
