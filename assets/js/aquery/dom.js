@@ -1,3 +1,5 @@
+import { StringUtils } from './string.js'
+
 /**
  * @param {string} tagName
  * @param {any} content
@@ -142,13 +144,13 @@ export class DOMUtils {
             } else if (typeof nameOrMap === 'object') {
                 Object.keys(nameOrMap).forEach(key => {
                     if (typeof key === 'string') {
-                        this.element.style.setProperty(key, nameOrMap[key]);
+                        this.element.style.setProperty(StringUtils.camelToKebab(key), nameOrMap[key]);
                     } else {
                         try {
                             let keyStr = String(key);
-                            this.element.style.setProperty(keyStr, nameOrMap[key]);
+                            this.element.style.setProperty(StringUtils.camelToKebab(keyStr), nameOrMap[key]);
                         } catch {
-                            throw new TypeError(`The type of key ${key} is invalid.`);
+                            console.warn('The key of the CSS map is invalid, skipped.');
                         }
                     }
                 });
@@ -200,6 +202,15 @@ export class DOMUtils {
         }
 
         /**
+         * @param {string} html 
+         * @returns 
+         */
+        html(html) {
+            this.element.innerHTML = html;
+            return this;
+        }
+
+        /**
          * @param {string} event
          * @param {EventListenerOrEventListenerObject | null} callback
          * @param {boolean | AddEventListenerOptions | undefined} options
@@ -208,6 +219,10 @@ export class DOMUtils {
         on(event, callback, options) {
             this.element.addEventListener(event, callback, options);
             return this;
+        }
+
+        remove() {
+            this.element.remove();
         }
     };
 

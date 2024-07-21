@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/co
 import '../aqv2/components/tooltip.js'
 import { createLocalizer } from '../aqv2/lib/localize.js';
 import '../aqv2/components/icon.js'
+import { PageHeader } from './header.js'
 
 const langs = {
     'en-us': {
@@ -187,18 +188,29 @@ export class NavMenu extends LitElement {
         }
         else {
             this.#open()
-            let body = document.querySelector('page-body')
-            let footer = document.querySelector('page-footer')
-            if(body) body.addEventListener('click', () => {
-                // this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
-                // this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
-                this.#close()
-            }, {once: true});
-            if(footer) footer.addEventListener('click', () => {
-                // this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
-                // this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
-                this.#close()
-            }, {once: true});
+            // let body = document.querySelector('page-body')
+            // let footer = document.querySelector('page-footer')
+            // if(body) body.addEventListener('click', () => {
+            //     // this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
+            //     // this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
+            //     this.#close()
+            // }, {once: true});
+            // if(footer) footer.addEventListener('click', () => {
+            //     // this.shadowRoot?.querySelector('.nav-menu')?.classList.remove('open')
+            //     // this.shadowRoot?.querySelector('.nav-menu-switch')?.classList.remove('open')
+            //     this.#close()
+            // }, {once: true});
+
+            document.addEventListener('keydown', e => {
+                if(e.key === 'Escape'){
+                    this.#close()
+                }
+            })
+            document.addEventListener('click', e => {
+                if(e.target instanceof PageHeader === false) {
+                    this.#close()
+                }
+            })
         }
     }
 

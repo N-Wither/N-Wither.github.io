@@ -18,7 +18,7 @@ export class FunctionUtils {
     }
 
     /**
-     * 
+     * Create a function that will execute only once.
      * @param {Function} fn 
      * @returns 
      */

@@ -29,7 +29,7 @@ export class TypeUtils {
      * @throws {TypeError}
      */
     static checkWithError(value, targetType, message = '') {
-        let result = Aq.Type.check(value, targetType);
+        let result = TypeUtils.check(value, targetType);
         if (result === true) {
             return true;
         } else {
@@ -54,7 +54,7 @@ export class TypeUtils {
     static isSubclassOf(sub, sup) {
         TypeUtils.checkWithError(sub, Function, 'The first argument is invalid.');
         TypeUtils.checkWithError(sup, Function, 'The second argumant is invalid.');
-        return sub.prototype instanceof sup;
+        return sup.isPrototypeOf(sub);
     }
 
     /**
