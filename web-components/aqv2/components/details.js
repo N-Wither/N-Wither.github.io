@@ -9,6 +9,7 @@ export class AqDetails extends LitElement {
         display: block;
 
         --summary-header-bg-color: var(--background-color-dk);
+        --summary-header-hightlight-color: var(--text-color-contrast);
         --summary-border-color: var(--border-color);
         --summary-border-width: 0.1em;
         --summary-border-style: solid;
@@ -19,6 +20,10 @@ export class AqDetails extends LitElement {
         display: flex;
         font-weight: bold;
         border: var(--summary-border-style) var(--summary-border-color) var(--summary-border-width);
+    }
+
+    .summary:is(:hover, :focus-within) .icon {
+        background-color: var(--summary-header-hightlight-color);
     }
 
     .summary .activator {
@@ -38,7 +43,8 @@ export class AqDetails extends LitElement {
     }
 
     .summary .activator:is(:hover,:focus) {
-        background-color: var(--button-bg-focus);
+        background-color: var(--accent-color);
+        color: var(--summary-header-hightlight-color);
     }
 
     .icon {
@@ -163,6 +169,8 @@ export class AqDetails extends LitElement {
                 {height: `${height}px`}
             ], {duration: 200, easing: 'ease-out'})
         }
+
+        this.dispatchEvent(new CustomEvent('show'))
     }
 
     hide() {
@@ -179,6 +187,8 @@ export class AqDetails extends LitElement {
             }
         }
         else this.removeAttribute('open')
+
+        this.dispatchEvent(new CustomEvent('hide'))
     }
 }
 

@@ -393,6 +393,7 @@ nav {
 
 .f-bold { font-weight: bold; }
 .f-italic { font-style: italic; }
+.f-small { font-size: small; }
 .f-large { font-size: large; }
 .f-larger { font-size: larger; }
 .f-xl { font-size: x-large; }
@@ -400,6 +401,11 @@ nav {
 
 .align-center {
     text-align: center;
+    max-width: unset;
+}
+
+.align-end {
+    text-align: end;
     max-width: unset;
 }
 

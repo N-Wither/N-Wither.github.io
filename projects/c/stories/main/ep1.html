@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episode 1: Made in Volcano</title>
+    <link rel="shortcut icon" href="/projects/c/assets/img/ella_avatar.png">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/assets/css/themes/violite/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/styled-div.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/page/page-info.js"></script>
+    <script type="module" src="/web-components/page/reading-progress.js"></script>
+    <style>
+        .page-title {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - var(--header-height) - 2.5em);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .secondary-text {
+            color: var(--text-color-lt);
+        }
+
+        .page-title .ep {
+            font-size: large;
+        }
+
+        h2[id] {
+            text-align: center;
+        }
+
+        div.warning-stripe {
+            --warning-stripe-color-1: var(--text-color);
+            --warning-stripe-color-2: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div slot="category" class="f-bold f-xl flex center">C1000</div>
+    </page-header>
+    <tool-box>
+        <page-info>
+            <div>Ella、Matthew 和 Selene 三人接到任务前往一座火山岛屿调查一座可能存在的地下古城。</div>
+        </page-info>
+        <to-top></to-top>
+        <reading-progress>
+            <div>
+                <b>目录</b>
+                <ul role="doc-toc">
+                    <li><a href="#part-0">前言</a></li>
+                    <li><a href="#part-1">第 1 章</a></li>
+                </ul>
+            </div>
+        </reading-progress>
+    </tool-box>
+    <page-body>
+        <nav><a href="./index.html">主线故事</a> / 第 1 话</nav>
+        <h1 class="page-title">
+            <div class="ep">第 1 话</div>
+            <div class="title">火山制造</div>
+        </h1>
+        <hr>
+        <h2 id="part-0">前言</h2>
+        <div class="paper">
+            <div class="f-bold f-large align-center">采访记录</div>
+            <p class="f-small secondary-text align-end">000010837-ITL01</p>
+            <p class="secondary-text f-italic">备注：由于与正在进行的调查相关，已隐藏采访者和当事人的姓名。</p>
+            <hr>
+            <p><span class="f-bold">[采访者]：</span>可以说一说你的遭遇吗？</p>
+            <p><span class="f-bold">[当事人]：</span>我那天是准备带着我的狗去河的上游收我前一天布置的笼子，就是用来抓鱼虾的那种。我下笼子的那天是想着上游没什么人去，说不定那里鱼更多，就往上游那边去了。</p>
+            <p><span class="f-bold">[当事人]：</span>到了那边之后呢，我的狗子不知道为啥就变得有些奇怪，好像被什么东西吸引了就往林子里面跑，我想叫住它也没用，只能跟过去。树林里面根本就没有路，到处都是叶子藤蔓之类的，它那小身板跑得飞快，我费好大劲才勉强跟了上去。</p>
+            <p><span class="f-bold">[当事人]：</span>之后，追了大概得有一两公里的样子吧。我那狗子终于停住了，我追上去的时候它在对着一个山洞狂叫，我们这里很多这种山洞，我从外面看也没看出什么名堂。但是这狗子又一直叫个不停，我觉得要不进去看看，然后就带着狗子进去了。</p>
+            <p><span class="f-bold">[当事人]：</span>我出来只是过来收笼子的，没带照亮的东西，但是往下走走也够用了，没过多久我就发现这里面方方正正的，不知道是谁凿成这样，反正看起来就很老，狗子也看着有点奇怪，刚才在外面还一直叫，到里面来了好像在怕什么一样。</p>
+            <p><span class="f-bold">[采访者]：</span>还看到什么东西吗？</p>
+            <p><span class="f-bold">[当事人]：</span>还没说完，我带着狗子一直下到快要没光的地方，然后我就看到这底下有好几条道，墙上还有像自来水管一样的东西，但是摸一下好像就是石头，太暗了我也看不清里面到底还有啥东西，然后我就带着狗子出来了。就这。</p>
+            <p><span class="f-bold">[采访者]：</span>那，就是这样了？</p>
+            <p><span class="f-bold">[当事人]：</span>还能有啥，我又不敢继续往下走。</p>
+            <p><span class="f-bold">[采访者]：</span>好的，感谢你的合作。</p>
+        </div>
+        <h2 id="part-1">第 1 章</h2>
+        <p>“就、就这？” 我看完 Loran 递给我的这份采访记录，把这张纸推离面前。</p>
+        <p>“有什么问题？” Loran 还是一如既往地冷淡。</p>
+        <p>“这是不是太单薄了，我是说，这东西能提供的信息也太少了，我甚至都不知道他说的是不是真的。”</p>
+        <p>“我们在 Pritaz 群岛的办事处派人进行了初步的勘测，可以确认他说的是真实情况。”</p>
+        <p>“那，既然你们在那都有人了，为什么还要派我们去？”</p>
+        <p>“人手不足、经验不够、官僚主义，主要是最后一项。总之，如果你不接受的话，我会找别人代替你。” 虽然 Loran 的眼神似乎没有变化，但我总觉得被威胁了。</p>
+        <p>“另外，你可以全额报销差旅费用。”</p>
+        <p>这击溃了我的心理防线，我最终屈服于官僚主义的威压，答应参与这次的调查。当然，除此之外我也确实一直都想去 Pritaz 群岛看看，我看好多旅游指南都极尽所能地描述那里的风景是多么美丽，海和天空蓝得多么澄澈，火山和丛林是多么神秘，诸如此类的溢美之词。而且，我们这个海滨城市居然没有沙滩，真是耻辱，我得去感受一下真正的热带海滨是什么样。</p>
+        <p>从 Loran 的办公室出来之后，我下到三楼，去了 Aachen 的办公室。</p>
+        <p>Aachen 不在，不过她也跟我们的工作没关系，Matthew 和 Selene 在这就够了。</p>
+        <p>“怎样？” Matthew 看我进来，就问道。</p>
+        <p>我还没来得及回答，Selene 就先一步说话了。</p>
+        <p>“她同意了。” Selene 淡淡地说出了这个我还没宣布出来的既成事实。</p>
+        <p>“你怎么知道？” 我问她。</p>
+        <p>“Loran 跟我说能报销差旅费的时候，我就知道 Ella 一定会接受。”</p>
+        <p>我无言以对，她跟我见习了那么久，确实太了解我了。不过，这也怪我在熟悉的人面前就会展现真实的一面，但我本性如此，也没法改正了。</p>
+        <p>“嘛……是这样。”</p>
+        <p>“哈，还真是。话说，你之前去过那边吗？” Matthew 问我。</p>
+        <p>“没，我甚至都没怎么坐过船。”</p>
+        <p>“那，希望你不晕船吧。”</p>
+        <p>我听说过晕船的痛苦，不过我仅有的坐船经历都是在河流和近海，所以我也不知道我到底晕不晕船。</p>
+        <p>“但愿吧。我们什么时候走？”</p>
+        <p>“后天。” Selene 适时提醒道。</p>
+        <p>“这可没人告诉我啊？我还什么都没准备呢。”</p>
+        <p>他们显然在以一种“这也没办法”的眼神在看着我，那我也只能接受现在的情况，再狡辩就显得我嘴硬了。</p>
+        <p>“那好吧，后天什么时候？”</p>
+        <p>“下午四点在客运码头。” Matthew 又想到了什么，“对了，你得快点买票了，这航线很热门的。”</p>
+        <p>“谢谢提醒。”</p>
+        <p>之后我们就各自去做自己的事情了，天气太热，我懒得用扫帚飞行，于是搭了趟电车到码头的售票处，我运气还算好，到 Pritaz 群岛的票没剩多少了，看来大家真的是趋之若鹜，我也不免有点期待了。</p>
+        <div class="warning-stripe">
+            未完待续...
+        </div>
+    </page-body>
+    <page-footer>
+        <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
+    </page-footer>
+</body>
+</html>
