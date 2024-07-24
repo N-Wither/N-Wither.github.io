@@ -103,6 +103,23 @@ export class DOMUtils {
             }
         }
 
+        /**
+         * 
+         * @param {BetterElementWrapper | string | Node} element 
+         */
+        static #parseElement(element) {
+            if (element instanceof BetterElementWrapper) {
+                return element.element;
+            } else if (typeof element === 'string') {
+                return document.querySelector(element);
+            }
+            else if (element instanceof Node) {
+                return element;
+            } else {
+                return null;
+            }
+        }
+
         element;
 
         get() {
@@ -209,6 +226,21 @@ export class DOMUtils {
         }
 
         /**
+         * 
+         * @param {BetterElementWrapper | string | Node} sibling 
+         * @returns 
+         */
+        insertBefore(sibling) {
+            sibling = BetterElementWrapper.#parseElement(sibling)
+            if(sibling == null) {
+                throw new TypeError('Invalid sibling.');
+            }
+
+            this.element.parentNode.insertBefore(this.element, sibling);
+            return this;
+        }
+
+        /**
          * @param {string} html 
          * @returns 
          */
@@ -230,6 +262,46 @@ export class DOMUtils {
 
         remove() {
             this.element.remove();
+        }
+
+        /**
+         * 
+         * @param {BetterElementWrapper | string | Node} parent 
+         * @returns 
+         */
+        isChildOf(parent) {
+            parent = BetterElementWrapper.#parseElement(parent)
+            if(parent == null) {
+                throw new TypeError('Invalid parent.');
+            }
+
+            return parent.contains(this.element);
+        }
+
+        /**
+         * 
+         * @param {BetterElementWrapper | string | Node} sibling 
+         * @returns 
+         */
+        isFollowedBy(sibling) {
+            sibling = BetterElementWrapper.#parseElement(sibling)
+            if(sibling == null) {
+                throw new TypeError('Invalid sibling.');
+            }
+
+            return this.element.nextElementSibling === sibling;
+        }
+
+        get previous() {
+            return new BetterElementWrapper(this.element.previousElementSibling);
+        }
+
+        get next() {
+            return new BetterElementWrapper(this.element.nextElementSibling);
+        }
+
+        get parent() {
+            return new BetterElementWrapper(this.element.parentNode);
         }
     };
 

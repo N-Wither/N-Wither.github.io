@@ -12,7 +12,7 @@
     <script type="module" src="/web-components/page/body.js"></script>
     <script type="module" src="/web-components/page/footer.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
-    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/aqv2/components/details.js"></script>
     <style>
         aq-card{
             margin: 0.2em 0;
@@ -144,7 +144,15 @@
         </div>
         <p>不同版本的内容有些许不同。</p>
         <p>如果你喜欢这个作品，请考虑<a href="https://ifdian.net/a/NWither" target="_blank" rel="noopener noreferrer">赞助</a>，赞助者可以在游戏中留下你独特的痕迹！</p>
-        <aq-collapsible open-text="打开赞助者列表" close-text="关闭赞助者列表">
+        <aq-details>
+            <span slot="summary">交流反馈</span>
+            <span slot="close">交流反馈</span>
+            <p><span class="f-bold">QQ: </span>234459433</p>
+            <p><span class="f-bold">Discord: </span><a href="https://discord.gg/Dwq3bXVZwW" target="_blank" rel="noopener noreferrer">https://discord.gg/Dwq3bXVZwW</a></p>
+        </aq-details>
+        <aq-details>
+            <span slot="summary">赞助者列表</span>
+            <span slot="close">赞助者列表</span>
             <ul class="sponsors">
                 <li>阿卡迪亚小胎子</li>
                 <li>逐暮晨曦</li>
@@ -203,7 +211,7 @@
                 <li>键中间</li>
                 <li>爱发电用户_ed26f</li>
             </ul>
-        </aq-collapsible>
+        </aq-details>
         <aq-tooltip target=".tooltip-1">
             <div>然而国外早就有很多了</div>
         </aq-tooltip>
