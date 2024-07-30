@@ -1,11 +1,19 @@
-import { StringUtils } from './string.js'
+import { StringUtils } from './string.js';
+import { TypeUtils } from './type.js';
 
 /**
+ * @overload
  * @param {string} tagName
  * @param {any} content
+ * @returns {DOMUtils._ElementWrapper}
+ */
+/**
+ * @overload
+ * @param {Element} element
+ * @returns {DOMUtils._ElementWrapper}
  */
 function createElement(tagName, content) {
-    return new DOMUtils._BetterElementWrapper(tagName, content);
+    return new DOMUtils._ElementWrapper(tagName, content);
 }
 
 /**
@@ -15,23 +23,20 @@ function createElement(tagName, content) {
  * @returns
  */
 function select(selector, unwrap = false) {
-    if(typeof selector === 'string') {
+    if (typeof selector === 'string') {
         let el = document.querySelector(selector);
         if (el == null) {
             return null;
         } else {
-            return unwrap == true ? el : new DOMUtils._BetterElementWrapper(el);
+            return unwrap == true ? el : new DOMUtils._ElementWrapper(el);
         }
-    }
-    else if (typeof selector === 'object') {
-        if(selector instanceof Document) {
+    } else if (typeof selector === 'object') {
+        if (selector instanceof Document) {
             return document;
+        } else if (selector instanceof HTMLElement) {
+            return unwrap == true ? selector : new DOMUtils._ElementWrapper(selector);
         }
-        else if (selector instanceof HTMLElement) {
-            return unwrap == true ? selector : new DOMUtils._BetterElementWrapper(selector);
-        }
-    }
-    else throw new TypeError('Invalid selector.');
+    } else throw new TypeError('Invalid selector.');
 }
 
 /**
@@ -48,13 +53,123 @@ function selectAll(selector, unwrap = false) {
         if (unwrap == true) {
             return list;
         } else {
-            return Array.from(list).map(el => new DOMUtils._BetterElementWrapper(el));
+            return Array.from(list).map(el => new DOMUtils._ElementWrapper(el));
         }
     }
 }
 
+/**
+ * Get all elements in specified node.
+ * @overload
+ * @param {Node} from 
+ * @param {{allowShadowRoot?: boolean, unwrap?: false}} options
+ * @returns {DOMUtils._ElementWrapper[]}
+ */
+/**
+ * @overload
+ * @param {Node} from 
+ * @param {{allowShadowRoot?: boolean, unwrap?: true}} options 
+ * @returns {Element[]}
+ */
+function getAllElements(from = document.body, options = {allowShadowRoot: false, unwrap: false}) {
+    TypeUtils.checkWithError(from, Node, 'Param 1 ("from") is invalid.')
+    TypeUtils.checkWithError(options, 'object', 'Param 2 ("options") is invalid.')
+    let walker = document.createTreeWalker(from, NodeFilter.SHOW_ELEMENT, null);
+    let elements = [];
+    let defaultOptions = {allowShadowRoot: false, unwrap: false};
+    options = Object.assign(defaultOptions, options);
+
+    if(from.shadowRoot != null && options.allowShadowRoot == true) {
+        elements.push(...getAllElements(from.shadowRoot, options));
+    }
+
+    while (walker.nextNode()) {
+        let c = walker.currentNode;
+
+        elements.push(options.unwrap == true ? c : createElement(c))
+
+        if(c.shadowRoot != null && options.allowShadowRoot == true) {
+            elements.push(...getAllElements(c.shadowRoot, options));
+        }
+    }
+
+    return elements
+}
+
+/**
+ * Just like `querySelector`, but it will also search in the shadowRoot of the element (if exists).
+ * @overload
+ * @param {string} selector 
+ * @param {Node} from 
+ * @param {{all?: false, unwrap?: false}} options
+ * @returns {DOMUtils._ElementWrapper | null}
+ */
+/**
+ * @overload
+ * @param {string} selector 
+ * @param {Node} from 
+ * @param {{all?: true, unwrap?: false}} options
+ * @returns {DOMUtils._ElementWrapper[]}
+ */
+/**
+ * @overload
+ * @param {string} selector 
+ * @param {Node} from 
+ * @param {{all?: false, unwrap?: true}} options
+ * @returns {Element | null}
+ */
+/**
+ * @overload
+ * @param {string} selector 
+ * @param {Node} from 
+ * @param {{all?: true, unwrap?: true}} options
+ * @returns {Element[]}
+ */
+function deepSelect(selector, from = document, options = { all: false, unwrap: false }) {
+    TypeUtils.checkWithError(from, Node, 'Param 2 ("from") is invalid.')
+    TypeUtils.checkWithError(selector, 'string', 'Param 1 ("selector") is invalid.')
+
+    let defaultOptions = { all: false, unwrap: false };
+    options = Object.assign(defaultOptions, options);
+
+    let elements = getAllElements(from, {allowShadowRoot: true, unwrap: true});
+    let result = options.all == true ? [] : null;
+
+    for (let el of elements) {
+        if (el.matches(selector) == true) {
+            if(options.all == true) {
+                options.unwrap == true ? result.push(el) : result.push(createElement(el));
+            }
+            else {
+                options.unwrap == true ? result = el : result = createElement(el);
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+
+/**
+ * @overload
+ * @param {string} selector 
+ * @param {Node} from 
+ * @param {false} unwrap 
+ * @returns {DOMUtils._ElementWrapper[]} 
+ */
+/**
+ * @overload
+ * @param {string} selector 
+ * @param {Node} from 
+ * @param {true} unwrap 
+ * @returns {Element[]} 
+ */
+function deepSelectAll(selector, from = document, unwrap = false) {
+    return deepSelect(selector, from, { all: true, unwrap: unwrap });
+}
+
 export class DOMUtils {
-    static _BetterElementWrapper = class BetterElementWrapper {
+    static _ElementWrapper = class ElementWrapper {
         /**
          * @overload
          * @param {string} tagName
@@ -69,13 +184,15 @@ export class DOMUtils {
                 this.element = document.createElement(tagName);
             } else if (tagName instanceof HTMLElement) {
                 this.element = tagName;
+            } else if (tagName instanceof ElementWrapper) {
+                this.element = tagName.element;
             }
 
             if (content != undefined) {
                 if (Array.isArray(content)) {
-                    content.forEach(item => BetterElementWrapper.#append(this.element, item));
+                    content.forEach(item => ElementWrapper.#append(this.element, item));
                 } else {
-                    BetterElementWrapper.#append(this.element, content);
+                    ElementWrapper.#append(this.element, content);
                 }
             }
         }
@@ -91,7 +208,7 @@ export class DOMUtils {
                 target.appendChild(textNode);
             } else if (item instanceof Node) {
                 target.appendChild(item);
-            } else if (item instanceof BetterElementWrapper) {
+            } else if (item instanceof ElementWrapper) {
                 target.appendChild(item.element);
             } else {
                 try {
@@ -104,16 +221,15 @@ export class DOMUtils {
         }
 
         /**
-         * 
-         * @param {BetterElementWrapper | string | Node} element 
+         *
+         * @param {ElementWrapper | string | Node} element
          */
         static #parseElement(element) {
-            if (element instanceof BetterElementWrapper) {
+            if (element instanceof ElementWrapper) {
                 return element.element;
             } else if (typeof element === 'string') {
                 return document.querySelector(element);
-            }
-            else if (element instanceof Node) {
+            } else if (element instanceof Node) {
                 return element;
             } else {
                 return null;
@@ -130,7 +246,7 @@ export class DOMUtils {
          *
          * @param {string} name
          * @param {string} value
-         * @returns 
+         * @returns
          */
         attr(name, value) {
             if (value === null) {
@@ -154,13 +270,13 @@ export class DOMUtils {
         /**
          * @overload
          * @param {object} map
-         * @returns {BetterElementWrapper}
+         * @returns {ElementWrapper}
          */
         /**
          * @overload
          * @param {string} name
          * @param {string} value
-         * @returns {BetterElementWrapper}
+         * @returns {ElementWrapper}
          */
         css(nameOrMap, value) {
             if (typeof nameOrMap === 'string') {
@@ -221,28 +337,56 @@ export class DOMUtils {
          * @param {string | Node} child
          */
         append(child) {
-            BetterElementWrapper.#append(this.element, child);
+            ElementWrapper.#append(this.element, child);
             return this;
         }
 
         /**
-         * 
-         * @param {BetterElementWrapper | string | Node} sibling 
-         * @returns 
+         *
+         * @param {ElementWrapper | string | Node} sibling
+         * @returns
          */
         insertBefore(sibling) {
-            sibling = BetterElementWrapper.#parseElement(sibling)
-            if(sibling == null) {
+            let target = ElementWrapper.#parseElement(sibling);
+            if (target == null) {
                 throw new TypeError('Invalid sibling.');
             }
 
-            this.element.parentNode.insertBefore(this.element, sibling);
+            let parent = target.parentNode;
+            if (parent == null) {
+                document.body.appendChild(this.element);
+            } else {
+                parent.insertBefore(this.element, target);
+            }
+
             return this;
         }
 
         /**
-         * @param {string} html 
-         * @returns 
+         *
+         * @param {ElementWrapper | string | Node} sibling
+         * @returns
+         */
+        insertAfter(sibling) {
+            /**@type {Node} */
+            let target = ElementWrapper.#parseElement(sibling);
+            if (target == null) {
+                throw new TypeError('Invalid sibling.');
+            }
+
+            let parent = target.parentNode;
+            if (parent == null) {
+                document.body.appendChild(this.element);
+            } else {
+                parent.insertBefore(this.element, target.nextSibling);
+            }
+
+            return this;
+        }
+
+        /**
+         * @param {string} html
+         * @returns
          */
         html(html) {
             this.element.innerHTML = html;
@@ -265,13 +409,13 @@ export class DOMUtils {
         }
 
         /**
-         * 
-         * @param {BetterElementWrapper | string | Node} parent 
-         * @returns 
+         *
+         * @param {ElementWrapper | string | Node} parent
+         * @returns
          */
         isChildOf(parent) {
-            parent = BetterElementWrapper.#parseElement(parent)
-            if(parent == null) {
+            parent = ElementWrapper.#parseElement(parent);
+            if (parent == null) {
                 throw new TypeError('Invalid parent.');
             }
 
@@ -279,13 +423,13 @@ export class DOMUtils {
         }
 
         /**
-         * 
-         * @param {BetterElementWrapper | string | Node} sibling 
-         * @returns 
+         *
+         * @param {ElementWrapper | string | Node} sibling
+         * @returns
          */
         isFollowedBy(sibling) {
-            sibling = BetterElementWrapper.#parseElement(sibling)
-            if(sibling == null) {
+            sibling = ElementWrapper.#parseElement(sibling);
+            if (sibling == null) {
                 throw new TypeError('Invalid sibling.');
             }
 
@@ -293,21 +437,60 @@ export class DOMUtils {
         }
 
         get previous() {
-            return new BetterElementWrapper(this.element.previousElementSibling);
+            return new ElementWrapper(this.element.previousElementSibling);
         }
 
         get next() {
-            return new BetterElementWrapper(this.element.nextElementSibling);
+            return new ElementWrapper(this.element.nextElementSibling);
         }
 
         get parent() {
-            return new BetterElementWrapper(this.element.parentNode);
+            return new ElementWrapper(this.element.parentNode);
         }
+    };
+
+    /**
+     * Visual effects for your elements.
+     */
+    static FX = {
+        /**
+         *
+         * @param {DOMUtils._ElementWrapper | HTMLElement | string} element
+         */
+        shake: element => {
+            let target;
+            if (element instanceof DOMUtils._ElementWrapper) {
+                target = element.element;
+            } else if (element instanceof HTMLElement) {
+                target = element;
+            } else if (typeof element === 'string') {
+                target = DOMUtils.createElement(element).element;
+            } else {
+                throw new TypeError('Invalid element.');
+            }
+
+            target.animate(
+                [
+                    { transform: 'translate(0)' },
+                    { transform: 'translate(-10px, -10px)' },
+                    { transform: 'translate(10px, 10px)' },
+                    { transform: 'translate(-10px, 10px)' },
+                    { transform: 'translate(10px, -10px)' },
+                    { transform: 'translate(0)' },
+                ],
+                {
+                    duration: 200,
+                }
+            );
+        },
     };
 
     static createElement = createElement;
     static select = select;
     static selectAll = selectAll;
+    static getAllElements = getAllElements;
+    static deepSelect = deepSelect;
+    static deepSelectAll = deepSelectAll;
 }
 
-export { createElement, select, selectAll };
+export { createElement, select, selectAll, getAllElements, deepSelect, deepSelectAll };

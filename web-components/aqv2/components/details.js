@@ -2,6 +2,7 @@
 
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { createLocalizer } from '../lib/localize.js';
+import { DOMUtils } from '../../../assets/js/aquery/dom.js'
 
 export class AqDetails extends LitElement {
     static styles = css`
@@ -189,6 +190,16 @@ export class AqDetails extends LitElement {
         else this.removeAttribute('open')
 
         this.dispatchEvent(new CustomEvent('hide'))
+    }
+
+    connectedCallback() {
+        super.connectedCallback()
+
+        let summary = this.querySelector('[slot=summary]')
+        let close = this.querySelector('[slot=close]')
+        if(summary != null && close == null) {
+            DOMUtils.createElement('span', summary.innerHTML).attr('slot', 'close').insertAfter(summary)
+        }
     }
 }
 

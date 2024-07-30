@@ -1,6 +1,7 @@
 // Fonts
 @import url('/assets/css/fonts/metropolis.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@100..900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
 
 // Cross Imports
@@ -213,6 +214,7 @@ html {
     --general-shadow: 0px 4px 8px var(--shadow-color);
 
     --font-common: 'Metropolis', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
+    --font-serif: 'Noto Serif SC', serif;
     --font-monospace: monospace;
 }
 
@@ -280,10 +282,6 @@ html {
         weight: 300;
     }
     scrollbar-color: var(--accent-color) var(--background-color);
-}
-
-:not(:defined) {
-    visibility: hidden;
 }
 
 body {
@@ -492,3 +490,5 @@ nav {
 
 .lh-unset { line-height: unset; }
 .lh-initial { line-height: initial; }
+
+.txt-secondary { color: var(--text-color-lt); }

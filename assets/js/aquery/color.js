@@ -1,3 +1,5 @@
+import { RandomUtils } from './random.js'
+
 /**
  * Utility class for colors.
  */
@@ -108,6 +110,18 @@ export class ColorUtils {
         get h() {return this.hsla.h}
         get s() {return this.hsla.s}
         get l() {return this.hsla.l}
+
+        toCssRgba() {
+            return `rgba(${this.#rgba.r}, ${this.#rgba.g}, ${this.#rgba.b}, ${this.#rgba.a})`
+        }
+
+        toCssHsl() {
+            return `hsl(${this.hsla.h} ${this.hsla.s}% ${this.hsla.l}% / ${this.#rgba.a})`
+        }
+
+        toString() {
+            return this.hex
+        }
     }
 
     /**
@@ -117,5 +131,28 @@ export class ColorUtils {
      */
     static create(color) {
         return new ColorUtils.Color(color)
+    }
+
+    static random() {
+        return ColorUtils.create(RandomUtils.randomInt(0x000000, 0xFFFFFF).toString(16).padStart(6, '0'))
+    }
+
+    static palette = {
+        WHITE: ColorUtils.create('#FFFFFF'),
+        SILVER: ColorUtils.create('#C0C0C0'),
+        GRAY: ColorUtils.create('#808080'),
+        BLACK: ColorUtils.create('#000000'),
+        RED: ColorUtils.create('#FF0000'),
+        MAROON: ColorUtils.create('#800000'),
+        YELLOW: ColorUtils.create('#FFFF00'),
+        OLIVE: ColorUtils.create('#808000'),
+        LIME: ColorUtils.create('#00FF00'),
+        GREEN: ColorUtils.create('#008000'),
+        AQUA: ColorUtils.create('#00FFFF'),
+        TEAL: ColorUtils.create('#008080'),
+        BLUE: ColorUtils.create('#0000FF'),
+        NAVY: ColorUtils.create('#000080'),
+        PURPLE: ColorUtils.create('#800080'),
+        FUCHSIA: ColorUtils.create('#FF00FF'),
     }
 }

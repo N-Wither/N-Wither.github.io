@@ -1,9 +1,10 @@
-a {
+a, .link {
     color: var(--link-color);
     text-decoration: none;
     background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;
     background-size: 0 2px;
     transition: background-size 200ms;
+    cursor: pointer;
 
     &:visited {
         color: var(--link-color-visited);

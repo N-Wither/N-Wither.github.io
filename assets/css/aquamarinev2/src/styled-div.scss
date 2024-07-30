@@ -22,7 +22,7 @@
     }
 }
 
-.paper {
+div.paper {
     max-width: max(80%, 50rem);
     min-height: 16rem;
     background-color: var(--paper-color);
@@ -33,7 +33,7 @@
     @include paper();
 }
 
-.paperstack {
+div.paperstack {
     @include paper();
     min-height: 20rem;
     min-width: 20rem;
@@ -76,7 +76,7 @@
     margin-block: 1em;
 }
 
-.notation {
+div.notation {
     $border: 0.2em solid var(--border-color);
     background-color: var(--background-color-dk);
     border-left: $border;
@@ -85,13 +85,13 @@
     @include styledBoxes();
 }
 
-.modal {
+div.modal {
     border: 0.25em solid var(--border-color);
     max-width: max(85%, 50em);
     @include styledBoxes();
 }
 
-.ribbon {
+div.ribbon {
     --f: .5em; /* control the folded part*/
     --r: .8em; /* control the ribbon shape */
     position: absolute;
@@ -114,7 +114,7 @@
     }
 }
 
-.jotting {
+div.jotting {
     @include styledBoxes();
     border: dotted 0.2em var(--border-color);
     max-width: max(60%, 45em);
@@ -129,9 +129,9 @@ div.warning-stripe {
 
     @include styledBoxes();
     position: relative;
-    background-color: var(--background-color);
     
     &::before {
+        z-index: -1;
         position: absolute;
         inset: 0;
         content: '';

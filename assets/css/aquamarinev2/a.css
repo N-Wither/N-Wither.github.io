@@ -1,18 +1,19 @@
-a {
+a, .link {
   color: var(--link-color);
   text-decoration: none;
   background: linear-gradient(to right, var(--link-color), var(--link-color)) no-repeat right bottom;
   background-size: 0 2px;
   transition: background-size 200ms;
+  cursor: pointer;
 }
-a:visited {
+a:visited, .link:visited {
   color: var(--link-color-visited);
 }
-a:is(:hover, :focus) {
+a:is(:hover, :focus), .link:is(:hover, :focus) {
   background-position-x: left;
   background-size: 100% 2px;
 }
-a.no-deco {
+a.no-deco, .link.no-deco {
   background: none;
 }
 

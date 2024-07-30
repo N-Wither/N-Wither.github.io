@@ -58,6 +58,8 @@ export class AqTooltip extends LitElement {
         this.trigger = 'mouseenter focus'
         this.target = undefined
         this.interactive = false
+        this.source = undefined
+        this.clone = false
     }
 
     static get properties(){
@@ -66,6 +68,8 @@ export class AqTooltip extends LitElement {
             trigger: {type: String},
             target: {type: String},
             interactive: {type: Boolean},
+            source: {type: String},
+            clone: {type: Boolean},
         }
     }
 
@@ -118,24 +122,26 @@ export class AqTooltip extends LitElement {
             theme: 'aquamarine',
         }
 
+        let sourceElement
+        if(this.source != undefined) {
+            sourceElement = document.querySelector(this.source)
+            if(sourceElement == null) throw new Error(`Source element not found: ${this.source}`)
+        }
+
         if(this.target != undefined) {
             this.tippyInstance = tippy(this.target, {
                 ...tippyProperties,
-                content: this.innerHTML,
+                content: this.source ? (this.clone ? sourceElement.cloneNode(true) : sourceElement) : this.innerHTML,
                 allowHTML: true
             })
         }
         else {
-            let children = []
-            for(let el of this.children){
-                if(el.slot != 'tooltip') children.push(el)
-            }
-
+            let children = Array.from(this.children).filter(child => child.slot != 'tooltip')
             let tooltip = this.querySelector('[slot=tooltip]')
 
             this.tippyInstance = tippy(children, {
                 ...tippyProperties,
-                content: tooltip
+                content: this.source ? (this.clone ? sourceElement.cloneNode(true) : sourceElement) : tooltip,
             })
         }
     }
