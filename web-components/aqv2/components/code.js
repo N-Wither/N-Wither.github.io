@@ -2,8 +2,10 @@
 
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import dedent from 'https://cdn.jsdelivr.net/npm/ts-dedent@2.2.0/+esm';
-import { codeToHtml } from 'https://cdn.jsdelivr.net/npm/shiki@1.4.0/+esm';
+import { codeToHtml } from 'https://esm.sh/shiki@1.12.0';
+// import { codeToHtml } from 'https://cdn.jsdelivr.net/npm/shiki@1.4.0/+esm';
 import { createLocalizer } from '../lib/localize.js'
+import { deepSelectAll } from '../../../assets/js/squash/dom.js';
 import './icon.js'
 import './tooltip.js'
 
@@ -198,3 +200,9 @@ export class AqCodeblock extends LitElement {
 }
 
 customElements.define('aq-code', AqCodeblock)
+
+document.addEventListener('theme-change', e => {
+    deepSelectAll('aq-code', document, true).forEach(el => {
+        el.dataset.theme = e.detail.theme
+    })
+})

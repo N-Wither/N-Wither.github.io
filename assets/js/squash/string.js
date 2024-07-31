@@ -6,7 +6,7 @@ export class StringUtils {
      * @param {string} str
      * @returns
      * @example
-     * Aq.Str.camelToKebab('helloWorld') // "hello-world"
+     * sQuash.Str.camelToKebab('helloWorld') // "hello-world"
      */
     static camelToKebab(str) {
         return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
@@ -16,7 +16,7 @@ export class StringUtils {
      * @param {string} str
      * @returns
      * @example
-     * Aq.Str.kebabToCamel('hello-world') // "helloWorld"
+     * sQuash.Str.kebabToCamel('hello-world') // "helloWorld"
      */
     static kebabToCamel(str) {
         return str.replace(/-([a-z])/g, function (g) {
@@ -29,7 +29,7 @@ export class StringUtils {
      * @param {string} str
      * @returns
      * @example
-     * Aq.Str.capitalize('hello world') // "Hello world"
+     * sQuash.Str.capitalize('hello world') // "Hello world"
      */
     static capitalize(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);

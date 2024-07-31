@@ -1,4 +1,5 @@
 import { RandomUtils } from './random.js'
+import { TypeUtils } from './type.js';
 
 /**
  * Utility class for colors.
@@ -41,7 +42,11 @@ export class ColorUtils {
      * @param {'css' | 'object'} [as = 'object']
      * @returns 
      */
-    static rgbToHSLA(r, g, b, a, as = 'object') {
+    static rgbToHSLA(r, g, b, a = 1, as = 'object') {
+        TypeUtils.checkWithError(r, 'number', 'Param "r" is invalid.')
+        TypeUtils.checkWithError(g, 'number', 'Param "g" is invalid.')
+        TypeUtils.checkWithError(b, 'number', 'Param "b" is invalid.')
+        TypeUtils.checkWithError(a, 'number', 'Param "a" is invalid.')
         r /= 255;
         g /= 255;
         b /= 255;
@@ -71,7 +76,7 @@ export class ColorUtils {
             return { h, s, l, a };
         }
         else {
-            return `hsla(${h}, ${s}, ${l} / ${a})`
+            return `hsla(${h} ${s} ${l} / ${a})`
         }
     }
 

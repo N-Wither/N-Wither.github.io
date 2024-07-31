@@ -68,6 +68,7 @@ export class DarkModeButton extends HeaderButton {
         }
         if(broadCast === true){
             // DarkModeButton.#channel.postMessage({theme: mode})
+            document.dispatchEvent(new CustomEvent('theme-change', {detail: {theme: mode}}))
         }
     }
 

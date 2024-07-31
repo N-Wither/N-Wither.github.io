@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sQuash</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/assets/js/squash/index-global.js"></script>
+    <script type="module" src="/web-components/page/reading-progress.js"></script>
+    <script type="module" src="/web-components/aqv2/components/code.js"></script>
+    <style>
+        :root, :root.theme-dark {
+            --accent-color: #87b66b;
+            --accent-color-dk: #4d8d50;
+
+            --link-color: var(--accent-color);
+            --link-color-visited: var(--accent-color-dk);
+        }
+
+        .jquery {
+            color: #0865a7;
+        }
+
+        .lodash {
+            color: #328df7;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .squash {
+            color: #87b66b;
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div class="f-bold f-xl flex-center squash" slot="category">sQuash</div>
+    </page-header>
+    <tool-box>
+        <to-top></to-top>
+        <reading-progress>
+            <b>目录</b>
+            <ul>
+                <li><a href="#foreword">前言</a></li>
+                <li><a href="#dom">DOM</a></li>
+                <li><a href="#func">函数</a></li>
+                <li><a href="#color">颜色</a></li>
+                <li><a href="#random">随机</a></li>
+                <li><a href="#str">字符串</a></li>
+                <li><a href="#type">类型</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </reading-progress>
+    </tool-box>
+    <page-body>
+        <h1>sQuash</h1>
+        <hr>
+        <h2 id="foreword">前言</h2>
+        <blockquote>
+            <p>虽然我不常写东西，但是我很热衷于造轮子……</p>
+            <p style="text-align: end;">——我</p>
+        </blockquote>
+        <p>是了，我又造了一个新的轮子。<span class="squash">s</span><span class="jquery">Qu</span><span class="lodash">ash</span> 是一个受到 <span class="jquery">jQuery</span> 和 <span class="lodash"><span class="underline">Lo</span>dash</span> 启发的使用纯 JS 编写的库。当然我现在还没怎么使用它，说不定以后也不会用到，但是我确实是写了这么一个库，这是不可否认的我的劳动成果。</p>
+        <p>你可以在浏览器的控制台中使用 <code>sQuash</code> 来体验它。</p>
+        <h2 id="dom">DOM</h2>
+        <p>首先类不能直接当作函数调用，所以要使用 sQuash 选择一个元素，要这样做：</p>
+        <aq-code language="js">
+            let div = sQuash.Dom.select('div')
+        </aq-code>
+        <p>当然没有<code>$</code>方便，但即便如此也比 <code>document.querySelector</code> 要短 4 个字符了。实在不行，也可以这样嘛：</p>
+        <aq-code language="js">
+            let $ = sQuash.Dom.select
+            $.all = sQuash.Dom.selectAll
+            $.make = sQuash.Dom.createElement
+        </aq-code>
+        <p>这样是不是就方便多啦？</p>
+        <p>这个模块的内容还挺多的，我暂时不想写那么多字，但是我写了一个 <code>d.ts</code> 文件：</p>
+        <aq-code src="/assets/js/squash/dom.d.ts" language="ts"></aq-code>
+
+        <h2 id="func">函数</h2>
+        <p>目前只有两个方法可用。</p>
+        <h3><code>debounce</code></h3>
+        <p>创建一个函数的防抖版本，不过这种事情为什么要叫防抖？</p>
+        <aq-code language="js">
+            function handleScroll() {
+                console.log('scroll')
+            }
+
+            let debounced = sQuash.Func.debounce(handleScroll)
+
+            window.addEventListener('scroll', debounced)
+        </aq-code>
+        <p>如果要指定防抖时长，就往第二个参数那里填一个数字，像上面这样不填的话，默认是 300.</p>
+        <h3><code>once</code></h3>
+        <p>创建一个函数的副本，但是只能被执行一次，再次执行的话就会返回先前得到的值。这个函数的作用很简单，所以我不想写示例代码了。</p>
+
+        <h2 id="color">颜色</h2>
+        <h3><code>hexToRGBA</code></h3>
+        <p>第二个参数可以填<code>'css'</code>（默认）或者<code>'object'</code>。</p>
+        <aq-code language="js">
+            sQuash.Color.hexToRGBA('#fff') //'rgba(255, 255, 255, 1)'
+            sQuash.Color.hexToRGBA('#66ccff', 'object') // {r: 102, g: 204, b: 255, a: 1}
+        </aq-code>
+        <h3><code>rgbToHSLA</code></h3>
+        <p>最后一个参数同上，但默认是 <code>'object'</code>。</p>
+        <aq-code language="js">
+            sQuash.Color.rgbToHSLA(102, 204, 255, 1, 'css') // 'hsla(200 100 70 / 1)'
+        </aq-code>
+        <h3><code>create</code></h3>
+        <p>创建一个 <code>Color</code> 对象，参数支持 hex 颜色代码和数字。</p>
+        <h3><code>random</code></h3>
+        <p>返回一个随机的 <code>Color</code> 对象。</p>
+        <h3><code>Color</code></h3>
+        <p>一个类，上面有一些属性和方法。<code>Color</code> 对象可以直接赋值给一个元素的 <code>style</code> 上的属性。</p>
+        <aq-code language="js">
+            document.body.style.color = sQuash.Color.random()
+        </aq-code>
+
+        <h2 id="random">随机</h2>
+        <h3><code>randomInt</code></h3>
+        <p>返回一个指定区间内的整数，默认区间是 1 到 100。</p>
+        <h3><code>randomNumber</code></h3>
+        <p>返回一个指定区间内的数字，默认区间是 0 到 1。</p>
+        <h3><code>randomPick</code></h3>
+        <p>从一个可迭代对象（例如数组）中随机挑选一个元素。</p>
+
+        <h2 id="str">字符串</h2>
+        <p>懒得详细介绍了，你自己看吧。</p>
+        <aq-code language="js">
+            sQuash.Str.camelToKebab('helloWorld') // "hello-world"
+            sQuash.Str.kebabToCamel('hello-world') // "helloWorld"
+            sQuash.Str.capitalize('hello world') // "Hello world"
+        </aq-code>
+
+        <h2 id="type">类型</h2>
+        <h3><code>check</code></h3>
+        <p>检测一个值的类型是否为指定的类型，或者一个对象是否是指定的类的实例。</p>
+        <aq-code language="js">
+            sQuash.Type.check(1, 'number') // true
+            sQuash.Type.check(document.createElement('div'), HTMLDivElement) // true
+        </aq-code>
+        <h3><code>checkWithError</code></h3>
+        <p>同上，但是如果类型不符的话会抛出错误而不是返回 <code>false</code>。</p>
+        <aq-code language="js">
+            sQuash.Type.checkWithError(1, 'string', 'Invalid value.') // uncaught TypeError: Invalid value. Expected string, but got number.
+        </aq-code>
+        <h3><code>isSubclassOf</code></h3>
+        <aq-code language="js">
+            sQuash.Type.isSubclassOf(HTMLElement, EventTarget) // true
+        </aq-code>
+        <h3><code>isIterable</code></h3>
+        <p>判断给定的对象是否可迭代。</p>
+        <h3><code>isObject</code></h3>
+        <p>判断给定的值是否是对象（注：<code>null</code> 会返回 <code>false</code>，函数会返回 <code>true</code>）。</p>
+        
+        <h2>常见问题</h2>
+        <p class="f-bold">为什么要把这些函数写成类的静态方法？</p>
+        <p>因为需要一个对象作为这些函数的命名空间，所以要和普通的对象作区分，刚好类名在我的 VSCode 里面会以漂亮的红色字显示，所以我就这样做了。</p>
+        <p class="f-bold">我想要[某种功能]！</p>
+        <p>真有人要用这玩意啊？</p>
+    </page-body>
+    <page-footer></page-footer>
+</body>
+</html>
