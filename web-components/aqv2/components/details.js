@@ -2,7 +2,7 @@
 
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { createLocalizer } from '../lib/localize.js';
-import { DOMUtils } from '../../../assets/js/squash/dom.js'
+import { DomUtils } from '../../../assets/js/squash/dom.js'
 
 export class AqDetails extends LitElement {
     static styles = css`
@@ -198,7 +198,7 @@ export class AqDetails extends LitElement {
         let summary = this.querySelector('[slot=summary]')
         let close = this.querySelector('[slot=close]')
         if(summary != null && close == null) {
-            DOMUtils.createElement('span', summary.innerHTML).attr('slot', 'close').insertAfter(summary)
+            DomUtils.createElement('span', summary.innerHTML).attr('slot', 'close').insertAfter(summary)
         }
     }
 }
