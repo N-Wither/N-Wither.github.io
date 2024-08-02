@@ -7,12 +7,15 @@ html.theme-dark {
 }
 
 blockquote {
+    --blockquote-margin-block: 1em;
+    --blockquote-margin-inline: 2em;
+
     background-color: var(--blockquote-bg);
     border-left: 6px solid var(--color-neutral);
     padding: 1em 0.6em;
     position: relative;
     box-sizing: border-box;
-    margin: 1em 2em;
+    margin: var(--blockquote-margin-block) var(--blockquote-margin-inline);
 
     &::before {
         position: absolute;
@@ -72,5 +75,11 @@ blockquote.danger {
     }
     &::after {
         background: var(--color-danger);
+    }
+}
+
+@media (max-width: 768px) {
+    blockquote {
+        --blockquote-margin-inline: 0.2em;
     }
 }

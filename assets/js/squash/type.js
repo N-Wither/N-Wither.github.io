@@ -30,17 +30,19 @@ export class TypeUtils {
      */
     static checkWithError(value, targetType, message = '') {
         let result = TypeUtils.check(value, targetType);
+        // If message is empty or the message ends with a period, question mark or exclamation mark, the letter E should be capitalized.
+        let e = message == '' ? 'E' : message.match(/.*(\.|\?|!)$/) ? ' E' : ' e'
         if (result === true) {
             return true;
         } else {
             if (TypeUtils.isObject(value) === false && typeof targetType !== 'function') {
-                throw new TypeError(`${message} Expected ${targetType}, but got ${typeof value}.`);
+                throw new TypeError(`${message}${e}xpected ${targetType}, but got ${typeof value}.`);
             } else if (TypeUtils.isObject(value) === true && typeof targetType === 'function') {
-                throw new TypeError(`${message} Expected instance of ${targetType.name}, but got ${value.constructor.name}.`);
+                throw new TypeError(`${message}${e}xpected instance of ${targetType.name}, but got ${value.constructor.name}.`);
             } else if (TypeUtils.isObject(value) === false && typeof targetType === 'function') {
-                throw new TypeError(`${message} Expected instance of ${targetType.name}, but got ${typeof value}.`);
+                throw new TypeError(`${message}${e}xpected instance of ${targetType.name}, but got ${typeof value}.`);
             } else if (TypeUtils.isObject(value) === true && typeof targetType !== 'function') {
-                throw new TypeError(`${message} Expected ${targetType}, but got ${value.constructor.name}.`);
+                throw new TypeError(`${message}${e}xpected ${targetType}, but got ${value.constructor.name}.`);
             }
         }
     }

@@ -1,24 +1,28 @@
-declare function createElement<K extends keyof HTMLElementTagNameMap>(tagName: K, content?: any): ElementWrapper<HTMLElementTagNameMap[K]>;
+import { AquamarineComponentTagNameMap } from '../../../web-components/aqv2/components/components.d.ts'
+
+declare interface CompleteElementTagNameMap extends HTMLElementTagNameMap, AquamarineComponentTagNameMap, SVGElementTagNameMap, MathMLElementTagNameMap {}
+
+declare function createElement<K extends keyof CompleteElementTagNameMap>(tagName: K, content?: any): ElementWrapper<CompleteElementTagNameMap[K]>;
 declare function createElement<T extends Element>(element: T): ElementWrapper<T>;
 
-declare function select(selector: string, unwrap?: true): HTMLElement | null
-declare function select(selector: string, unwrap?: false): ElementWrapper<HTMLElement> | null
-declare function select(selector: Element, unwrap?: true): HTMLElement
-declare function select(selector: Element, unwrap?: false): ElementWrapper<HTMLElement>
+declare function select(selector: string, unwrap?: true): Element | null
+declare function select(selector: string, unwrap?: false): ElementWrapper<Element> | null
+declare function select(selector: Element, unwrap?: true): Element
+declare function select(selector: Element, unwrap?: false): ElementWrapper<Element>
 
-declare function selectAll(selector: string, unwrap?: true): NodeListOf<HTMLElement>
-declare function selectAll(selector: string, unwrap?: false): ElementWrapper<HTMLElement>[]
+declare function selectAll(selector: string, unwrap?: true): NodeListOf<Element>
+declare function selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
 
 declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: true}): Element[]
-declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: false}): ElementWrapper<HTMLElement>[]
+declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: false}): ElementWrapper<Element>[]
 
-declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: false}): ElementWrapper<HTMLElement>[]
-declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: false}): ElementWrapper<HTMLElement> | null
-declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: true}): HTMLElement[]
-declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: true}): HTMLElement | null
+declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: false}): ElementWrapper<Element>[]
+declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: false}): ElementWrapper<Element> | null
+declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: true}): Element[]
+declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: true}): Element | null
 
-declare function deepSelectAll(selector: string, from?: Node, unwrap?: false): ElementWrapper<HTMLElement>[]
-declare function deepSelectAll(selector: string, from?: Node, unwrap?: true): HTMLElement[]
+declare function deepSelectAll(selector: string, from?: Node, unwrap?: false): ElementWrapper<Element>[]
+declare function deepSelectAll(selector: string, from?: Node, unwrap?: true): Element[]
 
 declare class DomUtils {
     static _ElementWrapper: typeof ElementWrapper;
@@ -35,11 +39,11 @@ declare class DomUtils {
     }
 }
 
-declare type ElementWrapperValidTarget = ElementWrapper<HTMLElement> | HTMLElement | string;
+declare type ElementWrapperValidTarget = ElementWrapper<Element> | Element | string;
 
 declare export class ElementWrapper<T> {
     element: T;
-    constructor(tagName: keyof HTMLElementTagNameMap, content?: any);
+    constructor(tagName: keyof CompleteElementTagNameMap, content?: any);
     constructor(element: Element)
 
     get(): T
@@ -59,11 +63,11 @@ declare export class ElementWrapper<T> {
     remove(): void
     isChildOf(parent: ElementWrapperValidTarget): boolean
     isFollowedBy(sibling: ElementWrapperValidTarget): boolean
-    select(selector: string, unwrap?: true): HTMLElement | null
-    select(selector: string, unwrap?: false): ElementWrapper<HTMLElement> | null
-    selectAll(selector: string, unwrap?: true): NodeListOf<HTMLElement>
-    selectAll(selector: string, unwrap?: false): ElementWrapper<HTMLElement>[]
-    get previous(): ElementWrapper<HTMLElement> | null
-    get next(): ElementWrapper<HTMLElement> | null
-    get parent(): ElementWrapper<HTMLElement> | null
+    select(selector: string, unwrap?: true): Element | null
+    select(selector: string, unwrap?: false): ElementWrapper<Element> | null
+    selectAll(selector: string, unwrap?: true): NodeListOf<Element>
+    selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
+    get previous(): ElementWrapper<Element> | null
+    get next(): ElementWrapper<Element> | null
+    get parent(): ElementWrapper<Element> | null
 }

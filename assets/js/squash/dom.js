@@ -37,7 +37,7 @@ function select(selector, unwrap = false, from = document) {
     } else if (typeof selector === 'object') {
         if (selector instanceof Document) {
             return document;
-        } else if (selector instanceof HTMLElement) {
+        } else if (selector instanceof Element) {
             return unwrap == true ? selector : new DomUtils._ElementWrapper(selector);
         }
     } else throw new TypeError('Invalid selector.');
@@ -186,7 +186,7 @@ class ElementWrapper {
     constructor(tagName, content = undefined) {
         if (typeof tagName === 'string') {
             this.element = document.createElement(tagName);
-        } else if (tagName instanceof HTMLElement) {
+        } else if (tagName instanceof Element) {
             this.element = tagName;
         } else if (tagName instanceof ElementWrapper) {
             this.element = tagName.element;
@@ -240,7 +240,7 @@ class ElementWrapper {
         }
     }
 
-    /**@type {HTMLElement} */
+    /**@type {Element} */
     element;
 
     get() {
