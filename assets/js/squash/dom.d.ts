@@ -2,53 +2,58 @@ import { AquamarineComponentTagNameMap } from '../../../web-components/aqv2/comp
 
 declare interface CompleteElementTagNameMap extends HTMLElementTagNameMap, AquamarineComponentTagNameMap, SVGElementTagNameMap, MathMLElementTagNameMap {}
 
-declare function createElement<K extends keyof CompleteElementTagNameMap>(tagName: K, content?: any): ElementWrapper<CompleteElementTagNameMap[K]>;
-declare function createElement<T extends Element>(element: T): ElementWrapper<T>;
+export declare namespace DomUtils {
+    export const _ElementWrapper: typeof ElementWrapper;
 
-declare function select(selector: string, unwrap?: true): Element | null
-declare function select(selector: string, unwrap?: false): ElementWrapper<Element> | null
-declare function select(selector: Element, unwrap?: true): Element
-declare function select(selector: Element, unwrap?: false): ElementWrapper<Element>
-
-declare function selectAll(selector: string, unwrap?: true): NodeListOf<Element>
-declare function selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
-
-declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: true}): Element[]
-declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: false}): ElementWrapper<Element>[]
-
-declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: false}): ElementWrapper<Element>[]
-declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: false}): ElementWrapper<Element> | null
-declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: true}): Element[]
-declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: true}): Element | null
-
-declare function deepSelectAll(selector: string, from?: Node, unwrap?: false): ElementWrapper<Element>[]
-declare function deepSelectAll(selector: string, from?: Node, unwrap?: true): Element[]
-
-declare class DomUtils {
-    static _ElementWrapper: typeof ElementWrapper;
-
-    static createElement: typeof createElement
-    static select: typeof select
-    static selectAll: typeof selectAll
-    static getAllElements: typeof getAllElements
-    static deepSelect: typeof deepSelect
-    static deepSelectAll: typeof deepSelectAll
-
-    static FX: {
+    export const FX: {
         shake: (element: ElementWrapperValidTarget) => Animation
     }
+
+    /**
+     * Web components use shadow roots to encapsulate their styles and DOM. Sometimes this makes it hard to change the look of a component. This method allows you to inject CSS into a web component's shadow root.
+     * @param element CSS selector or a element (if so, the third parameter is ignored).
+     * @param css Your CSS text or a CSSStyleSheet object.
+     * @param all Default true. If you want all elements that match the selector to be injected, do nothing. If not, set this to false and only the first element that matches the selector will be affected.
+     */
+    export declare function injectCssToShadowRoot(element: ElementWrapperValidTarget, css: string | CSSStyleSheet, all?: boolean): CSSStyleSheet
+
+    export declare function createElement<K extends keyof CompleteElementTagNameMap>(tagName: K, content?: any): ElementWrapper<CompleteElementTagNameMap[K]>;
+    export declare function createElement<T extends Element>(element: T): ElementWrapper<T>;
+
+    export declare function select(selector: string, unwrap?: true): Element | null
+    export declare function select(selector: string, unwrap?: false): ElementWrapper<Element> | null
+    export declare function select(selector: Element, unwrap?: true): Element
+    export declare function select(selector: Element, unwrap?: false): ElementWrapper<Element>
+
+    export declare function selectAll(selector: string, unwrap?: true): NodeListOf<Element>
+    export declare function selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
+
+    export declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: true}): Element[]
+    export declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: false}): ElementWrapper<Element>[]
+
+    export declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: false}): ElementWrapper<Element>[]
+    export declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: false}): ElementWrapper<Element> | null
+    export declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: true}): Element[]
+    export declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: true}): Element | null
+
+    export declare function deepSelectAll(selector: string, from?: Node, unwrap?: false): ElementWrapper<Element>[]
+    export declare function deepSelectAll(selector: string, from?: Node, unwrap?: true): Element[]
+
+    export declare function forAllElements(elements: ElementWrapperValidTarget[], callback: (element: Element) => any, options?: {allowShadowRoot?: boolean, from?: Node}): void
 }
 
 declare type ElementWrapperValidTarget = ElementWrapper<Element> | Element | string;
 
-declare export class ElementWrapper<T> {
+declare class ElementWrapper<T> {
     element: T;
     constructor(tagName: keyof CompleteElementTagNameMap, content?: any);
     constructor(element: Element)
 
     get(): T
-    attr(name: string, value: string): this
+    attr<K extends keyof T>(name: K, value: string): this
     prop(name: string, value: any): this
+    prop<K extends keyof T>(name: K): T[K]
+    prop(name: string): any
     css(name: string, value: string): this
     css(map: { [key: string]: string }): this
     class(...className: string[]): this

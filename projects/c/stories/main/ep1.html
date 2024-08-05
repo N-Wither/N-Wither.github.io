@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" class="theme-dark" data-default-theme>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,35 @@
     <script type="module" src="/web-components/aqv2/components/tooltip.js"></script>
     <script type="module" src="/web-components/aqv2/components/details.js"></script>
     <script type="module" src="/projects/c/assets/components/character-dialog.js"></script>
+    <script type="module">
+        import { injectCssToShadowRoot, forAllElements } from '/assets/js/squash/dom.js'
+
+        injectCssToShadowRoot('header-button', ':host {--header-button-bg-color-2: #ebbc3f !important;}')
+
+        forAllElements('ch-line', /** @param {HTMLElement} el*/ el => {
+            if(el.classList.contains('e')) el.setAttribute('name', 'Ella');
+            else if (el.classList.contains('s')) el.setAttribute('name', 'Selene');
+            else if (el.classList.contains('a')) el.setAttribute('name', 'Aachen');
+            else if (el.classList.contains('m')) el.setAttribute('name', 'Matthew');
+            else if (el.classList.contains('h')) el.setAttribute('name', 'Hiro');
+
+            if(el.classList.contains('comp') || el.matches('.compact-lines ch-line')) {
+                el.setAttribute('compact', '')
+            }
+        })
+    </script>
+    <style>
+        :root, :root.theme-dark {
+            --accent-color: firebrick;
+            --accent-color-dk: darkred;
+            --link-color: var(--accent-color);
+            --link-color-visited: var(--accent-color-dk);
+        }
+
+        :root.theme-dark {
+            --text-color: #fffcf3;
+        }
+    </style>
     <style>
         .page-title {
             display: flex;
@@ -33,21 +62,27 @@
         }
 
         div.warning-stripe {
-            --warning-stripe-color-1: var(--text-color);
+            --warning-stripe-color-1: #ebbc3f;
             --warning-stripe-color-2: var(--accent-color);
             --warning-stripe-padding-left: 0em;
             font-weight: bold;
             font-family: var(--font-serif);
         }
 
-        ch-line[name=Ella] {
-            --character-color: var(--violet-500);
-        }
+        ch-line[name=Ella] {--character-color: var(--violet-500);}
+        ch-line[name=Aachen] {--character-color: var(--red-500);}
+        ch-line[name=Matthew] {--character-color: var(--yellow-500);}
+        ch-line[name=Selene] {--character-color: var(--blue-300);}
+        ch-line[name=Hiro] {--character-color: var(--orange-500);}
+
+        .i { font-style: italic; }
+        .c { text-align: center; }
+        .b { font-weight: bold; }
     </style>
 </head>
 <body>
     <page-header>
-        <div slot="category" class="f-bold f-xl flex center">C1000</div>
+        <div slot="category" class="f-bold f-xl flex center">R.S. Brimstone</div>
     </page-header>
     <tool-box>
         <page-info>
@@ -60,6 +95,7 @@
                 <ul role="doc-toc">
                     <li><a href="#part-1">第 1 章</a></li>
                     <li><a href="#part-2">第 2 章</a></li>
+                    <li><a href="#part-3">第 3 章</a></li>
                 </ul>
             </div>
         </reading-progress>
@@ -77,23 +113,23 @@
             <p class="f-small txt-secondary align-end">000010837-ITL01</p>
             <p class="txt-secondary f-italic">备注：由于与正在进行的调查相关，已隐藏采访者和当事人的姓名。</p>
             <hr>
-            <p><span class="f-bold">[采访者]：</span>可以说一说你的遭遇吗？</p>
-            <p><span class="f-bold">[当事人]：</span>我那天是准备带着我的狗去河的上游收我前一天布置的笼子，就是用来抓鱼虾的那种。我下笼子的那天是想着上游没什么人去，说不定那里鱼更多，就往上游那边去了。</p>
-            <p><span class="f-bold">[当事人]：</span>到了那边之后呢，我的狗子不知道为啥就变得有些奇怪，好像被什么东西吸引了就往林子里面跑，我想叫住它也没用，只能跟过去。树林里面根本就没有路，到处都是叶子藤蔓之类的，它那小身板跑得飞快，我费好大劲才勉强跟了上去。</p>
-            <p><span class="f-bold">[当事人]：</span>之后，追了老远。我那狗子终于停住了，我追上去的时候它在对着一个山洞狂叫，我们这里很多这种山洞，外面都被杂草藤蔓裹住了，不仔细看真的很难看出来，从外面看也看不出什么名堂。但是这狗子又一直叫个不停，我觉得要不进去看看，然后就带着狗子进去了。</p>
-            <p><span class="f-bold">[当事人]：</span>我出来只是过来收笼子的，没带照亮的东西，但是往下走走也够用了，没过多久我就发现这里面方方正正的，不知道是谁凿成这样，反正看起来就很老，狗子也看着有点奇怪，刚才在外面还一直叫，到里面来了好像在怕什么一样。</p>
-            <p><span class="f-bold">[采访者]：</span>还看到什么东西吗？</p>
-            <p><span class="f-bold">[当事人]：</span>还没说完，我带着狗子一直下到快要没光的地方，然后我就看到这底下有好几条道，墙上还有像自来水管一样的东西，但是摸一下好像就是石头，太暗了我也看不清里面到底还有啥东西，然后我就带着狗子出来了。就这。</p>
-            <p><span class="f-bold">[采访者]：</span>那，就是这样了？</p>
-            <p><span class="f-bold">[当事人]：</span>还能有啥，我又不敢继续往下走。</p>
-            <p><span class="f-bold">[采访者]：</span>好的，感谢你的合作。</p>
+            <p><span class="b">[采访者]：</span>可以说一说你的遭遇吗？</p>
+            <p><span class="b">[当事人]：</span>我那天是准备带着我的狗去河的上游收我前一天布置的笼子，就是用来抓鱼虾的那种。我下笼子的那天是想着上游没什么人去，说不定那里鱼更多，就往上游那边去了。</p>
+            <p><span class="b">[当事人]：</span>到了那边之后呢，我的狗子不知道为啥就变得有些奇怪，好像被什么东西吸引了就往林子里面跑，我想叫住它也没用，只能跟过去。树林里面根本就没有路，到处都是叶子藤蔓之类的，它那小身板跑得飞快，我费好大劲才勉强跟了上去。</p>
+            <p><span class="b">[当事人]：</span>之后，追了老远。我那狗子终于停住了，我追上去的时候它在对着一个山洞狂叫，我们这里很多这种山洞，外面都被杂草藤蔓裹住了，不仔细看真的很难看出来，从外面看也看不出什么名堂。但是这狗子又一直叫个不停，我觉得要不进去看看，然后就带着狗子进去了。</p>
+            <p><span class="b">[当事人]：</span>我出来只是过来收笼子的，没带照亮的东西，但是往下走走也够用了，没过多久我就发现这里面方方正正的，不知道是谁凿成这样，反正看起来就很老，狗子也看着有点奇怪，刚才在外面还一直叫，到里面来了好像在怕什么一样。</p>
+            <p><span class="b">[采访者]：</span>还看到什么东西吗？</p>
+            <p><span class="b">[当事人]：</span>还没说完，我带着狗子一直下到快要没光的地方，然后我就看到这底下有好几条道，墙上还有像自来水管一样的东西，但是摸一下好像就是石头，太暗了我也看不清里面到底还有啥东西，然后我就带着狗子出来了。就这。</p>
+            <p><span class="b">[采访者]：</span>那，就是这样了？</p>
+            <p><span class="b">[当事人]：</span>还能有啥，我又不敢继续往下走。</p>
+            <p><span class="b">[采访者]：</span>好的，感谢你的合作。</p>
         </div>
         <p>“就、就这？” 我看完 Loran 递给我的这份采访记录，把这张纸推离面前。</p>
         <p>“有什么问题？” Loran 还是一如既往地冷淡。</p>
         <p>“这是不是太单薄了，我是说，这东西能提供的信息也太少了，我甚至都不知道他说的是不是真的。”</p>
         <p>“我们在 Pritaz 岛的办事处派人进行了初步的勘测，可以确认他说的是真实情况。”</p>
         <p>“那，既然你们在那都有人了，为什么还要派我们去？”</p>
-        <p>“人手不足、经验不够、官僚主义，主要是最后一项。总之，如果你不接受的话，我会找别人代替你。” 虽然 Loran 的眼神似乎没有变化，但我总觉得被威胁了。</p>
+        <p>“人手不足、经验不够、官僚主义，主要是最后一项。总之，如果你不接受的话，我会找别人<b>代替</b>你。” 虽然 Loran 的眼神似乎没有变化，但我总觉得被威胁了。</p>
         <p>“另外，你可以全额报销差旅费用。”</p>
         <p>这击溃了我的心理防线，我最终屈服于官僚主义的威压，答应参与这次的调查。当然，除此之外我也确实一直都想去 Pritaz 岛看看，我看好多旅游指南都极尽所能地描述那里的风景是多么美丽，海和天空蓝得多么澄澈，火山和丛林是多么神秘，诸如此类的溢美之词。而且，我们这个海滨城市居然没有沙滩，真是耻辱，我得去感受一下真正的热带海滨是什么样。</p>
         <p>从 Loran 的办公室出来之后，我下到三楼，去了 Aachen 的办公室。</p>
@@ -142,13 +178,53 @@
         <p>“好奇怪的生活方式哦。”</p>
         <p>“对他们绝大多数人来说，他们的生活跟火山都没有什么关系，所以也还好。”</p>
         <p>“你说得对。” 估计是站累了，Aachen 身体向前趴在了栏杆上。</p>
-        <p>就这样船渐渐驶离了港口，站在船边的乘客也陆陆续续回到了船舱里面。</p>
+        <p>就这样船渐渐驶离了港口，站在船边的乘客也陆陆续续回到了船舱里面，我觉得一直在这里吹风也不太好。</p>
+        <h2 id="part-3">第 3 章</h2>
+        <div class="paper wide compact-lines">
+            <p class="i c">〈客轮鸣笛，随后停靠在码头，舱门开启，乘客拥挤着下船。Ella 等四人被人群挤散，最终在码头某处会合。〉</p>
+            <ch-line class="e">呼……这人也太多了，你们没掉什么东西吧。</ch-line>
+            <ch-line class="a">没有哦。</ch-line>
+            <ch-line class="s">Aachen 准备去哪里呢？</ch-line>
+            <ch-line class="a">先找个旅馆住吧，我还没想好去哪玩什么。</ch-line>
+            <ch-line class="e">你在船上的时候干嘛去了？</ch-line>
+            <ch-line class="a">我在船上的时候又没有旅游资讯看！</ch-line>
+            <ch-line class="e">行吧。</ch-line>
+            <ch-line class="m">好了，Loran 跟我说会有人来接我们，但是我还没找到。</ch-line>
+            <ch-line class="e">我没看到谁像是来接我们的，还有，你确定那人认识我们吗？</ch-line>
+            <ch-line class="m">应该能认出来，Loran 跟她说了我们长什么样，我们先在这里等等看吧。</ch-line>
+            <ch-line class="a">你们要在这里等的话，那，我就先走啦？毕竟我也不该掺和你们的工作的。</ch-line>
+            <ch-line class="s">嗯，玩得开心。</ch-line>
+            <p class="i c">〈Aachen 先行离开，剩余的三人在原地等待。随着时间经过，人流渐渐散去，Ella 有点不耐烦了，但也无事可做，Matthew 四处张望，Selene 在看海鸟。〉</p>
+            <ch-line name="某人">呃，你好？</ch-line>
+            <p class="i c">〈Ella 转过身去，另外二人也看了过来，一个戴着帽子的女子正在试图跟 Ella 搭话。〉</p>
+            <ch-line class="e">你是 ARIA 派来的吗？</ch-line>
+            <ch-line name="某人">啊是的，你就是 Ella 了吧？</ch-line>
+            <ch-line class="e">嗯，这是 Matthew，这是 Selene。</ch-line>
+            <ch-line name="某人">Loran 跟我说过的。啊，我叫 Hiro Malakai，叫我 Hiro 就行。</ch-line>
+            <ch-line class="s">你好。</ch-line>
+            <ch-line class="m">你好。</ch-line>
+            <ch-line class="h">抱歉，我有点事所以来晚了，我带你们去办事处吧。</ch-line>
+        </div>
+        <p>Hiro 已经定好了一辆带篷的马车，不得不说这里对游客确实很友好，坐垫都要比我们那里的软。</p>
+        <p>马车先是沿着海边的道路前进，Selene 和我一直在往海边看，Matthew 倒是没啥特别的反应，他是看过这种风景，还是不感兴趣？我不知道，不过也没必要问就是了。</p>
+        <p>一段时间后马车转了个弯行至城区内，又是一番左拐右拐之后停在了挂着 ARIA 标志的楼房前，显然这里的办事处也是跟我们那边的一样租了一层或者几层作为办公地点。</p>
+        <p>“好了，下来吧。” Hiro 很轻松地就从前排的座位上跳了下来，而我们挤在后排，只能一个个下。</p>
+        <p>ARIA 的办事处占用了三楼和四楼，各种纸张和办公用品到处都是，但是也没有很凌乱，我觉得这大概就是那种什么都放在明面上，什么时候想要也很容易拿到的无意形成的安排。</p>
+        <p>“我的办公桌在这边。” Hiro 领着我们走进了一个门口挂着“地质学部”的房间。</p>
+        <p>我看到了 Hiro 的办公桌，虽然上面摆着一些资料，但是看起来并没有经常使用。</p>
+        <p>“你平常不在这里吗？” 我问。</p>
+        <p>“啊是的，我一般都在<ruby>硫磺石研究站<rt>Research Site Brimstone</rt></ruby>工作，在火山那边，离这里还是有点远的。”</p>
+        <p>“你在那里都做些什么呢？”</p>
+        <p>“我们有套火山数据监测系统，除了每天检查这个的读数之外，还要经常到火山附近去实地勘探。基本上，就是这些。”</p>
+        <p>“你们能预测火山喷发吗？” Selene 插入我们之间的对话。</p>
+        <p>“当然，我们一直都在做这事。”</p>
+        <p>“谈谈工作吧，你们这边考察得怎样了？” Matthew 试图把对话拉回正轨。</p>
+        <p>“我们这边做了一点初步的勘探，” Hiro 从桌上的纸堆里面抽出一份文件递给了他，“这遗迹非常大，我们这边没有考古和历史方面的人，也认不出这是谁在多少年前修建的，你也看到了，我是搞地质的。”</p>
         <div class="warning-stripe">
             作者正在努力工作...
         </div>
     </page-body>
     <page-footer>
-        <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
     </page-footer>
 </body>
 </html>

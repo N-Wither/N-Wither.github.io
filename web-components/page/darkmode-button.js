@@ -39,6 +39,7 @@ export class DarkModeButton extends HeaderButton {
     }
 
     autoDarkmode() {
+        if(document.documentElement.dataset.defaultTheme != null) return;
         let themeMode = localStorage.getItem(DarkModeButton.THEME_MODE_KEY);
         if (themeMode && themeMode in DarkModeButton.THEME_MODES) {
             this.applyThemeMode(themeMode);

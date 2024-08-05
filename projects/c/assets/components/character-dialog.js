@@ -1,3 +1,5 @@
+/// <reference path="../../../../_typings/index.d.ts" />
+
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 
 export class CharacterDialog extends LitElement {
@@ -5,14 +7,20 @@ export class CharacterDialog extends LitElement {
         name: { type: String },
         sub: { type: String },
         content: { type: String },
+        compact: { type: Boolean },
     }
 
     static styles = css`
         :host {
             --character-color: var(--text-color);
-            --sub-color: var(--text-color-secondary);
+            --sub-color: var(--text-color-lt);
             --divider-color: var(--character-color);
             display: block;
+        }
+
+        :host([compact]) {
+            display: flex;
+            margin-block: 1em;
         }
 
         .info {
@@ -39,14 +47,22 @@ export class CharacterDialog extends LitElement {
     render() {
         return html`
         <div class='info'>
-            <slot name='name' class='name'>${this.name}</slot>
+            <slot name='name' class='name'>${this.name}${this.compact ? html`:&nbsp;` : ''}</slot>
             <slot name='sub' class='sub'>${this.sub}</slot>
         </div>
-        <hr/>
+        ${this.compact ? '' : html`<hr>`}
         <div class='content'>
             <slot>${this.content}</slot>
         </div>
         `
+    }
+
+    updated(changedProperties) {
+        if (changedProperties.has('compact') && this.hasAttribute('compact')) {
+            if(changedProperties.get('compact') == true) {
+                this.removeAttribute('compact');
+            }
+        }
     }
 }
 

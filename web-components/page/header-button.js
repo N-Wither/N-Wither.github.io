@@ -4,6 +4,10 @@ export let headerButtonStyle = css`
 :host {
     --header-button-cursor: pointer;
     --header-button-height: var(--header-height);
+    --header-button-bg-color-1: var(--accent-color);
+    --header-button-bg-color-2: var(--accent-color-dk);
+    --header-button-bg-transition-time-1: var(--transition-time-slower);
+    --header-button-bg-transition-time-2: var(--transition-time-common);
 }
 
 .button {
@@ -23,11 +27,11 @@ export let headerButtonStyle = css`
 .base {
     min-width: var(--header-button-height);
     height: var(--header-button-height);
-    background-image: linear-gradient(180deg, var(--accent-color), var(--accent-color));
+    background-image: linear-gradient(180deg, var(--header-button-bg-color-1), var(--header-button-bg-color-1));
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100% 0%;
-    transition: var(--transition-time-slower);
+    transition: var(--header-button-bg-transition-time-2);
     position: relative;
     display: flex;
     cursor: var(--header-button-cursor);
@@ -45,16 +49,24 @@ export let headerButtonStyle = css`
     content: "";
     display: block;
     inset: 0;
-    background-image: linear-gradient(180deg, var(--accent-color-dk), var(--accent-color-dk));
+    background-image: linear-gradient(180deg, var(--header-button-bg-color-2), var(--header-button-bg-color-2));
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100% 0%;
-    transition: var(--transition-time-common);
+    transition: var(--header-button-bg-transition-time-1);
     z-index: -1;
 }
 
 .base:hover, .base:hover::after, .base:focus-within, .base:focus-within::after {
     background-size: 100% 100%;
+}
+
+.base:hover, .base:focus-within {
+    transition: var(--header-button-bg-transition-time-1)
+}
+
+.base:hover::after, .base:focus-within::after {
+    transition: var(--header-button-bg-transition-time-2)
 }
 
 aq-tooltip {

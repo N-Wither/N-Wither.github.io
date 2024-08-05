@@ -125,12 +125,8 @@ export class NavMenu extends LitElement {
             display: flex;
         }
 
-        .icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 3rem;
-            width: 3rem;
+        .container aq-icon {
+            margin-inline: 0.4em;
         }
 
         .text {
