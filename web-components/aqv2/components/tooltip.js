@@ -1,5 +1,5 @@
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
-import tippy from 'https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/+esm'
+import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
+import tippy from 'https://esm.sh/tippy.js@6.3.7'
 
 let tooltipStyle = css`
     .tippy-box[data-theme~='aquamarine']{

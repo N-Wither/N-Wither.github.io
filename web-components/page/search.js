@@ -1,4 +1,4 @@
-import { html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { html, css } from 'https://esm.sh/lit@3.2.0';
 import { createLocalizer } from '../aqv2/lib/localize.js';
 import { HeaderButton, headerButtonStyle } from './header-button.js';
 import '../aqv2/components/tooltip.js';

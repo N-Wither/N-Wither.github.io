@@ -1,5 +1,5 @@
 /// <reference path="../../../_typings/index.d.ts" />
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
 import { getSvg } from '../lib/get-svg.js';
 
 class AqIcon extends LitElement {

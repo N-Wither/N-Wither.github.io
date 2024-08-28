@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
 import { inventoryItemStyle } from './inventory-item.js';
 import { buttonStyle } from '../styles.js';
 import { itemProperties } from '../items.js'

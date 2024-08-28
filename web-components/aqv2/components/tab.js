@@ -1,6 +1,6 @@
 /// <reference path="../../../_typings/index.d.ts" />
 
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
 
 export class AqTab extends LitElement {
     static get styles() {
