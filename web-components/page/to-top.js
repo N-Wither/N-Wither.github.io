@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
 import { toolboxItemStyle } from './toobox-item.style.js';
 import '../aqv2/components/tooltip.js'
 import '../aqv2/components/icon.js'

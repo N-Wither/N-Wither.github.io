@@ -1,6 +1,6 @@
 /// <reference path="../../../../_typings/index.d.ts" />
 
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
 
 export class CharacterDialog extends LitElement {
     static properties = {
@@ -19,7 +19,6 @@ export class CharacterDialog extends LitElement {
         }
 
         :host([compact]) {
-            display: flex;
             margin-block: 1em;
         }
 
@@ -42,6 +41,22 @@ export class CharacterDialog extends LitElement {
             border-top: solid var(--divider-color) 1px;
             margin: 0.2em 0;
         }
+
+        :host([compact]) .info {
+            display: inline;
+        }
+
+        :host([compact]) .name {
+            display: inline;
+        }
+
+        :host([compact]) .sub {
+            display: inline;
+        }
+
+        :host([compact]) .content {
+            display: inline;
+        }
     `
 
     render() {
@@ -59,7 +74,7 @@ export class CharacterDialog extends LitElement {
 
     updated(changedProperties) {
         if (changedProperties.has('compact') && this.hasAttribute('compact')) {
-            if(changedProperties.get('compact') == true) {
+            if(changedProperties.get('compact') == true && this.compact == false) {
                 this.removeAttribute('compact');
             }
         }

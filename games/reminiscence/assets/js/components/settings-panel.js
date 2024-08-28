@@ -1,6 +1,6 @@
 /// <reference path="../../../../../_typings/index.d.ts" />
 
-import { LitElement, html } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { LitElement, html } from 'https://esm.sh/lit@3.2.0';
 
 class SettingsPanel extends LitElement {
     render() {
