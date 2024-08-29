@@ -1,7 +1,7 @@
 /// <reference path="../../../_typings/index.d.ts" />
 
 import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
-import dedent from 'https://es,.sh/ts-dedent@2.2.0';
+import dedent from 'https://esm.sh/ts-dedent@2.2.0';
 import { codeToHtml } from 'https://esm.sh/shiki@1.12.0';
 // import { codeToHtml } from 'https://cdn.jsdelivr.net/npm/shiki@1.4.0/+esm';
 import { createLocalizer } from '../lib/localize.js'
