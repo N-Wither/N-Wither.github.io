@@ -18,7 +18,7 @@
     <script type="module" src="/web-components/page/languages.js"></script>
 </head>
 <body>
-    <page-header>
+    <page-header variant="compact">
         <div slot="category" class="flex center column lh-initial">
             <div class="f-bold f-xl">WitherWorks</div>
             <div class="f-bold"><aq-ts key="13">Summer Special</aq-ts></div>
@@ -33,7 +33,7 @@
     <tool-box>
         <to-top></to-top>
     </tool-box>
-    <page-body>
+    <div class="page-content">
         <script>
             window.aqLanguageMap = {
                 'zh-cn': {
@@ -76,7 +76,7 @@
         <ul>
             <li><aq-ts key="11">Non-essential.</aq-ts></li>
         </ul>
-    </page-body>
+    </div>
     <page-footer>
         <p> <span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--accent-color);">Retrowave</span> Theme by N Wither</p>
     </page-footer>

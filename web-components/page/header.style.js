@@ -1,4 +1,4 @@
-import {css} from 'https://esm.sh/lit@3.2.0';
+import { css } from 'https://esm.sh/lit@3.2.0';
 
 export const style = css`
 :host {
@@ -12,6 +12,7 @@ export const style = css`
     z-index: 99;
     background-color: var(--header-bg);
     line-height: unset;
+    transition: var(--transition-time-common);
 }
 
 :host {
@@ -25,6 +26,7 @@ export const style = css`
     position: relative;
     width: 100%;
     backdrop-filter: var(--header-background-filter);
+    transition-behavior: allow-discrete;
 }
 
 nav-menu {
@@ -89,6 +91,82 @@ nav-menu {
 
     nav-menu {
         display: block;
+    }
+}
+
+/** Varaint: Compact */
+:host([variant="compact"]) {
+    min-width: var(--header-height);
+    width: fit-content;
+}
+
+:host([variant="compact"]) .base {
+    width: var(--header-height);
+}
+
+:host([variant="compact"]) .base:has(.compact:is(:has(.uncompactor:is(:hover, :focus-within)), :hover, :focus-within)) {
+    width: 100%
+}
+
+:host([variant="compact"]) .nav-widescreen {
+    padding-inline-start: 0;
+}
+
+:host([variant="compact"]) .nav-widescreen header-button {
+    min-width: calc(var(--header-height) + 0.4em);
+}
+
+:host([variant="compact"]) :is(.compact, .compacted) {
+    display: flex;
+}
+
+:host([variant="compact"]) .compact {
+    translate: calc(-100% + var(--header-height));
+    transition: translate var(--transition-time-common);
+}
+
+:host([variant="compact"]) .compact:is(:has(.uncompactor:is(:hover, :focus-within)), :hover, :focus-within) {
+    translate: 0;
+}
+
+:host([variant="compact"]):hover, :host([variant="compact"]):focus-within {
+    translate: 0;
+}
+
+:host([variant="compact"]) .uncompactor button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    width: 100%;
+    height: 100%;
+}
+
+:host([variant="compact"]) .base:has(nav-menu:is(:hover, :focus-within)) .compact {
+    translate: 0;
+}
+
+@media screen and (max-width: 800px) {
+    :host([variant="compact"]) :is(.nav-widescreen, .uncompactor) {
+        display: none;
+    }
+
+    :host([variant="compact"]) nav-menu {
+        z-index: 1;
+    }
+
+    :host([variant="compact"]) .compact {
+        z-index: 0;
+        translate: calc(-100% - var(--header-height));
+    }
+
+    :host([variant="compact"]) .base:has(nav-menu:is(:hover, :focus-within)) {
+        width: auto;
+    }
+
+    @starting-style {
+        :host([variant="compact"]) .base {
+            width: var(--header-height);
+        }
     }
 }
 `

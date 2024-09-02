@@ -333,13 +333,6 @@ code {
     padding: 0 0.2em;
 }
 
-.float-div {
-    z-index: 99;
-    min-width: var(--header-height);
-    min-height: var(--header-height);
-    box-shadow: var(--general-shadow);
-}
-
 .keycap, kbd {
     font-family: var(--font-monospace);
     color: var(--text-color);
@@ -348,6 +341,10 @@ code {
     border-radius: 0.2em;
     padding: 0 0.2em;
     font-size: 0.8em;;
+}
+
+.page-content {
+    margin-inline: min(10rem, 10vw);
 }
 
 figure {
@@ -492,3 +489,10 @@ nav {
 .lh-initial { line-height: initial; }
 
 .txt-secondary { color: var(--text-color-lt); }
+
+.float-div {
+    z-index: 99;
+    min-width: var(--header-height);
+    min-height: var(--header-height);
+    box-shadow: var(--general-shadow);
+}
