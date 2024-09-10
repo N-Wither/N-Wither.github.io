@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/styled-div.css">
-    <link rel="stylesheet" href="/assets/css/themes/violite/global.css">
+    <link rel="stylesheet" href="/assets/css/themes/faded/global.css">
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
     <script type="module" src="/web-components/aqv2/components/tab.js"></script>
     <script type="module" src="/web-components/page/reading-progress.js"></script>
-    <script type="module" src="/web-components/aquamarine/image-block.js"></script>
     <script type="module" src="/web-components/aqv2/components/snackbar.js"></script>
     <style>
         @supports (background-clip: text){
@@ -38,7 +37,7 @@
 <body>
     <page-header>
         <div slot="category" class="flex center" style="flex-direction: column;">
-            <div class="f-bold" style="font-size: 1.4em;">LMCA</div>
+            <div class="f-bold" style="font-size: 1.4em;">Project C</div>
         </div>
     </page-header>
     <tool-box>
@@ -46,7 +45,7 @@
         <reading-progress></reading-progress>
     </tool-box>
     <page-body>
-        <h1 class="page-title">世界 C98CA3D380B0D4F7 "C1000"</h1>
+        <h1 class="page-title">世界 “C1000”</h1>
         <hr>
         <aq-tab value="1">
             <aq-tab-label value="1" slot="tabs">概况</aq-tab-label>
@@ -59,11 +58,9 @@
             <aq-tab-label value="2" slot="tabs">数据</aq-tab-label>
             <aq-tab-panel value="2" slot="pages">
                 <ul>
-                    <li><span class="f-bold">ID</span>：<span>C98CA3D380B0D4F7</span></li>
+                    <li><span class="f-bold">ID</span>：<span>258BCCCD58F296CCDD49CBCC100092CE</span></li>
                     <li><span class="f-bold">别名</span>：<span>C1000</span></li>
-                    <li><span class="f-bold">相对时间流速</span>：<span>1.0</span></li>
-                    <li><span class="f-bold">相对时间差</span>：<span>0s</span></li>
-                    <li><span class="f-bold">旅行者满意度</span>：<span style="color: var(--color-safe);">82%</span></li>
+                    <li><span class="f-bold">维度数量</span>：<span>3 空间 + 1 时间</span></li>
                 </ul>
             </aq-tab-panel>
             <aq-tab-label value="3" slot="tabs">有何可写</aq-tab-label>
@@ -89,9 +86,10 @@
                         <h3>Ella Rosenberg</h3>
                     </div>
                     <div class="float right">
-                        <aq-image-block src="/projects/c/assets/img/ella_avatar2.webp" caption="Ella" width="120">
-                            <span>Ella</span>
-                        </aq-image-block>
+                        <figure>
+                            <img src="/projects/c/assets/img/ella_avatar2.webp" alt="Ella" width="120">
+                            <figcaption>Ella</figcaption>
+                        </figure>
                     </div>
                     <p>大部分时间都在无所事事的魔法使，经常在世界各地旅行，有时是工作需要，有时则只是为了玩。</p>
                     <p>会给杂志写文章赚点稿费。</p>
@@ -103,9 +101,10 @@
                         <h3>Ruperta Aachen</h3>
                     </div>
                     <div class="float right">
-                        <aq-image-block src="/projects/c/assets/img/aachen_avatar.webp" caption="Aachen" width="120">
-                            <span>Aachen</span>
-                        </aq-image-block>
+                        <figure>
+                            <img src="/projects/c/assets/img/aachen_avatar.webp" alt="Aachen" width="120">
+                            <figcaption>Aachen</figcaption>
+                        </figure>
                     </div>
                     <p>图书馆档案室的管理员，Ella 的好友之一。</p>
                     <p>因为她的大部分工作时间实际上都是在摸鱼，所以她非常喜欢这份工作，曾表示“要做一辈子的档案员”。</p>
@@ -116,9 +115,10 @@
                         <h3>Selene Adrian</h3>
                     </div>
                     <div class="float right">
-                        <aq-image-block src="/projects/c/assets/img/selene_avatar.webp" caption="Selene" width="120">
-                            <span>Selene</span>
-                        </aq-image-block>
+                        <figure>
+                            <img src="/projects/c/assets/img/selene_avatar.webp" alt="Selene" width="120">
+                            <figcaption>Selene</figcaption>
+                        </figure>
                     </div>
                     <p>ARIA 实习生，经常跟随 Ella 或者 Matthew 工作。</p>
                     <p>目前还在大学学习，平时也会在图书馆兼职。</p>
@@ -128,9 +128,10 @@
                         <h3>Matthew MacFarlane</h3>
                     </div>
                     <div class="float right">
-                        <aq-image-block src="/projects/c/assets/img/matthew_avatar.webp" caption="Matthew" width="120">
-                            <span>Matthew</span>
-                        </aq-image-block>
+                        <figure>
+                            <img src="/projects/c/assets/img/matthew_avatar.webp" alt="Matthew" width="120">
+                            <figcaption>Matthew</figcaption>
+                        </figure>
                     </div>
                     <p>ARIA 调查部职员，算是 Ella 的半个同事。</p>
                     <p>因为工作需要，大部分时间都在外出差。</p>

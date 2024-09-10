@@ -8,6 +8,7 @@ export class CharacterDialog extends LitElement {
         sub: { type: String },
         content: { type: String },
         compact: { type: Boolean },
+        avatar: { type: String }
     }
 
     static styles = css`
@@ -15,11 +16,25 @@ export class CharacterDialog extends LitElement {
             --character-color: var(--text-color);
             --sub-color: var(--text-color-lt);
             --divider-color: var(--character-color);
-            display: block;
+            display: flex;
         }
 
         :host([compact]) {
             margin-block: 1em;
+            display: block;
+        }
+
+        :host([compact]) .avatar-container {
+            display: none;
+        }
+
+        .avatar-container img{
+            max-height: 3em;
+        }
+
+        .main {
+            width: 100%;
+            margin: 0 0.4em;
         }
 
         .info {
@@ -57,17 +72,28 @@ export class CharacterDialog extends LitElement {
         :host([compact]) .content {
             display: inline;
         }
+
+        :host([compact]) .main {
+            margin: 0;
+        }
     `
 
     render() {
         return html`
-        <div class='info'>
-            <slot name='name' class='name'>${this.name}${this.compact ? html`:&nbsp;` : ''}</slot>
-            <slot name='sub' class='sub'>${this.sub}</slot>
+        <div class='avatar-container'>
+            <slot name='avatar'>
+                ${this.avatar ? html`<img src='${this.avatar}' alt='avatar'>` : ''}
+            </slot>
         </div>
-        ${this.compact ? '' : html`<hr>`}
-        <div class='content'>
-            <slot>${this.content}</slot>
+        <div class='main'>
+            <div class='info'>
+                <slot name='name' class='name'>${this.name}${this.compact ? html`:&nbsp;` : ''}</slot>
+                <slot name='sub' class='sub'>${this.sub}</slot>
+            </div>
+            ${this.compact ? '' : html`<hr>`}
+            <div class='content'>
+                <slot>${this.content}</slot>
+            </div>
         </div>
         `
     }
@@ -81,4 +107,4 @@ export class CharacterDialog extends LitElement {
     }
 }
 
-customElements.define('ch-line', CharacterDialog);
+customElements.define('ch-dl', CharacterDialog);

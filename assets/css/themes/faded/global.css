@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap');
+
+:root {
+    --accent-color: #876034;
+    --accent-color-dk: #4B2F25;
+    --background-color: #e5ddd7;
+    --background-color-dk: #C7C1BB;
+    --background-color-lt: #FDFDFB;
+    --text-color: #020202;
+    --text-color-selected: #FDFDFB;
+    --text-color-contrast: #FDFDFB;
+    --border-color: #403E3D;
+    --link-color: var(--accent-color);
+    --link-color-visited: var(--accent-color-dk);
+
+    --font-common: "Noto Serif SC", serif, "Material Symbols Outlined";
+
+    --header-bg: #e5ddd7cc;
+
+    --button-border: #978B83;
+    --button-bg-disabled: #C7C1BB;
+}
+
+:root.theme-dark {
+    --accent-color: #CBA542;
+    --accent-color-dk: #876034;
+    --background-color: #000000;
+    --background-color-dk: #111111;
+    --background-color-lt: #222222;
+    --text-color: #FDFDFB;
+    --text-color-lt: #382A1C;
+    --text-color-selected: #FDFDFB;
+    --text-color-contrast: #FDFDFB;
+    --border-color: #835C32;
+    --link-color: var(--accent-color);
+    --link-color-visited: var(--accent-color-dk);
+
+    --header-bg: #111111cc;
+
+    --button-border: #C39F3F;
+    --button-bg-disabled: var(--background-color-dk);
+}
+
+:is(.btn-regular, .btn-primary) {
+    border: 0.1em solid var(--button-border);
+}
+
+.btn-regular {
+    background-color: var(--background-color);
+}
+
+:is(.btn-regular, .btn-primary):is(:hover, :focus):not(:disabled) {
+    border-bottom: 0.2em solid var(--border-color);
+    box-shadow: 0 0.1em 0 var(--border-color);
+    transform: translateY(-0.1em);
+}
+
+.btn-regular:is(:hover, :focus):not(:disabled) {
+    background-color: var(--background-color-dk);
+}
+
+:is(.btn-regular, .btn-primary):active:not(:disabled) {
+    transform: none;
+    border-bottom: 0.1em solid var(--button-border);
+}
+
+button.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-color-contrast);
+}
+
+button.btn-primary:is(:hover, :focus):not(:disabled) {
+    background-color: var(--accent-color-dk);
+}
