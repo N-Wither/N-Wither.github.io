@@ -30,7 +30,8 @@
                 aq_desc: 'CSS 和 Web Components。',
                 read_more: '阅读更多…',
                 konami: '30 条命！',
-                github: '我的 Github 主页！'
+                github: '我的 Github 主页！',
+                c: '幻想世界故事企划'
             }
         }
     </script>
@@ -79,6 +80,10 @@
         </div>
         <h2><aq-ts key="3">Featured Pages</aq-ts></h2>
         <div class="flex wrap">
+            <aq-card style="flex-grow: 1; max-width: 20em;">
+                <div class="f-b f-l" slot="header">Project C</div>
+                <div><aq-ts key="c">Stories in fantasy worlds.</aq-ts> <a href="/projects/c/"><aq-ts key="read_more">Read More...</aq-ts></a></div>
+            </aq-card>
             <aq-card style="flex-grow: 1; max-width: 20em;">
                 <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
                 <div class="f-bold f-large" slot="header">Omniworld</div>

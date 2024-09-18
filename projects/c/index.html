@@ -7,23 +7,48 @@
     <link rel="shortcut icon" href="/projects/c/assets/img/ella_avatar.webp">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/styled-div.css">
     <link rel="stylesheet" href="/assets/css/themes/violite/global.css">
-    <script type="module" src="/web-components/page/header.js"></script>
-    <script type="module" src="/web-components/page/body.js"></script>
-    <script type="module" src="/web-components/page/footer.js"></script>
-    <script type="module" src="/web-components/aquamarine/collapsible/collapsible.js"></script>
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/aqv2/components/snackbar.js"></script>
+    <script type="module" src="/web-components/page/page-info.js"></script>
+    <script type="module" src="/web-components/aqv2/components/minicard.js"></script>
+    <style>
+        .starry {
+            background-image: url(/assets/css/themes/starry/stars.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            --link-color: #22aad3;
+            --link-color-visited: #5FACBC;
+        }
+    </style>
 </head>
 <body>
     <page-header>
         <div slot="category" class="f-bold f-xl flex center">Project C</div>
     </page-header>
-    <page-body>
+    <tool-box>
+        <to-top></to-top>
+        <page-info>
+            <aq-minicard sub="作者" header="N Wither" icon="https://avatars.githubusercontent.com/u/63383462?v=4">
+                <div>排期已满，挖坑未填。</div>
+            </aq-minicard>
+            <aq-minicard sub="feat." header="Mizdomatic">
+                <div>代码、美术。是吗？</div>
+            </aq-minicard>
+        </page-info>
+    </tool-box>
+    <div class="page-content">
         <h1 class="page-title">Project C</h1>
         <hr>
         <h2>这是什么？</h2>
         <p>这是一个发生在多个幻想世界之中的故事企划。</p>
-        <div>
+        <div class="paper wide">
             <h2>C1000</h2>
+            <hr class="secondary">
             <p>标准的世界。更多信息可在<a href="./worlds/c1000.html">这里</a>查看。</p>
             <h3>设定性的文章</h3>
             <p>弱化甚至没有情节的文章，主要用于介绍这个世界的设定。</p>
@@ -37,9 +62,24 @@
                 <li><a href="./stories/main/">主线故事合集</a></li>
             </ul>
         </div>
-    </page-body>
+        <div class="paper wide starry">
+            <h2>星海漫游</h2>
+            <hr class="secondary">
+            <p>群星间的故事。<a href="./worlds/starry-roaming.html">此世界的更多信息</a></p>
+            <div class="float right" style="background-color: transparent;">
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2006880230&auto=1&height=66"></iframe>
+            </div>
+            <h3>文章列表</h3>
+            <ul>
+                <li><a href="javascript:;" class="wip">流星交会之时</a></li>
+            </ul>
+        </div>
+    </div>
     <page-footer>
         <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
     </page-footer>
+    <script>
+        let wips = document.querySelectorAll('.wip'); if(wips != null) wips.forEach(e => {e.onclick = () => {aqSnackbar({message: '未完成', type: 'error', icon: 'close'})}})
+    </script>
 </body>
 </html>
