@@ -282,6 +282,7 @@ html {
         weight: 300;
     }
     scrollbar-color: var(--accent-color) var(--background-color);
+    word-break: break-all;
 }
 
 body {
@@ -300,6 +301,10 @@ hr {
     &.break {
         width: 70%;
         border-top-style: dashed;
+    }
+
+    &.secondary {
+        border-top: solid var(--text-color-lt) 1px;
     }
 }
 
@@ -345,6 +350,8 @@ code {
 
 .page-content {
     margin-inline: min(10rem, 10vw);
+    min-height: 60vh;
+    padding: 1em;
 }
 
 figure {
@@ -382,15 +389,19 @@ nav {
         max-width: 100%;
         --breakout-margin: 0;
     }
+
+    .page-content {
+        padding: 0.6em;
+    }
 }
 
 // Atom Classes
 
-.f-bold { font-weight: bold; }
-.f-italic { font-style: italic; }
-.f-small { font-size: small; }
-.f-large { font-size: large; }
-.f-larger { font-size: larger; }
+.f-bold, .f-b { font-weight: bold; }
+.f-italic, .f-i { font-style: italic; }
+.f-small, .f-s { font-size: small; }
+.f-large, .f-l { font-size: large; }
+.f-larger, .f-lr { font-size: larger; }
 .f-xl { font-size: x-large; }
 .f-xxl { font-size: xx-large; }
 

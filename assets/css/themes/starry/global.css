@@ -1,0 +1,136 @@
+/*
+**  Credits:
+**  - stars.jpg
+**  @author InstaWelli
+**  @src https://www.pexels.com/photo/stars-during-night-time-176851/
+**  
+**  - Color Scheme, Star Icon, Constellation Icon
+**  @author EstrallaYoshte
+**  @src https://scp-wiki-cn.wikidot.com/theme:space
+*/
+
+:root, :root.theme-dark {
+    --accent-color: #22aad3;
+    --accent-color-dk: #5FACBC;
+    --background-color: #1d1d21;
+    --background-color-dk: #161721;
+    --background-color-lt: #28282c;
+    --text-color: #fff;
+    --text-color-selected: #fff;
+    --text-color-contrast: #fff;
+    --border-color: #E5D69D;
+    --link-color: var(--accent-color);
+    --link-color-visited: var(--accent-color-dk);
+
+    --header-bg: #161721cc;
+}
+
+body {
+    background-color: rgba(230, 43, 124, 0.4);
+    background-image: url(./stars.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+}
+
+div.page-content.solid-bg {
+    margin-top: 2em;
+    background-color: var(--background-color);
+    box-shadow: var(--general-shadow);
+}
+
+button.btn-primary {
+    background-color: var(--accent-color);
+}
+
+button.btn-primary:is(:hover, :focus) { 
+    background-color: var(--accent-color-dk);
+}
+
+figure, figcaption {
+    backdrop-filter: blur(0.05em);
+}
+
+figure {
+    background-color: #00000011 !important;
+}
+
+figcaption {
+    background-color: transparent !important;
+}
+
+blockquote {
+    backdrop-filter: blur(0.05em);
+}
+
+blockquote.star {
+    padding: 1.5em;
+    backdrop-filter: blur(0.05em);
+    position: relative;
+    border-left: none;
+    border: solid 0.1rem var(--border-color);
+    border-top: none;
+}
+
+blockquote.star::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--border-color);
+    mask-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.4 429.4'%3E%3Cg data-name='Layer 2'%3E%3Cpath d='M348.4 186.2C191 207.6 193 219.6 174.3 429.5c-18.9-210-16.9-222-174.3-243.4C157.4 164.8 152.8 157.4 174.2 0c21.4 157.4 16.8 164.8 174.3 186.2Z' data-name='Layer 1' style='fill:%23231f20'/%3E%3C/g%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transform: translate(-50%, -50%);
+}
+
+blockquote.star::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    border-top: solid 0.1rem var(--border-color);
+    mask-image: linear-gradient(90deg, black calc(50% - 2.4rem/2 - 0.125rem), transparent calc(50% - 2.4rem/2 - 0.125rem), transparent calc(50% + 2.4rem/2 + 0.125rem), black calc(50% + 2.4rem/2 + 0.125rem));
+}
+
+aq-tab-panel {
+    backdrop-filter: blur(0.05em);
+}
+
+hr.star {
+    border: none;
+    background-color: transparent;
+    height: 3.75rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+hr.star::before, hr.star::after {
+    content: "";
+    display: grid;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: var(--border-color);
+}
+
+hr.star::before {
+    height: 0.05rem;
+    width: 100%;
+    mask-image: linear-gradient(90deg, black calc(50% - 3.75rem / 2 - 0.125rem), transparent calc(50% - 3.75rem / 2 - 0.125rem), transparent calc(50% + 3.75rem / 2 + 0.125rem), black calc(50% + 3.75rem / 2 + 0.125rem));
+}
+
+hr.star::after {
+    width: 3.75rem;
+    height: 3.75rem;
+    mask-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 700'%3E%3Cpath d='M518 218.4c-9.5 0-18 4-24 10l-94.2-54.2c.6-2.3.6-4 .6-6.2a26 26 0 0 0-6.2-17.4l26.4-39.7A27.7 27.7 0 0 0 456.4 84c0-15.7-12.3-28-28-28s-28 12.3-28 28a26 26 0 0 0 6.2 17.4L380.2 141c-2.8-.5-5-1.1-7.8-1.1-15.7 0-28 12.3-28 28s12.3 28 28 28c7.3 0 14-2.8 19-7.3l94.7 54.3a41 41 0 0 0-1.1 9c0 6.2 1.6 11.8 4.4 16.2L391 363.4c-5-3.3-11.2-5-17.4-5-2.2 0-5 0-7.3.6l-29.6-58.8a29 29 0 0 0 8.4-20.2c0-15.7-12.4-28-28-28-15.7 0-28 12.3-28 28v2.2l-80.1 33a33.8 33.8 0 0 0-26.9-12.8 33.7 33.7 0 0 0-33.6 33.6 33.7 33.7 0 0 0 42 32.5l49.3 88.5c-4.5 5-7.3 11.7-7.3 19 0 15.7 12.3 28 28 28a27.7 27.7 0 0 0 26.3-37l65-48.7a33.3 33.3 0 0 0 20.7 7.3A33.7 33.7 0 0 0 406 392c0-6.2-1.7-11.8-4.5-16.2l98.6-95.2c5 3.3 11.2 5 17.3 5A33.7 33.7 0 0 0 551 252a33.2 33.2 0 0 0-33-33.6zM428.4 72.8a11.2 11.2 0 1 1 0 22.4 11.2 11.2 0 0 1 0-22.4zm-56 106.4a11.2 11.2 0 1 1 0-22.4 11.2 11.2 0 0 1 0 22.4zm-56 89.6a11.2 11.2 0 1 1 0 22.4 11.2 11.2 0 0 1 0-22.4zM165.2 336c0-9.5 7.3-16.8 16.8-16.8s16.8 7.3 16.8 16.8-7.3 16.8-16.8 16.8-16.8-7.3-16.8-16.8zm50.4 0c0-1.7 0-3.4-.6-4.5l80.1-33c5 6.1 12.9 10 21.3 10 1.7 0 2.8 0 4.5-.5l29.7 59.4a30.8 30.8 0 0 0-11.8 24.6c0 4.5 1.1 9 2.8 12.9l-64.4 48.7c-5-3.4-10.6-5.6-16.8-5.6-2.2 0-4 0-5.6.6L205.5 360a33.8 33.8 0 0 0 10.1-24.1zm44.8 151.2a11.2 11.2 0 1 1 0-22.4 11.2 11.2 0 0 1 0 22.4zm112-78.4c-9.5 0-16.8-7.3-16.8-16.8s7.3-16.8 16.8-16.8 16.8 7.3 16.8 16.8-7.3 16.8-16.8 16.8zm145.6-140c-9.5 0-16.8-7.3-16.8-16.8s7.3-16.8 16.8-16.8 16.8 7.3 16.8 16.8-7.3 16.8-16.8 16.8z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+}

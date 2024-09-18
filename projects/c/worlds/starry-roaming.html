@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme-fixed class="theme-dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peoject C</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
+    <link rel="stylesheet" href="/assets/css/themes/starry/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/styled-div.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/aqv2/components/tab.js"></script>
+    <script type="module" src="/web-components/aqv2/components/minicard.js"></script>
+    <script type="module" src="/web-components/page/page-info.js"></script>
+</head>
+<body>
+    <page-header>
+        <div class="f-bold f-xl flex-center" slot="category">Project C</div>
+    </page-header>
+    <tool-box>
+        <page-info>
+            <p>星海漫游，星光闪耀。</p>
+            <aq-minicard sub="作者" header="N Wither" icon="https://avatars.githubusercontent.com/u/63383462?v=4">
+                <div>{{content}}</div>
+            </aq-minicard>
+            <aq-minicard sub="feat." header="Mizdomatic">
+                <div>你好。</div>
+            </aq-minicard>
+            <hr class="secondary">
+            <span class="f-b">内容来源：</span>
+            <div style="margin-inline: 0.8em;">
+                <div class="f-b">背景图片</div>
+                <div>文件名：stars.jpg</div>
+                <div>来源：<a href="https://www.pexels.com/photo/stars-during-night-time-176851/" target="_blank" rel="noopener noreferrer">Pexels</a></div>
+                <hr class="secondary">
+                <div class="f-b">版式：配色/四角星图标/星座图标</div>
+                <div>来源：<a href="https://scp-wiki.wikidot.com/theme:space" target="_blank" rel="noopener noreferrer">SCP-Wiki</a></div>
+            </div>
+        </page-info>
+    </tool-box>
+    <div class="page-content">
+        <h1>世界 “星海漫游”</h1>
+        <hr>
+        <aq-tab value="1">
+            <aq-tab-label value="1">基本信息</aq-tab-label>
+            <aq-tab-panel value="1">知名的枢纽宇宙，人们（广义上的）遍布于宇宙的各个角落，各个聚居区之间通过多种手段相互交流，也有一些人选择与世隔绝。在这个亿万光年的空间里，无数的人来来去去，又有哪个角落在上演或平淡或精彩的故事呢。</aq-tab-panel>
+            <aq-tab-label value="2">数据</aq-tab-label>
+            <aq-tab-panel value="2">
+                <ul>
+                    <li><span class="f-bold">ID</span>：<span>E9168FC36C58EBE668871054D9266AB7</span></li>
+                    <li><span class="f-bold">别名</span>：<span>星海漫游</span></li>
+                    <li><span class="f-bold">维度数量</span>：<span>3 空间 + 1 时间（绝大部分区域）</span></li>
+                </ul>
+            </aq-tab-panel>
+            <aq-tab-label value="3">有何可写</aq-tab-label>
+            <aq-tab-panel value="3">
+                <p>这个世界和 <a href="./c1000.html">C1000</a> 是有很大不同的，所以写这个世界观的故事要注意的有：</p>
+                <ol>
+                    <li>要与太空/宇宙相关，否则就不是星海漫游了。</li>
+                    <li>魔法只在地球等少数地方可用，离开这些地方就不能用魔法了。虽然魔法制品和材料不受此限制，但是对于庞大的宇宙而言，这些好东西的产量实在太少。</li>
+                    <li>因此，这是个轻科幻风格的世界观，这个世界观下的文章应当给人“幻想感”。</li>
+                    <li>这个宇宙很大，人也很多，所以自由发挥的空间还是非常广阔的，发挥想象力！</li>
+                </ol>
+                <p>我为此专门做了这个版式，希望你喜欢！</p>
+            </aq-tab-panel>
+            <aq-tab-label value="4">版式展示</aq-tab-label>
+            <aq-tab-panel value="4">
+                <div>
+                    <div class="flex wrap">
+                        <button class="btn-regular">普通按钮</button>
+                        <button class="btn-primary">显眼按钮</button>
+                        <button disabled class="btn-regular">禁用按钮</button>
+                    </div>
+                    <blockquote class="star">
+                        一个带星星的 blockquote。
+                    </blockquote>
+                    <hr class="star">
+                    <p>上面是一根分割线。</p>
+                    <div class="float-right">
+                        <figure>
+                            <img src="/projects/c/assets/img/ella_avatar.webp" alt="Example Image" width="180">
+                            <figcaption>图片</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </aq-tab-panel>
+        </aq-tab>
+    </div>
+    <page-footer></page-footer>
+</body>
+</html>

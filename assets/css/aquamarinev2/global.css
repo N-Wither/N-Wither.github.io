@@ -251,6 +251,7 @@ html {
   font-size: 16px;
   font-weight: 300;
   scrollbar-color: var(--accent-color) var(--background-color);
+  word-break: break-all;
 }
 
 body {
@@ -269,6 +270,9 @@ hr {
 hr.break {
   width: 70%;
   border-top-style: dashed;
+}
+hr.secondary {
+  border-top: solid var(--text-color-lt) 1px;
 }
 
 ul {
@@ -309,6 +313,8 @@ code {
 
 .page-content {
   margin-inline: min(10rem, 10vw);
+  min-height: 60vh;
+  padding: 1em;
 }
 
 figure {
@@ -341,24 +347,27 @@ nav {
     max-width: 100%;
     --breakout-margin: 0;
   }
+  .page-content {
+    padding: 0.6em;
+  }
 }
-.f-bold {
+.f-bold, .f-b {
   font-weight: bold;
 }
 
-.f-italic {
+.f-italic, .f-i {
   font-style: italic;
 }
 
-.f-small {
+.f-small, .f-s {
   font-size: small;
 }
 
-.f-large {
+.f-large, .f-l {
   font-size: large;
 }
 
-.f-larger {
+.f-larger, .f-lr {
   font-size: larger;
 }
 
