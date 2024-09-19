@@ -13,6 +13,7 @@
     <script type="module" src="/web-components/aqv2/components/snackbar.js"></script>
     <script type="module" src="/web-components/page/page-info.js"></script>
     <script type="module" src="/web-components/aqv2/components/minicard.js"></script>
+    <script type="module" src="./assets/wip.js"></script>
     <style>
         .starry {
             background-image: url(/assets/css/themes/starry/stars.jpg);
@@ -31,15 +32,15 @@
         <div slot="category" class="f-bold f-xl flex center">Project C</div>
     </page-header>
     <tool-box>
-        <to-top></to-top>
         <page-info>
             <aq-minicard sub="作者" header="N Wither" icon="https://avatars.githubusercontent.com/u/63383462?v=4">
                 <div>排期已满，挖坑未填。</div>
             </aq-minicard>
-            <aq-minicard sub="feat." header="Mizdomatic">
-                <div>代码、美术。是吗？</div>
+            <aq-minicard sub="feat." header="Mizdomatic" icon="/assets/imgs/common/mizdomatic.webp">
+                <div>不知道该说什么。</div>
             </aq-minicard>
         </page-info>
+        <to-top></to-top>
     </tool-box>
     <div class="page-content">
         <h1 class="page-title">Project C</h1>
@@ -67,7 +68,7 @@
             <hr class="secondary">
             <p>群星间的故事。<a href="./worlds/starry-roaming.html">此世界的更多信息</a></p>
             <div class="float right" style="background-color: transparent;">
-                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2006880230&auto=1&height=66"></iframe>
+                <iframe frameborder="no" width=280 height=80 src="//music.163.com/outchain/player?type=2&id=2006880230&auto=1&height=66"></iframe>
             </div>
             <h3>文章列表</h3>
             <ul>
@@ -78,8 +79,5 @@
     <page-footer>
         <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
     </page-footer>
-    <script>
-        let wips = document.querySelectorAll('.wip'); if(wips != null) wips.forEach(e => {e.onclick = () => {aqSnackbar({message: '未完成', type: 'error', icon: 'close'})}})
-    </script>
 </body>
 </html>

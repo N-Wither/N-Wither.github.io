@@ -90,7 +90,7 @@ export class AqMiniCard extends LitElement {
         }
         .header-wrapper{
             padding: 0.2em 0.2em 0.1em 0.2em;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 1px solid var(--text-color-lt);
         }
         .header{
             font-weight: bold;

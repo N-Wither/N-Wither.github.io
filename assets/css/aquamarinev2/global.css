@@ -194,6 +194,7 @@ html {
   --font-common: "Metropolis", "Noto Sans SC", sans-serif, "Material Symbols Outlined";
   --font-serif: "Noto Serif SC", serif;
   --font-monospace: monospace;
+  --font-size-regular: 16px;
 }
 
 html {
@@ -248,7 +249,7 @@ html {
   scroll-behavior: smooth;
   line-height: 1.5;
   font-family: var(--font-common);
-  font-size: 16px;
+  font-size: var(--font-size-regular);
   font-weight: 300;
   scrollbar-color: var(--accent-color) var(--background-color);
   word-break: break-all;
@@ -339,9 +340,10 @@ nav {
 
 @media only screen and (max-width: 768px) {
   html {
-    --header-height: 3rem;
-    --toolbox-width: 3rem;
+    --header-height: 3.6rem;
+    --toolbox-width: 3.6rem;
     --nav-menu-width: 16em;
+    --font-size-regular: 14px;
   }
   .float, .float.left, .float.right {
     max-width: 100%;
@@ -349,6 +351,7 @@ nav {
   }
   .page-content {
     padding: 0.6em;
+    margin-inline: 1em;
   }
 }
 .f-bold, .f-b {

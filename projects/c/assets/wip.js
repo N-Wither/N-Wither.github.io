@@ -1,0 +1,2 @@
+import { aqSnackbar } from '../../../web-components/aqv2/components/snackbar.js'
+let wip = document.querySelectorAll('.wip'); if(wip.length > 0) wip.forEach(e => e.addEventListener('click', () => {aqSnackbar.error('未完成', {icon: 'close'})}))

@@ -23,6 +23,8 @@
     --link-color-visited: var(--accent-color-dk);
 
     --header-bg: #161721cc;
+
+    scrollbar-width: thin;
 }
 
 body {
@@ -131,4 +133,10 @@ hr.star::after {
     mask-repeat: no-repeat;
     mask-size: contain;
     mask-position: center;
+}
+
+@media screen and (max-width: 768px) {
+    blockquote.star {
+        margin-inline: 1em;
+    }
 }
