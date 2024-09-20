@@ -315,8 +315,16 @@ class ElementWrapper {
         return select(selector, unwrap, this.element);
     }
 
+    $ = this.select;
+
     selectAll(selector, unwrap = false) {
         return selectAll(selector, unwrap, this.element);
+    }
+    
+    $$ = this.selectAll;
+
+    hasClass(className) {
+        return this.element.classList.contains(className);
     }
 }
 

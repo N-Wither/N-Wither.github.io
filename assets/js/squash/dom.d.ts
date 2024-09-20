@@ -70,8 +70,11 @@ declare class ElementWrapper<T> {
     isFollowedBy(sibling: ElementWrapperValidTarget): boolean
     select(selector: string, unwrap?: true): Element | null
     select(selector: string, unwrap?: false): ElementWrapper<Element> | null
+    $: typeof this.select
     selectAll(selector: string, unwrap?: true): NodeListOf<Element>
     selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
+    $$: typeof this.selectAll
+    hasClass(className: string): boolean
     get previous(): ElementWrapper<Element> | null
     get next(): ElementWrapper<Element> | null
     get parent(): ElementWrapper<Element> | null

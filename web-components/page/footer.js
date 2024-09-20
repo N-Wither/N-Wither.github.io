@@ -9,7 +9,9 @@ export class PageFooter extends LitElement {
         <slot name='hr'>
             <hr part="divider">
         </slot>
-        <p>${this.#localize(1 + Math.floor(Math.random() * PageFooter.quotes))}</p>
+        <slot name='quote'>
+            <p>${this.#localize(1 + Math.floor(Math.random() * PageFooter.quotes))}</p>
+        </slot>
         <div role='contentinfo'>
             <slot></slot>
             <p>Powered by <a href='https://pages.github.com' target='_blank' rel="noopener noreferrer">Github Pages</a>.</p>
