@@ -252,7 +252,6 @@ html {
   font-size: var(--font-size-regular);
   font-weight: 300;
   scrollbar-color: var(--accent-color) var(--background-color);
-  word-break: break-all;
 }
 
 body {
@@ -338,6 +337,10 @@ nav {
   padding-block-start: 1em;
 }
 
+img.adaptive-full-width {
+  width: 80%;
+}
+
 @media only screen and (max-width: 768px) {
   html {
     --header-height: 3.6rem;
@@ -352,6 +355,9 @@ nav {
   .page-content {
     padding: 0.6em;
     margin-inline: 1em;
+  }
+  img.adaptive-full-width {
+    width: 100%;
   }
 }
 .f-bold, .f-b {
@@ -488,6 +494,10 @@ nav {
   min-width: var(--header-height);
   min-height: var(--header-height);
   box-shadow: var(--general-shadow);
+}
+
+.word-break-all {
+  word-break: break-all;
 }
 
 /*# sourceMappingURL=global.css.map */
