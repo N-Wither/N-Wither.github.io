@@ -17,7 +17,7 @@
             --flore-star: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 6.35 6.35' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath style='fill:%23a8b1d4;fill-opacity:1;stroke-width:0.264583' d='M 6.2495419,4.504746 3.8267769,4.6620009 1.8716902,6.1014987 1.7144354,3.6787338 0.27493753,1.723647 2.6977024,1.5663922 4.6527892,0.12689437 4.810044,2.5496593 Z' /%3E%3C/svg%3E%0A");
         }
 
-        hr:is(.encounter, .attract, .orbit) {
+        hr:is(.encounter, .attract, .orbit, .oscillate) {
             border: none;
             background-color: transparent;
             height: 24px;
@@ -31,17 +31,17 @@
             background-position: center;
         }
 
-        hr:is(.encounter, .attract, .orbit)::before, hr:is(.encounter, .attract, .orbit)::after {
+        hr:is(.encounter, .attract, .orbit, .oscillate)::before, hr:is(.encounter, .attract, .orbit, .oscillate)::after {
             position: absolute;
         }
 
-        hr:is(.encounter, .attract, .orbit)::before {
+        hr:is(.encounter, .attract, .orbit, .oscillate)::before {
             transform: translateY(4px);
             content: var(--ella-star);
             right: 0;
         }
 
-        hr:is(.encounter, .attract, .orbit)::after {
+        hr:is(.encounter, .attract, .orbit, .oscillate)::after {
             content: var(--flore-star);
             transform: scaleX(-1) translateY(4px);
             left: 0;
@@ -64,6 +64,33 @@
         }
         hr.orbit::before { width: calc(50% - 1rem); }
         hr.orbit::after { width: calc(50% - 1rem); }
+
+        hr.oscillate {
+            background-image: linear-gradient(to right, transparent 0%, transparent calc(50% - 2rem - 24px), var(--border-color) calc(50% - 2rem - 24px), transparent 50%, var(--border-color) calc(50% + 2rem + 24px), transparent calc(50% + 24px + 24px), transparent 100%);
+        }
+        hr.oscillate::before { width: calc(50% - 4.5rem); }
+        hr.oscillate::after { width: calc(50% - 4.5rem); }
+
+        div.flore {
+            position: relative;
+            padding: 1em;
+        }
+
+        div.flore::before {
+            content: var(--flore-star);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        div.flore::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid #a8b1d4;
+            clip-path: polygon(36px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 36px, 36px 36px);
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -248,7 +275,7 @@
             <img src="/projects/c/assets/img/flore-riverside.webp" alt="Flore looking at me." class="adaptive-full-width">
         </div>
         <p>“什么事？”我隐隐觉得她的语气不太对劲。</p>
-        <p>“这段时间，我……过得很愉快呢。”</p>
+        <p>“跟你的这段时间，我……还是很开心的呢。”</p>
         <p>啊，这个时刻终于还是要来了吗。虽然我们只相处了不长的一段时间，但是除了她不愿意谈的那几个话题之外，我们已经是无话不谈的关系了。</p>
         <p>“我也是。”我说，我尽量保持冷静。</p>
         <p>“但是，我也多受你费心了，所以，还是很谢谢你。”</p>
@@ -275,7 +302,77 @@
             <p style="text-align: right;">——Flore</p>
         </div>
         <p>真是的，别这样啊，我连再见都还没说呢。</p>
-        <p>拿着这张纸条，坐在只有我一人的房间里，心里莫名的有一种失落感，现在，又只有我一个人了吗？看起来是的。</p>
+        <p>拿着这张纸条，坐在只有我一人的房间里，心里莫名的有一种失落感，现在，又只有我一个人了吗？</p>
+        <p>那么，我在这也够久了，明天就走吧。</p>
+        <hr class="oscillate">
+        <p>Flore 不在，这里的什么东西好像都变得无聊了，当然可能是它们本来就没什么意思，也有可能是我已经看得眼熟了。</p>
+        <p>好吧，Ella，别骗自己了，面对事实吧，你就是想她了而已。</p>
+        <p>振作一点，我们本来就只是偶然碰见的而已，能有这段时间的经历已经很不错了，你还有什么不满意的呢？</p>
+        <p>是啊，我还能有什么不满意的呢，只不过是回到了之前的状态。</p>
+        <p>那就这样吧，我要走了。</p>
+        <p>我提着行李走在前往列车站的路上，天气和昨天的一样，但是感觉更冷，这里快要入冬了，我不知道这里的冬天是什么样，应该也没什么机会看到。</p>
+        <p>我叹了口气，继续走我的路。</p>
+        <p>“喂！那边的，站住！”</p>
+        <p>熟悉的台词，不过并不是同一个人喊出来的。</p>
+        <p>随后便是警哨，以及奔跑的声音，我朝着声音的方向望去，一队警察正在追着什么人，一个很熟悉的背影……那是 Flore！</p>
+        <p>难道她又逃票了？但是再怎样逃票，也不至于动用一队警察来抓人吧？还是说，她又犯了什么别的事情？</p>
+        <p>我完全没想到我们再次见面会这么快，还是这么尴尬的方式。</p>
+        <p>我想救她，就算她真的犯了什么要被抓到牢里面的错，我也要当面问个清楚。</p>
+        <p>但是，要怎么做呢，我震惊和思考的这段时间里，他们已经跑远了，而以我这可怜的体力，想要在力竭之前追上他们也不可能。</p>
+        <p>事到如今，只能用那个了。</p>
+        <div class="flore">
+            <p>警察的脚步声越来越近了，真是要命，他们怎么就是甩不掉呢！</p>
+            <p>如果我在去车站之前问过 Ella 的话，我应该就知道我已经被车站记在黑名单上了，也就不会在售票处被认出来，那个该死的售票员也就不会报警了。</p>
+            <p>但是，现在后悔又有什么用呢，就算我一直在这里躲着，也迟早是要被发现的，这就是我最终的命运了吧……</p>
+            <p>好累……视线也变得模糊了，这次，要跑不掉了吗……</p>
+            <p>“Flore！”</p>
+            <p>很熟悉的声音，这是——</p>
+        </div>
+        <p>“Flore！”我从侧面切入，想让她注意到我，与此同时——</p>
+        <p>“还有你们，离她远点！”我抬起魔杖，对准那群还没能反应过来的警察，给他们来了一发冲击波，虽然我能用一些不那么暴力的法术，但是现在这种争分夺秒的情况，我没法集中精力去施放那些耗时费力的东西。</p>
+        <p>“Ella！”Flore 看到是我，本已疲惫的脸上又现出兴奋和惊喜的神情。</p>
+        <p>“我还以为你已经走了。”我说。</p>
+        <p>“本来应该是这样的，但是……”</p>
+        <p>“好了，这些之后再说，先甩掉他们吧。”</p>
+        <p>我召唤出扫帚，把 Flore 拉了上来。</p>
+        <p>“哇，魔法师真的有会飞的扫帚！”</p>
+        <p>“是，但是我更喜欢坐车。”</p>
+        <p>在这个火车都能星际穿梭的时代，居然还有人在大街上骑着扫帚载人飞行，想到这里我就尴尬得不行，但是我至今都没找到一样能够代替扫帚，而又不是清洁工具的东西。</p>
+        <p>一阵警笛声打断了我尴尬的胡思乱想，他们有增援过来了。</p>
+        <p>“要加速了，坐好！”</p>
+        <p>“好的！”Flore 紧紧抱住了我的腰。</p>
+        <p>好吧，这样也行。</p>
+        <p>论起直线速度，由个人的魔力驱动的扫帚当然不是汽车的对手，但是要比灵活性的话，我坐着的这根木头就厉害多了。</p>
+        <p>所以，我当即拐进了楼房之间的小巷子，到这里，他们就只能用两条腿追我们了。</p>
+        <p>“Flore。”</p>
+        <p>“什么？”</p>
+        <p>“我还记得，你前天跟我说，小巷子里面会藏着有趣的东西。还真有点道理。”</p>
+        <p>“啊哈哈……你还想着说笑啊……对了，你不是不能在地球之外用魔法吗？”</p>
+        <p>“是这样没错，但是，我有一个秘银 VIS 存储器。”</p>
+        <p>“那是什么？”</p>
+        <p>我才想起来她对魔法的认识全都来自刻板印象。</p>
+        <p>“就是一个……魔法版本的备用电池。”</p>
+        <p>“还有这么方便的东西啊。”</p>
+        <p>“也没那么方便，价格超级贵，还严格限制携带，所以我也就只有这一个而已。”</p>
+        <p>“哇……”</p>
+        <p>“而且还有点副作用，肾上腺素冲击导致的心动过速、恶心头晕……还有一点辐射。”</p>
+        <p>“那你不会……”</p>
+        <p>“也没那么严重！我感觉还好，嗯。”</p>
+        <p>“抱歉，又让你来帮我了……”</p>
+        <p>“什么话！难道你觉得我帮你我会损失什么吗？如果我这次不来救你的话，那我这段时间跟你在一起又有什么意义？！”</p>
+        <p>“……谢谢……”</p>
+        <p>“等我们安全之后再说这些吧，我们现在还被追着呢。”一直在城市里面绕圈迟早是不行的，我能使用魔法的时间不会太久。</p>
+        <p>“星际列车肯定是不行了，我在列车公司的朋友问我，是干了什么被公司拉黑了。”</p>
+        <p>“啊……我也是。”</p>
+        <p>“怪不得你会被警察追呢……等等，只是被拉黑的话，给列车公司交钱就能解除的吧，你是做了别的什么事吧？”</p>
+        <p>“这个……我……”</p>
+        <p>“算了，”显然，这又是一个她不愿提及的话题，但是我现在也没有打探这个的心情，“我们只能去太空港了，那边会有去 Kalparic B 行星的客运飞船。”</p>
+        <p>“但是，买票的时候不会被……”</p>
+        <p>“怎么可能买票……我们是偷渡……嗯。”</p>
+        <p>“欸……好吧。”</p>
+        <p>一路狂飙，我终于在 VIS 耗尽之前带着 Flore 来到了太空港。</p>
+        <p>这里停靠着一艘我刚才提到的飞船，乘客都在陆续进入舱内，我用剩下的最后一点魔力，帮我们混进了乘客的人群之中，这个我一直带着的备用能源终于是物尽其用了。</p>
+        <p>随着聚变引擎的轰鸣，飞船离开了这颗星球的表面，几天之后它就会降落在 Kalparic B 的地面上，在这个恒星系中，它现在正处在与 A 相对的另一端。</p>
         <!-- <script src="https://giscus.app/client.js"
         data-repo="N-Wither/N-Wither.github.io"
         data-repo-id="R_kgDOHL5_fA"
