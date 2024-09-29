@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-us" data-theme-fixed>
+<html lang="zh-cn">
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/assets/css/aquamarinev2/global.css">
-    <link rel="stylesheet" href="/assets/css/themes/retrowave/global.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>About Me</title>
     <!-- components -->
@@ -14,71 +13,49 @@
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/assets/js/csspainters/gradientdots.js"></script>
-    <script type="module" src="/web-components/aqv2/components/translate.js"></script>
-    <script type="module" src="/web-components/page/languages.js"></script>
 </head>
 <body>
-    <page-header variant="compact">
+    <page-header>
         <div slot="category" class="flex center column lh-initial">
-            <div class="f-bold f-xl">WitherWorks</div>
-            <div class="f-bold"><aq-ts key="13">Summer Special</aq-ts></div>
+            <div>
+                <div class="f-bold f-xl">WitherWorks</div>
+                <div class="f-bold">自然 科学 人文</div>
+            </div>
         </div>
         <header-button slot="button">
             <a href="https://github.com/N-Wither" class="flex-center no-deco" target="_blank">
                 <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
             </a>
         </header-button>
-        <choose-language slot="button"></choose-language>
     </page-header>
     <tool-box>
         <to-top></to-top>
     </tool-box>
     <div class="page-content">
-        <script>
-            window.aqLanguageMap = {
-                'zh-cn': {
-                    1: '关于我',
-                    2: '在网上',
-                    3: '在线下',
-                    4: '做一些可能有点意思的东西。',
-                    5: '无聊的大学生宅宅。',
-                    6: '拥有以下特征：',
-                    7: '动荡不定的情绪；',
-                    8: '不合时宜的幽默；',
-                    9: '挣扎难产的创作；',
-                    10: '其他...',
-                    11: '无关紧要。',
-                    12: '可能相关的图片，据信为 N Wither。',
-                    13: '夏季特别版'
-                }
-            }
-        </script>
-        <h1><aq-ts key="1">About Me</aq-ts></h1>
+        <h1>关于我</h1>
         <hr>
         <div class="float right">
             <figure>
                 <img src="https://avatars.githubusercontent.com/u/63383462?v=4" alt="A anime girl with short brown hair and brown eyes, wearing a black hooded coat and white shirt with black tie." width="200">
-                <figcaption><aq-ts key="12">Image that may be relevant, supposedly to be N Wither.</aq-ts></figcaption>
+                <figcaption>可能相关的图片，据信为 N Wither。</figcaption>
             </figure>
         </div>
-        <h2><aq-ts key="2">Me Online</aq-ts></h2>
-        <p><aq-ts key="4">Do something that may be interesting.</aq-ts></p>
-        <p><aq-ts key="6">Has the following characteristics: </aq-ts></p>
+        <h2>在网上</h2>
+        <p>自认为是一个内容创作者，做一些可能有点意思的东西，有时候人们还因为我做的东西给我打钱，谢谢。</p>
+        <p>拥有以下特征：</p>
         <ul>
-            <li><aq-ts key="7">Unstable emotion;</aq-ts></li>
-            <li><aq-ts key="8">Inappropriate humor;</aq-ts></li>
-            <li><aq-ts key="9">Struggling works;</aq-ts></li>
-            <li><aq-ts key="10">And others...</aq-ts></li>
+            <li>动荡不定的情绪；</li>
+            <li>不合时宜的幽默；</li>
+            <li>挣扎难产的创作；</li>
+            <li>其他……</li>
         </ul>
-        <h2><aq-ts key="3">Me Offline</aq-ts></h2>
-        <p><aq-ts key="5">A boring college otaku.</aq-ts></p>
-        <p><aq-ts key="6">Has the following characteristics: </aq-ts></p>
+        <h2>在线下</h2>
+        <p>无聊的社畜御宅族。</p>
+        <p>拥有以下特征：</p>
         <ul>
-            <li><aq-ts key="11">Non-essential.</aq-ts></li>
+            <li>[查询：拒绝]</li>
         </ul>
     </div>
-    <page-footer>
-        <p> <span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--accent-color);">Retrowave</span> Theme by N Wither</p>
-    </page-footer>
+    <page-footer></page-footer>
 </body>
 </html>
