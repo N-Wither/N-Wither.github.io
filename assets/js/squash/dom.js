@@ -315,13 +315,17 @@ class ElementWrapper {
         return select(selector, unwrap, this.element);
     }
 
-    $ = this.select;
+    $(selector, unwrap = false) {
+        return select(selector, unwrap, this.element);
+    }
 
     selectAll(selector, unwrap = false) {
         return selectAll(selector, unwrap, this.element);
     }
     
-    $$ = this.selectAll;
+    $$(selector, unwrap = false) {
+        return selectAll(selector, unwrap, this.element);
+    }
 
     hasClass(className) {
         return this.element.classList.contains(className);
@@ -330,6 +334,19 @@ class ElementWrapper {
 
 export class DomUtils {
     static _ElementWrapper = ElementWrapper;
+
+    static #parse(element) {
+        if(typeof element == 'string') {
+            return DomUtils.select(element, true)
+        }
+        else if (element instanceof ElementWrapper) {
+            return element.element;
+        }
+        else if (element instanceof Node) {
+            return element
+        }
+        else throw new TypeError('Invalid element.');
+    }
 
     /**
      * Visual effects for your elements.
@@ -489,20 +506,20 @@ export class DomUtils {
     /**
      * Get all elements in specified node.
      * @overload
-     * @param {Node} from
+     * @param {import('./dom.js').ElementWrapperValidTarget} from
      * @param {{allowShadowRoot?: boolean, unwrap?: false}} options
      * @returns {DomUtils._ElementWrapper[]}
      */
     /**
      * @overload
-     * @param {Node} from
+     * @param {import('./dom.js').ElementWrapperValidTarget} from
      * @param {{allowShadowRoot?: boolean, unwrap?: true}} options
      * @returns {Element[]}
      */
     static getAllElements(from = document.body, options = { allowShadowRoot: false, unwrap: false }) {
-        TypeUtils.checkWithError(from, Node, 'Param 1 ("from") is invalid.');
+        // TypeUtils.checkWithError(from, Node, 'Param 1 ("from") is invalid.');
         TypeUtils.checkWithError(options, 'object', 'Param 2 ("options") is invalid.');
-        let walker = document.createTreeWalker(from, NodeFilter.SHOW_ELEMENT, null);
+        let walker = document.createTreeWalker(DomUtils.#parse(from), NodeFilter.SHOW_ELEMENT, null);
         let elements = [];
         let defaultOptions = { allowShadowRoot: false, unwrap: false };
         options = Object.assign(defaultOptions, options);

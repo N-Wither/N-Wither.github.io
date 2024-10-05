@@ -17,7 +17,7 @@
             --flore-star: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 6.35 6.35' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath style='fill:%23a8b1d4;fill-opacity:1;stroke-width:0.264583' d='M 6.2495419,4.504746 3.8267769,4.6620009 1.8716902,6.1014987 1.7144354,3.6787338 0.27493753,1.723647 2.6977024,1.5663922 4.6527892,0.12689437 4.810044,2.5496593 Z' /%3E%3C/svg%3E%0A");
         }
 
-        hr:is(.encounter, .attract, .orbit, .oscillate) {
+        hr:is(.encounter, .attract, .orbit, .oscillate, .reunion, .depart, .alone) {
             border: none;
             background-color: transparent;
             height: 24px;
@@ -31,45 +31,54 @@
             background-position: center;
         }
 
-        hr:is(.encounter, .attract, .orbit, .oscillate)::before, hr:is(.encounter, .attract, .orbit, .oscillate)::after {
+        hr:is(.encounter, .attract, .orbit, .oscillate, .reunion, .depart, .alone)::before, hr:is(.encounter, .attract, .orbit, .oscillate, .reunion, .depart, .alone)::after {
             position: absolute;
         }
 
-        hr:is(.encounter, .attract, .orbit, .oscillate)::before {
+        hr:is(.encounter, .attract, .orbit, .oscillate, .reunion, .depart, .alone)::before {
             transform: translateY(4px);
             content: var(--ella-star);
             right: 0;
         }
 
-        hr:is(.encounter, .attract, .orbit, .oscillate)::after {
+        hr:is(.encounter, .attract, .orbit, .oscillate, .reunion, .depart, .alone)::after {
             content: var(--flore-star);
             transform: scaleX(-1) translateY(4px);
             left: 0;
         }
 
         hr.encounter {
-            background-image: linear-gradient(to right, transparent 0%, var(--border-color) 10%, var(--border-color) calc(50% - 5rem - 24px), transparent calc(50% - 5rem - 24px), transparent calc(50% + 5rem + 24px), var(--border-color) calc(50% + 5rem + 24px), var(--border-color) 90%, transparent 100%);
+            background-image: linear-gradient(to right, transparent 0%, #E4D79D 10%, #E4D79D calc(50% - 5rem - 24px), transparent calc(50% - 5rem - 24px), transparent calc(50% + 5rem + 24px), #E4D79D calc(50% + 5rem + 24px), #E4D79D 90%, transparent 100%);
         }
-        hr.encounter::before { width: calc(50% - 4.5rem); }
-        hr.encounter::after { width: calc(50% - 4.5rem); }
+        hr.encounter::before, hr.encounter::after { width: calc(50% - 4.5rem); }
 
         hr.attract {
-            background-image: linear-gradient(to right, transparent 10%, var(--border-color) 30%, var(--border-color) calc(50% - 2rem - 24px), transparent calc(50% - 2rem - 24px), transparent calc(50% - 24px), var(--border-color) 50%, transparent calc(50% + 24px), transparent calc(50% + 2rem + 24px), var(--border-color) calc(50% + 2rem + 24px), var(--border-color) 70%, transparent 90%);
+            background-image: linear-gradient(to right, transparent 10%, #E4D79D 30%, #E4D79D calc(50% - 2rem - 24px), transparent calc(50% - 2rem - 24px), transparent calc(50% - 24px), #E4D79D 50%, transparent calc(50% + 24px), transparent calc(50% + 2rem + 24px), #E4D79D calc(50% + 2rem + 24px), #E4D79D 70%, transparent 90%);
         }
-        hr.attract::before { width: calc(50% - 1.5rem); }
-        hr.attract::after { width: calc(50% - 1.5rem); }
+        hr.attract::before, hr.attract::after { width: calc(50% - 1.5rem); }
 
         hr.orbit {
-            background-image: linear-gradient(to right, transparent 30%, var(--border-color) 40%, var(--border-color) calc(50% - 1rem - 24px), transparent calc(50% - 1rem - 24px), transparent calc(50% - 24px), var(--border-color) 50%, transparent calc(50% + 24px), transparent calc(50% + 1rem + 24px), var(--border-color) calc(50% + 1rem + 24px), var(--border-color) 60%, transparent 70%);
+            background-image: linear-gradient(to right, transparent 30%, #E4D79D 40%, #E4D79D calc(50% - 1rem - 24px), transparent calc(50% - 1rem - 24px), transparent calc(50% - 24px), #E4D79D 50%, transparent calc(50% + 24px), transparent calc(50% + 1rem + 24px), #E4D79D calc(50% + 1rem + 24px), #E4D79D 60%, transparent 70%);
         }
-        hr.orbit::before { width: calc(50% - 1rem); }
-        hr.orbit::after { width: calc(50% - 1rem); }
+        hr.orbit::before, hr.orbit::after { width: calc(50% - 1rem); }
 
         hr.oscillate {
-            background-image: linear-gradient(to right, transparent 0%, transparent calc(50% - 2rem - 24px), var(--border-color) calc(50% - 2rem - 24px), transparent 50%, var(--border-color) calc(50% + 2rem + 24px), transparent calc(50% + 24px + 24px), transparent 100%);
+            background-image: linear-gradient(to right, transparent 0%, transparent calc(50% - 2rem - 24px), #E4D79D calc(50% - 2rem - 24px), transparent 50%, #E4D79D calc(50% + 2rem + 24px), transparent calc(50% + 24px + 24px), transparent 100%);
         }
-        hr.oscillate::before { width: calc(50% - 4.5rem); }
-        hr.oscillate::after { width: calc(50% - 4.5rem); }
+        hr.oscillate::before, hr.oscillate::after { width: calc(50% - 4.5rem); }
+
+        hr.reunion {
+            background-image: linear-gradient(to right, transparent calc(50% - 18px), #E4D79D 50%, transparent calc(50% + 18px));
+        }
+        hr.reunion::before, hr.reunion::after { width: calc(50% + 3rem); }
+
+        hr.depart {
+            background-image: linear-gradient(to right, transparent 36px, #E4D79D 24px, transparent 50%, #E4D79D calc(100% - 36px), transparent calc(100% - 36px));
+        }
+        hr.depart::before, hr.depart::after { width: 100%; }
+
+        hr.alone::after { display: none; }
+        hr.alone::before { left: 50%; transform: translateX(-50%) translateY(4px); width: auto; right: unset; }
 
         div.flore {
             position: relative;
@@ -91,6 +100,14 @@
             clip-path: polygon(36px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 36px, 36px 36px);
             pointer-events: none;
         }
+
+        .farewell {
+            color: transparent;
+        }
+
+        .farewell::selection {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -103,7 +120,6 @@
             <p>为了一首歌而写的这篇文，受到了小川一水的《双星·飓风·离乡人》的启发。</p>
             <aq-minicard sub="作者" header="N Wither" icon="https://avatars.githubusercontent.com/u/63383462?v=4">喜欢看女孩子。</aq-minicard>
             <aq-minicard sub="协助制作" header="Mizdomatic" icon="/assets/imgs/common/mizdomatic.webp">喜欢看星星。</aq-minicard>
-            <!-- <iframe frameborder="no" width=280 height=80 src="//music.163.com/outchain/player?type=2&id=2006880230&auto=1&height=66"></iframe> -->
         </page-info>
         <to-top></to-top>
     </tool-box>
@@ -337,6 +353,8 @@
         <p>我召唤出扫帚，把 Flore 拉了上来。</p>
         <p>“哇，魔法师真的有会飞的扫帚！”</p>
         <p>“是，但是我更喜欢坐车。”</p>
+        <p>“那样的话，我坐上去没问题吗？”</p>
+        <p>“上来吧，我对我的技术还是很有自信的。”</p>
         <p>在这个火车都能星际穿梭的时代，居然还有人在大街上骑着扫帚载人飞行，想到这里我就尴尬得不行，但是我至今都没找到一样能够代替扫帚，而又不是清洁工具的东西。</p>
         <p>一阵警笛声打断了我尴尬的胡思乱想，他们有增援过来了。</p>
         <p>“要加速了，坐好！”</p>
@@ -380,7 +398,149 @@
         <p>一路狂飙，我终于在 VIS 耗尽之前带着 Flore 来到了太空港。</p>
         <p>这里停靠着一艘我刚才提到的飞船，乘客都在陆续进入舱内，我用剩下的最后一点魔力，帮我们混进了乘客的人群之中，这个我一直带着的备用能源终于是物尽其用了。</p>
         <p>随着聚变引擎的轰鸣，飞船离开了这颗星球的表面，几天之后它就会降落在 Kalparic B 的地面上，在这个恒星系中，它现在正处在与 A 相对的另一端。那边的星际列车是另一家公司在运营，所以她还是可以从那里逃脱追捕，而我当然会送她安全离开的。</p>
-        <!-- <script src="https://giscus.app/client.js"
+        <hr class="reunion" >
+        <p>“呼……终于安全了……”使用 VIS 存储器的副作用正在见效，我只能靠在大厅墙边的座位上尽量休息。</p>
+        <p>“Ella，你看起来很难受。”Flore 在我身边关切地看着我。</p>
+        <p>“不是什么大事，过会就好了……”这是真的，但难受也是真的，好在这一切都值得我这么做。</p>
+        <p>“嗯，受不了的话，请别硬撑着。”</p>
+        <p>我疲惫地四处望去，大厅里面人不少，我们在其中不算显眼。这种大厅的布局设计继承自很久以前的跨洋邮轮，现在用于观景、聚餐，以及给承担不起任何席位的乘客用作休憩。</p>
+        <p>没有参照物，太空中的时间总是难以捉摸。我还是低估了副作用的强度，过了几个小时，我才完全恢复过来，而现在已经是晚上了。</p>
+        <p>我们现在坐在大厅一侧的开放式餐厅里，我们两人今天都消耗了太多体力。当然，这里也没有什么太好的东西吃，都是些廉价合成食品，不过也足够填饱肚子了。</p>
+        <p>刚才点单的时候，Flore 执意要她来付，我没拗过她。</p>
+        <p>“那么，Flore，到那边之后，你还有什么计划吗？”</p>
+        <p>“我……那边应该也会很快知道消息的，所以，我只能尽早走了。”</p>
+        <p>“可惜了啊……”</p>
+        <p>“没什么可惜的，能这样已经很好了。”Flore 对我笑了一下。</p>
+        <p>……</p>
+        <p>太空中没有昼夜之分，但是为了保证人的生物钟，飞船内部依然会根据时间控制照明。</p>
+        <p>我们回到了之前的那个角落，大厅中的灯绝大部分都关闭了，只留下一些暗淡的小灯，免得有倒霉的人绊到什么。整个大厅里也有一些像我们这样的乘客，大家都很自觉地各自隔开一些距离，感谢人工重力吧，我真不敢想象大家都飘在空中的样子。</p>
+        <p>“Ella，你不觉得有点冷吗？”</p>
+        <p>“我还好，要不要我把外套借你一下？”</p>
+        <p>“不用了，你也要用的吧……嗯，我可以这样吗？”</p>
+        <p>Flore 身体侧倾，靠在了我身上。</p>
+        <p>“欸？”</p>
+        <p>“不行吗？”</p>
+        <p>“……随你了。”</p>
+        <p>“谢谢。”</p>
+        <p>好吧，这样的感觉还不错。</p>
+        <p>周围很安静，只隐约听得见空调的嗡嗡声，似乎还能朦胧地听见远处人的谈话，我不确定我是不是真的听到。</p>
+        <p>“Ella。”</p>
+        <p>“嗯？”</p>
+        <p>“你今天早些时候，问过我为什么会被警察追吧？”</p>
+        <p>“是问过。”</p>
+        <p>“我一直不跟你说过关于我的一些事情，你会不会觉得我很奇怪？”</p>
+        <p>“也没有那么奇怪，本来你也没有义务告诉我所有东西的。”</p>
+        <p>“你就不担心，我这个通缉犯会……对你做什么事情吗？”</p>
+        <p>“我觉得你不会是那种人的。”</p>
+        <p>“这样啊……我应该早些信任你的。”</p>
+        <p>“现在也不迟哦。”</p>
+        <p>虽然我没看着 Flore 的脸，但是我听到她轻笑了一下。</p>
+        <p>“所以，你想听听我的事情吗？”</p>
+        <p>“跟我说说吧。”</p>
+        <p>于是，Flore 开始跟我说起那些她一直不愿意告诉我的事情。</p>
+        <p>她的家乡在一个遥远的星球，她的父母在很早就不幸去世了，虽然她是个很坚强的孩子，但在那个压抑的社会里，孤儿的身份让她成为了一些人盯上的对象。某一天，当地的一个花花公子犯下了严重的罪行，他的权贵家人为了保住他，动用各种手段伪造了证据，将罪名转移到了只是刚好路过的 Flore 身上。那里的执法机构早已经腐败不堪，无依无靠的她没法证明自己的清白，只能冒险逃离自己的家乡。然而，虽然腐败，那边的执法机构还是能在星际执法网络里发布她的通缉令，她不能在一个地方停留太久，否则她的消息就会被当地的警察知道。就这样，她踏上了一条无法回头，也无法停留的逃亡之路。</p>
+        <p>一路上，她的旅程完全说不上是顺利，她为数不多的钱很快就花光了，而在试图找工作的时候，她也经常被不怀好意的人欺骗，但因为通缉犯的身份，她只能自己承受一切。这些经历也让她不再信任其他人，直到遇到了我。</p>
+        <p>“辛苦你了。”我不太会安慰别人，好不容易才挤出这几个字来。</p>
+        <p>“谢谢你听我讲这些，你是我遇到的第一个可以说出这些事情的人。”</p>
+        <p>“如果一直憋着的话会有心理问题的，所以，有什么事情，跟我说就好。”</p>
+        <p>“好的，嗯……Ella，我还有件事想问你。”Flore 语气有些犹豫，我不知道她在想什么。</p>
+        <p>“是什么？”</p>
+        <p>“我想知道，你为什么要这样帮我呢？”</p>
+        <p>“欸？”</p>
+        <p>“明明在列车站的时候，你可以直接走掉的，但是，你不仅是帮我逃了出来，还一直陪我到现
+            在，我想知道，为什么你要这么做呢？”</p>
+        <p>“这个……我也不知道。”我摇摇头。</p>
+        <p>“不是你自己选择要这么做的吗？”</p>
+        <p>“不，说不上是选择，我只是……自然而然地就这么做了，没有什么特别的原因，如果非要说的话，嗯，因为你很可爱？”我打趣地说道。</p>
+        <p>“这、这样吗？！”Flore 一下子坐了起来，脸上现出一抹绯红。</p>
+        <p>“啊哈哈，开个玩笑。”</p>
+        <p>“哦……”Flore 重新靠回我身上。</p>
+        <p>“认真地说，如果是别人的话，我可能不会去管他，但是那时候我们怎么都算是朋友了，我不可能丢下朋友不管。”</p>
+        <p>“这样啊……我明白了，谢谢。”</p>
+        <p>“没什么的……嗯，时间也不早了，今天真是够累的，如果没有别的事情的话，我差不多要睡了。”</p>
+        <p>“那我——”</p>
+        <p>“你要是喜欢的话，这样靠着也行。”</p>
+        <p>“谢、谢谢……”</p>
+        <p>我闭上眼睛，不久，一股无法抵挡的浓重困意袭来，不过有 Flore 在旁边，我也没有什么可担心的。</p>
+        <p>……</p>
+        <p>照常，我比 Flore 更早醒了过来，感觉腿上有什么异样。低头看去，Flore 正躺在我的腿上。</p>
+        <p>还真是会享受，不过还是别打扰她了。</p>
+        <p>就这样过了一个多小时。</p>
+        <p>“唔……Ella……嗯……嗯？！”</p>
+        <p>意识到自己脑袋底下枕着的是什么，Flore 几乎是一下子跳了起来。</p>
+        <p>“啊啊啊……我不是故意的，对不起对不起对不起！”</p>
+        <p>“别那么激动啊。”我连忙阻止她。</p>
+        <p>“哇，我不知道什么时候就躺到你腿上了……应该很不舒服吧？”</p>
+        <p>“没问题的。”</p>
+        <p>我不知道她有没有看见我腿上的红印，但是给人膝枕的感觉有点……奇妙？我不知道该怎么描述。</p>
+        <p>“那，好吧。”Flore 终于放松了下来。</p>
+        <p>余下的旅程在小小的混乱之后继续。</p>
+        <p>飞船上没有多少娱乐，但是有 Flore 陪着，也就没那么无聊了。相比之前，她更愿意说她自己的事情，而且我到哪里她都要跟着我，我觉得这是好事，但是我也相信她只会对我这样。</p>
+        <p>时间不知不觉就过去，我们看着 Kalparic B 从遥远太空中的一个无法与其他星星区分的小点，渐渐扩大成一个可以看到表面细节的大球，这就是这段旅途的终点了。</p>
+        <p>舱门开启，旅客们鱼贯而出。大概是担心被人群冲散，Flore 一直抓着我的衣角，但是这样，我走路就不太方便了，于是我转身抓住了 Flore 的手，她明显地惊讶了一下，但很快也抓紧了我。</p>
+        <p>我们牵着手，出发前往这段旅途的最后一站。</p>
+        <hr class="depart">
+        <p>“那么，就在这里等列车过来吧。”我说。</p>
+        <p>我们平安无事地到达了 Kalparic B，幸运的是，Flore 的通缉令还没有传到这里，但是这随时都可能发生，我们不能在这件事上赌运气。于是，我们一刻也没有耽搁，以最快的速度前往了这里的星际列车站。</p>
+        <p>“好……”Flore 的神色有些失落，但她尽量不在语气中表现出来。</p>
+        <p>“可惜这次我不能陪你旅行了。”</p>
+        <p>“没关系的，你已经做得够多了。”Flore 微笑着说，平时我看她笑我也会很高兴，但现在我却完全高兴不起来。</p>
+        <p>“你这趟列车到站之后要去哪里呢？”</p>
+        <p>“我不知道。”她摇摇头，“应该是跟之前一样，往更远的地方去吧。”</p>
+        <p>我看到她叹了口气。</p>
+        <p>“说起来，我真的很想跟你去地球看看呢，虽然你说那边没什么意思，但是如果是跟你一起的话，嗯……”</p>
+        <p>“会很有意思的。”我说，“虽然挺惊险的，还差点被警察抓，不过，我其实还有点喜欢这样，是不是很奇怪？”</p>
+        <p>“不奇怪哦，这样的经历真的很有趣，有点像是在做梦呢……但是，要结束了……”Flore 低下头看向一旁，不想面对这样的现实。</p>
+        <p>我们还想再聊一会，但时间不会因为我们停下。远处，列车的灯光亮起。</p>
+        <p>还能怎样呢，是时候要说再见了，如果有些话现在不说的话，以后可能都没有机会了。</p>
+        <p>“以后，还有机会再见吗？”我直截了当地问出这个问题。</p>
+        <p>“我……不知道，应该，还是有机会的吧，说不定呢。”</p>
+        <p>“那，我要去哪里找你呢？”</p>
+        <p>“我连自己要去哪里都还没想好呢……不过，既然命运让我们两个相遇，我想再见的事情就交给随机数之神吧。”</p>
+        <p>“我没想到你还记得这个。”</p>
+        <p>“我还记得很多其他事情呢……啊，列车要到了。”</p>
+        <p>Flore 说完，开始在自己的包里面翻找什么，没过多久，她从里面拿出一样东西递给我。</p>
+        <p>“这个给你吧，如果什么时候想起我的话，就看看。”</p>
+        <p>是信物吗，我从她的手中接过那东西，是一个玻璃方块，里面密封着一块灰黑色、闪着蓝色光泽的小石头，像是经过高温的金属。</p>
+        <p>“这是……”</p>
+        <p>“流星的碎片。”</p>
+        <p>“就是陨石对吧？”</p>
+        <p>“能不能浪漫一点啊？这是我父母留给我为数不多的东西了。”</p>
+        <p>“抱歉，不过，这么珍贵的东西，你就这样给我，真的没问题吗？”</p>
+        <p>“没关系的，留在我这里，说不定哪天就被人偷走了，给你的话，我反倒能放心。”</p>
+        <p>我没想到她会这样信任我，这样的话，我不回礼的话，就有点辜负她的心意了。</p>
+        <p>“我没什么值钱的东西，只能给你这个了，希望你会喜欢。”</p>
+        <p>“是书签吗，很漂亮呢。”</p>
+        <p>“我自己做的，虽然我现在早就不看纸质书了，但这书签我还是一直留着。”</p>
+        <p>“上面的花……是真的吗？”</p>
+        <p>“是真的，紫罗兰，你们那边有吗？”</p>
+        <p>“我的家乡没有，这花的颜色和你的眼睛一样呢。”</p>
+        <p>“这就是我喜欢紫罗兰的原因哦。”</p>
+        <p>“我也很喜欢，我会一直带着的……啊，差不多要上车了呢，最后，可以答应我一个请求吗？”Flore 好像下定了某种决心一般。</p>
+        <p>“什么……欸！？”</p>
+        <p>Flore 扑过来抱住了我，我先是一惊，然后便顺着她的意思了。</p>
+        <p>“这段时间，真的谢谢你……”</p>
+        <p>“嗯。”</p>
+        <p>现在没必要再说什么了，她在这么长时间的流离后终于遇到一个可以信任的人，而现在又不得不分开，我能理解她的心情。</p>
+        <p>一段时间的无言，直到列车开始鸣笛，催促乘客尽快上车，她才把头从我的胸口抬起，我看到她的眼睛闪着泪光，但她在尽量不让眼泪流出来。</p>
+        <p>“别那么伤心嘛，你自己也说过的啊，以后还有机会再见的。”</p>
+        <p>“是呢，”她擦擦眼睛，“还能再见的……那，我要走了。”</p>
+        <p>“一路顺风。”</p>
+        <p>她不舍地走上列车，车门关闭，隔绝了我们二人的声音。</p>
+        <p>列车开动，她向我挥手告别，我也对她挥手致意。她好像还在对我说什么，但是我没有办法知道了，或许下次见面的时候，再问问她吧。</p>
+        <p>我一直看着列车逐渐远去，像一颗流星一般，消失在远处的地平线上。</p>
+        <hr class="alone">
+        <div class="farewell">
+            <p>我们都知道，我们之间是不太可能再相见的了。我不久之后就要回到地球，而她则会向着广袤的宇宙一去不复返。就像两颗流星一般，短暂的交汇过后便是离别。</p>
+            <p>这本就是一个难得的巧合，这个宇宙太大，要让两颗流星再次相遇，或许只能是一个美好的愿望。</p>
+            <p>但是，也正是因为宇宙太大，所以无论是概率多么低的事情，也有可能发生。或许在哪一天，我们会在宇宙的某个角落再次相见，到那个时候，我们会是什么样？在那个时候，我们一定会有很多事情想和对方说的吧。</p>
+            <p>我真心地这样想着。</p>
+        </div>
+        <p class="align-center">&lt;FIN&gt;</p>
+        <div class="flex center">
+            <iframe frameborder="no" width=500 height=80 src="//music.163.com/outchain/player?type=2&id=2006880230&auto=1&height=66"></iframe>
+        </div>
+        <script src="https://giscus.app/client.js"
         data-repo="N-Wither/N-Wither.github.io"
         data-repo-id="R_kgDOHL5_fA"
         data-category="Announcements"
@@ -394,7 +554,7 @@
         data-lang="zh-CN"
         crossorigin="anonymous"
         async>
-        </script> -->
+        </script>
     </div>
     <page-footer>
         <hr class="star" slot="hr">

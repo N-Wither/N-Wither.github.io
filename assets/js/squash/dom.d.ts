@@ -28,8 +28,8 @@ export declare namespace DomUtils {
     export declare function selectAll(selector: string, unwrap?: true): NodeListOf<Element>
     export declare function selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
 
-    export declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: true}): Element[]
-    export declare function getAllElements(from: Node, options: {allowShadowRoot?: boolean, unwrap?: false}): ElementWrapper<Element>[]
+    export declare function getAllElements(from: ElementWrapperValidTarget, options: {allowShadowRoot?: boolean, unwrap?: true}): Element[]
+    export declare function getAllElements(from: ElementWrapperValidTarget, options: {allowShadowRoot?: boolean, unwrap?: false}): ElementWrapper<Element>[]
 
     export declare function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: false}): ElementWrapper<Element>[]
     export declare function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: false}): ElementWrapper<Element> | null
