@@ -14,7 +14,9 @@ export class PageFooter extends LitElement {
         </slot>
         <div role='contentinfo'>
             <slot></slot>
-            <p>Powered by <a href='https://pages.github.com' target='_blank' rel="noopener noreferrer">Github Pages</a>.</p>
+            <slot name='credit'>
+                <p>Powered by <a href='https://pages.github.com' target='_blank' rel="noopener noreferrer">Github Pages</a>.</p>
+            </slot>
         </div>
         `
     }
