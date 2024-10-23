@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-us" data-theme-fixed class="theme-dark">
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +16,46 @@
     <script type="module" src="/web-components/aqv2/components/translate.js"></script>
     <script type="module" src="/web-components/page/languages.js"></script>
     <script type="module" src="/assets/js/misc/konami.js"></script>
+    <style>
+        :root, :root.theme-dark {
+            --accent-color: var(--orange-600);
+            --accent-color-dk: var(--orange-800);
+            --link-color: var(--accent-color);
+            --link-color-visited: var(--orange-700);
+            --background-color: #111111;
+
+            /* --header-bg: color-mix(in srgb, var(--orange-900) 5%, #1e1e1ecc 95%); */
+            --header-bg: #e47413;
+        }
+
+        .blankscreen {
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
     <script>
         window.aqLanguageMap = {
+            default: {
+                1: '',
+                2: 'Latest Releases',
+                3: 'Featured',
+                4: 'This is the site for my various works.',
+                5: 'Find more in the navigation menu.',
+                6: 'More about this site...',
+                omni_desc: "The BEST modpack I've ever made!",
+                aq_desc: 'CSS and Web Components.',
+                read_more: 'Read more...',
+                konami: '30 extra lives!',
+                github: 'My Github profile!',
+                c: 'Stories in fantasy worlds.',
+                game: 'I want to play a game with you.',
+                joke: 'Just kidding, no game, but TRICK OR TREAT!',
+                candy: 'Em...You\'re alone so nobody gives you candy? Well, me too...but never forget to treat yourself!'
+            },
             'zh-cn': {
                 1: '夏季特别版',
-                2: '最新文章',
+                2: '最新发布',
                 3: '精选系列',
                 4: '存放我的各种各样的作品的站点。',
                 5: '在导航菜单中有更多可看。',
@@ -32,13 +65,16 @@
                 read_more: '阅读更多…',
                 konami: '30 条命！',
                 github: '我的 Github 主页！',
-                c: '幻想世界故事企划。'
+                c: '幻想世界故事企划。',
+                game: '我想和你玩个游戏。',
+                joke: '开玩笑的，没有游戏。但是不给糖就捣蛋！',
+                candy: '哦…你是独自一人所以没人给你送糖果吃吗？好吧，我也是…所以买点糖款待自己吧！'
             }
         }
     </script>
     <page-header>
         <div slot="category" class="flex center column lh-initial">
-            <div class="f-bold f-xl">WitherWorks</div>
+            <div class="f-bold f-l">WitherPumpkinEater69</div>
         </div>
         <header-button slot="button">
             <aq-tooltip placement="bottom" style="display: block; width: 100%;">
@@ -46,7 +82,7 @@
                     <fetch-svg src="https://n-wither.github.io/assets/imgs/common/github-icon.svg"></fetch-svg>
                 </a>
                 <div slot="tooltip">
-                    <aq-ts key="github">My Github profile!</aq-ts>
+                    <aq-ts key="github"></aq-ts>
                 </div>
             </aq-tooltip>
         </header-button>
@@ -58,10 +94,14 @@
     <page-body>
         <h1>Hello</h1>
         <hr class="construction">
-        <p><aq-ts key="4">This is N Wither. I do a little bit of everything.</aq-ts></p>
-        <p><aq-ts key="5">You can click the links in the navigation menu to see my works.</aq-ts></p>
-        <p><a href="/about/"><aq-ts key="6">More about this site...</aq-ts></a></p>
-        <h2><aq-ts key="2">Latest Article</aq-ts></h2>
+        <p><aq-ts key="game"></aq-ts></p>
+        <div class="blankscreen"></div>
+        <!-- <p><aq-ts key="4"></aq-ts></p> -->
+        <!-- <p><aq-ts key="5"></aq-ts></p> -->
+        <p><aq-ts key="joke"></aq-ts></p>
+        <p><aq-ts key="candy"></aq-ts></p>
+        <p><a href="/about/"><aq-ts key="6"></aq-ts></a></p>
+        <h2><aq-ts key="2"></aq-ts></h2>
         <div class="flex wrap">
             <aq-card>
                 <div slot="header">
@@ -90,16 +130,16 @@
         <div class="flex wrap">
             <aq-card style="flex-grow: 1; max-width: 20em;">
                 <div class="f-b f-l" slot="header">Project C</div>
-                <div><aq-ts key="c">Stories in fantasy worlds.</aq-ts> <a href="/projects/c/"><aq-ts key="read_more">Read More...</aq-ts></a></div>
+                <div><aq-ts key="c"></aq-ts> <a href="/projects/c/"><aq-ts key="read_more"></aq-ts></a></div>
             </aq-card>
             <aq-card style="flex-grow: 1; max-width: 20em;">
                 <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
                 <div class="f-bold f-large" slot="header">Omniworld</div>
-                <p><aq-ts key="omni_desc">The BEST modpack I've ever made!</aq-ts> <a href="/projects/omniworld/"><aq-ts key="read_more">Read More...</aq-ts></a></p>
+                <p><aq-ts key="omni_desc"></aq-ts> <a href="/projects/omniworld/"><aq-ts key="read_more"></aq-ts></a></p>
             </aq-card>
             <aq-card style="flex-grow: 1; max-width: fit-content;">
                 <div class="f-bold f-large" slot="header">Aquamarine</div>
-                <p><aq-ts key="aq_desc">CSS and Web Components.</aq-ts> <a href="/projects/aquamarine/"><aq-ts key="read_more">Read More...</aq-ts></a></p>
+                <p><aq-ts key="aq_desc"></aq-ts> <a href="/projects/aquamarine/"><aq-ts key="read_more"></aq-ts></a></p>
             </aq-card>
         </div>
         <script src="https://giscus.app/client.js"
@@ -119,7 +159,7 @@
         </script>
     </page-body>
     <page-footer>
-        <p> <span style="color: var(--aqua-500);">Aquamarine</span> Theme by N Wither</p>
+        <p> <span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--orange-600);">Pumpkin</span> Theme by N Wither</p>
     </page-footer>
 </body>
 </html>
