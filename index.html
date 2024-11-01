@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" data-theme-fixed class="theme-dark">
+<html lang="en-us">
 <head>
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +16,6 @@
     <script type="module" src="/web-components/aqv2/components/translate.js"></script>
     <script type="module" src="/web-components/page/languages.js"></script>
     <script type="module" src="/assets/js/misc/konami.js"></script>
-    <style>
-        :root, :root.theme-dark {
-            --accent-color: var(--orange-600);
-            --accent-color-dk: var(--orange-800);
-            --link-color: var(--accent-color);
-            --link-color-visited: var(--orange-700);
-            --background-color: #111111;
-
-            /* --header-bg: color-mix(in srgb, var(--orange-900) 5%, #1e1e1ecc 95%); */
-            --header-bg: #e47413;
-        }
-
-        .blankscreen {
-            height: 100vh;
-        }
-    </style>
 </head>
 <body>
     <script>
@@ -49,9 +33,6 @@
                 konami: '30 extra lives!',
                 github: 'My Github profile!',
                 c: 'Stories in fantasy worlds.',
-                game: 'I want to play a game with you.',
-                joke: 'Just kidding, no game, but TRICK OR TREAT!',
-                candy: 'Em...You\'re alone so nobody gives you candy? Well, me too...but never forget to treat yourself!'
             },
             'zh-cn': {
                 1: '夏季特别版',
@@ -66,15 +47,12 @@
                 konami: '30 条命！',
                 github: '我的 Github 主页！',
                 c: '幻想世界故事企划。',
-                game: '我想和你玩个游戏。',
-                joke: '开玩笑的，没有游戏。但是不给糖就捣蛋！',
-                candy: '哦…你是独自一人所以没人给你送糖果吃吗？好吧，我也是…所以买点糖款待自己吧！'
             }
         }
     </script>
     <page-header>
         <div slot="category" class="flex center column lh-initial">
-            <div class="f-bold f-l">WitherPumpkinEater69</div>
+            <div class="f-bold f-xl">WitherWorks</div>
         </div>
         <header-button slot="button">
             <aq-tooltip placement="bottom" style="display: block; width: 100%;">
@@ -94,12 +72,8 @@
     <page-body>
         <h1>Hello</h1>
         <hr class="construction">
-        <p><aq-ts key="game"></aq-ts></p>
-        <div class="blankscreen"></div>
-        <!-- <p><aq-ts key="4"></aq-ts></p> -->
-        <!-- <p><aq-ts key="5"></aq-ts></p> -->
-        <p><aq-ts key="joke"></aq-ts></p>
-        <p><aq-ts key="candy"></aq-ts></p>
+        <p><aq-ts key="4"></aq-ts></p>
+        <p><aq-ts key="5"></aq-ts></p>
         <p><a href="/about/"><aq-ts key="6"></aq-ts></a></p>
         <h2><aq-ts key="2"></aq-ts></h2>
         <div class="flex wrap">
