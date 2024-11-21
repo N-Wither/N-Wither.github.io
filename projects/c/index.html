@@ -15,70 +15,350 @@
     <script type="module" src="/web-components/aqv2/components/minicard.js"></script>
     <script type="module" src="./assets/wip.js"></script>
     <style>
-        .starry {
-            background-image: url(/assets/css/themes/starry/stars.jpg);
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            background-image: linear-gradient(var(--accent-color), var(--accent-color));
+            max-width: fit-content;
             background-repeat: no-repeat;
-            background-position: center;
+            background-size: 100% 40%;
+            background-position: bottom;
+            padding: 0;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 3em;
+            margin-block: 0;
+            background-image: linear-gradient(var(--widget-accent), var(--widget-accent));
+            max-width: fit-content;
+            background-repeat: no-repeat;
+            background-size: 100% 30%;
+            background-position: bottom;
+        }
+
+        page-header {
+            position: fixed;
+        }
+
+        tool-box {
+            background-color: var(--header-bg);
+            left: 0;
+            bottom: 0;
+            top: unset;
+        }
+
+        h1 div {
+            position: absolute;
+            right: 0.4rem;
+            bottom: 0;
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--text-color-contrast);
+        }
+
+        .page-content {
+            margin: 0;
+            padding: 0;
+            scroll-snap-type: block proximity;
+            display: flex;
+            flex-flow: column nowrap;
+            overflow: auto;
+            overflow-x: hidden;
+            max-height: 100vh;
+        }
+
+        .scroll {
+            text-align: center;
+        }
+
+        .panel {
+            width: 100%;
+            min-height: 100vh;
+            padding: var(--toolbox-width) 8em 1em 8em;
+            scroll-snap-align: center;
+            scroll-snap-stop: normal;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            position: relative;
+        }
+
+        .panel ::selection {
+            background-color: color-mix(in srgb, var(--widget-accent) 80%, transparent 20%);
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            width: var(--toolbox-width);
+            height: 100%;
+            left: 0;
+            background-color: var(--widget-bg);
+            z-index: 0;
+        }
+
+        .id {
+            margin-block-start: 0.2em;
+            font-size: small;
+            color: var(--text-color-lt);
+        }
+
+        .panel-header {
+            position: relative;
+            z-index: 1;
+            background-color: var(--widget-bg);
+            color: var(--widget-text);
+            max-width: fit-content;
+            padding-inline-end: 2em;
+            padding-inline-start: 8em;
+            margin-inline-start: -8em;
+        }
+
+        .button-container {
+            display: flex;
+        }
+
+        .button-container .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            padding-inline: 2rem;
+            padding-block: 1rem;
+            margin-inline: auto;
+            margin-block-end: 2rem;
+            border: solid 0.2rem var(--widget-border);
+            color: var(--widget-border);
+            transition: 0.2s;
+            background-image: none;
+            backdrop-filter: blur(0.2em);
+        }
+
+        .button-container aq-tooltip {
+            display: block;
+            margin: auto;
+        }
+
+        .button-container .button:is(:hover, :focus) {
+            padding-inline: 3rem;
+            background-color: var(--widget-accent);
+            border-color: var(--widget-accent);
+            color: var(--widget-text-contrast);
+        }
+
+        .title::before {
+            display: none;
+        }
+
+        .subpage {
+            display: grid;
+            width: 100%;
+            min-height: 100vh;
+            scroll-snap-align: center;
+            scroll-snap-stop: normal;
+            grid-template-columns: 100vh 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+                'header image'
+                'desc image'
+                'go image'
+            ;
+            color: var(--widget-text);
+            background-color: var(--widget-bg);
+
+            --widget-bg: var(--background-color);
+            --widget-text: var(--text-color);
+            --widget-accent: var(--accent-color);
+            --widget-text-contrast: var(--text-color-contrast);
+            --widget-border: var(--border-color);
+        }
+
+        .subpage :is(.header, .desc) {
+            background-color: var(--widget-bg);
+            padding: 3em;
+            padding-inline-start: calc(var(--toolbox-width) + 2rem);
+        }
+
+        .subpage .header {
+            grid-area: header;
+        }
+
+        .subpage .image {
+            background-color: var(--widget-bg);
+            background-image: var(--bg-img);
+            background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed;
-            color: white;
+            background-position: center;
+            grid-area: image;
+        }
+
+        .subpage .desc {
+            grid-area: desc;
+        }
+
+        .subpage .go {
+            grid-area: go;
+        }
+
+        .subpage ::selection {
+            background-color: color-mix(in srgb, var(--widget-accent) 80%, transparent 20%);
+        }
+
+        .starry {
+            --bg-img: url(./assets/img/02420-2015279618.webp);
             --link-color: #22aad3;
             --link-color-visited: #5FACBC;
+            --widget-bg: #1d1d21;
+            --widget-text: #ffffff;
+            --widget-accent: #22aad3;
+            --widget-text-contrast: #ffffff;
+            --widget-border: #e5d69d;
+        }
+
+        .c1000 {
+            --widget-bg: white;
+            --widget-text-contrast: white;
+            --widget-text: #0f0f0f;
+            --widget-border: #0f0f0f;
+            --bg-img: url(./assets/img/02407-2252653460.webp);
+        }
+
+        .fragments {
+            --bg-img: linear-gradient(#111315, #111315);
+            --widget-bg: #0e0e0e;
+            --widget-text: white;
+            --widget-text-contrast: white;
+            --widget-border: #835c32;
+            --widget-accent: #caa441;
+        }
+
+        .fragments .image {
+            position: relative;
+        }
+
+        .fragments .image::before {
+            position: absolute;
+            content: '[图片即将到来]';
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .panel {
+                padding-inline: 2em;
+            }
+
+            .panel-header {
+                margin-inline-start: -2em;
+                padding-inline-start: calc(var(--toolbox-width) + 1rem);
+            }
+
+            .subpage {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 100vw auto auto;
+                grid-template-areas: 'header' 'image' 'desc' 'go';
+            }
+
+            .subpage :is(.header, .desc) {
+                padding: 2rem;
+                padding-inline-start: 2rem;
+            }
+
+            .subpage .header {
+                padding-block-start: calc(var(--header-height) + 1rem);
+            }
         }
     </style>
 </head>
 <body>
-    <page-header>
-        <div slot="category" class="f-bold f-xl flex center">Project C</div>
-    </page-header>
+    <page-header variant="compact"></page-header>
     <tool-box>
         <page-info>
             <aq-minicard sub="作者" header="N Wither" icon="https://avatars.githubusercontent.com/u/63383462?v=4">
                 <div>排期已满，挖坑未填。</div>
             </aq-minicard>
-            <aq-minicard sub="feat." header="Mizdomatic aka Misty" icon="/assets/imgs/common/mizdomatic.webp">
+            <div>那么，其实我想做这个项目已经很久了，只是我最近才鼓起勇气真的来做，另外我还拉了一个工具人↓</div>
+            <aq-minicard sub="feat." header="Mizdomatic" icon="/assets/imgs/common/mizdomatic.webp">
                 <div>不知道该说什么。</div>
             </aq-minicard>
         </page-info>
-        <to-top></to-top>
     </tool-box>
     <div class="page-content">
-        <h1 class="page-title">Project C</h1>
-        <hr>
-        <h2>这是什么？</h2>
-        <p>这是一个发生在多个幻想世界之中的故事企划。</p>
-        <div class="paper wide">
-            <h2>C1000</h2>
-            <hr class="secondary">
-            <p>标准的世界。更多信息可在<a href="./worlds/c1000.html">这里</a>查看。</p>
-            <ul>
-                <b>主线</b>
-                <li><a href="./stories/main/">主线故事合集</a></li>
-            </ul>
-        </div>
-        <div class="paper wide starry">
-            <h2>星海漫游</h2>
-            <hr class="secondary">
-            <p>群星间的故事。<a href="./worlds/starry-roaming.html">此世界的更多信息</a></p>
-            <div class="float right" style="background-color: transparent;">
-                <iframe frameborder="no" width=280 height=80 src="//music.163.com/outchain/player?type=2&id=2006880230&auto=1&height=66"></iframe>
+        <div class="panel title">
+            <h1 class="page-title">
+                PROJECT C
+                <div>幻想世界故事企划</div>
+            </h1>
+            <div class="description"></div>
+            <div class="scroll">
+                <div>查看世界观</div>
+                <div><aq-icon name="expand_circle_down"></aq-icon></div>
             </div>
-            <h3>文章列表</h3>
-            <ul>
-                <li><a href="./stories/starry/when-meteors-meet.html">流星交会之时</a></li>
-            </ul>
         </div>
-        <div class="paper wide lost">
-            <h2>遗失的片段</h2>
-            <hr class="secondary">
-            <p>在世界之间收集到的故事，无法知晓它们来自何处。</p>
-            <ul>
-                <li><a href="./stories/fragments/world-end-poem.html">世界尽头的旅者之诗</a></li>
-            </ul>
+        <div class="subpage c1000">
+            <div class="header">
+                <div class="id">258BCCCD58F296CCDD49CBCC100092CE</div>
+                <h2>C1000</h2>
+            </div>
+            <div class="desc">
+                [描述即将到来]
+            </div>
+            <div class="go">
+                <div class="button-container">
+                    <aq-tooltip placement="top">
+                        <a href="./worlds/c1000.html" class="button no-deco">
+                            <aq-icon name="play_circle"></aq-icon>
+                        </a>
+                        <div slot="tooltip">观看</div>
+                    </aq-tooltip>
+                </div>
+            </div>
+            <div class="image"></div>
         </div>
+        <div class="subpage starry">
+            <div class="header">
+                <div class="id">E9168FC36C58EBE668871054D9266AB7</div>
+                <h2>星海漫游</h2>
+            </div>
+            <div class="desc">
+                [描述即将到来]
+            </div>
+            <div class="go">
+                <div class="button-container">
+                    <aq-tooltip placement="top">
+                        <a href="./worlds/starry-roaming.html" class="button">
+                            <aq-icon name="play_circle"></aq-icon>
+                        </a>
+                        <div slot="tooltip">观看</div>
+                    </aq-tooltip>
+                </div>
+            </div>
+            <div class="image"></div>
+        </div>
+        <div class="subpage fragments">
+            <div class="header">
+                <h2>遗失的片段</h2>
+            </div>
+            <div class="desc">
+                [描述即将到来]
+            </div>
+            <div class="go">
+                <div class="button-container">
+                    <aq-tooltip placement="top">
+                        <a href="./worlds/fragments.html" class="button">
+                            <aq-icon name="play_circle"></aq-icon>
+                        </a>
+                        <div slot="tooltip">观看</div>
+                    </aq-tooltip>
+                </div>
+            </div>
+            <div class="image"></div>
+        </div>
+        <page-footer>
+            <div slot="quote"></div>
+        </page-footer>
     </div>
-    <page-footer>
-        <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
-    </page-footer>
 </body>
 </html>

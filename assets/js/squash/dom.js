@@ -457,6 +457,14 @@ export class DomUtils {
         return new DomUtils._ElementWrapper(tagName, content);
     }
 
+    static new(tagName, content) {
+        return DomUtils.createElement(tagName, content);
+    }
+
+    static make(tagName, content) {
+        return DomUtils.createElement(tagName, content);
+    }
+
     /**
      *
      * @param {string} selector

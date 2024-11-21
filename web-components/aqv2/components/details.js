@@ -1,10 +1,11 @@
 /// <reference path="../../../_typings/index.d.ts" />
 
-import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
+import { html, css } from 'https://esm.sh/lit@3.2.0';
 import { createLocalizer } from '../lib/localize.js';
+import { AqElement } from '../lib/aq-element.js';
 import { DomUtils } from '../../../assets/js/squash/dom.js'
 
-export class AqDetails extends LitElement {
+export class AqDetails extends AqElement {
     static styles = css`
     :host {
         display: block;
@@ -195,10 +196,10 @@ export class AqDetails extends LitElement {
     connectedCallback() {
         super.connectedCallback()
 
-        let summary = this.querySelector('[slot=summary]')
-        let close = this.querySelector('[slot=close]')
+        let summary = this.sl('[slot=summary]')
+        let close = this.sl('[slot=close]')
         if(summary != null && close == null) {
-            DomUtils.createElement('span', summary.innerHTML).attr('slot', 'close').insertAfter(summary)
+            DomUtils.make('span', summary.innerHTML).attr('slot', 'close').insertAfter(summary)
         }
     }
 }

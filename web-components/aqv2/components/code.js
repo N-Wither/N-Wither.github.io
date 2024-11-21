@@ -1,15 +1,15 @@
 /// <reference path="../../../_typings/index.d.ts" />
 
-import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
+import { html, css } from 'https://esm.sh/lit@3.2.0';
 import dedent from 'https://esm.sh/ts-dedent@2.2.0';
 import { codeToHtml } from 'https://esm.sh/shiki@1.12.0';
 // import { codeToHtml } from 'https://cdn.jsdelivr.net/npm/shiki@1.4.0/+esm';
-import { createLocalizer } from '../lib/localize.js'
-import { deepSelectAll } from '../../../assets/js/squash/dom.js';
+import { AqElement } from '../lib/aq-element.js';
+import { createLocalizer } from '../lib/localize.js';
 import './icon.js'
 import './tooltip.js'
 
-export class AqCodeblock extends LitElement {
+export class AqCodeblock extends AqElement {
     constructor() {
         super();
         this.language = 'text'
@@ -202,7 +202,7 @@ export class AqCodeblock extends LitElement {
 customElements.define('aq-code', AqCodeblock)
 
 document.addEventListener('theme-change', e => {
-    deepSelectAll('aq-code', document, true).forEach(el => {
+    AqCodeblock.connectedInstances.forEach(el => {
         el.dataset.theme = e.detail.theme
     })
 })

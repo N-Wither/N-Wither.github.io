@@ -90,6 +90,7 @@ blockquote.star::before {
 }
 
 blockquote.star::after {
+    pointer-events: none;
     content: "";
     position: absolute;
     inset: 0;
