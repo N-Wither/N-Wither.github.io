@@ -6,8 +6,8 @@ dialog {
     color: inherit;
     border: none;
     box-shadow: 0px 4px 8px var(--shadow-color);
-    min-width: 12em;
-    min-height: 8em;
+    min-width: 24em;
+    min-height: 12em;
     padding: 2em 1em;
     max-width: 80vw;
     overflow: auto;
