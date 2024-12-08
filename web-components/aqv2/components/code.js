@@ -34,6 +34,8 @@ export class AqCodeblock extends AqElement {
         }
     }
 
+    static connectedInstances = new Set()
+
     static get styles() {
         return css`
             :host {

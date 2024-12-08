@@ -30,6 +30,7 @@ export class AqAudio extends LitElement {
         default: {
             play: 'Play',
             pause: 'Pause',
+            stop: 'Stop',
             volume: 'Volume',
             mute: 'Mute',
             unmute: 'Unmute',
@@ -41,6 +42,7 @@ export class AqAudio extends LitElement {
         'zh-cn': {
             play: '播放',
             pause: '暂停',
+            stop: '停止',
             volume: '音量',
             mute: '静音',
             unmute: '取消静音',
@@ -95,6 +97,10 @@ export class AqAudio extends LitElement {
                     <button @click=${this.togglePlay}><aq-icon name=${this._playing ? 'pause' : 'play_arrow'}></aq-icon></button>
                     <div slot='tooltip'>${this.#localize('play')}</div>
                 </aq-tooltip>
+                <aq-tooltip placement='bottom' class='play-container'>
+                    <button @click=${this.stop}><aq-icon name='stop_circle'></aq-icon></button>
+                    <div slot='tooltip'>${this.#localize('stop')}</div>
+                </aq-tooltip>
                 <aq-tooltip placement='bottom'>
                     <button @click=${() => this.timelapse(-5)}><aq-icon name='fast_rewind'></aq-icon></button>
                     <div slot='tooltip'>${this.#localize('rewind')}</div>
@@ -139,7 +145,9 @@ export class AqAudio extends LitElement {
     get #volumeSlider(){ return this.shadowRoot?.querySelector('aq-slider') }
     get #volumeButtonTooltip() { return this.shadowRoot?.querySelector('.volume-container').tooltipContent }
     get #playButtonTooltip() { return this.shadowRoot?.querySelector('.play-container').tooltipContent }
-    get #progressContainer(){ return this.shadowRoot?.querySelector('.progress-container') }
+    get #progressContainer() { return this.shadowRoot?.querySelector('.progress-container') }
+    get #progressBar() { return this.shadowRoot?.querySelector('.progress') }
+    get audio() { return this.#audioElement }
 
     get volume(){ return this.#audioElement?.volume }
     set volume(value){ this.#audioElement.volume = value }
@@ -194,6 +202,13 @@ export class AqAudio extends LitElement {
             this._playing = false
             this.#playButtonTooltip.innerText = this.#localize('play')
         }
+    }
+
+    stop(){
+        this.#audioElement.pause()
+        this.#audioElement.currentTime = 0
+        this._playing = false
+        this.#playButtonTooltip.innerText = this.#localize('play')
     }
 
     togglePlay(){
@@ -272,6 +287,7 @@ export class AqAudio extends LitElement {
     #progressMousedown(e){
         this.#mouseDown = true
         this.#progressClick(e)
+        this.#progressBar.setAttribute('holding', '')
     }
 
     #progressMousemove(e){
@@ -282,6 +298,7 @@ export class AqAudio extends LitElement {
 
     #progressMouseup(e){
         this.#mouseDown = false
+        this.#progressBar.removeAttribute('holding')
     }
 
     downloadAudio(){

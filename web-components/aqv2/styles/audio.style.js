@@ -6,6 +6,7 @@ export default css`
     background-color: var(--background-color);
     max-height: min-content;
     box-shadow: var(--general-shadow);
+    margin: 0.5rem;
 }
 
 ::selection {
@@ -52,6 +53,10 @@ export default css`
     top: 0;
     height: 100%;
     background-color: var(--accent-color);
+    transition: filter 0.2s, width 0.2s;
+}
+
+.progress[holding] {
     transition: filter 0.2s;
 }
 

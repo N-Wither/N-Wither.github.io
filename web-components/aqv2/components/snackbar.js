@@ -1,7 +1,8 @@
-import { LitElement, html, css } from 'https://esm.sh/lit@3.2.0';
+import { html, css } from 'https://esm.sh/lit@3.2.0';
+import { AqElement } from '../lib/aq-element.js';
 import './icon.js';
 
-export class AqSnackbar extends LitElement {
+export class AqSnackbar extends AqElement {
     static get properties(){
         return {
             message: { type: String },
@@ -14,6 +15,8 @@ export class AqSnackbar extends LitElement {
             persistant: {type: Boolean}
         }
     }
+
+    static connectedInstances = new Set();
 
     constructor(){
         super();

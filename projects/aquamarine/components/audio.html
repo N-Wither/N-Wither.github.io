@@ -21,7 +21,7 @@
         <h1>Audio 音频</h1>
         <hr>
         <p>本质上就是把原生的 audio 元素套了一层壳。但是也有一些新功能。</p>
-        <input type="file" id="audio-file">
+        <input type="file" id="audio-file" accept="audio/*">
         <script>
             let input = document.querySelector('#audio-file')
             input.onchange = function () {
