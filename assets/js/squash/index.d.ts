@@ -98,4 +98,13 @@ export namespace sQuash {
         function checkWithError(value: any, type: 'number' | 'string' | 'bigint' | 'boolean' | 'function' | 'undefined' | 'symbol' | Class, message?: string): boolean
         function isIterable(value: any): boolean
     }
+
+    namespace Str {
+        /**@example sQuash.Str.capitalize('hello world') // "Hello World" */
+        function capitalize<T extends string>(str: T): Capitalize<T>
+        /**@example sQuash.Str.camelToKebab('helloWorld') // "hello-world" */
+        function camelToKebab(str: string): string
+        /**@example sQuash.Str.kebabToCamel('hello-world') // "helloWorld" */
+        function kebabToCamel(str: string): string
+    }
 }
