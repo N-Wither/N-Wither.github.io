@@ -4,9 +4,14 @@ const cvs = document.querySelector('canvas')
 const ctx = cvs.getContext('2d')
 const difficultySelect = document.querySelector('#difficulty')
 const reset = document.querySelector('#reset')
+const mobileModeCheckbox = document.querySelector('#mobile')
+const simulateModeCheckboxes = document.querySelectorAll('[name=mode]')
+const infoBox = document.querySelector('#info')
 const tileWidth = 32
 const tileBorder = 2
 const state = {
+    isMobile: false,
+    currentSimulate: 'left',
     isRunning: false,
     isFirstClick: true,
     /**@type {Tile[][]} */
@@ -31,15 +36,27 @@ const difficultyMap = {
 }
 
 cvs.addEventListener('mousedown', e => {
-    if (state.isRunning == true) {
+    if(state.isRunning == false) return
+    if(state.isMobile == true) {
+        if(state.currentSimulate == 'left') {
+            handleLeftClick(e)
+        }
+        else if(state.currentSimulate == 'right') {
+            handleRightClick(e)
+        }
+        else if(state.currentSimulate == 'double') {
+            handleDblClick(e)
+        }
+    }
+    else {
         if(e.button == 0) {
             handleLeftClick(e)
         }
         else if(e.button == 2) {
             handleRightClick(e)
         }
-        checkState()
     }
+    checkState()
 })
 
 cvs.addEventListener('dblclick', e => {
@@ -59,6 +76,16 @@ difficultySelect.addEventListener('change', () => {
 
 reset.addEventListener('click', () => {
     init()
+})
+
+mobileModeCheckbox.addEventListener('change', () => {
+    state.isMobile = mobileModeCheckbox.checked
+})
+
+simulateModeCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        state.currentSimulate = checkbox.id
+    })
 })
 
 
@@ -86,7 +113,7 @@ class Tile {
     static colorMap = {
         unreavealedBackground: '#F0F0F0',
         revealedBackground: '#D3D3D3',
-        border: '#222222',
+        border: '#808080',
         landmine: '#f36969',
         0: '#f0f0f0',
         1: '#2563eb',
@@ -208,6 +235,7 @@ const render = () => {
     const cols = difficultyMap[difficultySelect.value].cols
     const width = tileWidth * cols
     const height = tileWidth * rows
+    cvs.style.scale = 1 / devicePixelRatio
     cvs.width = width
     cvs.height = height
     ctx.clearRect(0, 0, width, height)
@@ -233,7 +261,7 @@ const render = () => {
                 }
             }
             ctx.fillRect(x, y, tileWidth, tileWidth)
-            ctx.font = '16px monospace'
+            ctx.font = `${tileWidth / 2 + 2}px monospace`
             ctx.fillStyle = Tile.colorMap.border
             ctx.strokeStyle = Tile.colorMap.border
             ctx.lineWidth = tileBorder
@@ -244,6 +272,7 @@ const render = () => {
             }
         }
     }
+    infoBox.textContent = `共有 ${difficultyMap[difficultySelect.value].mines} 个地雷，已标记 ${arrayFlat(state.grid).filter(tile => tile.type == 'flag').length} 个。`
 }
 
 const init = () => {
@@ -299,6 +328,7 @@ const gameLose = () => {
     })
     render()
     aqSnackbar({message: '你输了！', type: 'error', duration: 3000})
+    infoBox.textContent = `游戏结束！`
     state.isRunning = false
 }
 
@@ -309,6 +339,7 @@ const gameWin = () => {
     })
     render()
     aqSnackbar({message: '你赢了！', type: 'success', duration: 3000})
+    infoBox.textContent = `你找到了所有 ${difficultyMap[difficultySelect.value].mines} 个地雷！`
     state.isRunning = false
 }
 
