@@ -1,4 +1,5 @@
 import { aqSnackbar } from '../../web-components/aqv2/components/snackbar.js'
+import { FunctionUtils } from '../../assets/js/squash/function.js'
 
 const cvs = document.querySelector('canvas')
 const ctx = cvs.getContext('2d')
@@ -88,6 +89,7 @@ simulateModeCheckboxes.forEach(checkbox => {
     })
 })
 
+window.addEventListener('resize', FunctionUtils.debounce(render, 200))
 
 class Tile {
     /**@type {TileType} */
@@ -230,12 +232,17 @@ const generateGrid = () => {
     return grid
 }
 
-const render = () => {
+function render() {
     const rows = difficultyMap[difficultySelect.value].rows
     const cols = difficultyMap[difficultySelect.value].cols
     const width = tileWidth * cols
     const height = tileWidth * rows
-    cvs.style.scale = 1 / devicePixelRatio
+    if(window.innerWidth > 768) {
+        cvs.style.scale = 1 / devicePixelRatio
+    }
+    else {
+        cvs.style.scale = 1
+    }
     cvs.width = width
     cvs.height = height
     ctx.clearRect(0, 0, width, height)

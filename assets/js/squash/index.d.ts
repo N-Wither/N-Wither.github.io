@@ -60,7 +60,7 @@ export namespace sQuash {
     }
 
     namespace Func {
-        function debounce<T extends (...args: any[]) => any>(fn: T, time: number): T
+        function debounce<T extends (...args: any[]) => any>(fn: T, time?: number): T
         function once<T extends (...args: any[]) => any>(fn: T): T
     }
 
