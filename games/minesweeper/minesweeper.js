@@ -370,6 +370,3 @@ const checkState = () => {
 }
 
 init()
-window.state = state
-window.generateGrid = generateGrid
-window.render = render
