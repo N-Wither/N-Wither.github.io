@@ -16,6 +16,14 @@
             display: none;
         }
 
+        .very-hard {
+            display: none;
+        }
+
+        select:has(option[value=evil]:checked) + .very-hard {
+            display: inline;
+        }
+
         canvas {
             transform-origin: 0% 0%;
             transition: scale 0.2s;
@@ -47,9 +55,17 @@
                 <option value="easy">简单</option>
                 <option value="normal">普通</option>
                 <option value="hard">困难</option>
+                <option value="evil">魔鬼</option>
             </select>
+            <span class="very-hard">非常可能出现死亡二选一！</span>
         </label>
         <button id="reset" class="btn-regular" style="display: inline;">重来！</button>
+        <div>
+            <label>
+                <span>首次点击必定是空格</span>
+                <input type="checkbox" id="easystart">
+            </label>
+        </div>
         <div>
             <label>
                 <span>触屏模式</span>

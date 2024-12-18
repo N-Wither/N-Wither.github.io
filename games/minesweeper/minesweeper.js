@@ -7,6 +7,7 @@ const difficultySelect = document.querySelector('#difficulty')
 const reset = document.querySelector('#reset')
 const mobileModeCheckbox = document.querySelector('#mobile')
 const simulateModeCheckboxes = document.querySelectorAll('[name=mode]')
+const easyStartCheckbox = document.querySelector('#easystart')
 const infoBox = document.querySelector('#info')
 const tileWidth = 32
 const tileBorder = 2
@@ -16,7 +17,8 @@ const state = {
     isRunning: false,
     isFirstClick: true,
     /**@type {Tile[][]} */
-    grid: []
+    grid: [],
+    easyStart: false,
 }
 const difficultyMap = {
     easy: {
@@ -33,6 +35,11 @@ const difficultyMap = {
         rows: 16,
         cols: 30,
         mines: 99
+    },
+    evil: {
+        rows: 20,
+        cols: 30,
+        mines: 130
     }
 }
 
@@ -89,6 +96,10 @@ simulateModeCheckboxes.forEach(checkbox => {
     })
 })
 
+easyStartCheckbox.addEventListener('change', () => {
+    state.easyStart = easyStartCheckbox.checked
+})
+
 window.addEventListener('resize', FunctionUtils.debounce(render, 200))
 
 class Tile {
@@ -121,7 +132,7 @@ class Tile {
         1: '#2563eb',
         2: '#1aab91',
         3: '#16a34a',
-        4: '#eab308',
+        4: '#ca8a04',
         5: '#ea580c',
         6: '#d04848',
         7: '#a21caf',
@@ -164,7 +175,12 @@ class Tile {
     leftClick(/**@type {MouseEvent}*/ e) {
         // To prevent the first click from revealing the mines
         if(this.type == 'unknown' && this.hasLandmine == true && state.isFirstClick == true){
-            init()
+            init(this.col, this.row).leftClick()
+            return
+        }
+        // if `state.easyStart` is true, the first click will reveal a blank tile for 100%
+        if(state.easyStart == true && state.isFirstClick == true && this.analyzeAroundTiles().mines != 0 && this.analyzeAroundTiles().mines != 8) {
+            init(this.col, this.row).leftClick()
             return
         }
         state.isFirstClick = false
@@ -282,11 +298,13 @@ function render() {
     infoBox.textContent = `共有 ${difficultyMap[difficultySelect.value].mines} 个地雷，已标记 ${arrayFlat(state.grid).filter(tile => tile.type == 'flag').length} 个。`
 }
 
-const init = () => {
+const init = (col, row) => {
     state.grid = generateGrid()
+    state.easyStart = easyStartCheckbox.checked
     state.isRunning = true
     state.isFirstClick = true
     render()
+    if(col != undefined && row != undefined) return state.grid[row][col]
 }
 
 const handleLeftClick = (/** @type {MouseEvent}*/ event) => {

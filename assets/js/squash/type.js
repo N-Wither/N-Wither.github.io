@@ -6,7 +6,7 @@ export class TypeUtils {
      * Check if a given value is of a certain type.
      * If the target type is a function, it will check if the value is an instance of target type.
      * @param {any} value
-     * @param {'string' | 'number' | 'bigint' | 'boolean' | 'symbol' | 'undefined' | 'object' | 'function' | Function} targetType
+     * @param {'string' | 'number' | 'bigint' | 'boolean' | 'symbol' | 'undefined' | 'object' | 'function' | Function } targetType
      * @returns
      */
     static check(value, targetType) {
@@ -15,7 +15,22 @@ export class TypeUtils {
             return true;
         } else if (TypeUtils.isObject(value) && typeof targetType === 'function') {
             return value instanceof targetType;
-        } else {
+        } else if (targetType instanceof TypeUtils.TSType) {
+            switch (targetType.type) {
+                case 'any': return true;
+                case 'literal': return targetType.value.includes(value);
+                case 'interface': {
+                    if(TypeUtils.isObject(value) === false) return false;
+                    let properties = targetType.value;
+                    for(let prop of properties) {
+                        if(prop.name in value === false) return false;
+                        if(TypeUtils.check(value[prop.name], prop.type) === false) return false;
+                    }
+                    return true;
+                }
+            }
+        }
+        else {
             return false;
         }
     }
@@ -80,5 +95,31 @@ export class TypeUtils {
      */
     static isObject(v) {
         return (typeof v === 'object' && v !== null) || typeof v === 'function';
+    }
+
+    static TSType = class TSType {
+        type = 'any'
+        value = undefined
+
+        constructor(type, value) {
+            this.type = type
+            this.value = value
+        }
+    }
+
+    static TSInterfaceProperty = class TSInterfaceProperty {
+        constructor(name, type, descriptor) {
+            this.name = name
+            this.type = type
+            this.descriptor = descriptor
+        }
+    }
+
+    static Literal(...values) {
+        return new TypeUtils.TSType('literal', values)
+    }
+
+    static Interface(properties){
+        return new TypeUtils.TSType('interface', properties)
     }
 }
