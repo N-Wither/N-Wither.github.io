@@ -2,18 +2,22 @@ import { Class } from ".";
 
 export namespace TypeUtils {
     type TypeCheckTarget = 'string' | 'number' | 'boolean' | 'null' | 'undefined' | 'bigint' | 'symbol' | Class
-    type TSTypes = 'any' | 'literal' | 'interface'
+    type TSTypes = 'any' | 'literal' | 'interface' | 'union'
     interface TSTypeValueMap {
-        any: any,
-        literal: (string | number)[],
-        interface: TSInterfaceProperty[]
+        'any': undefined,
+        'literal': string | number,
+        'interface': TSInterfaceProperty[],
+        'union': TypeCheckTarget[]
+    }
+    interface InterfaceObject {
+        [key: PropertyKey]: TypeCheckTarget
     }
 
     class TSInterfaceProperty {
-        constructor(name: PropertyKey, type: TypeCheckTarget, descriptor?: 'optional' |'required')
+        constructor(name: PropertyKey, type: TypeCheckTarget, optional?: boolean)
         name: PropertyKey
         type: TypeCheckTarget
-        descriptor: 'optional' |'required'
+        optional: boolean
     }
 
     class TSType<T extends TSTypes> {
@@ -22,11 +26,39 @@ export namespace TypeUtils {
         value: TSTypeValueMap[T]
     }
 
+    /**
+     * Check if a value is of a certain type, or if it is an instance of a class.
+     * @param value 
+     * @param type 
+     */
     function check(value: any, type: TypeCheckTarget): boolean
+    /**
+         * same as `check()` but throws an error if the value is not of the specified type.
+         * @param value 
+         * @param type 
+         * @param message 
+         * @throws TypeError
+         */
     function checkWithError(value: any, type: TypeCheckTarget, message?: string): boolean
+    /**
+     * @deprecated use `Object.prototype.isPrototypeOf()` instead.
+     * @param value 
+     * @param parent 
+     */
     function isSubclassOf(value: Class, parent: Class): boolean
     function isIterable(value: any): boolean
+    /**
+     * Functions are also considered objects.
+     * @param value 
+     */
     function isObject(value: any): boolean
-    function Literal(...values: (string | number)[]): TSType<'literal'>
-    function Interface(...properties: TSInterfaceProperty[]): TSType<'interface'>
+    /**
+     * Like `typeof`, but returns the constructor name when the value is an instance of a class.
+     * @param value 
+     */
+    function typeOf(value: any): string
+    function literal(value: string | number): TSType<'literal'>
+    function interface(interfaceObj: InterfaceObject): TSType<'interface'>
+    function union(...types: TypeCheckTarget[]): TSType<'union'>
+    function any(): TSType<'any'>
 }

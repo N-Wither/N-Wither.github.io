@@ -58,7 +58,7 @@
             </ul>
         </reading-progress>
     </tool-box>
-    <page-body>
+    <div class="page-content">
         <h1>sQuash</h1>
         <hr>
         <h2 id="foreword">前言</h2>
@@ -86,7 +86,10 @@
         <p>获取某个节点下的所有元素，默认是 <code>document</code>。第一个参数是搜索的根节点，第二个参数是配置，你可以在里面决定是否要搜索 shadowRoot 以及返回 <code>ElementWrapper</code> 数组还是元素数组。</p>
         <h3>方法的详细参数与其他功能</h3>
         <p>这个模块的其他内容还挺多的，我暂时不想写那么多字，但是我写了一个 <code>d.ts</code> 文件：</p>
-        <aq-code src="/assets/js/squash/dom.d.ts" language="ts"></aq-code>
+        <details>
+            <summary>点击看代码</summary>
+            <aq-code src="/assets/js/squash/dom.d.ts" language="ts"></aq-code>
+        </details>
 
         <h2 id="func">函数</h2>
         <p>目前只有两个方法可用。</p>
@@ -145,31 +148,55 @@
 
         <h2 id="type">类型</h2>
         <h3><code>check</code></h3>
-        <p>检测一个值的类型是否为指定的类型，或者一个对象是否是指定的类的实例。</p>
+        <p>检测一个值的类型是否为指定的类型，或者一个对象是否是指定的类的实例，或者其是否符合一种 TypeScript 类型（将在之后详细介绍）。</p>
         <aq-code language="js">
             sQuash.Type.check(1, 'number') // true
             sQuash.Type.check(document.createElement('div'), HTMLDivElement) // true
+            sQuash.Type.check({a: 1}, sQuash.Type.interface({a: 'number'})) // true
         </aq-code>
+        <h3><code>TSType</code></h3>
+        <p>当你想要匹配一种既可以是数字又可以是字符串的值，或者你想检测一个字符串是否是预先指定好的一系列字符串之一，或者检测一个对象是否符合某个接口，但这是浏览器，没有 TypeScript 给你用，这就是 <code>TSType</code> 起作用的时候了。</p>
+        <p>以下的方法都会返回一个 <code>TSType</code> 对象，可用于 <code>check()</code> 或者 <code>checkWithError()</code>。</p>
+        <aq-code language="js">
+            const TypeUtils = sQuash.Type
+            // 创建一个字面量
+            TypeUtils.literal('hello')
+            // 创建一个接口
+            TypeUtils.interface({
+                a: 'string',
+                'b?': 'number', // 由于 JavaScript 的限制，可选属性名必须用引号包裹
+                // 也可以嵌套接口对象！
+                c: { 
+                    d: TypeUtils.literal('hello')
+                }
+            })
+            // 创建一个联合类型
+            TypeUtils.union('string', 'number')
+            // 创建一个 any 类型，任何值与其进行类型检查都会返回 true
+            TypeUtils.any()
+        </aq-code>
+        <p>遗憾的是，因为没有办法用 JS 检查一个函数的参数名称和类型，也没有办法预先知道函数的返回值，所以无法提供对函数类型的检查。</p>
         <h3><code>checkWithError</code></h3>
         <p>同上，但是如果类型不符的话会抛出错误而不是返回 <code>false</code>。</p>
         <aq-code language="js">
             sQuash.Type.checkWithError(1, 'string', 'Invalid value.') // uncaught TypeError: Invalid value. Expected string, but got number.
         </aq-code>
-        <h3><code>isSubclassOf</code></h3>
-        <aq-code language="js">
-            sQuash.Type.isSubclassOf(HTMLElement, EventTarget) // true
-        </aq-code>
         <h3><code>isIterable</code></h3>
         <p>判断给定的对象是否可迭代。</p>
         <h3><code>isObject</code></h3>
         <p>判断给定的值是否是对象（注：<code>null</code> 会返回 <code>false</code>，函数会返回 <code>true</code>）。</p>
-        
+        <h3>方法的详细参数与其他功能</h3>
+        <details>
+            <summary>点击看代码</summary>
+            <aq-code src="/assets/js/squash/type.d.ts" language="ts"></aq-code>
+        </details>
+
         <h2>常见问题</h2>
         <p class="f-bold">为什么要把这些函数写成类的静态方法？</p>
         <p>因为需要一个对象作为这些函数的命名空间，所以要和普通的对象作区分，刚好类名在我的 VSCode 里面会以漂亮的红色字显示，所以我就这样做了。</p>
         <p class="f-bold">我想要[某种功能]！</p>
         <p>真有人要用这玩意啊？</p>
-    </page-body>
+    </div>
     <page-footer></page-footer>
 </body>
 </html>

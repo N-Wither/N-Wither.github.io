@@ -4,6 +4,7 @@ import { StringUtils } from "./string.js"
 import { TypeUtils } from "./type.js"
 import { RandomUtils } from "./random.js"
 import { ColorUtils } from "./color.js"
+import { MiscUtils } from "./misc.js"
 
 export default class sQuash {
     static Dom = DomUtils
@@ -12,11 +13,12 @@ export default class sQuash {
     static Type = TypeUtils
     static Rand = RandomUtils
     static Color = ColorUtils
+    static Misc = MiscUtils
 }
 
 export const { createElement, select, selectAll } = DomUtils
 export const { debounce, once } = FunctionUtils
 export const { camelToKebab, kebabToCamel, capitalize } = StringUtils
-export const { check, checkWithError, isIterable, isSubclassOf } = TypeUtils
+export const { check, checkWithError, isIterable, isSubclassOf, literal, any, union } = TypeUtils
 export const { randomInt, randomNumber, randomPick } = RandomUtils
 export const { hexToRGBA, rgbToHSLA, create: createColor } = ColorUtils

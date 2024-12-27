@@ -34,6 +34,25 @@ export class AqCodeblock extends AqElement {
         }
     }
 
+    static readableNames = {
+        'js': 'JavaScript',
+        'html': 'HTML',
+        'css': 'CSS',
+        'json': 'JSON',
+        'yaml': 'YAML',
+        'text': 'Text',
+        'ts': 'TypeScript',
+        'jsx': 'JSX',
+        'tsx': 'TSX',
+        'php': 'PHP',
+        'python': 'Python',
+        'ruby': 'Ruby',
+        'java': 'Java',
+        'csharp': 'C#',
+        'go': 'Go',
+        'rust': 'Rust',
+    }
+
     static connectedInstances = new Set()
 
     static get styles() {
@@ -146,7 +165,7 @@ export class AqCodeblock extends AqElement {
         this.#formatAsync(this.inline)
         return html`
         <div class="base">
-            <div class="lang">${this.language}</div>
+            <div class="lang">${AqCodeblock.readableNames[this.language] ?? this.language}</div>
             <div class="code"></div>
             <div class="copy">
                 <aq-tooltip>
@@ -198,6 +217,10 @@ export class AqCodeblock extends AqElement {
             document.execCommand('copy')
             document.body.removeChild(input)
         }
+    }
+
+    get languageName() {
+        return AqCodeblock.readableNames[this.language] ?? this.language
     }
 }
 

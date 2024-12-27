@@ -349,7 +349,7 @@ code {
     font-size: 0.8em;;
 }
 
-.page-content {
+.page-content, #page-content {
     margin-inline: min(10rem, 10vw);
     min-height: 60vh;
     padding: 1em;
@@ -379,6 +379,18 @@ nav {
 
 img.adaptive-full-width {
     width: 80%;
+}
+
+details summary {
+    cursor: pointer;
+    background-color: var(--background-color-dk);
+    padding: 0.2rem;
+    transition: var(--transition-time-common);
+
+    &:is(:hover, :focus) {
+        background-color: var(--accent-color);
+        color: var(--text-color-contrast);
+    }
 }
 
 // On Mobile Devices
