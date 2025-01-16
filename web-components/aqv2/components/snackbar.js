@@ -12,7 +12,9 @@ export class AqSnackbar extends AqElement {
             html: { type: Boolean },
             icon: { type: String },
             closeable: { type: Boolean },
-            persistant: {type: Boolean}
+            persistant: {type: Boolean},
+            source: {type: String},
+            clone: {type: Boolean}
         }
     }
 
@@ -30,6 +32,8 @@ export class AqSnackbar extends AqElement {
         this.icon = '';
         this.closeable = false;
         this.persistant = false;
+        this.source = null;
+        this.clone = false;
     }
 
     #initialShow = true;
@@ -43,6 +47,10 @@ export class AqSnackbar extends AqElement {
         else {
             this.#timerId = setTimeout(() => {this.close()}, this.duration);
         }
+        let srcEl = this.source ? 
+                typeof this.source == 'string' ? document.querySelector(this.source) : 
+                this.source instanceof Element ? this.source : null :
+                null;
 
         return html`
         <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
@@ -54,6 +62,7 @@ export class AqSnackbar extends AqElement {
         <div class='message'>
             <slot>
                 ${this.html ? this.htmlMessage(this.message) : this.message}
+                ${this.source ? this.clone ? srcEl.cloneNode(true) : srcEl : ''}
             </slot>
         </div>
         <div class='close'>
@@ -269,24 +278,28 @@ function snackbar(options = {}) {
     if(typeof options == 'string'){
         options = {message: options}
     }
-    let defaultOptions = {
-        message: 'Message',
+    let finalOptions = {
+        message: '',
         duration: 3000,
         type: 'info',
         placement: 'top-center',
         icon: '',
         html: false,
         closeable: false,
+        source: null,
+        clone: false,
         ...options
     }
     let snackbar = document.createElement('aq-snackbar');
-    snackbar.message = defaultOptions.message;
-    snackbar.duration = defaultOptions.duration;
-    snackbar.setAttribute('type', defaultOptions.type)
-    snackbar.setAttribute('placement', defaultOptions.placement);
-    snackbar.icon = defaultOptions.icon;
-    snackbar.html = defaultOptions.html;
-    snackbar.closeable = defaultOptions.closeable;
+    snackbar.message = finalOptions.message;
+    snackbar.duration = finalOptions.duration;
+    snackbar.setAttribute('type', finalOptions.type)
+    snackbar.setAttribute('placement', finalOptions.placement);
+    snackbar.icon = finalOptions.icon;
+    snackbar.html = finalOptions.html;
+    snackbar.closeable = finalOptions.closeable;
+    snackbar.source = finalOptions.source;
+    snackbar.clone = finalOptions.clone;
     document.body.appendChild(snackbar);
 
     snackbar.show();

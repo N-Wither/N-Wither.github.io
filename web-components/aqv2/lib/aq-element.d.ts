@@ -24,12 +24,12 @@ export class AqElement extends LitElement {
     sla(selector: string): NodeListOf<Element>;
 
     /**
-     * Alias for `querySelectorAll`, but in shadow root.
+     * Alias for `querySelector`, but in shadow root.
      */
-    sls<T extends keyof HTMLElementTagNameMap>(selector: T): NodeListOf<HTMLElementTagNameMap[T]>;
-    sls<T extends keyof SVGElementTagNameMap>(selector: T): NodeListOf<SVGElementTagNameMap[T]>;
-    sls<T extends keyof AquamarineComponentTagNameMap>(selector: T): NodeListOf<AquamarineComponentTagNameMap[T]>;
-    sls(selector: string): NodeListOf<Element>;
+    sls<T extends keyof HTMLElementTagNameMap>(selector: T): HTMLElementTagNameMap[T];
+    sls<T extends keyof SVGElementTagNameMap>(selector: T): SVGElementTagNameMap[T];
+    sls<T extends keyof AquamarineComponentTagNameMap>(selector: T): AquamarineComponentTagNameMap[T];
+    sls(selector: string): Element | null;
 
     /**
      * Alias for `querySelectorAll`, but in shadow root.

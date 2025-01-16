@@ -38,6 +38,13 @@ export class ReadingProgress extends LitElement {
             .table-of-contents.closed {
                 display: none;
             }
+
+            @media (max-width: 768px) {
+                .table-of-contents {
+                    top: unset;
+                    bottom: 0.8rem;
+                }
+            }
             `
         ]
     }

@@ -20,12 +20,24 @@ export class ToolBox extends LitElement {
                 display: block;
                 position: fixed;
                 top: calc(var(--header-height) + 1em);
-                right: 0.8em;
+                right: 0.8rem;
                 z-index: 999;
                 transition: all var(--transition-time-common);
                 background: var(--background-color);
                 box-shadow: var(--general-shadow);
                 width: var(--toolbox-width);
+            }
+
+            @media (max-width: 768px) {
+                :host {
+                    top: unset;
+                    bottom: 0.8rem;
+                }
+
+                slot {
+                    display: flex;
+                    flex-direction: column-reverse
+                }
             }
         `;
     }

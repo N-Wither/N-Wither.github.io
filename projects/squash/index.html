@@ -181,6 +181,14 @@
         <aq-code language="js">
             sQuash.Type.checkWithError(1, 'string', 'Invalid value.') // uncaught TypeError: Invalid value. Expected string, but got number.
         </aq-code>
+        <h3><code>typedArray</code></h3>
+        <p>返回一个数组的代理，其只会接受指定的类型的值作为它的元素。</p>
+        <aq-code language="js">
+            let arr = sQuash.Type.typedArray('string')
+            arr.[0] = '1' // 正常
+            arr.[1] = 1 // TypeError: This array only accepts string!
+        </aq-code>
+        <p><code>push</code>和<code>concat</code>方法同样会检查参数的类型。</p>
         <h3><code>isIterable</code></h3>
         <p>判断给定的对象是否可迭代。</p>
         <h3><code>isObject</code></h3>

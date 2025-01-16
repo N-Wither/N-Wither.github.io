@@ -74,6 +74,9 @@ class TSType {
     static optional(name, type) {
         return new TSInterfaceProperty(name, type, true)
     }
+
+    static JSTypes = new TSType('union', TSType.#JSTypes.map(t => new TSType('literal', t)))
+    static TypeCheckTarget = new TSType('union', [...TSType.JSTypes.value, TSType])
 }
 
 class TSInterfaceProperty {
@@ -213,9 +216,62 @@ function typeOf(v) {
         return 'null';
     }
     else if(typeof v == 'object') {
-        return v.constructor.name == 'Object' ? 'object' : v.constructor.name;
+        return v.constructor.name == 'Object' ? 'object' : v.constructor;
     }
     else return typeof v;
+}
+
+function typedArray(type) {
+    if(check(type, TSType.TypeCheckTarget) == false) {
+        throw new TypeError('Invalid type!');
+    }
+    let arr = []
+    let _push = arr.push.bind(arr)
+    let _concat = arr.concat.bind(arr)
+    let error = new TypeError(`This array only accepts ${typeof type == 'function' ? type.name : type}!`)
+    arr.push = new Proxy(arr.push, {
+        apply: function(target, thisArg, argumentsList) {
+            for(let v of argumentsList) {
+                if(check(v, type) == false) {
+                    throw error;
+                }
+                else return _push(v)
+            }
+        }
+    })
+    arr.concat = new Proxy(arr.concat, {
+        apply: function(target, thisArg, argumentsList) {
+            if(argumentsList.length == 0) return arr;
+            let result = _concat(...argumentsList)
+            for(let v of result) {
+                if(check(v, type) == false) {
+                    throw new TypeError(`Found non ${typeof type == 'function' ? type.name : type} value in concatenation!`);
+                }
+            }
+            return result
+        }
+    })
+    return new Proxy(arr, {
+        set: function(target, prop, value) {
+            if(isNaN(Number(prop)) == false && Number.isInteger(Number(prop))) {
+                if(check(value, type) == false) {
+                    throw error;
+                }
+            }
+            arr[prop] = value
+        }
+    })
+}
+
+function isTypedArray(arr) {
+    if(check(arr, TSType.union(Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array, BigInt64Array, BigUint64Array, Float32Array, Float64Array))) return true;
+    if(Array.isArray(arr) == false) return false;
+    if(arr.length == 0) return true;
+    let type = typeOf(arr[0]);
+    for(let v of arr) {
+        if(typeOf(v) != type) return false;
+    }
+    return true;
 }
 
 /**
@@ -228,6 +284,8 @@ export const TypeUtils = {
     isIterable,
     isObject,
     typeOf,
+    typedArray,
+    isTypedArray,
 
     ITSInterfaceProperty: new TSType('interface', [
         new TSInterfaceProperty('name', TSType.union('string', 'number', 'symbol')),
@@ -244,6 +302,6 @@ export const TypeUtils = {
     union: TSType.union,
     optional: TSType.optional,
 
-    [Symbol.toStringTag]: 'namespace',
+    [Symbol.toStringTag]: 'TypeUtils',
     toString() { return '[namespace TypeUtils]' }
 }
