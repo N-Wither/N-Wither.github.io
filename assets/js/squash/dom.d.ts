@@ -65,6 +65,7 @@ class ElementWrapper<T> {
     insertBefore(sibling: ElementWrapperValidTarget): this
     insertAfter(sibling: ElementWrapperValidTarget): this
     html(html: string): this
+    text(text: string): this
     on<E extends keyof HTMLElementEventMap>(event: E, handler: (ev: HTMLElementEventMap[E]) => any, options?: boolean | AddEventListenerOptions): this
     remove(): void
     isChildOf(parent: ElementWrapperValidTarget): boolean
@@ -79,4 +80,17 @@ class ElementWrapper<T> {
     get previous(): ElementWrapper<Element> | null
     get next(): ElementWrapper<Element> | null
     get parent(): ElementWrapper<Element> | null
+    readonly classList: DOMTokenList
+    get className(): string
+    set className(className: string)
+    get id(): string
+    set id(id: string)
+    get innerHTML(): string
+    set innerHTML(html: string)
+    get outerHTML(): string
+    set outerHTML(html: string)
+    get innerText(): string
+    set innerText(text: string)
+    get textContent(): string
+    set textContent(text: string)
 }

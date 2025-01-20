@@ -238,6 +238,11 @@ class ElementWrapper {
         return this;
     }
 
+    text(text) {
+        this.element.textContent = text;
+        return this;
+    }
+
     /**
      * @param {string} event
      * @param {EventListenerOrEventListenerObject | null} callback
@@ -330,6 +335,21 @@ class ElementWrapper {
     hasClass(className) {
         return this.element.classList.contains(className);
     }
+
+    get classList() { return this.element.classList; }
+    set classList(_) { throw new TypeError('Element.classList cannot be directly set!') }
+    get className() { return this.element.className; }
+    set className(className) {this.element.className = className }
+    get id() { return this.element.id; }
+    set id(id) { this.element.id = id }
+    get innerHTML() { return this.element.innerHTML; }
+    set innerHTML(html) { this.element.innerHTML = html }
+    get innerText() { return this.element.innerText; }
+    set innerText(text) { this.element.innerText = text }
+    get outerHTML() { return this.element.outerHTML; }
+    set outerHTML(html) { this.element.outerHTML = html }
+    get textContent() { return this.element.textContent; }
+    set textContent(text) { this.element.textContent = text }
 }
 
 export class DomUtils {
