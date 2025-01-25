@@ -59,11 +59,16 @@
             </select>
             <span class="very-hard">非常可能出现死亡二选一！</span>
         </label>
-        <button id="reset" class="btn-regular" style="display: inline;">重来！</button>
+        <button id="reset" class="btn-regular" style="display: inline;">再来一局</button>
+        <button id="retry" class="btn-regular" style="display: inline;" disabled>重玩这局</button>
         <div>
             <label>
                 <span>首次点击必定是空格</span>
                 <input type="checkbox" id="easystart">
+            </label>
+            <label>
+                <span>逃避最后的二选一</span>
+                <input type="checkbox" id="nolastchoice">
             </label>
         </div>
         <div>
@@ -85,6 +90,9 @@
                     <input type="radio" name="mode" id="double">
                 </label>
             </div>
+        </div>
+        <div>
+            <button class="btn-regular" id="hint" style="display: none;">提示一个地雷的位置</button>
         </div>
         <div id="info"></div>
         <div style="overflow-x: auto;">

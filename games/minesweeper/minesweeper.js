@@ -5,9 +5,12 @@ const cvs = document.querySelector('canvas')
 const ctx = cvs.getContext('2d')
 const difficultySelect = document.querySelector('#difficulty')
 const reset = document.querySelector('#reset')
+const retry = document.querySelector('#retry')
+const hintButton = document.querySelector('#hint')
 const mobileModeCheckbox = document.querySelector('#mobile')
 const simulateModeCheckboxes = document.querySelectorAll('[name=mode]')
 const easyStartCheckbox = document.querySelector('#easystart')
+const noLastChoiceCheckbox = document.querySelector('#nolastchoice')
 const infoBox = document.querySelector('#info')
 const tileWidth = 32
 const tileBorder = 2
@@ -15,10 +18,14 @@ const state = {
     isMobile: false,
     currentSimulate: 'left',
     isRunning: false,
+    isRetry: false,
     isFirstClick: true,
     /**@type {Tile[][]} */
     grid: [],
     easyStart: false,
+    noLastChoice: false,
+    lastGame: null,
+    timer: null
 }
 const difficultyMap = {
     easy: {
@@ -84,6 +91,15 @@ difficultySelect.addEventListener('change', () => {
 
 reset.addEventListener('click', () => {
     init()
+    state.lastGame = state.grid
+})
+
+retry.addEventListener('click', () => {
+    retryGame()
+})
+
+hintButton.addEventListener('click', () => {
+    hint()
 })
 
 mobileModeCheckbox.addEventListener('change', () => {
@@ -98,6 +114,10 @@ simulateModeCheckboxes.forEach(checkbox => {
 
 easyStartCheckbox.addEventListener('change', () => {
     state.easyStart = easyStartCheckbox.checked
+})
+
+noLastChoiceCheckbox.addEventListener('change', () => {
+    state.noLastChoice = noLastChoiceCheckbox.checked
 })
 
 window.addEventListener('resize', FunctionUtils.debounce(render, 200))
@@ -174,7 +194,7 @@ class Tile {
 
     leftClick(/**@type {MouseEvent}*/ e) {
         // To prevent the first click from revealing the mines
-        if(this.type == 'unknown' && this.hasLandmine == true && state.isFirstClick == true){
+        if(this.type == 'unknown' && this.hasLandmine == true && state.isFirstClick == true && state.isRetry == false){
             init(this.col, this.row).leftClick()
             return
         }
@@ -191,6 +211,7 @@ class Tile {
                 let around = this.getAroundTiles()
                 Object.values(around).forEach(tile => {if(tile != null && tile.type == 'unknown' && tile.hasLandmine == false) tile.leftClick()})
             }
+            startTimer()
         }
         if(this.type == 'unknown' && this.hasLandmine == true){
             this.type = 'landmine'
@@ -213,6 +234,7 @@ class Tile {
             this.type = 'unknown'
             this.content = ''
         }
+        startTimer()
         render()
     }
 
@@ -221,6 +243,13 @@ class Tile {
         if(this.type == 'number' && this.analyzeAroundTiles().flags == this.content) {
             Object.values(around).forEach(tile => {if(tile != null) tile.leftClick()})
         }
+        startTimer()
+    }
+
+    distanceTo(other) {
+        const dx = this.col - other.col
+        const dy = this.row - other.row
+        return Math.sqrt(dx ** 2 + dy ** 2)
     }
 }
 
@@ -295,7 +324,7 @@ function render() {
             }
         }
     }
-    infoBox.textContent = `共有 ${difficultyMap[difficultySelect.value].mines} 个地雷，已标记 ${arrayFlat(state.grid).filter(tile => tile.type == 'flag').length} 个。`
+    infoBox.textContent = `共有 ${difficultyMap[difficultySelect.value].mines} 个地雷，已标记 ${(state.grid.flat()).filter(tile => tile.type == 'flag').length} 个。`
 }
 
 const init = (col, row) => {
@@ -303,6 +332,12 @@ const init = (col, row) => {
     state.easyStart = easyStartCheckbox.checked
     state.isRunning = true
     state.isFirstClick = true
+    if(state.isFirstClick == true && state.lastGame == null) {
+        retry.disabled = false
+    }
+    state.lastGame = state.grid
+    state.isRetry = false
+    startTimer()
     render()
     if(col != undefined && row != undefined) return state.grid[row][col]
 }
@@ -347,7 +382,7 @@ const getTileIndex = (/** @type {MouseEvent}*/ event) => {
 }
 
 const gameLose = () => {
-    arrayFlat(state.grid).filter(tile => tile.hasLandmine == true).forEach(tile => {
+    (state.grid.flat()).filter(tile => tile.hasLandmine == true).forEach(tile => {
         tile.type = 'landmine'
         tile.content = '💣'
     })
@@ -355,36 +390,69 @@ const gameLose = () => {
     aqSnackbar({message: '你输了！', type: 'error', duration: 3000})
     infoBox.textContent = `游戏结束！`
     state.isRunning = false
+    clearTimeout(state.timer)
 }
 
-const gameWin = () => {
-    arrayFlat(state.grid).filter(tile => tile.hasLandmine == true).forEach(tile => {
+const gameWin = (info) => {
+    info = info ?? '你赢了！';
+    (state.grid.flat()).filter(tile => tile.hasLandmine == true).forEach(tile => {
         tile.type = 'flag'
         tile.content = '🚩'
     })
     render()
-    aqSnackbar({message: '你赢了！', type: 'success', duration: 3000})
+    aqSnackbar({message: info, type: 'success', duration: 5000})
     infoBox.textContent = `你找到了所有 ${difficultyMap[difficultySelect.value].mines} 个地雷！`
     state.isRunning = false
-}
-
-/**
- * 
- * @param {any[]} arr 
- * @returns {any[]}
- */
-const arrayFlat = (arr) => {
-    return arr.reduce((acc, val) => acc.concat(val), [])
+    clearTimeout(state.timer)
 }
 
 const checkState = () => {
-    const tiles = arrayFlat(state.grid)
+    const tiles = state.grid.flat()
     const unknownTiles = tiles.filter(tile => tile.type == 'unknown').length
     const flaggedTiles = tiles.filter(tile => tile.type == 'flag').length
     const questionTiles = tiles.filter(tile => tile.type == 'question').length
     if(unknownTiles + flaggedTiles + questionTiles == difficultyMap[difficultySelect.value].mines) {
         gameWin()
     }
+    // if only two adjacent tiles are unrevealed and one of them is a mine, the player wins
+    if(state.noLastChoice == false) return;
+    const unreavledTiles = tiles.filter(tile => tile.type == 'unknown')
+    if(unreavledTiles.length == 2) {
+        const [tile1, tile2] = unreavledTiles
+        if(tile1.distanceTo(tile2) < 2 && unreavledTiles.filter(tile => tile.hasLandmine == true).length == 1) {
+            gameWin('最后剩下的两个格子要么能很容易地推理出结果，要么必须猜测一个，所以算你赢了。')
+        }
+    }
+}
+
+const retryGame = () => {
+    let newGrid = state.lastGame
+    for(let row of newGrid) {
+        for(let tile of row) {
+            tile.type = 'unknown'
+            tile.content = ''
+        }
+    }
+    state.grid = newGrid
+    state.isRetry = true
+    state.isRunning = true
+    startTimer()
+    render()
+}
+
+const hint = () => {
+    let unrevealedMines = state.grid.flat().filter(tile => tile.type == 'unknown' && tile.hasLandmine == true)
+    unrevealedMines[Math.floor(Math.random() * unrevealedMines.length)].rightClick()
+    hintButton.style.display = 'none'
+    if(state.grid.flat().filter(tile => tile.hasLandmine == true).length > state.grid.flat().filter(tile => (tile.type == 'flag' && tile.hasLandmine == true)).length)
+    startTimer()
+}
+
+function startTimer (){
+    clearTimeout(state.timer)
+    state.timer = setTimeout(() => {hintButton.style.removeProperty('display')}, 1000 * 60)
 }
 
 init()
+window.state = state
+startTimer()
