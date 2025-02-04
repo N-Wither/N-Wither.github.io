@@ -31,6 +31,7 @@
                     <button class="btn-regular" onclick="chooseTheme('retrowave')">Retrowave</button>
                     <button class="btn-regular" onclick="chooseTheme('nord_archive')">Nord Archive</button>
                     <button class="btn-regular" onclick="chooseTheme('antique')">Antique</button>
+                    <button class="btn-regular" onclick="chooseTheme('astral')">Astral</button>
                 </div>
             </div>
         </reading-progress>
@@ -161,17 +162,45 @@
                 info: `
                 <p>主要字体是思源宋体。</p>
                 `
+            },
+            astral: {
+                url: '/assets/css/themes/astral/global.css',
+                title: 'Astral',
+                desc: '天体运行论。',
+                info: `
+                背景中的太阳系是大致准确的。
+                `,
+                classes: {
+                    h1: 'astral'
+                }
             }
         }
 
         function chooseTheme(theme) {
+            let currentTheme = document.documentElement.dataset.currentTheme
             let target = themes[theme]
+
+            if(currentTheme != undefined) {
+                if(themes[currentTheme].classes != undefined) {
+                    Object.entries(themes[currentTheme].classes).map(([selector, classname]) => {
+                        document.querySelector(selector).classList.remove(classname)
+                    })
+                }
+            }
+
             if(target == undefined) return;
             if(themeCss.getAttribute('href') == target.url) return;
             themeCss.href = target.url ?? ''
             themeTitle.innerHTML = target.title
             themeDesc.innerHTML = target.desc
             themeInfo.innerHTML = target.info
+            document.documentElement.dataset.currentTheme = theme
+
+            if(target.classes != undefined) {
+                Object.entries(target.classes).map(([selector, classname]) => {
+                    document.querySelector(selector).classList.add(classname)
+                })
+            }
         }
     </script>
 </body>

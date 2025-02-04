@@ -1,0 +1,88 @@
+html {
+    --bg-img: url(./solar-system-light.svg);
+
+    --accent-color: #675d54;
+    --accent-color-dk: #3b3b3b;
+    --background-color: #e6e6e6;
+    --background-color-dk: #d2d2d2;
+    --background-color-lt: #f4f4f4;
+    --text-color: #000000;
+    --text-color-contrast: #ffffff;
+    --link-color: var(--accent-color);
+    --link-color-visited: var(--accent-color-dk);
+    --border-color: #565656;
+
+    --button-bg: #d2d2d2;
+    --button-bg-focus: #bababa;
+
+    --header-bg: #e6e6e6cc;
+
+    --theme-color-400: #796b60;
+    --theme-color-500: #675d54;
+}
+
+html.theme-dark {
+    --bg-img: url(./solar-system-dark.svg);
+
+    --accent-color: #dfc976;
+    --accent-color-dk: #817a47;
+    --background-color: #262626;
+    --background-color-dk: #1a1a1a;
+    --background-color-lt: #333333;
+    --text-color: #ffffff;
+    --text-color-contrast: #000000;
+    --link-color: var(--accent-color);
+    --link-color-visited: #cab56b;
+    --border-color: #79704d;
+
+    --header-bg: #262626cc;
+
+    --theme-color-400: #f5dc7f;
+    --theme-color-500: #dfc976;
+}
+
+body {
+    background-image: var(--bg-img);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1.astral {
+    font-size: 6rem;
+    border-top: 0.1rem solid var(--text-color);
+    border-bottom: 0.1rem solid var(--text-color);
+    max-width: fit-content;
+    margin-block: 0.65em;
+    padding-block: 0.2em;
+}
+
+button:is(.btn-primary, .btn-regular):not([disabled]) {
+    background-color: transparent;
+}
+
+button.btn-primary {
+    border: 0.1rem solid var(--theme-color-500)
+}
+
+button.btn-primary:is(:hover, :focus) {
+    border: 0.1rem solid var(--theme-color-400);
+    background-color: var(--theme-color-400);
+}
+
+button.btn-regular {
+    border: 0.1rem solid var(--button-bg-focus);
+}
+
+button.btn-regular:is(:hover, :focus):not([disabled]) {
+    background-color: var(--button-bg-focus);
+}
+
+button[disabled] {
+    border: none;
+}
+
+button:is(:hover, :focus) {
+    background-color: var(--button-bg-disabled);
+}

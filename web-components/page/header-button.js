@@ -62,7 +62,8 @@ export let headerButtonStyle = css`
 }
 
 .base:hover, .base:focus-within {
-    transition: var(--header-button-bg-transition-time-1)
+    transition: var(--header-button-bg-transition-time-1);
+    color: var(--text-color-contrast);
 }
 
 .base:hover::after, .base:focus-within::after {
