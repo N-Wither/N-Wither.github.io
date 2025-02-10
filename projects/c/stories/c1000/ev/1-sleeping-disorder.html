@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="theme-dark" data-theme-fixed>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于睡眠障碍的咨询</title>
+    <link rel="shortcut icon" href="/projects/c/assets/img/ella_avatar.webp">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/blockquote.css">
+    <link rel="stylesheet" href="/assets/css/themes/violite/global.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" id="code">
+        let ev = document.querySelector('.everland')
+        let rl = document.querySelector('.basereality')
+        let ob = new IntersectionObserver(entries => {
+            let target = entries[0]
+            if(target.intersectionRatio > 0) return
+            ev.remove()
+            rl.removeAttribute('style')
+            ob.disconnect()
+        })
+        ob.observe(ev)
+        rl.className = ''
+
+        let bq = document.querySelector('blockquote')
+        if(ev.getBoundingClientRect().height < window.innerHeight) bq.style.display = 'block'
+        window.addEventListener('resize', e => {
+            if(ev.getBoundingClientRect().height < window.innerHeight) bq.style.display = 'block'
+            else bq.style.display = 'none'
+        })
+
+        let code = document.querySelector('#code')
+        code.remove()
+    </script>
+</head>
+<body>
+    <page-header variant="compact"></page-header>
+    <tool-box>
+        <page-info>
+            <p><span class="f-b">关于睡眠障碍的咨询</span></p>
+            <hr>
+            <p><span class="f-b">编剧/导演/制片：</span>N Wither</p>
+        </page-info>
+        <to-top></to-top>
+    </tool-box>
+    <page-body>
+        <h1 class="page-title">关于睡眠障碍的咨询</h1>
+        <hr>
+        <blockquote class="warn" style="display: none; position: fixed; top: 2rem; left: 50%; transform: translateX(-50%); z-index: 99;">你的浏览器缩放倍率太小，或者屏幕太宽了，可能会影响呈现效果，请将缩放调大，或者将窗口调窄一些。如果之后此提示依然存在，请刷新页面。</blockquote>
+        <p>在冬天，即使是白天也会很冷，即使有太阳，也起不到什么作用。</p>
+        <div class="everland">
+            <p>更何况，这里也没有太阳，天上若隐若现的星星只让这里更显清冷，只有苍蓝色的天空提醒我现在是白天。这也没有什么意义，我已经在这大约几个小时了，可天色一点也没变过，不知什么时候会到晚上，也许不会。</p>
+            <p>四下无人，空荡荡的街道只有寂静，我踩在石砖路上的声音在楼栋间回荡，很快就消散到广袤的寂静之中。很明显，这个地方已经沉寂许久了，但所有的东西都奇怪地干净。</p>
+            <p>眼前只有一条路可走，我不知道它通往哪里，但我现在似乎也没有别的什么选择，周围的建筑完全没有吸引我进入的能力，它们天生就是要做背景板的。</p>
+            <p>所以我继续向前走，最终，这条路通往一个庞大的空旷广场，所有其他建筑都在此处停止蔓延，只有广场中央的一座庞然大物宣告着它才是这里的真正焦点。</p>
+            <p>这是一座圣殿，高耸的尖顶、精致的窗格和布满繁复雕刻的外墙，无一不在昭示着这座建筑的神圣意味。但是，跟刚才的平民建筑比起来，这座圣殿反倒显得古旧了，破损的花窗和斑驳的立面，表明这里早已久经风霜。</p>
+            <p>它太特别了，放眼望去，身后是平平无奇的城镇，远方是了无生机、直通天际线的平原，我没有不走进去的理由。</p>
+            <p>大门没有完全关上，留了一道足够我通过的缝隙。</p>
+            <p>“有人吗？”</p>
+            <p>我的声音在殿堂里回荡。</p>
+            <p>没有人回答，我也没期待会有人能回答，但如果真的有，也不是很奇怪的事。如果只为我一个人准备那么大的地方，也太看得起我。</p>
+            <p>地面上满是瓦砾和玻璃的碎片，被我的行动扬起的灰尘在透过花窗入射的光线下时不时闪着光，大概这里是除了我之外唯一会动的东西。</p>
+            <p>不知堆积多久的碎片在我的脚下发出摩擦、破碎的声响，这里肯定发生过什么事情，但时间太久，留下的东西也太少，这里的历史，我无从得知了。</p>
+            <p>在殿堂的尽头，是一条铺着地毯的阶梯，上面也是布满了碎片和灰尘。</p>
+            <p>顺着它向上，是一把精致的座椅，王权的象征，或许以前承载过好几代王朝的重量，但也都是以前了，现在上面空无一物。</p>
+            <p>不知是巧合还是刻意的设计，一道光从某个窗户照射进来，刚好落在这座椅上面，我才注意到它比周围的地面要更干净，上面没有碎片，也没有多少灰尘。</p>
+            <p>它显然是在吸引着我，而我现在已经无处可去了。</p>
+            <p>我粗略整理衣服，坐了上去。</p>
+        </div>
+        <div class="basereality" style="display: none;">
+            <p>于是乎，我裹紧我的衣服，虽说这座城市的冬天也没有多么的寒冷，但正是如此才让我选择不穿得那么厚，反正我大部分时间都在室内，稍微忍耐一下外面的低温也没有那么折磨，但冬天毕竟是冬天，还是走快点吧。</p>
+            <p>大街上没有多少人，冬天加上工作日，没人愿意在街上多作停留。我的注意力全集中在了寒冷和走路上面，街上其他的声音好像都变得遥远了起来，但稍加注意便又清晰了。</p>
+            <p>那么，在这寒冷的冬天，我出门是要去哪里呢？不，不是图书馆，虽然在 Aachen 那里混日子很有意思，但是最近发生的事情让我越来越难提起兴趣。</p>
+            <p>昨天我照旧在 Aachen 的办公室蹭着暖气看着书，在我连续打了几个呵欠之后，她看出我最近有点不太对劲，从她的座位上转过身来，问我怎么这么疲惫。</p>
+            <p>于是我跟她说了我最近的状况，这几天来，虽然我还是跟平常一样按时上床睡觉，但第二天醒来之后还是昏昏沉沉，脑子里好像堵着什么，但是，如果想要补觉的话，又很难睡得着，于是我只能保持着这样难受的状态。</p>
+            <p>“这样真的没问题么？如果再这么持续下去的话，对身体肯定不好的，去看看医生吧？”她对我的事情还是很关心。</p>
+            <p>去看医生吗……感觉我这事好像也没那么严重的吧？</p>
+            <p>“你得去！”</p>
+            <p>她看出了我在想什么。</p>
+            <p>虽然我不想，但她说得还是有道理，我是得去看看医生了，毕竟我一直都挺健康的，最近才变成这样，肯定是我的身体出了什么问题。</p>
+            <p>“你觉得我大概是什么问题？”在去找医生之前，我试图问问她的意见，毕竟看一次医生还是花费不小，而我最近因为这事都没做什么工作。</p>
+            <p>“我怎么会知道这个，我又不是学医的……”她从座位上站起，向我走过来，“这也是为了你好，还是快点去医院吧，你再晚点去说不定他们就下班了。”</p>
+            <p>“哪会有那么早……”我不情愿地从沙发上坐起来，摇了摇头，有点痛。</p>
+            <p>“别磨磨蹭蹭的了，”Aachen 把我从沙发拉了起来，“你这样子完全不行嘛，要是再不去的话，我都不知道你会怎么样。”</p>
+            <p>我又摇了摇头，还是有点痛，摸了摸额头，又没有发烧的迹象。虽然我多多少少在各个地方看过一些医学知识，但是遇到这种没见过的情况也只能抓瞎了。</p>
+            <p>Aachen 带着我走出办公室，然后送我出了大门。</p>
+            <p>之后，我慢悠悠地去了医院。</p>
+        </div>
+        <p>……</p>
+        <p>“症状是什么呢？”</p>
+        <p>“欸……？”</p>
+        <p>“怎么了，Ella？你好像有点心不在焉的。”</p>
+        <p>“呃，我……”我又摇了摇头，我坐在诊室的椅子上，眼前是面露疑色的 Gabriel，今天是他坐诊。</p>
+        <p>“我走神了，抱歉……能再说一遍吗？”</p>
+        <p>“可能有点严重呢……嗯，你的症状是什么呢？”</p>
+        <p>“就是，明明睡觉的时长是够的，但是第二天起来还是很困，而且，要补觉的话反而又睡不着了。”</p>
+        <p>“有像刚才那样走神的情况吗？”</p>
+        <p>“那倒是没有，还是能集中注意力的，只是因为太困不太提得起劲。”</p>
+        <p>“嗯，晚上有做梦吗？”</p>
+        <p>“这个……”我试图回想，有吗？我隐隐约约感觉是有的，我试图回忆，但是我实在是没有任何关于梦境的印象，就算梦境再容易忘，这也才一天不到而已，多多少少应该能记住点什么的吧。</p>
+        <p>“不能确认。”我只能这样说。</p>
+        <p>“可能你是做过梦，但是你不记得了……只能说，有精神疾病的可能性。”</p>
+        <p>“啊？”</p>
+        <p>“别太害怕，虽然精神科那边今天没人上班，但我还是能给你开点药的。”</p>
+        <p>“不是这个啦……”</p>
+        <p>“精神疾病确实不好治，但是现在我也不能完全确定，我建议你尽量多休息，如果之后情况恶化的话请尽快过来，那时候就有比我更专业的了。”</p>
+        <p>“好吧……”</p>
+        <p>离开医院之后，我想起我刚才走神了一下，我有错过什么吗？好像没有，我被 Aachen 送出门之后就来了医院，然后就找 Gabriel 给我看病了，就是这样，没有什么对不上的。</p>
+        <p>好吧，希望那些药有用。</p>
+    </page-body>
+    <page-footer>
+        <div slot="quote">As above, so below.</div>
+    </page-footer>
+</body>
+</html>
