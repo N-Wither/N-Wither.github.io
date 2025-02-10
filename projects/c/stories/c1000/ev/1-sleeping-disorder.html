@@ -12,6 +12,7 @@
     <script type="module" id="code">
         let ev = document.querySelector('.everland')
         let rl = document.querySelector('.basereality')
+        let hs = document.querySelector('.hospital')
         let ob = new IntersectionObserver(entries => {
             let target = entries[0]
             if(target.intersectionRatio > 0) return
@@ -23,9 +24,10 @@
         rl.className = ''
 
         let bq = document.querySelector('blockquote')
-        if(ev.getBoundingClientRect().height < window.innerHeight) bq.style.display = 'block'
+        let bottom = document.querySelector('page-footer')
+        if(Math.abs(hs.getBoundingClientRect().top - bottom.getBoundingClientRect().top) < window.innerHeight) bq.style.display = 'block'
         window.addEventListener('resize', e => {
-            if(ev.getBoundingClientRect().height < window.innerHeight) bq.style.display = 'block'
+            if(Math.abs(hs.getBoundingClientRect().top - bottom.getBoundingClientRect().top) < window.innerHeight) bq.style.display = 'block'
             else bq.style.display = 'none'
         })
 
@@ -46,7 +48,7 @@
     <page-body>
         <h1 class="page-title">关于睡眠障碍的咨询</h1>
         <hr>
-        <blockquote class="warn" style="display: none; position: fixed; top: 2rem; left: 50%; transform: translateX(-50%); z-index: 99;">你的浏览器缩放倍率太小，或者屏幕太宽了，可能会影响呈现效果，请将缩放调大，或者将窗口调窄一些。如果之后此提示依然存在，请刷新页面。</blockquote>
+        <blockquote class="warn" style="display: none; position: fixed; top: 2rem; left: 50%; transform: translateX(-50%); z-index: 99;">你的浏览器缩放倍率太小，或者屏幕太宽了，可能会影响呈现效果，导致你错过部分故事内容。请将缩放调大，或者将窗口调窄一些。如果之后此提示依然存在，请刷新页面。</blockquote>
         <p>在冬天，即使是白天也会很冷，即使有太阳，也起不到什么作用。</p>
         <div class="everland">
             <p>更何况，这里也没有太阳，天上若隐若现的星星只让这里更显清冷，只有苍蓝色的天空提醒我现在是白天。这也没有什么意义，我已经在这大约几个小时了，可天色一点也没变过，不知什么时候会到晚上，也许不会。</p>
@@ -86,27 +88,29 @@
             <p>Aachen 带着我走出办公室，然后送我出了大门。</p>
             <p>之后，我慢悠悠地去了医院。</p>
         </div>
-        <p>……</p>
-        <p>“症状是什么呢？”</p>
-        <p>“欸……？”</p>
-        <p>“怎么了，Ella？你好像有点心不在焉的。”</p>
-        <p>“呃，我……”我又摇了摇头，我坐在诊室的椅子上，眼前是面露疑色的 Gabriel，今天是他坐诊。</p>
-        <p>“我走神了，抱歉……能再说一遍吗？”</p>
-        <p>“可能有点严重呢……嗯，你的症状是什么呢？”</p>
-        <p>“就是，明明睡觉的时长是够的，但是第二天起来还是很困，而且，要补觉的话反而又睡不着了。”</p>
-        <p>“有像刚才那样走神的情况吗？”</p>
-        <p>“那倒是没有，还是能集中注意力的，只是因为太困不太提得起劲。”</p>
-        <p>“嗯，晚上有做梦吗？”</p>
-        <p>“这个……”我试图回想，有吗？我隐隐约约感觉是有的，我试图回忆，但是我实在是没有任何关于梦境的印象，就算梦境再容易忘，这也才一天不到而已，多多少少应该能记住点什么的吧。</p>
-        <p>“不能确认。”我只能这样说。</p>
-        <p>“可能你是做过梦，但是你不记得了……只能说，有精神疾病的可能性。”</p>
-        <p>“啊？”</p>
-        <p>“别太害怕，虽然精神科那边今天没人上班，但我还是能给你开点药的。”</p>
-        <p>“不是这个啦……”</p>
-        <p>“精神疾病确实不好治，但是现在我也不能完全确定，我建议你尽量多休息，如果之后情况恶化的话请尽快过来，那时候就有比我更专业的了。”</p>
-        <p>“好吧……”</p>
-        <p>离开医院之后，我想起我刚才走神了一下，我有错过什么吗？好像没有，我被 Aachen 送出门之后就来了医院，然后就找 Gabriel 给我看病了，就是这样，没有什么对不上的。</p>
-        <p>好吧，希望那些药有用。</p>
+        <div class="hospital">
+            <p>……</p>
+            <p>“症状是什么呢？”</p>
+            <p>“欸……？”</p>
+            <p>“怎么了，Ella？你好像有点心不在焉的。”</p>
+            <p>“呃，我……”我又摇了摇头，我坐在诊室的椅子上，眼前是面露疑色的 Gabriel，今天是他坐诊。</p>
+            <p>“我走神了，抱歉……能再说一遍吗？”</p>
+            <p>“可能有点严重呢……嗯，你的症状是什么呢？”</p>
+            <p>“就是，明明睡觉的时长是够的，但是第二天起来还是很困，而且，要补觉的话反而又睡不着了。”</p>
+            <p>“有像刚才那样走神的情况吗？”</p>
+            <p>“那倒是没有，还是能集中注意力的，只是因为太困不太提得起劲。”</p>
+            <p>“嗯，晚上有做梦吗？”</p>
+            <p>“这个……”我试图回想，有吗？我隐隐约约感觉是有的，我试图回忆，但是我实在是没有任何关于梦境的印象，就算梦境再容易忘，这也才一天不到而已，多多少少应该能记住点什么的吧。</p>
+            <p>“不能确认。”我只能这样说。</p>
+            <p>“可能你是做过梦，但是你不记得了……只能说，有精神疾病的可能性。”</p>
+            <p>“啊？”</p>
+            <p>“别太害怕，虽然精神科那边今天没人上班，但我还是能给你开点药的。”</p>
+            <p>“不是这个啦……”</p>
+            <p>“精神疾病确实不好治，但是现在我也不能完全确定，我建议你尽量多休息，如果之后情况恶化的话请尽快过来，那时候就有比我更专业的了。”</p>
+            <p>“好吧……”</p>
+            <p>离开医院之后，我想起我刚才走神了一下，我有错过什么吗？好像没有，我被 Aachen 送出门之后就来了医院，然后就找 Gabriel 给我看病了，就是这样，没有什么对不上的。</p>
+            <p>好吧，希望那些药有用。</p>
+        </div>
     </page-body>
     <page-footer>
         <div slot="quote">As above, so below.</div>
