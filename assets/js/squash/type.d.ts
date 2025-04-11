@@ -62,10 +62,11 @@ export namespace TypeUtils {
      */
     function isObject(value: any): boolean
     /**
-     * Like `typeof`, but returns the constructor name when the value is an instance of a class.
+     * Like `typeof`, but returns the constructor when the value is an instance of a class.
      * @param value 
+     * @param {boolean} [asString=false] If true, returns the constructor's name instead of the constructor. Default false.
      */
-    function typeOf<T>(value: T): T extends JSPrimitiveType ? string : T extends (...args: any[]) => any ? 'function' : Class
+    function typeOf<T>(value: T, asString?: boolean): T extends JSPrimitiveType ? string : T extends (...args: any[]) => any ? 'function' : Class
     /**
      * Creates a TypeScript type for a specific value.
      * @param value 

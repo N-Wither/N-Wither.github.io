@@ -19,6 +19,10 @@ export let toolboxItemStyle = css`
     color: var(--text-color-contrast);
 }
 
+.activator:active {
+    box-shadow: inset 0 0 8px var(--shadow-color-dk);
+}
+
 .activator .icon {
     font-size: 1.6em;
 }

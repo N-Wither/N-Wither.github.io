@@ -211,12 +211,12 @@ function isObject(v) {
     return (typeof v === 'object' && v !== null) || typeof v === 'function';
 }
 
-function typeOf(v) {
+function typeOf(v, asString = false) {
     if(v === null) {
         return 'null';
     }
     else if(typeof v == 'object') {
-        return v.constructor.name == 'Object' ? 'object' : v.constructor;
+        return v.constructor.name == 'Object' ? 'object' : (asString ? v.constructor.name : v.constructor);
     }
     else return typeof v;
 }

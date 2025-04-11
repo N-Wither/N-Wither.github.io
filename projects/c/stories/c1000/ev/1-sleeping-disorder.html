@@ -16,12 +16,23 @@
         let ob = new IntersectionObserver(entries => {
             let target = entries[0]
             if(target.intersectionRatio > 0) return
+            reveal()
+        })
+        ob.observe(ev)
+        rl.removeAttribute('class')
+        hs.removeAttribute('class')
+
+        function reveal() {
             ev.remove()
             rl.removeAttribute('style')
             ob.disconnect()
-        })
-        ob.observe(ev)
-        rl.className = ''
+            sessionStorage.setItem('isRevealed', true)
+        }
+
+        let isRevealed = sessionStorage.getItem('isRevealed') ?? false
+        if(isRevealed) {
+            reveal()
+        }
 
         let bq = document.querySelector('blockquote')
         let bottom = document.querySelector('page-footer')
@@ -45,7 +56,7 @@
         </page-info>
         <to-top></to-top>
     </tool-box>
-    <page-body>
+    <div class="page-content">
         <h1 class="page-title">关于睡眠障碍的咨询</h1>
         <hr>
         <blockquote class="warn" style="display: none; position: fixed; top: 2rem; left: 50%; transform: translateX(-50%); z-index: 99;">你的浏览器缩放倍率太小，或者屏幕太宽了，可能会影响呈现效果，导致你错过部分故事内容。请将缩放调大，或者将窗口调窄一些。如果之后此提示依然存在，请刷新页面。</blockquote>
@@ -111,7 +122,7 @@
             <p>离开医院之后，我想起我刚才走神了一下，我有错过什么吗？好像没有，我被 Aachen 送出门之后就来了医院，然后就找 Gabriel 给我看病了，就是这样，没有什么对不上的。</p>
             <p>好吧，希望那些药有用。</p>
         </div>
-    </page-body>
+    </div>
     <page-footer>
         <div slot="quote">As above, so below.</div>
     </page-footer>

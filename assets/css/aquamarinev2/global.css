@@ -208,6 +208,7 @@ html {
   --text-color-selected: #ffffff;
   --text-color-contrast: var(--text-color-selected);
   --shadow-color: #0f0f0f22;
+  --shadow-color-dk: #00000044;
   --link-color: var(--theme-color-600);
   --link-color-visited: var(--theme-color-700);
   --border-color: #cfcfcf;
@@ -230,6 +231,7 @@ html.theme-dark {
   --text-color-selected: #fcfcfc;
   --text-color-contrast: #161616;
   --shadow-color: #66666622;
+  --shadow-color-dk: #00000044;
   --link-color: var(--theme-color-500);
   --link-color-visited: var(--theme-color-600);
   --border-color: #3c3c3c;
