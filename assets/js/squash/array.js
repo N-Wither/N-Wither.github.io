@@ -28,8 +28,13 @@ function unique(arr) {
     return [...new Set(arr)];
 }
 
+function range(length) {
+    if(isNaN(Number.parseInt(length))) throw new TypeError(`Type '${TypeUtils.typeOf(length, true)}' cannot be assigned to type 'number'`)
+    return Array.from({length: length}, (_, i) => i);
+}
+
 export const ArrayUtils = {
-    remove, shuffle, unique,
+    remove, shuffle, unique, range,
 
     [Symbol.toStringTag]: 'ArrayUtils',
     toString() {return '[namespace ArrayUtils]';}

@@ -34,12 +34,16 @@ class TSType {
         return new TSType('literal', value)
     }
 
-    static interface(interfaceObject) {
+    static interface(interfaceObject, ...extend) {
         if(typeof interfaceObject != 'object') {
             throw new TypeError('The argument must be an object.')
         }
         let entries = Object.entries(interfaceObject)
         let properties = []
+        extend.forEach(e => {
+            if((e instanceof TSType && e.type == 'interface') == false) throw new TypeError(`${e} is not an interface.`)
+            properties.push(...e.value)
+        })
         entries.forEach(([name, type]) => {
             let prop
             if(TSType.#JSTypes.includes(type) || type instanceof TSType) {

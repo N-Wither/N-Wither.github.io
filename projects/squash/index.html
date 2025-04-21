@@ -140,11 +140,16 @@
         <p>从一个可迭代对象（例如数组）中随机挑选一个元素。</p>
 
         <h2 id="str">字符串</h2>
-        <p>懒得详细介绍了，你自己看吧。</p>
+        <h3>格式化</h3>
         <aq-code language="js">
             sQuash.Str.camelToKebab('helloWorld') // "hello-world"
             sQuash.Str.kebabToCamel('hello-world') // "helloWorld"
             sQuash.Str.capitalize('hello world') // "Hello world"
+        </aq-code>
+        <h3><code>findLogestDuplicate</code></h3>
+        <p>经典的 LeetCode 题目，把从网上找到的 Python 代码转写成了 JS。</p>
+        <aq-code language="js">
+            sQuash.Str.findLogestDuplicate('banana') // ana
         </aq-code>
 
         <h2 id="type">类型</h2>
@@ -194,6 +199,9 @@
         <p>判断给定的对象是否可迭代。</p>
         <h3><code>isObject</code></h3>
         <p>判断给定的值是否是对象（注：<code>null</code> 会返回 <code>false</code>，函数会返回 <code>true</code>）。</p>
+        <h3><code>typeOf</code></h3>
+        <p>就像是<code>typeof</code>，但是，如果提供的东西是某个类的实例，那么会返回这个类。</p>
+        <p>另外，提供<code>null</code>作为参数会返回<code>'null'</code>而不是<code>'object'</code>。</p>
         <h3>方法的详细参数与其他功能</h3>
         <details>
             <summary>点击看代码</summary>
@@ -210,6 +218,8 @@
         <p>打乱数组中的元素顺序，返回修改后的数组。</p>
         <h3><code>unique</code></h3>
         <p>数组去重，返回一个新数组。</p>
+        <h3><code>range</code></h3>
+        <p>返回一个指定长度的数组，其中的元素是从 0 开始的自然数。</p>
 
         <h2 id="faq">常见问题</h2>
         <p class="f-bold">为什么要把这些函数写成类的静态方法？</p>

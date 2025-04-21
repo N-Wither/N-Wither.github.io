@@ -15,4 +15,9 @@ export namespace ArrayUtils {
      * @param arr
      */
     export function unique<T>(arr: T[]): T[]
+    /**
+     * Create a array of numbers from 0 to the specified length.
+     * @param length The length of the range to create.
+     */
+    export function range(length: number): number[]
 }

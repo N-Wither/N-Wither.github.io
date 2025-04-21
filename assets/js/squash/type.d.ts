@@ -75,8 +75,14 @@ export namespace TypeUtils {
     /**
      * Creates a TypeScript type for an interface. Function types are not supported.
      * @param interfaceObj 
+     * @param extend 
+     * @example
+     * ```
+     * const IPerson = TypeUtils.interface({name: 'string', age: 'number'})
+     * const IUser = TypeUtils.interface({isAdmin: 'boolean'}, IPerson)
+     * ```
      */
-    function interface(interfaceObj: InterfaceObject): TSType<'interface'>
+    function interface(interfaceObj: InterfaceObject, ...extend?: TSType<'interface'>[]): TSType<'interface'>
     /**
      * Creates a TypeScript type for a union of types.
      * @param types 

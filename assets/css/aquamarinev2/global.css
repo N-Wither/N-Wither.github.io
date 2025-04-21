@@ -166,6 +166,33 @@ html {
   box-sizing: border-box;
 }
 
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root) {
+  animation: 0.5s ease both old-page-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.5s ease both new-page-in;
+}
+
+@keyframes new-page-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes old-page-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 html {
   --theme-color-50: var(--aqua-50);
   --theme-color-100: var(--aqua-100);
