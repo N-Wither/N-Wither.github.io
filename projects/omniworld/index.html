@@ -12,7 +12,7 @@
     <script type="module" src="/web-components/page/body.js"></script>
     <script type="module" src="/web-components/page/footer.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
-    <script type="module" src="/web-components/aqv2/components/details.js"></script>
+    <script type="module" src="/web-components/aqv2/components/snackbar.js"></script>
     <style>
         aq-card{
             margin: 0.2em 0;
@@ -29,12 +29,12 @@
         .game-versions {
             display: flex;
             flex-wrap: wrap;
-            gap: 1em;
+            gap: 0.5em;
         }
 
         .game-versions .card-container {
             display: flex;
-            flex: 30%;
+            flex: 50%;
             height: 100%;
             flex-direction: column;
         }
@@ -73,7 +73,7 @@
             Omniworld
         </div>
     </page-header>
-    <page-body>
+    <div class="page-content">
         <h1 class="page-title">OMNIWORLD</h1>
         <hr>
         <content-table></content-table>
@@ -83,7 +83,7 @@
         <div class="game-versions">
             <div class="card-container">
                 <aq-card>
-                    <h3 slot="header">1.20.1</h3>
+                    <h3 slot="header">1.21.1 (Omniworld K)</h3>
                     <div>
                         <p>最新的版本，推荐想要尝鲜的玩家。</p>
                         <p>
@@ -92,10 +92,10 @@
                         </p>
                         <p>
                             <b>最新版本：</b>
-                            <span>3.7.1 Iris</span>
+                            <span>4.0.1 Genius Girl Ivy's Magic Revolution</span>
                         </p>
                         <div class="flex-center flex-wrap" style="gap: 0.2em">
-                            <a href="owr.html" class="pjax"><button class="btn-regular">查看详情</button></a>
+                            <a href="./owk.html"><button class="btn-regular">查看详情</button></a>
                             <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta" target="_blank" class="no-deco"><button class="btn-primary">立即下载</button></a>
                         </div>
                     </div>
@@ -103,7 +103,26 @@
             </div>
             <div class="card-container">
                 <aq-card>
-                    <h3 slot="header">1.18.2</h3>
+                    <h3 slot="header">1.20.1 (Omniworld R)</h3>
+                    <div>
+                        <p>
+                            <b>状态：</b>
+                            <span style="color: var(--color-danger);">停止更新</span>
+                        </p>
+                        <p>
+                            <b>最新版本：</b>
+                            <span>3.7.1 Iris</span>
+                        </p>
+                        <div class="flex-center flex-wrap" style="gap: 0.2em">
+                            <a href="owr.html"><button class="btn-regular">查看详情</button></a>
+                            <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta" target="_blank" class="no-deco"><button class="btn-primary">立即下载</button></a>
+                        </div>
+                    </div>
+                </aq-card>
+            </div>
+            <div class="card-container">
+                <aq-card>
+                    <h3 slot="header">1.18.2 (Omniworld 2)</h3>
                     <div>
                         <p>最成熟稳定的版本，推荐不想频繁更新的玩家。</p>
                         <p>
@@ -115,7 +134,7 @@
                             <span>2.10.0 Opal</span>
                         </p>
                         <div class="flex-center flex-wrap" style="gap: 0.2em">
-                            <a href="ow2.html" class="pjax" style="display: none;"><button class="btn-regular">查看详情</button></a>
+                            <a href="ow2.html" style="display: none;"><button class="btn-regular">查看详情</button></a>
                             <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta" target="_blank" class="no-deco"><button class="btn-primary">立即下载</button></a>
                         </div>
                     </div>
@@ -123,7 +142,7 @@
             </div>
             <div class="card-container">
                 <aq-card>
-                    <h3 slot="header">1.16.5</h3>
+                    <h3 slot="header">1.16.5 (Omniworld 1)</h3>
                     <div>
                         <p>最初之作，现在已经不再推荐玩这个版本。</p>
                         <p>
@@ -135,7 +154,7 @@
                             <span>1.9.3</span>
                         </p>
                         <div class="flex-center flex-wrap" style="gap: 0.2em">
-                            <a href="ow.html" class="pjax" style="display: none;"><button class="btn-regular">查看详情</button></a>
+                            <a href="ow.html" style="display: none;"><button class="btn-regular">查看详情</button></a>
                             <a href="https://pan.baidu.com/s/1vLy-sjXb4W6r1zGzGnmLtQ?pwd=4tge" target="_blank" class="no-deco"><button class="btn-regular">立即下载</button></a>
                         </div>
                     </div>
@@ -144,81 +163,75 @@
         </div>
         <p>不同版本的内容有些许不同。</p>
         <p>如果你喜欢这个作品，请考虑<a href="https://ifdian.net/a/NWither" target="_blank" rel="noopener noreferrer">赞助</a>，赞助者可以在游戏中留下你独特的痕迹！</p>
-        <aq-details>
-            <span slot="summary">交流反馈</span>
-            <span slot="close">交流反馈</span>
-            <p><span class="f-bold">QQ: </span>959382729</p>
-            <p><span class="f-bold">Discord: </span><a href="https://discord.gg/Dwq3bXVZwW" target="_blank" rel="noopener noreferrer">https://discord.gg/Dwq3bXVZwW</a></p>
-        </aq-details>
-        <aq-details>
-            <span slot="summary">赞助者列表</span>
-            <span slot="close">赞助者列表</span>
-            <ul class="sponsors">
-                <li>阿卡迪亚小胎子</li>
-                <li>逐暮晨曦</li>
-                <li>Darkness_Yami</li>
-                <li>Xjnp</li>
-                <li>空歌</li>
-                <li>qqvpp</li>
-                <li>totoro</li>
-                <li>虚实之影</li>
-                <li>尚书玻璃</li>
-                <li>loasites</li>
-                <li>旺柴</li>
-                <li>爱发电用户_wT4g</li>
-                <li>White_Road</li>
-                <li>Xaz.</li>
-                <li>qq1305981673</li>
-                <li>為龍</li>
-                <li>BlitzMomo</li>
-                <li>QiHuang02</li>
-                <li>唐送萝卜</li>
-                <li>冬冬</li>
-                <li>爱发电用户_dsA4</li>
-                <li>yiyi</li>
-                <li>QAQ_Strawberry</li>
-                <li>Naya_Z</li>
-                <li>向往</li>
-                <li>Raitu</li>
-                <li>Rainbow</li>
-                <li>Fatediversity</li>
-                <li>唯我铭心</li>
-                <li>原型智能-v1.3.3387v</li>
-                <li>shenn_ma</li>
-                <li>爱发电用户_vxEr</li>
-                <li>water_flowers</li>
-                <li>LiQvnMoFa</li>
-                <li>EnochHcx</li>
-                <li>LenYanYan</li>
-                <li>RouYal</li>
-                <li>JustZiya</li>
-                <li>Echo</li>
-                <li>Quan_Q</li>
-                <li>亚津子</li>
-                <li>爱发电用户_nrkj</li>
-                <li>爱发电用户_0fc54</li>
-                <li>卡卡米</li>
-                <li>DongAnFeng</li>
-                <li>L2too</li>
-                <li>爱发电用户_bec4a</li>
-                <li>Its_Dafuq</li>
-                <li>gjmhmm8</li>
-                <li>ExpCreeper_</li>
-                <li>爱发电用户_w49a</li>
-                <li>ZeFeng_1236</li>
-                <li>爱发电用户_WEPN</li>
-                <li>爱发电用户_nqm7</li>
-                <li>键中间</li>
-                <li>爱发电用户_ed26f</li>
-            </ul>
-        </aq-details>
+        <h2>交流反馈</h2>
+        <p><span class="f-bold">QQ: </span>959382729</p>
+        <p><span class="f-bold">Discord: </span><a href="https://discord.gg/Dwq3bXVZwW" target="_blank" rel="noopener noreferrer">https://discord.gg/Dwq3bXVZwW</a></p>
+        <h2>赞助者列表</h2>
+        <ul class="sponsors">
+            <li>阿卡迪亚小胎子</li>
+            <li>逐暮晨曦</li>
+            <li>Darkness_Yami</li>
+            <li>Xjnp</li>
+            <li>空歌</li>
+            <li>qqvpp</li>
+            <li>totoro</li>
+            <li>虚实之影</li>
+            <li>尚书玻璃</li>
+            <li>loasites</li>
+            <li>旺柴</li>
+            <li>爱发电用户_wT4g</li>
+            <li>White_Road</li>
+            <li>Xaz.</li>
+            <li>qq1305981673</li>
+            <li>為龍</li>
+            <li>BlitzMomo</li>
+            <li>QiHuang02</li>
+            <li>唐送萝卜</li>
+            <li>冬冬</li>
+            <li>爱发电用户_dsA4</li>
+            <li>yiyi</li>
+            <li>QAQ_Strawberry</li>
+            <li>Naya_Z</li>
+            <li>向往</li>
+            <li>Raitu</li>
+            <li>Rainbow</li>
+            <li>Fatediversity</li>
+            <li>唯我铭心</li>
+            <li>原型智能-v1.3.3387v</li>
+            <li>shenn_ma</li>
+            <li>爱发电用户_vxEr</li>
+            <li>water_flowers</li>
+            <li>LiQvnMoFa</li>
+            <li>EnochHcx</li>
+            <li>LenYanYan</li>
+            <li>RouYal</li>
+            <li>JustZiya</li>
+            <li>Echo</li>
+            <li>Quan_Q</li>
+            <li>亚津子</li>
+            <li>爱发电用户_nrkj</li>
+            <li>爱发电用户_0fc54</li>
+            <li>卡卡米</li>
+            <li>DongAnFeng</li>
+            <li>L2too</li>
+            <li>爱发电用户_bec4a</li>
+            <li>Its_Dafuq</li>
+            <li>gjmhmm8</li>
+            <li>ExpCreeper_</li>
+            <li>爱发电用户_w49a</li>
+            <li>ZeFeng_1236</li>
+            <li>爱发电用户_WEPN</li>
+            <li>爱发电用户_nqm7</li>
+            <li>键中间</li>
+            <li>爱发电用户_ed26f</li>
+        </ul>
         <aq-tooltip target=".tooltip-1">
             <div>然而国外早就有很多了</div>
         </aq-tooltip>
         <aq-tooltip target=".tooltip-2">
             <div>自创名词</div>
         </aq-tooltip>
-    </page-body>
+    </div>
     <page-footer></page-footer>
 </body>
 </html>

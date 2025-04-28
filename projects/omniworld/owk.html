@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="theme-dark" data-theme-fixed>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omniworld K</title>
+    <link rel="shortcut icon" href="./assets/omniworld_icon.webp">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+    <style>
+        aq-card{
+            margin: 0.2em 0;
+        }
+        aq-card::part(card-base){
+            max-width: 100%;
+            min-width: 240px;
+        }
+        aq-card img {
+            width: 100%;
+        }
+    </style>
+    <style>
+        :root, :root.theme-dark {
+            --accent-color: #39acac;
+            --accent-color-dk: #30909b;
+
+            --link-color: var(--accent-color);
+            --link-color-visited: var(--accent-color-dk);
+        }
+
+        :root {
+            --background-color: #fafcfd;
+            --text-color: #081014;
+            --text-color-lt: #b4b4c8;
+            --background-color-dk: #eef1f6;
+            --border-color: #ddebf0;
+
+            --header-bg: #fafcfdcc;
+        }
+
+        :root.theme-dark {
+            --background-color: #081014;
+            --text-color: #fafcfd;
+            --header-bg: #252525cc;
+        }
+
+        button.btn-primary {
+            background-color: #39acac;
+
+            &:is(:hover, :focus-within) {
+                background-color: #00ced1;
+            }
+        }
+
+        body {
+            background-image: url(./assets/background_squares.png);
+        }
+
+        .simulacrum {
+            color: #ff243c;
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div slot="category" class="f-bold f-xl flex-center">
+            <img src="./assets/omniworld_icon.webp" alt="Omniworld Icon" style="width: 1.8em;">
+            Omniworld
+        </div>
+    </page-header>
+    <tool-box>
+        <to-top></to-top>
+    </tool-box>
+    <div class="page-content">
+        <nav><a href="./index.html" class="pjax">Omniworld</a> / <span>Omniworld K</span></nav>
+        <h1 class="page-title">Omniworld K</h1>
+        <hr>
+        <p>Omniworld 系列最新力作！延续了这个系列一如既往的风格，又有着创新性！</p>
+        <a href="https://pan.baidu.com/s/1zQYrytHJcKPuGPdPWt5V1g?pwd=hnv6" target="_blank" class="no-deco"><button class="btn-primary full-width" style="font-size: larger;">立即下载</button></a>
+        <h2>剧情</h2>
+        <p class="txt-secondary f-small">是的我们终于有剧情了，虽然借用的是别人的设定。</p>
+        <p>你睁开眼睛，你不认识这里是哪里，万物棱角分明，空气似有似无，你似乎缺失了一部分感知，但又想不起来到底是什么。</p>
+        <p>欢迎来到<span class="simulacrum">幻象计划</span>，作为基金会通用收容措施的一部分，你不知道有幸还是不幸地，在被记忆删除之后投入了基于幻象架构的众多服务器之一。悲哀的是，负责你所在服务器集群的技术员是个实习生，除了一个极其简陋的任务终端，目前别指望能得到太多引导。</p>
+        <p>好在，你不是完全孤立无援，靠着跨服务器聊天系统，你还是能联系上一些其他人，说不定他们会给你带来新的机会。无论如何，你都得面对这个全新的状况了。</p>
+        <h2>特色</h2>
+        <p>就如上面所言，这次的 Omniworld 将是剧情驱动的一部。在每个大版本，都会推出一个既定主题的任务系列，聚焦于特定的一个到几个模组，附带特定的角色与角色故事。这既是一种全新的网游式运营，亦是一种掩盖我因为现实中的工作而无法花很多时间在 Omniworld 上的方式。</p>
+        <p>不过，Omniworld 说到底是个水槽整合包，让玩家能够轻松愉快地玩游戏一直是这个整合包的信条。没有开局就强制佩戴的七咒之戒，没有用注魔祭坛制作的机器外壳，没有需要蜂王浆才能打开的下界传送门……这并不意味着模组之间毫无联动，而是我觉得模组之间的联动并不应该是依靠这种方式，想一想，很多模组的底层逻辑其实是相同的<a class="tooltip-1"><sup>1</sup></a>，Actually Addition 的充能台配方没有理由不能用 Draconic Evolution<a class="tooltip-2"><sup>2</sup></a> 的聚合装置制作，PneumaticCraft 的精炼厂理应能从 Eternal Starlight 的以太水中提取出 Industrial Foregoing 的以太气体，Immersive Engineering 的大块头电弧炉就应该比 EnderIO 的合金炉更强。</p>
+        <p>这就是这个整合包试图做到的，除了某些特别厉害的物品之外，当你觉得获得某个东西的原版路径太麻烦，或许别的模组可以帮你实现！不过，因为这个整合包的制作组只有一个人<a class="tooltip-3"><sup>3</sup></a>，所以在这方面做的内容并不多，目前做的主要工作是各种模组的矿石处理，但是以后会有更多模组之间的联动的！</p>
+        <h2>版本</h2>
+        <p class="txt-secondary f-small">或者叫赛季也行。</p>
+        <h3>4.0 - 天才少女 Ivy 的魔法革命</h3>
+        <div class="align-center">
+            <img src="./assets/s1.png" alt="4.0 Season Theme" style="width: max(40%, 200px);">
+        </div>
+        <p>你终于还是给这位不停在公屏发消息招募魔法学徒的女孩子发了私信，其实你对魔法并没有什么感觉，但是你毕竟不知道在这里要做什么，所以你还是跟着她学了魔法，魔法还是很实用的，而且你也从她那里知道了更多关于她和幻象计划的事情。</p>
+        <p>包含两个模组的任务线。</p>
+        <h2>截图</h2>
+        <p>图片太多 GitHub 受不了的，等我制作出一些图片压缩好再传上来。</p>
+    </div>
+    <page-footer></page-footer>
+    <aq-tooltip target=".tooltip-1">
+        <div>我想这就是为什么 Vazkii 认为 Botania 是一个科技模组，但我实在不认为一个自动化如此麻烦的模组应该被认为是科技模组</div>
+    </aq-tooltip>
+    <aq-tooltip target=".tooltip-2">
+        <div>本整合包不含此模组</div>
+    </aq-tooltip>
+    <aq-tooltip target=".tooltip-3">
+        <div>算上 Misty 的话或许是一个半？</div>
+    </aq-tooltip>
+</body>
+</html>
