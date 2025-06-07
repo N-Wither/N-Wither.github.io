@@ -30,13 +30,7 @@ body {
     background-color: transparent;
 }
 
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: min(8rem, 8%);
-    right: min(8rem, 8%);
-    z-index: -1;
-    background-color: var(--header-bg);
+.page-content {
+    background-color: white;
+    
 }
