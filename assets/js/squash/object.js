@@ -1,10 +1,25 @@
 export const ObjectUtils = {
+    /**
+     *
+     * @param {object} obj
+     * @param {string} path
+     * @returns
+     */
     get(obj, path) {
         return path.split('.').reduce((acc, key) => acc?.[key], obj);
     },
 
+    /**
+     * 
+     * @param {{[key: string]: any}} obj 
+     * @param {string} path 
+     * @param {any} value 
+     */
     set(obj, path, value) {
         path.split('.').reduce((acc, key, index, arr) => {
+            if(index != arr.length - 1 && typeof acc[key] !== 'object' || acc[key] === null) {
+                acc[key] = {};
+            }
             if (index === arr.length - 1) {
                 acc[key] = value;
             }
@@ -12,14 +27,14 @@ export const ObjectUtils = {
         }, obj);
     },
 
-    hasCircularReference(obj) {
+    findCircularReference(obj) {
         const seen = new WeakSet();
         const stack = [obj];
         while (stack.length) {
             const value = stack.pop();
-            if (typeof value === 'object' && value!== null) {
+            if (typeof value === 'object' && value !== null) {
                 if (seen.has(value)) {
-                    return true;
+                    return value;
                 }
                 seen.add(value);
                 stack.push(...Object.values(value));
@@ -28,6 +43,16 @@ export const ObjectUtils = {
         return false;
     },
 
+    hasCircularReference(obj) {
+        return this.findCircularReference(obj) ? true : false;
+    },
+
+    hasSelfReference(obj) {
+        return this.findCircularReference(obj) == obj ? true : false;
+    },
+
     [Symbol.toStringTag]: 'ObjectUtils',
-    toString() {return `[namespace ${this[Symbol.toStringTag]}]`}
-}
+    toString() {
+        return `[namespace ${this[Symbol.toStringTag]}]`;
+    },
+};

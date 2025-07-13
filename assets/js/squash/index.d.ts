@@ -4,7 +4,7 @@ interface Class {
     new (...args: any[]): any
 }
 
-/** A collection of useful functions, just like j**Qu**ery and Lod**ash**. */
+/** A collection of useful functions, like j**Qu**ery and Lod**ash**. */
 export namespace sQuash {
     /** A collection of DOM-related functions. */
     namespace Dom {
@@ -158,5 +158,13 @@ export namespace sQuash {
         function camelToKebab(str: string): string
         /**@example sQuash.Str.kebabToCamel('hello-world') // "helloWorld" */
         function kebabToCamel(str: string): string
+    }
+
+    namespace Obj {
+        function get(obj: any, path: string): any
+        function set(obj: any, path: string, value: any): void
+        function findCircularReference(obj: any): any
+        function hasCirularReference(obj: any): boolean
+        function hasSelfReference(obj: any): boolean
     }
 }

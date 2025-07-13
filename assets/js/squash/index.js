@@ -6,6 +6,7 @@ import { RandomUtils } from "./random.js"
 import { ColorUtils } from "./color.js"
 import { MiscUtils } from "./misc.js"
 import { ArrayUtils } from "./array.js" 
+import { ObjectUtils } from "./object.js"
 
 export default class sQuash {
     static Dom = DomUtils
@@ -16,6 +17,7 @@ export default class sQuash {
     static Color = ColorUtils
     static Misc = MiscUtils
     static Arr = ArrayUtils
+    static Obj = ObjectUtils
 }
 
 export const { createElement, select, selectAll } = DomUtils
