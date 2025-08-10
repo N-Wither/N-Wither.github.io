@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>*Misty</title>
+    <link rel="shortcut icon" href="/assets/imgs/common/mizdomatic.webp">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <style>
+        :root, :root.theme-dark {
+            --accent-color: #2cbec4;
+            --accent-color-dk: #30909b;
+
+            --link-color: var(--accent-color);
+            --link-color-visited: var(--accent-color-dk);
+        }
+
+        :root {
+            --background-color: #fafcfd;
+            --text-color: #081014;
+            --text-color-lt: #b4b4c8;
+            --background-color-dk: #eef1f6;
+            --border-color: #ddebf0;
+
+            --header-bg: #fafcfdcc;
+        }
+
+        :root.theme-dark {
+            --background-color: #081014;
+            --text-color: #fafcfd;
+            --header-bg: #081014cc;
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div class="f-b f-xl flex-center" slot="category">*Misty</div>
+    </page-header>
+    <div class="page-content">
+        <h1>*Misty <span style="color: var(--gray-500);">//Aquiferic</span></h1>
+        <hr>
+        <div class="float right">
+            <figure>
+                <div style="padding: 0.4rem;">
+                    <img src="/assets/imgs/common/misty.png" alt="Picture of Misty" width="220">
+                </div>
+                <figcaption style="text-align: start;">图像：*Misty</figcaption>
+            </figure>
+        </div>
+        <h2>资料</h2>
+        <table>
+            <tr>
+                <th>名字</th>
+                <td>*Misty <span style="color: var(--gray-500);">//Aquiferic</span></td>
+            </tr>
+            <tr>
+                <th><label for="age">年龄</label></th>
+                <td><input type="number" name="age" id="age" placeholder="点击填写，仅支持数字" min="0"></td>
+            </tr>
+            <tr>
+                <th>身高</th>
+                <td>170.4cm</td>
+            </tr>
+            <tr>
+                <th>体重</th>
+                <td>56kg</td>
+            </tr>
+            <tr>
+                <th>发色</th>
+                <td>白/青</td>
+            </tr>
+            <tr>
+                <th>发型</th>
+                <td>齐刘海短发</td>
+            </tr>
+            <tr>
+                <th>瞳色</th>
+                <td>水色</td>
+            </tr>
+            <tr>
+                <th>性格</th>
+                <td>标准</td>
+            </tr>
+            <tr>
+                <th><label for="likes">喜欢</label></th>
+                <td><input type="text" name="likes" id="likes" placeholder="点击填写..."></td>
+            </tr>
+            <tr>
+                <th><label for="dislikes">讨厌</label></th>
+                <td><input type="text" name="dislikes" id="dislikes" placeholder="点击填写..."></td>
+            </tr>
+            <tr>
+                <th>职务</th>
+                <td>音频制作</td>
+            </tr>
+        </table>
+    </div>
+    <page-footer></page-footer>
+</body>
+</html>
