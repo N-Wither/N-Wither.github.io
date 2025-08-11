@@ -213,6 +213,17 @@ html {
     }
 }
 
+@keyframes showup {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 // Global Vars
 html {
     --theme-color-50: var(--aqua-50);
@@ -423,6 +434,18 @@ details summary {
         background-color: var(--accent-color);
         color: var(--text-color-contrast);
     }
+}
+
+dialog {
+    border: none;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    box-shadow: var(--general-shadow);
+    animation: showup var(--transition-time-common) ease-in;
+}
+
+dialog:modal::backdrop {
+    backdrop-filter: blur(2px);
 }
 
 // On Mobile Devices

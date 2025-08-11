@@ -193,6 +193,16 @@ html {
     transform: translateX(-100%);
   }
 }
+@keyframes showup {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 html {
   --theme-color-50: var(--aqua-50);
   --theme-color-100: var(--aqua-100);
@@ -379,6 +389,18 @@ details summary {
 details summary:is(:hover, :focus) {
   background-color: var(--accent-color);
   color: var(--text-color-contrast);
+}
+
+dialog {
+  border: none;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  box-shadow: var(--general-shadow);
+  animation: showup var(--transition-time-common) ease-in;
+}
+
+dialog:modal::backdrop {
+  backdrop-filter: blur(2px);
 }
 
 @media only screen and (max-width: 768px) {
