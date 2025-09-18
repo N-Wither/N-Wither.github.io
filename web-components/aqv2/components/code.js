@@ -153,7 +153,8 @@ export class AqCodeblock extends AqElement {
     #localize = createLocalizer(AqCodeblock.lang)
 
     render() {
-        this.#sourceText = dedent(this.innerHTML);
+        // console.log(this.textContent)
+        this.#sourceText = dedent(this.textContent);
         this.innerHTML = '';
         let theme = localStorage.getItem('theme-mode') ?? 'light'
         this.dataset.theme = theme

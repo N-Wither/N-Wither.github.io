@@ -43,11 +43,22 @@ export namespace sQuash.DomUtils {
             return parseDomTarget(target)?.appendChild(this.element)
         }
 
+        intersectsWith(other: sQuashDomTarget) {
+            let r1 = this.boundingRect
+            let r2 = parseDomTarget(other)?.getBoundingClientRect()
+            if(!r2) return false
+            return !(r2.left > r1.right || 
+                     r2.right < r1.left || 
+                     r2.top > r1.bottom ||
+                     r2.bottom < r1.top)
+        }
+
         get classList() { return this.element.classList }
         get className() { return this.element.className }
         set className(c) { this.element.className = c }
         get id() { return this.element.id }
         set id(id) { this.element.id = id }
+        get boundingRect() { return this.element.getBoundingClientRect() }
     }
 
     type sQuashDomTarget = Element | DomWrapper<Element> | string

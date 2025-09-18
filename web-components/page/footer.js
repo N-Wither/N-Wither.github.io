@@ -33,7 +33,7 @@ export class PageFooter extends LitElement {
 
     #localize = createLocalizer(PageFooter.lang, 'document')
 
-    static quotes = 11
+    static quotes = 14
 
     static lang = {
         'zh-cn': {
@@ -47,7 +47,10 @@ export class PageFooter extends LitElement {
             8: '权力导致腐败，绝对权力导致绝对腐败。——阿克顿勋爵',
             9: '任何苦难，都能把我打倒。——卡夫卡',
             10: '我第一天来文化馆上班时故意迟到了两小时，结果发现自己居然是第一个来的，我心想这地方来对了。——余华',
-            11: '不要因为睡懒觉而感到自责，因为就算你起来也创造不了任何价值，能从浪费时间中获得乐趣，就不是浪费时间。——罗素'
+            11: '不要因为睡懒觉而感到自责，因为就算你起来也创造不了任何价值，能从浪费时间中获得乐趣，就不是浪费时间。——罗素',
+            12: '去旅行吧！',
+            13: '为了部落，为了文化！',
+            14: '我们必须知道，我们必将知道。—— 大卫·希尔伯特',
         },
         default: {
             1: html`That which has been, is that which is to be, and that which has been done, is that which will be done, and there is no new thing under the sun. —— <i>Ecclesiastes</i> 1:9`,
@@ -60,7 +63,10 @@ export class PageFooter extends LitElement {
             8: 'Power tends to corrupt, and absolute power corrupts absolutely. —— Baron Acton',
             9: 'Mich brechen alle Hindernisse. —— Franz Kafka',
             10: 'I was two hours late on purpose the first day I work at Cultural Center, but found I was the first to come, I thought it was the right place for me. —— Yu Hua',
-            11: 'The time you enjoy wasting is not wasted time. —— Bertrand Russell'
+            11: 'The time you enjoy wasting is not wasted time. —— Bertrand Russell',
+            12: 'Go take a trip!',
+            13: 'For the horde, for the culture!',
+            14: 'We must know, we will know. —— David Hilbert',
         }
     }
 }

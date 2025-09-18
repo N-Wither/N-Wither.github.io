@@ -55,6 +55,7 @@
                 <li><a href="#str">字符串</a></li>
                 <li><a href="#type">类型</a></li>
                 <li><a href="#array">数组</a></li>
+                <li><a href="#meth">Meth</a></li>
                 <li><a href="#faq">常见问题</a></li>
             </ul>
         </reading-progress>
@@ -220,6 +221,19 @@
         <p>数组去重，返回一个新数组。</p>
         <h3><code>range</code></h3>
         <p>返回一个指定长度的数组，其中的元素是从 0 开始的自然数。</p>
+
+        <h2 id="meth">Meth</h2>
+        <p>提供数学和数字方面的工具。真是个天才般的起名，不是吗？</p>
+        <h3>Grapher</h3>
+        <p>绘制函数或参数方程的图像。</p>
+        <p>在控制台中运行下面的代码。</p>
+        <aq-code language="js">
+            let grapher = new sQuash.Meth.Grapher()
+            grapher.mount(document.querySelector('.meth'))
+            grapher.draw(x => ({x, y: Math.sin(x)}), 'salmon')
+            grapher.draw(t => ({x: Math.sin(2 * t), y: Math.cos(3 * t)}), 'green')
+        </aq-code>
+        <div class="meth"></div>
 
         <h2 id="faq">常见问题</h2>
         <p class="f-bold">为什么要把这些函数写成类的静态方法？</p>

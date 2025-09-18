@@ -34,12 +34,20 @@ figures.forEach(figure => {
         dialog.querySelector('img').src = img.src
         dialog.querySelector('img').alt = img.alt || ''
         dialog.querySelector('figcaption').textContent = caption
-        dialog.querySelector('.close').addEventListener('click', () => {
+
+        function removeDialog() {
             dialog.animate([
                 {opacity: 1, transform: 'translateY(0)'},
                 {opacity: 0, transform: 'translateY(10px)'}
             ], {duration: 200}).addEventListener('finish', () => {dialog.remove()})
-        })
+        }
+        dialog.querySelector('.close').addEventListener('click', () => { removeDialog() })
+        dialog.addEventListener('keydown', e => {
+            if(e.key == 'Escape') {
+                e.preventDefault()
+                removeDialog()
+            }
+        }, {once: true})
         document.body.appendChild(dialog)
         dialog.showModal()
     })

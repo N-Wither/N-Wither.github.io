@@ -459,6 +459,7 @@ dialog:modal::backdrop {
     }
 
     .float, .float.left, .float.right {
+        float: none !important;
         max-width: 100%;
         --breakout-margin: 0;
     }
