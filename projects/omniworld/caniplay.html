@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷调查</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/styled-div.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+</head>
+<body>
+    <page-header>
+        <div slot="category" class="f-bold f-xl flex-center">
+            <img src="./assets/omniworld_icon.webp" alt="Omniworld Icon" style="width: 1.8em;">
+            Omniworld
+        </div>
+    </page-header>
+    <div class="page-content">
+        <nav><a href="./index.html">Omniworld</a> / 问卷调查</nav>
+        <h1>这个模组包适合我吗？</h1>
+        <hr>
+        <p>以下是一个小调查，如果你的分数达标的话，你玩这个游戏应该没有问题！</p>
+        <div class="paperstack">
+            <p><b>1. 我知道怎样在文件管理器开启“显示文件扩展名”功能。</b></p>
+            <p><label for="q1a"><input type="radio" name="q1" id="q1a" value="yes"> 是的</label> <label for="q1b"><input type="radio" name="q1" id="q1b" value="no"> 不</label></p>
+            <p><b>2. 我知道怎样打开一个我不认识的文件类型。</b></p>
+            <p><label for="q2a"><input type="radio" name="q2" id="q2a" value="yes"> 是的</label> <label for="q2b"><input type="radio" name="q2" id="q2b" value="no"> 不</label></p>
+            <p><b>3. 我知道在中国大陆无法访问网络上的某些内容，且我知道怎样访问这些内容。</b></p>
+            <p><label for="q3a"><input type="radio" name="q3" id="q3a" value="yes"> 是的</label> <label for="q3b"><input type="radio" name="q3" id="q3b" value="no"> 不</label></p>
+            <p><b>4. 我知道怎样找到可以使用的 Minecraft 启动器。</b></p>
+            <p><label for="q4a"><input type="radio" name="q4" id="q4a" value="yes"> 是的</label> <label for="q4b"><input type="radio" name="q4" id="q4b" value="no"> 不</label></p>
+            <p><b>5. 我能够阅读英文内容，且知道怎样在大段的文本中找到需要的部分。</b></p>
+            <p><label for="q5a"><input type="radio" name="q5" id="q5a" value="yes"> 是的</label> <label for="q5b"><input type="radio" name="q5" id="q5b" value="no"> 不</label></p>
+            <p><b>6. 我知道 Minecraft 的目录结构，且知道这些文件夹和文件的作用。</b></p>
+            <p><label for="q6a"><input type="radio" name="q6" id="q6a" value="yes"> 是的</label> <label for="q6b"><input type="radio" name="q6" id="q6b" value="no"> 不</label></p>
+            <p><b>7. 我知道 Java 语言的基础知识。</b></p>
+            <p><label for="q7a"><input type="radio" name="q7" id="q7a" value="yes"> 是的</label> <label for="q7b"><input type="radio" name="q7" id="q7b" value="no"> 不</label></p>
+            <p><b>8. 我知道怎样在游戏中查询自己需要的信息，例如合成表。</b></p>
+            <p><label for="q8a"><input type="radio" name="q8" id="q8a" value="yes"> 是的</label> <label for="q8b"><input type="radio" name="q8" id="q8b" value="no"> 不</label></p>
+            <p><b>9. 我知道怎样调整游戏设置和模组的配置文件。</b></p>
+            <p><label for="q9a"><input type="radio" name="q9" id="q9a" value="yes"> 是的</label> <label for="q9b"><input type="radio" name="q9" id="q9b" value="no"> 不</label></p>
+            <p><b>10. 我拥有一台足够强劲的电脑。</b></p>
+            <p><label for="q10a"><input type="radio" name="q10" id="q10a" value="yes"> 是的</label> <label for="q10b"><input type="radio" name="q10" id="q10b" value="no"> 不</label></p>
+            <button class="btn-regular">
+                查看结果
+            </button>
+            <p style="text-align: right;" class="txt-secondary f-italic">*此问卷由 Github Copilot 提供支持。Github Copilot, 你最好的代码助手！</p>
+        </div>
+        <dialog id="incomplete">
+            <div>请完成所有问题后再查看结果。</div>
+            <form method="dialog" class="flex center">
+                <button class="btn-regular" autofocus>好的</button>
+            </form>
+        </dialog>
+        <dialog id="failed">
+            <div>很遗憾，您在这方面的知识储备可能让您在游玩时遇到困难。不过，如果您愿意学习，我们可以为你提供帮助！</div>
+            <form method="dialog" class="flex center">
+                <button class="btn-regular" autofocus>好吧</button>
+            </form>
+        </dialog>
+        <dialog id="pass">
+            <div>恭喜！您具备了游玩本游戏的基础知识，祝您游戏愉快！</div>
+            <form method="dialog" class="flex center">
+                <button class="btn-regular" autofocus>谢谢</button>
+            </form>
+        </dialog>
+        <dialog id="excellent">
+            <div>太棒了！您完全具备游玩本游戏的知识水平，祝您游戏愉快！</div>
+            <form method="dialog" class="flex center">
+                <button class="btn-regular" autofocus>谢谢</button>
+            </form>
+        </dialog>
+        <script>
+            document.querySelector('.btn-regular').onclick = () => {
+                if(document.querySelectorAll('input[type="radio"]:checked').length < 10) {
+                    document.getElementById('incomplete').showModal();
+                    return;
+                }
+                let score = 0;
+                for (let i = 1; i <= 10; i++) {
+                    const yes = document.getElementById(`q${i}a`);
+                    if (yes.checked) score++;
+                }
+                if (score < 6) {
+                    document.getElementById('failed').showModal();
+                } else if (score <= 8) {
+                    document.getElementById('pass').showModal();
+                } else {
+                    document.getElementById('excellent').showModal();
+                }
+            }
+        </script>
+    </div>
+    <page-footer></page-footer>
+</body>
+</html>
