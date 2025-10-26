@@ -1,5 +1,4 @@
 .click-particle {
-    animation: click-particle forwards 0.8s;
     position: fixed;
     -webkit-user-select: none;
     user-select: none;
@@ -7,7 +6,11 @@
     pointer-events: none;
 }
 
-@keyframes click-particle {
+.click-particle.ascent {
+    animation: ascent forwards 0.8s;
+}
+
+@keyframes ascent {
     to {
         transform: translateY(-50px);
         opacity: 0;
