@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Marketspace VSIX Downloader</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <script type="module" src="/web-components/page/header.js"></script>
+    <script type="module" src="/web-components/page/body.js"></script>
+    <script type="module" src="/web-components/page/footer.js"></script>
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <style>
+        .form {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    </style>
+    <script type="module">
+        import {aqSnackbar} from '/web-components/aqv2/components/snackbar.js'
+        let $ = /**@param {string} selector*/ selector => document.querySelector(selector)
+        let btn = $('button')
+        let pub = $('#publisher')
+        let ext = $('#extension')
+        let ver = $('#version')
+        let plt = $('#platform')
+        
+        btn.addEventListener('click', () => {
+            let /**@type {string[]}*/ contents = [pub.value, ext.value, ver.value]
+            if(contents.every(s => s.length > 0)) {
+                let a = document.createElement('a')
+                a.href = `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${pub.value}/vsextensions/${ext.value}/${ver.value}/vspackage?targetPlatform=${plt.value}`
+                a.target = '_blank'
+                a.textContent = '点击下载'
+                $('#link').innerHTML = ''
+                $('#link').appendChild(a)
+            } else {
+                aqSnackbar.warn('请完整填写！')
+            }
+        })
+
+    </script>
+</head>
+<body>
+    <page-header>
+        <div class="f-b f-xl flex-center" slot="category">Tools</div>
+    </page-header>
+    <div class="page-content">
+        <h1>VSIX 下载器</h1>
+        <hr>
+        <p>有些时候你需要离线安装 VS 扩展，但是 VS 扩展市场现在不提供 VSIX 的直接下载方式了，所以我做了这个！</p>
+        <p>我只在少量 Visual Studio Code 扩展上试过，不保证对其他扩展也能用。</p>
+        <div class="form" role="form">
+            <label><span>发布者</span><input type="text" id="publisher"></label>
+            <label><span>扩展名</span><input type="text" id="extension"></label>
+            <label><span>版本</span><input type="text" id="version"></label>
+            <label>
+                <span>平台</span>
+                <select name="platform" id="platform">
+                    <option value="win32-x64">Windows 64-bit</option>
+                    <option value="win32-ia32">Windows 32-bit</option>
+                    <option value="win32-arm64">Windows ARM64</option>
+                    <option value="darwin-x64">MacOS Intel</option>
+                    <option value="darwin-arm64">MacOS Apple Silicon</option>
+                    <option value="linux-x64">Linux 64-bit</option>
+                    <option value="linux-arm64">Linux ARM64</option>
+                    <option value="alpine-x64">Alpine Linux</option>
+                </select>
+            </label>
+            <button class="btn-primary">生成下载链接</button>
+        </div>
+        <div id="link"></div>
+        <h2>常见问题</h2>
+        <h3>我怎么知道发布者和扩展名是什么？</h3>
+        <p>比如 VS Code Python 扩展的地址是 <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" referrerpolicy="no-referrer">https://marketplace.visualstudio.com/items?itemName=ms-python.python</a>，那么发布者是 ms-python, 扩展名是 python。</p>
+        <h3>版本号在哪看？</h3>
+        <p>在扩展页面的 Version History 就能找到！</p>
+    </div>
+    <page-footer></page-footer>
+</body>
+</html>
