@@ -228,8 +228,8 @@ html {
   --transition-time-slower: 0.4s;
   --nav-menu-width: 18em;
   --general-shadow: 0px 4px 8px var(--shadow-color);
-  --font-common: "Metropolis", "Noto Sans SC", sans-serif, "Material Symbols Outlined";
-  --font-serif: "Noto Serif SC", serif;
+  --font-common: 'Metropolis', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
+  --font-serif: 'Noto Serif SC', serif;
   --font-monospace: monospace;
   --font-size-regular: 16px;
 }
@@ -391,6 +391,22 @@ details summary:is(:hover, :focus) {
   color: var(--text-color-contrast);
 }
 
+details::details-content {
+  height: 0px;
+  margin-inline-start: 1rem;
+  transition-behavior: allow-discrete;
+  overflow: hidden;
+}
+
+details[open]::details-content {
+  height: calc-size(auto, size);
+}
+
+@starting-style {
+  details[open]::details-content {
+    height: 0px;
+  }
+}
 dialog {
   border: none;
   color: var(--text-color);

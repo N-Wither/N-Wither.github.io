@@ -436,6 +436,23 @@ details summary {
     }
 }
 
+details::details-content {
+    height: 0px;
+    margin-inline-start: 1rem;
+    transition-behavior: allow-discrete;
+    overflow: hidden;
+}
+
+details[open]::details-content {
+    height: calc-size(auto, size);
+}
+
+@starting-style {
+    details[open]::details-content {
+        height: 0px;
+    }
+}
+
 dialog {
     border: none;
     color: var(--text-color);

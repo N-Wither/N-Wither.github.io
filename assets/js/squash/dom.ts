@@ -8,11 +8,11 @@ export namespace sQuash.DomUtils {
         get() { return this.element }
         prop<P extends keyof T>(name: P): T[P]
         prop<P extends keyof T>(name: P, value: T[P]): this
-        prop(...args: any[]) {
-            if(args.length == 1) {
-                return this.element[args[0]]
+        prop<P extends keyof T>(name: P, value?: T[P]) {
+            if(arguments.length == 1) {
+                return this.element[name]
             } else {
-                this.element[args[0]] = args[1]
+                this.element[name] = value as T[P]
                 return this
             }
         }
@@ -114,8 +114,3 @@ export namespace sQuash.DomUtils {
         return Array.from(source.querySelectorAll(selector)).map(e => new DomWrapper(e))
     }
 }
-
-sQuash[Symbol.toStringTag] = 'sQuash'
-sQuash.toString = () => '[namespace sQuash]'
-sQuash.DomUtils[Symbol.toStringTag] = 'sQuash.DomUtils'
-sQuash.DomUtils.toString = () => '[namespace sQuash.DomUtils]'

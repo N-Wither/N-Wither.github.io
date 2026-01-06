@@ -32,7 +32,7 @@
             let /**@type {string[]}*/ contents = [pub.value, ext.value, ver.value]
             if(contents.every(s => s.length > 0)) {
                 let a = document.createElement('a')
-                a.href = `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${pub.value}/vsextensions/${ext.value}/${ver.value}/vspackage?targetPlatform=${plt.value}`
+                a.href = `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${pub.value}/vsextensions/${ext.value}/${ver.value}/vspackage` + (plt.value == 'none' ? '' : `?targetPlatform=${plt.value}`)
                 a.target = '_blank'
                 a.textContent = '点击下载'
                 $('#link').innerHTML = ''
@@ -60,6 +60,7 @@
             <label>
                 <span>平台</span>
                 <select name="platform" id="platform">
+                    <option value="none">不指定平台</option>
                     <option value="win32-x64">Windows 64-bit</option>
                     <option value="win32-ia32">Windows 32-bit</option>
                     <option value="win32-arm64">Windows ARM64</option>
