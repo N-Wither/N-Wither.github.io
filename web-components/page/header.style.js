@@ -17,6 +17,7 @@ export const style = css`
 
 :host {
     --header-background-filter: blur(0.1rem);
+    --header-button-shadow-color: #00000080;
 }
 
 .base {
@@ -37,6 +38,7 @@ nav-menu {
     display: flex;
     height: var(--header-height);
     padding-inline-start: 1em;
+    font-family: var(--font-heading);
 }
 
 .button-area {
@@ -64,6 +66,10 @@ nav-menu {
 
 .nav-widescreen .item:is(:hover, :focus){
     color: var(--text-color-contrast);
+}
+
+header-button a:active {
+    box-shadow: inset var(--header-button-shadow-color) 0px 0px 4px;
 }
 
 .button-area a {

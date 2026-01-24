@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root, :root.theme-dark {
+    --background-color: #ffffff;
+    --background-color-dk: #f2f2f2;
+    --background-color-dker: #d9d9d9;
+    
+    --background-pattern-color-1: var(--background-color-dk);
+    --background-pattern-color-2: var(--background-color);
+    
+    --text-color: #191919;
+    --border-color: #bfbfbf;
+
+    --accent-color: #2cbec4;
+    --accent-color-dk: #30909b;
+    --accent-color-lt: #38d1d6;
+
+    --link-color: var(--accent-color);
+    --link-color-visited: var(--accent-color-dk);
+    --link-color-focus: var(--accent-color-lt);
+
+    --header-bg: #ffffff;
+
+    --font-heading: 'Inter', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
+}
+
+h1.decorated::before, h1.decorated::after {
+    color: #797979;
+    font-size: 80%;
+}
+
+h1.decorated::before {
+    content: '[';
+    margin-inline-end: 0.6em;
+}
+
+h1.decorated::after {
+    content: ']';
+    margin-inline-start: 0.6em;
+}
+
+h2.decorated {
+    display: flex;
+}
+
+h2.decorated::before {
+    content: '';
+    background-image: url(/assets/imgs/common/arrow-downright.svg);
+    background-position: right 0.3em center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-color: var(--background-color-dk);
+    display: block;
+    width: 2em;
+    padding-inline-end: 0.5em;
+    margin-inline-end: 0.2em;
+}
+
+hr.decorated {
+    --color-1: var(--purple-400);
+    --color-2: var(--red-400);
+    --color-3: var(--accent-color);
+    height: 0.175rem;
+    border-top: none;
+    background-image: linear-gradient(to right, var(--color-1) 0%, var(--color-1) 8rem, var(--color-2) 8rem, var(--color-2) 16rem, var(--color-3) 16rem, var(--color-3) 100%);
+    background-repeat: no-repeat;
+}
+
+a:is(:hover, :focus), .link:is(:hover, :focus) {
+    color: var(--link-color-focus);
+}
+
+div.type-a {
+    --main-bg-color: var(--background-color-dk);
+    --heading-deco-color: var(--background-color);
+    --background-pattern-color-1: var(--background-color-dker);
+    --background-pattern-color-2: var(--main-bg-color);
+    background-color: var(--main-bg-color);
+    padding: 1rem;
+    margin-block: 1rem;
+    color: var(--text-color);
+}
+
+div.type-a :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 2rem;
+    margin-block: 0.5rem;
+    background-image: linear-gradient(var(--heading-deco-color), var(--heading-deco-color));
+    background-size: 100% 0.5em;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+div.type-b {
+    --border-color: var(--text-color);
+    --bg-color: color-mix(in srgb, var(--border-color) 50%, transparent 50%);
+    --div-text-color: var(--text-color-contrast);
+    padding: 1rem;
+    margin-block: 1rem;
+    border-inline-start: 0.5rem solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--div-text-color);
+}
+
+div.type-b :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--div-text-color);
+}
+
+div.type-c {
+    --bg-color: var(--background-color);
+    --box-shadow-color: var(--shadow-color);
+    --stripe-color-1: var(--background-pattern-color-1);
+    --stripe-color-2: var(--background-pattern-color-2);
+    --accent: var(--accent-color);
+    --heading-color: var(--text-color);
+    padding: 1rem;
+    margin-block: 1rem;
+    background-color: var(--bg-color);
+    background-image: 
+        linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) 80%, transparent 100%),
+        repeating-linear-gradient(135deg, var(--stripe-color-1) 0rem, var(--stripe-color-1) 0.2rem, var(--stripe-color-2) 0.2rem, var(--stripe-color-2) 0.4rem);
+    box-shadow: var(--box-shadow-color) 0px 0px 4px;
+    color: var(--text-color);
+}
+
+div.type-c :is(h1, h2, h3, h4, h5, h6) {
+    background-color: var(--accent);
+    color: var(--heading-color);
+    margin-inline: -1rem;
+    margin-block-start: -1rem;
+    padding: 0.5rem;
+}
+
+div.type-d {
+    --border: var(--border-color);
+    --border-width: 0.15rem;
+    padding: 1rem;
+    margin-block: 1rem;
+    border: var(--border-width) solid var(--border);
+}
+
+div.type-e {
+    --box-shadow-color: var(--shadow-color);
+    padding: 1rem;
+    margin-block: 1rem;
+    box-shadow: var(--box-shadow-color) 0px 0px 4px;
+}
+
+div.type-f {
+    --bg-color: #252726;
+    --div-text-color: #dadada;
+    --heading-color: #dadada;
+    --background-pattern-color-1: color-mix(in srgb, var(--div-text-color) 20%, transparent 80%);
+    --background-pattern-color-2: transparent;
+    padding: 1rem;
+    margin-block: 1rem;
+    background-color: var(--bg-color);
+    color: var(--div-text-color);
+}
+
+div.type-f :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--heading-color);
+}
+
+.polka-a {
+    --dot-size: 1px;
+    --bg-size: 10px;
+    background-image: radial-gradient(var(--background-pattern-color-1) var(--dot-size), var(--background-pattern-color-2) var(--dot-size));
+    background-size: var(--bg-size) var(--bg-size);
+}
+
+.polka-b {
+    --dot-size: 1px;
+    --bg-size: 20px;
+    background-image:  radial-gradient(var(--background-pattern-color-1) var(--dot-size), transparent var(--dot-size)), radial-gradient(var(--background-pattern-color-1) var(--dot-size), var(--background-pattern-color-2) var(--dot-size));
+    background-size: var(--bg-size) var(--bg-size);
+    background-position: 0 0, calc(var(--bg-size) / 2) calc(var(--bg-size) / 2);
+}
+
+.cross {
+    --bg-size: 50px;
+    --bg-size-half: calc(var(--bg-size) / 2);
+    background: 
+        radial-gradient(circle, transparent 20%, var(--background-pattern-color-2) 20%, var(--background-pattern-color-2) 80%, transparent 80%, transparent),
+        radial-gradient(circle, transparent 20%, var(--background-pattern-color-2) 20%, var(--background-pattern-color-2) 80%, transparent 80%, transparent) var(--bg-size-half) var(--bg-size-half),
+        linear-gradient(var(--background-pattern-color-1) 2px, transparent 2px) 0 -1px,
+        linear-gradient(90deg, var(--background-pattern-color-1) 2px, var(--background-pattern-color-2) 2px) -1px 0;
+    background-size: var(--bg-size) var(--bg-size), var(--bg-size) var(--bg-size), var(--bg-size-half) var(--bg-size-half), var(--bg-size-half) var(--bg-size-half);
+}
+
+.diagonal {
+    --stripe-width-1: 0.2rem;
+    --stripe-width-2: 0.2rem;
+    --stripe-angle: 135deg;
+    background-image: repeating-linear-gradient(var(--stripe-angle), var(--background-pattern-color-1) 0rem, var(--background-pattern-color-1) var(--stripe-width-1), var(--background-pattern-color-2) var(--stripe-width-1), var(--background-pattern-color-2) calc(var(--stripe-width-1) + var(--stripe-width-2)));
+}
+
+.boxes {
+    --bg-size: 20px;
+    background-image:  linear-gradient(var(--background-pattern-color-1) 1px, transparent 1px), linear-gradient(to right, var(--background-pattern-color-1) 1px, var(--background-pattern-color-2) 1px);
+    background-size: var(--bg-size) var(--bg-size);
+}
+
+.text-shadow {
+    text-shadow: var(--shadow-color) 0.1em 0.1em 0;
+}

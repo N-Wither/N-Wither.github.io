@@ -255,6 +255,7 @@ html {
     --general-shadow: 0px 4px 8px var(--shadow-color);
 
     --font-common: 'Metropolis', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
+    --font-heading: var(--font-common);
     --font-serif: 'Noto Serif SC', serif;
     --font-monospace: monospace;
 
@@ -265,17 +266,26 @@ html {
 html {
     --accent-color: var(--theme-color-500);
     --accent-color-dk: var(--theme-color-600);
+    --accent-color-lt: var(--theme-color-400);
+    --accent-color-alt: var(--blue-500);
+    --accent-color-alt-dk: var(--blue-700);
+    --accent-color-alt-lt: var(--blue-400);
     --background-color: #fcfcfc;
     --background-color-dk: #ededed;
     --background-color-lt: #fefefe;
+    --background-color-alt: var(--background-color);
+    --background-color-alt-dk: var(--background-color-dk);
+    --background-color-alt-lt: var(--background-color-lt);
     --text-color: #0f0f0f;
     --text-color-lt: var(--gray-400);
     --text-color-selected: #ffffff;
     --text-color-contrast: var(--text-color-selected);
+    --heading-color: var(--text-color);
     --shadow-color: #0f0f0f22;
     --shadow-color-dk: #00000044;
     --link-color: var(--theme-color-600);
     --link-color-visited: var(--theme-color-700);
+    --link-color-focus: var(--theme-color-500);
     --border-color: #cfcfcf;
     --selection-background: color-mix(in srgb, var(--accent-color-dk) 60%, transparent 60%);
 
@@ -336,6 +346,11 @@ body {
     position: relative;
     min-height: 100vh;
     transition: all var(--transition-time-common);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-family: var(--font-heading);
 }
 
 hr {
@@ -500,6 +515,10 @@ dialog:modal::backdrop {
 .f-larger, .f-lr { font-size: larger; }
 .f-xl { font-size: x-large; }
 .f-xxl { font-size: xx-large; }
+
+.f-serif {
+    font-family: var(--font-serif);
+}
 
 .align-center {
     text-align: center;
