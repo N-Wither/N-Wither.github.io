@@ -5,6 +5,7 @@ import { createLocalizer } from '../lib/localize.js';
 import { AqElement } from '../lib/aq-element.js';
 import { DomUtils } from '../../../assets/js/squash/dom.js'
 
+/** @deprecated Use `@starting-style` and `transition-behavior: allow-discrete` instead. */
 export class AqDetails extends AqElement {
     static styles = css`
     :host {

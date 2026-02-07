@@ -1,96 +1,95 @@
-import { AquamarineComponentTagNameMap } from '../../../web-components/aqv2/components/components.d.ts'
-
-interface CompleteElementTagNameMap extends HTMLElementTagNameMap, AquamarineComponentTagNameMap, SVGElementTagNameMap, MathMLElementTagNameMap {}
-
-export namespace DomUtils {
-    export const _ElementWrapper: typeof ElementWrapper;
-
-    export const FX: {
-        shake: (element: ElementWrapperValidTarget) => Animation
+/**
+ * A set of DOM-related utility functions.
+ */
+export declare namespace DomUtils {
+    class DomWrapper<T extends Element = Element> {
+        #private;
+        private readonly element;
+        constructor(e: T);
+        /** Unwrap the element. */
+        get(): T;
+        /** Get or set a property. */
+        prop<P extends keyof T>(name: P): T[P];
+        prop<P extends keyof T>(name: P, value: T[P]): this;
+        /** Get or set an attribute. */
+        attr(name: string): string | null;
+        attr(name: string, value: string): this;
+        /** Append another child to self. */
+        append(element: Node | DomWrapper<Element>): this;
+        /**
+         * Append the element to other element.
+         * @param target default: `document.body`
+         * @returns
+         */
+        appendTo(target?: sQuashDomTarget): T;
+        /** Short-hand for `addEventLitsener` */
+        on<E extends keyof HTMLElementEventMap>(event: E, handler: (ev: HTMLElementEventMap[E]) => void): this;
+        /** Get or set the `textContent` of the element. */
+        text(): string;
+        text(text: string): this;
+        /** Get or set the `innerHTML` of the element. */
+        html(): string;
+        html(html: string): this;
+        clear(): void;
+        insertBefore(element: sQuashDomTarget): void;
+        insertAfter(element: sQuashDomTarget): void;
+        select<T extends keyof HTMLElementTagNameMap>(selector: T): DomWrapper<HTMLElementTagNameMap[T]>;
+        select<T extends keyof SVGElementTagNameMap>(selector: T): DomWrapper<SVGElementTagNameMap[T]>;
+        select(selector: string): DomWrapper<Element>;
+        $: {
+            <T_1 extends keyof HTMLElementTagNameMap>(selector: T_1): DomWrapper<HTMLElementTagNameMap[T_1]>;
+            <T_1 extends keyof SVGElementTagNameMap>(selector: T_1): DomWrapper<SVGElementTagNameMap[T_1]>;
+            (selector: string): DomWrapper<Element>;
+        };
+        selectAll<T extends keyof HTMLElementTagNameMap>(selector: T): DomWrapper<HTMLElementTagNameMap[T]>[];
+        selectAll<T extends keyof SVGElementTagNameMap>(selector: T): DomWrapper<SVGElementTagNameMap[T]>[];
+        selectAll(selector: string): DomWrapper<Element>[];
+        $$: {
+            <T_1 extends keyof HTMLElementTagNameMap>(selector: T_1): DomWrapper<HTMLElementTagNameMap[T_1]>[];
+            <T_1 extends keyof SVGElementTagNameMap>(selector: T_1): DomWrapper<SVGElementTagNameMap[T_1]>[];
+            (selector: string): DomWrapper<Element>[];
+        };
+        style(css: {
+            [property: string]: string;
+        }): this;
+        remove(): void;
+        get classList(): DOMTokenList;
+        get className(): string;
+        set className(c: string);
+        get id(): string;
+        set id(id: string);
     }
-
+    type sQuashDomTarget = Element | DomWrapper<Element> | string | DocumentFragment;
+    type sQuashDomContent = sQuashDomTarget | sQuashDomTarget[];
+    export function select<T extends keyof HTMLElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<HTMLElementTagNameMap[T]>;
+    export function select<T extends keyof SVGElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<SVGElementTagNameMap[T]>;
+    export function select(selector: string, from?: sQuashDomTarget): DomWrapper<Element>;
+    export const $: typeof select;
+    export function create<T extends keyof HTMLElementTagNameMap>(element: T, content?: sQuashDomContent): DomWrapper<HTMLElementTagNameMap[T]>;
+    export function create<T extends keyof SVGElementTagNameMap>(element: T, content?: sQuashDomContent): DomWrapper<SVGElementTagNameMap[T]>;
+    export function create(element: string, content?: sQuashDomContent): DomWrapper<Element>;
+    export const make: typeof create;
+    export function selectAll<T extends keyof HTMLElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<HTMLElementTagNameMap[T]>[];
+    export function selectAll<T extends keyof SVGElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<SVGElementTagNameMap[T]>[];
+    export function selectAll(selector: string, from?: sQuashDomTarget): DomWrapper<Element>[];
+    export const $$: typeof selectAll;
     /**
-     * Web components use shadow roots to encapsulate their styles and DOM. Sometimes this makes it hard to change the look of a component. This method allows you to inject CSS into a web component's shadow root.
-     * @param element CSS selector or a element (if so, the third parameter is ignored).
-     * @param css Your CSS text or a CSSStyleSheet object.
-     * @param all Default true. If you want all elements that match the selector to be injected, do nothing. If not, set this to false and only the first element that matches the selector will be affected.
+     * Select an element with class/id and still remains type hinting.
+     * @param element
+     * @param extra id and/or class name
+     * @param from
      */
-    function injectCssToShadowRoot(element: ElementWrapperValidTarget, css: string | CSSStyleSheet, all?: boolean): CSSStyleSheet
-
-    function createElement<K extends keyof CompleteElementTagNameMap>(tagName: K, content?: any): ElementWrapper<CompleteElementTagNameMap[K]>;
-    function createElement<T extends Element>(element: T): ElementWrapper<T>;
-    const make: typeof createElement;
-
-    function select(selector: string, unwrap?: true): Element | null
-    function select(selector: string, unwrap?: false): ElementWrapper<Element> | null
-    function select(selector: Element, unwrap?: true): Element
-    function select(selector: Element, unwrap?: false): ElementWrapper<Element>
-
-    function selectAll(selector: string, unwrap?: true): NodeListOf<Element>
-    function selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
-
-    function getAllElements(from: ElementWrapperValidTarget, options: {allowShadowRoot?: boolean, unwrap?: true}): Element[]
-    function getAllElements(from: ElementWrapperValidTarget, options: {allowShadowRoot?: boolean, unwrap?: false}): ElementWrapper<Element>[]
-
-    function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: false}): ElementWrapper<Element>[]
-    function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: false}): ElementWrapper<Element> | null
-    function deepSelect(selector: string, from?: Node, options?: {all?: true, unwrap?: true}): Element[]
-    function deepSelect(selector: string, from?: Node, options?: {all?: false, unwrap?: true}): Element | null
-
-    function deepSelectAll(selector: string, from?: Node, unwrap?: false): ElementWrapper<Element>[]
-    function deepSelectAll(selector: string, from?: Node, unwrap?: true): Element[]
-
-    function forAllElements(elements: ElementWrapperValidTarget[], callback: (element: Element) => any, options?: {allowShadowRoot?: boolean, from?: Node}): void
-}
-
-type ElementWrapperValidTarget = ElementWrapper<Element> | Element | string;
-
-class ElementWrapper<T> {
-    element: T;
-    constructor(tagName: keyof CompleteElementTagNameMap, content?: any);
-    constructor(element: Element)
-
-    get(): T
-    attr<K extends keyof T>(name: K, value: string): this
-    prop(name: string, value: any): this
-    prop<K extends keyof T>(name: K): T[K]
-    prop(name: string): any
-    css(name: string, value: string): this
-    css(map: { [key: string]: string }): this
-    class(...className: string[]): this
-    appendTo(selector: string): this
-    appendTo(node: Node): this
-    append(selector: string): this
-    append(node: Node): this
-    insertBefore(sibling: ElementWrapperValidTarget): this
-    insertAfter(sibling: ElementWrapperValidTarget): this
-    html(html: string): this
-    text(text: string): this
-    on<E extends keyof HTMLElementEventMap>(event: E, handler: (ev: HTMLElementEventMap[E]) => any, options?: boolean | AddEventListenerOptions): this
-    remove(): void
-    isChildOf(parent: ElementWrapperValidTarget): boolean
-    isFollowedBy(sibling: ElementWrapperValidTarget): boolean
-    select(selector: string, unwrap?: true): Element | null
-    select(selector: string, unwrap?: false): ElementWrapper<Element> | null
-    $: typeof this.select
-    selectAll(selector: string, unwrap?: true): NodeListOf<Element>
-    selectAll(selector: string, unwrap?: false): ElementWrapper<Element>[]
-    $$: typeof this.selectAll
-    hasClass(className: string): boolean
-    get previous(): ElementWrapper<Element> | null
-    get next(): ElementWrapper<Element> | null
-    get parent(): ElementWrapper<Element> | null
-    readonly classList: DOMTokenList
-    get className(): string
-    set className(className: string)
-    get id(): string
-    set id(id: string)
-    get innerHTML(): string
-    set innerHTML(html: string)
-    get outerHTML(): string
-    set outerHTML(html: string)
-    get innerText(): string
-    set innerText(text: string)
-    get textContent(): string
-    set textContent(text: string)
+    export function selectWith<T extends keyof HTMLElementTagNameMap>(element: T, extra: string, from?: sQuashDomTarget): DomWrapper<HTMLElementTagNameMap[T]>;
+    export function selectWith(element: string, extra: string, from?: sQuashDomTarget): DomWrapper<Element>;
+    export const $w: typeof selectWith;
+    /** Like `select` but also search in shadow DOMs */
+    export function deepSelect<T extends keyof HTMLElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<HTMLElementTagNameMap[T]>;
+    export function deepSelect<T extends keyof SVGElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<SVGElementTagNameMap[T]>;
+    export function deepSelect(selector: string, from?: sQuashDomTarget): DomWrapper<Element>;
+    export const $d: typeof deepSelect;
+    export function deepSelectAll<T extends keyof HTMLElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<HTMLElementTagNameMap[T]>[];
+    export function deepSelectAll<T extends keyof SVGElementTagNameMap>(selector: T, from?: sQuashDomTarget): DomWrapper<SVGElementTagNameMap[T]>[];
+    export function deepSelectAll(selector: string, from?: sQuashDomTarget): DomWrapper<Element>[];
+    export const $$d: typeof deepSelectAll;
+    export {};
 }

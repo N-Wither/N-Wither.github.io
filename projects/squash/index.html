@@ -72,22 +72,22 @@
         <p>你可以在浏览器的控制台中使用 <code>sQuash</code> 来体验它。</p>
         <h2 id="dom">DOM</h2>
         <h3>选择和创建元素</h3>
-        <p>首先类不能直接当作函数调用，所以要使用 sQuash 选择一个元素，要这样做：</p>
+        <p>要使用 sQuash 选择一个元素，就这样做：</p>
         <aq-code language="js">
             let div = sQuash.Dom.select('div')
         </aq-code>
-        <p>当然没有<code>$</code>方便，但即便如此也比 <code>document.querySelector</code> 要短 4 个字符了。实在不行，也可以这样嘛：</p>
+        <p>如果你觉得这么写太长，也可以单独导入 <code>DomUtils</code>，然后使用 <code>select</code> 的简写：</p>
         <aq-code language="js">
-            let $ = sQuash.Dom.select
-            $.all = sQuash.Dom.selectAll
-            $.make = sQuash.Dom.createElement
+            let div = DomUtils.$('div')
         </aq-code>
-        <p>这样是不是就方便多啦？</p>
-        <p>以上三个方法默认会返回一个 <code>ElementWrapper</code> 对象（或者它的数组），以便于你进行后续操作，但是如果你只想得到一个纯粹的元素，在 <code>select</code> 和 <code>selectAll</code> 的第二个参数里面填上 true。</p>
-        <h3><code>getAllElements</code></h3>
-        <p>获取某个节点下的所有元素，默认是 <code>document</code>。第一个参数是搜索的根节点，第二个参数是配置，你可以在里面决定是否要搜索 shadowRoot 以及返回 <code>ElementWrapper</code> 数组还是元素数组。</p>
+        <p>要创建一个元素，往里面填充内容，修改样式，然后添加到页面，就这样做：</p>
+        <aq-code language="js">
+            DomUtils.create('div', 'Hello World!').style({color: 'red'}).appendTo()
+        </aq-code>
+        <p><code>create</code>和<code>select</code> 会返回一个 <code>ElementWrapper</code> 对象，便于你进行后续操作。</p>
+        <p><code>create</code>还有<code>make</code>和<code>new</code>两个别名。</p>
         <h3>方法的详细参数与其他功能</h3>
-        <p>这个模块的其他内容还挺多的，我暂时不想写那么多字，但是我写了一个 <code>d.ts</code> 文件：</p>
+        <p>这个模块的其他内容还挺多的，我暂时不想写那么多字，但是我有一个 <code>d.ts</code> 文件：</p>
         <details>
             <summary>点击看代码</summary>
             <aq-code src="/assets/js/squash/dom.d.ts" language="ts"></aq-code>

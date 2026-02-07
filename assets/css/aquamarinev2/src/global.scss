@@ -454,7 +454,7 @@ details summary {
 details::details-content {
     height: 0px;
     margin-inline-start: 1rem;
-    transition-behavior: allow-discrete;
+    transition: var(--transition-time-common) allow-discrete;
     overflow: hidden;
 }
 
