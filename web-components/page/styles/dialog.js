@@ -11,11 +11,26 @@ dialog {
     padding: 2em 1em;
     max-width: 80vw;
     overflow: auto;
-    transition: var(--trasition-time-common);
+    transition-duration: var(--transition-time-common);
+    transition-behavior: allow-discrete;
+    display: none;
+    opacity: 0;
+    translate: 0 30%;
+}
+
+dialog:open {
+    opacity: 1;
+    translate: 0 0;
+    display: block;
+
+    @starting-style {
+        opacity: 0;
+        translate: 0 30%;
+    }
 }
 
 dialog::backdrop {
-    animation: backdrop-animation forwards 0.1s;
+    animation: backdrop-animation forwards var(--transition-time-common);
 }
 
 .close {
@@ -48,6 +63,6 @@ dialog::backdrop {
 }
 
 dialog.closing::backdrop {
-    animation: backdrop-animation-closing forwards 0.1s;
+    animation: backdrop-animation-closing forwards var(--transition-time-common);
 }
 `

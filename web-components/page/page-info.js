@@ -61,26 +61,11 @@ export class PageInfo extends LitElement {
     openInfo(){
         this.#dialog.classList.remove('closing')
         this.#dialog.showModal()
-        this.#dialog.animate([
-            {transform: 'translateY(30%)', opacity: 0},
-            {transform: 'translateY(0%)', opacity: 1}
-        ], {
-            duration: 100,
-            fill: 'forwards',
-            ease: 'ease-out'
-        })
     }
 
     closeInfo(){
         this.#dialog.classList.add('closing')
-        this.#dialog.animate([
-            {transform: 'translateY(0%)', opacity: 1},
-            {transform: 'translateY(30%)', opacity: 0}
-        ], {
-            duration: 100,
-            fill: 'forwards',
-            ease: 'ease-out'
-        }).onfinish = () => { this.#dialog.close() }
+        this.#dialog.close()
     }
 }
 

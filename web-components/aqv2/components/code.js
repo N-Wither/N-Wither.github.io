@@ -156,7 +156,7 @@ export class AqCodeblock extends AqElement {
         // console.log(this.textContent)
         this.#sourceText = dedent(this.textContent);
         this.innerHTML = '';
-        let theme = localStorage.getItem('theme-mode') ?? 'light'
+        let theme = getComputedStyle(document.documentElement).colorScheme
         this.dataset.theme = theme
 
         // this.#channel.addEventListener('message', e => {

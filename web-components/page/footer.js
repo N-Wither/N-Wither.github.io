@@ -51,6 +51,7 @@ export class PageFooter extends LitElement {
             12: '去旅行吧！',
             13: '为了部落，为了文化！',
             14: '我们必须知道，我们必将知道。—— 大卫·希尔伯特',
+            15: '经常更新你的浏览器，获取酷炫的新特性！',
         },
         default: {
             1: html`That which has been, is that which is to be, and that which has been done, is that which will be done, and there is no new thing under the sun. —— <i>Ecclesiastes</i> 1:9`,
@@ -67,6 +68,7 @@ export class PageFooter extends LitElement {
             12: 'Go take a trip!',
             13: 'For the horde, for the culture!',
             14: 'We must know, we will know. —— David Hilbert',
+            15: 'Regularly update your browser for latest awesome features!',
         }
     }
 }

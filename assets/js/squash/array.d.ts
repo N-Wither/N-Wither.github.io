@@ -1,23 +1,24 @@
-export namespace ArrayUtils {
+export declare namespace ArrayUtils {
     /**
-     * Removes specified values from an array, returns the modified array.
-     * @param arr The array to remove values from.
-     * @param value The values to remove.
+     * Split an array into chunks of specified size, returns a new array of arrays.
      */
-    export function remove<T>(arr: T[], ...value: T[]): T[]
+    function chunk<T>(arr: T[], size: number): T[][];
     /**
-     * Shuffles an array in-place, returns the modified array.
-     * @param arr The array to shuffle.
+     * Remove specified values from an array, returns the **modified array**.
      */
-    export function shuffle<T>(arr: T[]): T[]
+    function remove<T>(arr: T[], values: T[]): T[];
     /**
-     * Make all values in an array unique, returns a new array.
-     * @param arr
+     * Shuffle an array, returns the **modified array**.
      */
-    export function unique<T>(arr: T[]): T[]
+    function shuffle<T>(arr: T[]): T[];
     /**
-     * Create a array of numbers from 0 to the specified length.
-     * @param length The length of the range to create.
+     * Remove duplicate values from an array, returns a new array.
+     *
+     * **Note**: this is a very very simplified implementation, don't use it for production.
      */
-    export function range(length: number): number[]
+    function unique<T>(arr: T[]): T[];
+    /**
+     * Like `range()` in Python, returns an array of numbers from `0` to `length - 1`.
+     */
+    function range(length: number): number[];
 }

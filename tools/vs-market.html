@@ -11,22 +11,15 @@
     <script type="module" src="/web-components/page/footer.js"></script>
     <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
-    <style>
-        .form {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-    </style>
     <script type="module">
         import {aqSnackbar} from '/web-components/aqv2/components/snackbar.js'
         let $ = /**@param {string} selector*/ selector => document.querySelector(selector)
-        let btn = $('button')
+        let btn = $('#generate')
         let pub = $('#publisher')
         let ext = $('#extension')
         let ver = $('#version')
         let plt = $('#platform')
+        let ful = $('#full-name')
         
         btn.addEventListener('click', () => {
             let /**@type {string[]}*/ contents = [pub.value, ext.value, ver.value]
@@ -42,6 +35,11 @@
             }
         })
 
+        $('#split').addEventListener('click', () => {
+            pub.value = ful.value.trim().split('.')[0]
+            ext.value = ful.value.trim().split('.')?.[1] ?? ''
+        })
+
     </script>
 </head>
 <body>
@@ -54,24 +52,31 @@
         <p>有些时候你需要离线安装 VS 扩展，但是 VS 扩展市场现在不提供 VSIX 的直接下载方式了，所以我做了这个！</p>
         <p>我只在少量 Visual Studio Code 扩展上试过，不保证对其他扩展也能用。</p>
         <div class="form" role="form">
-            <label><span>发布者</span><input type="text" id="publisher"></label>
-            <label><span>扩展名</span><input type="text" id="extension"></label>
-            <label><span>版本</span><input type="text" id="version"></label>
-            <label>
-                <span>平台</span>
-                <select name="platform" id="platform">
-                    <option value="none">不指定平台</option>
-                    <option value="win32-x64">Windows 64-bit</option>
-                    <option value="win32-ia32">Windows 32-bit</option>
-                    <option value="win32-arm64">Windows ARM64</option>
-                    <option value="darwin-x64">MacOS Intel</option>
-                    <option value="darwin-arm64">MacOS Apple Silicon</option>
-                    <option value="linux-x64">Linux 64-bit</option>
-                    <option value="linux-arm64">Linux ARM64</option>
-                    <option value="alpine-x64">Alpine Linux</option>
-                </select>
-            </label>
-            <button class="btn-primary">生成下载链接</button>
+            <div>
+                <label for="full-name">全称</label>
+                <input type="text" name="full-name" id="full-name">
+                <button id="split">自动识别发布者和扩展名</button>
+            </div>
+            <div>
+                <label><span>发布者</span><input type="text" id="publisher"></label>
+                <label><span>扩展名</span><input type="text" id="extension"></label>
+                <label><span>版本</span><input type="text" id="version"></label>
+                <label>
+                    <span>平台</span>
+                    <select name="platform" id="platform">
+                        <option value="none">不指定平台</option>
+                        <option value="win32-x64">Windows 64-bit</option>
+                        <option value="win32-ia32">Windows 32-bit</option>
+                        <option value="win32-arm64">Windows ARM64</option>
+                        <option value="darwin-x64">MacOS Intel</option>
+                        <option value="darwin-arm64">MacOS Apple Silicon</option>
+                        <option value="linux-x64">Linux 64-bit</option>
+                        <option value="linux-arm64">Linux ARM64</option>
+                        <option value="alpine-x64">Alpine Linux</option>
+                    </select>
+                </label>
+                <button class="btn-primary" id="generate">生成下载链接</button>
+            </div>
         </div>
         <div id="link"></div>
         <h2>常见问题</h2>

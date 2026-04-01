@@ -25,10 +25,11 @@
     --header-bg: #161721cc;
 
     scrollbar-width: thin;
+    color-scheme: dark;
 }
 
 body {
-    background-image: url(./stars.jpg);
+    background-image: url(/assets/imgs/common/stars.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;

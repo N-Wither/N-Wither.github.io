@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-theme-fixed="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 锚点定位</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/themes/industrial/global.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/aqv2/components/code.js"></script>
+    <style>
+        .anchor-1 {
+            anchor-name: --anchor-1;
+        }
+
+        .tooltip, .suggestion {
+            position: absolute;
+            top: anchor(bottom);
+            left: anchor(start);
+            width: anchor-size(width);
+            background-color: var(--background-color);
+            box-shadow: var(--general-shadow);
+            display: none;
+            z-index: 10;
+            transition: 0.2s allow-discrete;
+            opacity: 0;
+
+            @starting-style {
+                opacity: 1;
+            }
+        }
+
+        .tooltip {
+            position-anchor: --anchor-1;
+            margin-top: 0.2rem;
+        }
+
+        #demo {
+            anchor-name: --input;
+        }
+
+        .suggestion {
+            position-anchor: --input;
+        }
+
+        .suggestion button {
+            display: block;
+            width: 100%;
+        }
+
+        .anchor-1:is(:hover, :focus) + .tooltip, .input-wrapper:focus-within .suggestion, .suggestion:is(:hover, :focus) {
+            display: block;
+            opacity: 1;
+
+            @starting-style {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div class="f-b f-xl flex-center" slot="category">Web 开发技术</div>
+    </page-header>
+    <div class="page-content" role="main">
+        <h1 class="decorated">CSS 锚点定位</h1>
+        <hr>
+        <p>现在你可以将一个元素直接相对于某个其他元素进行定位，所以不再需要 JS 来制作悬浮提示或者输入建议了。</p>
+        <h2>演示</h2>
+        <div style="position: relative;">
+            <button class="anchor-1">A Button</button>
+            <div class="tooltip">Hello!</div>
+        </div>
+        <div style="position: relative;" class="input-wrapper">
+            <label for="demo">Input</label>
+            <input type="text" name="demo" id="demo">
+            <div class="suggestion">
+                <button>Option1</button>
+                <button>Option2</button>
+            </div>
+        </div>
+        <h2>代码</h2>
+        <aq-code language="html">
+        &ltdiv style="position: relative;">
+            &ltbutton class="anchor-1">A Button&lt/button>
+            &ltdiv class="tooltip">Hello!&lt/div>
+        &lt/div>
+        &ltdiv style="position: relative;" class="input-wrapper">
+            &ltlabel for="demo">Input&lt/label>
+            &ltinput type="text" name="demo" id="demo">
+            &ltdiv class="suggestion">
+                &ltbutton>Option1&lt/button>
+                &ltbutton>Option2&lt/button>
+            &lt/div>
+        &lt/div>
+        </aq-code>
+        <aq-code language="css">
+        .anchor-1 {
+            anchor-name: --anchor-1;
+        }
+
+        .tooltip, .suggestion {
+            position: absolute;
+            top: anchor(bottom);
+            left: anchor(start);
+            width: anchor-size(width);
+            background-color: var(--background-color);
+            box-shadow: var(--general-shadow);
+            display: none;
+            z-index: 10;
+            transition: 0.2s allow-discrete;
+            opacity: 0;
+
+            @starting-style {
+                opacity: 1;
+            }
+        }
+
+        .tooltip {
+            position-anchor: --anchor-1;
+            margin-top: 0.2rem;
+        }
+
+        #demo {
+            anchor-name: --input;
+        }
+
+        .suggestion {
+            position-anchor: --input;
+        }
+
+        .suggestion button {
+            display: block;
+            width: 100%;
+        }
+
+        .anchor-1:is(:hover, :focus) + .tooltip, .input-wrapper:focus-within .suggestion, .suggestion:is(:hover, :focus) {
+            display: block;
+            opacity: 1;
+
+            @starting-style {
+                opacity: 0;
+            }
+        }
+        </aq-code>
+    </div>
+    <page-footer></page-footer>
+</body>
+</html>

@@ -64,10 +64,43 @@ select {
     font-family: inherit;
     border: none;
     color: inherit;
-    padding: 0.2em;
+    padding: 0.2rem;
+    border-radius: 0;
+
+    &, &::picker(select) {
+        appearance: base-select;
+        transition: var(--transition-time-common) allow-discrete;
+    }
+
+    &::picker-icon {
+        transition: var(--transition-time-common) rotate;
+        margin-inline-end: 0.2rem;
+    }
+
+    &::picker(select) {
+        opacity: 0;
+        border: none;
+        box-shadow: var(--general-shadow);
+    }
+
+    &::picker(select):popover-open {
+        opacity: 1;
+    }
+
+    @starting-style {
+        &::picker(select):popover-open {
+            opacity: 0;
+        }
+    }
+
+    &:open::picker-icon {
+        rotate: 180deg;
+    }
 
     option {
-        background-color: var(--input-bg);
+        transition: var(--transition-time-common);
+        background-color: var(--background-color-dk);
+        color: var(--option-color);
 
         &:hover, &:focus {
             background-color: var(--accent-color);

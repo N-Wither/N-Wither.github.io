@@ -28,6 +28,7 @@ export const style = css`
     width: 100%;
     backdrop-filter: var(--header-background-filter);
     transition-behavior: allow-discrete;
+    interpolate-size: allow-keywords;
 }
 
 nav-menu {
@@ -124,6 +125,7 @@ header-button a:active {
 
 :host([variant="compact"]) :is(.compact, .compacted) {
     display: flex;
+    interpolate-size: allow-keywords;
 }
 
 :host([variant="compact"]) .compact {

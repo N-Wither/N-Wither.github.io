@@ -41,6 +41,8 @@ html, html.theme-dark {
 
     --font-common: 'fusion-pixel', sans-serif, 'Material Symbols Outlined';
     --font-monospace: 'fusion-pixel', monospace;
+
+    color-scheme: dark;
 }
 
 page-header {

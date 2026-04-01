@@ -260,6 +260,9 @@ html {
     --font-monospace: monospace;
 
     --font-size-regular: 16px;
+
+    --page-content-margin: min(10rem, 10vw);
+    --page-content-padding: 1rem;
 }
 
 // Themes
@@ -322,6 +325,8 @@ html.theme-dark {
     --header-bg: #1e1e1ecc;
 
     --input-bg: #00000033;
+
+    color-scheme: dark;
 }
 
 // settings
@@ -408,9 +413,9 @@ code {
 }
 
 .page-content, #page-content {
-    margin-inline: min(10rem, 10vw);
+    margin-inline: var(--page-content-margin);
     min-height: 60vh;
-    padding: 1em;
+    padding: var(--page-content-padding);
 }
 
 figure {
@@ -488,6 +493,9 @@ dialog:modal::backdrop {
         --toolbox-width: 3.6rem;
         --nav-menu-width: 16em;
         --font-size-regular: 14px;
+
+        --page-content-margin: 1rem;
+        --page-content-padding: 0.6rem;
     }
 
     .float, .float.left, .float.right {
@@ -497,8 +505,8 @@ dialog:modal::backdrop {
     }
 
     .page-content {
-        padding: 0.6em;
-        margin-inline: 1em;
+        padding: var(--page-content-padding);
+        margin-inline: var(--page-content-margin);
     }
 
     img.adaptive-full-width { 

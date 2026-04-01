@@ -64,10 +64,37 @@ select {
   font-family: inherit;
   border: none;
   color: inherit;
-  padding: 0.2em;
+  padding: 0.2rem;
+  border-radius: 0;
+}
+select, select::picker(select) {
+  appearance: base-select;
+  transition: var(--transition-time-common) allow-discrete;
+}
+select::picker-icon {
+  transition: var(--transition-time-common) rotate;
+  margin-inline-end: 0.2rem;
+}
+select::picker(select) {
+  opacity: 0;
+  border: none;
+  box-shadow: var(--general-shadow);
+}
+select::picker(select):popover-open {
+  opacity: 1;
+}
+@starting-style {
+  select::picker(select):popover-open {
+    opacity: 0;
+  }
+}
+select:open::picker-icon {
+  rotate: 180deg;
 }
 select option {
-  background-color: var(--input-bg);
+  transition: var(--transition-time-common);
+  background-color: var(--background-color-dk);
+  color: var(--option-color);
 }
 select option:hover, select option:focus {
   background-color: var(--accent-color);

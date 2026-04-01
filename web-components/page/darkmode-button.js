@@ -9,7 +9,13 @@ export class DarkModeButton extends HeaderButton {
     static THEME_MODES = {
         light: 'light',
         dark: 'dark',
+        auto: 'auto'
     };
+    static #THEME_NAME_MAP = {
+        light: 'light_mode',
+        dark: 'dark_mode',
+        auto: 'brightness_medium'
+    }
 
     static get lang() {
         return {
@@ -26,6 +32,12 @@ export class DarkModeButton extends HeaderButton {
 
     // static #channel = new BroadcastChannel('aquamarine-page-theme')
 
+    static autoTheme() {
+        if (matchMedia('(prefers-color-scheme: dark)') && localStorage.getItem(DarkModeButton.THEME_MODE_KEY) != 'light') {
+            document.documentElement.classList.add('theme-dark')
+        }
+    }
+
     get #icon(){
         if(this.shadowRoot){
             return this.shadowRoot.querySelector('aq-icon')
@@ -35,39 +47,29 @@ export class DarkModeButton extends HeaderButton {
 
     constructor(){
         super()
-        this.autoDarkmode()
+        DarkModeButton.autoTheme()
     }
 
-    autoDarkmode() {
-        if(document.documentElement.dataset.defaultTheme != null) return;
-        let themeMode = localStorage.getItem(DarkModeButton.THEME_MODE_KEY);
-        if (themeMode && themeMode in DarkModeButton.THEME_MODES) {
-            this.applyThemeMode(themeMode);
-            return;
-        }
-        let dark = matchMedia('(prefers-color-scheme: dark)');
-        if (dark.matches) {
-            localStorage.setItem(DarkModeButton.THEME_MODE_KEY, (themeMode = DarkModeButton.THEME_MODES.dark));
-        } else {
-            localStorage.setItem(DarkModeButton.THEME_MODE_KEY, (themeMode = DarkModeButton.THEME_MODES.light));
-        }
-        this.applyThemeMode(themeMode);
-    }
-    
-    applyThemeMode(mode, broadCast = true) {
+    applyThemeMode(mode, broadcast = true) {
         let html = document.documentElement;
-        if (mode === DarkModeButton.THEME_MODES.dark) {
-            html.classList.add('theme-dark');
-            if(this.#icon){
-                this.#icon.name = 'dark_mode'
+        if (mode == DarkModeButton.THEME_MODES.dark) {
+            html.classList.add('theme-dark')
+            if (this.#icon){
+                this.#icon.name = DarkModeButton.#THEME_NAME_MAP.dark
+            }
+        } else if (mode == DarkModeButton.THEME_MODES.light) {
+            html.classList.remove('theme-dark')
+            if (this.#icon){
+                this.#icon.name = DarkModeButton.#THEME_NAME_MAP.light
             }
         } else {
-            html.classList.remove('theme-dark');
-            if(this.#icon){
-                this.#icon.name = 'light_mode'
+            html.classList.remove('theme-dark')
+            if (this.#icon) {
+                this.#icon.name = DarkModeButton.#THEME_NAME_MAP.auto
             }
+            DarkModeButton.autoTheme()
         }
-        if(broadCast === true){
+        if (broadcast == true){
             // DarkModeButton.#channel.postMessage({theme: mode})
             document.dispatchEvent(new CustomEvent('theme-change', {detail: {theme: mode}}))
         }
@@ -75,8 +77,10 @@ export class DarkModeButton extends HeaderButton {
 
     toggleThemeMode() {
         let themeMode = localStorage.getItem(DarkModeButton.THEME_MODE_KEY);
-        if (themeMode === DarkModeButton.THEME_MODES.dark) {
+        if (themeMode == DarkModeButton.THEME_MODES.dark) {
             localStorage.setItem(DarkModeButton.THEME_MODE_KEY, themeMode = DarkModeButton.THEME_MODES.light);
+        } else if (themeMode == DarkModeButton.THEME_MODES.light) {
+            localStorage.setItem(DarkModeButton.THEME_MODE_KEY, themeMode = DarkModeButton.THEME_MODES.auto);
         } else {
             localStorage.setItem(DarkModeButton.THEME_MODE_KEY, themeMode = DarkModeButton.THEME_MODES.dark);
         }
@@ -89,7 +93,7 @@ export class DarkModeButton extends HeaderButton {
         <div class="base ${isAlreadyDark ? 'theme-dark' : ''}">
             <aq-tooltip placement='bottom'>
                 <button class="button" @click=${this.toggleThemeMode} name=${this.#localize('1')}>
-                    <aq-icon name=${isAlreadyDark ? 'dark_mode' : 'light_mode'}></aq-icon>
+                    <aq-icon name=${DarkModeButton.#THEME_NAME_MAP[localStorage.getItem(DarkModeButton.THEME_MODE_KEY)] ?? DarkModeButton.#THEME_NAME_MAP.auto}></aq-icon>
                 </button>
                 <div slot='tooltip'>${this.#localize('1')}</div>
             </aq-tooltip>

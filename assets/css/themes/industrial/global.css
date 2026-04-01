@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root, :root.theme-dark {
+    --accent-color: #2cbec4;
+    --accent-color-dk: #30909b;
+    --accent-color-lt: #38d1d6;
+}
+
+:root {
     --background-color: #ffffff;
     --background-color-dk: #f2f2f2;
     --background-color-dker: #d9d9d9;
@@ -10,11 +16,7 @@
     
     --text-color: #191919;
     --border-color: #bfbfbf;
-
-    --accent-color: #2cbec4;
-    --accent-color-dk: #30909b;
-    --accent-color-lt: #38d1d6;
-
+    
     --link-color: var(--accent-color);
     --link-color-visited: var(--accent-color-dk);
     --link-color-focus: var(--accent-color-lt);
@@ -22,6 +24,13 @@
     --header-bg: #ffffff;
 
     --font-heading: 'Inter', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
+    color-scheme: light;
+}
+
+:root.theme-dark {
+    --background-color: #121416;
+    --background-color-dk: #17191b;
+    --background-color-dker: #181a1c;
 }
 
 h1.decorated::before, h1.decorated::after {
@@ -54,6 +63,10 @@ h2.decorated::before {
     width: 2em;
     padding-inline-end: 0.5em;
     margin-inline-end: 0.2em;
+}
+
+.theme-dark h2.decorated::before {
+    background-image: url(/assets/imgs/common/arrow-downright-white.svg);
 }
 
 hr.decorated {
@@ -196,8 +209,32 @@ div.type-f :is(h1, h2, h3, h4, h5, h6) {
 
 .boxes {
     --bg-size: 20px;
-    background-image:  linear-gradient(var(--background-pattern-color-1) 1px, transparent 1px), linear-gradient(to right, var(--background-pattern-color-1) 1px, var(--background-pattern-color-2) 1px);
+    background-image: linear-gradient(var(--background-pattern-color-1) 1px, transparent 1px), linear-gradient(to right, var(--background-pattern-color-1) 1px, var(--background-pattern-color-2) 1px);
     background-size: var(--bg-size) var(--bg-size);
+}
+
+.topodark, .topolight {
+    --topo-size: 96rem;
+    --topo-overlay-color: color-mix(in srgb, var(--background-color) 40%, transparent 60%);
+    background-image: linear-gradient(var(--topo-overlay-color), var(--topo-overlay-color)), var(--topo-pattern);
+    background-size: var(--topo-size);
+    background-repeat: repeat;
+}
+
+.topodark {
+    --topo-pattern: url(/assets/imgs/common/topodark.png);
+    --topo-overlay-color: transparent;
+    --heading-color: var(--text-color-contrast);
+    color: var(--text-color-contrast);
+}
+
+.theme-dark .topodark {
+    color: var(--text-color);
+    --heading-color: var(--text-color);
+}
+
+.topolight {
+    --topo-pattern: url(/assets/imgs/common/topolight.png);
 }
 
 .text-shadow {
