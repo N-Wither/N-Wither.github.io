@@ -443,6 +443,8 @@ dialog:modal::backdrop {
     --toolbox-width: 3.6rem;
     --nav-menu-width: 16em;
     --font-size-regular: 14px;
+    --page-content-margin: 1rem;
+    --page-content-padding: 0.6rem;
   }
   .float, .float.left, .float.right {
     float: none !important;
@@ -450,8 +452,8 @@ dialog:modal::backdrop {
     --breakout-margin: 0;
   }
   .page-content {
-    padding: 0.6em;
-    margin-inline: 1em;
+    padding: var(--page-content-padding);
+    margin-inline: var(--page-content-margin);
   }
   img.adaptive-full-width {
     width: 100%;

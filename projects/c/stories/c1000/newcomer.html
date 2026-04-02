@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="thin-header">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到 Lancaster</title>
+    <link rel="shortcut icon" href="/projects/c/assets/img/ella-avatar-26.webp">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+    <link rel="stylesheet" href="/projects/c/assets/themes/inudustrial-violet.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/page/reading-progress.js"></script>
+    <script type="module" src="/projects/c/assets/components/character-dialog.js"></script>
+    <script type="module" src="/assets/js/squash/dom.js"></script>
+    <script type="module">
+        DomUtils.forAll('ch-dl', (e) => {
+            const el = e.get()
+            if (el.name == 'el') {
+                el.name = 'Ella'
+                el.avatar = '/projects/c/assets/img/ella-avatar-26.webp'
+            } else if (el.name == 'se') {
+                el.name = 'Selene'
+                el.avatar = '/projects/c/assets/img/selene-avatar-26.webp'
+            } else if (el.name == 'aa') {
+                el.name = 'Aachen'
+                el.avatar = '/projects/c/assets/img/aachen-avatar-26.webp'
+            } else if (el.name == 'lo') {
+                el.name = 'Loran'
+                el.avatar = '/projects/c/assets/img/loran-avatar-26.webp'
+            }
+        })
+    </script>
+    <style>
+        ch-dl[name=el] {
+            --character-color: #8b5cf6;
+        }
+        ch-dl[name=se] {
+            --character-color: #63abd1;
+        }
+        ch-dl[name=aa] {
+            --character-color: #862638;
+        }
+        ch-dl[name=lo] {
+            --character-color: #35415a;
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div class="f-b f-l flex center" slot="category">
+            <a href="/projects/c/" class="no-deco plain">Project C</a>
+        </div>
+    </page-header>
+    <tool-box>
+        <to-top showprogress></to-top>
+    </tool-box>
+    <div class="page-content">
+        <h1 class="page-title">欢迎来到 Lancaster</h1>
+        <hr class="decorated">
+        <p>作为大多数访客来到 Lancaster 的第一站，以及大多数居民前往外地的起点站，Lancaster 中央车站在一天的大多数时间里都忙碌不已。不过，我到这里来并不是为了去哪里，而是为了等人。</p>
+        <p>昨天 Loran 跟我说，他们的办事处招募了一位新人，考虑到我是最不忙的那一个，迎接新人的重任自然是落到了我的身上，而且还给我批了一笔差旅费，以我对他们财政状况的了解，这可是很难得了。</p>
+        <p>随着一阵牌子翻动的“啪嗒”声，标着“GAL522”的车次状态变成了“到达”，看来我们的新人这就到了，没有等太久，挺好的。</p>
+        <p>大约三分钟过去，从到达区出来的人群中，一抹浅蓝色吸引了我的注意，稍微回忆了一下 Loran 向我描述过的样子，仅凭浅蓝色头发这一点就足以确认。</p>
+        <p>她好像不知道来接她的人是谁，我主动走了过去。</p>
+        <ch-dl name="el">那个，请问你就是 Selene 吗？</ch-dl>
+        <ch-dl name="se">欸、对，是我，是 Loran 让你来的吧？</ch-dl>
+        <p>她看起来有点被我突然的搭话吓到了。</p>
+        <ch-dl name="el">是了，嗯，你是一个人过来的吗？</ch-dl>
+        <ch-dl name="se">是的。</ch-dl>
+        <ch-dl name="el">那我们走吧，要我帮你提东西吗？</ch-dl>
+        <ch-dl name="se">不了，我自己可以的。</ch-dl>
+        <p>顺着出站的人群，我们到了车站前的小广场上，Selene 的脚步慢了下来，四处张望着。</p>
+        <div class="flex center">
+            <figure style="max-width: 25rem ;">
+                <img src="/projects/c/assets/img/12105-2492160774.webp" alt="一位浅蓝色头发，蓝色眼睛，长着尖耳朵的少女提着行李箱。">
+            </figure>
+        </div>
+        <ch-dl name="el">你是第一次来？</ch-dl>
+        <ch-dl name="se">嗯。</ch-dl>
+        <ch-dl name="el">这地方可能没有你那边那么好，但也还不错的。</ch-dl>
+        <ch-dl name="se">这样吗……</ch-dl>
+        <ch-dl name="el">好了，电车站在那边，已经在排队了。</ch-dl>
+        <p>这几年大家一直都希望电车站能扩建一下，但是这地方的地价贵得惊人，因此扩建计划也还是处在设想阶段，大家也只能继续忍受下去。</p>
+        <ch-dl name="el">真是抱歉，没有位子能坐，只能委屈一下，先站着了。</ch-dl>
+        <ch-dl name="se">
+            <span>没事的。</span><br>
+            <span>不过，像你这样的魔法使不应该会骑扫帚吗？</span>
+        </ch-dl>
+        <ch-dl name="el">是这样没错，但是一方面，我们这里的法律规定城里禁止骑扫帚载人；另一方面，坐电车可是能报销路费的。</ch-dl>
+        <ch-dl name="se">这，这样啊……</ch-dl>
+        <ch-dl name="el">虽然看起来是有点小家子气，但我们这边其实还是很……舒服的，等你过一段时间就知道了。</ch-dl>
+        <p>过了几站后，车上的人渐渐变少，有了空出的位子，我们顺理成章地坐了上去，这才算有点待客之道嘛。</p>
+        <p>一路上 Selene 几乎都在看窗外面，我觉得一直不说话不太好，但对面不先开口的话，我也实在没有什么东西可说。</p>
+        <p>电车往西南方向一直开到 Lancaster 港口车站，只要在那里换乘海滨线就能直达目的地了。</p>
+        <ch-dl name="se">这里就是港口了吧？</ch-dl>
+        <ch-dl name="el">
+            <span>没错，一年到头都很忙。</span><br>
+            <span>不知道 Loran 有没有跟你提起过 Matthew 的事情？他平常都在这里的分部做事，所以今天大概见不到他了。</span>
+        </ch-dl>
+        <ch-dl name="se">他在这里做些什么工作呢？</ch-dl>
+        <ch-dl name="el">这里每天都有很多货物进来，里面偶尔会夹带异常物品，如果这些东西轻易流入市场的话说不定就会引发什么麻烦。</ch-dl>
+        <ch-dl name="se">所以，在港口设置一个分部专门检查货物，应对这种情况？</ch-dl>
+        <ch-dl name="el">
+            <span>没错。要是还涉及到魔法相关的事情，那就到我出场了。</span><br>
+            <span>啊，再坐一站就到了，要准备下车了。</span>
+        </ch-dl>
+        <p>电车从靠近海岸线的地方渐渐拐进城区，穿过数条街道，在一座并不太起眼，却和周围明显具有风格差异的建筑前停了下来。</p>
+        <ch-dl name="el">好了，我们到了。</ch-dl>
+        <p>这里原本是 Ampton 公司的办公楼，后来这座公司因为经营不善搬到了别处，市政府低价收购来之后，在这里设立了公共图书馆，为了创收，又把一部分区域对外出租。虽然用途变了，但这座建筑还是叫 Ampton 大楼，也没有人想过改个名字。</p>
+        <p>目前这里的格局是这样：一楼的一部分是临街的商店；一楼的其他区域、二楼和三楼的一部分属于图书馆；三楼剩余的部分是档案馆；四楼就是 Selene 之后要工作的地方 —— ARIA Lancaster 办事处了。</p>
+        <p>在去四楼之前，非常有必要向 Selene 介绍一个人。我带着她来到三楼档案室前，敲了敲门——</p>
+        <ch-dl name="?" avatar="/projects/c/assets/img/aachen-avatar-26.webp">
+            <span>请进！</span><br>
+            <span>啊，是 Ella。嗯，这位是……</span>
+        </ch-dl>
+        <ch-dl name="el">Loran 不是说了有新人要来嘛……</ch-dl>
+        <ch-dl name="aa">
+            <span>哦！想起来了。你肯定就是 Selene 了。</span><br>
+            <span>我是 Aachen，这边的档案管理员。</span>
+        </ch-dl>
+        <ch-dl name="se">你好。</ch-dl>
+        <ch-dl name="aa">别太客气！以后你要是有空的话可以来我这坐坐哦。</ch-dl>
+        <ch-dl name="el">虽然名义上是档案员办公室，但更重要的作用还是我们几个人的休息室。</ch-dl>
+        <ch-dl name="aa">
+            <span>只是独享一间办公室的小小特权啦。</span><br>
+            <span>那个，Selene，我带你在这栋楼逛一圈吧？</span>
+        </ch-dl>
+        <ch-dl name="el">我来带就行了，你继续摸鱼去吧。</ch-dl>
+        <ch-dl name="aa">欸~</ch-dl>
+        <ch-dl name="el">好了，这就带你去 Loran 的办公室。</ch-dl>
+        <p>作为这个办事处的主管，Loran 理所当然地享有一间单独的办公室。只要带着 Selene 跟 Loran 报个到，今天就差不多了。</p>
+        <ch-dl name="lo">进来吧。</ch-dl>
+        <p>一走进办公室就看到 Loran 靠在窗边抽烟，接着就能闻到味道。</p>
+        <div class="flex center">
+            <figure style="max-width: 25rem ;">
+                <img src="/projects/c/assets/img/12450-4067661373.webp" alt="一位黑色头发遮住一只眼睛的办公室女性在窗边抽烟。">
+            </figure>
+        </div>
+        <ch-dl name="el">干嘛不去天台上面抽？</ch-dl>
+        <ch-dl name="lo">我不是开了窗吗？</ch-dl>
+        <ch-dl name="el">还是能闻得到啊。</ch-dl>
+        <ch-dl name="lo">行吧。</ch-dl>
+        <p>Loran 随手按灭了烟头，向我们走过来，坐到办公位上。</p>
+        <ch-dl name="lo">坐。</ch-dl>
+        <p>她指了指旁边的小沙发。</p>
+        <ch-dl name="se">您好，我是 Selene。</ch-dl>
+        <ch-dl name="lo">嗯，差不多快下班了，我就简短点说吧。</ch-dl>
+        <ch-dl name="el">现在才刚过四点。</ch-dl>
+        <ch-dl name="lo">
+            <span>别打岔。</span><br>
+            <span>406 那边给你留了个位置，有事我会叫你过来的，其他时候还是学业为重。</span><br>
+            <span>还有，你是住宿舍还是在外面租公寓？</span>
+        </ch-dl>
+        <ch-dl name="el">人家才刚来，哪会有房子租。</ch-dl>
+        <ch-dl name="se">是的，这段时间我还是会住在学校。</ch-dl>
+        <ch-dl name="lo">
+            <span>这边学校的宿舍也还不错。</span><br>
+            <span>那，既然人已经到了，我这边也没有什么事了。解散！</span>
+        </ch-dl>
+        <ch-dl name="el">那我们走了。</ch-dl>
+        <p>我猜我们走之后 Loran 又会把刚才那根烟继续抽完的。</p>
+        <p>我送 Selene 到了图书馆对面的电车站，在等车的时间里，稍微总结一下今天的事情吧。</p>
+        <ch-dl name="el">Selene，你觉得我们这边怎么样？</ch-dl>
+        <ch-dl name="se">我觉得……和我想象中的不太一样，你们好像都很闲的样子。</ch-dl>
+        <ch-dl name="el">平常是这样的，只是你没见过有事的时候。</ch-dl>
+        <ch-dl name="se">而且，一点都不严肃。</ch-dl>
+        <ch-dl name="el">
+            <span>看着是有点不靠谱，但我们就是这么做事的。</span><br>
+            <span>对了，看那家烘焙店，你要是有时间可以尝尝这家的东西，大家都很喜欢吃的，咖啡也不错。</span>
+        </ch-dl>
+        <ch-dl name="se">好，我会试试的。</ch-dl>
+        <ch-dl name="el">
+            <span>啊，车来了。</span><br>
+            <span>你明天还来吗？</span>
+        </ch-dl>
+        <ch-dl name="se">嗯。</ch-dl>
+        <ch-dl name="el">那就明天见吧。</ch-dl>
+        <ch-dl name="se">明天见。</ch-dl>
+    </div>
+    <page-footer>
+        <p><span style="color: var(--aqua-500);">Aquamarine</span>/<span style="color: var(--violet-500);">Violite</span> Theme by N Wither</p>
+    </page-footer>
+</body>
+</html>

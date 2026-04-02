@@ -1,0 +1,38 @@
+@import url(/assets/css/themes/industrial/global.css);
+
+:root,
+:root.theme-dark {
+    --theme-color-50: var(--violet-50);
+    --theme-color-100: var(--violet-100);
+    --theme-color-200: var(--violet-200);
+    --theme-color-300: var(--violet-300);
+    --theme-color-400: var(--violet-400);
+    --theme-color-500: var(--violet-500);
+    --theme-color-600: var(--violet-600);
+    --theme-color-700: var(--violet-700);
+    --theme-color-800: var(--violet-800);
+    --theme-color-900: var(--violet-900);
+    --theme-color-950: var(--violet-950);
+
+    --accent-color-lt: var(--violet-400);
+    --accent-color: var(--violet-500);
+    --accent-color-dk: var(--violet-700);
+
+    --font-heading: 'Metropolis', 'Noto Sans SC', 'Material Symbols Outlined', sans-serif;
+
+    --header-bg: color-mix(in srgb, var(--background-color) 80%, transparent 20%);
+}
+
+:root {
+    --background-color: #fcfbfa;
+    --background-color-dk: #f1e9df;
+}
+
+:root.theme-dark {
+    --background-color: #111315;
+    --background-color-dk: #181818;
+}
+
+hr.decorated {
+    background-image: linear-gradient(90deg, var(--accent-color), transparent);
+}

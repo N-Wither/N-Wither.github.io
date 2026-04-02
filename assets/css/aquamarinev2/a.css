@@ -28,4 +28,8 @@ a.no-deco[target=_blank]::after {
   display: none;
 }
 
+a.plain, a.plain:is(:hover, :focus) {
+  color: inherit;
+}
+
 /*# sourceMappingURL=a.css.map */
