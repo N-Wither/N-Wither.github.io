@@ -18,6 +18,7 @@ export class PageHeader extends LitElement {
     static get properties() {
         return {
             variant: {},
+            nav: { type: Boolean }
         };
     }
 
@@ -26,10 +27,10 @@ export class PageHeader extends LitElement {
 
         let defaultTemplate = html`
             <div class="page-header base" part="base">
-                <nav-menu part="nav-menu"></nav-menu>
+                ${this.nav ? html`<nav-menu part="nav-menu"></nav-menu>`: html`<slot name="nav-mobile"></slot>`}
                 <slot name="category" part="category" class="category"></slot>
                 <div class="nav-widescreen" part="nav-widescreen">
-                    ${navigateItems.map(
+                    ${this.nav ? html`<slot name="nav-widescreen"></slot>` : navigateItems.map(
                         item => html`
                             <header-button>
                                 <a class="item" href="${item.url}">
@@ -48,11 +49,11 @@ export class PageHeader extends LitElement {
         `;
         let compactTemplate = html`
             <div class="page-header base" part="base">
-                <nav-menu part="nav-menu"></nav-menu>
+                ${this.nav ? html`<nav-menu part="nav-menu"></nav-menu>`: html`<slot name="nav-mobile"></slot>`}
                 <div class="compact">
                     <div class="compacted">
                         <div class="nav-widescreen" part="nav-widescreen">
-                            ${navigateItems.map(
+                            ${this.nav ? html`<slot name="nav-widescreen"></slot>` : navigateItems.map(
                                 item => html`
                                     <header-button>
                                         <a class="item" href="${item.url}">

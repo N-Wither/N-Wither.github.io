@@ -4,7 +4,6 @@ const queriedElements = new Map<string, Element>()
 
 export type sQuashDomTarget = Element | DomWrapper<Element> | string | DocumentFragment
 export type sQuashDomContent = sQuashDomTarget | sQuashDomTarget[]
-type ArrayAble<T> = ArrayLike<T> | Iterable<T>
 
 function parseDomTarget(t: sQuashDomTarget): ParentNode | null {
   if (typeof t == 'string') {
@@ -134,6 +133,7 @@ export class DomWrapper<T extends Element = Element> {
 
   /** Short-hand for `addEventLitsener` */
   on<E extends keyof HTMLElementEventMap>(event: E, handler: (this: T, ev: HTMLElementEventMap[E]) => void): this
+  on(event: string, handler: EventListenerOrEventListenerObject): this
   on(event: string, handler: EventListenerOrEventListenerObject): this {
     this.element.addEventListener(event, handler as EventListenerOrEventListenerObject)
     return this
@@ -239,6 +239,16 @@ export class DomWrapper<T extends Element = Element> {
     return new DomWrapper(this.element.cloneNode(deep) as Element)
   }
 
+  isChildOf(parent: sQuashDomTarget): boolean {
+    const target = parseDomTarget(parent)
+    if (target == null) return false
+    const treeWalker = document.createTreeWalker(target, NodeFilter.SHOW_ELEMENT)
+    while (treeWalker.nextNode()) {
+      if (treeWalker.currentNode == this.element) return true
+    }
+    return false
+  }
+
   get classList(): DOMTokenList {
     return this.element.classList
   }
@@ -292,7 +302,7 @@ export class DomWrapperArray<T extends Element> extends Array<DomWrapper<T>> {
   /**
    * Converts a regular array (or any other iterable set) of `DomWrappers` or `Element` to `DomWrapperArray`.
    */
-  static override from<E extends Element>(arr: ArrayAble<DomWrapper<E> | E>): DomWrapperArray<E> {
+  static override from<E extends Element>(arr: ArrayLike<DomWrapper<E> | E> | Iterable<DomWrapper<E> | E>): DomWrapperArray<E> {
     const result: DomWrapperArray<E> = new DomWrapperArray()
     for (const w of Array.from(arr).map((e) => (e instanceof DomWrapper ? e.get() : e))) {
       result.push(new DomWrapper(w))
@@ -304,7 +314,9 @@ export class DomWrapperArray<T extends Element> extends Array<DomWrapper<T>> {
     return DomWrapperArray.from(super.filter(predicate, thisArg))
   }
 
-  on<E extends keyof HTMLElementEventMap>(ev: E, listener: (this: T, ev: HTMLElementEventMap[E]) => void): this {
+  on<E extends keyof HTMLElementEventMap>(ev: E, listener: (this: T, ev: HTMLElementEventMap[E]) => void): this
+  on(ev: string, listener: EventListenerOrEventListenerObject): this
+  on(ev: string, listener: EventListenerOrEventListenerObject): this {
     this.forEach((e) => {
       e.on(ev, listener)
     })
@@ -359,6 +371,14 @@ export class DomWrapperArray<T extends Element> extends Array<DomWrapper<T>> {
     }
     return this
   }
+
+  appendTo(target: sQuashDomTarget): this {
+    const t = parseDomTarget(target)
+    if (t) {
+      t.append(...this.map((w) => w.get()))
+    }
+    return this
+  }
 }
 
 /**
@@ -376,7 +396,7 @@ export namespace DomUtils {
     if (e) {
       return new DomWrapper(e)
     } else {
-      throw new Error(`Failed to select element with selector "${selector}`)
+      throw new Error(`Failed to select element with selector "${selector}"`)
     }
   }
 
@@ -479,8 +499,8 @@ export namespace DomUtils {
   export const $$d = deepSelectAll
 
   export function wrap<T extends Element>(e: T): DomWrapper<T>
-  export function wrap<T extends Element>(arr: ArrayAble<T>): DomWrapperArray<T>
-  export function wrap<T extends Element>(input: T | ArrayAble<T>): DomWrapper<T> | DomWrapperArray<T> {
+  export function wrap<T extends Element>(arr: ArrayLike<T> | Iterable<T>): DomWrapperArray<T>
+  export function wrap<T extends Element>(input: T | (ArrayLike<T> | Iterable<T>)): DomWrapper<T> | DomWrapperArray<T> {
     if (input instanceof Element) {
       return new DomWrapper(input)
     } else {
@@ -498,6 +518,40 @@ export namespace DomUtils {
     for (let i = 0; i < elements.length; i++) {
       callback(elements[i], i, elements)
     }
+  }
+
+  /**
+   * @example
+   * countWordsLatin('Hello World!', 'en-US') // 2
+   */
+  export function countWordsLatin(text: string, locale: string) {
+    if (!Intl.Segmenter) {
+      throw new Error('Intl.Segmenter is not supported!')
+    }
+    return Array.from(new Intl.Segmenter(locale, { granularity: 'word' }).segment(text)).filter((s) => s.isWordLike).length
+  }
+  /**
+   * @example
+   * countWordsCJK('你好，世界！Hello World', 'zh-CN') // 6
+   */
+  export function countWordsCJK(text: string, locale: string) {
+    if (!Intl.Segmenter) {
+      throw new Error('Intl.Segmenter is not supported!')
+    }
+    const cjkRegex = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u
+    const segmenter = new Intl.Segmenter(locale, { granularity: 'word' })
+    let count = 0
+    for (const seg of segmenter.segment(text)) {
+      if (seg.isWordLike) {
+        if (cjkRegex.test(seg.segment)) {
+          count += seg.segment.length
+        } else {
+          count++
+        }
+      }
+    }
+    return count
+    // return Array.from(new Intl.Segmenter(locale, { granularity: 'word' }).segment(text)).filter((s) => s.isWordLike).map((s) => s.segment).join('').length
   }
 }
 

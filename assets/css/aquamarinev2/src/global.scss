@@ -283,6 +283,8 @@ html {
     --text-color-lt: var(--gray-400);
     --text-color-selected: #ffffff;
     --text-color-contrast: var(--text-color-selected);
+    --text-color-on-dark: var(--text-color-contrast);
+    --text-color-on-accent: var(--text-color-contrast);
     --heading-color: var(--text-color);
     --shadow-color: #0f0f0f22;
     --shadow-color-dk: #00000044;
@@ -311,6 +313,8 @@ html.theme-dark {
     --text-color-lt: #888888;
     --text-color-selected: #fcfcfc;
     --text-color-contrast: #161616;
+    --text-color-on-dark: var(--text-color);
+    --text-color-on-accent: var(--text-color);
     --shadow-color: #66666622;
     --shadow-color-dk: #00000044;
     --link-color: var(--theme-color-500);
@@ -478,7 +482,28 @@ dialog {
     color: var(--text-color);
     background-color: var(--background-color);
     box-shadow: var(--general-shadow);
-    animation: showup var(--transition-time-common) ease-in;
+    transition: var(--transition-time-common);
+    transition-behavior: allow-discrete;
+    opacity: 0;
+    display: none;
+    translate: 0 5rem;
+
+    @starting-style {
+        opacity: 1;
+        translate: 0 0;
+    }
+    // animation: showup var(--transition-time-common) ease-in;
+}
+
+dialog:open {
+    opacity: 1;
+    display: block;
+    translate: 0 0;
+
+    @starting-style {
+        opacity: 0;
+        translate: 0 5rem;
+    }
 }
 
 dialog:modal::backdrop {
@@ -527,6 +552,9 @@ dialog:modal::backdrop {
 .f-serif {
     font-family: var(--font-serif);
 }
+.f-mono {
+    font-family: var(--font-monospace);
+}
 
 .align-center {
     text-align: center;
@@ -546,6 +574,10 @@ dialog:modal::backdrop {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flex.right {
+    justify-content: flex-end;
 }
 
 .flex.column {
@@ -622,7 +654,7 @@ dialog:modal::backdrop {
 .lh-unset { line-height: unset; }
 .lh-initial { line-height: initial; }
 
-.txt-secondary { color: var(--text-color-lt); }
+.txt-secondary, .t-sec { color: var(--text-color-lt); }
 
 .float-div {
     z-index: 99;
@@ -633,4 +665,12 @@ dialog:modal::backdrop {
 
 .word-break-all {
     word-break: break-all;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.autospace {
+    text-autospace: normal;
 }

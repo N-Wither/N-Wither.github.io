@@ -33,7 +33,7 @@ export class DarkModeButton extends HeaderButton {
     // static #channel = new BroadcastChannel('aquamarine-page-theme')
 
     static autoTheme() {
-        if (matchMedia('(prefers-color-scheme: dark)') && localStorage.getItem(DarkModeButton.THEME_MODE_KEY) != 'light') {
+        if ((matchMedia('(prefers-color-scheme: dark)') && localStorage.getItem(DarkModeButton.THEME_MODE_KEY) != 'light') || localStorage.getItem(DarkModeButton.THEME_MODE_KEY) == 'dark') {
             document.documentElement.classList.add('theme-dark')
         }
     }

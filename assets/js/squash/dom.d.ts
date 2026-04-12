@@ -33,6 +33,7 @@ export declare class DomWrapper<T extends Element = Element> {
     appendTo(target?: sQuashDomTarget): this;
     /** Short-hand for `addEventLitsener` */
     on<E extends keyof HTMLElementEventMap>(event: E, handler: (this: T, ev: HTMLElementEventMap[E]) => void): this;
+    on(event: string, handler: EventListenerOrEventListenerObject): this;
     /** Get or set the `textContent` of the element. */
     text(): string;
     text(text: string): this;
@@ -65,6 +66,7 @@ export declare class DomWrapper<T extends Element = Element> {
     }): this;
     remove(): this;
     clone(deep?: boolean): DomWrapper;
+    isChildOf(parent: sQuashDomTarget): boolean;
     get classList(): DOMTokenList;
     get className(): string;
     set className(c: string);
@@ -84,11 +86,9 @@ export declare class DomWrapperArray<T extends Element> extends Array<DomWrapper
      * Converts a regular array (or any other iterable set) of `DomWrappers` or `Element` to `DomWrapperArray`.
      */
     static from<E extends Element>(arr: ArrayLike<DomWrapper<E> | E> | Iterable<DomWrapper<E> | E>): DomWrapperArray<E>;
-    /**
-     * Like `filter` but returns a `DomWrapperArray` instead of a regular array.
-     */
-    pick(predicate: (value: DomWrapper<T>, index: number, array: DomWrapper<T>[]) => unknown): DomWrapperArray<T>;
+    filter(predicate: (value: DomWrapper<T>, index: number, array: DomWrapper<T>[]) => unknown, thisArg?: unknown): DomWrapperArray<T>;
     on<E extends keyof HTMLElementEventMap>(ev: E, listener: (this: T, ev: HTMLElementEventMap[E]) => void): this;
+    on(ev: string, listener: EventListenerOrEventListenerObject): this;
     remove(): this;
     class(className: string): this;
     addClass(className: string): this;
@@ -96,6 +96,7 @@ export declare class DomWrapperArray<T extends Element> extends Array<DomWrapper
     removeClass(className: string): this;
     attr(name: string, value: string): this;
     removeAttr(name: string): this;
+    appendTo(target: sQuashDomTarget): this;
 }
 /**
  * A set of DOM-related utility functions.
@@ -137,4 +138,14 @@ export declare namespace DomUtils {
     function wrap<T extends Element>(arr: ArrayLike<T> | Iterable<T>): DomWrapperArray<T>;
     function forAll<T extends keyof HTMLElementTagNameMap>(selector: T, callback: (el: DomWrapper<HTMLElementTagNameMap[T]>, index: number, arr: DomWrapperArray<HTMLElementTagNameMap[T]>) => void): void;
     function forAll(selector: string, callback: (el: DomWrapper<Element>, index: number, arr: DomWrapperArray<Element>) => void): void;
+    /**
+     * @example
+     * countWordsLatin('Hello World!', 'en-US') // 2
+     */
+    function countWordsLatin(text: string, locale: string): number;
+    /**
+     * @example
+     * countWordsCJK('你好，世界！Hello World', 'zh-CN') // 6
+     */
+    function countWordsCJK(text: string, locale: string): number;
 }

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="thin-header">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学院入侵</title>
+    <link rel="shortcut icon" href="/projects/c/assets/img/ella-avatar-26.webp">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/styled-div.css">
+    <link rel="stylesheet" href="/projects/c/assets/themes/industrial-violet.css">
+    <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkaibright/dist/LXGWBright-SemiLight/result.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/page/local-time.js"></script>
+    <script type="module" src="/projects/c/assets/components/character-dialog.js"></script>
+    <script type="module" src="/assets/js/squash/dom.js"></script>
+    <script type="module">
+        DomUtils.forAll('ch-dl', (e) => {
+            const el = e.get()
+            if (el.name == 'el') {
+                el.name = 'Ella'
+                el.avatar = '/projects/c/assets/img/ella-avatar-26.webp'
+            } else if (el.name == 'se') {
+                el.name = 'Selene'
+                el.avatar = '/projects/c/assets/img/selene-avatar-26.webp'
+            } else if (el.name == 'aa') {
+                el.name = 'Aachen'
+                el.avatar = '/projects/c/assets/img/aachen-avatar-26.webp'
+            } else if (el.name == 'lo') {
+                el.name = 'Loran'
+                el.avatar = '/projects/c/assets/img/loran-avatar-26.webp'
+            } else if (el.name == 'mt') {
+                el.name = 'Matthew'
+                el.avatar = '/projects/c/assets/img/matthew_avatar.webp'
+            }
+        })
+
+        DomUtils.$('.word-counter').text(`字数：${DomUtils.countWordsCJK(DomUtils.$('.page-content').text())}`)
+
+        let ob = new IntersectionObserver((entries) => {
+            // console.log(entries[0].intersectionRatio)
+            if (entries[0].intersectionRatio > 0) {
+                const before = localStorage.getItem('theme-mode')
+                localStorage.setItem('theme-mode', 'dark')
+                DomUtils.$d('darkmode-button').get().constructor.autoTheme()
+                ob.unobserve(DomUtils.$('#night').get())
+                localStorage.setItem('theme-mode', before)
+            }
+        }, {
+            threshold: 1
+        })
+        ob.observe(DomUtils.$('#night').get())
+    </script>
+    <style>
+        ch-dl[name=el] {
+            --character-color: #8b5cf6;
+        }
+        ch-dl[name=se] {
+            --character-color: #63abd1;
+        }
+        ch-dl[name=aa] {
+            --character-color: #862638;
+        }
+        ch-dl[name=lo] {
+            --character-color: #35415a;
+        }
+        ch-dl[name=mt] {
+            --character-color: #c08f27;
+        }
+
+        .ella {
+            font-family: 'LXGW Bright SemiLight', 'Noto Serif SC', serif;
+        }
+    </style>
+</head>
+<body>
+    <page-header nav="false">
+        <div class="f-b f-l flex center" slot="category">
+            <a href="/projects/c/" class="no-deco plain">Project C</a>
+        </div>
+        <local-time slot="button"></local-time>
+    </page-header>
+    <tool-box>
+        <to-top showprogress></to-top>
+    </tool-box>
+    <div class="page-content">
+        <h1>学院入侵</h1>
+        <hr class="decorated">
+        <span class="word-counter txt-secondary"></span>
+        <h2 class="decorated">01</h2>
+        <p>如果要评选“世界上最让人讨厌的事情”，那么“在熟睡中被电话铃声吵醒”绝对是名列前茅。</p>
+        <p>非常不幸，在今天，这种事情就发生在了我的身上。</p>
+        <ch-dl name="el">喂？</ch-dl>
+        <ch-dl name="se">是 Ella 吧？真的非常抱歉，但学院宿舍区这边出事了，你能过来看看吗？</ch-dl>
+        <ch-dl name="el">
+            <span>啊……</span><br>
+            <span>就有那么急吗？</span><br>
+            <span>……</span><br>
+            <span>等等，你怎么搞到我家电话的？</span>
+        </ch-dl>
+        <ch-dl name="se">
+            <span>啊，是 Loran 告诉我的。</span><br>
+            <span>但是，这里的情况真的很严重。</span>
+        </ch-dl>
+        <ch-dl name="el">你有给 Loran 说过这事吗？</ch-dl>
+        <ch-dl name="se">刚刚就是她告诉我你的号码。</ch-dl>
+        <ch-dl name="el">
+            <span>那家伙……</span><br>
+            <span>好了，我等下就过来。</span>
+        </ch-dl>
+        <p>……</p>
+        <p>从我家到 Selene 的学院，这段路说长不长，说短也不短。如果是平时，我都是坐电车过去，但是现在正是电车拥挤的时段，我才不想跟别人挤成罐头。既然时间紧迫，就采用最酷的方式吧。</p>
+        <p>我穿好衣服，打开窗户，在靠窗的书桌上清出一块空间，双手撑上去，站上桌子，再从窗口一跃而下。</p>
+        <p>这当然不是为了寻短见，而是一种最快速的下楼方式。</p>
+        <p>不过掉下去太长距离也不好，我挥了挥右手，召唤出扫帚，顺势坐了上去。</p>
+        <p>然后，说真的，你们不觉得这种行为很尴尬吗？是，从理论上来说，这一套动作下来绝对是惊人的，但是我完全不想看到，也不愿想象别人的反应，所以我直接加速逃离了现场。</p>
+        <p>早晨的风不停吹着我的脸，赶走了最后一丝困意。头发都被吹乱了，虽然出门前本来也没怎么梳头就是。</p>
+        <p>啊，差不多快到了，我好像看到 Selene 在向我招手。</p>
+        <ch-dl name="se">Ella！</ch-dl>
+        <ch-dl name="el">还是很快的吧？</ch-dl>
+        <ch-dl name="se">是很快没错，但是……</ch-dl>
+        <ch-dl name="el">所以说，这里是什么情况？</ch-dl>
+        <ch-dl name="se">跟我来吧。</ch-dl>
+        <p>Selene 领着我到了一间宿舍，里面坐着两个女学生，看起来一切正常。</p>
+        <ch-dl name="女学生A"><ruby>¿Quién es? <rt>这又是谁啊？</rt></ruby></ch-dl>
+        <ch-dl name="el">呃，我听不懂。</ch-dl>
+        <ch-dl name="se">
+            <span>这是大陆西南部的语言，她在问你是谁。</span><br>
+            <span><ruby>Está aquí para ayudarte a aclarar las cosas; se llama Ella.<rt>这位是来帮你们弄清情况的，名字是 Ella。</rt></ruby></span>
+        </ch-dl>
+        <p>接下来我们之间的交流完全依赖 Selene 作翻译了。</p>
+        <ch-dl name="女学生B">我们一早起来就发现自己在这个不认识的地方。</ch-dl>
+        <ch-dl name="el">你们昨天晚上做了什么？</ch-dl>
+        <ch-dl name="女学生B"><span class="f-i txt-secondary">（摇头）</span>完全想不起来。</ch-dl>
+        <ch-dl name="女学生A">我也不记得了。</ch-dl>
+        <ch-dl name="el">
+            <span>好像问不出有用的东西。</span><br>
+            <span>Selene，还有跟她们比较熟的人吗？</span>
+        </ch-dl>
+        <ch-dl name="se">有的，我带你去问一下吧。</ch-dl>
+        <p>……</p>
+        <ch-dl name="el">她们两个一早起来就开始说外语了吗？</ch-dl>
+        <ch-dl name="女学生C">没错，还好 Selene 能听懂，不然真就太麻烦了。</ch-dl>
+        <ch-dl name="el">你知道她们两个昨天干了什么吗？</ch-dl>
+        <ch-dl name="女学生C">就是跟平常一样上课吃饭啊……嘶，她们昨天晚些时候好像去了 Campbell 教学楼来着，就是很老的那一栋。</ch-dl>
+        <ch-dl name="se">她们是什么时候回来的？</ch-dl>
+        <ch-dl name="女学生C">这我就不清楚了，我之后都待在宿舍房间里，要不你们问问还有没有别人见过她们？</ch-dl>
+        <p>又一条线索断掉了，真的很讨厌这种要不停找其他人问来问去的情况啊。</p>
+        <p>还好有 Selene 在，虽然她是转学过来的，但人缘好像还不错。</p>
+        <ch-dl name="se">接下来要怎么办呢？</ch-dl>
+        <ch-dl name="el">你去找一下还有没有见过那两个女生昨晚行踪的人，我去 Campbell 教学楼看看有没有可疑的东西。</ch-dl>
+        <ch-dl name="se">那栋楼可是很大的，你一个人不够吧？</ch-dl>
+        <ch-dl name="el">我再拉一个人过来帮忙就好了，你们这的公共电话在哪？</ch-dl>
+        <h2 class="decorated">02</h2>
+        <p>傍晚，学院餐厅外。</p>
+        <ch-dl name="el">其他人有说什么新东西吗？</ch-dl>
+        <ch-dl name="se">我问了好几个跟那两个女生比较熟悉的人，都不知道她们为什么要在晚上去教学楼，也没有人看到她们是什么时候返回的。</ch-dl>
+        <ch-dl name="el">真是辛苦你了。但是这样一来就只能靠我们自己去教学楼调查了。</ch-dl>
+        <ch-dl name="?" avatar="/projects/c/assets/img/matthew_avatar.webp">调查什么？</ch-dl>
+        <ch-dl name="el">靠，你就不能别偷听别人说话？</ch-dl>
+        <ch-dl name="se">这位是……？</ch-dl>
+        <ch-dl name="el">Matthew，我之前跟你说过的。</ch-dl>
+        <ch-dl name="mt">你好。<span class="f-i txt-secondary">（向 Selene 伸出手）</span></ch-dl>
+        <ch-dl name="se"><span class="f-i txt-secondary">（握手）</span>你好，我是 Selene。</ch-dl>
+        <ch-dl name="mt"><span class="f-i t-sec">（转向 Ella）</span>所以，我们什么时候过去？</ch-dl>
+        <ch-dl name="el">早些时候我去教学楼走了一圈，上课的学生太多了，只能晚上再去。</ch-dl>
+        <ch-dl name="se">那我……</ch-dl>
+        <ch-dl name="el">你明天还得上课，晚上就别过来了。</ch-dl>
+        <ch-dl name="se">好。</ch-dl>
+        <p>稍微消磨一段时间后，太阳渐渐沉入地平线以下，结束了一天课程的学生们都各自离开学院或者回宿舍去了，除了一些在校园里做自己的事情的人，整个学院显得冷清了起来。</p>
+        <p>不知道是没人在乎还是之前有人被锁在里面的缘故，即使是晚上，教学楼也是不锁门的，我和 Matthew 就这样进去了。</p>
+        <p>分工如下：Matthew 负责这栋楼的上半部分，我负责下半部分。</p>
+        <div class="flex center">
+            <figure style="max-width: min(36rem, 100%);">
+                <img src="/projects/c/assets/img/12571-3707010557.webp" alt="Ella 在昏暗的教学楼走廊中" id="night">
+            </figure>
+        </div>
+        <ch-dl name="el">嗯，也没有什么东西嘛……</ch-dl>
+        <p>我从二楼一直巡查到一楼，都是再普通不过的教室和办公室。</p>
+        <ch-dl name="el">那就只剩下那里了……</ch-dl>
+        <p>我望向一楼走道的尽头，那里的楼梯除了上到二楼之外，还通往地下室。从指示牌上看，那里主要是存放多余的桌椅和教学用品的地方。</p>
+        <p>虽然理智告诉我，地下室应该不会有什么危险，但我心里还是有点发毛。</p>
+        <p>鼓起勇气，不管了，下去看看。</p>
+        <p>嗒……嗒……</p>
+        <p>太安静了，显得我脚步的回声都有点刺耳。</p>
+        <p>地下室的走廊闻着一股陈腐的灰尘味，看来通风不是很好。</p>
+        <p>走廊并不长，用手电就能照到末端，没有看到什么特别的东西，这样的话，只能每个房间都看一下了。</p>
+        <p>第一个房间，从门上的玻璃往里面看，只是一堆课桌椅而已。我扭了一下门把手，是锁着的，这里的其他房间门应该也是一样。</p>
+        <p>接下来的三个房间也没有值得看的东西，门也是锁着的，印证了我之前的猜测。</p>
+        <p>只剩第五个，也就是最后一个房间，如果这里和 Matthew 那边都没有什么发现，那今天的调查就得无功而返了。</p>
+        <p>抱着这样的想法，我打着手电照亮了第五个房间的内部。好像也没有什么值得注意的，应该就这样了。</p>
+        <p>在准备回去之前，我还是顺手拧了一下门把手。</p>
+        <p>门把手转动了，也就是说它没有锁。</p>
+        <p>我推开门，走了进去。</p>
+        <p>几乎是一瞬间，我就感到一阵诡异的扭曲感，这是强烈的奇术活动的痕迹，每个具备奇术能力的人都能感觉出来。虽然暂时还不知道究竟是什么，但直觉告诉我肯定很危险。</p>
+        <p>尽管如此，我还是忍着不适感观察着这个房间的内部，大多地方都没有异常，只在房间角落的桌子上发现了一点不对劲。</p>
+        <p>上面的东西都被动过，但并没有多出什么奇怪的东西，也不像是有制作过法阵，或许就是那两个女生干的。</p>
+        <p>那么，事情应该就是这样：有人制作了一个远程生效的术式，不管它原本的作用是什么，它肯定对那两个女生的思维造成了影响，导致她们丢失了记忆，还开始说外语。</p>
+        <p>看来今天的调查并不是一无所获，得赶快和 Matthew 会合了。</p>
+        <p>我回到地面层，从走廊的窗户看到他已经在外面等我了。</p>
+        <ch-dl name="mt">用了这么久，是不是发现什么了？</ch-dl>
+        <ch-dl name="el">地下室最深处的房间有强烈的奇术痕迹，明天得让 Loran 介入，找人把那个地方保护起来才行。</ch-dl>
+        <ch-dl name="mt">能知道具体发生了什么吗？</ch-dl>
+        <ch-dl name="el">目前还只有初步推测，之后我得再研究一下，今天就这样吧，已经很晚了。</ch-dl>
+        <ch-dl name="mt">好，我们走吧。</ch-dl>
+        <p>回到家里之后，我关上早上打开的窗户，从抽屉里抽出一张空白的 ARIA 调查报告。</p>
+        <p>说真的，我很不喜欢写报告，但这是必要的程序，所以我就简单地描述了一下事件的概况，还有我在地下室的发现。</p>
+        <div class="paperstack f-serif">
+            <div class="t-sec align-end f-mono" translate="no">ARS-0017-B</div>
+            <div class="f-b align-center" style="font-size: 1.5rem;" role="heading">ARIA 异常事件标准调查报告（草稿）</div>
+            <div class="align-center t-sec">仅供初步记录，非正式档案</div>
+            <hr class="secondary">
+            <div class="flex right">
+                <div>起草者：</div>
+                <div class="ella align-center" style="width: 8rem; border-bottom: var(--text-color) solid 0.1rem;">Ella Rosenberg</div>
+                <div>日期：</div>
+                <div class="ella align-center" style="width: 8rem; border-bottom: var(--text-color) solid 0.1rem;">24/09/06</div>
+            </div>
+            <div class="f-b" style="font-size: 1.2rem;" role="heading">事件描述</div>
+            <div class="modal" style="text-align: start;">
+                <p class="ella">Lancaster 学院发生一起异常事件，两个女学生（我还没问过名字，之后再补）突然丧失了记忆，并且开始说其他语言，而之前她们并不会这种语言。</p>
+            </div>
+            <div class="f-b" style="font-size: 1.2rem;" role="heading">调查过程</div>
+            <div class="modal" style="text-align: start;">
+                <ol class="ella">
+                    <li>和 Selene 确认二人前一晚的去向：她们去过 Campbell 教学楼。</li>
+                    <li>寻找知道她们为何要在晚上进入教学楼，或者知道她们返回时间的人：未找到。</li>
+                    <li>和 Matthew 在夜间调查教学楼：地下室第五间房间有强烈的奇术活动痕迹，认为是导致二人失去记忆的术式的残留。</li>
+                </ol>
+            </div>
+        </div>
+        <p>今天确实是做了不少事，但浓缩到报告里也只能写这么一点了，显得工作量很少，这就是我不喜欢写报告的原因。</p>
+        <p>算了，今天就这样结束吧，洗澡睡觉去。</p>
+        <p>……</p>
+        <p>躺在床上，我还是忍不住复盘今天的事情，两个人就这么失去了原本的记忆，而且还凭空学会了一门外语……</p>
+        <p>等等，如果只是失去记忆的话，那倒也还在合理范围内，可是她们关于外语的知识又是哪里来的？她们是否还获得了别的知识，她们现在又认为自己是谁？</p>
+        <p>真是要命，我怎么没早点想到这些。</p>
+        <p>明天必须要问个明白。</p>
+        <h2 class="decorated">03</h2>
+    </div>
+    <page-footer></page-footer>
+</body>
+</html>

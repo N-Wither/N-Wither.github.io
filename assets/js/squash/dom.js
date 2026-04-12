@@ -190,6 +190,17 @@ export class DomWrapper {
     clone(deep = true) {
         return new DomWrapper(this.element.cloneNode(deep));
     }
+    isChildOf(parent) {
+        const target = parseDomTarget(parent);
+        if (target == null)
+            return false;
+        const treeWalker = document.createTreeWalker(target, NodeFilter.SHOW_ELEMENT);
+        while (treeWalker.nextNode()) {
+            if (treeWalker.currentNode == this.element)
+                return true;
+        }
+        return false;
+    }
     get classList() {
         return this.element.classList;
     }
@@ -250,11 +261,8 @@ export class DomWrapperArray extends Array {
         }
         return result;
     }
-    /**
-     * Like `filter` but returns a `DomWrapperArray` instead of a regular array.
-     */
-    pick(predicate) {
-        return DomWrapperArray.from(this.filter(predicate));
+    filter(predicate, thisArg) {
+        return DomWrapperArray.from(super.filter(predicate, thisArg));
     }
     on(ev, listener) {
         this.forEach((e) => {
@@ -304,6 +312,13 @@ export class DomWrapperArray extends Array {
         }
         return this;
     }
+    appendTo(target) {
+        const t = parseDomTarget(target);
+        if (t) {
+            t.append(...this.map((w) => w.get()));
+        }
+        return this;
+    }
 }
 /**
  * A set of DOM-related utility functions.
@@ -319,7 +334,7 @@ export var DomUtils;
             return new DomWrapper(e);
         }
         else {
-            throw new Error(`Failed to select element with selector "${selector}`);
+            throw new Error(`Failed to select element with selector "${selector}"`);
         }
     }
     DomUtils.select = select;
@@ -407,6 +422,42 @@ export var DomUtils;
         }
     }
     DomUtils.forAll = forAll;
+    /**
+     * @example
+     * countWordsLatin('Hello World!', 'en-US') // 2
+     */
+    function countWordsLatin(text, locale) {
+        if (!Intl.Segmenter) {
+            throw new Error('Intl.Segmenter is not supported!');
+        }
+        return Array.from(new Intl.Segmenter(locale, { granularity: 'word' }).segment(text)).filter((s) => s.isWordLike).length;
+    }
+    DomUtils.countWordsLatin = countWordsLatin;
+    /**
+     * @example
+     * countWordsCJK('你好，世界！Hello World', 'zh-CN') // 6
+     */
+    function countWordsCJK(text, locale) {
+        if (!Intl.Segmenter) {
+            throw new Error('Intl.Segmenter is not supported!');
+        }
+        const cjkRegex = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u;
+        const segmenter = new Intl.Segmenter(locale, { granularity: 'word' });
+        let count = 0;
+        for (const seg of segmenter.segment(text)) {
+            if (seg.isWordLike) {
+                if (cjkRegex.test(seg.segment)) {
+                    count += seg.segment.length;
+                }
+                else {
+                    count++;
+                }
+            }
+        }
+        return count;
+        // return Array.from(new Intl.Segmenter(locale, { granularity: 'word' }).segment(text)).filter((s) => s.isWordLike).map((s) => s.segment).join('').length
+    }
+    DomUtils.countWordsCJK = countWordsCJK;
 })(DomUtils || (DomUtils = {}));
 DomUtils.toString = () => '[namespace sQuash.DomUtils]';
 Object.defineProperty(DomUtils, Symbol.toStringTag, { value: 'sQuash.DomUtils' });

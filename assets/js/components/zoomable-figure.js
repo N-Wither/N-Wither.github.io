@@ -24,31 +24,30 @@ const dialogTemplate = `
 </div>
 `
 
+/**@type {HTMLElement[]} */
 let figures = document.querySelectorAll('figure.zoomable:has(img)')
+
+/**@type {Map<HTMLElement, HTMLDialogElement>} */
+const map = new Map()
+
 figures.forEach(figure => {
     let img = figure.querySelector('img')
     let caption = figure.querySelector('figcaption')?.textContent ?? ''
     img.addEventListener('click', e => {
-        let dialog = document.createElement('dialog')
-        dialog.innerHTML = dialogTemplate
-        dialog.querySelector('img').src = img.src
-        dialog.querySelector('img').alt = img.alt || ''
-        dialog.querySelector('figcaption').textContent = caption
-
-        function removeDialog() {
-            dialog.animate([
-                {opacity: 1, transform: 'translateY(0)'},
-                {opacity: 0, transform: 'translateY(10px)'}
-            ], {duration: 200}).addEventListener('finish', () => {dialog.remove()})
+        /**@type {HTMLDialogElement} */
+        let dialog
+        if (map.get(figure) == undefined) {
+            dialog = document.createElement('dialog')
+            dialog.innerHTML = dialogTemplate
+            dialog.querySelector('img').src = img.src
+            dialog.querySelector('img').alt = img.alt || ''
+            dialog.querySelector('figcaption').textContent = caption
+            dialog.querySelector('.close').addEventListener('click', () => { dialog.close() })
+            document.body.appendChild(dialog)
+            map.set(figure, dialog)
         }
-        dialog.querySelector('.close').addEventListener('click', () => { removeDialog() })
-        dialog.addEventListener('keydown', e => {
-            if(e.key == 'Escape') {
-                e.preventDefault()
-                removeDialog()
-            }
-        }, {once: true})
-        document.body.appendChild(dialog)
+        dialog = map.get(figure)
+        
         dialog.showModal()
     })
 })

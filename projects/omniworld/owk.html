@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
+    <script type="module" src="/web-components/aqv2/components/carousel.js"></script>
     <style>
         aq-card{
             margin: 0.2em 0;
@@ -56,6 +57,7 @@
 
         body {
             background-image: url(./assets/background_squares.png);
+            background-attachment: fixed;
         }
 
         .simulacrum {
@@ -71,14 +73,17 @@
         </div>
     </page-header>
     <tool-box>
-        <to-top></to-top>
+        <to-top showprogress></to-top>
     </tool-box>
     <div class="page-content">
         <nav><a href="./index.html" class="pjax">Omniworld</a> / <span>Omniworld K</span></nav>
         <h1 class="page-title">Omniworld K</h1>
         <hr>
         <p>Omniworld 系列最新力作！延续了这个系列一如既往的风格，又有着创新性！</p>
-        <a href="https://pan.baidu.com/s/1zQYrytHJcKPuGPdPWt5V1g?pwd=hnv6" target="_blank" class="no-deco"><button class="btn-primary full-width" style="font-size: larger;">立即下载</button></a>
+        <div class="flex wrap">
+            <a href="https://pan.baidu.com/s/1zQYrytHJcKPuGPdPWt5V1g?pwd=hnv6" target="_blank" class="no-deco"><button class="btn-primary full-width" style="font-size: large;">百度网盘下载</button></a>
+            <a href="https://drive.aquiferic.net/?p=omniworld-k%2F" target="_blank" class="no-deco"><button class="btn-primary full-width" style="font-size: large;">Aqui Drive 下载</button></a>
+        </div>
         <h2>剧情</h2>
         <p class="txt-secondary f-small">是的我们终于有剧情了，虽然借用的是别人的设定。</p>
         <p>你睁开眼睛，你不认识这里是哪里，万物棱角分明，空气似有似无，你似乎缺失了一部分感知，但又想不起来到底是什么。</p>
@@ -86,8 +91,8 @@
         <p>好在，你不是完全孤立无援，靠着跨服务器聊天系统，你还是能联系上一些其他人，说不定他们会给你带来新的机会。无论如何，你都得面对这个全新的状况了。</p>
         <h2>特色</h2>
         <p>就如上面所言，这次的 Omniworld 将是剧情驱动的一部。在每个大版本，都会推出一个既定主题的任务系列，聚焦于特定的一个到几个模组，附带特定的角色与角色故事。这既是一种全新的网游式运营，亦是一种掩盖我因为现实中的工作而无法花很多时间在 Omniworld 上的方式。</p>
-        <p>不过，Omniworld 说到底是个水槽整合包，让玩家能够轻松愉快地玩游戏一直是这个整合包的信条。没有开局就强制佩戴的七咒之戒，没有用注魔祭坛制作的机器外壳，没有需要蜂王浆才能打开的下界传送门……这并不意味着模组之间毫无联动，而是我觉得模组之间的联动并不应该是依靠这种方式，想一想，很多模组的底层逻辑其实是相同的<a class="tooltip-1"><sup>1</sup></a>，Actually Addition 的充能台配方没有理由不能用 Draconic Evolution<a class="tooltip-2"><sup>2</sup></a> 的聚合装置制作，PneumaticCraft 的精炼厂理应能从 Eternal Starlight 的以太水中提取出 Industrial Foregoing 的以太气体，Immersive Engineering 的大块头电弧炉就应该比 EnderIO 的合金炉更强。</p>
-        <p>这就是这个整合包试图做到的，除了某些特别厉害的物品之外，当你觉得获得某个东西的原版路径太麻烦，或许别的模组可以帮你实现！不过，因为这个整合包的制作组只有一个人<a class="tooltip-3"><sup>3</sup></a>，所以在这方面做的内容并不多，目前做的主要工作是各种模组的矿石处理，但是以后会有更多模组之间的联动的！</p>
+        <p>不过，Omniworld 说到底是个水槽整合包，让玩家能够轻松愉快地玩游戏一直是这个整合包的信条。没有开局就强制佩戴的七咒之戒，没有用注魔祭坛制作的机器外壳，没有需要蜂王浆才能打开的下界传送门……这并不意味着模组之间毫无联动，而是我觉得模组之间的联动并不应该是依靠这种方式，想一想，很多模组的底层逻辑其实是相同的<a class="tooltip-1"><sup>1</sup></a>，Actually Addition 的充能台配方没有理由不能用 Draconic Evolution 的聚合装置制作，PneumaticCraft 的精炼厂理应能从 Eternal Starlight 的以太水中提取出 Industrial Foregoing 的以太气体，Immersive Engineering 的大块头电弧炉就应该比 EnderIO 的合金炉更强。</p>
+        <p>这就是这个整合包试图做到的，除了某些特别厉害的物品之外，当你觉得获得某个东西的原版路径太麻烦，或许别的模组可以帮你实现！不过，因为这个整合包的制作组只有一个人<a class="tooltip-2"><sup>2</sup></a>，所以在这方面做的内容并不多，目前做的主要工作是各种模组的矿石处理，但是以后会有更多模组之间的联动的！</p>
         
         <h2>版本</h2>
         <p class="txt-secondary f-small">或者叫赛季也行。</p>
@@ -128,17 +133,43 @@
         <p>包含一个模组的任务线。</p>
 
         <h2>截图</h2>
-        <p>图片太多 GitHub 受不了的，等我制作出一些图片压缩好再传上来。</p>
+        <aq-carousel interval="5000">
+            <figure>
+                <img src="https://static.aquiferic.net/image/omniworld/omnik-1.webp" alt="一架飞机飞过机场上空">
+                <figcaption>驾驶飞机漫游世界</figcaption>
+            </figure>
+            <figure>
+                <img src="https://static.aquiferic.net/image/omniworld/omnik-2.webp" alt="黑暗的蘑菇洞穴">
+                <figcaption>主世界的地下有着丰富的资源</figcaption>
+            </figure>
+            <figure>
+                <img src="https://static.aquiferic.net/image/omniworld/omnik-3.webp" alt="阳光下的繁花宫殿">
+                <figcaption>在世界各处寻找宝藏和挑战</figcaption>
+            </figure>
+            <figure>
+                <img src="https://static.aquiferic.net/image/omniworld/omnik-4.webp" alt="基岩层上的采矿机器">
+                <figcaption>使用酷炫的机器加速科技发展</figcaption>
+            </figure>
+            <figure>
+                <img src="https://static.aquiferic.net/image/omniworld/omnik-5.webp" alt="危机四伏的崎岖下界">
+                <figcaption>危机四伏的崎岖下界</figcaption>
+            </figure>
+            <figure>
+                <img src="https://static.aquiferic.net/image/omniworld/omnik-7.webp" alt="玩家和女仆在探索遗迹">
+                <figcaption>带上女仆一起去探险</figcaption>
+            </figure>
+            <figure>
+                <img src="https://static.aquiferic.net/image/omniworld/omnik-9.webp" alt="末地远景">
+                <figcaption>静谧而美丽的末地</figcaption>
+            </figure>
+        </aq-carousel>
     </div>
     <page-footer></page-footer>
     <aq-tooltip target=".tooltip-1">
         <div>我想这就是为什么 Vazkii 认为 Botania 是一个科技模组，但我实在不认为一个自动化如此麻烦的模组应该被认为是科技模组</div>
     </aq-tooltip>
     <aq-tooltip target=".tooltip-2">
-        <div>本整合包不含此模组</div>
-    </aq-tooltip>
-    <aq-tooltip target=".tooltip-3">
-        <div>算上 Misty 的话或许是一个半？</div>
+        <div>至少绝大部分的工作都是我一个人做的。</div>
     </aq-tooltip>
 </body>
 </html>
