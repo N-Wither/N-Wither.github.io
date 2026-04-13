@@ -46,3 +46,9 @@ hr.decorated {
         --page-content-margin: min(10rem, 10vw);
     }
 }
+
+@media screen and (max-width: 640px) {
+    :root, :root.theme-dark {
+        --page-content-margin: min(5rem, 5vw);
+    }
+}
