@@ -132,10 +132,10 @@ export class DomWrapper<T extends Element = Element> {
   }
 
   /** Short-hand for `addEventLitsener` */
-  on<E extends keyof HTMLElementEventMap>(event: E, handler: (this: T, ev: HTMLElementEventMap[E]) => void): this
-  on(event: string, handler: EventListenerOrEventListenerObject): this
-  on(event: string, handler: EventListenerOrEventListenerObject): this {
-    this.element.addEventListener(event, handler as EventListenerOrEventListenerObject)
+  on<E extends keyof HTMLElementEventMap>(event: E, handler: (this: T, ev: HTMLElementEventMap[E]) => void, options?: boolean | AddEventListenerOptions): this
+  on(event: string, handler: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): this
+  on(event: string, handler: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): this {
+    this.element.addEventListener(event, handler as EventListenerOrEventListenerObject, options)
     return this
   }
 
@@ -314,11 +314,11 @@ export class DomWrapperArray<T extends Element> extends Array<DomWrapper<T>> {
     return DomWrapperArray.from(super.filter(predicate, thisArg))
   }
 
-  on<E extends keyof HTMLElementEventMap>(ev: E, listener: (this: T, ev: HTMLElementEventMap[E]) => void): this
-  on(ev: string, listener: EventListenerOrEventListenerObject): this
-  on(ev: string, listener: EventListenerOrEventListenerObject): this {
+  on<E extends keyof HTMLElementEventMap>(ev: E, listener: (this: T, ev: HTMLElementEventMap[E]) => void, options?: boolean | AddEventListenerOptions): this
+  on(ev: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): this
+  on(ev: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): this {
     this.forEach((e) => {
-      e.on(ev, listener)
+      e.on(ev, listener, options)
     })
     return this
   }

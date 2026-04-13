@@ -109,8 +109,8 @@ export class DomWrapper {
         parseDomTarget(target)?.appendChild(this.element);
         return this;
     }
-    on(event, handler) {
-        this.element.addEventListener(event, handler);
+    on(event, handler, options) {
+        this.element.addEventListener(event, handler, options);
         return this;
     }
     text(text) {
@@ -264,9 +264,9 @@ export class DomWrapperArray extends Array {
     filter(predicate, thisArg) {
         return DomWrapperArray.from(super.filter(predicate, thisArg));
     }
-    on(ev, listener) {
+    on(ev, listener, options) {
         this.forEach((e) => {
-            e.on(ev, listener);
+            e.on(ev, listener, options);
         });
         return this;
     }

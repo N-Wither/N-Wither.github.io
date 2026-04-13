@@ -8,7 +8,8 @@ import '../aqv2/components/icon.js';
 
 export class PageHeader extends LitElement {
     constructor() {
-        super();
+        super()
+        this.nav = true
     }
 
     static get styles() {
@@ -30,7 +31,7 @@ export class PageHeader extends LitElement {
                 ${this.nav ? html`<nav-menu part="nav-menu"></nav-menu>`: html`<slot name="nav-mobile"></slot>`}
                 <slot name="category" part="category" class="category"></slot>
                 <div class="nav-widescreen" part="nav-widescreen">
-                    ${this.nav ? html`<slot name="nav-widescreen"></slot>` : navigateItems.map(
+                    ${!this.nav ? html`<slot name="nav-widescreen"></slot>` : navigateItems.map(
                         item => html`
                             <header-button>
                                 <a class="item" href="${item.url}">
@@ -53,7 +54,7 @@ export class PageHeader extends LitElement {
                 <div class="compact">
                     <div class="compacted">
                         <div class="nav-widescreen" part="nav-widescreen">
-                            ${this.nav ? html`<slot name="nav-widescreen"></slot>` : navigateItems.map(
+                            ${!this.nav ? html`<slot name="nav-widescreen"></slot>` : navigateItems.map(
                                 item => html`
                                     <header-button>
                                         <a class="item" href="${item.url}">

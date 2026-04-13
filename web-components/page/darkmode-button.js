@@ -35,6 +35,8 @@ export class DarkModeButton extends HeaderButton {
     static autoTheme() {
         if ((matchMedia('(prefers-color-scheme: dark)') && localStorage.getItem(DarkModeButton.THEME_MODE_KEY) != 'light') || localStorage.getItem(DarkModeButton.THEME_MODE_KEY) == 'dark') {
             document.documentElement.classList.add('theme-dark')
+        } else if ((matchMedia('(prefers-color-scheme: light)') || localStorage.getItem(DarkModeButton.THEME_MODE_KEY) == 'light')) {
+            document.documentElement.classList.remove('theme-dark')
         }
     }
 

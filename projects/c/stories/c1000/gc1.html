@@ -13,6 +13,7 @@
     <script type="module" src="/web-components/page/local-time.js"></script>
     <script type="module" src="/projects/c/assets/components/character-dialog.js"></script>
     <script type="module" src="/assets/js/squash/dom.js"></script>
+    <script type="module" src="/web-components/aqv2/components/visibility-trigger.js"></script>
     <script type="module">
         DomUtils.forAll('ch-dl', (e) => {
             const el = e.get()
@@ -49,6 +50,13 @@
             threshold: 1
         })
         ob.observe(DomUtils.$('#night').get())
+
+        DomUtils.$$('aq-visibility-trigger.day').on('visible', () => {
+            const before = localStorage.getItem('theme-mode')
+            localStorage.setItem('theme-mode', 'light')
+            DomUtils.$d('darkmode-button').get().constructor.autoTheme()
+            localStorage.setItem('theme-mode', before)
+        }, { once: true })
     </script>
     <style>
         ch-dl[name=el] {
@@ -73,7 +81,7 @@
     </style>
 </head>
 <body>
-    <page-header nav="false">
+    <page-header>
         <div class="f-b f-l flex center" slot="category">
             <a href="/projects/c/" class="no-deco plain">Project C</a>
         </div>
@@ -205,7 +213,7 @@
         <p>回到家里之后，我关上早上打开的窗户，从抽屉里抽出一张空白的 ARIA 调查报告。</p>
         <p>说真的，我很不喜欢写报告，但这是必要的程序，所以我就简单地描述了一下事件的概况，还有我在地下室的发现。</p>
         <div class="paperstack f-serif">
-            <div class="t-sec align-end f-mono" translate="no">ARS-0017-B</div>
+            <div class="t-sec align-end f-mono" translate="no">ARS-0017-D</div>
             <div class="f-b align-center" style="font-size: 1.5rem;" role="heading">ARIA 异常事件标准调查报告（草稿）</div>
             <div class="align-center t-sec">仅供初步记录，非正式档案</div>
             <hr class="secondary">
@@ -236,6 +244,9 @@
         <p>真是要命，我怎么没早点想到这些。</p>
         <p>明天必须要问个明白。</p>
         <h2 class="decorated">03</h2>
+        <aq-visibility-trigger class="day"></aq-visibility-trigger>
+        <p>虽然抱着这样的想法，但我还是睡过头了，因为我平时也没有定闹钟的习惯。</p>
+        <p>反正 Matthew 他们会处理好大部分需要跟校方交涉的事情，我晚一些过去也没有问题。</p>
     </div>
     <page-footer></page-footer>
 </body>

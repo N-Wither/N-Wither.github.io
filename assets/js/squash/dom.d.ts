@@ -32,8 +32,8 @@ export declare class DomWrapper<T extends Element = Element> {
      */
     appendTo(target?: sQuashDomTarget): this;
     /** Short-hand for `addEventLitsener` */
-    on<E extends keyof HTMLElementEventMap>(event: E, handler: (this: T, ev: HTMLElementEventMap[E]) => void): this;
-    on(event: string, handler: EventListenerOrEventListenerObject): this;
+    on<E extends keyof HTMLElementEventMap>(event: E, handler: (this: T, ev: HTMLElementEventMap[E]) => void, options?: boolean | AddEventListenerOptions): this;
+    on(event: string, handler: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): this;
     /** Get or set the `textContent` of the element. */
     text(): string;
     text(text: string): this;
@@ -87,8 +87,8 @@ export declare class DomWrapperArray<T extends Element> extends Array<DomWrapper
      */
     static from<E extends Element>(arr: ArrayLike<DomWrapper<E> | E> | Iterable<DomWrapper<E> | E>): DomWrapperArray<E>;
     filter(predicate: (value: DomWrapper<T>, index: number, array: DomWrapper<T>[]) => unknown, thisArg?: unknown): DomWrapperArray<T>;
-    on<E extends keyof HTMLElementEventMap>(ev: E, listener: (this: T, ev: HTMLElementEventMap[E]) => void): this;
-    on(ev: string, listener: EventListenerOrEventListenerObject): this;
+    on<E extends keyof HTMLElementEventMap>(ev: E, listener: (this: T, ev: HTMLElementEventMap[E]) => void, options?: boolean | AddEventListenerOptions): this;
+    on(ev: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): this;
     remove(): this;
     class(className: string): this;
     addClass(className: string): this;

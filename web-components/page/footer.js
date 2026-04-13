@@ -24,8 +24,9 @@ export class PageFooter extends LitElement {
     static get styles(){
         return css`
         :host {
+            --footer-margin: var(--page-content-margin, min(10rem, 10%));
             display: block;
-            padding: 4rem min(10rem, 10%) 2rem min(10rem, 10%);
+            padding: 4rem var(--footer-margin) 2rem var(--footer-margin);
             text-align: center;
         }
         `

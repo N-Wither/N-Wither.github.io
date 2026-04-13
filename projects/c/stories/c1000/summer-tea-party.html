@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="thin-header">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏日新品鉴赏茶会</title>
+    <link rel="shortcut icon" href="/projects/c/assets/img/ella-avatar-26.webp">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/projects/c/assets/themes/industrial-violet.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <script type="module" src="/web-components/page/word-counter.js"></script>
+    <script type="module" src="/projects/c/assets/components/character-dialog.js"></script>
+    <script type="module" src="/assets/js/squash/dom.js"></script>
+    <script type="module">
+        DomUtils.forAll('ch-dl', (e) => {
+            const el = e.get()
+            if (el.name == 'el') {
+                el.name = 'Ella'
+                el.avatar = '/projects/c/assets/img/ella-avatar-26.webp'
+            } else if (el.name == 'se') {
+                el.name = 'Selene'
+                el.avatar = '/projects/c/assets/img/selene-avatar-26.webp'
+            } else if (el.name == 'aa') {
+                el.name = 'Aachen'
+                el.avatar = '/projects/c/assets/img/aachen-avatar-26.webp'
+            } else if (el.name == 'rm') {
+                el.name = 'Ramii'
+                el.avatar = '/projects/c/assets/img/ramii-avatar.webp'
+            }
+        })
+    </script>
+    <style>
+        ch-dl[name=el] {
+            --character-color: #8b5cf6;
+        }
+        ch-dl[name=se] {
+            --character-color: #63abd1;
+        }
+        ch-dl[name=aa] {
+            --character-color: #862638;
+        }
+        ch-dl[name=rm] {
+            --character-color: #5a8e70;
+        }
+
+        iframe {
+            width: 100%;
+            height: 6rem;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <page-header>
+        <div class="f-b f-l flex center" slot="category">
+            <a href="/projects/c/" class="no-deco plain">Project C</a>
+        </div>
+    </page-header>
+    <tool-box>
+        <to-top showprogress></to-top>
+    </tool-box>
+    <div class="page-content">
+        <h1>夏日新品鉴赏茶会</h1>
+        <hr class="decorated">
+        <span class="word-counter txt-secondary"><word-counter target=".page-content" locale="zh-CN" prefix="字数："></word-counter></span>
+        <!-- <iframe src="//music.163.com/outchain/player?type=2&id=2653069933&auto=1&height=66"></iframe> -->
+        <p>在这烈日高照的夏天，如果要在这座楼里找一个朋友们一起聚会的地方，除了 Aachen 的办公室之外，就是 Ramii 的店里了。别的地方要么没有空调，要么就不够自由。</p>
+        <ch-dl name="aa"><span>嗯——↗哈——</span></ch-dl>
+        <p>Aachen 从面前的杯子里挖了一大勺冰淇淋送进嘴里，然后就发出了如上所述的声音。</p>
+        <ch-dl name="el"><span>就吃个冰淇淋至于发出这么奇怪的声音吗？</span></ch-dl>
+        <ch-dl name="aa"><span>因为太好吃了呀。</span></ch-dl>
+        <ch-dl name="el"><span>随便吧。什么味的？</span></ch-dl>
+        <ch-dl name="aa"><span>Bernard 葡萄味。</span></ch-dl>
+        <ch-dl name="el"><span>好像听说过。</span></ch-dl>
+        <ch-dl name="se"><span>是个很有名的葡萄酒产区。</span></ch-dl>
+        <ch-dl name="el"><span>这样啊，之前好像没有这个口味的吧。</span></ch-dl>
+        <ch-dl name="aa"><span>今年新出的口味哦。</span></ch-dl>
+        <ch-dl name="el"><span>这么说，我这个椰奶咖啡也是新品来着。</span></ch-dl>
+        <ch-dl name="aa"><span>喝起来怎么样？</span></ch-dl>
+        <ch-dl name="el"><span>就是把牛奶换成椰奶了吧，倒也还不错的。</span></ch-dl>
+        <ch-dl name="se"><span>说起来，Ella 平时都是很晚才睡的吗？</span></ch-dl>
+        <ch-dl name="el"><span>没那回事，为什么突然问这个。</span></ch-dl>
+        <ch-dl name="se"><span>因为我经常看到你喝咖啡，就这么想了。</span></ch-dl>
+        <ch-dl name="el"><span>只是喜欢喝而已，而且，好像是我喝太多的原因，现在一般的咖啡对我已经没太大效果了。</span></ch-dl>
+        <ch-dl name="aa"><span>欸，那不是很可惜吗？</span></ch-dl>
+        <ch-dl name="el"><span>我也不是那种需要经常提神的人吧。</span></ch-dl>
+        <ch-dl name="aa"><span>也是哦。嗯，Selene 这是要写作业吗？</span></ch-dl>
+        <ch-dl name="se"><span>是个小论文，我还没想好要写什么，所以先看看材料。</span></ch-dl>
+        <ch-dl name="aa"><span>是什么方向的呀？</span></ch-dl>
+        <ch-dl name="se"><span>人文历史方面的。</span></ch-dl>
+        <ch-dl name="aa"><span>好吧，写论文我是帮不到你，但你要是想查东西的话还是能找我。</span></ch-dl>
+        <p>论文……我多久没写过这种东西了？现在每次要我写个报告都弄得我焦头烂额，离开学校的环境之后真的会忘掉许多东西。我现在能做的只有吃一块小饼干，再配上一口咖啡。Ramii 店里的东西就没有不好吃的。</p>
+        <ch-dl name="rm"><span>各位！</span></ch-dl>
+        <p>Ramii 一边对着我们招手，一边向我们这边走来。</p>
+        <ch-dl name="el"><span>啊，现在不忙了吗？</span></ch-dl>
+        <ch-dl name="rm"><span>下午人少了嘛。</span></ch-dl>
+        <p>Ramii 自然地坐在了 Selene 的旁边。</p>
+        <ch-dl name="rm"><span>冰淇淋和咖啡怎么样？</span></ch-dl>
+        <ch-dl name="aa"><span>超好吃。</span></ch-dl>
+        <ch-dl name="el"><span>挺好的。</span></ch-dl>
+        <ch-dl name="rm"><span>那就说明我的研发能力还是在线的。</span></ch-dl>
+        <p>她看起来非常自信的样子。</p>
+        <ch-dl name="se"><span>你一直都在做新产品吗？</span></ch-dl>
+        <ch-dl name="rm">
+            <span>是啊，不然大家都会腻的。</span><br>
+            <span>但是，像 Bernard 葡萄冰淇淋还有椰奶咖啡这种的，过了这个季节就没有了。</span><br>
+            <span>你们要是喜欢的话，记得跟别人宣传一下。</span>
+        </ch-dl>
+        <ch-dl name="el"><span>我感觉这附近的人都不需要再被打广告了。</span></ch-dl>
+        <ch-dl name="rm"><span>你没做过生意当然会这么想，要知道，很多人是不愿意主动尝试新东西的，这时候如果有熟人告诉他这个新品很好，他们就会来试试了。</span></ch-dl>
+        <ch-dl name="aa"><span>那要是季节过了怎么办，到时候会再出新的东西吗？</span></ch-dl>
+        <ch-dl name="rm"><span>当然啦。</span></ch-dl>
+        <ch-dl name="aa"><span>好耶。</span></ch-dl>
+        <p>Selene 环视了一圈店里的环境。</p>
+        <ch-dl name="se"><span>Ramii 这家店开了多久了？</span></ch-dl>
+        <ch-dl name="rm"><span>快三年了吧，时间过的还真快呢。</span></ch-dl>
+        <ch-dl name="el"><span>我可是第一批顾客。</span></ch-dl>
+        <ch-dl name="rm">
+            <span>那时候我店里还只卖面包之类的，就这样每天也忙得不行。</span><br>
+            <span>虽然说现在我雇人干活了，但要保证出品质量也还是很费神啊。</span>
+        </ch-dl>
+        <ch-dl name="se"><span>是怎么想到卖咖啡的呢？</span></ch-dl>
+        <ch-dl name="rm"><span>是 Aachen 出的主意，她说我应该卖点饮料，不然只吃饼干太容易口渴了，我觉得挺有道理。</span></ch-dl>
+        <ch-dl name="aa"><span>所以说，我还是很有商业头脑的吧！</span></ch-dl>
+        <ch-dl name="el"><span>想出创意和拿来赚钱之间的距离可太大了……</span></ch-dl>
+        <ch-dl name="aa"><span>专业的事情就让专业的人干嘛！人家大公司里面是有我这种职位的，叫什么来着……</span></ch-dl>
+        <ch-dl name="se"><span>首席创意官？</span></ch-dl>
+        <ch-dl name="aa"><span>没错！就是那个。</span></ch-dl>
+        <ch-dl name="el"><span>做白日梦还能拿钱，我有点嫉妒了。</span></ch-dl>
+        <ch-dl name="se"><span>可不是白日梦，要向董事会证明你这套行得通才可以。</span></ch-dl>
+        <ch-dl name="rm"><span>其实吧，我现在已经在研究秋天要卖什么限定饮品了。</span></ch-dl>
+        <ch-dl name="aa"><span>是什么！</span></ch-dl>
+        <ch-dl name="rm"><span>还没完全准备好！到时候再叫你们过来品鉴一下，给点意见什么的，不过一定要保密！</span></ch-dl>
+        <ch-dl name="el"><span>不会还要签什么保密协议吧？</span></ch-dl>
+        <ch-dl name="rm"><span>那就不用了，我信得过你们。</span></ch-dl>
+        <ch-dl name="aa"><span>商业机密嘛，懂的都懂。</span></ch-dl>
+        <ch-dl name="rm"><span>好，我要继续忙店里的事情去了，你们继续吧。</span></ch-dl>
+        <p>Ramii 从座位上起身，整理了一下衣服。</p>
+        <ch-dl name="aa"><span>Ramii 又要去做好吃的了。</span></ch-dl>
+        <ch-dl name="rm"><span>品质至上！</span></ch-dl>
+        <p>她闭上一只眼，向我们比了个OK的手势，然后就进了烘焙房。</p>
+        <div class="flex center">
+            <figure style="max-width: 30rem;">
+                <img src="/projects/c/assets/img/12608-2767575924.webp" alt="一位长着猫耳，绿色眼睛的女孩向镜头比着 OK 的手势">
+            </figure>
+        </div>
+        <ch-dl name="el"><span>她还是一如既往地有干劲呐。</span></ch-dl>
+        <ch-dl name="aa"><span>你要是像她这么勤快的话说不定也能挣到很多钱哦。</span></ch-dl>
+        <ch-dl name="el"><span>我就这样挺好的。</span></ch-dl>
+        <p>我吃掉盘子里的最后一块饼干，将杯子里剩下的咖啡一饮而尽。</p>
+        <ch-dl name="el"><span>现在我要想想下次点些什么东西了。</span></ch-dl>
+        <ch-dl name="aa"><span>要不试试这个冰淇淋？</span></ch-dl>
+        <ch-dl name="el"><span>虽然我是会考虑这个，但是你应该找别人打广告吧。</span></ch-dl>
+        <ch-dl name="aa"><span>这可是真心推荐！</span></ch-dl>
+        <ch-dl name="el"><span>Selene 想好写什么了吗？</span></ch-dl>
+        <ch-dl name="se"><span>还是没有。</span></ch-dl>
+        <p>她轻轻叹了口气，然后把桌上的纸张收拾整齐。</p>
+        <ch-dl name="se"><span>今天还是算了。</span></ch-dl>
+        <ch-dl name="aa">
+            <span>那就一起休息一下吧。</span><br>
+            <span>啊……真舒服啊，想睡觉了。</span>
+        </ch-dl>
+        <p>下午的阳光透过玻璃洒在桌面上，餐具的反光有点刺眼，但我也懒得去挪动它们。</p>
+        <p>毕竟这样的午后，虽然平常，但也足够令人满意了。</p>
+    </div>
+    <page-footer></page-footer>
+</body>
+</html>
