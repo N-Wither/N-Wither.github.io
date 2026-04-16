@@ -510,6 +510,10 @@ dialog:modal::backdrop {
     backdrop-filter: blur(2px);
 }
 
+b {
+    font-weight: 600;
+}
+
 // On Mobile Devices
 
 @media only screen and (max-width: 768px) {

@@ -463,6 +463,10 @@ dialog:modal::backdrop {
   backdrop-filter: blur(2px);
 }
 
+b {
+  font-weight: 600;
+}
+
 @media only screen and (max-width: 768px) {
   html {
     --header-height: 3.6rem;
