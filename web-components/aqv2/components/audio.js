@@ -1,6 +1,7 @@
 /// <reference path="../../../_typings/index.d.ts" />
 
 import { LitElement, html } from 'https://esm.sh/lit@3.2.0';
+import { parseBlob } from 'https://esm.sh/music-metadata@latest'
 import style from '../styles/audio.style.js'
 import { createLocalizer } from '../lib/localize.js'
 import './slider.js';
@@ -14,6 +15,8 @@ export class AqAudio extends LitElement {
             thumbnail: { type: String },
             loop: { type: Boolean },
             name: { type: String },
+            sub: { type: String },
+            layout: { type: String },
             downloadable: { type: Boolean },
             _currentTime: { state: true },
             _duration: { state: true },
@@ -58,23 +61,38 @@ export class AqAudio extends LitElement {
     constructor() {
         super()
         this.downloadable = true
+        this.name = ''
+        this.src = ''
+        this.loop = false
+        this.metadata = null
+        /** @type {'horizontal' | 'vertical'} */
+        this.layout = 'horizontal'
+    }
+
+    connectedCallback() {
+        super.connectedCallback()
+        this.setAttribute('layout', 'horizontal')
     }
 
     render() {
         return html`
         <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
+        <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
         <audio
             src="${this.src}"
             ?loop="${this.loop}"
-            @timeupdate=${this.#trackProgress}
-            @durationchange=${this.#trackProgress}
-            @ended=${this.#audioEnded}
+            @timeupdate=${() =>{ this.#trackProgress(); this.dispatchEvent(new CustomEvent('timeupdate')) }}
+            @durationchange=${() => { this.#trackProgress(); this.dispatchEvent(new CustomEvent('durationchange')) }}
+            @ended=${() => { this.#audioEnded(); this.dispatchEvent(new CustomEvent('ended')) }}
         ></audio>
         ${this.thumbnail ? html`<div class='image-container'><img src="${this.thumbnail}" alt="thumbnail"></div>` : ''}
         <div class='controls'>
             <div class='title'>
+                <div class='info'>
+                    <div class="name">${this.name}</div>
+                    <div class="sub">${this.sub}</div>
+                </div>
                 <div class='time'>${this.#formatTime(this._currentTime)}/${this.#formatTime(this._duration)}</div>
-                <div>${this.name}</div>
             </div>
             <div
                 class='progress-container'
@@ -114,23 +132,17 @@ export class AqAudio extends LitElement {
                     <div slot='tooltip'>${this.#localize('mute')}</div>
                 </aq-tooltip>
                 <aq-slider value='100' @input=${(e) => this.setVolume(e.target.value / 100)}></aq-slider>
-                <aq-tooltip placement='bottom' class='playback-container' interactive>
-                    <button class='playback'><aq-icon name='speed'></aq-icon></button>
-                    <div slot='tooltip'>
-                    <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
-                    <label>
-                        ${this.#localize('playback')}
-                        <select @change=${(e) => this.playbackRate = Number(e.target.value)}>
-                            <option value='0.5'>0.5x</option>
-                            <option value='0.75'>0.75x</option>
-                            <option value='1' selected>1x</option>
-                            <option value='1.25'>1.25x</option>
-                            <option value='1.5'>1.5x</option>
-                            <option value='2'>2x</option>
-                        </select>
-                    </label>
-                    </div>
-                </aq-tooltip>
+                <label class="playback-rate">
+                    <aq-icon name='speed'></aq-icon>${this.#localize('playback')}
+                    <select @change=${(e) => this.playbackRate = Number(e.target.value)}>
+                        <option value='0.5'>0.5x</option>
+                        <option value='0.75'>0.75x</option>
+                        <option value='1' selected>1x</option>
+                        <option value='1.25'>1.25x</option>
+                        <option value='1.5'>1.5x</option>
+                        <option value='2'>2x</option>
+                    </select>
+                </label>
                 <aq-tooltip placement='bottom'>
                     <button @click=${this.downloadAudio}><aq-icon name='download'></aq-icon></button>
                     <div slot='tooltip'>${this.#localize('download')}</div>
@@ -165,6 +177,10 @@ export class AqAudio extends LitElement {
     set playbackRate(value){ this.#audioElement.playbackRate = value }
 
     #mouseDown = false
+    /** @type {URL} */
+    #currentBlobUrl = undefined
+    /** @type {URL} */
+    #coverArtBlobUrl = undefined
 
     #formatTime(time){
         time = time ?? 0
@@ -194,6 +210,7 @@ export class AqAudio extends LitElement {
             this._playing = true
             this.#playButtonTooltip.innerText = this.#localize('pause')
         }
+        this.dispatchEvent(new CustomEvent('play'))
     }
 
     pause(){
@@ -277,8 +294,8 @@ export class AqAudio extends LitElement {
 
     /**@param {MouseEvent} e */
     #progressClick(e){
-        // if right click, ignore
-        if(e.button === 2) return;
+        // if not left click, ignore
+        if(e.button != 0) return;
         let percentage = this.#getProgressPercentage(e)
         this.currentTime = this.duration * percentage
         this.#progressContainer.ariaValueNow = (percentage * 100).toFixed(1)
@@ -307,6 +324,36 @@ export class AqAudio extends LitElement {
         link.href = this.src
         link.download = this.name
         link.click()
+    }
+
+    /**
+     * Directly set audio source from a File object and parse metadata from it.
+     * @param {File} file 
+     */
+    async loadFile(file) {
+        if (file instanceof Blob == false) return;
+        URL.revokeObjectURL(this.#currentBlobUrl)
+        URL.revokeObjectURL(this.#coverArtBlobUrl)
+        let url = URL.createObjectURL(file)
+        let coverUrl = undefined
+        this.src = url
+        this.#currentBlobUrl = url
+        
+        const metadata = await parseBlob(file)
+        const artisits = metadata.common?.artists?.join(', ') ?? ''
+        const title = metadata.common?.title ?? file.name
+        const album = metadata.common?.album ?? ''
+        const picture = metadata.common?.picture?.[0]
+        this.metadata = metadata
+
+        this.name = title
+        this.sub = (artisits + album).length > 0 ? `\n${artisits} | ${album}` : ''
+        if (picture) {
+            const blob = new Blob([picture.data], { type: picture.format })
+            coverUrl = URL.createObjectURL(blob)
+            this.thumbnail = coverUrl
+            this.#coverArtBlobUrl = coverUrl
+        }
     }
 }
 

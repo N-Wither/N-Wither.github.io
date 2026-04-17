@@ -45,11 +45,12 @@ window.addEventListener(
     () => {
         let file = document.querySelector('input');
         let canvas = document.querySelector('canvas');
-        let audio = document.querySelector('audio');
         let aqAudio = document.querySelector('aq-audio');
+        let audio = aqAudio.audio
 
         let audioCtx
         let source
+        /** @type {AnalyserNode} */
         let analyser
         let buffer
 
@@ -57,9 +58,7 @@ window.addEventListener(
 
         file.onchange = () => {
             let audioFile = file.files[0];
-            aqAudio.src = URL.createObjectURL(audioFile);
-            aqAudio.audioTitle = audioFile.name;
-            aqAudio.audioElement.load();
+            aqAudio.loadFile(audioFile)
 
             if(inited == false) {
                 audioCtx = new AudioContext();
@@ -68,10 +67,10 @@ window.addEventListener(
 
                 source.connect(analyser);
                 analyser.connect(audioCtx.destination);
-                analyser.fftSize = 128;
+                analyser.fftSize = 512;
                 buffer = new Uint8Array(analyser.frequencyBinCount);
 
-                inited == true
+                inited = true
             }
         };
 
@@ -79,6 +78,7 @@ window.addEventListener(
             document.querySelector('page-body').scrollWidth *
             devicePixelRatio;
         canvas.height = canvas.width * 0.25;
+        canvas.style.scale = 1 / devicePixelRatio;
 
         let canvasCtx = canvas.getContext('2d');
 
@@ -99,11 +99,12 @@ window.addEventListener(
         };
 
         let draw = () => {
-            let width = canvas.width / 64;
+            const barCount = 64
+            let width = canvas.width / barCount;
             canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
             canvasCtx.fillStyle = '#20d6b5';
             let x = 0;
-            for (let i = 0; i < buffer.length; i++) {
+            for (let i = 0; i < barCount; i++) {
                 let height = gainFunc(buffer[i]) * devicePixelRatio;
                 canvasCtx.fillRect(x, canvas.height - height, width, height);
 
@@ -114,6 +115,9 @@ window.addEventListener(
         let updateFrame = () => {
             requestAnimationFrame(updateFrame);
             analyser.getByteFrequencyData(buffer);
+            // if (Array.from(buffer).some(i => i > 0)) {
+            //     console.log(buffer)
+            // }
             draw();
         };
 

@@ -10,6 +10,10 @@ declare module 'https://esm.sh/lit@3.2.0' {
     export * from 'lit'
 }
 
+declare module 'https://esm.sh/music-metadata@latest' {
+    export * from 'music-metadata'
+}
+
 declare module 'https://cdn.jsdelivr.net/npm/ts-dedent@2.2.0/+esm' {
     export declare function dedent(templ: TemplateStringsArray | string, ...values: unknown[]): string;
     export default dedent;
