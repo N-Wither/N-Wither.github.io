@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@lit/task": "^1.0.3",
     "@types/node": "^20.12.10",
     "@types/web": "^0.0.345",
     "lit": "^3.1.3",

@@ -8,14 +8,10 @@ export default css`
     box-shadow: var(--general-shadow);
     margin: 0.5rem;
     align-items: stretch;
-}
-
-:host([layout="horizontal"]) {
-    flex-direction: row;
+    flex-direction: column
 }
 :host([layout="vertical"]) {
-    flex-direction: column;
-    width: max-content;
+    max-width: min-content;
 }
 
 :host {
@@ -27,6 +23,18 @@ export default css`
 ::selection {
     background-color: var(--selection-background);
     color: inherit;
+}
+
+.player {
+    display: flex;
+}
+:host([layout="horizontal"]) .player {
+    flex-direction: row;
+}
+:host([layout="vertical"]) .player {
+    flex-direction: column;
+    width: max-content;
+    max-width: 100%;
 }
 
 .image-container {
@@ -42,6 +50,7 @@ export default css`
     justify-content: center;
     height: unset;
     width: 100%;
+    max-width: 100%;
 }
 
 .image-container img {
@@ -59,7 +68,7 @@ export default css`
     width: 100%;
 }
 
-.sub {
+.sub, .playlist-item-author {
     font-size: small;
 }
 
@@ -118,7 +127,32 @@ export default css`
     flex-wrap: wrap;
 }
 
-button {
+.playlist {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    overflow-y: auto;
+    max-height: 10rem;
+}
+
+.playlist-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    text-align: left;
+    font-size: inherit;
+    padding: 0.2em;
+    padding-inline: 0.4rem;
+    background-color: transparent;
+    border-top: 0.1rem solid var(--border-color);
+    cursor: pointer;
+}
+
+.playlist-item:first-of-type {
+    border-top: none;
+}
+
+button:not(.playlist-item) {
     height: var(--button-size);
     width: var(--button-size);
 }

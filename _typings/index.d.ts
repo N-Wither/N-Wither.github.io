@@ -10,6 +10,10 @@ declare module 'https://esm.sh/lit@3.2.0' {
     export * from 'lit'
 }
 
+declare module 'https://esm.sh/@lit/task' {
+    export * from '@lit/task'
+}
+
 declare module 'https://esm.sh/music-metadata@latest' {
     export * from 'music-metadata'
 }

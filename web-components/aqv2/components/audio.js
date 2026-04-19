@@ -1,12 +1,18 @@
 /// <reference path="../../../_typings/index.d.ts" />
 
-import { LitElement, html } from 'https://esm.sh/lit@3.2.0';
+import { LitElement, html } from 'https://esm.sh/lit@3.2.0'
+import { Task } from 'https://esm.sh/@lit/task'
 import { parseBlob } from 'https://esm.sh/music-metadata@latest'
 import style from '../styles/audio.style.js'
 import { createLocalizer } from '../lib/localize.js'
 import './slider.js';
 import './icon.js';
 import './tooltip.js'
+
+/**
+ * @type {WeakMap<File, ParseMetaDataResult>}
+ */
+const cachedFiles = new WeakMap()
 
 export class AqAudio extends LitElement {
     static get properties() {
@@ -18,6 +24,7 @@ export class AqAudio extends LitElement {
             sub: { type: String },
             layout: { type: String },
             downloadable: { type: Boolean },
+            playlist: { state: true },
             _currentTime: { state: true },
             _duration: { state: true },
             _playing: { state: true },
@@ -56,6 +63,24 @@ export class AqAudio extends LitElement {
         }
     }
 
+    /** 
+     * @typedef {{ title: string; author: string }} ParseMetaDataResult
+     * @param {File} file
+     * @returns {Promise<ParseMetaDataResult>}
+     */
+    static async parseMetaData(file) {
+        if (cachedFiles.has(file)) {
+            return cachedFiles.get(file)
+        }
+        const metadata = await parseBlob(file)
+        const result = {
+            title: metadata.common?.title ?? file.name,
+            author: metadata.common?.artists?.join(', ') ?? ''
+        }
+        cachedFiles.set(file, result)
+        return result
+    }
+
     #localize = createLocalizer(AqAudio.lang)
 
     constructor() {
@@ -67,12 +92,33 @@ export class AqAudio extends LitElement {
         this.metadata = null
         /** @type {'horizontal' | 'vertical'} */
         this.layout = 'horizontal'
+        /** @type {File[]} */
+        this.playlist = []
     }
 
     connectedCallback() {
         super.connectedCallback()
         this.setAttribute('layout', 'horizontal')
     }
+
+    disconnectedCallback() {
+        super.disconnectedCallback()
+        URL.revokeObjectURL(this.#currentBlobUrl)
+        URL.revokeObjectURL(this.#coverArtBlobUrl)
+    }
+
+    #renderPlaylist = new Task(this, {
+        /**
+         * 
+         * @param {[File[]]} param0 
+         * @returns 
+         */
+        task: async ([files]) => {
+            const promises = files.map(file => AqAudio.parseMetaData(file))
+            return Promise.allSettled(promises).then(results => results.map((result, i) => result.status === 'fulfilled' ? {file: files[i], ...result.value} : { file: files[i], title: '[Error loading file]', author: '' }))
+        },
+        args: () => [this.playlist]
+    })
 
     render() {
         return html`
@@ -85,69 +131,87 @@ export class AqAudio extends LitElement {
             @durationchange=${() => { this.#trackProgress(); this.dispatchEvent(new CustomEvent('durationchange')) }}
             @ended=${() => { this.#audioEnded(); this.dispatchEvent(new CustomEvent('ended')) }}
         ></audio>
-        ${this.thumbnail ? html`<div class='image-container'><img src="${this.thumbnail}" alt="thumbnail"></div>` : ''}
-        <div class='controls'>
-            <div class='title'>
-                <div class='info'>
-                    <div class="name">${this.name}</div>
-                    <div class="sub">${this.sub}</div>
+        <div class="player">
+            ${this.thumbnail ? html`<div class='image-container'><img src="${this.thumbnail}" alt="thumbnail"></div>` : ''}
+            <div class='controls'>
+                <div class='title'>
+                    <div class='info'>
+                        <div class="name">${this.name}</div>
+                        <div class="sub">${this.sub}</div>
+                    </div>
+                    <div class='time'>${this.#formatTime(this._currentTime)}/${this.#formatTime(this._duration)}</div>
                 </div>
-                <div class='time'>${this.#formatTime(this._currentTime)}/${this.#formatTime(this._duration)}</div>
+                <div
+                    class='progress-container'
+                    role='progressbar'
+                    aria-valuenow='0'
+                    aria-valuemin='0'
+                    aria-valuemax='100'
+                    tabindex='0'
+                    @keydown=${this.#progressKeyDown}
+                    @click=${this.#progressClick}
+                    @mousedown=${this.#progressMousedown}
+                    @mousemove=${this.#progressMousemove}
+                    @mouseup=${this.#progressMouseup}
+                    @mouseleave=${this.#progressMouseup}
+                >
+                    <div class='progress'></div>
+                </div>
+                <div class='buttons'>
+                    <aq-tooltip placement='bottom' class='play-container'>
+                        <button @click=${this.togglePlay}><aq-icon name=${this._playing ? 'pause' : 'play_arrow'}></aq-icon></button>
+                        <div slot='tooltip'>${this.#localize('play')}</div>
+                    </aq-tooltip>
+                    <aq-tooltip placement='bottom' class='play-container'>
+                        <button @click=${this.stop}><aq-icon name='stop_circle'></aq-icon></button>
+                        <div slot='tooltip'>${this.#localize('stop')}</div>
+                    </aq-tooltip>
+                    <aq-tooltip placement='bottom'>
+                        <button @click=${() => this.timelapse(-5)}><aq-icon name='fast_rewind'></aq-icon></button>
+                        <div slot='tooltip'>${this.#localize('rewind')}</div>
+                    </aq-tooltip>
+                    <aq-tooltip placement='bottom'>
+                        <button @click=${() => this.timelapse(5)}><aq-icon name='fast_forward'></aq-icon></button>
+                        <div slot='tooltip'>${this.#localize('forward')}</div>
+                    </aq-tooltip>
+                    <aq-tooltip placement='bottom' class='volume-container'>
+                        <button class='volume' @click=${this.toggleMute}><aq-icon name=${this._volume == 0 ? 'volume_off' : 'volume_up'}></aq-icon></button>
+                        <div slot='tooltip'>${this.#localize('mute')}</div>
+                    </aq-tooltip>
+                    <aq-slider value='100' @input=${(e) => this.setVolume(e.target.value / 100)}></aq-slider>
+                    <label class="playback-rate">
+                        <aq-icon name='speed'></aq-icon>${this.#localize('playback')}
+                        <select @change=${(e) => this.playbackRate = Number(e.target.value)}>
+                            <option value='0.5'>0.5x</option>
+                            <option value='0.75'>0.75x</option>
+                            <option value='1' selected>1x</option>
+                            <option value='1.25'>1.25x</option>
+                            <option value='1.5'>1.5x</option>
+                            <option value='2'>2x</option>
+                        </select>
+                    </label>
+                    <aq-tooltip placement='bottom'>
+                        <button @click=${this.downloadAudio}><aq-icon name='download'></aq-icon></button>
+                        <div slot='tooltip'>${this.#localize('download')}</div>
+                    </aq-tooltip>
+                </div>
             </div>
-            <div
-                class='progress-container'
-                role='progressbar'
-                aria-valuenow='0'
-                aria-valuemin='0'
-                aria-valuemax='100'
-                tabindex='0'
-                @keydown=${this.#progressKeyDown}
-                @click=${this.#progressClick}
-                @mousedown=${this.#progressMousedown}
-                @mousemove=${this.#progressMousemove}
-                @mouseup=${this.#progressMouseup}
-                @mouseleave=${this.#progressMouseup}
-            >
-                <div class='progress'></div>
-            </div>
-            <div class='buttons'>
-                <aq-tooltip placement='bottom' class='play-container'>
-                    <button @click=${this.togglePlay}><aq-icon name=${this._playing ? 'pause' : 'play_arrow'}></aq-icon></button>
-                    <div slot='tooltip'>${this.#localize('play')}</div>
-                </aq-tooltip>
-                <aq-tooltip placement='bottom' class='play-container'>
-                    <button @click=${this.stop}><aq-icon name='stop_circle'></aq-icon></button>
-                    <div slot='tooltip'>${this.#localize('stop')}</div>
-                </aq-tooltip>
-                <aq-tooltip placement='bottom'>
-                    <button @click=${() => this.timelapse(-5)}><aq-icon name='fast_rewind'></aq-icon></button>
-                    <div slot='tooltip'>${this.#localize('rewind')}</div>
-                </aq-tooltip>
-                <aq-tooltip placement='bottom'>
-                    <button @click=${() => this.timelapse(5)}><aq-icon name='fast_forward'></aq-icon></button>
-                    <div slot='tooltip'>${this.#localize('forward')}</div>
-                </aq-tooltip>
-                <aq-tooltip placement='bottom' class='volume-container'>
-                    <button class='volume' @click=${this.toggleMute}><aq-icon name=${this._volume == 0 ? 'volume_off' : 'volume_up'}></aq-icon></button>
-                    <div slot='tooltip'>${this.#localize('mute')}</div>
-                </aq-tooltip>
-                <aq-slider value='100' @input=${(e) => this.setVolume(e.target.value / 100)}></aq-slider>
-                <label class="playback-rate">
-                    <aq-icon name='speed'></aq-icon>${this.#localize('playback')}
-                    <select @change=${(e) => this.playbackRate = Number(e.target.value)}>
-                        <option value='0.5'>0.5x</option>
-                        <option value='0.75'>0.75x</option>
-                        <option value='1' selected>1x</option>
-                        <option value='1.25'>1.25x</option>
-                        <option value='1.5'>1.5x</option>
-                        <option value='2'>2x</option>
-                    </select>
-                </label>
-                <aq-tooltip placement='bottom'>
-                    <button @click=${this.downloadAudio}><aq-icon name='download'></aq-icon></button>
-                    <div slot='tooltip'>${this.#localize('download')}</div>
-                </aq-tooltip>
-            </div>
+        </div>
+        <div class="playlist">
+            <slot name="playlist">
+                ${this.#renderPlaylist.render({
+                    pending: () => html`<div>Loading...</div>`,
+                    complete: (datas) => {
+                        return datas.map((data) => html`
+                            <button class="playlist-item" @click=${async () => { await this.loadFile(data.file); this.play()}}>
+                                <div class="playlist-item-name">${data.title}</div>
+                                <div class="playlist-item-author">${data.author}</div>
+                            </button>
+                        `)
+                    },
+                    error: (e) => html`<div>Error loading playlist: ${e.message}</div>`
+                })}
+            </slot>
         </div>
         `
     }
@@ -327,6 +391,20 @@ export class AqAudio extends LitElement {
     }
 
     /**
+     * @param {File} file 
+     */
+    addToPlaylist(file) {
+        this.playlist = [...this.playlist, file]
+    }
+
+    /**
+     * @param {File} file 
+     */
+    removeFromPlaylist(file) {
+        this.playlist = this.playlist.filter(f => f !== file)
+    }
+
+    /**
      * Directly set audio source from a File object and parse metadata from it.
      * @param {File} file 
      */
@@ -353,6 +431,10 @@ export class AqAudio extends LitElement {
             coverUrl = URL.createObjectURL(blob)
             this.thumbnail = coverUrl
             this.#coverArtBlobUrl = coverUrl
+        }
+
+        if (this._playing) {
+            this.stop()
         }
     }
 }

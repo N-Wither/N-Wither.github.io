@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/assets/css/aquamarinev2/table.css">
     <script type="module" src="/web-components/page/combined.js"></script>
     <script type="module" src="/web-components/aqv2/components/audio.js"></script>
+    <script type="module" src="/assets/js/squash/dom.js"></script>
+    <script type="module" src="./audio.js"></script>
 </head>
 <body>
     <page-header>
@@ -22,23 +24,9 @@
         <h1>Audio 音频</h1>
         <hr>
         <p>本质上就是把原生的 audio 元素套了一层壳。但是也有一些新功能。</p>
-        <input type="file" id="audio-file" accept="audio/*">
-        <button name="change layout">更改布局方向</button>
-        <script type="module">
-            let input = document.querySelector('#audio-file')
-            input.onchange = function () {
-                let file = this.files[0]
-                const audio = document.querySelector('aq-audio')
-                audio.loadFile(file)
-            }
-
-            document.querySelector('button').addEventListener('click', () => {
-                const audio = document.querySelector('aq-audio')
-                if (audio.getAttribute('layout') == 'horizontal') {
-                    audio.setAttribute('layout', 'vertical')
-                } else audio.setAttribute('layout', 'horizontal')
-            })
-        </script>
+        <div><label for="audio-file">选择音频文件</label><input type="file" id="audio-file" accept="audio/*"></div>
+        <div>或 <button id="choose-directory">读取文件夹</button></div>
+        <button name="change-layout">更改布局方向</button>
         <aq-audio></aq-audio>
         <h2>属性</h2>
         <p>原生 audio 元素上的大多数属性在这上面都有，这里介绍最重要的属性。</p>
