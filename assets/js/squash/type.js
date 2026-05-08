@@ -8,6 +8,7 @@ class TSType {
     constructor(type, value = []) {
         this.type = type
         this.value = value
+        this[Symbol.toStringTag] = `TSType<${this.type}>`
     }
 
     toString() {

@@ -12,6 +12,10 @@
     <script type="module" src="/assets/js/squash/dom_jqfied.js"></script>
     <script type="module" src="/web-components/page/reading-progress.js"></script>
     <script type="module" src="/web-components/aqv2/components/code.js"></script>
+    <script type="module">
+        import { ObjectUtils } from '/assets/js/squash/object.js'
+        window.ObjectUtils = ObjectUtils
+    </script>
     <style>
         :root, :root.theme-dark {
             --accent-color: #87b66b;

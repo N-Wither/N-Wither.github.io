@@ -450,13 +450,11 @@ img.adaptive-full-width {
 
 details summary {
     cursor: pointer;
-    background-color: var(--background-color-dk);
     padding: 0.2rem;
     transition: var(--transition-time-common);
 
     &:is(:hover, :focus) {
-        background-color: var(--accent-color);
-        color: var(--text-color-contrast);
+        color: var(--accent-color);
     }
 }
 
@@ -677,4 +675,23 @@ b {
 
 .autospace {
     text-autospace: normal;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid.adaptive {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+
+    @media screen and (max-width: 720px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media screen and (max-width: 640px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
 }

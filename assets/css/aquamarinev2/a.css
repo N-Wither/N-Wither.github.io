@@ -32,4 +32,9 @@ a.plain, a.plain:is(:hover, :focus) {
   color: inherit;
 }
 
+a.jump::before {
+  font-family: "Material Symbols Outlined";
+  content: "arrow_right";
+}
+
 /*# sourceMappingURL=a.css.map */

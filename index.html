@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/assets/js/misc/jumpto.js"></script>
     <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/aq-plus.css">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
     <title>N Wither's Works</title>
     <!-- components -->
@@ -47,7 +48,7 @@
                 6: '关于此站点的更多信息…',
                 omni_desc: '我做过的<b>最好的</b>整合包！',
                 aq_desc: 'CSS 和 Web Components。',
-                read_more: '阅读更多…',
+                read_more: '阅读',
                 konami: '30 条命！',
                 github: '我的 Github 主页！',
                 c: '幻想世界故事企划。',
@@ -76,77 +77,89 @@
         <to-top></to-top>
     </tool-box>
     <div class="page-content" role="main">
-        <h1>Hello</h1>
-        <hr class="construction">
+        <h1 class="decorated">Hello</h1>
+        <hr class="decorated">
         <p><aq-ts key="4"></aq-ts></p>
         <p><aq-ts key="5"></aq-ts></p>
         <p><a href="/about/"><aq-ts key="6"></aq-ts></a></p>
-        <h2><aq-ts key="2"></aq-ts></h2>
-        <div class="flex wrap">
-            <aq-card role="article">
-                <div slot="header">
-                    <span class="f-bold f-large">关于魔法你需要知道的事情</span>
-                    <div class="f-small txt-secondary">2026/4/16 · C1000 · PED 演讲</div>
-                </div>
-                <p>虽然我能理解这是为了保障安全，但这种技术无疑会对我未来的饭碗造成严重的影响。<a href="/projects/c/stories/c1000/thaumaturgy-101.html">阅读更多…</a></p>
-            </aq-card>
-            <aq-card role="article">
-                <div slot="header">
-                    <span class="f-bold f-large">夏日新品鉴赏茶会</span>
-                    <div class="f-small txt-secondary">2026/4/13 · C1000</div>
-                </div>
-                <p>这样的午后，虽然平常，但也足够令人满意了。<a href="/projects/c/stories/c1000/summer-tea-party.html">阅读更多…</a></p>
-            </aq-card>
-            <aq-card role="article">
-                <div slot="header">
-                    <span class="f-bold f-large">Omniworld K</span>
-                    <span class="f-small txt-secondary"><i>新增内容！！</i></span>
-                    <div class="f-small txt-secondary">2026/4/12</div>
-                </div>
-                <p>我做过的最好的整合包系列的最新之作！<a href="/projects/omniworld/owk.html">阅读更多…</a></p>
-            </aq-card>
-            <aq-card role="article">
-                <div slot="header">
-                    <span class="f-b f-l">工业标准 版式</span>
-                    <div class="f-s txt-secondary">2026/01/24</div>
-                </div>
-                <p>工业风格的版式。<a href="/themes/industrial.html">查看</a></p>
-            </aq-card>
-            <aq-card role="article">
-                <div slot="header">
-                    <span class="f-b f-l">VSIX 下载器</span>
-                    <span class="f-s txt-secondary">其实并不是个下载器</span>
-                    <div class="f-s txt-secondary">2025/11/20</div>
-                </div>
-                <p>下载 VSIX 扩展而无需真的安装 VS 系列软件。<a href="/tools/vs-market.html">现在使用…</a></p>
-            </aq-card>
-            <aq-card role="article">
-                <div slot="header">
-                    <span class="f-bold f-large">SPC 播放器</span>
-                    <div class="f-small txt-secondary">2025/9/24</div>
-                </div>
-                <p>SFC/SNES 音乐播放器。<a href="/tools/spc-player.html">了解详情…</a></p>
-            </aq-card>
+        <div class="type-a">
+            <h2 class="decorated"><aq-ts key="2"></aq-ts></h2>
+            <div class="grid adaptive">
+                <aq-card role="article">
+                    <div slot="header">
+                        <span class="f-bold f-large">关于魔法你需要知道的事情</span>
+                        <div class="f-small txt-secondary">2026/4/16 · C1000 · PED 演讲</div>
+                    </div>
+                    <p>虽然我能理解这是为了保障安全，但这种技术无疑会对我未来的饭碗造成严重的影响。</p>
+                    <div slot="footer" class="align-end"><a href="/projects/c/stories/c1000/thaumaturgy-101.html" class="jump">阅读</a></div>
+                </aq-card>
+                <aq-card role="article">
+                    <div slot="header">
+                        <span class="f-bold f-large">夏日新品鉴赏茶会</span>
+                        <div class="f-small txt-secondary">2026/4/13 · C1000</div>
+                    </div>
+                    <p>这样的午后，虽然平常，但也足够令人满意了。</p>
+                    <div slot="footer" class="align-end"><a href="/projects/c/stories/c1000/summer-tea-party.html" class="jump">阅读</a></div>
+                </aq-card>
+                <aq-card role="article">
+                    <div slot="header">
+                        <span class="f-bold f-large">Omniworld K</span>
+                        <span class="f-small txt-secondary"><i>新增内容！！</i></span>
+                        <div class="f-small txt-secondary">2026/4/12</div>
+                    </div>
+                    <p>我做过的最好的整合包系列的最新之作！</p>
+                    <div slot="footer" class="align-end"><a href="/projects/omniworld/owk.html" class="jump">阅读</a></div>
+                </aq-card>
+                <aq-card role="article">
+                    <div slot="header">
+                        <span class="f-b f-l">工业标准 版式</span>
+                        <div class="f-s txt-secondary">2026/01/24</div>
+                    </div>
+                    <p>工业风格的版式。</p>
+                    <div slot="footer" class="align-end"><a href="/themes/industrial.html" class="jump">查看</a></div>
+                </aq-card>
+                <aq-card role="article">
+                    <div slot="header">
+                        <span class="f-b f-l">VSIX 下载器</span>
+                        <span class="f-s txt-secondary">其实并不是个下载器</span>
+                        <div class="f-s txt-secondary">2025/11/20</div>
+                    </div>
+                    <p>下载 VSIX 扩展而无需真的安装 VS 系列软件。</p>
+                    <div slot="footer" class="align-end"><a href="/tools/vs-market.html" class="jump">使用</a></div>
+                </aq-card>
+                <aq-card role="article">
+                    <div slot="header">
+                        <span class="f-bold f-large">SPC 播放器</span>
+                        <div class="f-small txt-secondary">2025/9/24</div>
+                    </div>
+                    <p>SFC/SNES 音乐播放器。</p>
+                    <div slot="footer" class="align-end"><a href="/tools/spc-player.html" class="jump">详情</a></div>
+                </aq-card>
+            </div>
         </div>
-        <h2><aq-ts key="3">Featured Pages</aq-ts></h2>
-        <div class="flex wrap">
-            <aq-card style="flex-grow: 1; max-width: 20em;">
-                <div slot="header">
-                    <span class="f-b f-l">Project C</span>
-                    <span class="f-small txt-secondary"><i>焕然一新！！</i></span>
-                </div>
-                <div><aq-ts key="c"></aq-ts> <a href="/projects/c/"><aq-ts key="read_more"></aq-ts></a></div>
-            </aq-card>
-            <aq-card style="flex-grow: 1; max-width: 20em;">
-                <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
-                <div class="f-bold f-large" slot="header">Omniworld</div>
-                <p><aq-ts key="omni_desc"></aq-ts> <a href="/projects/omniworld/"><aq-ts key="read_more"></aq-ts></a>
-                </p>
-            </aq-card>
-            <aq-card style="flex-grow: 1; max-width: fit-content;">
-                <div class="f-bold f-large" slot="header">Aquamarine</div>
-                <p><aq-ts key="aq_desc"></aq-ts> <a href="/projects/aquamarine/"><aq-ts key="read_more"></aq-ts></a></p>
-            </aq-card>
+        <div class="type-a">
+            <h2 class="decorated"><aq-ts key="3">Featured Pages</aq-ts></h2>
+            <div class="grid adaptive">
+                <aq-card>
+                    <div slot="header">
+                        <span class="f-b f-l">Project C</span>
+                        <span class="f-small txt-secondary"><i>焕然一新！！</i></span>
+                    </div>
+                    <div><aq-ts key="c"></aq-ts></div>
+                    <div slot="footer" class="align-end"><a href="/projects/c/" class="jump"><aq-ts key="read_more"></aq-ts></a></div>
+                </aq-card>
+                <aq-card>
+                    <img src="/projects/omniworld/assets/sniff.webp" alt="Omniworld R" slot="image">
+                    <div class="f-bold f-large" slot="header">Omniworld</div>
+                    <p><aq-ts key="omni_desc"></aq-ts></p>
+                    <div slot="footer" class="align-end"><a href="/projects/omniworld/" class="jump"><aq-ts key="read_more"></aq-ts></a></div>
+                </aq-card>
+                <aq-card>
+                    <div class="f-bold f-large" slot="header">Aquamarine</div>
+                    <p><aq-ts key="aq_desc"></aq-ts></p>
+                    <div slot="footer" class="align-end"><a href="/projects/aquamarine/" class="jump"><aq-ts key="read_more"></aq-ts></a></div>
+                </aq-card>
+            </div>
         </div>
         <script src="https://giscus.app/client.js" data-repo="N-Wither/N-Wither.github.io" data-repo-id="R_kgDOHL5_fA"
             data-category="Announcements" data-category-id="DIC_kwDOHL5_fM4CfQ5t" data-mapping="title" data-strict="0"
