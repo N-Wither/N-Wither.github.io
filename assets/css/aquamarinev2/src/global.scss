@@ -263,6 +263,9 @@ html {
 
     --page-content-margin: min(10rem, 10vw);
     --page-content-padding: 1rem;
+
+    --background-pattern-color-1: var(--background-color-dk);
+    --background-pattern-color-2: var(--background-color);
 }
 
 // Themes
@@ -360,6 +363,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
     font-family: var(--font-heading);
+}
+
+h1 {
+    font-size: 3rem;
 }
 
 hr {
@@ -682,16 +689,16 @@ b {
 }
 
 .grid.adaptive {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
 
+    @media screen and (max-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 960px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
     @media screen and (max-width: 720px) {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-    @media screen and (max-width: 640px) {
-        grid-template-columns: 1fr 1fr;
-    }
-    @media screen and (max-width: 480px) {
         grid-template-columns: 1fr;
     }
 }

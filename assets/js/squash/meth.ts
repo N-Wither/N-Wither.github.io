@@ -139,4 +139,31 @@ export namespace Meth {
             return {x, y};
         }
     }
+
+    /**
+     * [Wikipedia](https://en.wikipedia.org/wiki/Busy_beaver)
+     */
+    export function bb(i: number) {
+        const index = parseInt(i.toString())
+        switch (index) {
+            case 1: {
+                return 1
+            }
+            case 2: {
+                return 6
+            }
+            case 3: {
+                return 21
+            }
+            case 4: {
+                return 107
+            }
+            case 5: {
+                return 47176870
+            }
+            default: {
+                throw new RangeError('Input must be an integer between 1 and 5 inclusive.')
+            }
+        }
+    }
 }

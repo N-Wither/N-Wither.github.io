@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
 @import url('/assets/css/aquamarinev2/aq-plus.css');
 
 :root, :root.theme-dark {
@@ -24,7 +24,7 @@
 
     --header-bg: #ffffff;
 
-    --font-heading: 'Inter', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
+    --font-heading: 'Cal Sans', 'Noto Sans SC', sans-serif, 'Material Symbols Outlined';
     color-scheme: light;
 }
 
@@ -32,6 +32,10 @@
     --background-color: #121416;
     --background-color-dk: #17191b;
     --background-color-dker: #181a1c;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0.05rem;
 }
 
 .text-shadow {

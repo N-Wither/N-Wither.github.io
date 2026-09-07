@@ -41,6 +41,10 @@ hr.decorated {
     background-image: linear-gradient(90deg, var(--accent-color), transparent);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: revert;
+}
+
 @media screen and (max-width: 768px) {
     :root, :root.theme-dark {
         --page-content-margin: min(10rem, 10vw);

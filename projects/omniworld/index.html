@@ -14,18 +14,6 @@
     <script type="module" src="/web-components/aquamarine/card/card.js"></script>
     <script type="module" src="/web-components/aqv2/components/snackbar.js"></script>
     <style>
-        aq-card{
-            margin: 0.2em 0;
-        }
-        aq-card::part(card-base){
-            max-width: 100%;
-            min-width: 240px;
-        }
-        aq-card img {
-            width: 100%;
-        }
-    </style>
-    <style>
         .game-versions {
             display: flex;
             flex-wrap: wrap;
@@ -64,6 +52,10 @@
         .sponsors li::marker {
             content: '';
         }
+
+        button:is(.btn-regular, .btn-primary) {
+            min-width: 7rem;
+        }
     </style>
 </head>
 <body>
@@ -80,90 +72,82 @@
         <p>厌倦了那些只为折磨玩家的所谓“深度魔改”？想找个休闲整合包又觉得内容不够多？在不折磨不成活的困难包和千篇一律的休闲包以及粗制滥造的堆砌包之间，我成功地开辟了一条从未有人在国内走过的道路<a class="tooltip-1" href="javascript:;"><sup>1</sup></a>：高质量水槽包<a class="tooltip-2" href="javascript:;"><sup>2</sup></a>！</p>
         <p>深受 <a href="https://www.curseforge.com/members/atmteam" target="_blank">All The Mods 系列</a>以及<a href="https://www.curseforge.com/minecraft/modpacks/enigmatica9" target="_blank" rel="noopener noreferrer"> Enigmatica 系列</a>的影响，Omniworld 志在打造一个物质极大丰富且充分保障玩家自由发展的世界，无论你是哪种玩家，我相信这个系列的整合包中都有足够的内容供你体验！</p>
         <h2>支持的版本！</h2>
-        <div class="game-versions">
-            <div class="card-container">
-                <aq-card>
-                    <h3 slot="header">1.21.1 (Omniworld K)</h3>
-                    <div>
-                        <p>最新的版本，推荐想要尝鲜的玩家。</p>
-                        <p>
-                            <b>状态：</b>
-                            <span style="color: var(--color-safe);">更新中</span>
-                        </p>
-                        <p>
-                            <b>最新版本：</b>
-                            <span>4.4.0 Sta Bo Flies Again</span>
-                        </p>
-                        <div class="flex-center flex-wrap" style="gap: 0.2em">
-                            <a href="./owk.html"><button class="btn-regular">查看详情</button></a>
-                            <a href="https://pan.baidu.com/s/1zQYrytHJcKPuGPdPWt5V1g?pwd=hnv6" target="_blank" class="no-deco"><button class="btn-primary">百度盘下载</button></a>
-                            <a href="https://drive.aquiferic.net/?p=omniworld-k%2F" target="_blank" class="no-deco"><button class="btn-primary">Aqui Drive 下载</button></a>
-                        </div>
-                    </div>
-                </aq-card>
-            </div>
-            <div class="card-container">
-                <aq-card>
-                    <h3 slot="header">1.20.1 (Omniworld R)</h3>
-                    <div>
-                        <p>
-                            <b>状态：</b>
-                            <span style="color: var(--color-danger);">停止更新</span>
-                        </p>
-                        <p>
-                            <b>最新版本：</b>
-                            <span>3.8.1 Sunflower</span>
-                        </p>
-                        <div class="flex-center flex-wrap" style="gap: 0.2em">
-                            <a href="owr.html"><button class="btn-regular">查看详情</button></a>
-                            <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta" target="_blank" class="no-deco"><button class="btn-primary">百度盘下载</button></a>
-                            <a href="https://drive.aquiferic.net/?p=omniworld-r%2F" target="_blank" class="no-deco"><button class="btn-primary">Aqui Drive 下载</button></a>
-                        </div>
-                    </div>
-                </aq-card>
-            </div>
-            <div class="card-container">
-                <aq-card>
-                    <h3 slot="header">1.18.2 (Omniworld 2)</h3>
-                    <div>
-                        <p>最成熟稳定的版本，推荐不想频繁更新的玩家。</p>
-                        <p>
-                            <b>状态：</b>
-                            <span style="color: var(--color-danger);">停止更新</span>
-                        </p>
-                        <p>
-                            <b>最新版本：</b>
-                            <span>2.10.0 Opal</span>
-                        </p>
-                        <div class="flex-center flex-wrap" style="gap: 0.2em">
-                            <a href="ow2.html" style="display: none;"><button class="btn-regular">查看详情</button></a>
-                            <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta" target="_blank" class="no-deco"><button class="btn-primary">百度盘下载</button></a>
-                            <a href="https://drive.aquiferic.net/?p=omniworld-2%2F" target="_blank" class="no-deco"><button class="btn-primary">Aqui Drive 下载</button></a>
-                        </div>
-                    </div>
-                </aq-card>
-            </div>
-            <div class="card-container">
-                <aq-card>
-                    <h3 slot="header">1.16.5 (Omniworld 1)</h3>
-                    <div>
-                        <p>最初之作，现在已经不再推荐玩这个版本。</p>
-                        <p>
-                            <b>状态：</b>
-                            <span style="color: var(--color-danger);">停止更新</span>
-                        </p>
-                        <p>
-                            <b>最新版本：</b>
-                            <span>1.9.3</span>
-                        </p>
-                        <div class="flex-center flex-wrap" style="gap: 0.2em">
-                            <a href="ow.html" style="display: none;"><button class="btn-regular">查看详情</button></a>
-                            <a href="https://pan.baidu.com/s/1vLy-sjXb4W6r1zGzGnmLtQ?pwd=4tge" target="_blank" class="no-deco"><button class="btn-regular">百度盘下载</button></a>
-                            <a href="https://drive.aquiferic.net/?p=omniworld-1%2F" target="_blank" class="no-deco"><button class="btn-regular">Aqui Drive 下载</button></a>
-                        </div>
-                    </div>
-                </aq-card>
-            </div>
+        <div class="grid adaptive">
+            <aq-card>
+                <h3 slot="header">1.21.1 (Omniworld K)</h3>
+                <div>
+                    <p>最新的版本，推荐想要尝鲜的玩家。</p>
+                    <p>
+                        <b>状态：</b>
+                        <span style="color: var(--color-safe);">更新中</span>
+                    </p>
+                    <p>
+                        <b>最新版本：</b>
+                        <span>4.4.0 Sta Bo Flies Again</span>
+                    </p>
+                </div>
+                <div slot="footer" class="flex wrap right">
+                    <a href="./owk.html"><button class="btn-regular"><aq-icon name="arrow_right" size="small"></aq-icon>查看详情</button></a>
+                    <a href="https://pan.baidu.com/s/1zQYrytHJcKPuGPdPWt5V1g?pwd=hnv6" target="_blank" class="no-deco"><button class="btn-primary"><aq-icon name="cloud_download" size="small"></aq-icon>百度盘下载</button></a>
+                    <a href="https://drive.aquiferic.net/?p=omniworld-k%2F" target="_blank" class="no-deco"><button class="btn-primary"><aq-icon name="download" size="small"></aq-icon>Aqui Drive 下载</button></a>
+                </div>
+            </aq-card>
+            <aq-card>
+                <h3 slot="header">1.20.1 (Omniworld R)</h3>
+                <div>
+                    <p>
+                        <b>状态：</b>
+                        <span style="color: var(--color-danger);">停止更新</span>
+                    </p>
+                    <p>
+                        <b>最新版本：</b>
+                        <span>3.8.1 Sunflower</span>
+                    </p>
+                </div>
+                <div slot="footer" class="flex wrap right">
+                    <a href="owr.html"><button class="btn-regular"><aq-icon name="arrow_right" size="small"></aq-icon>查看详情</button></a>
+                    <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta" target="_blank" class="no-deco"><button class="btn-primary"><aq-icon name="cloud_download" size="small"></aq-icon>百度盘下载</button></a>
+                    <a href="https://drive.aquiferic.net/?p=omniworld-r%2F" target="_blank" class="no-deco"><button class="btn-primary"><aq-icon name="download" size="small"></aq-icon>Aqui Drive 下载</button></a>
+                </div>
+            </aq-card>
+            <aq-card>
+                <h3 slot="header">1.18.2 (Omniworld 2)</h3>
+                <div>
+                    <p>最成熟稳定的版本，推荐不想频繁更新的玩家。</p>
+                    <p>
+                        <b>状态：</b>
+                        <span style="color: var(--color-danger);">停止更新</span>
+                    </p>
+                    <p>
+                        <b>最新版本：</b>
+                        <span>2.10.0 Opal</span>
+                    </p>
+                </div>
+                <div slot="footer" class="flex wrap right">
+                    <a href="ow2.html" style="display: none;"><button class="btn-regular"><aq-icon name="arrow_right" size="small"></aq-icon>查看详情</button></a>
+                    <a href="https://pan.baidu.com/s/1Tm2ecyB65eyaW5CTQO6NJg?pwd=txta" target="_blank" class="no-deco"><button class="btn-primary"><aq-icon name="cloud_download" size="small"></aq-icon>百度盘下载</button></a>
+                    <a href="https://drive.aquiferic.net/?p=omniworld-2%2F" target="_blank" class="no-deco"><button class="btn-primary"><aq-icon name="download" size="small"></aq-icon>Aqui Drive 下载</button></a>
+                </div>
+            </aq-card>
+            <aq-card>
+                <h3 slot="header">1.16.5 (Omniworld 1)</h3>
+                <div>
+                    <p>最初之作，现在已经不再推荐玩这个版本。</p>
+                    <p>
+                        <b>状态：</b>
+                        <span style="color: var(--color-danger);">停止更新</span>
+                    </p>
+                    <p>
+                        <b>最新版本：</b>
+                        <span>1.9.3</span>
+                    </p>
+                </div>
+                <div slot="footer" class="flex wrap right">
+                    <a href="ow.html" style="display: none;"><button class="btn-regular"><aq-icon name="arrow_right" size="small"></aq-icon>查看详情</button></a>
+                    <a href="https://pan.baidu.com/s/1vLy-sjXb4W6r1zGzGnmLtQ?pwd=4tge" target="_blank" class="no-deco"><button class="btn-regular"><aq-icon name="cloud_download" size="small"></aq-icon>百度盘下载</button></a>
+                    <a href="https://drive.aquiferic.net/?p=omniworld-1%2F" target="_blank" class="no-deco"><button class="btn-regular"><aq-icon name="download" size="small"></aq-icon>Aqui Drive 下载</button></a>
+                </div>
+            </aq-card>
         </div>
         <p>不同版本的内容有些许不同。</p>
         <p>如果你喜欢这个作品，请考虑<a href="https://ifdian.net/a/NWither" target="_blank" rel="noopener noreferrer">赞助</a>，赞助者可以在游戏中留下你独特的痕迹！</p>

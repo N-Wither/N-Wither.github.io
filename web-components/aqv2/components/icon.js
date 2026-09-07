@@ -44,6 +44,7 @@ class AqIcon extends LitElement {
         }
         :host([size="small"]) {
             --icon-font-size: 16px;
+            font-weight: inherit;
         }
         .icon {
             font-family: 'Material Symbols Outlined';
