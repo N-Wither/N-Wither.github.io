@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>合成器</title>
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/63383462?v=4">
+    <link rel="stylesheet" href="/assets/css/aquamarinev2/global.css">
+    <script type="module" src="/web-components/page/combined.js"></script>
+    <link rel="stylesheet" href="./synth.css">
+    <script type="module" src="./synth.js"></script>
+</head>
+
+<body><page-header>
+        <div class="f-b f-xl flex-center" slot="category">Tools</div>
+    </page-header>
+    <div class="page-content">
+        <h1>合成器 <small>Three Oscillator Synth</small></h1>
+        <hr>
+        <main id="synth">
+            <section class="toolbar"><button id="power">启动音频</button><span id="status"
+                    role="status">点击启动，然后开始演奏</span><label>主音量<input id="volume" type="range" min="0" max="0.8"
+                        step="0.01" value="0.3"></label><button id="panic">停止所有声音</button>
+            </section>
+            <section class="panel toolbar">
+                <div>
+                    <h2>MIDI 输入</h2>
+                    <p id="midi-status" role="status">连接键盘后点击启用。支持力度、延音踏板和弯音。</p>
+                </div><button id="midi">启用 MIDI</button><label>输入设备<select id="devices">
+                        <option value="all">所有设备</option>
+                    </select></label>
+            </section>
+            <div id="oscillators" class="oscillators"></div>
+            <div class="sound-controls">
+                <section class="panel">
+                    <h2>振幅包络 <small>ADSR</small></h2>
+                    <div id="envelope" class="controls"></div>
+                </section>
+                <section class="panel">
+                    <h2>低通滤波 <small>FILTER</small></h2>
+                    <div id="filter" class="controls"></div>
+                </section>
+            </div>
+            <section class="panel">
+                <div class="toolbar">
+                    <h2>演奏</h2><button id="down" aria-label="降低八度">−</button><span id="octave"></span><button id="up"
+                        aria-label="升高八度">＋</button>
+                </div>
+                <p>Z / X 切换八度</p>
+                <div class="keyboard-scroll">
+                    <div id="keyboard" aria-label="屏幕钢琴键盘"></div>
+                </div>
+                <figure class="keyboard-overview">
+                    <canvas id="keyboard-overview" role="img" aria-label="88 键全览：A0 至 C8，标示当前音域和正在演奏的音符">88 键全览：A0 至 C8。</canvas>
+                    <figcaption><span class="overview-range">当前键盘音域</span><span class="overview-active">正在演奏</span></figcaption>
+                </figure>
+            </section>
+            <section class="panel midi-player" aria-label="MIDI 文件播放">
+                <h2>MIDI 文件播放</h2>
+                <div class="toolbar">
+                    <label>选择 MIDI 文件<input id="midi-file" type="file" accept=".mid,.midi,audio/midi,audio/x-midi"></label>
+                    <button id="file-play" disabled>播放</button>
+                    <button id="file-stop" disabled>停止</button>
+                    <output id="file-time">00:00 / 00:00</output>
+                </div>
+                <progress id="file-progress" value="0" max="1" aria-label="MIDI 播放进度"></progress>
+                <p id="file-status" role="status">选择本地 MIDI 文件，使用当前合成器音色播放；播放期间暂停手动演奏。</p>
+            </section>
+            <p class="note">由 ChatGPT 制作</p>
+        </main>
+    </div>
+    <page-footer></page-footer>
+</body>
+
+</html>

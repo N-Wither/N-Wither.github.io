@@ -1,0 +1,283 @@
+#synth {
+    --accent: var(--accent-color);
+    --line: #8fbeb755;
+    --panel: #29bb8511;
+    max-width: 1150px;
+    margin: 24px auto 48px;
+    color: #224c43
+}
+
+.theme-dark #synth {
+    color: #158d74;
+}
+
+#synth * {
+    box-sizing: border-box;
+    transition: var(--transition-time-common);
+}
+
+h1 small {
+    font-size: .4em;
+    opacity: .6
+}
+
+#synth h2 {
+    color: var(--text-color);
+    font-size: 18px;
+    margin: 0 0 18px
+}
+
+#synth h2 small {
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: .6
+}
+
+#synth button,
+#synth select {
+    font: inherit;
+    border: 1px solid var(--line);
+    background: white;
+    color: #22584c;
+    padding: 9px 13px
+}
+
+#synth button {
+    cursor: pointer
+}
+
+#synth button:hover {
+    background: #d2eee2
+}
+
+#synth :focus-visible {
+    outline: 3px solid #2dbba0;
+    outline-offset: 3px
+}
+
+#synth #power {
+    background: var(--accent);
+    color: white
+}
+
+#synth label {
+    display: grid;
+    gap: 8px;
+    font-size: 13px
+}
+
+#synth input[type=range] {
+    width: 100%;
+    accent-color: var(--accent)
+}
+
+#synth output {
+    font-size: 12px;
+    opacity: .7;
+    font-variant-numeric: tabular-nums
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px
+}
+
+.toolbar #status,
+.toolbar>div {
+    flex: 1
+}
+
+.toolbar #status {
+    font-size: 13px;
+    min-width: 170px
+}
+
+.toolbar h2 {
+    margin: 0 !important
+}
+
+.oscillators {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px
+}
+
+.panel {
+    padding: 22px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    margin-bottom: 16px
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px
+}
+
+.sound-controls {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 16px
+}
+
+#envelope {
+    grid-template-columns: repeat(4, minmax(0, 1fr))
+}
+
+#synth p {
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: .75
+}
+
+.keyboard-scroll {
+    overflow-x: auto;
+    padding: 4px 3px 10px
+}
+
+#keyboard {
+    height: 180px;
+    min-width: 650px;
+    position: relative;
+    user-select: none;
+    touch-action: none
+}
+
+#synth .key {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    padding-bottom: 12px;
+    touch-action: none;
+    transition-duration: 0s;
+}
+
+#synth .white {
+    background: #fff;
+    z-index: 1;
+    border-color: #aec7bb
+}
+
+#synth .black {
+    background: #25493f;
+    color: #d5eee1;
+    height: 62%;
+    z-index: 2
+}
+
+#synth .key.active {
+    background: #3cb69a;
+    color: white;
+    box-shadow: inset 0 0 0 2px #158d74
+}
+
+.key small {
+    font-size: 10px;
+    opacity: .6
+}
+
+.note {
+    text-align: center
+}
+
+#devices {
+    max-width: 260px
+}
+
+.keyboard-overview {
+    margin: 18px 0 0;
+    width: 100%;
+    display: block;
+    max-width: unset;
+}
+
+#keyboard-overview {
+    display: block;
+    width: 100%;
+    height: 112px;
+    pointer-events: none;
+}
+
+.keyboard-overview figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+.overview-range::before,
+.overview-active::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+    background: #b8dfe9;
+    border: 1px solid #428ba3;
+}
+
+.overview-active::before {
+    background: #3cb69a;
+    border-color: #158d74;
+}
+
+#synth button:disabled {
+    cursor: default;
+    opacity: .5;
+}
+
+#synth #keyboard[aria-disabled="true"] .key {
+    cursor: default;
+}
+
+.midi-player input[type=file] {
+    max-width: 100%;
+    font: inherit;
+}
+
+#file-progress {
+    display: block;
+    width: 100%;
+    height: 8px;
+    accent-color: var(--accent);
+}
+
+#file-time {
+    white-space: nowrap;
+}
+
+#file-status {
+    overflow-wrap: anywhere;
+}
+
+@media(max-width:760px) {
+
+    .oscillators,
+    .sound-controls {
+        grid-template-columns: 1fr
+    }
+
+    #envelope {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .panel {
+        padding: 18px
+    }
+
+    h1 small {
+        display: block
+    }
+}
