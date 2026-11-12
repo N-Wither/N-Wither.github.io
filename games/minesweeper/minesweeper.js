@@ -1,458 +1,696 @@
-import { aqSnackbar } from '../../web-components/aqv2/components/snackbar.js'
-import { FunctionUtils } from '../../assets/js/squash/function.js'
-
-const cvs = document.querySelector('canvas')
-const ctx = cvs.getContext('2d')
-const difficultySelect = document.querySelector('#difficulty')
-const reset = document.querySelector('#reset')
-const retry = document.querySelector('#retry')
-const hintButton = document.querySelector('#hint')
-const mobileModeCheckbox = document.querySelector('#mobile')
-const simulateModeCheckboxes = document.querySelectorAll('[name=mode]')
-const easyStartCheckbox = document.querySelector('#easystart')
-const noLastChoiceCheckbox = document.querySelector('#nolastchoice')
-const infoBox = document.querySelector('#info')
-const tileWidth = 32
-const tileBorder = 2
-const state = {
-    isMobile: false,
-    currentSimulate: 'left',
-    isRunning: false,
-    isRetry: false,
-    isFirstClick: true,
-    /**@type {Tile[][]} */
-    grid: [],
-    easyStart: false,
-    noLastChoice: false,
-    lastGame: null,
-    timer: null
+/// <reference path="../../_typings/index.d.ts" />
+import { css, html, LitElement } from 'https://esm.sh/lit@3.2.0';
+import { createLocalizer } from '../../web-components/aqv2/lib/localize.js';
+const selectStyle = css `
+select {
+  background-color: var(--input-bg);
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  padding: 0.2rem;
+  border-radius: 0;
 }
-const difficultyMap = {
-    easy: {
-        rows: 9,
-        cols: 9,
-        mines: 10
-    },
-    normal: {
-        rows: 16,
-        cols: 16,
-        mines: 40
-    },
-    hard: {
-        rows: 16,
-        cols: 30,
-        mines: 99
-    },
-    evil: {
-        rows: 20,
-        cols: 30,
-        mines: 130
-    }
+select, select::picker(select) {
+  appearance: base-select;
+  transition: var(--transition-time-common) allow-discrete;
 }
-
-cvs.addEventListener('mousedown', e => {
-    if(state.isRunning == false) return
-    if(state.isMobile == true) {
-        if(state.currentSimulate == 'left') {
-            handleLeftClick(e)
-        }
-        else if(state.currentSimulate == 'right') {
-            handleRightClick(e)
-        }
-        else if(state.currentSimulate == 'double') {
-            handleDblClick(e)
-        }
-    }
-    else {
-        if(e.button == 0) {
-            handleLeftClick(e)
-        }
-        else if(e.button == 2) {
-            handleRightClick(e)
-        }
-    }
-    checkState()
-})
-
-cvs.addEventListener('dblclick', e => {
-    if (state.isRunning == true) {
-        handleDblClick(e)
-        checkState()
-    }
-})
-
-cvs.addEventListener('contextmenu', e => {
-    e.preventDefault()
-})
-
-difficultySelect.addEventListener('change', () => {
-    init()
-})
-
-reset.addEventListener('click', () => {
-    init()
-    state.lastGame = state.grid
-})
-
-retry.addEventListener('click', () => {
-    retryGame()
-})
-
-hintButton.addEventListener('click', () => {
-    hint()
-})
-
-mobileModeCheckbox.addEventListener('change', () => {
-    state.isMobile = mobileModeCheckbox.checked
-})
-
-simulateModeCheckboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
-        state.currentSimulate = checkbox.id
-    })
-})
-
-easyStartCheckbox.addEventListener('change', () => {
-    state.easyStart = easyStartCheckbox.checked
-})
-
-noLastChoiceCheckbox.addEventListener('change', () => {
-    state.noLastChoice = noLastChoiceCheckbox.checked
-})
-
-window.addEventListener('resize', FunctionUtils.debounce(render, 200))
-
+select::picker-icon {
+  transition: var(--transition-time-common) rotate;
+  margin-inline-end: 0.2rem;
+}
+select::picker(select) {
+  opacity: 0;
+  border: none;
+  box-shadow: var(--general-shadow);
+}
+select::picker(select):popover-open {
+  opacity: 1;
+}
+@starting-style {
+  select::picker(select):popover-open {
+    opacity: 0;
+  }
+}
+select:open::picker-icon {
+  rotate: 180deg;
+}
+select option {
+  transition: var(--transition-time-common);
+  background-color: var(--background-color-dk);
+  color: var(--option-color);
+}
+select option:hover, select option:focus {
+  background-color: var(--accent-color);
+}
+`;
+const buttonStyle = css `
+button {
+  font-family: inherit;
+  background-color: var(--button-bg);
+  border: none;
+  transition: var(--transition-time-common);
+  color: var(--text-color);
+}
+button:is(:hover, :focus) {
+  background-color: var(--button-bg-focus);
+}
+button:active {
+  box-shadow: inset 0 0 8px var(--shadow-color-dk);
+}`;
 class Tile {
-    /**@type {TileType} */
-    type = 'unknown'
-    content = ''
-    hasLandmine = false
-    row = 0
-    col = 0
-
-
-    /**
-     * @typedef {'unknown' | 'landmine' | 'flag' | 'question' | 'number'} TileType
-     * @param {TileType} type 
-     */
-    constructor(type, row = 0, col = 0){
-        this.type = type
-        this.content = type == 'flag' ? '🚩' : type == 'question'? '❓' : type == 'number'? 0 : type == 'landmine'? '💣' : ''
-        this.hasLandmine = type == 'landmine' ? true : false
-        this.row = row
-        this.col = col
+    x = 0;
+    y = 0;
+    hasMine = false;
+    revealed = false;
+    tagged = false;
+    content = '';
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
     }
-
-    static colorMap = {
-        unreavealedBackground: '#F0F0F0',
-        revealedBackground: '#D3D3D3',
-        border: '#808080',
-        landmine: '#f36969',
-        0: '#f0f0f0',
-        1: '#2563eb',
-        2: '#1aab91',
-        3: '#16a34a',
-        4: '#ca8a04',
-        5: '#ea580c',
-        6: '#d04848',
-        7: '#a21caf',
-        8: '#333333'
+    distanceTo(another) {
+        return Math.sqrt((this.x - another.x) ** 2 + (this.y - another.y) ** 2);
     }
-
-    getAroundTiles(){
-        let grid = state.grid
-        let maxRow = grid.length - 1
-        let maxCol = grid[0].length - 1
-        let row = this.row
-        let col = this.col
-        const around = {
-            upLeft: row > 0 && col > 0 ? grid[row - 1][col - 1] : null,
-            up: row > 0 ? grid[row - 1][col] : null,
-            upRight: row > 0 && col <= maxCol - 1 ? grid[row - 1][col + 1] : null,
-            left: col > 0 ? grid[row][col - 1] : null,
-            right: col <= maxCol - 1 ? grid[row][col + 1] : null,
-            downLeft: row <= maxRow - 1 && col > 0 ? grid[row + 1][col - 1] : null,
-            down: row <= maxRow - 1 ? grid[row + 1][col] : null,
-            downRight: row <= maxRow - 1 && col <= maxCol - 1 ? grid[row + 1][col + 1] : null
+}
+export class MinesweeperElement extends LitElement {
+    static lang = {
+        default: {
+            difficulty: 'Difficulty',
+            easy: 'Easy',
+            normal: 'Normal',
+            hard: 'Hard',
+            evil: 'Evil',
+            easy_start: 'Easy Start',
+            no_last_choice: 'Skip the final guess',
+            hint_active: 'Choose a tile',
+            hint: 'Hint',
+            lose: 'YOU LOSE!',
+            win: 'YOU WIN!',
+            restart: 'Click button or press Space to restart'
+        },
+        'zh-cn': {
+            difficulty: '难度',
+            easy: '简单',
+            normal: '普通',
+            hard: '困难',
+            evil: '魔鬼',
+            easy_start: '简单起步',
+            no_last_choice: '跳过最后二选一',
+            hint_active: '请选择一个格子',
+            hint: '提示',
+            lose: '你输了！',
+            win: '你赢了！',
+            restart: '点击上方按钮或空格重新开始'
         }
-        return around
+    };
+    static colors = {
+        border: 'gray',
+        unknown: '#fafafa',
+        revealed: 'lightgray',
+        boom: 'crimson',
+        cursor: 'turquoise',
+        1: '#157a1aff',
+        2: '#0c7060ff',
+        3: '#083f64ff',
+        4: '#21106eff',
+        5: '#43094bff',
+        6: '#5e091bff',
+        7: '#640606ff',
+        8: '#888888'
+    };
+    static darkColors = Object.assign(structuredClone(this.colors), {
+        border: '#202020',
+        unknown: '#333333',
+        revealed: '#121212'
+    });
+    static properties = {
+        difficulty: { type: String }
+    };
+    static difficulties = {
+        easy: { col: 9, row: 9, mine: 10, hint: 45000 },
+        normal: { col: 16, row: 16, mine: 40, hint: 30000 },
+        hard: { col: 30, row: 16, mine: 99, hint: 25000 },
+        evil: { col: 30, row: 20, mine: 130, hint: 20000 }
+    };
+    static tileWidth = 24;
+    static styles = [css `
+    :host {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
     }
-
-    analyzeAroundTiles(){
-        const around = this.getAroundTiles(this.row, this.col)
-        const result = {
-            mines: 0,
-            flags: 0
-        }
-        Object.values(around).forEach(tile => {
-            if (tile == null) return
-            if (tile.hasLandmine == true) result.mines++
-            if (tile.type == 'flag') result.flags++
-        })
-        return result
+    [part='tiles-wrap'] {
+      display: flex;
+      height: fit-content;
     }
-
-    leftClick(/**@type {MouseEvent}*/ e) {
-        // To prevent the first click from revealing the mines
-        if(this.type == 'unknown' && this.hasLandmine == true && state.isFirstClick == true && state.isRetry == false){
-            init(this.col, this.row).leftClick()
-            return
-        }
-        // if `state.easyStart` is true, the first click will reveal a blank tile for 100%
-        if(state.easyStart == true && state.isFirstClick == true && this.analyzeAroundTiles().mines != 0 && this.analyzeAroundTiles().mines != 8) {
-            init(this.col, this.row).leftClick()
-            return
-        }
-        state.isFirstClick = false
-        if(this.type == 'unknown' && this.hasLandmine == false){
-            this.type = 'number'
-            this.content = this.analyzeAroundTiles().mines
-            if(this.content == 0) {
-                let around = this.getAroundTiles()
-                Object.values(around).forEach(tile => {if(tile != null && tile.type == 'unknown' && tile.hasLandmine == false) tile.leftClick()})
+    canvas {
+      margin: auto;
+      border: 1px solid var(--border-color);
+      transition: 0.2s;
+    }
+    canvas:focus-within {
+      outline-color: var(--accent-color);
+    }
+    [part='header'], [part='stats'] {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+    }
+    [part='counter'], [part='options'] {
+      grid-column: 3;
+      grid-row: 1;
+      text-align: end;
+    }
+    [part='hint'] {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    [part='hint'][hidden] {
+      display: none;
+    }
+    button {
+      padding-block: 0.2rem;
+    }
+    input {
+      accent-color: var(--accent-color);
+    }
+  `, selectStyle, buttonStyle];
+    #canvas = document.createElement('canvas');
+    #ctx = this.#canvas.getContext('2d');
+    #translate = createLocalizer(MinesweeperElement.lang);
+    #tiles = [];
+    #cursorX = -2;
+    #cursorY = -2;
+    #started = false;
+    #ended = false;
+    #easyStart = false;
+    #noLastChoice = false;
+    #hintAvailable = false;
+    #hintActive = false;
+    #hintTimer = null;
+    #clearHint() {
+        if (this.#hintTimer !== null)
+            clearTimeout(this.#hintTimer);
+        this.#hintTimer = null;
+        this.#hintAvailable = false;
+        this.#hintActive = false;
+        this.#canvas.style.cursor = '';
+        this.requestUpdate();
+    }
+    #recordActivity() {
+        if (this.#hintTimer !== null)
+            clearTimeout(this.#hintTimer);
+        this.#hintTimer = null;
+        if (!this.#started || this.#ended || this.#hintAvailable || this.#hintActive)
+            return;
+        this.#hintTimer = setTimeout(() => {
+            this.#hintTimer = null;
+            if (!this.#started || this.#ended)
+                return;
+            this.#hintAvailable = true;
+            this.requestUpdate();
+        }, MinesweeperElement.difficulties[this.difficulty].hint);
+    }
+    #activateHint() {
+        if (!this.#hintAvailable || this.#ended)
+            return;
+        this.#hintActive = true;
+        this.#lastSpace = null;
+        this.#canvas.style.cursor = 'help';
+        this.#canvas.focus();
+        this.requestUpdate();
+    }
+    #useHint(tile) {
+        if (!this.#hintActive || this.#ended || tile.revealed || tile.tagged)
+            return;
+        this.#clearHint();
+        if (tile.hasMine)
+            this.#toggleFlag(tile);
+        else
+            this.#openTile(tile);
+        this.#recordActivity();
+    }
+    #elapsed = 0;
+    #timerStartedAt = null;
+    #timer = null;
+    #lastSpace = null;
+    #startTimer() {
+        if (this.#timer !== null)
+            return;
+        this.#timerStartedAt = performance.now() - this.#elapsed;
+        this.#timer = setInterval(() => {
+            this.#elapsed = performance.now() - this.#timerStartedAt;
+            this.requestUpdate();
+        }, 30);
+    }
+    #stopTimer() {
+        if (this.#timerStartedAt !== null)
+            this.#elapsed = performance.now() - this.#timerStartedAt;
+        if (this.#timer !== null)
+            clearInterval(this.#timer);
+        this.#timer = null;
+        this.#timerStartedAt = null;
+        this.requestUpdate();
+    }
+    #formatTime() {
+        const centiseconds = Math.floor(this.#elapsed / 10);
+        const minutes = Math.floor(centiseconds / 6000).toString().padStart(2, '0');
+        const seconds = (Math.floor(centiseconds / 100) % 60).toString().padStart(2, '0');
+        return minutes + ':' + seconds + '.' + (centiseconds % 100).toString().padStart(2, '0');
+    }
+    get #selector() {
+        return this.renderRoot.querySelector('select');
+    }
+    get #startButton() {
+        return this.renderRoot.querySelector('[part=restart]');
+    }
+    constructor() {
+        super();
+        this.difficulty = 'easy';
+        this.#canvas.tabIndex = 0;
+        this.#bindCanvasEvents();
+    }
+    #init(difficulty) {
+        this.#stopTimer();
+        this.#clearHint();
+        this.#elapsed = 0;
+        this.#lastSpace = null;
+        const { row, col } = MinesweeperElement.difficulties[difficulty];
+        console.log(`Initiating with difficulty ${difficulty}`);
+        this.#tiles = this.#gennerateTiles(row, col);
+        console.log(`Generated ${this.#tiles.length} tiles`);
+        this.#resetCursor();
+        this.#renderCanvas();
+        this.#started = false;
+        this.#ended = false;
+        this.#startButton && (this.#startButton.textContent = '🙂');
+    }
+    #gennerateTiles(row, col) {
+        const tiles = [];
+        for (let i = 0; i < row; i++) {
+            for (let j = 0; j < col; j++) {
+                tiles.push(new Tile(j, i));
             }
-            startTimer()
         }
-        if(this.type == 'unknown' && this.hasLandmine == true){
-            this.type = 'landmine'
-            this.content = '💣'
-            gameLose()
-        }
-        render()
+        return tiles;
     }
-
-    rightClick() {
-        if(this.type == 'unknown') {
-            this.type = 'flag'
-            this.content = '🚩'
-        }
-        else if(this.type == 'flag') {
-            this.type = 'question'
-            this.content = '❓'
-        }
-        else if(this.type == 'question') {
-            this.type = 'unknown'
-            this.content = ''
-        }
-        startTimer()
-        render()
-    }
-
-    dblClick() {
-        let around = this.getAroundTiles()
-        if(this.type == 'number' && this.analyzeAroundTiles().flags == this.content) {
-            Object.values(around).forEach(tile => {if(tile != null) tile.leftClick()})
-        }
-        startTimer()
-    }
-
-    distanceTo(other) {
-        const dx = this.col - other.col
-        const dy = this.row - other.row
-        return Math.sqrt(dx ** 2 + dy ** 2)
-    }
-}
-
-const generateGrid = () => {
-    const rows = difficultyMap[difficultySelect.value].rows
-    const cols = difficultyMap[difficultySelect.value].cols
-    const mines = difficultyMap[difficultySelect.value].mines
-    /**@type {Tile[][]} */
-    const grid = []
-    for (let i = 0; i < rows; i++) {
-        grid.push([])
-        for (let j = 0; j < cols; j++) {
-            grid[i].push(new Tile('unknown', i, j))
-        }
-    }
-    for (let i = 0; i < mines; i++) {
-        const row = Math.floor(Math.random() * rows)
-        const col = Math.floor(Math.random() * cols)
-        if (grid[row][col].hasLandmine == false) {
-            grid[row][col].hasLandmine = true
-        } else {
-            i--
-        }
-    }
-    return grid
-}
-
-function render() {
-    const rows = difficultyMap[difficultySelect.value].rows
-    const cols = difficultyMap[difficultySelect.value].cols
-    const width = tileWidth * cols
-    const height = tileWidth * rows
-    if(window.innerWidth > 768) {
-        cvs.style.scale = 1 / devicePixelRatio
-    }
-    else {
-        cvs.style.scale = 1
-    }
-    cvs.width = width
-    cvs.height = height
-    ctx.clearRect(0, 0, width, height)
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
-            const x = j * tileWidth
-            const y = i * tileWidth
-            const tile = state.grid[i][j]
-            switch(tile.type) {
-                case 'unknown':
-                case 'flag':
-                case 'question': {
-                    ctx.fillStyle = Tile.colorMap.unreavealedBackground
-                    break
-                }
-                case 'landmine': {
-                    ctx.fillStyle = Tile.colorMap.landmine
-                    break
-                }
-                case 'number': {
-                    ctx.fillStyle = Tile.colorMap.revealedBackground
-                    break
-                }
+    #getAround(tile) {
+        const candidates = this.#tiles.filter((t) => t.distanceTo(tile) <= Math.SQRT2);
+        const { x, y } = tile;
+        return {
+            upleft: candidates.find((t) => t.x == x - 1 && t.y == y - 1) ?? null,
+            up: candidates.find((t) => t.x == x && t.y == y - 1) ?? null,
+            upright: candidates.find((t) => t.x == x + 1 && t.y == y - 1) ?? null,
+            left: candidates.find((t) => t.x == x - 1 && t.y == y) ?? null,
+            right: candidates.find((t) => t.x == x + 1 && t.y == y) ?? null,
+            downleft: candidates.find((t) => t.x == x - 1 && t.y == y + 1) ?? null,
+            down: candidates.find((t) => t.x == x && t.y == y + 1) ?? null,
+            downright: candidates.find((t) => t.x == x + 1 && t.y == y + 1) ?? null,
+            toArray() {
+                return [this.upleft, this.up, this.upright, this.left, this.right, this.downleft, this.down, this.downright].filter((t) => t != null);
+            },
+            get mines() {
+                return this.toArray().filter((t) => t.hasMine).length;
             }
-            ctx.fillRect(x, y, tileWidth, tileWidth)
-            ctx.font = `${tileWidth / 2 + 2}px monospace`
-            ctx.fillStyle = Tile.colorMap.border
-            ctx.strokeStyle = Tile.colorMap.border
-            ctx.lineWidth = tileBorder
-            ctx.strokeRect(x, y, tileWidth, tileWidth)
-            if (tile.content != '') {
-                ctx.fillStyle = Tile.colorMap[tile.content] ?? '#000000'
-                ctx.fillText(tile.content, x + 10, y + 20)
+        };
+    }
+    #putMines(count, clickX, clickY, nimby) {
+        if (this.#started == true)
+            return;
+        const clicked = this.#getTile(clickX, clickY);
+        const around = this.#getAround(clicked).toArray().filter((t) => t != null);
+        let candidates = this.#tiles.filter((t) => (t.x != clickX || t.y != clickY) && (nimby ? around.includes(t) == false : true));
+        for (let i = 0; i < count; i++) {
+            const picked = candidates[Math.floor(candidates.length * Math.random())];
+            picked.hasMine = true;
+            picked.content = '💣';
+            candidates = candidates.filter((t) => t != picked);
+        }
+    }
+    #getTile(x, y) {
+        const tile = this.#tiles.find((t) => t.x == x && t.y == y);
+        if (tile == undefined)
+            throw new Error(`Cannot find tile at (${x}, ${y})`);
+        else
+            return tile;
+    }
+    #handleDifficultyChange() {
+        const dif = this.#selector.value;
+        console.log(`Difficulty changed, new difficulty: ${dif}`);
+        this.difficulty = dif;
+        this.#init(dif);
+    }
+    #resetCursor() {
+        this.#cursorX = -2;
+        this.#cursorY = -2;
+    }
+    #handleCanvasKeydown(e) {
+        const { col, row } = MinesweeperElement.difficulties[this.difficulty];
+        const keys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'Enter', 'NumpadEnter'];
+        if (!keys.includes(e.key))
+            return;
+        e.preventDefault();
+        if (e.repeat && [' ', 'Enter', 'NumpadEnter'].includes(e.key))
+            return;
+        if (e.key.startsWith('Arrow')) {
+            this.#lastSpace = null;
+            this.#cursorX = Math.max(0, this.#cursorX);
+            this.#cursorY = Math.max(0, this.#cursorY);
+            if (e.key == 'ArrowUp')
+                this.#cursorY = Math.max(0, this.#cursorY - 1);
+            if (e.key == 'ArrowDown')
+                this.#cursorY = Math.min(row - 1, this.#cursorY + 1);
+            if (e.key == 'ArrowLeft')
+                this.#cursorX = Math.max(0, this.#cursorX - 1);
+            if (e.key == 'ArrowRight')
+                this.#cursorX = Math.min(col - 1, this.#cursorX + 1);
+            if (!this.#ended)
+                this.#renderCanvas();
+            return;
+        }
+        if (this.#ended) {
+            if (e.key == ' ')
+                this.#init(this.difficulty);
+            return;
+        }
+        this.#cursorX = Math.max(0, this.#cursorX);
+        this.#cursorY = Math.max(0, this.#cursorY);
+        const tile = this.#getTile(this.#cursorX, this.#cursorY);
+        if (e.key != ' ') {
+            this.#lastSpace = null;
+            this.#toggleFlag(tile);
+            return;
+        }
+        if (this.#hintActive) {
+            this.#useHint(tile);
+            return;
+        }
+        const now = performance.now();
+        if (tile.revealed) {
+            if (this.#lastSpace?.tile === tile && now - this.#lastSpace.time <= 300) {
+                this.#lastSpace = null;
+                this.#chord(tile);
+            }
+            else {
+                this.#lastSpace = { tile, time: now };
             }
         }
-    }
-    infoBox.textContent = `共有 ${difficultyMap[difficultySelect.value].mines} 个地雷，已标记 ${(state.grid.flat()).filter(tile => tile.type == 'flag').length} 个。`
-}
-
-const init = (col, row) => {
-    state.grid = generateGrid()
-    state.easyStart = easyStartCheckbox.checked
-    state.isRunning = true
-    state.isFirstClick = true
-    if(state.isFirstClick == true && state.lastGame == null) {
-        retry.disabled = false
-    }
-    state.lastGame = state.grid
-    state.isRetry = false
-    startTimer()
-    render()
-    if(col != undefined && row != undefined) return state.grid[row][col]
-}
-
-const handleLeftClick = (/** @type {MouseEvent}*/ event) => {
-    const pos = getTileIndex(event)
-    const tile = state.grid[pos.row][pos.col]
-    tile.leftClick()
-    // console.log(pos)
-    render()
-}
-
-const handleRightClick = (/** @type {MouseEvent}*/ event) => {
-    const pos = getTileIndex(event)
-    const tile = state.grid[pos.row][pos.col]
-    tile.rightClick()
-    render()
-}
-
-const handleDblClick = (/** @type {MouseEvent}*/ event) => {
-    const pos = getTileIndex(event)
-    const tile = state.grid[pos.row][pos.col]
-    tile.dblClick()
-    render()
-}
-
-const getTileIndex = (/** @type {MouseEvent}*/ event) => {
-    const rect = cvs.getBoundingClientRect()
-    // console.log(rect)
-    // console.log(event)
-    const x = event.x - rect.left
-    const y = event.y - rect.top
-    // console.log(x, y)
-    const rows = difficultyMap[difficultySelect.value].rows
-    const cols = difficultyMap[difficultySelect.value].cols
-    const tileWidth = rect.width / cols
-    const tileHeight = rect.height / rows
-    const col = Math.floor(x / (tileWidth ))
-    const row = Math.floor(y / (tileHeight ))
-    // console.log(row, col)
-    return { row, col }
-}
-
-const gameLose = () => {
-    (state.grid.flat()).filter(tile => tile.hasLandmine == true).forEach(tile => {
-        tile.type = 'landmine'
-        tile.content = '💣'
-    })
-    render()
-    aqSnackbar({message: '你输了！', type: 'error', duration: 3000})
-    infoBox.textContent = `游戏结束！`
-    state.isRunning = false
-    clearTimeout(state.timer)
-}
-
-const gameWin = (info) => {
-    info = info ?? '你赢了！';
-    (state.grid.flat()).filter(tile => tile.hasLandmine == true).forEach(tile => {
-        tile.type = 'flag'
-        tile.content = '🚩'
-    })
-    render()
-    aqSnackbar({message: info, type: 'success', duration: 5000})
-    infoBox.textContent = `你找到了所有 ${difficultyMap[difficultySelect.value].mines} 个地雷！`
-    state.isRunning = false
-    clearTimeout(state.timer)
-}
-
-const checkState = () => {
-    const tiles = state.grid.flat()
-    const unknownTiles = tiles.filter(tile => tile.type == 'unknown').length
-    const flaggedTiles = tiles.filter(tile => tile.type == 'flag').length
-    const questionTiles = tiles.filter(tile => tile.type == 'question').length
-    if(unknownTiles + flaggedTiles + questionTiles == difficultyMap[difficultySelect.value].mines) {
-        gameWin()
-    }
-    // if only two adjacent tiles are unrevealed and one of them is a mine, the player wins
-    if(state.noLastChoice == false) return;
-    const unreavledTiles = tiles.filter(tile => tile.type == 'unknown')
-    if(unreavledTiles.length == 2) {
-        const [tile1, tile2] = unreavledTiles
-        if(tile1.distanceTo(tile2) < 2 && unreavledTiles.filter(tile => tile.hasLandmine == true).length == 1) {
-            gameWin('最后剩下的两个格子要么能很容易地推理出结果，要么必须猜测一个，所以算你赢了。')
+        else {
+            this.#lastSpace = null;
+            this.#openTile(tile);
         }
     }
-}
-
-const retryGame = () => {
-    let newGrid = state.lastGame
-    for(let row of newGrid) {
-        for(let tile of row) {
-            tile.type = 'unknown'
-            tile.content = ''
+    #toggleFlag(tile) {
+        if (this.#ended || tile.revealed)
+            return;
+        tile.tagged = !tile.tagged;
+        this.#recordActivity();
+        this.#calcTiles();
+        if (this.#ended)
+            return;
+        this.#renderCanvas();
+        this.requestUpdate();
+    }
+    #openTile(tile) {
+        if (this.#ended || tile.tagged || tile.revealed)
+            return;
+        if (!this.#started) {
+            this.#putMines(MinesweeperElement.difficulties[this.difficulty].mine, tile.x, tile.y, this.#easyStart);
+            this.#started = true;
+            this.#startTimer();
+        }
+        this.#revealTile(tile);
+        this.#recordActivity();
+    }
+    #chord(tile) {
+        if (this.#hintActive)
+            return;
+        this.#recordActivity();
+        if (this.#ended || !tile.revealed || typeof tile.content != 'number' || tile.content <= 0)
+            return;
+        const around = this.#getAround(tile).toArray();
+        if (around.filter((t) => t.tagged).length != tile.content)
+            return;
+        for (const neighbor of around) {
+            if (this.#ended)
+                break;
+            if (!neighbor.tagged && !neighbor.revealed)
+                this.#revealTile(neighbor);
         }
     }
-    state.grid = newGrid
-    state.isRetry = true
-    state.isRunning = true
-    startTimer()
-    render()
+    #getTileByMouse(e) {
+        const box = this.#canvas.getBoundingClientRect();
+        const tileWidth = MinesweeperElement.tileWidth;
+        const dif = MinesweeperElement.difficulties[this.difficulty];
+        const canvasX = (e.clientX - box.left - this.#canvas.clientLeft) * (dif.col * tileWidth / this.#canvas.clientWidth);
+        const canvasY = (e.clientY - box.top - this.#canvas.clientTop) * (dif.row * tileWidth / this.#canvas.clientHeight);
+        const tileX = Math.floor(canvasX / tileWidth);
+        const tileY = Math.floor(canvasY / tileWidth);
+        return [tileX, tileY];
+    }
+    #mouseTile(e) {
+        const [x, y] = this.#getTileByMouse(e);
+        return this.#tiles.find((tile) => tile.x == x && tile.y == y);
+    }
+    #handleCanvasClick(e) {
+        this.#lastSpace = null;
+        this.#recordActivity();
+        const tile = this.#mouseTile(e);
+        if (tile) {
+            this.#cursorX = tile.x;
+            this.#cursorY = tile.y;
+            if (this.#hintActive)
+                this.#useHint(tile);
+            else
+                this.#openTile(tile);
+        }
+    }
+    #handleCanvasRightClick(e) {
+        if (e.button != 2)
+            return;
+        this.#recordActivity();
+        this.#lastSpace = null;
+        const tile = this.#mouseTile(e);
+        if (tile) {
+            this.#cursorX = tile.x;
+            this.#cursorY = tile.y;
+            this.#toggleFlag(tile);
+        }
+    }
+    #revealTile(x, y) {
+        const t = x instanceof Tile ? x : this.#getTile(x, y);
+        if (this.#ended || t.tagged || t.revealed)
+            return;
+        if (t.hasMine)
+            return this.#lose();
+        const around = this.#getAround(t);
+        t.revealed = true;
+        t.content = around.mines;
+        if (around.mines == 0) {
+            around
+                .toArray()
+                .filter((tile) => tile.revealed == false)
+                .forEach((tile) => this.#revealTile(tile));
+        }
+        this.#renderCanvas();
+        this.#calcTiles();
+    }
+    #lose() {
+        this.#ended = true;
+        this.#clearHint();
+        this.#lastSpace = null;
+        this.#stopTimer();
+        this.#startButton.textContent = '😭';
+        this.#tiles.filter((t) => t.hasMine).forEach((t) => t.revealed = true);
+        this.#renderCanvas();
+        this.#drawBanner(false);
+    }
+    #win() {
+        this.#ended = true;
+        this.#clearHint();
+        this.#lastSpace = null;
+        this.#stopTimer();
+        this.#startButton.textContent = '😎';
+        this.#tiles.filter((t) => t.hasMine).forEach((t) => t.tagged = true);
+        this.#renderCanvas();
+        this.#drawBanner(true);
+    }
+    #drawBanner(win) {
+        const text = win ? this.#translate('win') : this.#translate('lose');
+        const tip = this.#translate('restart');
+        const bannerHeight = 48 * devicePixelRatio;
+        const cvs = this.#canvas;
+        const ctx = this.#ctx;
+        const textMetric = ctx.measureText(text);
+        const tipMetric = ctx.measureText(tip);
+        ctx.fillStyle = win ? '#1ca032aa' : '#ed143daa';
+        ctx.fillRect(0, cvs.height / 2 - bannerHeight / 2, cvs.width, bannerHeight);
+        ctx.save();
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'white';
+        ctx.fillText(text, cvs.width / 2, cvs.height / 2 + textMetric.actualBoundingBoxAscent / 2);
+        ctx.font = '16px sans-serif';
+        ctx.fillText(tip, cvs.width / 2, cvs.height / 2 + tipMetric.actualBoundingBoxAscent + 12);
+        ctx.restore();
+    }
+    #calcTiles() {
+        if (!this.#started || this.#ended)
+            return;
+        if (this.#tiles.every((t) => t.hasMine || t.revealed)) {
+            this.#win();
+            return;
+        }
+        if (!this.#noLastChoice)
+            return;
+        const remaining = this.#tiles.filter((t) => !t.revealed && !t.tagged);
+        if (remaining.length != 2)
+            return;
+        const [a, b] = remaining;
+        // Existing flags must be correct: only one safe tile may remain.
+        if (a.distanceTo(b) <= Math.SQRT2 && a.hasMine != b.hasMine &&
+            this.#tiles.every((t) => !t.tagged || t.hasMine)) {
+            const safe = a.hasMine ? b : a;
+            safe.revealed = true;
+            safe.content = this.#getAround(safe).mines;
+            this.#win();
+        }
+    }
+    #renderCanvas() {
+        const cvs = this.#canvas;
+        const ctx = this.#ctx;
+        const dpr = devicePixelRatio;
+        const dif = MinesweeperElement.difficulties[this.difficulty];
+        const wid = MinesweeperElement.tileWidth * dpr;
+        const colormap = getComputedStyle(this).colorScheme == 'dark' ? MinesweeperElement.darkColors : MinesweeperElement.colors;
+        // console.log(`Rendering canvas with difficulty ${this.difficulty}, col ${dif.col}, row ${dif.row}`)
+        cvs.style.width = `${dif.col * MinesweeperElement.tileWidth}px`;
+        cvs.style.height = `${dif.row * MinesweeperElement.tileWidth}px`;
+        cvs.width = dif.col * wid;
+        cvs.height = dif.row * wid;
+        ctx.strokeStyle = colormap.border;
+        ctx.lineWidth = 2;
+        ctx.font = `${MinesweeperElement.tileWidth}px "Cascadia Code"`;
+        this.#tiles.forEach((t) => {
+            const { x, y } = t;
+            ctx.fillStyle = t.revealed ? colormap.revealed : colormap.unknown;
+            ctx.fillRect(x * wid, y * wid, wid, wid);
+            if (t.revealed) {
+                if (t.hasMine) {
+                    ctx.fillStyle = colormap.boom;
+                    ctx.fillRect(x * wid, y * wid, wid, wid);
+                }
+                //@ts-ignore
+                ctx.fillStyle = colormap[t.content] ?? colormap.revealed;
+                const content = t.content.toString();
+                const metric = ctx.measureText(content);
+                ctx.fillText(content, x * wid + wid / 2 - metric.width / 2, y * wid + wid / 2 + metric.actualBoundingBoxAscent / 2);
+            }
+            if (t.tagged) {
+                const flag = '🚩';
+                const metric = ctx.measureText(flag);
+                ctx.fillText(flag, x * wid + wid / 2 - metric.width / 2, y * wid + wid / 2 + metric.actualBoundingBoxAscent / 2);
+            }
+        });
+        for (let i = 0; i < dif.col + 1; i++) {
+            // console.log(`Drawing line from (${i * wid}, 0)`)
+            ctx.moveTo(i * wid, 0);
+            ctx.lineTo(i * wid, cvs.height);
+            ctx.stroke();
+        }
+        for (let i = 0; i < dif.row + 1; i++) {
+            // console.log(`Drawing line from (0, ${i * wid})`)
+            ctx.moveTo(0, i * wid);
+            ctx.lineTo(cvs.width, i * wid);
+            ctx.stroke();
+        }
+        ctx.strokeStyle = colormap.cursor;
+        ctx.strokeRect(this.#cursorX * wid, this.#cursorY * wid, wid, wid);
+    }
+    render() {
+        return html `
+      <div part="header">
+        <div>
+          <span>${this.#translate('difficulty')}</span>
+          <select @change=${this.#handleDifficultyChange}>
+            <option value="easy">${this.#translate('easy')}</option>
+            <option value="normal">${this.#translate('normal')}</option>
+            <option value="hard">${this.#translate('hard')}</option>
+            <option value="evil">${this.#translate('evil')}</option>
+          </select>
+        </div>
+        <button part="restart" @click=${() => this.#init(this.difficulty)}>🙂</button>
+        <div part="options">
+          <label>
+            <span>${this.#translate('no_last_choice')}</span>
+            <input type="checkbox" ?checked=${this.#noLastChoice}
+              @change=${(e) => {
+            this.#noLastChoice = e.target.checked;
+            this.#calcTiles();
+        }} />
+          </label>
+          <label>
+            <span>${this.#translate('easy_start')}</span>
+            <input
+              type="checkbox"
+              ?checked=${this.#easyStart}
+              @change=${(e) => {
+            this.#easyStart = e.target.checked;
+        }}
+            />
+          </label>
+        </div>
+      </div>
+      <div part="tiles-wrap">${this.#canvas}</div>
+      <div part="stats">
+        <div part="time">⏱${this.#formatTime()}</div>
+        <button part="hint" ?hidden=${!this.#hintAvailable} aria-pressed=${this.#hintActive}
+          @click=${this.#activateHint}>${this.#translate(this.#hintActive ? 'hint_active' : 'hint')}</button>
+        <div part="counter">🚩${this.#tiles.filter((t) => t.tagged).length}/${MinesweeperElement.difficulties[this.difficulty].mine}</div>
+      </div>
+    `;
+    }
+    #bindCanvasEvents() {
+        const cvs = this.#canvas;
+        cvs.addEventListener('focus', () => {
+            if (this.#cursorX < 0 || this.#cursorY < 0) {
+                this.#cursorX = 0;
+                this.#cursorY = 0;
+            }
+        });
+        cvs.addEventListener('keydown', (e) => {
+            this.#handleCanvasKeydown(e);
+        });
+        cvs.addEventListener('click', (e) => {
+            this.#handleCanvasClick(e);
+        });
+        cvs.addEventListener('dblclick', (e) => {
+            const tile = this.#mouseTile(e);
+            if (tile) {
+                this.#chord(tile);
+                this.#cursorX = tile.x;
+                this.#cursorY = tile.y;
+            }
+        });
+        cvs.addEventListener('pointerdown', (e) => {
+            this.#handleCanvasRightClick(e);
+        });
+        cvs.addEventListener('contextmenu', (e) => e.preventDefault());
+    }
+    connectedCallback() {
+        super.connectedCallback();
+        if (this.#tiles.length == 0)
+            this.#init(this.difficulty);
+        else if (this.#started && !this.#ended) {
+            this.#startTimer();
+            this.#recordActivity();
+        }
+    }
+    disconnectedCallback() {
+        this.#clearHint();
+        this.#stopTimer();
+        this.#lastSpace = null;
+        super.disconnectedCallback();
+    }
 }
-
-const hint = () => {
-    let unrevealedMines = state.grid.flat().filter(tile => tile.type == 'unknown' && tile.hasLandmine == true)
-    unrevealedMines[Math.floor(Math.random() * unrevealedMines.length)].rightClick()
-    hintButton.style.display = 'none'
-    if(state.grid.flat().filter(tile => tile.hasLandmine == true).length > state.grid.flat().filter(tile => (tile.type == 'flag' && tile.hasLandmine == true)).length)
-    startTimer()
-}
-
-function startTimer (){
-    clearTimeout(state.timer)
-    state.timer = setTimeout(() => {hintButton.style.removeProperty('display')}, 1000 * 60)
-}
-
-init()
-window.state = state
-startTimer()
+customElements.define('minesweeper-game', MinesweeperElement);
+//# sourceMappingURL=minesweeper.js.map

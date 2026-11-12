@@ -9,26 +9,8 @@
     <link rel="stylesheet" href="/assets/css/aquamarinev2/input.css">
     <link rel="stylesheet" href="/assets/css/aquamarinev2/button.css">
     <script type="module" src="/web-components/page/combined.js"></script>
-    <script type="module" src="./minesweeper.js"></script>
     <script type="module" src="/web-components/aqv2/components/snackbar.js"></script>
-    <style>
-        div:has(#mobile:not(:checked)) label:has(input[type=radio]) {
-            display: none;
-        }
-
-        .very-hard {
-            display: none;
-        }
-
-        select:has(option[value=evil]:checked) + .very-hard {
-            display: inline;
-        }
-
-        canvas {
-            transform-origin: 0% 0%;
-            transition: scale 0.2s;
-        }
-    </style>
+    <script type="module" src="./minesweeper.js"></script>
 </head>
 <body style="user-select: none;">
     <page-header>
@@ -39,65 +21,17 @@
             <div>
                 <p>经典小游戏。</p>
                 <p class="f-b">规则：</p>
-                <p>点击一个方格，显示的数字代表周围 8 个方格中的地雷数量，你可以按鼠标右键标记你认为是地雷的方格。</p>
+                <p>点击或按下<kbd>Space</kbd>揭开一个方格，显示的数字代表周围 8 个方格中的地雷数量，你可以按鼠标右键或<kbd>Enter</kbd>标记你认为是地雷的方格。</p>
                 <p>如果一个方格中的数字与周围 8 个方格中被标记的方格数相同，则你可以双击这个方格来同时揭开周围所有未点击的方格。</p>
-                <p>找到所有的地雷，你就赢了，如果你不幸点击到有地雷的方格，你就输了。</p>
-                <p>不过，不是所有的地雷都能通过推理找出来。</p>
+                <p>翻开所有安全的方格，你就赢了，如果你不幸点到有地雷的方格，你就输了。</p>
+                <p>不过，不是所有的地雷都能通过推理找出来。根据所选的难度，每隔一段时间会提供一次提示的机会，你可以利用它查看你不确定的方格。</p>
             </div>
         </page-info>
     </tool-box>
     <div class="page-content">
         <h1>扫雷</h1>
         <hr>
-        <label>
-            <span>难度</span>
-            <select name="difficulty" id="difficulty">
-                <option value="easy">简单</option>
-                <option value="normal">普通</option>
-                <option value="hard">困难</option>
-                <option value="evil">魔鬼</option>
-            </select>
-            <span class="very-hard">非常可能出现死亡二选一！</span>
-        </label>
-        <button id="reset" class="btn-regular" style="display: inline;">再来一局</button>
-        <button id="retry" class="btn-regular" style="display: inline;" disabled>重玩这局</button>
-        <div>
-            <label>
-                <span>首次点击必定是空格</span>
-                <input type="checkbox" id="easystart">
-            </label>
-            <label>
-                <span>逃避最后的二选一</span>
-                <input type="checkbox" id="nolastchoice">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span>触屏模式</span>
-                <input type="checkbox" id="mobile">
-            </label>
-            <div>
-                <label>
-                    <span>模拟左键</span>
-                    <input type="radio" name="mode" id="left" checked>
-                </label>
-                <label>
-                    <span>模拟右键</span>
-                    <input type="radio" name="mode" id="right">
-                </label>
-                <label>
-                    <span>模拟双击</span>
-                    <input type="radio" name="mode" id="double">
-                </label>
-            </div>
-        </div>
-        <div>
-            <button class="btn-regular" id="hint" style="display: none;">提示一个地雷的位置</button>
-        </div>
-        <div id="info"></div>
-        <div style="overflow-x: auto;">
-            <canvas></canvas>
-        </div>
+        <minesweeper-game></minesweeper-game>
     </div>
     <page-footer></page-footer>
 </body>

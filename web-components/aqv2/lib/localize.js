@@ -13,8 +13,8 @@ export function createLocalizer(languageMap, subjectTo = 'navigator') {
     
     let table = languageMap[lang];
 
-    /** @param {string} key @param {string} fallback @returns {string} */
-    return function (key, fallback) {
+    /** @param {string} key @param {string?} fallback @returns {string} */
+    return function (key, fallback = undefined) {
         if (fallback == undefined) {
             if ('default' in languageMap) {
                 fallback = languageMap?.default[key];
